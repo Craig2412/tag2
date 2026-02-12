@@ -3,10 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -21,6 +21,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'nombre',
+        'apellido',
+        'cedula',
+        'telefono',
+        'porcentaje_comision',
+        'id_rol',
+        'id_estatus',
         'email',
         'password',
     ];
@@ -48,5 +55,3 @@ class User extends Authenticatable
         ];
     }
 }
-
-// app/Models/User.php - User con Sanctum para tokens y Spatie para roles y permisos.

@@ -1,21 +1,20 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EstatusController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/ping', function () {
-    return response()->json(['status' => 'ok']);
-});
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login/admin', [AuthController::class, 'loginAdmin']);
+Route::post('/login/user', [AuthController::class, 'loginUser']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::middleware('role:admin')->get('/admin-only', function () {
-        return response()->json(['message' => 'Admin access granted']);
-    });
-});
+    Route::apiResource('estatus', EstatusController::class);
 
-// routes/api.php - Define rutas publicas, autenticadas con Sanctum y una ruta protegida por rol admin.
+    Route::get('/admin-only', function () {
+        return response()->json(['message' => 'Admin access granted']);
+    })->middleware('role:admin');
+});
