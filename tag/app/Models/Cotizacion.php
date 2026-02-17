@@ -27,26 +27,31 @@ class Cotizacion extends Model
         'borrado_logico' => 'boolean',
     ];
 
+    // Devuelve la atencion a la que pertenece la cotizacion.
     public function atencion(): BelongsTo
     {
         return $this->belongsTo(Atencion::class, 'id_atencion');
     }
 
+    // Devuelve la tasa de cambio usada en la cotizacion.
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
+    // Devuelve el estatus actual de la cotizacion.
     public function estatus(): BelongsTo
     {
         return $this->belongsTo(Estatus::class, 'estatus');
     }
 
+    // Lista los servicios asociados a la cotizacion.
     public function serviciosCotizaciones(): HasMany
     {
         return $this->hasMany(ServicioCotizacion::class, 'id_cotizacion');
     }
 
+    // Lista los pagos hechos para esta cotizacion.
     public function pagos(): HasMany
     {
         return $this->hasMany(Pago::class, 'id_cotizacion');

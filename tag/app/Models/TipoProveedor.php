@@ -16,6 +16,7 @@ class TipoProveedor extends Model
         'tipo_proveedor',
     ];
 
+    // Lista los proveedores que tienen este tipo.
     public function proveedores(): HasMany
     {
         return $this->hasMany(Proveedor::class, 'tipo_proveedor');

@@ -9,6 +9,7 @@ class TipoServicioController extends Controller
 {
     public function index()
     {
+        // Lista los tipos de servicio activos y los devuelve en JSON.
         $tipos = TipoServicio::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -18,6 +19,7 @@ class TipoServicioController extends Controller
 
     public function store(Request $request)
     {
+        // Crea un tipo de servicio con datos validados y lo devuelve.
         $data = $request->validate([
             'tipo_servicio' => ['required', 'string', 'max:255'],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
@@ -33,6 +35,7 @@ class TipoServicioController extends Controller
 
     public function show(TipoServicio $tipoServicio)
     {
+        // Muestra un tipo de servicio si no esta marcado como borrado.
         if ($tipoServicio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -42,6 +45,7 @@ class TipoServicioController extends Controller
 
     public function update(Request $request, TipoServicio $tipoServicio)
     {
+        // Actualiza un tipo de servicio activo y devuelve el resultado.
         if ($tipoServicio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -59,6 +63,7 @@ class TipoServicioController extends Controller
 
     public function destroy(TipoServicio $tipoServicio)
     {
+        // Marca el tipo de servicio como borrado logico.
         if ($tipoServicio->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

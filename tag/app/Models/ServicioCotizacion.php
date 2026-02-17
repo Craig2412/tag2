@@ -17,11 +17,13 @@ class ServicioCotizacion extends Model
         'id_cotizacion',
     ];
 
+    // Devuelve el servicio vinculado.
     public function servicio(): BelongsTo
     {
         return $this->belongsTo(Servicio::class, 'id_servicio');
     }
 
+    // Devuelve la cotizacion vinculada.
     public function cotizacion(): BelongsTo
     {
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');

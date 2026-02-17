@@ -11,6 +11,7 @@ class AtencionController extends Controller
 {
     public function index()
     {
+        // Lista las atenciones activas y las devuelve en JSON.
         $items = Atencion::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -20,6 +21,7 @@ class AtencionController extends Controller
 
     public function store(Request $request)
     {
+        // Crea una atencion, valida roles y asigna estatus inicial.
         $data = $request->validate([
             'id_cliente' => ['required', 'exists:users,id'],
             'id_personal' => ['required', 'exists:users,id'],
@@ -52,6 +54,7 @@ class AtencionController extends Controller
 
     public function show(Atencion $atencion)
     {
+        // Muestra una atencion si no esta marcada como borrada.
         if ($atencion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -61,6 +64,7 @@ class AtencionController extends Controller
 
     public function update(Request $request, Atencion $atencion)
     {
+        // Actualiza una atencion activa y valida roles cuando cambian.
         if ($atencion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -96,6 +100,7 @@ class AtencionController extends Controller
 
     public function destroy(Atencion $atencion)
     {
+        // Marca la atencion como borrada de forma logica.
         if ($atencion->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

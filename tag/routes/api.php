@@ -45,3 +45,42 @@ Route::middleware('auth:sanctum')->group(function () {
         return response()->json(['message' => 'Admin access granted']);
     })->middleware('role:admin');
 });
+
+/*
+Explicacion rapida de rutas y funciones usadas:
+
+Rutas publicas (sin token):
+- POST /register: llama AuthController::register para crear un usuario y devolver su token.
+- POST /login: llama AuthController::login para iniciar sesion sin exigir rol.
+- POST /login/admin: llama AuthController::loginAdmin y solo permite usuarios con rol admin.
+- POST /login/user: llama AuthController::loginUser y solo permite usuarios con rol user.
+
+Rutas protegidas (auth:sanctum):
+- POST /logout: llama AuthController::logout para cerrar la sesion actual.
+
+- /estatus: CRUD completo con EstatusController (index, store, show, update, destroy).
+- /origenes: CRUD completo con OrigenController (index, store, show, update, destroy).
+- /atenciones: CRUD completo con AtencionController (index, store, show, update, destroy).
+    En store y update valida que cliente y personal tengan los roles correctos.
+- /cotizaciones: CRUD completo con CotizacionController (index, store, show, update, destroy).
+    En store asigna el estatus inicial "por pagar".
+- /servicios-cotizaciones: CRUD de la tabla puente con ServicioCotizacionController.
+- /metodos-pago: CRUD completo con MetodoPagoController.
+- /pagos: CRUD completo con PagoController.
+    Valida que la suma de abonos no supere el total de servicios y actualiza estatus.
+- /tipos-proveedores: CRUD completo con TipoProveedorController.
+- /proveedores: CRUD completo con ProveedorController.
+- /tipo-servicio: CRUD completo con TipoServicioController.
+- /tasas-cambio: CRUD completo con TasaCambioController (fecha se asigna en store).
+- /servicios: CRUD completo con ServicioController.
+
+Ruta especial:
+- GET /admin-only: devuelve un mensaje solo si el usuario tiene rol admin.
+
+Funciones de rutas:
+- Route::post / Route::get: registra rutas con metodos HTTP especificos.
+- Route::apiResource: crea las rutas REST (index, store, show, update, destroy).
+- Route::middleware('auth:sanctum'): exige token valido.
+- ->middleware('role:admin'): restringe acceso al rol admin.
+- ->parameters(...): define el nombre del parametro para el binding de modelo.
+*/

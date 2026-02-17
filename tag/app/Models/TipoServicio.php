@@ -23,11 +23,13 @@ class TipoServicio extends Model
         'borrado_logico' => 'boolean',
     ];
 
+    // Devuelve el proveedor asociado a este tipo.
     public function proveedor(): BelongsTo
     {
         return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 
+    // Lista los servicios que usan este tipo.
     public function servicios(): HasMany
     {
         return $this->hasMany(Servicio::class, 'id_tipo_servicio');

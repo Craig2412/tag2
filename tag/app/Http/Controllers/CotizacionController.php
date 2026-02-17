@@ -10,6 +10,7 @@ class CotizacionController extends Controller
 {
     public function index()
     {
+        // Lista las cotizaciones activas y las devuelve en JSON.
         $items = Cotizacion::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -19,6 +20,7 @@ class CotizacionController extends Controller
 
     public function store(Request $request)
     {
+        // Crea una cotizacion con estatus inicial y la devuelve.
         $data = $request->validate([
             'id_atencion' => ['required', 'exists:atenciones,id'],
             'cant_adultos' => ['required', 'integer', 'min:0'],
@@ -40,6 +42,7 @@ class CotizacionController extends Controller
 
     public function show(Cotizacion $cotizacion)
     {
+        // Muestra una cotizacion si no esta marcada como borrada.
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -49,6 +52,7 @@ class CotizacionController extends Controller
 
     public function update(Request $request, Cotizacion $cotizacion)
     {
+        // Actualiza una cotizacion activa y devuelve el resultado.
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -70,6 +74,7 @@ class CotizacionController extends Controller
 
     public function destroy(Cotizacion $cotizacion)
     {
+        // Marca la cotizacion como borrada de forma logica.
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

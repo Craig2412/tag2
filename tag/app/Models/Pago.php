@@ -28,21 +28,25 @@ class Pago extends Model
         'borrado_logico' => 'boolean',
     ];
 
+    // Devuelve la cotizacion a la que pertenece el pago.
     public function cotizacion(): BelongsTo
     {
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
     }
 
+    // Devuelve el metodo de pago usado.
     public function metodoPago(): BelongsTo
     {
         return $this->belongsTo(MetodoPago::class, 'id_metodo_pago');
     }
 
+    // Devuelve la tasa de cambio aplicada.
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
+    // Devuelve el estatus actual del pago.
     public function estatus(): BelongsTo
     {
         return $this->belongsTo(Estatus::class, 'estatus');

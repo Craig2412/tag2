@@ -16,6 +16,7 @@ class Origen extends Model
         'red',
     ];
 
+    // Lista las atenciones que llegaron por esta red.
     public function atenciones(): HasMany
     {
         return $this->hasMany(Atencion::class, 'id_origen_atencion');

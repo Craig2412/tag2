@@ -13,6 +13,7 @@ class PagoController extends Controller
 {
     public function index()
     {
+        // Lista los pagos activos y los devuelve en JSON.
         $items = Pago::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -22,6 +23,7 @@ class PagoController extends Controller
 
     public function store(Request $request)
     {
+        // Registra un pago, valida montos y actualiza el estatus si aplica.
         $data = $request->validate([
             'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
             'fecha_pago' => ['required', 'date'],
@@ -58,6 +60,7 @@ class PagoController extends Controller
 
     public function show(Pago $pago)
     {
+        // Muestra un pago si no esta marcado como borrado.
         if ($pago->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -67,6 +70,7 @@ class PagoController extends Controller
 
     public function update(Request $request, Pago $pago)
     {
+        // Actualiza un pago, valida montos y ajusta el estatus si aplica.
         if ($pago->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -109,6 +113,7 @@ class PagoController extends Controller
 
     public function destroy(Pago $pago)
     {
+        // Marca el pago como borrado y recalcula el estatus de la cotizacion.
         if ($pago->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

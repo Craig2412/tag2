@@ -10,6 +10,7 @@ class ProveedorController extends Controller
 {
     public function index()
     {
+        // Lista los proveedores activos y los devuelve en JSON.
         $proveedores = Proveedor::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -19,6 +20,7 @@ class ProveedorController extends Controller
 
     public function store(Request $request)
     {
+        // Crea un proveedor con datos validados y lo devuelve.
         $data = $request->validate([
             'nombre_empresa' => ['required', 'string', 'max:255'],
             'rif' => ['required', 'string', 'max:50', 'unique:proveedores,rif'],
@@ -39,6 +41,7 @@ class ProveedorController extends Controller
 
     public function show(Proveedor $proveedor)
     {
+        // Muestra un proveedor si no esta marcado como borrado.
         if ($proveedor->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -48,6 +51,7 @@ class ProveedorController extends Controller
 
     public function update(Request $request, Proveedor $proveedor)
     {
+        // Actualiza un proveedor activo y devuelve el resultado.
         if ($proveedor->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -82,6 +86,7 @@ class ProveedorController extends Controller
 
     public function destroy(Proveedor $proveedor)
     {
+        // Marca el proveedor como borrado logico.
         if ($proveedor->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

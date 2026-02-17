@@ -9,6 +9,7 @@ class ServicioController extends Controller
 {
     public function index()
     {
+        // Lista los servicios activos y los devuelve en JSON.
         $servicios = Servicio::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -18,6 +19,7 @@ class ServicioController extends Controller
 
     public function store(Request $request)
     {
+        // Crea un servicio con datos validados y lo devuelve.
         $data = $request->validate([
             'id_tipo_servicio' => ['required', 'exists:tipo_servicio,id'],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
@@ -38,6 +40,7 @@ class ServicioController extends Controller
 
     public function show(Servicio $servicio)
     {
+        // Muestra un servicio si no esta marcado como borrado.
         if ($servicio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -47,6 +50,7 @@ class ServicioController extends Controller
 
     public function update(Request $request, Servicio $servicio)
     {
+        // Actualiza un servicio activo y devuelve el resultado.
         if ($servicio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -69,6 +73,7 @@ class ServicioController extends Controller
 
     public function destroy(Servicio $servicio)
     {
+        // Marca el servicio como borrado logico.
         if ($servicio->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

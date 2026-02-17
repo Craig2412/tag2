@@ -13,6 +13,7 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        // Registra un usuario, asigna rol y devuelve el token.
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
@@ -52,21 +53,25 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        // Inicia sesion sin validar rol especifico.
         return $this->loginWithRole($request, null);
     }
 
     public function loginAdmin(Request $request)
     {
+        // Inicia sesion solo si el usuario es admin.
         return $this->loginWithRole($request, 'admin');
     }
 
     public function loginUser(Request $request)
     {
+        // Inicia sesion solo si el usuario es user.
         return $this->loginWithRole($request, 'user');
     }
 
     public function logout(Request $request)
     {
+        // Cierra la sesion actual eliminando el token.
         $request->user()?->currentAccessToken()?->delete();
 
         return response()->json(['message' => 'Logged out']);

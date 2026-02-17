@@ -27,16 +27,19 @@ class Servicio extends Model
         'borrado_logico' => 'boolean',
     ];
 
+    // Devuelve el tipo de servicio asociado.
     public function tipoServicio(): BelongsTo
     {
         return $this->belongsTo(TipoServicio::class, 'id_tipo_servicio');
     }
 
+    // Devuelve el proveedor que presta el servicio.
     public function proveedor(): BelongsTo
     {
         return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 
+    // Devuelve la tasa de cambio usada en el servicio.
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');

@@ -9,6 +9,7 @@ class TasaCambioController extends Controller
 {
     public function index()
     {
+        // Lista las tasas activas y las devuelve en JSON.
         $tasas = TasaCambio::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
@@ -18,6 +19,7 @@ class TasaCambioController extends Controller
 
     public function store(Request $request)
     {
+        // Crea una tasa de cambio, asigna la fecha de hoy y la devuelve.
         $data = $request->validate([
             'tasa_usd' => ['required', 'numeric'],
             'tasa_eur' => ['required', 'numeric'],
@@ -36,6 +38,7 @@ class TasaCambioController extends Controller
 
     public function show(TasaCambio $tasaCambio)
     {
+        // Muestra la tasa si no esta borrada.
         if ($tasaCambio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -45,6 +48,7 @@ class TasaCambioController extends Controller
 
     public function update(Request $request, TasaCambio $tasaCambio)
     {
+        // Actualiza una tasa activa y devuelve el resultado.
         if ($tasaCambio->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -64,6 +68,7 @@ class TasaCambioController extends Controller
 
     public function destroy(TasaCambio $tasaCambio)
     {
+        // Marca la tasa como borrada de forma logica.
         if ($tasaCambio->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
         }

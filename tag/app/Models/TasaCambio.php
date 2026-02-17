@@ -26,6 +26,7 @@ class TasaCambio extends Model
         'borrado_logico' => 'boolean',
     ];
 
+    // Lista los servicios que usan esta tasa de cambio.
     public function servicios(): HasMany
     {
         return $this->hasMany(Servicio::class, 'id_tasa_cambio');
