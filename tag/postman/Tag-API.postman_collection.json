@@ -19,6 +19,58 @@
     {
       "key": "userToken",
       "value": ""
+    },
+    {
+      "key": "tipoProveedorId",
+      "value": "1"
+    },
+    {
+      "key": "proveedorId",
+      "value": "1"
+    },
+    {
+      "key": "tipoServicioId",
+      "value": "1"
+    },
+    {
+      "key": "tasaCambioId",
+      "value": "1"
+    },
+    {
+      "key": "servicioId",
+      "value": "1"
+    },
+    {
+      "key": "origenId",
+      "value": "1"
+    },
+    {
+      "key": "atencionId",
+      "value": "1"
+    },
+    {
+      "key": "cotizacionId",
+      "value": "1"
+    },
+    {
+      "key": "servicioCotizacionId",
+      "value": "1"
+    },
+    {
+      "key": "metodoPagoId",
+      "value": "1"
+    },
+    {
+      "key": "pagoId",
+      "value": "1"
+    },
+    {
+      "key": "clienteId",
+      "value": "1"
+    },
+    {
+      "key": "personalId",
+      "value": "1"
     }
   ],
   "item": [
@@ -138,6 +190,996 @@
           "path": ["admin-only"]
         }
       }
+    },
+    {
+      "name": "Tipos Proveedores",
+      "item": [
+        {
+          "name": "Tipos Proveedores - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos-proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-proveedores"]
+            }
+          }
+        },
+        {
+          "name": "Tipos Proveedores - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos-proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-proveedores"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_proveedor\": \"logistica\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Tipos Proveedores - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+            }
+          }
+        },
+        {
+          "name": "Tipos Proveedores - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_proveedor\": \"tecnologia\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Tipos Proveedores - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Proveedores",
+      "item": [
+        {
+          "name": "Proveedores - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["proveedores"]
+            }
+          }
+        },
+        {
+          "name": "Proveedores - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["proveedores"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_empresa\": \"Empresa Uno\",\n  \"rif\": \"J-11111111-1\",\n  \"correo_empresa\": \"empresa1@example.com\",\n  \"telefono_empresa\": \"02120000001\",\n  \"nombre_persona_contacto\": \"Juan Gomez\",\n  \"tipo_proveedor\": 1,\n  \"estatus\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Proveedores - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["proveedores", "{{proveedorId}}"]
+            }
+          }
+        },
+        {
+          "name": "Proveedores - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["proveedores", "{{proveedorId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_empresa\": \"Empresa Dos\",\n  \"rif\": \"J-11111111-1\",\n  \"correo_empresa\": \"empresa1@example.com\",\n  \"telefono_empresa\": \"02120000002\",\n  \"nombre_persona_contacto\": \"Juan Gomez\",\n  \"tipo_proveedor\": 1,\n  \"estatus\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Proveedores - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["proveedores", "{{proveedorId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tipo Servicio",
+      "item": [
+        {
+          "name": "Tipo Servicio - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipo-servicio",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipo-servicio"]
+            }
+          }
+        },
+        {
+          "name": "Tipo Servicio - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipo-servicio",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipo-servicio"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_servicio\": \"consultoria\",\n  \"id_proveedor\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Tipo Servicio - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+            }
+          }
+        },
+        {
+          "name": "Tipo Servicio - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_servicio\": \"asesoria\",\n  \"id_proveedor\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Tipo Servicio - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasas Cambio",
+      "item": [
+        {
+          "name": "Tasas Cambio - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas-cambio",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas-cambio"]
+            }
+          }
+        },
+        {
+          "name": "Tasas Cambio - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas-cambio",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas-cambio"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasa_usd\": 36.5,\n  \"tasa_eur\": 39.8,\n  \"tasa_binance\": 36.7,\n  \"tasa_personalizada\": 36.6\n}"
+            }
+          }
+        },
+        {
+          "name": "Tasas Cambio - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+            }
+          }
+        },
+        {
+          "name": "Tasas Cambio - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasa_usd\": 37,\n  \"tasa_eur\": 40,\n  \"tasa_binance\": 36.9,\n  \"tasa_personalizada\": 36.8\n}"
+            }
+          }
+        },
+        {
+          "name": "Tasas Cambio - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Servicios",
+      "item": [
+        {
+          "name": "Servicios - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios"]
+            }
+          }
+        },
+        {
+          "name": "Servicios - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 100,\n  \"monto_gravable\": 100,\n  \"monto_no_sujeto\": 0,\n  \"total_servicio\": 100,\n  \"id_tasa_cambio\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Servicios - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios/{{servicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios", "{{servicioId}}"]
+            }
+          }
+        },
+        {
+          "name": "Servicios - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios/{{servicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios", "{{servicioId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 120,\n  \"monto_gravable\": 120,\n  \"monto_no_sujeto\": 0,\n  \"total_servicio\": 120,\n  \"id_tasa_cambio\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Servicios - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios/{{servicioId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios", "{{servicioId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Origenes",
+      "item": [
+        {
+          "name": "Origenes - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/origenes",
+              "host": ["{{baseUrl}}"],
+              "path": ["origenes"]
+            }
+          }
+        },
+        {
+          "name": "Origenes - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/origenes",
+              "host": ["{{baseUrl}}"],
+              "path": ["origenes"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"red\": \"youtube\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Origenes - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/origenes/{{origenId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["origenes", "{{origenId}}"]
+            }
+          }
+        },
+        {
+          "name": "Origenes - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/origenes/{{origenId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["origenes", "{{origenId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"red\": \"linkedin\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Origenes - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/origenes/{{origenId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["origenes", "{{origenId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Atenciones",
+      "item": [
+        {
+          "name": "Atenciones - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/atenciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["atenciones"]
+            }
+          }
+        },
+        {
+          "name": "Atenciones - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/atenciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["atenciones"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_cliente\": {{clienteId}},\n  \"id_personal\": {{personalId}},\n  \"id_origen_atencion\": 1,\n  \"asunto\": \"Solicitud\",\n  \"notas_adicionales\": \"Contacto inicial\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Atenciones - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["atenciones", "{{atencionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Atenciones - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["atenciones", "{{atencionId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asunto\": \"Solicitud actualizada\",\n  \"notas_adicionales\": \"Seguimiento\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Atenciones - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["atenciones", "{{atencionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cotizaciones",
+      "item": [
+        {
+          "name": "Cotizaciones - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizaciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["cotizaciones"]
+            }
+          }
+        },
+        {
+          "name": "Cotizaciones - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizaciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["cotizaciones"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_atencion\": 1,\n  \"cant_adultos\": 2,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_cambio\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Cotizaciones - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["cotizaciones", "{{cotizacionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Cotizaciones - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["cotizaciones", "{{cotizacionId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cant_adultos\": 3,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_cambio\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Cotizaciones - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["cotizaciones", "{{cotizacionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Servicios Cotizaciones",
+      "item": [
+        {
+          "name": "Servicios Cotizaciones - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios-cotizaciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios-cotizaciones"]
+            }
+          }
+        },
+        {
+          "name": "Servicios Cotizaciones - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios-cotizaciones",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios-cotizaciones"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_servicio\": 1,\n  \"id_cotizacion\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Servicios Cotizaciones - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Servicios Cotizaciones - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_servicio\": 1,\n  \"id_cotizacion\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Servicios Cotizaciones - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metodos Pago",
+      "item": [
+        {
+          "name": "Metodos Pago - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metodos-pago",
+              "host": ["{{baseUrl}}"],
+              "path": ["metodos-pago"]
+            }
+          }
+        },
+        {
+          "name": "Metodos Pago - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metodos-pago",
+              "host": ["{{baseUrl}}"],
+              "path": ["metodos-pago"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metodo_pago\": \"transferencia\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Metodos Pago - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metodos-pago", "{{metodoPagoId}}"]
+            }
+          }
+        },
+        {
+          "name": "Metodos Pago - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metodos-pago", "{{metodoPagoId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metodo_pago\": \"tarjeta\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Metodos Pago - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metodos-pago", "{{metodoPagoId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagos",
+      "item": [
+        {
+          "name": "Pagos - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos",
+              "host": ["{{baseUrl}}"],
+              "path": ["pagos"]
+            }
+          }
+        },
+        {
+          "name": "Pagos - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos",
+              "host": ["{{baseUrl}}"],
+              "path": ["pagos"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_cotizacion\": 1,\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_abono\": 100,\n  \"id_metodo_pago\": 1,\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": 1,\n  \"estatus\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Pagos - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos/{{pagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["pagos", "{{pagoId}}"]
+            }
+          }
+        },
+        {
+          "name": "Pagos - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos/{{pagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["pagos", "{{pagoId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_abono\": 120\n}"
+            }
+          }
+        },
+        {
+          "name": "Pagos - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos/{{pagoId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["pagos", "{{pagoId}}"]
+            }
+          }
+        }
+      ]
     }
   ]
 }

@@ -27,7 +27,6 @@ class AuthController extends Controller
         $estatusActivo = Estatus::where('estatus', 'activo')->first();
 
         $user = User::create([
-            'name' => $data['nombre'],
             'nombre' => $data['nombre'],
             'apellido' => $data['apellido'],
             'cedula' => $data['cedula'] ?? null,

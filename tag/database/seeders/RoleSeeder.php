@@ -17,6 +17,50 @@ class RoleSeeder extends Seeder
             'view users',
             'edit users',
             'delete users',
+            'view tipos proveedores',
+            'create tipos proveedores',
+            'edit tipos proveedores',
+            'delete tipos proveedores',
+            'view proveedores',
+            'create proveedores',
+            'edit proveedores',
+            'delete proveedores',
+            'view tipo servicio',
+            'create tipo servicio',
+            'edit tipo servicio',
+            'delete tipo servicio',
+            'view tasas cambio',
+            'create tasas cambio',
+            'edit tasas cambio',
+            'delete tasas cambio',
+            'view servicios',
+            'create servicios',
+            'edit servicios',
+            'delete servicios',
+            'view origenes',
+            'create origenes',
+            'edit origenes',
+            'delete origenes',
+            'view atenciones',
+            'create atenciones',
+            'edit atenciones',
+            'delete atenciones',
+            'view cotizaciones',
+            'create cotizaciones',
+            'edit cotizaciones',
+            'delete cotizaciones',
+            'view servicios cotizaciones',
+            'create servicios cotizaciones',
+            'edit servicios cotizaciones',
+            'delete servicios cotizaciones',
+            'view metodos pago',
+            'create metodos pago',
+            'edit metodos pago',
+            'delete metodos pago',
+            'view pagos',
+            'create pagos',
+            'edit pagos',
+            'delete pagos',
         ];
 
         foreach ($permissions as $permission) {
@@ -26,9 +70,12 @@ class RoleSeeder extends Seeder
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
         $userRole = Role::firstOrCreate(['name' => 'user']);
         $personalRole = Role::firstOrCreate(['name' => 'personal']);
+        $clienteRole = Role::firstOrCreate(['name' => 'cliente']);
 
         $adminRole->syncPermissions($permissions);
         $userRole->syncPermissions(['view users']);
+        $personalRole->syncPermissions([]);
+        $clienteRole->syncPermissions([]);
 
         $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
 
@@ -65,5 +112,39 @@ class RoleSeeder extends Seeder
         );
 
         $user->syncRoles([$userRole]);
+
+        $personal = User::firstOrCreate(
+            ['email' => 'personal@example.com'],
+            [
+                'name' => 'Personal',
+                'nombre' => 'Personal',
+                'apellido' => 'Staff',
+                'cedula' => 'P-0001',
+                'telefono' => '0000000000',
+                'porcentaje_comision' => 0,
+                'id_rol' => $personalRole->id,
+                'id_estatus' => $estatusActivo->id,
+                'password' => Hash::make('password'),
+            ]
+        );
+
+        $personal->syncRoles([$personalRole]);
+
+        $cliente = User::firstOrCreate(
+            ['email' => 'cliente@example.com'],
+            [
+                'name' => 'Cliente',
+                'nombre' => 'Cliente',
+                'apellido' => 'Demo',
+                'cedula' => 'C-0001',
+                'telefono' => '0000000000',
+                'porcentaje_comision' => 0,
+                'id_rol' => $clienteRole->id,
+                'id_estatus' => $estatusActivo->id,
+                'password' => Hash::make('password'),
+            ]
+        );
+
+        $cliente->syncRoles([$clienteRole]);
     }
 }
