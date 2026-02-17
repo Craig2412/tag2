@@ -78,7 +78,6 @@ Ruta especial:
 - GET /admin-only: devuelve un mensaje solo si el usuario tiene rol admin.
 
 Funciones de rutas:
-- Route::post / Route::get: registra rutas con metodos HTTP especificos.
 - Route::apiResource: crea las rutas REST (index, store, show, update, destroy).
 - Route::middleware('auth:sanctum'): exige token valido.
 - ->middleware('role:admin'): restringe acceso al rol admin.
