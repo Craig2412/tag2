@@ -192,6 +192,18 @@
       }
     },
     {
+      "name": "API - Status",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/status",
+          "host": ["{{baseUrl}}"],
+          "path": ["status"]
+        }
+      }
+    },
+    {
       "name": "Tipos Proveedores",
       "item": [
         {
