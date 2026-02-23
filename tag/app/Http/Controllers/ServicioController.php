@@ -26,11 +26,14 @@ class ServicioController extends Controller
             'costo' => ['required', 'numeric'],
             'monto_gravable' => ['required', 'numeric'],
             'monto_no_sujeto' => ['required', 'numeric'],
-            'total_servicio' => ['required', 'numeric'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
+        $data['total_servicio'] = $this->calcularTotalServicio(
+            $data['monto_gravable'],
+            $data['monto_no_sujeto']
+        );
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
         $servicio = Servicio::create($data);
@@ -61,10 +64,15 @@ class ServicioController extends Controller
             'costo' => ['sometimes', 'required', 'numeric'],
             'monto_gravable' => ['sometimes', 'required', 'numeric'],
             'monto_no_sujeto' => ['sometimes', 'required', 'numeric'],
-            'total_servicio' => ['sometimes', 'required', 'numeric'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
+
+        if (array_key_exists('monto_gravable', $data) || array_key_exists('monto_no_sujeto', $data)) {
+            $gravable = $data['monto_gravable'] ?? $servicio->monto_gravable;
+            $noSujeto = $data['monto_no_sujeto'] ?? $servicio->monto_no_sujeto;
+            $data['total_servicio'] = $this->calcularTotalServicio($gravable, $noSujeto);
+        }
 
         $servicio->update($data);
 
@@ -81,5 +89,10 @@ class ServicioController extends Controller
         $servicio->update(['borrado_logico' => true]);
 
         return response()->json(['message' => 'Deleted']);
+    }
+
+    private function calcularTotalServicio(float $montoGravable, float $montoNoSujeto): float
+    {
+        return $montoGravable + $montoNoSujeto;
     }
 }

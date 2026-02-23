@@ -1191,7 +1191,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 100,\n  \"monto_gravable\": 100,\n  \"monto_no_sujeto\": 0,\n  \"total_servicio\": 100,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 100,\n  \"monto_gravable\": 100,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": 1\n}"
             }
           }
         },
@@ -1226,7 +1226,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 120,\n  \"monto_gravable\": 120,\n  \"monto_no_sujeto\": 0,\n  \"total_servicio\": 120,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 120,\n  \"monto_gravable\": 120,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": 1\n}"
             }
           }
         },
