@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             EstatusSeeder::class,
+            ConfiguracionesSistemaSeeder::class,
             TiposContribuyentesSeeder::class,
             TiposCotizacionesSeeder::class,
             EmpresasSeeder::class,

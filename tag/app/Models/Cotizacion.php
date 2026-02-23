@@ -63,4 +63,22 @@ class Cotizacion extends Model
     {
         return $this->hasMany(PagoCotizacion::class, 'id_cotizacion');
     }
+
+    // Marca como expiradas las cotizaciones que excedan los dias configurados.
+    public static function expirarSiVence(): void
+    {
+        $diasVencimiento = (int) (ConfiguracionSistema::value('dias_vencimiento') ?? 0);
+
+        if ($diasVencimiento <= 0) {
+            return;
+        }
+
+        $fechaLimite = now()->subDays($diasVencimiento);
+        $estatusExpirado = Estatus::firstOrCreate(['estatus' => 'expirado']);
+
+        self::where('borrado_logico', false)
+            ->where('estatus', '!=', $estatusExpirado->id)
+            ->whereRaw('COALESCE(updated_at, created_at) < ?', [$fechaLimite])
+            ->update(['estatus' => $estatusExpirado->id]);
+    }
 }

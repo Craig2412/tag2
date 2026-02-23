@@ -90,6 +90,10 @@ class RoleSeeder extends Seeder
             'create cuentas proveedores',
             'edit cuentas proveedores',
             'delete cuentas proveedores',
+            'view configuraciones sistema',
+            'create configuraciones sistema',
+            'edit configuraciones sistema',
+            'delete configuraciones sistema',
         ];
 
         foreach ($permissions as $permission) {

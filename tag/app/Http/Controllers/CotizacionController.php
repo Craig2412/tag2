@@ -13,6 +13,8 @@ class CotizacionController extends Controller
     public function index()
     {
         // Lista las cotizaciones activas y las devuelve en JSON.
+        Cotizacion::expirarSiVence();
+
         $items = Cotizacion::where('borrado_logico', false)
             ->orderBy('id')
             ->get()
@@ -53,6 +55,9 @@ class CotizacionController extends Controller
     public function show(Cotizacion $cotizacion)
     {
         // Muestra una cotizacion si no esta marcada como borrada.
+        Cotizacion::expirarSiVence();
+        $cotizacion->refresh();
+
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
@@ -66,8 +71,16 @@ class CotizacionController extends Controller
     public function update(Request $request, Cotizacion $cotizacion)
     {
         // Actualiza una cotizacion activa y devuelve el resultado.
+        Cotizacion::expirarSiVence();
+        $cotizacion->refresh();
+
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
+        }
+
+        $estatusExpirado = Estatus::firstOrCreate(['estatus' => 'expirado']);
+        if ($cotizacion->estatus === $estatusExpirado->id) {
+            return response()->json(['message' => 'La cotizacion esta expirada y no puede modificarse'], 422);
         }
 
         $data = $request->validate([
@@ -89,8 +102,16 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         // Marca la cotizacion como borrada de forma logica.
+        Cotizacion::expirarSiVence();
+        $cotizacion->refresh();
+
         if ($cotizacion->borrado_logico) {
             return response()->json(['message' => 'Already deleted']);
+        }
+
+        $estatusExpirado = Estatus::firstOrCreate(['estatus' => 'expirado']);
+        if ($cotizacion->estatus === $estatusExpirado->id) {
+            return response()->json(['message' => 'La cotizacion esta expirada y no puede modificarse'], 422);
         }
 
         $cotizacion->update(['borrado_logico' => true]);
@@ -112,7 +133,6 @@ class CotizacionController extends Controller
                 'p.id as id_pago',
                 'p.fecha_pago',
                 'p.id_metodo_pago',
-                'p.tipo_pago',
                 'p.nro_comprobante',
                 'p.id_tasa_cambio',
                 'p.estatus',

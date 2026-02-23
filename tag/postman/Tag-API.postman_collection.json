@@ -91,6 +91,11 @@
       "type": "string"
     },
     {
+      "key": "configuracionSistemaId",
+      "value": "1",
+      "type": "string"
+    },
+    {
       "key": "pagoId",
       "value": "1",
       "type": "string"
@@ -337,6 +342,96 @@
               "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
               "host": ["{{baseUrl}}"],
               "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Configuraciones Sistema",
+      "item": [
+        {
+          "name": "Configuraciones Sistema - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configuraciones-sistema",
+              "host": ["{{baseUrl}}"],
+              "path": ["configuraciones-sistema"]
+            }
+          }
+        },
+        {
+          "name": "Configuraciones Sistema - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configuraciones-sistema",
+              "host": ["{{baseUrl}}"],
+              "path": ["configuraciones-sistema"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dias_vencimiento\": 30\n}"
+            }
+          }
+        },
+        {
+          "name": "Configuraciones Sistema - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
+            }
+          }
+        },
+        {
+          "name": "Configuraciones Sistema - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dias_vencimiento\": 15\n}"
+            }
+          }
+        },
+        {
+          "name": "Configuraciones Sistema - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
             }
           }
         }
@@ -877,96 +972,6 @@
               "raw": "{{baseUrl}}/personal-empresas/{{personalEmpresaId}}",
               "host": ["{{baseUrl}}"],
               "path": ["personal-empresas", "{{personalEmpresaId}}"]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Tipos Pago",
-      "item": [
-        {
-          "name": "Tipos Pago - Listar",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/tipos-pago",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-pago"]
-            }
-          }
-        },
-        {
-          "name": "Tipos Pago - Crear",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/tipos-pago",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-pago"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"tipo_pago\": \"transferencia\"\n}"
-            }
-          }
-        },
-        {
-          "name": "Tipos Pago - Ver",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/tipos-pago/{{tipoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-pago", "{{tipoPagoId}}"]
-            }
-          }
-        },
-        {
-          "name": "Tipos Pago - Actualizar",
-          "request": {
-            "method": "PUT",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/tipos-pago/{{tipoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-pago", "{{tipoPagoId}}"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"tipo_pago\": \"zelle\"\n}"
-            }
-          }
-        },
-        {
-          "name": "Tipos Pago - Eliminar",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/tipos-pago/{{tipoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-pago", "{{tipoPagoId}}"]
             }
           }
         }
