@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atencion;
+use App\Models\ClienteEmpresa;
 use App\Models\Estatus;
+use App\Models\PersonalEmpresa;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AtencionController extends Controller
 {
@@ -24,7 +27,6 @@ class AtencionController extends Controller
         // Crea una atencion, valida roles y asigna estatus inicial.
         $data = $request->validate([
             'id_cliente' => ['required', 'exists:users,id'],
-            'id_personal' => ['required', 'exists:users,id'],
             'id_origen_atencion' => ['required', 'exists:origenes,id'],
             'asunto' => ['required', 'string', 'max:255'],
             'notas_adicionales' => ['nullable', 'string'],
@@ -32,18 +34,19 @@ class AtencionController extends Controller
         ]);
 
         $cliente = User::find($data['id_cliente']);
-        $personal = User::find($data['id_personal']);
 
         if (!$cliente || !$cliente->hasRole('cliente')) {
             return response()->json(['message' => 'id_cliente debe ser un usuario con rol cliente'], 422);
         }
 
-        if (!$personal || !$personal->hasRole('personal')) {
-            return response()->json(['message' => 'id_personal debe ser un usuario con rol personal'], 422);
+        $personalId = $this->resolverPersonalAsignado($cliente->id);
+        if (!$personalId) {
+            return response()->json(['message' => 'No hay personal disponible para asignar la atencion'], 422);
         }
 
         $estatus = Estatus::firstOrCreate(['estatus' => 'por aprobar']);
 
+        $data['id_personal'] = $personalId;
         $data['estatus'] = $estatus->id;
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
@@ -108,5 +111,61 @@ class AtencionController extends Controller
         $atencion->update(['borrado_logico' => true]);
 
         return response()->json(['message' => 'Deleted']);
+    }
+
+    private function resolverPersonalAsignado(int $idCliente): ?int
+    {
+        $clienteEmpresa = ClienteEmpresa::where('id_cliente', $idCliente)
+            ->orderBy('id')
+            ->first();
+
+        if ($clienteEmpresa) {
+            $personalEmpresa = PersonalEmpresa::where('id_empresa', $clienteEmpresa->id_empresas)
+                ->inRandomOrder()
+                ->first();
+
+            if ($personalEmpresa) {
+                return $personalEmpresa->id_personal;
+            }
+        }
+
+        $estatusConcluido = Estatus::firstOrCreate(['estatus' => 'aprobado']);
+        $personalIds = User::role('personal')->pluck('id')->all();
+
+        if (empty($personalIds)) {
+            return null;
+        }
+
+        $conteos = DB::table('atenciones')
+            ->select('id_personal', DB::raw('COUNT(*) as total'))
+            ->where('borrado_logico', false)
+            ->where('estatus', '!=', $estatusConcluido->id)
+            ->whereIn('id_personal', $personalIds)
+            ->groupBy('id_personal')
+            ->pluck('total', 'id_personal')
+            ->all();
+
+        $minimo = null;
+        $candidatos = [];
+
+        foreach ($personalIds as $personalId) {
+            $total = (int) ($conteos[$personalId] ?? 0);
+
+            if ($minimo === null || $total < $minimo) {
+                $minimo = $total;
+                $candidatos = [$personalId];
+                continue;
+            }
+
+            if ($total === $minimo) {
+                $candidatos[] = $personalId;
+            }
+        }
+
+        if (empty($candidatos)) {
+            return null;
+        }
+
+        return $candidatos[array_rand($candidatos)];
     }
 }

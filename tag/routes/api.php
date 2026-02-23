@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AtencionController;
 use App\Http\Controllers\AtencionPersonalController;
+use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\ConfiguracionSistemaController;
@@ -45,6 +46,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('tipos-contribuyentes', TipoContribuyenteController::class)
         ->parameters(['tipos-contribuyentes' => 'tipoContribuyente']);
     Route::apiResource('empresas', EmpresaController::class);
+    Route::apiResource('clientes-empresas', ClientesEmpresaController::class)
+        ->parameters(['clientes-empresas' => 'clientesEmpresa']);
     Route::apiResource('personal-empresas', PersonalEmpresaController::class)
         ->parameters(['personal-empresas' => 'personalEmpresa']);
     Route::apiResource('origenes', OrigenController::class);
