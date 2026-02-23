@@ -20,3 +20,4 @@ return new class extends Migration
         Schema::dropIfExists('tipos_proveedores');
     }
 };
+// Descripcion: Crea la tabla tipos_proveedores.

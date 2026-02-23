@@ -25,3 +25,4 @@ return new class extends Migration
         Schema::dropIfExists('tasas_cambio');
     }
 };
+// Descripcion: Crea la tabla tasas_cambio.

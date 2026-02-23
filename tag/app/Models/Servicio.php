@@ -20,6 +20,7 @@ class Servicio extends Model
         'monto_no_sujeto',
         'total_servicio',
         'id_tasa_cambio',
+        'estatus',
         'borrado_logico',
     ];
 
@@ -43,5 +44,17 @@ class Servicio extends Model
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
+    }
+
+    // Devuelve el estatus actual del servicio.
+    public function estatus(): BelongsTo
+    {
+        return $this->belongsTo(Estatus::class, 'estatus');
+    }
+
+    // Lista los pagos hechos a proveedores para este servicio.
+    public function pagosProveedores(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(PagoProveedor::class, 'id_servicio');
     }
 }

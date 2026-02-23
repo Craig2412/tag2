@@ -20,12 +20,18 @@ class AuthController extends Controller
             'cedula' => ['nullable', 'string', 'max:255'],
             'telefono' => ['nullable', 'string', 'max:255'],
             'porcentaje_comision' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'id_tipo_contribuyente' => ['nullable', 'exists:tipos_contribuyentes,id'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'correo_institucional' => ['nullable', 'email', 'max:255'],
             'password' => ['required', 'string', Password::min(8)],
         ]);
 
         $userRole = Role::where('name', 'user')->first();
         $estatusActivo = Estatus::where('estatus', 'activo')->first();
+        $tipoContribuyenteNormal = \App\Models\TipoContribuyente::firstOrCreate(
+            ['tipo_contribuyente' => 'Normal'],
+            ['porcentaje_iva' => 16]
+        );
 
         $user = User::create([
             'nombre' => $data['nombre'],
@@ -33,9 +39,11 @@ class AuthController extends Controller
             'cedula' => $data['cedula'] ?? null,
             'telefono' => $data['telefono'] ?? null,
             'porcentaje_comision' => $data['porcentaje_comision'] ?? null,
+            'id_tipo_contribuyente' => $data['id_tipo_contribuyente'] ?? $tipoContribuyenteNormal->id,
             'id_rol' => $userRole?->id,
             'id_estatus' => $estatusActivo?->id,
             'email' => $data['email'],
+            'correo_institucional' => $data['correo_institucional'] ?? null,
             'password' => Hash::make($data['password']),
         ]);
 
@@ -48,6 +56,51 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user,
             'token' => $token,
+        ], 201);
+    }
+
+    public function registerPersonal(Request $request)
+    {
+        // Registra un usuario con rol personal.
+        $data = $request->validate([
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
+            'cedula' => ['nullable', 'string', 'max:255'],
+            'telefono' => ['nullable', 'string', 'max:255'],
+            'porcentaje_comision' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'id_tipo_contribuyente' => ['nullable', 'exists:tipos_contribuyentes,id'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'correo_institucional' => ['nullable', 'email', 'max:255'],
+            'password' => ['required', 'string', Password::min(8)],
+        ]);
+
+        $personalRole = Role::where('name', 'personal')->first();
+        $estatusActivo = Estatus::where('estatus', 'activo')->first();
+        $tipoContribuyenteNormal = \App\Models\TipoContribuyente::firstOrCreate(
+            ['tipo_contribuyente' => 'Normal'],
+            ['porcentaje_iva' => 16]
+        );
+
+        $user = User::create([
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'cedula' => $data['cedula'] ?? null,
+            'telefono' => $data['telefono'] ?? null,
+            'porcentaje_comision' => $data['porcentaje_comision'] ?? null,
+            'id_tipo_contribuyente' => $data['id_tipo_contribuyente'] ?? $tipoContribuyenteNormal->id,
+            'id_rol' => $personalRole?->id,
+            'id_estatus' => $estatusActivo?->id,
+            'email' => $data['email'],
+            'correo_institucional' => $data['correo_institucional'] ?? null,
+            'password' => Hash::make($data['password']),
+        ]);
+
+        if ($personalRole) {
+            $user->syncRoles([$personalRole]);
+        }
+
+        return response()->json([
+            'user' => $user,
         ], 201);
     }
 

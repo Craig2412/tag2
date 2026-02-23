@@ -22,3 +22,4 @@ return new class extends Migration
         Schema::dropIfExists('tipo_servicio');
     }
 };
+// Descripcion: Crea la tabla tipo_servicio.

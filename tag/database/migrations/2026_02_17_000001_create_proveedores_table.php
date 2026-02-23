@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_empresa');
+            $table->string('razon_comercial')->nullable();
             $table->string('rif')->unique();
             $table->string('correo_empresa')->unique();
             $table->string('telefono_empresa')->nullable();
@@ -27,3 +28,4 @@ return new class extends Migration
         Schema::dropIfExists('proveedores');
     }
 };
+// Descripcion: Crea la tabla proveedores.

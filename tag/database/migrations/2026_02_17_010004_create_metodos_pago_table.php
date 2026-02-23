@@ -20,3 +20,4 @@ return new class extends Migration
         Schema::dropIfExists('metodos_pago');
     }
 };
+// Descripcion: Crea la tabla metodos_pago.

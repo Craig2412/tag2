@@ -132,3 +132,4 @@ return new class extends Migration
         Schema::drop($tableNames['permissions']);
     }
 };
+// Descripcion: Crea las tablas de permisos y roles.

@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             EstatusSeeder::class,
+            TiposContribuyentesSeeder::class,
+            TiposCotizacionesSeeder::class,
+            EmpresasSeeder::class,
+            PersonalEmpresasSeeder::class,
+            CuentasProveedoresSeeder::class,
             TiposProveedoresSeeder::class,
             ProveedoresSeeder::class,
             TipoServicioSeeder::class,
@@ -21,10 +26,12 @@ class DatabaseSeeder extends Seeder
             ServiciosSeeder::class,
             OrigenesSeeder::class,
             AtencionesSeeder::class,
+            AtencionesPersonalSeeder::class,
             CotizacionesSeeder::class,
             ServiciosCotizacionesSeeder::class,
             MetodosPagoSeeder::class,
             PagosSeeder::class,
+            PagosProveedoresSeeder::class,
         ]);
     }
 }

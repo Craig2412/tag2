@@ -25,9 +25,11 @@ class User extends Authenticatable
         'cedula',
         'telefono',
         'porcentaje_comision',
+        'id_tipo_contribuyente',
         'id_rol',
         'id_estatus',
         'email',
+        'correo_institucional',
         'password',
     ];
 
@@ -52,5 +54,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Devuelve el tipo de contribuyente del usuario.
+    public function tipoContribuyente(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(TipoContribuyente::class, 'id_tipo_contribuyente');
     }
 }

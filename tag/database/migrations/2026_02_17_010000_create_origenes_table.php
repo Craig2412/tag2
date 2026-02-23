@@ -20,3 +20,4 @@ return new class extends Migration
         Schema::dropIfExists('origenes');
     }
 };
+// Descripcion: Crea la tabla origenes.

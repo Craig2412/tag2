@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Estatus;
+use App\Models\TipoContribuyente;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -45,10 +46,18 @@ class RoleSeeder extends Seeder
             'create atenciones',
             'edit atenciones',
             'delete atenciones',
+            'view atenciones personal',
+            'create atenciones personal',
+            'edit atenciones personal',
+            'delete atenciones personal',
             'view cotizaciones',
             'create cotizaciones',
             'edit cotizaciones',
             'delete cotizaciones',
+            'view tipos cotizaciones',
+            'create tipos cotizaciones',
+            'edit tipos cotizaciones',
+            'delete tipos cotizaciones',
             'view servicios cotizaciones',
             'create servicios cotizaciones',
             'edit servicios cotizaciones',
@@ -61,6 +70,26 @@ class RoleSeeder extends Seeder
             'create pagos',
             'edit pagos',
             'delete pagos',
+            'view tipos contribuyentes',
+            'create tipos contribuyentes',
+            'edit tipos contribuyentes',
+            'delete tipos contribuyentes',
+            'view empresas',
+            'create empresas',
+            'edit empresas',
+            'delete empresas',
+            'view personal empresas',
+            'create personal empresas',
+            'edit personal empresas',
+            'delete personal empresas',
+            'view pagos proveedores',
+            'create pagos proveedores',
+            'edit pagos proveedores',
+            'delete pagos proveedores',
+            'view cuentas proveedores',
+            'create cuentas proveedores',
+            'edit cuentas proveedores',
+            'delete cuentas proveedores',
         ];
 
         foreach ($permissions as $permission) {
@@ -79,6 +108,11 @@ class RoleSeeder extends Seeder
 
         $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
 
+        $tipoContribuyenteNormal = TipoContribuyente::firstOrCreate(
+            ['tipo_contribuyente' => 'Normal'],
+            ['porcentaje_iva' => 16]
+        );
+
         $admin = User::firstOrCreate(
             ['email' => 'admin@example.com'],
             [
@@ -88,9 +122,11 @@ class RoleSeeder extends Seeder
                 'cedula' => 'A-0001',
                 'telefono' => '0000000000',
                 'porcentaje_comision' => 0,
+                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
                 'id_rol' => $adminRole->id,
                 'id_estatus' => $estatusActivo->id,
                 'password' => Hash::make('password'),
+                'correo_institucional' => null,
             ]
         );
 
@@ -105,9 +141,11 @@ class RoleSeeder extends Seeder
                 'cedula' => 'U-0001',
                 'telefono' => '0000000000',
                 'porcentaje_comision' => 0,
+                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
                 'id_rol' => $userRole->id,
                 'id_estatus' => $estatusActivo->id,
                 'password' => Hash::make('password'),
+                'correo_institucional' => null,
             ]
         );
 
@@ -122,9 +160,11 @@ class RoleSeeder extends Seeder
                 'cedula' => 'P-0001',
                 'telefono' => '0000000000',
                 'porcentaje_comision' => 0,
+                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
                 'id_rol' => $personalRole->id,
                 'id_estatus' => $estatusActivo->id,
                 'password' => Hash::make('password'),
+                'correo_institucional' => null,
             ]
         );
 
@@ -139,9 +179,11 @@ class RoleSeeder extends Seeder
                 'cedula' => 'C-0001',
                 'telefono' => '0000000000',
                 'porcentaje_comision' => 0,
+                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
                 'id_rol' => $clienteRole->id,
                 'id_estatus' => $estatusActivo->id,
                 'password' => Hash::make('password'),
+                'correo_institucional' => null,
             ]
         );
 

@@ -10,9 +10,8 @@ return new class extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cotizacion')->constrained('cotizaciones');
             $table->date('fecha_pago');
-            $table->decimal('monto_abono', 12, 2);
+            $table->decimal('monto_total', 12, 2);
             $table->foreignId('id_metodo_pago')->constrained('metodos_pago');
             $table->string('nro_comprobante');
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
@@ -27,3 +26,4 @@ return new class extends Migration
         Schema::dropIfExists('pagos');
     }
 };
+// Descripcion: Crea la tabla pagos (cabecera) para registrar pagos unificados.

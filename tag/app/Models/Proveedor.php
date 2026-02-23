@@ -15,6 +15,7 @@ class Proveedor extends Model
 
     protected $fillable = [
         'nombre_empresa',
+        'razon_comercial',
         'rif',
         'correo_empresa',
         'telefono_empresa',

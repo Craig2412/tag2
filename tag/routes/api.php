@@ -2,17 +2,24 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AtencionController;
+use App\Http\Controllers\AtencionPersonalController;
+use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\OrigenController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\PagoProveedorController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\ServicioCotizacionController;
 use App\Http\Controllers\TasaCambioController;
+use App\Http\Controllers\TipoCotizacionController;
+use App\Http\Controllers\TipoContribuyenteController;
 use App\Http\Controllers\TipoProveedorController;
 use App\Http\Controllers\TipoServicioController;
+use App\Http\Controllers\PersonalEmpresaController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -26,16 +33,31 @@ Route::get('/status', function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/register/personal', [AuthController::class, 'registerPersonal'])
+        ->middleware('role:admin');
 
     Route::apiResource('estatus', EstatusController::class);
+    Route::apiResource('cuentas-proveedores', CuentaProveedorController::class)
+        ->parameters(['cuentas-proveedores' => 'cuentaProveedor']);
+    Route::apiResource('tipos-contribuyentes', TipoContribuyenteController::class)
+        ->parameters(['tipos-contribuyentes' => 'tipoContribuyente']);
+    Route::apiResource('empresas', EmpresaController::class);
+    Route::apiResource('personal-empresas', PersonalEmpresaController::class)
+        ->parameters(['personal-empresas' => 'personalEmpresa']);
     Route::apiResource('origenes', OrigenController::class);
     Route::apiResource('atenciones', AtencionController::class);
+    Route::apiResource('atenciones-personal', AtencionPersonalController::class)
+        ->parameters(['atenciones-personal' => 'atencionPersonal']);
     Route::apiResource('cotizaciones', CotizacionController::class);
+    Route::apiResource('tipos-cotizaciones', TipoCotizacionController::class)
+        ->parameters(['tipos-cotizaciones' => 'tipoCotizacion']);
     Route::apiResource('servicios-cotizaciones', ServicioCotizacionController::class)
         ->parameters(['servicios-cotizaciones' => 'servicioCotizacion']);
     Route::apiResource('metodos-pago', MetodoPagoController::class)
         ->parameters(['metodos-pago' => 'metodoPago']);
     Route::apiResource('pagos', PagoController::class);
+    Route::apiResource('pagos-proveedores', PagoProveedorController::class)
+        ->parameters(['pagos-proveedores' => 'pagoProveedor']);
     Route::apiResource('tipos-proveedores', TipoProveedorController::class)
         ->parameters(['tipos-proveedores' => 'tipoProveedor']);
     Route::apiResource('proveedores', ProveedorController::class);
@@ -61,17 +83,27 @@ Rutas publicas (sin token):
 
 Rutas protegidas (auth:sanctum):
 - POST /logout: llama AuthController::logout para cerrar la sesion actual.
+- POST /register/personal: llama AuthController::registerPersonal para crear usuarios con rol personal (solo admin).
 
 - /estatus: CRUD completo con EstatusController (index, store, show, update, destroy).
+- /cuentas-proveedores: CRUD completo con CuentaProveedorController.
+- /tipos-contribuyentes: CRUD completo con TipoContribuyenteController.
+- /empresas: CRUD completo con EmpresaController.
 - /origenes: CRUD completo con OrigenController (index, store, show, update, destroy).
 - /atenciones: CRUD completo con AtencionController (index, store, show, update, destroy).
     En store y update valida que cliente y personal tengan los roles correctos.
+- /atenciones-personal: CRUD completo con AtencionPersonalController (index, store, show, update, destroy).
+    En store y update valida que el personal tenga el rol correcto.
+- /personal-empresas: CRUD completo con PersonalEmpresaController (index, store, show, update, destroy).
+    En store y update valida que el personal tenga el rol correcto.
 - /cotizaciones: CRUD completo con CotizacionController (index, store, show, update, destroy).
     En store asigna el estatus inicial "por pagar".
+- /tipos-cotizaciones: CRUD completo con TipoCotizacionController.
 - /servicios-cotizaciones: CRUD de la tabla puente con ServicioCotizacionController.
 - /metodos-pago: CRUD completo con MetodoPagoController.
 - /pagos: CRUD completo con PagoController.
-    Valida que la suma de abonos no supere el total de servicios y actualiza estatus.
+    Distribuye montos entre varias cotizaciones y actualiza estatus.
+- /pagos-proveedores: CRUD completo con PagoProveedorController.
 - /tipos-proveedores: CRUD completo con TipoProveedorController.
 - /proveedores: CRUD completo con ProveedorController.
 - /tipo-servicio: CRUD completo con TipoServicioController.

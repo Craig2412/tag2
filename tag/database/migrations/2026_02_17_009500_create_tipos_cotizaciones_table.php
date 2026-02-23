@@ -8,16 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('estatus', function (Blueprint $table) {
+        Schema::create('tipos_cotizaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('estatus')->unique();
+            $table->string('tipo_cotizacion')->unique();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('estatus');
+        Schema::dropIfExists('tipos_cotizaciones');
     }
 };
-// Descripcion: Crea la tabla estatus.
+// Descripcion: Crea la tabla tipos_cotizaciones.

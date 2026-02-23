@@ -8,16 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('estatus', function (Blueprint $table) {
+        Schema::create('tipos_contribuyentes', function (Blueprint $table) {
             $table->id();
-            $table->string('estatus')->unique();
+            $table->string('tipo_contribuyente')->unique();
+            $table->decimal('porcentaje_iva', 5, 2);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('estatus');
+        Schema::dropIfExists('tipos_contribuyentes');
     }
 };
-// Descripcion: Crea la tabla estatus.
+// Descripcion: Crea la tabla tipos_contribuyentes.

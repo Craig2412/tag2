@@ -15,6 +15,7 @@ class Cotizacion extends Model
 
     protected $fillable = [
         'id_atencion',
+        'id_tipo_cotizacion',
         'cant_adultos',
         'cant_menores',
         'cant_viejos',
@@ -31,6 +32,12 @@ class Cotizacion extends Model
     public function atencion(): BelongsTo
     {
         return $this->belongsTo(Atencion::class, 'id_atencion');
+    }
+
+    // Devuelve el tipo de cotizacion asignado.
+    public function tipoCotizacion(): BelongsTo
+    {
+        return $this->belongsTo(TipoCotizacion::class, 'id_tipo_cotizacion');
     }
 
     // Devuelve la tasa de cambio usada en la cotizacion.
@@ -51,9 +58,9 @@ class Cotizacion extends Model
         return $this->hasMany(ServicioCotizacion::class, 'id_cotizacion');
     }
 
-    // Lista los pagos hechos para esta cotizacion.
-    public function pagos(): HasMany
+    // Lista los pagos asociados a esta cotizacion.
+    public function pagosCotizaciones(): HasMany
     {
-        return $this->hasMany(Pago::class, 'id_cotizacion');
+        return $this->hasMany(PagoCotizacion::class, 'id_cotizacion');
     }
 }

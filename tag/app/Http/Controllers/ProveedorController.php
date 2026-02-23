@@ -23,6 +23,7 @@ class ProveedorController extends Controller
         // Crea un proveedor con datos validados y lo devuelve.
         $data = $request->validate([
             'nombre_empresa' => ['required', 'string', 'max:255'],
+            'razon_comercial' => ['required', 'string', 'max:255'],
             'rif' => ['required', 'string', 'max:50', 'unique:proveedores,rif'],
             'correo_empresa' => ['required', 'email', 'max:255', 'unique:proveedores,correo_empresa'],
             'telefono_empresa' => ['nullable', 'string', 'max:50'],
@@ -58,6 +59,7 @@ class ProveedorController extends Controller
 
         $data = $request->validate([
             'nombre_empresa' => ['sometimes', 'required', 'string', 'max:255'],
+            'razon_comercial' => ['sometimes', 'required', 'string', 'max:255'],
             'rif' => [
                 'sometimes',
                 'required',

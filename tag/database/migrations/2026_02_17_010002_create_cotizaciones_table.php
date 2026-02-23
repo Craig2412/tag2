@@ -11,6 +11,9 @@ return new class extends Migration
         Schema::create('cotizaciones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_atencion')->constrained('atenciones');
+            $table->foreignId('id_tipo_cotizacion')
+                ->nullable()
+                ->constrained('tipos_cotizaciones');
             $table->unsignedInteger('cant_adultos');
             $table->unsignedInteger('cant_menores');
             $table->unsignedInteger('cant_viejos');
@@ -26,3 +29,4 @@ return new class extends Migration
         Schema::dropIfExists('cotizaciones');
     }
 };
+// Descripcion: Crea la tabla cotizaciones.

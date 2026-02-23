@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cotizacion;
 use App\Models\Estatus;
+use App\Models\PagoCotizacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CotizacionController extends Controller
 {
@@ -13,7 +15,14 @@ class CotizacionController extends Controller
         // Lista las cotizaciones activas y las devuelve en JSON.
         $items = Cotizacion::where('borrado_logico', false)
             ->orderBy('id')
-            ->get();
+            ->get()
+            ->map(function (Cotizacion $cotizacion) {
+                $data = $cotizacion->toArray();
+                $data['pagos'] = $this->pagosUnificados($cotizacion);
+
+                return $data;
+            })
+            ->values();
 
         return response()->json($items);
     }
@@ -23,6 +32,7 @@ class CotizacionController extends Controller
         // Crea una cotizacion con estatus inicial y la devuelve.
         $data = $request->validate([
             'id_atencion' => ['required', 'exists:atenciones,id'],
+            'id_tipo_cotizacion' => ['required', 'exists:tipos_cotizaciones,id'],
             'cant_adultos' => ['required', 'integer', 'min:0'],
             'cant_menores' => ['required', 'integer', 'min:0'],
             'cant_viejos' => ['required', 'integer', 'min:0'],
@@ -47,7 +57,10 @@ class CotizacionController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return response()->json($cotizacion);
+        $data = $cotizacion->toArray();
+        $data['pagos'] = $this->pagosUnificados($cotizacion);
+
+        return response()->json($data);
     }
 
     public function update(Request $request, Cotizacion $cotizacion)
@@ -59,6 +72,7 @@ class CotizacionController extends Controller
 
         $data = $request->validate([
             'id_atencion' => ['sometimes', 'required', 'exists:atenciones,id'],
+            'id_tipo_cotizacion' => ['sometimes', 'required', 'exists:tipos_cotizaciones,id'],
             'cant_adultos' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_menores' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_viejos' => ['sometimes', 'required', 'integer', 'min:0'],
@@ -82,5 +96,41 @@ class CotizacionController extends Controller
         $cotizacion->update(['borrado_logico' => true]);
 
         return response()->json(['message' => 'Deleted']);
+    }
+
+    private function pagosUnificados(Cotizacion $cotizacion): array
+    {
+        $pagos = DB::table('pagos_cotizaciones as pc')
+            ->join('pagos as p', 'pc.id_pago', '=', 'p.id')
+            ->where('pc.id_cotizacion', $cotizacion->id)
+            ->where('p.borrado_logico', false)
+            ->orderBy('p.fecha_pago')
+            ->orderBy('pc.id')
+            ->get([
+                'pc.id',
+                'pc.monto_asignado',
+                'p.id as id_pago',
+                'p.fecha_pago',
+                'p.id_metodo_pago',
+                'p.tipo_pago',
+                'p.nro_comprobante',
+                'p.id_tasa_cambio',
+                'p.estatus',
+            ])
+            ->map(function ($pago) {
+                return [
+                    'id' => $pago->id,
+                    'id_pago' => $pago->id_pago,
+                    'monto' => (float) $pago->monto_asignado,
+                    'fecha_pago' => $pago->fecha_pago,
+                    'id_metodo_pago' => $pago->id_metodo_pago,
+                    'nro_comprobante' => $pago->nro_comprobante,
+                    'id_tasa_cambio' => $pago->id_tasa_cambio,
+                    'estatus' => $pago->estatus,
+                ];
+            })
+            ->all();
+
+        return $pagos;
     }
 }

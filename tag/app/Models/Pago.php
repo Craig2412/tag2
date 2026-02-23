@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pago extends Model
 {
@@ -13,9 +14,8 @@ class Pago extends Model
     protected $table = 'pagos';
 
     protected $fillable = [
-        'id_cotizacion',
         'fecha_pago',
-        'monto_abono',
+        'monto_total',
         'id_metodo_pago',
         'nro_comprobante',
         'id_tasa_cambio',
@@ -28,10 +28,10 @@ class Pago extends Model
         'borrado_logico' => 'boolean',
     ];
 
-    // Devuelve la cotizacion a la que pertenece el pago.
-    public function cotizacion(): BelongsTo
+    // Lista las cotizaciones vinculadas a este pago.
+    public function cotizaciones(): HasMany
     {
-        return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
+        return $this->hasMany(PagoCotizacion::class, 'id_pago');
     }
 
     // Devuelve el metodo de pago usado.
