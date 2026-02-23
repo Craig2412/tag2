@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AtencionController;
-use App\Http\Controllers\AtencionPersonalController;
 use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
@@ -52,8 +51,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['personal-empresas' => 'personalEmpresa']);
     Route::apiResource('origenes', OrigenController::class);
     Route::apiResource('atenciones', AtencionController::class);
-    Route::apiResource('atenciones-personal', AtencionPersonalController::class)
-        ->parameters(['atenciones-personal' => 'atencionPersonal']);
     Route::apiResource('cotizaciones', CotizacionController::class);
     Route::apiResource('tipos-cotizaciones', TipoCotizacionController::class)
         ->parameters(['tipos-cotizaciones' => 'tipoCotizacion']);
@@ -99,7 +96,6 @@ Rutas protegidas (auth:sanctum):
 - /origenes: CRUD completo con OrigenController (index, store, show, update, destroy).
 - /atenciones: CRUD completo con AtencionController (index, store, show, update, destroy).
     En store y update valida que cliente y personal tengan los roles correctos.
-- /atenciones-personal: CRUD completo con AtencionPersonalController (index, store, show, update, destroy).
     En store y update valida que el personal tenga el rol correcto.
 - /personal-empresas: CRUD completo con PersonalEmpresaController (index, store, show, update, destroy).
     En store y update valida que el personal tenga el rol correcto.

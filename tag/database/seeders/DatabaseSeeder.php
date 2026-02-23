@@ -27,7 +27,6 @@ class DatabaseSeeder extends Seeder
             ServiciosSeeder::class,
             OrigenesSeeder::class,
             AtencionesSeeder::class,
-            AtencionesPersonalSeeder::class,
             CotizacionesSeeder::class,
             ServiciosCotizacionesSeeder::class,
             MetodosPagoSeeder::class,

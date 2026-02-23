@@ -66,11 +66,6 @@
       "type": "string"
     },
     {
-      "key": "atencionPersonalId",
-      "value": "1",
-      "type": "string"
-    },
-    {
       "key": "cotizacionId",
       "value": "1",
       "type": "string"
@@ -1422,96 +1417,6 @@
               "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
               "host": ["{{baseUrl}}"],
               "path": ["atenciones", "{{atencionId}}"]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Atenciones Personal",
-      "item": [
-        {
-          "name": "Atenciones Personal - Listar",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/atenciones-personal",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones-personal"]
-            }
-          }
-        },
-        {
-          "name": "Atenciones Personal - Crear",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/atenciones-personal",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones-personal"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"id_atencion\": {{atencionId}},\n  \"id_personal\": {{personalId}}\n}"
-            }
-          }
-        },
-        {
-          "name": "Atenciones Personal - Ver",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/atenciones-personal/{{atencionPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones-personal", "{{atencionPersonalId}}"]
-            }
-          }
-        },
-        {
-          "name": "Atenciones Personal - Actualizar",
-          "request": {
-            "method": "PUT",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/atenciones-personal/{{atencionPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones-personal", "{{atencionPersonalId}}"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"id_atencion\": {{atencionId}},\n  \"id_personal\": {{personalId}}\n}"
-            }
-          }
-        },
-        {
-          "name": "Atenciones Personal - Eliminar",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/atenciones-personal/{{atencionPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones-personal", "{{atencionPersonalId}}"]
             }
           }
         }
