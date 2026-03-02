@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class TasaCambioController extends Controller
 {
+    private function validarUnRegistroPorDia(string $fecha): ?\Illuminate\Http\JsonResponse
+    {
+        $existeRegistroDelDia = TasaCambio::whereDate('fecha', $fecha)->exists();
+
+        if ($existeRegistroDelDia) {
+            return response()->json([
+                'message' => 'Ya existe una tasa de cambio registrada para la fecha de hoy',
+            ], 422);
+        }
+
+        return null;
+    }
+
     public function index()
     {
         // Lista las tasas activas y las devuelve en JSON.
@@ -30,6 +43,11 @@ class TasaCambioController extends Controller
 
         $data['fecha'] = now()->toDateString();
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
+
+        $errorValidacion = $this->validarUnRegistroPorDia($data['fecha']);
+        if ($errorValidacion) {
+            return $errorValidacion;
+        }
 
         $tasa = TasaCambio::create($data);
 

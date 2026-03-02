@@ -19,6 +19,7 @@ class Cotizacion extends Model
         'cant_adultos',
         'cant_menores',
         'cant_viejos',
+        'id_tasa_asignada',
         'id_tasa_cambio',
         'estatus',
         'borrado_logico',
@@ -44,6 +45,12 @@ class Cotizacion extends Model
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
+    }
+
+    // Devuelve la tasa asignada a la cotizacion.
+    public function tasaAsignada(): BelongsTo
+    {
+        return $this->belongsTo(Tasa::class, 'id_tasa_asignada');
     }
 
     // Devuelve el estatus actual de la cotizacion.

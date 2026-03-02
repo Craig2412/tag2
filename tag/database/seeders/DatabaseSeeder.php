@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
+            TemporalidadesSeeder::class,
+            MetasSeeder::class,
+            MetasPersonalSeeder::class,
             EstatusSeeder::class,
             ConfiguracionesSistemaSeeder::class,
             TiposContribuyentesSeeder::class,
@@ -23,6 +26,7 @@ class DatabaseSeeder extends Seeder
             TiposProveedoresSeeder::class,
             ProveedoresSeeder::class,
             TipoServicioSeeder::class,
+            TasasSeeder::class,
             TasasCambioSeeder::class,
             ServiciosSeeder::class,
             OrigenesSeeder::class,

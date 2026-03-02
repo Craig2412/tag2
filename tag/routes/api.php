@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AtencionController;
+use App\Http\Controllers\AuditLogController;
 use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
@@ -15,7 +16,11 @@ use App\Http\Controllers\PagoProveedorController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\ServicioCotizacionController;
+use App\Http\Controllers\TasaController;
 use App\Http\Controllers\TasaCambioController;
+use App\Http\Controllers\TemporalidadController;
+use App\Http\Controllers\MetaController;
+use App\Http\Controllers\MetaPersonalController;
 use App\Http\Controllers\TipoCotizacionController;
 use App\Http\Controllers\TipoContribuyenteController;
 use App\Http\Controllers\TipoProveedorController;
@@ -66,9 +71,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('proveedores', ProveedorController::class);
     Route::apiResource('tipo-servicio', TipoServicioController::class)
         ->parameters(['tipo-servicio' => 'tipoServicio']);
+    Route::apiResource('tasas', TasaController::class)
+        ->parameters(['tasas' => 'tasa']);
     Route::apiResource('tasas-cambio', TasaCambioController::class)
         ->parameters(['tasas-cambio' => 'tasaCambio']);
     Route::apiResource('servicios', ServicioController::class);
+    Route::apiResource('temporalidades', TemporalidadController::class)
+        ->parameters(['temporalidades' => 'temporalidad']);
+    Route::apiResource('metas', MetaController::class);
+    Route::apiResource('metas-personal', MetaPersonalController::class)
+        ->parameters(['metas-personal' => 'metaPersonal']);
+    Route::get('audit-logs/export/csv', [AuditLogController::class, 'exportCsv'])
+        ->middleware('role:admin');
+    Route::get('audit-logs', [AuditLogController::class, 'index'])
+        ->middleware('role:admin');
 
     Route::get('/admin-only', function () {
         return response()->json(['message' => 'Admin access granted']);
@@ -100,7 +116,7 @@ Rutas protegidas (auth:sanctum):
 - /personal-empresas: CRUD completo con PersonalEmpresaController (index, store, show, update, destroy).
     En store y update valida que el personal tenga el rol correcto.
 - /cotizaciones: CRUD completo con CotizacionController (index, store, show, update, destroy).
-    En store asigna el estatus inicial "por pagar".
+    En store asigna el estatus inicial "por pagar" y recibe id_tasa_asignada.
 - /tipos-cotizaciones: CRUD completo con TipoCotizacionController.
 - /servicios-cotizaciones: CRUD de la tabla puente con ServicioCotizacionController.
 - /metodos-pago: CRUD completo con MetodoPagoController.

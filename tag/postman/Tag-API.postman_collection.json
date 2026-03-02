@@ -119,6 +119,26 @@
       "key": "cuentaProveedorId",
       "value": "1",
       "type": "string"
+    },
+    {
+      "key": "temporalidadId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "metaId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "metaPersonalId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "tasaId",
+      "value": "1",
+      "type": "string"
     }
   ],
   "item": [
@@ -1186,7 +1206,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 100,\n  \"monto_gravable\": 100,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 100,\n  \"monto_gravable\": 100,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
             }
           }
         },
@@ -1221,7 +1241,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 120,\n  \"monto_gravable\": 120,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"id_tipo_servicio\": 1,\n  \"id_proveedor\": 1,\n  \"costo\": 120,\n  \"monto_gravable\": 120,\n  \"monto_no_sujeto\": 0,\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
             }
           }
         },
@@ -1456,7 +1476,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_atencion\": 1,\n  \"id_tipo_cotizacion\": {{tipoCotizacionId}},\n  \"cant_adultos\": 2,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"id_atencion\": 1,\n  \"id_tipo_cotizacion\": {{tipoCotizacionId}},\n  \"cant_adultos\": 2,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}},\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
             }
           }
         },
@@ -1491,7 +1511,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cant_adultos\": 3,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_cambio\": 1\n}"
+              "raw": "{\n  \"cant_adultos\": 3,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}},\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
             }
           }
         },
@@ -1816,7 +1836,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_total\": 200,\n  \"id_metodo_pago\": {{metodoPagoId}},\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": 1,\n  \"estatus\": 1,\n  \"cotizaciones\": [\n    {\n      \"id_cotizacion\": {{cotizacionId}},\n      \"monto_asignado\": 120\n    },\n    {\n      \"id_cotizacion\": 2,\n      \"monto_asignado\": 80\n    }\n  ]\n}"
+              "raw": "{\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_total\": 200,\n  \"id_metodo_pago\": {{metodoPagoId}},\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": 1,\n  \"cotizaciones\": [\n    {\n      \"id_cotizacion\": {{cotizacionId}},\n      \"monto_asignado\": 120\n    },\n    {\n      \"id_cotizacion\": 2,\n      \"monto_asignado\": 80\n    }\n  ]\n}"
             }
           }
         },
@@ -1867,6 +1887,463 @@
               "raw": "{{baseUrl}}/pagos/{{pagoId}}",
               "host": ["{{baseUrl}}"],
               "path": ["pagos", "{{pagoId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Temporalidades",
+      "item": [
+        {
+          "name": "Temporalidades - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/temporalidades",
+              "host": ["{{baseUrl}}"],
+              "path": ["temporalidades"]
+            }
+          }
+        },
+        {
+          "name": "Temporalidades - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/temporalidades",
+              "host": ["{{baseUrl}}"],
+              "path": ["temporalidades"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temporalidad\": \"Bimestral\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Temporalidades - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["temporalidades", "{{temporalidadId}}"]
+            }
+          }
+        },
+        {
+          "name": "Temporalidades - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["temporalidades", "{{temporalidadId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temporalidad\": \"Trimestral\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Temporalidades - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["temporalidades", "{{temporalidadId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metas",
+      "item": [
+        {
+          "name": "Metas - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas"]
+            }
+          }
+        },
+        {
+          "name": "Metas - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cant_atenciones_aprobadas\": 10,\n  \"cant_cotizaciones_cerradas\": 6,\n  \"cant_cotizaciones_pagadas\": 4,\n  \"id_temporalidad\": {{temporalidadId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Metas - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas/{{metaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas", "{{metaId}}"]
+            }
+          }
+        },
+        {
+          "name": "Metas - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas/{{metaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas", "{{metaId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cant_atenciones_aprobadas\": 12,\n  \"cant_cotizaciones_cerradas\": 7,\n  \"cant_cotizaciones_pagadas\": 5,\n  \"id_temporalidad\": {{temporalidadId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Metas - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas/{{metaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas", "{{metaId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metas Personal",
+      "item": [
+        {
+          "name": "Metas Personal - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas-personal",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas-personal"]
+            }
+          }
+        },
+        {
+          "name": "Metas Personal - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas-personal",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas-personal"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_meta\": {{metaId}},\n  \"id_personal\": {{personalId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Metas Personal - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas-personal", "{{metaPersonalId}}"]
+            }
+          }
+        },
+        {
+          "name": "Metas Personal - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas-personal", "{{metaPersonalId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_meta\": {{metaId}},\n  \"id_personal\": {{personalId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Metas Personal - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["metas-personal", "{{metaPersonalId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasas",
+      "item": [
+        {
+          "name": "Tasas - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas"]
+            }
+          }
+        },
+        {
+          "name": "Tasas - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasa\": \"BCV USD\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Tasas - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas/{{tasaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas", "{{tasaId}}"]
+            }
+          }
+        },
+        {
+          "name": "Tasas - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas/{{tasaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas", "{{tasaId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasa\": \"BCV EUR\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Tasas - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasas/{{tasaId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasas", "{{tasaId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auditoria",
+      "item": [
+        {
+          "name": "Auditoria - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit-logs"]
+            }
+          }
+        },
+        {
+          "name": "Auditoria - Filtrar por usuario",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs?user_id={{personalId}}&per_page=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit-logs"],
+              "query": [
+                { "key": "user_id", "value": "{{personalId}}" },
+                { "key": "per_page", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Auditoria - Filtrar por acción",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs?action=UPDATE&per_page=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit-logs"],
+              "query": [
+                { "key": "action", "value": "UPDATE" },
+                { "key": "per_page", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Auditoria - Exportar CSV",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "text/csv" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs/export/csv?desde=2026-01-01&hasta=2026-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit-logs", "export", "csv"],
+              "query": [
+                { "key": "desde", "value": "2026-01-01" },
+                { "key": "hasta", "value": "2026-12-31" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Auditoria - Exportar CSV (resumen)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "text/csv" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs/export/csv?modo=resumen&desde=2026-01-01&hasta=2026-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit-logs", "export", "csv"],
+              "query": [
+                { "key": "modo", "value": "resumen" },
+                { "key": "desde", "value": "2026-01-01" },
+                { "key": "hasta", "value": "2026-12-31" }
+              ]
             }
           }
         }

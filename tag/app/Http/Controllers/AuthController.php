@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estatus;
 use App\Models\User;
+use App\Services\AuditLogger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -125,7 +126,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         // Cierra la sesion actual eliminando el token.
+        $user = $request->user();
         $request->user()?->currentAccessToken()?->delete();
+
+        AuditLogger::logAuthEvent('LOGOUT', $request, $user, true, 'Logout exitoso', [], 200);
 
         return response()->json(['message' => 'Logged out']);
     }
@@ -145,14 +149,44 @@ class AuthController extends Controller
         $user = User::where('email', $data['email'])->first();
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
+            AuditLogger::logAuthEvent(
+                'LOGIN',
+                $request,
+                null,
+                false,
+                'Credenciales inválidas',
+                ['email' => $data['email']],
+                401
+            );
+
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
 
         if ($requiredRole && !$user->hasRole($requiredRole)) {
+            AuditLogger::logAuthEvent(
+                'LOGIN',
+                $request,
+                $user,
+                false,
+                'Acceso denegado por rol',
+                ['required_role' => $requiredRole],
+                403
+            );
+
             return response()->json(['message' => 'Forbidden'], 403);
         }
 
         $token = $user->createToken('api-token', $this->abilitiesFor($user))->plainTextToken;
+
+        AuditLogger::logAuthEvent(
+            'LOGIN',
+            $request,
+            $user,
+            true,
+            'Login exitoso',
+            ['required_role' => $requiredRole],
+            200
+        );
 
         return response()->json([
             'user' => $user,

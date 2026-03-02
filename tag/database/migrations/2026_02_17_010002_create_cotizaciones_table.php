@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('cant_adultos');
             $table->unsignedInteger('cant_menores');
             $table->unsignedInteger('cant_viejos');
+            $table->foreignId('id_tasa_asignada')->constrained('tasas');
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
             $table->foreignId('estatus')->constrained('estatus');
             $table->boolean('borrado_logico')->default(false);
