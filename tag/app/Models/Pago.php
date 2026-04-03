@@ -29,9 +29,9 @@ class Pago extends Model
     ];
 
     // Lista las cotizaciones vinculadas a este pago.
-    public function cotizaciones(): HasMany
+    public function ordenesCompra(): HasMany
     {
-        return $this->hasMany(PagoCotizacion::class, 'id_pago');
+        return $this->hasMany(PagoOrdenCompra::class, 'id_pago');
     }
 
     // Devuelve el metodo de pago usado.

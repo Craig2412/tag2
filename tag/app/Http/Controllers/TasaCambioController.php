@@ -32,14 +32,16 @@ class TasaCambioController extends Controller
 
     public function store(Request $request)
     {
-        // Crea una tasa de cambio, asigna la fecha de hoy y la devuelve.
+        // Crea una tasa de cambio aplicando porcentaje personalizado a las tasas base.
         $data = $request->validate([
-            'tasa_usd' => ['required', 'numeric'],
-            'tasa_eur' => ['required', 'numeric'],
-            'tasa_binance' => ['required', 'numeric'],
-            'tasa_personalizada' => ['required', 'numeric'],
+            'tasa_usd' => ['required', 'numeric', 'min:0.0001'],
+            'tasa_eur' => ['required', 'numeric', 'min:0.0001'],
+            'tasa_binance' => ['required', 'numeric', 'min:0.0001'],
+            'tasa_personalizada' => ['required', 'numeric', 'min:0'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
+
+        $data = $this->aplicarIncrementoPorcentual($data);
 
         $data['fecha'] = now()->toDateString();
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
@@ -72,12 +74,31 @@ class TasaCambioController extends Controller
         }
 
         $data = $request->validate([
-            'tasa_usd' => ['sometimes', 'required', 'numeric'],
-            'tasa_eur' => ['sometimes', 'required', 'numeric'],
-            'tasa_binance' => ['sometimes', 'required', 'numeric'],
-            'tasa_personalizada' => ['sometimes', 'required', 'numeric'],
+            'tasa_usd' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
+            'tasa_eur' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
+            'tasa_binance' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
+            'tasa_personalizada' => ['sometimes', 'required', 'numeric', 'min:0'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
+
+        $camposTasa = ['tasa_usd', 'tasa_eur', 'tasa_binance', 'tasa_personalizada'];
+        $algunCampoTasa = collect($camposTasa)->contains(fn (string $campo) => array_key_exists($campo, $data));
+
+        if ($algunCampoTasa) {
+            $faltantes = collect($camposTasa)
+                ->filter(fn (string $campo) => !array_key_exists($campo, $data))
+                ->values()
+                ->all();
+
+            if (!empty($faltantes)) {
+                return response()->json([
+                    'message' => 'Para recalcular tasas debes enviar tasa_usd, tasa_eur, tasa_binance y tasa_personalizada',
+                    'faltantes' => $faltantes,
+                ], 422);
+            }
+
+            $data = $this->aplicarIncrementoPorcentual($data);
+        }
 
         $tasaCambio->update($data);
 
@@ -94,5 +115,17 @@ class TasaCambioController extends Controller
         $tasaCambio->update(['borrado_logico' => true]);
 
         return response()->json(['message' => 'Deleted']);
+    }
+
+    private function aplicarIncrementoPorcentual(array $data): array
+    {
+        $porcentaje = (float) $data['tasa_personalizada'];
+        $factor = 1 + ($porcentaje / 100);
+
+        $data['tasa_usd'] = round(((float) $data['tasa_usd']) * $factor, 4);
+        $data['tasa_eur'] = round(((float) $data['tasa_eur']) * $factor, 4);
+        $data['tasa_binance'] = round(((float) $data['tasa_binance']) * $factor, 4);
+
+        return $data;
     }
 }

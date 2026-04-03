@@ -2,49 +2,42 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\MetodoPago;
+use App\Models\OrdenCompra;
 use App\Models\Pago;
-use App\Models\PagoCotizacion;
+use App\Models\PagoOrdenCompra;
 use App\Models\TasaCambio;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class PagosSeeder extends Seeder
 {
     public function run(): void
     {
-        $cotizaciones = Cotizacion::where('borrado_logico', false)
+        $ordenesCompra = OrdenCompra::query()
             ->orderBy('id')
             ->get();
         $metodo = MetodoPago::first();
         $tasa = TasaCambio::first();
 
-        if ($cotizaciones->count() < 1 || !$metodo || !$tasa) {
+        if ($ordenesCompra->count() < 1 || !$metodo || !$tasa) {
             return;
         }
 
         $detalles = [];
 
-        foreach ($cotizaciones as $cotizacion) {
-            $totalServicios = (float) DB::table('servicios_cotizaciones')
-                ->join('servicios', 'servicios_cotizaciones.id_servicio', '=', 'servicios.id')
-                ->where('servicios_cotizaciones.id_cotizacion', $cotizacion->id)
-                ->sum('servicios.total_servicio');
+        foreach ($ordenesCompra as $ordenCompra) {
+            $ordenCompra->recalcularMontoTotal();
+            $totalServicios = (float) $ordenCompra->monto_total;
 
             if ($totalServicios <= 0) {
                 continue;
             }
 
             $detalles[] = [
-                'id_cotizacion' => $cotizacion->id,
-                'monto_asignado' => min(50, $totalServicios),
+                'id_orden_compra' => $ordenCompra->id,
+                'monto_asignado' => round($totalServicios * 0.4, 2),
             ];
-
-            if (count($detalles) >= 2) {
-                break;
-            }
         }
 
         if (count($detalles) === 0) {
@@ -53,7 +46,7 @@ class PagosSeeder extends Seeder
 
         $montoTotal = array_sum(array_column($detalles, 'monto_asignado'));
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'por pagar']);
+        $estatus = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
 
         $pago = Pago::firstOrCreate(
             [
@@ -70,10 +63,10 @@ class PagosSeeder extends Seeder
         );
 
         foreach ($detalles as $detalle) {
-            PagoCotizacion::firstOrCreate(
+            PagoOrdenCompra::firstOrCreate(
                 [
                     'id_pago' => $pago->id,
-                    'id_cotizacion' => $detalle['id_cotizacion'],
+                    'id_orden_compra' => $detalle['id_orden_compra'],
                 ],
                 [
                     'monto_asignado' => $detalle['monto_asignado'],

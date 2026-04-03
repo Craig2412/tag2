@@ -13,7 +13,7 @@ return new class extends Migration
             $table->decimal('tasa_usd', 12, 4);
             $table->decimal('tasa_eur', 12, 4);
             $table->decimal('tasa_binance', 12, 4);
-            $table->decimal('tasa_personalizada', 12, 4);
+            $table->decimal('tasa_personalizada', 5, 2);
             $table->date('fecha');
             $table->boolean('borrado_logico')->default(false);
             $table->timestamps();

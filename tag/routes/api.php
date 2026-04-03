@@ -9,8 +9,10 @@ use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\ConfiguracionSistemaController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstatusController;
+use App\Http\Controllers\KiuController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\OrigenController;
+use App\Http\Controllers\OrdenCompraController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PagoProveedorController;
 use App\Http\Controllers\ProveedorController;
@@ -21,6 +23,7 @@ use App\Http\Controllers\TasaCambioController;
 use App\Http\Controllers\TemporalidadController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\MetaPersonalController;
+use App\Http\Controllers\LogroPersonalController;
 use App\Http\Controllers\TipoCotizacionController;
 use App\Http\Controllers\TipoContribuyenteController;
 use App\Http\Controllers\TipoProveedorController;
@@ -54,21 +57,27 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['clientes-empresas' => 'clientesEmpresa']);
     Route::apiResource('personal-empresas', PersonalEmpresaController::class)
         ->parameters(['personal-empresas' => 'personalEmpresa']);
-    Route::apiResource('origenes', OrigenController::class);
-    Route::apiResource('atenciones', AtencionController::class);
-    Route::apiResource('cotizaciones', CotizacionController::class);
+    Route::apiResource('origenes', OrigenController::class)
+        ->parameters(['origenes' => 'origen']);
+    Route::apiResource('atenciones', AtencionController::class)
+        ->parameters(['atenciones' => 'atencion']);
+    Route::apiResource('cotizaciones', CotizacionController::class)
+        ->parameters(['cotizaciones' => 'cotizacion']);
     Route::apiResource('tipos-cotizaciones', TipoCotizacionController::class)
         ->parameters(['tipos-cotizaciones' => 'tipoCotizacion']);
     Route::apiResource('servicios-cotizaciones', ServicioCotizacionController::class)
         ->parameters(['servicios-cotizaciones' => 'servicioCotizacion']);
     Route::apiResource('metodos-pago', MetodoPagoController::class)
         ->parameters(['metodos-pago' => 'metodoPago']);
+    Route::apiResource('ordenes-compra', OrdenCompraController::class)
+        ->parameters(['ordenes-compra' => 'ordenCompra']);
     Route::apiResource('pagos', PagoController::class);
     Route::apiResource('pagos-proveedores', PagoProveedorController::class)
         ->parameters(['pagos-proveedores' => 'pagoProveedor']);
     Route::apiResource('tipos-proveedores', TipoProveedorController::class)
         ->parameters(['tipos-proveedores' => 'tipoProveedor']);
-    Route::apiResource('proveedores', ProveedorController::class);
+    Route::apiResource('proveedores', ProveedorController::class)
+        ->parameters(['proveedores' => 'proveedor']);
     Route::apiResource('tipo-servicio', TipoServicioController::class)
         ->parameters(['tipo-servicio' => 'tipoServicio']);
     Route::apiResource('tasas', TasaController::class)
@@ -81,10 +90,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('metas', MetaController::class);
     Route::apiResource('metas-personal', MetaPersonalController::class)
         ->parameters(['metas-personal' => 'metaPersonal']);
+    Route::get('logros-personal', [LogroPersonalController::class, 'index'])
+        ->middleware('role:admin');
     Route::get('audit-logs/export/csv', [AuditLogController::class, 'exportCsv'])
         ->middleware('role:admin');
     Route::get('audit-logs', [AuditLogController::class, 'index'])
         ->middleware('role:admin');
+
+    Route::prefix('kiu')->controller(KiuController::class)->group(function () {
+        Route::post('session', 'session');
+        Route::post('availability', 'availability');
+        Route::post('pricing', 'pricing');
+        Route::post('booking', 'booking');
+        Route::post('ticketing', 'ticketing');
+        Route::post('post-sale', 'postSale');
+    });
 
     Route::get('/admin-only', function () {
         return response()->json(['message' => 'Admin access granted']);
@@ -121,7 +141,7 @@ Rutas protegidas (auth:sanctum):
 - /servicios-cotizaciones: CRUD de la tabla puente con ServicioCotizacionController.
 - /metodos-pago: CRUD completo con MetodoPagoController.
 - /pagos: CRUD completo con PagoController.
-    Distribuye montos entre varias cotizaciones y actualiza estatus.
+    Distribuye montos entre varias ordenes de compra y actualiza estatus.
 - /pagos-proveedores: CRUD completo con PagoProveedorController.
 - /tipos-proveedores: CRUD completo con TipoProveedorController.
 - /proveedores: CRUD completo con ProveedorController.

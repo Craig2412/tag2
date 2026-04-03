@@ -57,3 +57,39 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Integracion KIU Sandbox
+
+Se agrego una capa de integracion para consumir el sandbox de KIU desde esta API Laravel. La configuracion vive en `config/services.php` bajo `services.kiu` y las credenciales/paths del sandbox se definen en `.env` con variables `KIU_*`.
+
+Endpoints disponibles en la API:
+
+- `POST /api/kiu/session`
+- `POST /api/kiu/availability`
+- `POST /api/kiu/pricing`
+- `POST /api/kiu/booking`
+- `POST /api/kiu/ticketing`
+- `POST /api/kiu/post-sale`
+
+Payload minimo esperado:
+
+```json
+{
+	"payload": "<KIURequest>...</KIURequest>",
+	"headers": {
+		"X-Correlation-Id": "req-001"
+	},
+	"query": {
+		"office": "CCS1"
+	},
+	"context": {
+		"reservation_code": "ABC123"
+	}
+}
+```
+
+Notas importantes:
+
+- Sin la URL sandbox real y las credenciales entregadas por KIU, la conexion no puede ejecutarse contra el proveedor.
+- La capa creada actua como proxy seguro hacia KIU y deja separado el transporte HTTP del resto de la logica del proyecto.
+- Si KIU exige SOAPAction, headers propios o rutas distintas por operacion, se ajustan con las variables `KIU_*_SOAP_ACTION` y `KIU_*_PATH`.

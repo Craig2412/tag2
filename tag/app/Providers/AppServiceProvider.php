@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\AuditLogger;
+use App\Services\LogroPersonalLogger;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
             if ($model instanceof Model) {
                 AuditLogger::captureBeforeUpdate($model);
+                LogroPersonalLogger::captureBeforeUpdate($model);
             }
         });
 
@@ -51,6 +53,7 @@ class AppServiceProvider extends ServiceProvider
 
             if ($model instanceof Model) {
                 AuditLogger::logModelUpdated($model);
+                LogroPersonalLogger::logStatusChange($model);
             }
         });
 

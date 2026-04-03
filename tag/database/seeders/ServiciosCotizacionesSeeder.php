@@ -12,15 +12,17 @@ class ServiciosCotizacionesSeeder extends Seeder
     public function run(): void
     {
         $cotizacion = Cotizacion::first();
-        $servicio = Servicio::first();
+        $servicios = Servicio::where('borrado_logico', false)->orderBy('id')->get();
 
-        if (!$cotizacion || !$servicio) {
+        if (!$cotizacion || $servicios->isEmpty()) {
             return;
         }
 
-        ServicioCotizacion::firstOrCreate([
-            'id_cotizacion' => $cotizacion->id,
-            'id_servicio' => $servicio->id,
-        ]);
+        foreach ($servicios as $servicio) {
+            ServicioCotizacion::firstOrCreate([
+                'id_cotizacion' => $cotizacion->id,
+                'id_servicio' => $servicio->id,
+            ]);
+        }
     }
 }

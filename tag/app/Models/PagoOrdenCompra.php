@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PagoCotizacion extends Model
+class PagoOrdenCompra extends Model
 {
     use HasFactory;
 
-    protected $table = 'pagos_cotizaciones';
+    protected $table = 'pagos_ordenes_compra';
 
     protected $fillable = [
         'id_pago',
-        'id_cotizacion',
+        'id_orden_compra',
         'monto_asignado',
     ];
 
@@ -24,9 +24,9 @@ class PagoCotizacion extends Model
         return $this->belongsTo(Pago::class, 'id_pago');
     }
 
-    // Devuelve la cotizacion asociada.
-    public function cotizacion(): BelongsTo
+    // Devuelve la orden de compra asociada.
+    public function ordenCompra(): BelongsTo
     {
-        return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
+        return $this->belongsTo(OrdenCompra::class, 'id_orden_compra');
     }
 }

@@ -6,7 +6,6 @@ use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\Tasa;
-use App\Models\TasaCambio;
 use App\Models\TipoCotizacion;
 use Illuminate\Database\Seeder;
 
@@ -16,14 +15,13 @@ class CotizacionesSeeder extends Seeder
     {
         $atencion = Atencion::first();
         $tasaAsignada = Tasa::first();
-        $tasa = TasaCambio::first();
         $tipo = TipoCotizacion::where('tipo_cotizacion', 'personal')->first();
 
-        if (!$atencion || !$tasaAsignada || !$tasa || !$tipo) {
+        if (!$atencion || !$tasaAsignada || !$tipo) {
             return;
         }
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'por pagar']);
+        $estatus = Estatus::firstOrCreate(['estatus' => 'por confirmar']);
 
         Cotizacion::firstOrCreate(
             ['id_atencion' => $atencion->id],
@@ -33,7 +31,6 @@ class CotizacionesSeeder extends Seeder
                 'cant_viejos' => 0,
                 'id_tipo_cotizacion' => $tipo->id,
                 'id_tasa_asignada' => $tasaAsignada->id,
-                'id_tasa_cambio' => $tasa->id,
                 'estatus' => $estatus->id,
                 'borrado_logico' => false,
             ]

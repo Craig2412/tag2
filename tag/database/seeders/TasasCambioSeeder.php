@@ -9,13 +9,19 @@ class TasasCambioSeeder extends Seeder
 {
     public function run(): void
     {
+        $tasaUsdBase = 36.5;
+        $tasaEurBase = 39.8;
+        $tasaBinanceBase = 36.7;
+        $porcentajePersonalizado = 2.0;
+        $factor = 1 + ($porcentajePersonalizado / 100);
+
         TasaCambio::firstOrCreate(
             ['fecha' => now()->toDateString()],
             [
-                'tasa_usd' => 36.5,
-                'tasa_eur' => 39.8,
-                'tasa_binance' => 36.7,
-                'tasa_personalizada' => 36.6,
+                'tasa_usd' => round($tasaUsdBase * $factor, 4),
+                'tasa_eur' => round($tasaEurBase * $factor, 4),
+                'tasa_binance' => round($tasaBinanceBase * $factor, 4),
+                'tasa_personalizada' => $porcentajePersonalizado,
                 'borrado_logico' => false,
             ]
         );

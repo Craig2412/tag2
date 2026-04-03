@@ -8,20 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('pagos_cotizaciones', function (Blueprint $table) {
+        Schema::create('pagos_ordenes_compra', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_pago')->constrained('pagos');
-            $table->foreignId('id_cotizacion')->constrained('cotizaciones');
+            $table->foreignId('id_orden_compra')->constrained('ordenes_compra');
             $table->decimal('monto_asignado', 12, 2);
             $table->timestamps();
 
-            $table->unique(['id_pago', 'id_cotizacion']);
+            $table->unique(['id_pago', 'id_orden_compra']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('pagos_cotizaciones');
+        Schema::dropIfExists('pagos_ordenes_compra');
     }
 };
-// Descripcion: Crea la tabla pagos_cotizaciones para el detalle de pagos.

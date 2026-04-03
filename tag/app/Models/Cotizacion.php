@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Cotizacion extends Model
 {
@@ -20,7 +21,6 @@ class Cotizacion extends Model
         'cant_menores',
         'cant_viejos',
         'id_tasa_asignada',
-        'id_tasa_cambio',
         'estatus',
         'borrado_logico',
     ];
@@ -41,12 +41,6 @@ class Cotizacion extends Model
         return $this->belongsTo(TipoCotizacion::class, 'id_tipo_cotizacion');
     }
 
-    // Devuelve la tasa de cambio usada en la cotizacion.
-    public function tasaCambio(): BelongsTo
-    {
-        return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
-    }
-
     // Devuelve la tasa asignada a la cotizacion.
     public function tasaAsignada(): BelongsTo
     {
@@ -65,27 +59,9 @@ class Cotizacion extends Model
         return $this->hasMany(ServicioCotizacion::class, 'id_cotizacion');
     }
 
-    // Lista los pagos asociados a esta cotizacion.
-    public function pagosCotizaciones(): HasMany
+    // Devuelve la orden de compra asociada a la cotizacion.
+    public function ordenCompra(): HasOne
     {
-        return $this->hasMany(PagoCotizacion::class, 'id_cotizacion');
-    }
-
-    // Marca como expiradas las cotizaciones que excedan los dias configurados.
-    public static function expirarSiVence(): void
-    {
-        $diasVencimiento = (int) (ConfiguracionSistema::value('dias_vencimiento') ?? 0);
-
-        if ($diasVencimiento <= 0) {
-            return;
-        }
-
-        $fechaLimite = now()->subDays($diasVencimiento);
-        $estatusExpirado = Estatus::firstOrCreate(['estatus' => 'expirado']);
-
-        self::where('borrado_logico', false)
-            ->where('estatus', '!=', $estatusExpirado->id)
-            ->whereRaw('COALESCE(updated_at, created_at) < ?', [$fechaLimite])
-            ->update(['estatus' => $estatusExpirado->id]);
+        return $this->hasOne(OrdenCompra::class, 'id_cotizacion');
     }
 }

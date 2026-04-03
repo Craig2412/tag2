@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrdenCompra;
 use App\Models\ServicioCotizacion;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class ServicioCotizacionController extends Controller
         ]);
 
         $item = ServicioCotizacion::create($data);
+        $this->recalcularOrdenCompraPorCotizacion($item->id_cotizacion);
 
         return response()->json($item, 201);
     }
@@ -40,7 +42,11 @@ class ServicioCotizacionController extends Controller
             'id_cotizacion' => ['sometimes', 'required', 'exists:cotizaciones,id'],
         ]);
 
+        $idCotizacionAnterior = $servicioCotizacion->id_cotizacion;
+
         $servicioCotizacion->update($data);
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacionAnterior);
+        $this->recalcularOrdenCompraPorCotizacion($servicioCotizacion->id_cotizacion);
 
         return response()->json($servicioCotizacion);
     }
@@ -48,8 +54,16 @@ class ServicioCotizacionController extends Controller
     public function destroy(ServicioCotizacion $servicioCotizacion)
     {
         // Elimina la relacion servicio-cotizacion y confirma.
+        $idCotizacion = $servicioCotizacion->id_cotizacion;
         $servicioCotizacion->delete();
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacion);
 
         return response()->json(['message' => 'Deleted']);
+    }
+
+    private function recalcularOrdenCompraPorCotizacion(int $idCotizacion): void
+    {
+        $ordenCompra = OrdenCompra::where('id_cotizacion', $idCotizacion)->first();
+        $ordenCompra?->recalcularMontoTotal();
     }
 }

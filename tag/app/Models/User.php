@@ -61,4 +61,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(TipoContribuyente::class, 'id_tipo_contribuyente');
     }
+
+    // Lista los logros registrados para este personal.
+    public function logrosPersonal(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(LogroPersonal::class, 'id_personal');
+    }
 }

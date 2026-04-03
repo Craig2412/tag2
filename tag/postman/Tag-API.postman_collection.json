@@ -71,6 +71,11 @@
       "type": "string"
     },
     {
+      "key": "ordenCompraId",
+      "value": "1",
+      "type": "string"
+    },
+    {
       "key": "tipoCotizacionId",
       "value": "1",
       "type": "string"
@@ -138,6 +143,26 @@
     {
       "key": "tasaId",
       "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "estatusConfirmadoId",
+      "value": "5",
+      "type": "string"
+    },
+    {
+      "key": "estatusPendientePagoId",
+      "value": "6",
+      "type": "string"
+    },
+    {
+      "key": "estatusPagadoId",
+      "value": "8",
+      "type": "string"
+    },
+    {
+      "key": "kiuXmlPayload",
+      "value": "<KIURequest></KIURequest>",
       "type": "string"
     }
   ],
@@ -261,6 +286,24 @@
       }
     },
     {
+      "name": "Logros Personal - Listar",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/logros-personal?per_page=50",
+          "host": ["{{baseUrl}}"],
+          "path": ["logros-personal"],
+          "query": [
+            { "key": "per_page", "value": "50" }
+          ]
+        }
+      }
+    },
+    {
       "name": "API - Status",
       "request": {
         "method": "GET",
@@ -271,6 +314,131 @@
           "path": ["status"]
         }
       }
+    },
+    {
+      "name": "KIU Sandbox",
+      "item": [
+        {
+          "name": "KIU - Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/session",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "session"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"session_label\": \"sandbox-login\"\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "KIU - Availability",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/availability",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "availability"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"origin\": \"CCS\",\n    \"destination\": \"MAD\",\n    \"departure_date\": \"2026-04-15\",\n    \"adults\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "KIU - Pricing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/pricing",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "pricing"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"reservation_code\": \"ABC123\",\n    \"currency\": \"USD\"\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "KIU - Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/booking",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "booking"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"contact_email\": \"cliente@example.com\",\n    \"passengers\": [\n      {\n        \"first_name\": \"JUAN\",\n        \"last_name\": \"PEREZ\",\n        \"type\": \"ADT\"\n      }\n    ]\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "KIU - Ticketing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/ticketing",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "ticketing"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"reservation_code\": \"ABC123\",\n    \"payment_reference\": \"PAY-001\"\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "KIU - Post Sale",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/kiu/post-sale",
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "post-sale"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"action\": \"cancel\",\n    \"reservation_code\": \"ABC123\",\n    \"reason\": \"Prueba de sandbox\"\n  }\n}"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Tipos Proveedores",
@@ -666,7 +834,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tasa_usd\": 36.5,\n  \"tasa_eur\": 39.8,\n  \"tasa_binance\": 36.7,\n  \"tasa_personalizada\": 36.6\n}"
+              "raw": "{\n  \"tasa_usd\": 36.5,\n  \"tasa_eur\": 39.8,\n  \"tasa_binance\": 36.7,\n  \"tasa_personalizada\": 2\n}"
             }
           }
         },
@@ -701,7 +869,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tasa_usd\": 37,\n  \"tasa_eur\": 40,\n  \"tasa_binance\": 36.9,\n  \"tasa_personalizada\": 36.8\n}"
+              "raw": "{\n  \"tasa_usd\": 37,\n  \"tasa_eur\": 40,\n  \"tasa_binance\": 36.9,\n  \"tasa_personalizada\": 2.5\n}"
             }
           }
         },
@@ -1386,7 +1554,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_cliente\": {{clienteId}},\n  \"id_personal\": {{personalId}},\n  \"id_origen_atencion\": 1,\n  \"asunto\": \"Solicitud\",\n  \"notas_adicionales\": \"Contacto inicial\"\n}"
+              "raw": "{\n  \"id_cliente\": {{clienteId}},\n  \"id_origen_atencion\": {{origenId}},\n  \"asunto\": \"Solicitud\",\n  \"notas_adicionales\": \"Contacto inicial\"\n}"
             }
           }
         },
@@ -1476,7 +1644,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_atencion\": 1,\n  \"id_tipo_cotizacion\": {{tipoCotizacionId}},\n  \"cant_adultos\": 2,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}},\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
+              "raw": "{\n  \"id_atencion\": {{atencionId}},\n  \"id_tipo_cotizacion\": {{tipoCotizacionId}},\n  \"cant_adultos\": 2,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}}\n}"
             }
           }
         },
@@ -1511,7 +1679,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cant_adultos\": 3,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}},\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
+              "raw": "{\n  \"cant_adultos\": 3,\n  \"cant_menores\": 1,\n  \"cant_viejos\": 0,\n  \"id_tasa_asignada\": {{tasaId}},\n  \"estatus\": {{estatusConfirmadoId}},\n  \"id_tasa_cambio\": {{tasaCambioId}}\n}"
             }
           }
         },
@@ -1527,6 +1695,96 @@
               "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
               "host": ["{{baseUrl}}"],
               "path": ["cotizaciones", "{{cotizacionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ordenes Compra",
+      "item": [
+        {
+          "name": "Ordenes Compra - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ordenes-compra",
+              "host": ["{{baseUrl}}"],
+              "path": ["ordenes-compra"]
+            }
+          }
+        },
+        {
+          "name": "Ordenes Compra - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ordenes-compra",
+              "host": ["{{baseUrl}}"],
+              "path": ["ordenes-compra"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_cotizacion\": {{cotizacionId}},\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": {{estatusPendientePagoId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Ordenes Compra - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ordenes-compra", "{{ordenCompraId}}"]
+            }
+          }
+        },
+        {
+          "name": "Ordenes Compra - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ordenes-compra", "{{ordenCompraId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": {{estatusPagadoId}}\n}"
+            }
+          }
+        },
+        {
+          "name": "Ordenes Compra - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ordenes-compra", "{{ordenCompraId}}"]
             }
           }
         }
@@ -1656,7 +1914,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_servicio\": 1,\n  \"id_cotizacion\": 1\n}"
+              "raw": "{\n  \"id_servicio\": {{servicioId}},\n  \"id_cotizacion\": {{cotizacionId}}\n}"
             }
           }
         },
@@ -1691,7 +1949,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id_servicio\": 1,\n  \"id_cotizacion\": 1\n}"
+              "raw": "{\n  \"id_servicio\": {{servicioId}},\n  \"id_cotizacion\": {{cotizacionId}}\n}"
             }
           }
         },
@@ -1836,7 +2094,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_total\": 200,\n  \"id_metodo_pago\": {{metodoPagoId}},\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": 1,\n  \"cotizaciones\": [\n    {\n      \"id_cotizacion\": {{cotizacionId}},\n      \"monto_asignado\": 120\n    },\n    {\n      \"id_cotizacion\": 2,\n      \"monto_asignado\": 80\n    }\n  ]\n}"
+              "raw": "{\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_total\": 120,\n  \"id_metodo_pago\": {{metodoPagoId}},\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": {{estatusPendientePagoId}},\n  \"ordenes_compra\": [\n    {\n      \"id_orden_compra\": {{ordenCompraId}},\n      \"monto_asignado\": 120\n    }\n  ]\n}"
             }
           }
         },
@@ -1871,7 +2129,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"monto_total\": 180,\n  \"cotizaciones\": [\n    {\n      \"id_cotizacion\": {{cotizacionId}},\n      \"monto_asignado\": 100\n    },\n    {\n      \"id_cotizacion\": 2,\n      \"monto_asignado\": 80\n    }\n  ]\n}"
+              "raw": "{\n  \"monto_total\": 100,\n  \"ordenes_compra\": [\n    {\n      \"id_orden_compra\": {{ordenCompraId}},\n      \"monto_asignado\": 100\n    }\n  ]\n}"
             }
           }
         },
