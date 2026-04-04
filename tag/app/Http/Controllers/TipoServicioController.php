@@ -23,6 +23,7 @@ class TipoServicioController extends Controller
         $data = $request->validate([
             'tipo_servicio' => ['required', 'string', 'max:255'],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
+            'iva_defecto' => ['nullable', 'numeric'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
@@ -53,6 +54,7 @@ class TipoServicioController extends Controller
         $data = $request->validate([
             'tipo_servicio' => ['sometimes', 'required', 'string', 'max:255'],
             'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
+            'iva_defecto' => ['nullable', 'numeric'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 

@@ -188,8 +188,34 @@ class AuthController extends Controller
             200
         );
 
+        // Filtrar los campos no deseados
+
+        $userFiltered = $user->makeHidden([
+            'porcentaje_comision',
+            'id_estatus',
+            'created_at',
+            'updated_at',
+            'name',
+            'correo_institucional',
+            'email_verified_at',
+        ]);
+
+        // Obtener los roles y agregar los permisos a cada uno
+        $roles = $user->roles->map(function ($role) {
+            return collect($role->toArray())
+                ->except(['guard_name', 'created_at', 'updated_at', 'pivot', 'permissions'])
+                ->all();
+        });
+
+        $userArr = $userFiltered->toArray();
+        $userArr['roles'] = $roles;
+        // Agregar objeto permissions con todos los permisos únicos del usuario
+        $userArr['permissions'] = [
+            'data' => $user->getAllPermissions()->pluck('name')->values()->all()
+        ];
+
         return response()->json([
-            'user' => $user,
+            'user' => $userArr,
             'token' => $token,
         ]);
     }

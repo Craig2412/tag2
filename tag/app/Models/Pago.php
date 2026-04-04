@@ -19,9 +19,15 @@ class Pago extends Model
         'id_metodo_pago',
         'nro_comprobante',
         'id_tasa_cambio',
+        'id_entidad_bancaria',
         'estatus',
         'borrado_logico',
     ];
+    // Devuelve la entidad bancaria asociada.
+    public function entidadBancaria(): BelongsTo
+    {
+        return $this->belongsTo(EntidadBancaria::class, 'id_entidad_bancaria');
+    }
 
     protected $casts = [
         'fecha_pago' => 'date',

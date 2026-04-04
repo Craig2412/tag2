@@ -41,6 +41,7 @@ Route::get('/status', function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
+        Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/register/personal', [AuthController::class, 'registerPersonal'])
         ->middleware('role:admin');
