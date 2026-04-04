@@ -44,6 +44,32 @@ class User extends Authenticatable
     ];
 
     /**
+     * Los atributos que se deben agregar automáticamente al JSON.
+     *
+     * @var list<string>
+     */
+    protected $appends = [
+        'all_permissions',
+        'role_names',
+    ];
+
+    /**
+     * Obtener todos los nombres de los permisos del usuario (heredados y directos).
+     */
+    public function getAllPermissionsAttribute(): \Illuminate\Support\Collection
+    {
+        return $this->getAllPermissions()->pluck('name');
+    }
+
+    /**
+     * Obtener los nombres de los roles del usuario.
+     */
+    public function getRoleNamesAttribute(): \Illuminate\Support\Collection
+    {
+        return $this->getRoleNames();
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CotizacionController extends Controller
 {
+    /**
+     * Listar todas las cotizaciones
+     *
+     * Devuelve todas las cotizaciones activas junto con su orden de compra asociada.
+     */
     public function index()
     {
         // Lista las cotizaciones activas y su orden de compra asociada.
@@ -21,6 +26,19 @@ class CotizacionController extends Controller
         return response()->json($items);
     }
 
+    /**
+     * Crear una nueva cotización
+     *
+     * Registra una cotización en estatus "por confirmar". Luego puede confirmarse con `PUT /api/cotizaciones/{id}`.
+     *
+     * @bodyParam id_atencion int required ID de la atención asociada. Ejemplo: 3
+     * @bodyParam id_tipo_cotizacion int required ID del tipo de cotización. Ejemplo: 1
+     * @bodyParam cant_adultos int required Cantidad de adultos. Ejemplo: 2
+     * @bodyParam cant_menores int required Cantidad de menores. Ejemplo: 1
+     * @bodyParam cant_viejos int required Cantidad de adultos mayores. Ejemplo: 0
+     * @bodyParam id_tasa_asignada int required ID de la tasa de gestión asignada. Ejemplo: 1
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
+     */
     public function store(Request $request)
     {
         // Crea una cotizacion en estado inicial por confirmar.
@@ -40,25 +58,45 @@ class CotizacionController extends Controller
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
         $item = Cotizacion::create($data);
+        $item->load(['atencion', 'tipoCotizacion', 'tasaAsignada', 'estatus', 'ordenCompra']);
 
         return response()->json($item, 201);
     }
 
+    /**
+     * Obtener una cotización específica
+     *
+     * Devuelve los datos de una cotización junto con su orden de compra.
+     */
     public function show(Cotizacion $cotizacion)
     {
         // Muestra una cotizacion si no esta marcada como borrada.
         if ($cotizacion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         return response()->json($cotizacion->load('ordenCompra'));
     }
 
+    /**
+     * Actualizar una cotización existente
+     *
+     * Modifica una cotización activa. Al confirmarla (estatus = confirmado), se crea o actualiza automáticamente la orden de compra.
+     *
+     * @bodyParam id_atencion int ID de la atención asociada.
+     * @bodyParam id_tipo_cotizacion int ID del tipo de cotización.
+     * @bodyParam cant_adultos int Cantidad de adultos.
+     * @bodyParam cant_menores int Cantidad de menores.
+     * @bodyParam cant_viejos int Cantidad de adultos mayores.
+     * @bodyParam id_tasa_asignada int ID de la tasa de gestión.
+     * @bodyParam estatus int ID del estatus (por confirmar / confirmado).
+     * @bodyParam id_tasa_cambio int ID de la tasa de cambio (requerido al confirmar la cotización).
+     */
     public function update(Request $request, Cotizacion $cotizacion)
     {
         // Actualiza una cotizacion y crea/actualiza orden de compra al confirmar.
         if ($cotizacion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $data = $request->validate([
@@ -117,18 +155,23 @@ class CotizacionController extends Controller
             $ordenCompra?->recalcularMontoTotal();
         }
 
-        return response()->json($cotizacion->fresh()->load('ordenCompra'));
+        return response()->json($cotizacion->fresh()->load(['atencion', 'tipoCotizacion', 'tasaAsignada', 'estatus', 'ordenCompra']));
     }
 
+    /**
+     * Eliminar una cotización
+     *
+     * Realiza una eliminación lógica de la cotización (no se borra físicamente de la base de datos).
+     */
     public function destroy(Cotizacion $cotizacion)
     {
         // Marca la cotizacion como borrada de forma logica.
         if ($cotizacion->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+            return response()->json(['message' => 'Ya estaba eliminada']);
         }
 
         $cotizacion->update(['borrado_logico' => true]);
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 }

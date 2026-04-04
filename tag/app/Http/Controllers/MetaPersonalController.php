@@ -8,29 +8,43 @@ use Illuminate\Http\Request;
 
 class MetaPersonalController extends Controller
 {
+    /**
+     * Listar asignaciones de metas personales
+     *
+     * Devuelve el listado de metas asignadas individualmente al personal.
+     */
     public function index()
     {
+        // Lista las metas personales y las devuelve en JSON.
         return response()->json(MetaPersonal::orderBy('id')->get());
     }
 
+    /**
+     * Asignar meta a personal
+     *
+     * Registra una meta de ventas específica para un usuario con rol personal.
+     *
+     * @bodyParam id_personal int required ID del usuario con rol personal. Ejemplo: 2
+     * @bodyParam monto number required Monto objetivo de la meta personal. Ejemplo: 10000.00
+     * @bodyParam id_temporalidad int required ID de la temporalidad. Ejemplo: 1
+     * @bodyParam fecha_inicio date required Fecha de inicio. Ejemplo: 2026-04-01
+     * @bodyParam fecha_fin date required Fecha de fin. Ejemplo: 2026-04-30
+     */
     public function store(Request $request)
     {
+        // Asigna una meta a un personal validando su rol.
         $data = $request->validate([
-            'id_meta' => ['required', 'exists:metas,id'],
             'id_personal' => ['required', 'exists:users,id'],
+            'monto' => ['required', 'numeric', 'min:0.01'],
+            'id_temporalidad' => ['required', 'exists:temporalidades,id'],
+            'fecha_inicio' => ['required', 'date'],
+            'fecha_fin' => ['required', 'date', 'after_or_equal:fecha_inicio'],
         ]);
 
         $personal = User::find($data['id_personal']);
+
         if (!$personal || !$personal->hasRole('personal')) {
             return response()->json(['message' => 'id_personal debe ser un usuario con rol personal'], 422);
-        }
-
-        $duplicado = MetaPersonal::where('id_meta', $data['id_meta'])
-            ->where('id_personal', $data['id_personal'])
-            ->exists();
-
-        if ($duplicado) {
-            return response()->json(['message' => 'La combinación id_meta + id_personal ya existe'], 422);
         }
 
         $item = MetaPersonal::create($data);
@@ -38,16 +52,37 @@ class MetaPersonalController extends Controller
         return response()->json($item, 201);
     }
 
+    /**
+     * Obtener una meta personal específica
+     *
+     * Devuelve los datos de una asignación de meta personal por su ID.
+     */
     public function show(MetaPersonal $metaPersonal)
     {
+        // Muestra una meta personal por id.
         return response()->json($metaPersonal);
     }
 
+    /**
+     * Actualizar asignación de meta personal
+     *
+     * Modifica los datos de una meta personal ya asignada.
+     *
+     * @bodyParam id_personal int ID del usuario personal.
+     * @bodyParam monto number Monto objetivo.
+     * @bodyParam id_temporalidad int ID de la temporalidad.
+     * @bodyParam fecha_inicio date Fecha de inicio.
+     * @bodyParam fecha_fin date Fecha de fin.
+     */
     public function update(Request $request, MetaPersonal $metaPersonal)
     {
+        // Actualiza una meta personal y valida el rol si el usuario cambia.
         $data = $request->validate([
-            'id_meta' => ['sometimes', 'required', 'exists:metas,id'],
             'id_personal' => ['sometimes', 'required', 'exists:users,id'],
+            'monto' => ['sometimes', 'required', 'numeric', 'min:0.01'],
+            'id_temporalidad' => ['sometimes', 'required', 'exists:temporalidades,id'],
+            'fecha_inicio' => ['sometimes', 'required', 'date'],
+            'fecha_fin' => ['sometimes', 'required', 'date', 'after_or_equal:fecha_inicio'],
         ]);
 
         if (isset($data['id_personal'])) {
@@ -57,27 +92,21 @@ class MetaPersonalController extends Controller
             }
         }
 
-        $idMeta = $data['id_meta'] ?? $metaPersonal->id_meta;
-        $idPersonal = $data['id_personal'] ?? $metaPersonal->id_personal;
-
-        $duplicado = MetaPersonal::where('id_meta', $idMeta)
-            ->where('id_personal', $idPersonal)
-            ->where('id', '!=', $metaPersonal->id)
-            ->exists();
-
-        if ($duplicado) {
-            return response()->json(['message' => 'La combinación id_meta + id_personal ya existe'], 422);
-        }
-
         $metaPersonal->update($data);
 
         return response()->json($metaPersonal);
     }
 
+    /**
+     * Eliminar meta personal
+     *
+     * Elimina permanentemente la asignación de meta personal.
+     */
     public function destroy(MetaPersonal $metaPersonal)
     {
+        // Elimina la meta personal y confirma el resultado.
         $metaPersonal->delete();
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 }

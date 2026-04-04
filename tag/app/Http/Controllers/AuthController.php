@@ -12,6 +12,21 @@ use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
+    /**
+     * Registrar nuevo usuario (cliente)
+     *
+     * Crea un usuario con rol cliente y devuelve su token de acceso.
+     *
+     * @unauthenticated
+     * @bodyParam nombre string required Nombre del usuario. Ejemplo: Juan
+     * @bodyParam apellido string required Apellido del usuario. Ejemplo: Pérez
+     * @bodyParam email string required Correo electrónico. Ejemplo: juan@perez.com
+     * @bodyParam password string required Contraseña (mínimo 8 caracteres). Ejemplo: password123
+     * @bodyParam cedula string Número de cédula de identidad. Ejemplo: 12345678
+     * @bodyParam telefono string Número de teléfono. Ejemplo: 04121234567
+     * @bodyParam porcentaje_comision number Porcentaje de comisión (0-100). Ejemplo: 10
+     * @bodyParam id_tipo_contribuyente int ID del tipo de contribuyente. Ejemplo: 1
+     */
     public function register(Request $request)
     {
         // Registra un usuario, asigna rol y devuelve el token.
@@ -53,6 +68,7 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken('api-token', $this->abilitiesFor($user))->plainTextToken;
+        $user->load(['roles', 'permissions', 'tipoContribuyente']);
 
         return response()->json([
             'user' => $user,
@@ -60,6 +76,17 @@ class AuthController extends Controller
         ], 201);
     }
 
+    /**
+     * Registrar nuevo usuario personal
+     *
+     * Crea un usuario con rol personal (agente interno).
+     *
+     * @unauthenticated
+     * @bodyParam nombre string required Nombre del usuario. Ejemplo: Pedro
+     * @bodyParam apellido string required Apellido del usuario. Ejemplo: Gómez
+     * @bodyParam email string required Correo electrónico. Ejemplo: pedro@gomez.com
+     * @bodyParam password string required Contraseña. Ejemplo: password123
+     */
     public function registerPersonal(Request $request)
     {
         // Registra un usuario con rol personal.
@@ -100,29 +127,63 @@ class AuthController extends Controller
             $user->syncRoles([$personalRole]);
         }
 
+        $user->load(['roles', 'permissions', 'tipoContribuyente']);
+
         return response()->json([
             'user' => $user,
         ], 201);
     }
 
+    /**
+     * Iniciar sesión
+     *
+     * Autentica al usuario y devuelve su token de acceso.
+     *
+     * @unauthenticated
+     * @bodyParam email string required Correo electrónico del usuario. Ejemplo: admin@example.com
+     * @bodyParam password string required Contraseña del usuario. Ejemplo: password
+     */
     public function login(Request $request)
     {
         // Inicia sesion sin validar rol especifico.
         return $this->loginWithRole($request, null);
     }
 
+    /**
+     * Iniciar sesión como administrador
+     *
+     * Autentica al usuario verificando que posea el rol admin.
+     *
+     * @unauthenticated
+     * @bodyParam email string required Correo electrónico del administrador. Ejemplo: admin@example.com
+     * @bodyParam password string required Contraseña. Ejemplo: password
+     */
     public function loginAdmin(Request $request)
     {
         // Inicia sesion solo si el usuario es admin.
         return $this->loginWithRole($request, 'admin');
     }
 
+    /**
+     * Iniciar sesión como usuario regular
+     *
+     * Autentica al usuario verificando que posea el rol user.
+     *
+     * @unauthenticated
+     * @bodyParam email string required Correo electrónico del usuario. Ejemplo: user@example.com
+     * @bodyParam password string required Contraseña. Ejemplo: password
+     */
     public function loginUser(Request $request)
     {
         // Inicia sesion solo si el usuario es user.
         return $this->loginWithRole($request, 'user');
     }
 
+    /**
+     * Cerrar sesión
+     *
+     * Invalida el token de acceso actual del usuario autenticado.
+     */
     public function logout(Request $request)
     {
         // Cierra la sesion actual eliminando el token.
@@ -131,7 +192,7 @@ class AuthController extends Controller
 
         AuditLogger::logAuthEvent('LOGOUT', $request, $user, true, 'Logout exitoso', [], 200);
 
-        return response()->json(['message' => 'Logged out']);
+        return response()->json(['message' => 'Sesión cerrada correctamente']);
     }
 
     private function abilitiesFor(User $user): array
@@ -159,7 +220,7 @@ class AuthController extends Controller
                 401
             );
 
-            return response()->json(['message' => 'Invalid credentials'], 401);
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
         }
 
         if ($requiredRole && !$user->hasRole($requiredRole)) {
@@ -173,7 +234,7 @@ class AuthController extends Controller
                 403
             );
 
-            return response()->json(['message' => 'Forbidden'], 403);
+            return response()->json(['message' => 'Acceso denegado'], 403);
         }
 
         $token = $user->createToken('api-token', $this->abilitiesFor($user))->plainTextToken;
@@ -187,6 +248,8 @@ class AuthController extends Controller
             ['required_role' => $requiredRole],
             200
         );
+
+        $user->load(['roles', 'permissions', 'tipoContribuyente']);
 
         return response()->json([
             'user' => $user,

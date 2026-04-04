@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class AuditLogController extends Controller
 {
+    /**
+     * Listar registros de auditoría
+     *
+     * Devuelve los registros de auditoría del sistema con filtros opcionales y paginación.
+     *
+     * @queryParam user_id int Filtrar por ID de usuario. Ejemplo: 1
+     * @queryParam action string Filtrar por tipo de acción (ej. login, create, update). Ejemplo: login
+     * @queryParam table_name string Filtrar por nombre de tabla. Ejemplo: empresas
+     * @queryParam record_id int Filtrar por ID de registro afectado. Ejemplo: 1
+     * @queryParam desde date Fecha de inicio del filtro. Ejemplo: 2026-04-01
+     * @queryParam hasta date Fecha de fin del filtro. Ejemplo: 2026-04-30
+     * @queryParam per_page int Cantidad de resultados por página. Ejemplo: 50
+     */
     public function index(Request $request)
     {
         $data = $this->validatedFilters($request, true);
@@ -17,6 +30,19 @@ class AuditLogController extends Controller
         return response()->json($query->paginate($perPage));
     }
 
+    /**
+     * Exportar registros de auditoría a CSV
+     *
+     * Descarga un archivo CSV con los registros de auditoría filtrados. Soporta modo completo o resumen.
+     *
+     * @queryParam user_id int Filtrar por ID de usuario.
+     * @queryParam action string Filtrar por tipo de acción.
+     * @queryParam table_name string Filtrar por nombre de tabla.
+     * @queryParam record_id int Filtrar por ID de registro.
+     * @queryParam desde date Fecha de inicio del filtro.
+     * @queryParam hasta date Fecha de fin del filtro.
+     * @queryParam modo string Modo de exportación (completo, resumen). Ejemplo: completo
+     */
     public function exportCsv(Request $request)
     {
         $data = $this->validatedFilters($request, false, true);

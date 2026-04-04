@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
+    /**
+     * Listar todos los servicios
+     *
+     * Devuelve el listado de servicios activos (no eliminados) registrados en el sistema.
+     */
     public function index()
     {
         // Lista los servicios activos y los devuelve en JSON.
@@ -17,6 +22,17 @@ class ServicioController extends Controller
         return response()->json($servicios);
     }
 
+    /**
+     * Crear un nuevo servicio
+     * 
+     * @bodyParam id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
+     * @bodyParam id_proveedor int required ID del proveedor del servicio. Ejemplo: 1
+     * @bodyParam costo number required Precio de costo del servicio. Ejemplo: 150.00
+     * @bodyParam monto_gravable number required Monto sobre el cual se aplica IVA. Ejemplo: 150.00
+     * @bodyParam monto_no_sujeto number required Monto libre de impuestos. Ejemplo: 0.00
+     * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
+     */
     public function store(Request $request)
     {
         // Crea un servicio con datos validados y lo devuelve.
@@ -41,21 +57,37 @@ class ServicioController extends Controller
         return response()->json($servicio, 201);
     }
 
+    /**
+     * Obtener un servicio específico
+     *
+     * Devuelve los datos de un servicio por su ID.
+     */
     public function show(Servicio $servicio)
     {
-        // Muestra un servicio si no esta marcado como borrado.
+        // Muestra un servicio si no está marcado como borrado.
         if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         return response()->json($servicio);
     }
 
+    /**
+     * Actualizar un servicio existente
+     * 
+     * @bodyParam id_tipo_servicio int ID del tipo de servicio.
+     * @bodyParam id_proveedor int ID del proveedor.
+     * @bodyParam costo number Precio de costo.
+     * @bodyParam monto_gravable number Monto gravable.
+     * @bodyParam monto_no_sujeto number Monto no sujeto a impuestos.
+     * @bodyParam id_tasa_cambio int ID de la tasa de cambio.
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente.
+     */
     public function update(Request $request, Servicio $servicio)
     {
         // Actualiza un servicio activo y devuelve el resultado.
         if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $data = $request->validate([
@@ -79,16 +111,19 @@ class ServicioController extends Controller
         return response()->json($servicio);
     }
 
+    /**
+     * Eliminar un servicio
+     */
     public function destroy(Servicio $servicio)
     {
-        // Marca el servicio como borrado logico.
+        // Marca el servicio como borrado lógico.
         if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+            return response()->json(['message' => 'Ya estaba eliminado']);
         }
 
         $servicio->update(['borrado_logico' => true]);
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
     private function calcularTotalServicio(float $montoGravable, float $montoNoSujeto): float

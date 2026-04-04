@@ -7,12 +7,29 @@ use Illuminate\Http\Request;
 
 class CuentaProveedorController extends Controller
 {
+    /**
+     * Listar todas las cuentas bancarias de proveedores
+     *
+     * Devuelve todas las cuentas bancarias registradas para los proveedores del sistema.
+     */
     public function index()
     {
         // Lista las cuentas de proveedores y las devuelve en JSON.
         return response()->json(CuentaProveedor::orderBy('id')->get());
     }
 
+    /**
+     * Registrar cuenta bancaria de proveedor
+     *
+     * Agrega una nueva cuenta bancaria asociada a un proveedor existente.
+     *
+     * @bodyParam id_proveedor int required ID del proveedor. Ejemplo: 1
+     * @bodyParam numero_cuenta string required Número de cuenta bancaria. Ejemplo: 0102-0000-000000000000
+     * @bodyParam entidad_financiera string required Nombre del banco. Ejemplo: Banco de Venezuela
+     * @bodyParam tipo_cuenta string required Tipo de cuenta (Ahorros / Corriente). Ejemplo: Corriente
+     * @bodyParam moneda string required Moneda de la cuenta (VES / USD). Ejemplo: VES
+     * @bodyParam id_tipo_contribuyente int required ID del tipo de contribuyente. Ejemplo: 1
+     */
     public function store(Request $request)
     {
         // Crea una cuenta de proveedor con datos validados y la devuelve.
@@ -30,12 +47,29 @@ class CuentaProveedorController extends Controller
         return response()->json($item, 201);
     }
 
+    /**
+     * Obtener una cuenta bancaria de proveedor específica
+     *
+     * Devuelve los datos de una cuenta bancaria por su ID.
+     */
     public function show(CuentaProveedor $cuentaProveedor)
     {
         // Muestra una cuenta de proveedor por id.
         return response()->json($cuentaProveedor);
     }
 
+    /**
+     * Actualizar cuenta bancaria de proveedor
+     *
+     * Modifica los datos de una cuenta bancaria registrada para un proveedor.
+     *
+     * @bodyParam id_proveedor int ID del proveedor.
+     * @bodyParam numero_cuenta string Número de cuenta bancaria.
+     * @bodyParam entidad_financiera string Nombre del banco.
+     * @bodyParam tipo_cuenta string Tipo de cuenta.
+     * @bodyParam moneda string Moneda de la cuenta.
+     * @bodyParam id_tipo_contribuyente int ID del tipo de contribuyente.
+     */
     public function update(Request $request, CuentaProveedor $cuentaProveedor)
     {
         // Actualiza una cuenta de proveedor y devuelve el resultado.
@@ -53,11 +87,16 @@ class CuentaProveedorController extends Controller
         return response()->json($cuentaProveedor);
     }
 
+    /**
+     * Eliminar cuenta bancaria de proveedor
+     *
+     * Elimina permanentemente la cuenta bancaria del proveedor.
+     */
     public function destroy(CuentaProveedor $cuentaProveedor)
     {
         // Elimina la cuenta de proveedor y confirma el resultado.
         $cuentaProveedor->delete();
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 }

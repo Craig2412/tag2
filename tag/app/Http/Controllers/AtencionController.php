@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class AtencionController extends Controller
 {
+    /**
+     * Listar todas las atenciones
+     *
+     * Devuelve todas las atenciones activas (no eliminadas) del sistema.
+     */
     public function index()
     {
         // Lista las atenciones activas y las devuelve en JSON.
@@ -22,6 +27,17 @@ class AtencionController extends Controller
         return response()->json($items);
     }
 
+    /**
+     * Crear una nueva atención
+     *
+     * Registra un nuevo ticket de atención al cliente. El sistema asigna automáticamente al personal disponible.
+     *
+     * @bodyParam id_cliente int required ID del usuario con rol cliente. Ejemplo: 5
+     * @bodyParam id_origen_atencion int required ID del origen de la atención (red social / canal). Ejemplo: 1
+     * @bodyParam asunto string required Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte
+     * @bodyParam notas_adicionales string Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
+     */
     public function store(Request $request)
     {
         // Crea una atencion, valida roles y asigna estatus inicial.
@@ -51,25 +67,44 @@ class AtencionController extends Controller
         $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
         $item = Atencion::create($data);
+        $item->load(['cliente', 'personal', 'origen', 'estatus']);
 
         return response()->json($item, 201);
     }
 
+    /**
+     * Obtener una atención específica
+     *
+     * Devuelve los detalles de una atención por su ID.
+     */
     public function show(Atencion $atencion)
     {
         // Muestra una atencion si no esta marcada como borrada.
         if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         return response()->json($atencion);
     }
 
+    /**
+     * Actualizar una atención existente
+     *
+     * Modifica los datos de una atención activa. Valida el rol del cliente y del personal si se cambian.
+     *
+     * @bodyParam id_cliente int ID del usuario cliente.
+     * @bodyParam id_personal int ID del usuario personal asignado.
+     * @bodyParam id_origen_atencion int ID del origen de la atención.
+     * @bodyParam asunto string Asunto o motivo de la atención.
+     * @bodyParam notas_adicionales string Notas adicionales.
+     * @bodyParam estatus int ID del estatus de la atención.
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente.
+     */
     public function update(Request $request, Atencion $atencion)
     {
         // Actualiza una atencion activa y valida roles cuando cambian.
         if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $data = $request->validate([
@@ -97,20 +132,26 @@ class AtencionController extends Controller
         }
 
         $atencion->update($data);
+        $atencion->load(['cliente', 'personal', 'origen', 'estatus']);
 
         return response()->json($atencion);
     }
 
+    /**
+     * Eliminar una atención
+     *
+     * Realiza una eliminación lógica de la atención (no se borra físicamente de la base de datos).
+     */
     public function destroy(Atencion $atencion)
     {
         // Marca la atencion como borrada de forma logica.
         if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+            return response()->json(['message' => 'Ya estaba eliminada']);
         }
 
         $atencion->update(['borrado_logico' => true]);
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
     private function resolverPersonalAsignado(int $idCliente): ?int

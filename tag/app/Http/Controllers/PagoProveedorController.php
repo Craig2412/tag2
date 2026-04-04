@@ -9,15 +9,29 @@ use Illuminate\Http\Request;
 
 class PagoProveedorController extends Controller
 {
+    /**
+     * Listar todos los pagos a proveedores
+     *
+     * Devuelve el historial de pagos realizados a proveedores por la prestación de servicios.
+     */
     public function index()
     {
         // Lista los pagos a proveedores y los devuelve en JSON.
         return response()->json(PagoProveedor::orderBy('id')->get());
     }
 
+    /**
+     * Registrar un pago a proveedor
+     * 
+     * @bodyParam id_servicio int required ID del servicio que se está pagando. Ejemplo: 1
+     * @bodyParam monto number required Monto abonado al proveedor. Ejemplo: 250.00
+     * @bodyParam referencia string required Referencia o comprobante del pago. Ejemplo: REF-12345
+     * @bodyParam fecha_pago date required Fecha de realización del pago. Ejemplo: 2026-04-03
+     * @bodyParam id_metodo_pago int required ID del método de pago utilizado. Ejemplo: 2
+     */
     public function store(Request $request)
     {
-        // Registra un pago y actualiza el estatus del servicio si se completa.
+        // Registra un pago y actualiza el estatus del servicio si se completa el pago total.
         $data = $request->validate([
             'id_servicio' => ['required', 'exists:servicios,id'],
             'monto' => ['required', 'numeric', 'min:0.01'],
@@ -35,15 +49,29 @@ class PagoProveedorController extends Controller
         return response()->json($pago, 201);
     }
 
+    /**
+     * Obtener un pago a proveedor específico
+     *
+     * Devuelve los detalles de un pago a proveedor por su ID.
+     */
     public function show(PagoProveedor $pagoProveedor)
     {
         // Muestra un pago a proveedor por id.
         return response()->json($pagoProveedor);
     }
 
+    /**
+     * Actualizar un pago a proveedor
+     * 
+     * @bodyParam id_servicio int ID del servicio.
+     * @bodyParam monto number Monto abonado.
+     * @bodyParam referencia string Referencia del pago.
+     * @bodyParam fecha_pago date Fecha del pago.
+     * @bodyParam id_metodo_pago int ID del método de pago.
+     */
     public function update(Request $request, PagoProveedor $pagoProveedor)
     {
-        // Actualiza un pago y recalcula el estatus del servicio.
+        // Actualiza un pago y recalcula el estatus del servicio afectado.
         $data = $request->validate([
             'id_servicio' => ['sometimes', 'required', 'exists:servicios,id'],
             'monto' => ['sometimes', 'required', 'numeric', 'min:0.01'],
@@ -64,6 +92,9 @@ class PagoProveedorController extends Controller
         return response()->json($pagoProveedor);
     }
 
+    /**
+     * Eliminar un pago a proveedor
+     */
     public function destroy(PagoProveedor $pagoProveedor)
     {
         // Elimina el pago y recalcula el estatus del servicio.
@@ -73,7 +104,7 @@ class PagoProveedorController extends Controller
 
         $this->actualizarEstatusServicio($idServicio);
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
     private function validarMontoServicio(int $idServicio, float $monto, ?int $ignoreId = null): void

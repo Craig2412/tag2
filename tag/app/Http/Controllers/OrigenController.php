@@ -8,12 +8,22 @@ use Illuminate\Validation\Rule;
 
 class OrigenController extends Controller
 {
+    /**
+     * Listar todos los orígenes de atención
+     *
+     * Devuelve el catálogo de orígenes (redes sociales, canales, etc) registrados en el sistema.
+     */
     public function index()
     {
-        // Lista los origenes y los devuelve en JSON.
+        // Lista los orígenes y los devuelve en JSON.
         return response()->json(Origen::orderBy('id')->get());
     }
 
+    /**
+     * Crear un nuevo origen
+     * 
+     * @bodyParam red string required Nombre de la red social o canal de origen. Ejemplo: Instagram
+     */
     public function store(Request $request)
     {
         // Crea un origen con datos validados y lo devuelve.
@@ -26,12 +36,22 @@ class OrigenController extends Controller
         return response()->json($origen, 201);
     }
 
+    /**
+     * Obtener un origen específico
+     *
+     * Devuelve los datos de un origen por su ID.
+     */
     public function show(Origen $origen)
     {
         // Muestra un origen por id.
         return response()->json($origen);
     }
 
+    /**
+     * Actualizar un origen existente
+     * 
+     * @bodyParam red string required Nombre de la red social o canal.
+     */
     public function update(Request $request, Origen $origen)
     {
         // Actualiza un origen y devuelve el resultado.
@@ -49,11 +69,14 @@ class OrigenController extends Controller
         return response()->json($origen);
     }
 
+    /**
+     * Eliminar un origen
+     */
     public function destroy(Origen $origen)
     {
         // Elimina el origen y confirma el resultado.
         $origen->delete();
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 }

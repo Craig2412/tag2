@@ -20,6 +20,11 @@ class TasaCambioController extends Controller
         return null;
     }
 
+    /**
+     * Listar todas las tasas de cambio
+     *
+     * Devuelve el historial de tasas de cambio activas registradas en el sistema.
+     */
     public function index()
     {
         // Lista las tasas activas y las devuelve en JSON.
@@ -30,6 +35,18 @@ class TasaCambioController extends Controller
         return response()->json($tasas);
     }
 
+    /**
+     * Registrar tasa de cambio del día
+     *
+     * Crea la tasa de cambio del día actual aplicando el porcentaje de incremento personalizado sobre las tasas base.
+     * Solo se permite un registro por día.
+     *
+     * @bodyParam tasa_usd number required Tasa base USD (antes del incremento). Ejemplo: 36.50
+     * @bodyParam tasa_eur number required Tasa base EUR (antes del incremento). Ejemplo: 39.20
+     * @bodyParam tasa_binance number required Tasa base Binance/P2P (antes del incremento). Ejemplo: 37.10
+     * @bodyParam tasa_personalizada number required Porcentaje de incremento a aplicar sobre las tasas base. Ejemplo: 5.5
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
+     */
     public function store(Request $request)
     {
         // Crea una tasa de cambio aplicando porcentaje personalizado a las tasas base.
@@ -56,21 +73,37 @@ class TasaCambioController extends Controller
         return response()->json($tasa, 201);
     }
 
+    /**
+     * Obtener una tasa de cambio específica
+     *
+     * Devuelve los datos de una tasa de cambio por su ID.
+     */
     public function show(TasaCambio $tasaCambio)
     {
         // Muestra la tasa si no esta borrada.
         if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         return response()->json($tasaCambio);
     }
 
+    /**
+     * Actualizar una tasa de cambio
+     *
+     * Modifica una tasa de cambio activa. Si se envían los campos de tasa, se recalculan con el porcentaje personalizado.
+     *
+     * @bodyParam tasa_usd number Tasa base USD.
+     * @bodyParam tasa_eur number Tasa base EUR.
+     * @bodyParam tasa_binance number Tasa base Binance/P2P.
+     * @bodyParam tasa_personalizada number Porcentaje de incremento a aplicar.
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente.
+     */
     public function update(Request $request, TasaCambio $tasaCambio)
     {
         // Actualiza una tasa activa y devuelve el resultado.
         if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $data = $request->validate([
@@ -105,16 +138,21 @@ class TasaCambioController extends Controller
         return response()->json($tasaCambio);
     }
 
+    /**
+     * Eliminar una tasa de cambio
+     *
+     * Realiza la eliminación lógica de la tasa de cambio.
+     */
     public function destroy(TasaCambio $tasaCambio)
     {
         // Marca la tasa como borrada de forma logica.
         if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+            return response()->json(['message' => 'Ya estaba eliminada']);
         }
 
         $tasaCambio->update(['borrado_logico' => true]);
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
     private function aplicarIncrementoPorcentual(array $data): array

@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class PagoController extends Controller
 {
+    /**
+     * Listar todos los pagos de clientes
+     *
+     * Devuelve todos los pagos activos (no eliminados) registrados en el sistema.
+     */
     public function index()
     {
         // Lista los pagos activos y los devuelve en JSON.
@@ -21,6 +26,23 @@ class PagoController extends Controller
         return response()->json($items);
     }
 
+    /**
+     * Registrar un nuevo pago de cliente
+     *
+     * Registra un pago y distribuye el monto entre las órdenes de compra indicadas.
+     * La suma de los montos asignados debe coincidir exactamente con el monto total del pago.
+     *
+     * @bodyParam fecha_pago date required Fecha en que se realizó el pago. Ejemplo: 2026-04-03
+     * @bodyParam monto_total number required Monto total pagado. Ejemplo: 1500.50
+     * @bodyParam id_metodo_pago int required ID del método de pago utilizado. Ejemplo: 1
+     * @bodyParam nro_comprobante string required Número de comprobante o referencia de la transferencia. Ejemplo: TRANS-987654
+     * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
+     * @bodyParam estatus int required ID del estatus del pago. Ejemplo: 1
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
+     * @bodyParam ordenes_compra object[] required Lista de órdenes de compra y sus montos asignados.
+     * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
+     * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado a esta orden de compra. Ejemplo: 1500.50
+     */
     public function store(Request $request)
     {
         // Registra un pago y distribuye montos entre ordenes de compra.
@@ -80,11 +102,16 @@ class PagoController extends Controller
         return response()->json($pago, 201);
     }
 
+    /**
+     * Obtener un pago específico
+     *
+     * Devuelve los detalles de un pago junto con sus órdenes de compra asociadas.
+     */
     public function show(Pago $pago)
     {
         // Muestra un pago si no esta marcado como borrado.
         if ($pago->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $pago->load('ordenesCompra');
@@ -92,11 +119,27 @@ class PagoController extends Controller
         return response()->json($pago);
     }
 
+    /**
+     * Actualizar un pago existente
+     *
+     * Modifica los datos de un pago activo y recalcula el estatus de las órdenes de compra afectadas.
+     *
+     * @bodyParam fecha_pago date Fecha del pago.
+     * @bodyParam monto_total number Monto total pagado.
+     * @bodyParam id_metodo_pago int ID del método de pago.
+     * @bodyParam nro_comprobante string Número de comprobante.
+     * @bodyParam id_tasa_cambio int ID de la tasa de cambio.
+     * @bodyParam estatus int ID del estatus.
+     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente.
+     * @bodyParam ordenes_compra object[] Lista de órdenes de compra y montos asignados.
+     * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra.
+     * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado.
+     */
     public function update(Request $request, Pago $pago)
     {
         // Actualiza un pago y recalcula montos por orden de compra.
         if ($pago->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
+            return response()->json(['message' => 'No encontrado'], 404);
         }
 
         $data = $request->validate([
@@ -168,11 +211,16 @@ class PagoController extends Controller
         return response()->json($pago->fresh('ordenesCompra'));
     }
 
+    /**
+     * Eliminar un pago
+     *
+     * Realiza la eliminación lógica del pago y recalcula el estatus de las órdenes de compra afectadas.
+     */
     public function destroy(Pago $pago)
     {
         // Marca el pago como borrado y recalcula el estatus de la orden de compra.
         if ($pago->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+            return response()->json(['message' => 'Ya estaba eliminado']);
         }
 
         $pago->update(['borrado_logico' => true]);
@@ -185,7 +233,7 @@ class PagoController extends Controller
             $this->actualizarEstatusOrdenCompra($idOrdenCompra);
         }
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
     private function totalServiciosOrdenCompra(int $idOrdenCompra): float
