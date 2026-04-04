@@ -19,13 +19,15 @@ class PagosSeeder extends Seeder
             ->get();
         $metodo = MetodoPago::first();
         $tasa = TasaCambio::first();
+        $entidades = \App\Models\EntidadBancaria::all();
 
-        if ($ordenesCompra->count() < 1 || !$metodo || !$tasa) {
+        if ($ordenesCompra->count() < 1 || !$metodo || !$tasa || $entidades->count() < 1) {
             return;
         }
 
-        $detalles = [];
+        $estatus = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
 
+        $contador = 1;
         foreach ($ordenesCompra as $ordenCompra) {
             $ordenCompra->recalcularMontoTotal();
             $totalServicios = (float) $ordenCompra->monto_total;
@@ -34,44 +36,35 @@ class PagosSeeder extends Seeder
                 continue;
             }
 
-            $detalles[] = [
-                'id_orden_compra' => $ordenCompra->id,
-                'monto_asignado' => round($totalServicios * 0.4, 2),
-            ];
-        }
+            // Asignar entidad bancaria de forma alterna para ejemplo
+            $entidadBancaria = $entidades[($contador - 1) % $entidades->count()];
 
-        if (count($detalles) === 0) {
-            return;
-        }
+            $nroComprobante = 'COMP-' . str_pad($contador, 4, '0', STR_PAD_LEFT);
+            $pago = Pago::firstOrCreate(
+                [
+                    'nro_comprobante' => $nroComprobante,
+                ],
+                [
+                    'fecha_pago' => now()->toDateString(),
+                    'monto_total' => $totalServicios,
+                    'id_metodo_pago' => $metodo->id,
+                    'id_tasa_cambio' => $tasa->id,
+                    'id_entidad_bancaria' => $entidadBancaria->id,
+                    'estatus' => $estatus->id,
+                    'borrado_logico' => false,
+                ]
+            );
 
-        $montoTotal = array_sum(array_column($detalles, 'monto_asignado'));
-
-        $estatus = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
-
-        $pago = Pago::firstOrCreate(
-            [
-                'nro_comprobante' => 'COMP-0001',
-            ],
-            [
-                'fecha_pago' => now()->toDateString(),
-                'monto_total' => $montoTotal,
-                'id_metodo_pago' => $metodo->id,
-                'id_tasa_cambio' => $tasa->id,
-                'estatus' => $estatus->id,
-                'borrado_logico' => false,
-            ]
-        );
-
-        foreach ($detalles as $detalle) {
             PagoOrdenCompra::firstOrCreate(
                 [
                     'id_pago' => $pago->id,
-                    'id_orden_compra' => $detalle['id_orden_compra'],
+                    'id_orden_compra' => $ordenCompra->id,
                 ],
                 [
-                    'monto_asignado' => $detalle['monto_asignado'],
+                    'monto_asignado' => $totalServicios,
                 ]
             );
+            $contador++;
         }
     }
 }

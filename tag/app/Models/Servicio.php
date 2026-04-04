@@ -19,6 +19,7 @@ class Servicio extends Model
         'monto_gravable',
         'monto_no_sujeto',
         'total_servicio',
+        'iva_establecido',
         'id_tasa_cambio',
         'estatus',
         'borrado_logico',
@@ -26,6 +27,7 @@ class Servicio extends Model
 
     protected $casts = [
         'borrado_logico' => 'boolean',
+        'iva_establecido' => 'float',
     ];
 
     // Devuelve el tipo de servicio asociado.

@@ -16,6 +16,7 @@ class PagoOrdenCompra extends Model
         'id_pago',
         'id_orden_compra',
         'monto_asignado',
+        'monto_pagado',
     ];
 
     // Devuelve el pago asociado.

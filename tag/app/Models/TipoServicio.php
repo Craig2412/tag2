@@ -17,10 +17,12 @@ class TipoServicio extends Model
         'tipo_servicio',
         'id_proveedor',
         'borrado_logico',
+        'iva_defecto',
     ];
 
     protected $casts = [
         'borrado_logico' => 'boolean',
+        'iva_defecto' => 'float',
     ];
 
     // Devuelve el proveedor asociado a este tipo.

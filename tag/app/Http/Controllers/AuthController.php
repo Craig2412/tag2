@@ -251,6 +251,7 @@ class AuthController extends Controller
 
         $user->load(['roles', 'permissions', 'tipoContribuyente']);
 
+
         return response()->json([
             'user' => $user,
             'token' => $token,

@@ -42,6 +42,7 @@ class ServicioController extends Controller
             'costo' => ['required', 'numeric'],
             'monto_gravable' => ['required', 'numeric'],
             'monto_no_sujeto' => ['required', 'numeric'],
+            'iva_establecido' => ['nullable', 'numeric'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
@@ -96,6 +97,7 @@ class ServicioController extends Controller
             'costo' => ['sometimes', 'required', 'numeric'],
             'monto_gravable' => ['sometimes', 'required', 'numeric'],
             'monto_no_sujeto' => ['sometimes', 'required', 'numeric'],
+            'iva_establecido' => ['nullable', 'numeric'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
             'borrado_logico' => ['sometimes', 'boolean'],
         ]);
