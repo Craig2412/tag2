@@ -14,12 +14,28 @@ class AtencionController extends Controller
 {
     public function index()
     {
-        // Lista las atenciones activas y las devuelve en JSON.
+        // Lista las atenciones activas y las devuelve en JSON, incluyendo id_cotizacion e id_orden_compra.
         $items = Atencion::where('borrado_logico', false)
             ->orderBy('id')
             ->get();
 
-        return response()->json($items);
+        $result = $items->map(function ($atencion) {
+            // Buscar la cotización más reciente (por id mayor)
+            $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
+            $id_cotizacion = $cotizacion ? $cotizacion->id : null;
+            // Buscar la orden de compra asociada a esa cotización
+            $id_orden_compra = null;
+            if ($cotizacion && $cotizacion->ordenCompra) {
+                $id_orden_compra = $cotizacion->ordenCompra->id;
+            }
+            // Devolver la atención como array + los campos extra
+            $arr = $atencion->toArray();
+            $arr['id_cotizacion'] = $id_cotizacion;
+            $arr['id_orden_compra'] = $id_orden_compra;
+            return $arr;
+        });
+
+        return response()->json($result);
     }
 
     public function store(Request $request)
@@ -57,12 +73,21 @@ class AtencionController extends Controller
 
     public function show(Atencion $atencion)
     {
-        // Muestra una atencion si no esta marcada como borrada.
+        // Muestra una atencion si no esta marcada como borrada, incluyendo id_cotizacion e id_orden_compra.
         if ($atencion->borrado_logico) {
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return response()->json($atencion);
+        $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
+        $id_cotizacion = $cotizacion ? $cotizacion->id : null;
+        $id_orden_compra = null;
+        if ($cotizacion && $cotizacion->ordenCompra) {
+            $id_orden_compra = $cotizacion->ordenCompra->id;
+        }
+        $arr = $atencion->toArray();
+        $arr['id_cotizacion'] = $id_cotizacion;
+        $arr['id_orden_compra'] = $id_orden_compra;
+        return response()->json($arr);
     }
 
     public function update(Request $request, Atencion $atencion)
