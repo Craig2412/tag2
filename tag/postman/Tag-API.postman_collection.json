@@ -167,6 +167,96 @@
     }
   ],
   "item": [
+        {
+          "name": "Pagos Ordenes Compra",
+          "item": [
+            {
+              "name": "Pagos Ordenes Compra - Listar",
+              "request": {
+                "method": "GET",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra"]
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Crear",
+              "request": {
+                "method": "POST",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_pago\": {{pagoId}},\n  \"id_orden_compra\": {{ordenCompraId}},\n  \"monto_asignado\": 100\n}"
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Ver",
+              "request": {
+                "method": "GET",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monto_asignado\": 150\n}"
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                }
+              }
+            }
+          ]
+        },
     {
       "name": "Auth - Login (admin)",
       "event": [

@@ -73,6 +73,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('ordenes-compra', OrdenCompraController::class)
         ->parameters(['ordenes-compra' => 'ordenCompra']);
     Route::apiResource('pagos', PagoController::class);
+    Route::apiResource('pagos-ordenes-compra', \App\Http\Controllers\PagoOrdenCompraController::class)
+        ->parameters(['pagos-ordenes-compra' => 'pagoOrdenCompra']);
     Route::apiResource('pagos-proveedores', PagoProveedorController::class)
         ->parameters(['pagos-proveedores' => 'pagoProveedor']);
     Route::apiResource('tipos-proveedores', TipoProveedorController::class)

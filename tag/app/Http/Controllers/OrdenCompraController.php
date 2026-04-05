@@ -66,6 +66,13 @@ class OrdenCompraController extends Controller
             ->values()
             ->all();
 
+        // Calcular el saldo pendiente
+        $montoPagado = collect($ordenCompra->pagos)->sum(function ($pago) {
+            // Si existe el campo monto_pagado, usarlo; si no, usar monto_asignado
+            return isset($pago['monto_pagado']) ? $pago['monto_pagado'] : ($pago['monto_asignado'] ?? 0);
+        });
+        $data['saldo_pendiente'] = max(0, $ordenCompra->monto_total - $montoPagado);
+
         return response()->json($data);
     }
 
