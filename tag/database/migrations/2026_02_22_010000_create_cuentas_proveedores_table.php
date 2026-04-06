@@ -15,8 +15,8 @@ return new class extends Migration
             $table->string('entidad_financiera');
             $table->string('tipo_cuenta');
             $table->string('moneda');
-            $table->foreignId('id_tipo_contribuyente')->constrained('tipos_contribuyentes');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

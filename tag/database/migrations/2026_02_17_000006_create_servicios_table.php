@@ -13,14 +13,15 @@ return new class extends Migration
             $table->foreignId('id_tipo_servicio')->constrained('tipo_servicio');
             $table->foreignId('id_proveedor')->constrained('proveedores');
             $table->decimal('costo', 12, 2);
+            $table->text('descripcion')->nullable(); // Descripción dinámica del servicio
             $table->decimal('monto_gravable', 12, 2);
             $table->decimal('monto_no_sujeto', 12, 2);
-            $table->decimal('total_servicio', 12, 2);
+            $table->decimal('total_servicio', 12, 2); // Exclusivamente manejado por Observer
             $table->decimal('iva_establecido', 5, 2)->nullable();
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
             $table->foreignId('estatus')->nullable()->constrained('estatus');
-            $table->boolean('borrado_logico')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

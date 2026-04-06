@@ -6,22 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TipoServicio extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'tipo_servicio';
 
     protected $fillable = [
         'tipo_servicio',
         'id_proveedor',
-        'borrado_logico',
         'iva_defecto',
     ];
 
     protected $casts = [
-        'borrado_logico' => 'boolean',
         'iva_defecto' => 'float',
     ];
 

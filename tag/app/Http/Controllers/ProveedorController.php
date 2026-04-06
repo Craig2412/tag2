@@ -11,12 +11,12 @@ class ProveedorController extends Controller
     /**
      * Listar todos los proveedores
      *
-     * Devuelve todos los proveedores activos (no eliminados) del sistema.
+     * Devuelve todos los proveedores activos del sistema, incluyendo su clasificación y atribución fiscal.
      */
     public function index()
     {
-        // Lista los proveedores activos y los devuelve en JSON.
-        $proveedores = Proveedor::where('borrado_logico', false)
+        // El Scope SoftDeletes automáticamente filtra los eliminados
+        $proveedores = Proveedor::with(['tipoProveedor', 'tipoContribuyente'])
             ->orderBy('id')
             ->get();
 
@@ -35,12 +35,11 @@ class ProveedorController extends Controller
      * @bodyParam telefono_empresa string Teléfono de la empresa. Ejemplo: +58 212 999 8888
      * @bodyParam nombre_persona_contacto string required Nombre de la persona de contacto. Ejemplo: María Rodríguez
      * @bodyParam tipo_proveedor int required ID del tipo de proveedor. Ejemplo: 1
+     * @bodyParam id_tipo_contribuyente int required ID de la denominación fiscal/contribuyente. Ejemplo: 1
      * @bodyParam estatus int required ID del estatus. Ejemplo: 1
-     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente. Ejemplo: false
      */
     public function store(Request $request)
     {
-        // Crea un proveedor con datos validados y lo devuelve.
         $data = $request->validate([
             'nombre_empresa' => ['required', 'string', 'max:255'],
             'razon_comercial' => ['required', 'string', 'max:255'],
@@ -49,15 +48,13 @@ class ProveedorController extends Controller
             'telefono_empresa' => ['nullable', 'string', 'max:50'],
             'nombre_persona_contacto' => ['required', 'string', 'max:255'],
             'tipo_proveedor' => ['required', 'exists:tipos_proveedores,id'],
+            'id_tipo_contribuyente' => ['required', 'exists:tipos_contribuyentes,id'],
             'estatus' => ['required', 'exists:estatus,id'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
-
-        $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
         $proveedor = Proveedor::create($data);
 
-        return response()->json($proveedor, 201);
+        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']), 201);
     }
 
     /**
@@ -67,12 +64,7 @@ class ProveedorController extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        // Muestra un proveedor si no esta marcado como borrado.
-        if ($proveedor->borrado_logico) {
-            return response()->json(['message' => 'No encontrado'], 404);
-        }
-
-        return response()->json($proveedor);
+        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
     }
 
     /**
@@ -87,16 +79,11 @@ class ProveedorController extends Controller
      * @bodyParam telefono_empresa string Teléfono de la empresa.
      * @bodyParam nombre_persona_contacto string Nombre de la persona de contacto.
      * @bodyParam tipo_proveedor int ID del tipo de proveedor.
+     * @bodyParam id_tipo_contribuyente int ID de la denominación fiscal/contribuyente.
      * @bodyParam estatus int ID del estatus.
-     * @bodyParam borrado_logico boolean Indica si el registro está eliminado lógicamente.
      */
     public function update(Request $request, Proveedor $proveedor)
     {
-        // Actualiza un proveedor activo y devuelve el resultado.
-        if ($proveedor->borrado_logico) {
-            return response()->json(['message' => 'No encontrado'], 404);
-        }
-
         $data = $request->validate([
             'nombre_empresa' => ['sometimes', 'required', 'string', 'max:255'],
             'razon_comercial' => ['sometimes', 'required', 'string', 'max:255'],
@@ -117,28 +104,23 @@ class ProveedorController extends Controller
             'telefono_empresa' => ['sometimes', 'nullable', 'string', 'max:50'],
             'nombre_persona_contacto' => ['sometimes', 'required', 'string', 'max:255'],
             'tipo_proveedor' => ['sometimes', 'required', 'exists:tipos_proveedores,id'],
+            'id_tipo_contribuyente' => ['sometimes', 'required', 'exists:tipos_contribuyentes,id'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
         $proveedor->update($data);
 
-        return response()->json($proveedor);
+        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
     }
 
     /**
      * Eliminar un proveedor
      *
-     * Realiza la eliminación lógica del proveedor (no se borra físicamente de la base de datos).
+     * Realiza la eliminación lógica del proveedor usando el SoftDeletes nativo de Eloquent.
      */
     public function destroy(Proveedor $proveedor)
     {
-        // Marca el proveedor como borrado logico.
-        if ($proveedor->borrado_logico) {
-            return response()->json(['message' => 'Ya estaba eliminado']);
-        }
-
-        $proveedor->update(['borrado_logico' => true]);
+        $proveedor->delete();
 
         return response()->json(['message' => 'Eliminado correctamente']);
     }

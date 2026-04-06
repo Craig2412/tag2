@@ -38,7 +38,6 @@ class ServiciosSeeder extends Seeder
                     'monto_no_sujeto' => $item['monto_no_sujeto'],
                     'total_servicio' => $item['monto_gravable'] + $item['monto_no_sujeto'],
                     'estatus' => $estatusActivo->id,
-                    'borrado_logico' => false,
                 ]
             );
         }

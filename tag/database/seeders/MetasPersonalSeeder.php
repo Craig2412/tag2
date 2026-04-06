@@ -4,14 +4,14 @@ namespace Database\Seeders;
 
 use App\Models\Meta;
 use App\Models\MetaPersonal;
-use App\Models\User;
+use App\Models\Personal;
 use Illuminate\Database\Seeder;
 
 class MetasPersonalSeeder extends Seeder
 {
     public function run(): void
     {
-        $personalIds = User::role('personal')->orderBy('id')->pluck('id')->values();
+        $personalIds = Personal::orderBy('id')->pluck('id')->values();
         $metas = Meta::orderBy('id')->get();
 
         if ($personalIds->isEmpty() || $metas->isEmpty()) {

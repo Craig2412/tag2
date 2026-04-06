@@ -5,17 +5,15 @@ namespace Database\Seeders;
 use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\OrdenCompra;
-use App\Models\TasaCambio;
 use Illuminate\Database\Seeder;
 
 class OrdenesComprasSeeder extends Seeder
 {
     public function run(): void
     {
-        $cotizacion = Cotizacion::where('borrado_logico', false)->orderBy('id')->first();
-        $tasaCambio = TasaCambio::first();
+        $cotizacion = Cotizacion::orderBy('id')->first();
 
-        if (!$cotizacion || !$tasaCambio) {
+        if (!$cotizacion) {
             return;
         }
 
@@ -27,7 +25,6 @@ class OrdenesComprasSeeder extends Seeder
         OrdenCompra::firstOrCreate(
             ['id_cotizacion' => $cotizacion->id],
             [
-                'id_tasa_cambio' => $tasaCambio->id,
                 'estatus' => $estatusPendiente->id,
                 'monto_total' => 0,
             ]

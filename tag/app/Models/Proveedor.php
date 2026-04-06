@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Proveedor extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'proveedores';
 
@@ -20,13 +21,9 @@ class Proveedor extends Model
         'correo_empresa',
         'telefono_empresa',
         'nombre_persona_contacto',
+        'id_tipo_contribuyente',
         'tipo_proveedor',
         'estatus',
-        'borrado_logico',
-    ];
-
-    protected $casts = [
-        'borrado_logico' => 'boolean',
     ];
 
     // Devuelve el tipo de proveedor asociado.
@@ -51,5 +48,11 @@ class Proveedor extends Model
     public function servicios(): HasMany
     {
         return $this->hasMany(Servicio::class, 'id_proveedor');
+    }
+
+    // Devuelve el tipo de contribuyente del proveedor.
+    public function tipoContribuyente(): BelongsTo
+    {
+        return $this->belongsTo(TipoContribuyente::class, 'id_tipo_contribuyente');
     }
 }

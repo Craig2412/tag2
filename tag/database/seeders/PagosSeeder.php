@@ -51,7 +51,6 @@ class PagosSeeder extends Seeder
                     'id_tasa_cambio' => $tasa->id,
                     'id_entidad_bancaria' => $entidadBancaria->id,
                     'estatus' => $estatus->id,
-                    'borrado_logico' => false,
                 ]
             );
 

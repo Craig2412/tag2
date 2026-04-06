@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('correo_empresa')->unique();
             $table->string('telefono_empresa')->nullable();
             $table->string('nombre_persona_contacto');
+            $table->foreignId('id_tipo_contribuyente')->nullable()->constrained('tipos_contribuyentes'); // Traspaso de la responsabilidad fiscal
             $table->foreignId('tipo_proveedor')->constrained('tipos_proveedores');
             $table->foreignId('estatus')->constrained('estatus');
-            $table->boolean('borrado_logico')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

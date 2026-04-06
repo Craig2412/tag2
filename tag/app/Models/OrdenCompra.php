@@ -7,17 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class OrdenCompra extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'ordenes_compra';
 
     protected $fillable = [
         'id_cotizacion',
-        'id_tasa_cambio',
-        'estatus',
+        'estatus', // Estatus Operativo
+        'estado_financiero', // Enum Controlado por Observer
         'monto_total',
     ];
 
@@ -25,16 +26,13 @@ class OrdenCompra extends Model
         'monto_total' => 'float',
     ];
 
+    // Expone campos calculados en el JSON automáticamente
+    protected $appends = ['saldo_pendiente', 'porcentaje_pagado', 'total_pagado'];
+
     // Devuelve la cotizacion origen de la orden.
     public function cotizacion(): BelongsTo
     {
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
-    }
-
-    // Devuelve la tasa de cambio aplicada a la orden.
-    public function tasaCambio(): BelongsTo
-    {
-        return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
     // Devuelve el estatus actual de la orden.
@@ -62,5 +60,27 @@ class OrdenCompra extends Model
         }
 
         $this->forceFill(['monto_total' => $montoTotal])->save();
+    }
+
+    // Suma todos los abonos activos asignados a esta orden.
+    public function getTotalPagadoAttribute(): float
+    {
+        return (float) $this->pagos()->sum('monto_asignado');
+    }
+
+    // Diferencia entre lo facturado y lo abonado. Siempre >= 0.
+    public function getSaldoPendienteAttribute(): float
+    {
+        return max(0, $this->monto_total - $this->total_pagado);
+    }
+
+    // Porcentaje de avance de pagos. Util para barras de progreso en el Frontend.
+    public function getPorcentajePagadoAttribute(): float
+    {
+        if ($this->monto_total <= 0) {
+            return 0.0;
+        }
+
+        return round(($this->total_pagado / $this->monto_total) * 100, 2);
     }
 }

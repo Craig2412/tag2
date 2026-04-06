@@ -8,11 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, HasRoles, Notifiable;
+    use HasApiTokens, HasFactory, HasRoles, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +21,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'nombre',
-        'apellido',
-        'cedula',
-        'telefono',
-        'porcentaje_comision',
-        'id_tipo_contribuyente',
-        'id_rol',
-        'id_estatus',
+        'name',
         'email',
-        'correo_institucional',
         'password',
+        'is_active',
     ];
 
     /**
@@ -80,17 +74,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    // Devuelve el tipo de contribuyente del usuario.
-    public function tipoContribuyente(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(TipoContribuyente::class, 'id_tipo_contribuyente');
-    }
-
-    // Lista los logros registrados para este personal.
-    public function logrosPersonal(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(LogroPersonal::class, 'id_personal');
     }
 }

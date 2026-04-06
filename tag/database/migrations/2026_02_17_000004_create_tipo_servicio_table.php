@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('tipo_servicio');
             $table->decimal('iva_defecto', 5, 2)->nullable();
             $table->foreignId('id_proveedor')->constrained('proveedores');
-            $table->boolean('borrado_logico')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

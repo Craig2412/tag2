@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pago extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'pagos';
 
@@ -21,7 +22,6 @@ class Pago extends Model
         'id_tasa_cambio',
         'id_entidad_bancaria',
         'estatus',
-        'borrado_logico',
     ];
     // Devuelve la entidad bancaria asociada.
     public function entidadBancaria(): BelongsTo
@@ -31,7 +31,6 @@ class Pago extends Model
 
     protected $casts = [
         'fecha_pago' => 'date',
-        'borrado_logico' => 'boolean',
     ];
 
     // Lista las cotizaciones vinculadas a este pago.

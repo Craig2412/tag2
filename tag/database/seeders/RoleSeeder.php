@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Estatus;
-use App\Models\TipoContribuyente;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -50,7 +49,7 @@ class RoleSeeder extends Seeder
             'create:atenciones_personal',
             'edit:atenciones_personal',
             'delete:atenciones_personal',
-            'view:cotizaciones',
+            'view:get_cotizaciones',
             'create:cotizaciones',
             'edit:cotizaciones',
             'delete:cotizaciones',
@@ -97,95 +96,50 @@ class RoleSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::findOrCreate($permission, 'web');
         }
 
-        $adminRole = Role::create(['name' => 'admin']);
-        $userRole = Role::create(['name' => 'user']);
-        $personalRole = Role::create(['name' => 'personal']);
-        $clienteRole = Role::create(['name' => 'cliente']);
+        $adminRole = Role::findOrCreate('admin', 'web');
+        $userRole = Role::findOrCreate('user', 'web');
+        $personalRole = Role::findOrCreate('personal', 'web');
+        $clienteRole = Role::findOrCreate('cliente', 'web');
 
         $adminRole->syncPermissions($permissions);
-        $userRole->syncPermissions(['view:users']);
-        $personalRole->syncPermissions([]);
-        $clienteRole->syncPermissions([]);
 
-        $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
-
-        $tipoContribuyenteNormal = TipoContribuyente::create([
-            'tipo_contribuyente' => 'Normal',
-            'porcentaje_iva' => 16
-        ]);
-
-        $admin = User::create([
-            'email' => 'admin@example.com',
-            'name' => 'Admin',
-            'nombre' => 'Admin',
-            'apellido' => 'Root',
-            'cedula' => 'A-0001',
-            'telefono' => '0000000000',
-            'porcentaje_comision' => 0,
-            'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
-            'id_rol' => $adminRole->id,
-            'id_estatus' => $estatusActivo->id,
-            'password' => Hash::make('password'),
-            'correo_institucional' => null,
-        ]);
-
-        $admin->syncRoles([$adminRole]);
-
-        $user = User::create([
-            'email' => 'user@example.com',
-            'name' => 'User',
-            'nombre' => 'User',
-            'apellido' => 'Default',
-            'cedula' => 'U-0001',
-            'telefono' => '0000000000',
-            'porcentaje_comision' => 0,
-            'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
-            'id_rol' => $userRole->id,
-            'id_estatus' => $estatusActivo->id,
-            'password' => Hash::make('password'),
-            'correo_institucional' => null,
-        ]);
-
-        $user->syncRoles([$userRole]);
-
-        $personal = User::create([
-            'email' => 'personal@example.com',
-                'name' => 'Personal',
-                'nombre' => 'Personal',
-                'apellido' => 'Staff',
-                'cedula' => 'P-0001',
-                'telefono' => '0000000000',
-                'porcentaje_comision' => 0,
-                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
-                'id_rol' => $personalRole->id,
-                'id_estatus' => $estatusActivo->id,
-                'password' => Hash::make('password'),
-                'correo_institucional' => null,
-            ]
-        );
-
-        $personal->syncRoles([$personalRole]);
-
-        $cliente = User::firstOrCreate(
-            ['email' => 'cliente@example.com'],
+        // Crear Usuarios Base (Estructura Minimalista)
+        $users = [
             [
-                'name' => 'Cliente',
-                'nombre' => 'Cliente',
-                'apellido' => 'Demo',
-                'cedula' => 'C-0001',
-                'telefono' => '0000000000',
-                'porcentaje_comision' => 0,
-                'id_tipo_contribuyente' => $tipoContribuyenteNormal->id,
-                'id_rol' => $clienteRole->id,
-                'id_estatus' => $estatusActivo->id,
+                'name' => 'Admin Root',
+                'email' => 'admin@example.com',
                 'password' => Hash::make('password'),
-                'correo_institucional' => null,
-            ]
-        );
+                'role' => $adminRole,
+            ],
+            [
+                'name' => 'Usuario Demo',
+                'email' => 'user@example.com',
+                'password' => Hash::make('password'),
+                'role' => $userRole,
+            ],
+            [
+                'name' => 'Personal Comercial',
+                'email' => 'personal@example.com',
+                'password' => Hash::make('password'),
+                'role' => $personalRole,
+            ],
+            [
+                'name' => 'Cliente Demo',
+                'email' => 'cliente@example.com',
+                'password' => Hash::make('password'),
+                'role' => $clienteRole,
+            ],
+        ];
 
-        $cliente->syncRoles([$clienteRole]);
+        foreach ($users as $userData) {
+            $role = $userData['role'];
+            unset($userData['role']);
+            
+            $user = User::firstOrCreate(['email' => $userData['email']], $userData);
+            $user->syncRoles([$role]);
+        }
     }
 }

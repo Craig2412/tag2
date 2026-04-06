@@ -25,10 +25,10 @@ class LogroPersonal extends Model
         'tiempo_transcurrido_segundos' => 'integer',
     ];
 
-    // Devuelve el usuario personal relacionado con el logro.
+    // Devuelve el personal relacionado con el logro.
     public function personal(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_personal');
+        return $this->belongsTo(Personal::class, 'id_personal');
     }
 
     // Devuelve el estatus anterior del cambio.

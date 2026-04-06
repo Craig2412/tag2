@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nro_comprobante');
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
             $table->foreignId('estatus')->constrained('estatus');
-            $table->boolean('borrado_logico')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

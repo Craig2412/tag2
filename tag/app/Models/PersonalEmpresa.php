@@ -20,7 +20,7 @@ class PersonalEmpresa extends Model
     // Devuelve el personal asociado.
     public function personal(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_personal');
+        return $this->belongsTo(Personal::class, 'id_personal');
     }
 
     // Devuelve la empresa asociada.

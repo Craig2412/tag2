@@ -20,8 +20,7 @@ class TipoServicioSeeder extends Seeder
             [
                 'tipo_servicio' => 'consultoria',
                 'id_proveedor' => $proveedor->id,
-            ],
-            ['borrado_logico' => false]
+            ]
         );
     }
 }

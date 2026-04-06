@@ -347,7 +347,383 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/metricas/personal/{idPersonal}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      idPersonal:
+        custom: []
+        name: idPersonal
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      idPersonal: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"promedio_cambio_estatus_atencion_horas":0,"promedio_cambio_estatus_cotizacion_horas":0,"promedio_cambio_estatus_orden_horas":0,"promedio_atenciones_con_cotizacion":0,"promedio_atenciones_con_orden":0,"promedio_cotizaciones_con_orden":0,"promedio_tiempo_pago_orden_horas":0}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/metricas/generales
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"promedio_cambio_estatus_atencion_horas":0,"promedio_cambio_estatus_cotizacion_horas":0,"promedio_cambio_estatus_orden_horas":0,"promedio_atenciones_con_cotizacion":1,"promedio_atenciones_con_orden":1,"promedio_cotizaciones_con_orden":1,"promedio_tiempo_pago_orden_horas":0}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/entidades-bancarias
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"id":1,"entidad":"Banco de Prueba","estatus":1,"created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":2,"entidad":"Banco Ejemplo","estatus":1,"created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":3,"entidad":"Banco Nacional","estatus":1,"created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":4,"entidad":"Banco Internacional","estatus":1,"created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/entidades-bancarias
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      entidad:
+        custom: []
+        name: entidad
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      estatus:
+        custom: []
+        name: estatus
+        description: 'The <code>id</code> of an existing record in the estatus table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      entidad: vmqeopfuudtdsufvyvddq
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/entidades-bancarias/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the entidades bancaria.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/entidades-bancarias/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the entidades bancaria.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      entidad:
+        custom: []
+        name: entidad
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      estatus:
+        custom: []
+        name: estatus
+        description: 'The <code>id</code> of an existing record in the estatus table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      entidad: vmqeopfuudtdsufvyvddq
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/entidades-bancarias/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the entidades bancaria.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -382,7 +758,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -554,7 +930,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"estatus":"activo","created_at":"2026-04-03T07:39:00.000000Z","updated_at":"2026-04-03T07:39:00.000000Z"},{"id":2,"estatus":"inactivo","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"estatus":"en espera","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"estatus":"por confirmar","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":5,"estatus":"confirmado","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":6,"estatus":"pendiente de pago","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":7,"estatus":"por pagar","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":8,"estatus":"pagado","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":9,"estatus":"en proceso","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":10,"estatus":"aprobado","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":11,"estatus":"por aprobar","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"estatus":"activo","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":2,"estatus":"inactivo","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":3,"estatus":"en espera","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":4,"estatus":"por confirmar","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":5,"estatus":"confirmado","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":6,"estatus":"pendiente de pago","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":7,"estatus":"por pagar","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":8,"estatus":"pagado","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":9,"estatus":"en proceso","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":10,"estatus":"aprobado","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":11,"estatus":"por aprobar","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -564,7 +940,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -611,7 +987,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -657,7 +1033,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"estatus":"activo","created_at":"2026-04-03T07:39:00.000000Z","updated_at":"2026-04-03T07:39:00.000000Z"}'
+        content: '{"id":1,"estatus":"activo","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -667,7 +1043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -727,7 +1103,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -774,7 +1150,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -808,7 +1184,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"dias_vencimiento":30,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"dias_vencimiento":30,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -818,7 +1194,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -865,7 +1241,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -911,7 +1287,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"dias_vencimiento":30,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"dias_vencimiento":30,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -921,7 +1297,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -981,7 +1357,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1028,7 +1404,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1062,7 +1438,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","id_tipo_contribuyente":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1072,7 +1448,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1179,7 +1555,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1225,7 +1601,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","id_tipo_contribuyente":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1235,7 +1611,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1355,7 +1731,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1402,7 +1778,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1436,7 +1812,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-03T07:39:00.000000Z","updated_at":"2026-04-03T07:39:00.000000Z"},{"id":2,"tipo_contribuyente":"Reducido","porcentaje_iva":"8.00","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"tipo_contribuyente":"Exento","porcentaje_iva":"0.00","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":2,"tipo_contribuyente":"Reducido","porcentaje_iva":"8.00","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},{"id":3,"tipo_contribuyente":"Exento","porcentaje_iva":"0.00","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1446,7 +1822,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1505,7 +1881,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1551,7 +1927,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-03T07:39:00.000000Z","updated_at":"2026-04-03T07:39:00.000000Z"}'
+        content: '{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1561,7 +1937,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1633,7 +2009,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1680,7 +2056,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1714,7 +2090,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1724,7 +2100,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1843,7 +2219,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -1889,7 +2265,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1899,7 +2275,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2031,7 +2407,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2078,7 +2454,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2122,7 +2498,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2181,7 +2557,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2240,7 +2616,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2312,7 +2688,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2359,7 +2735,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2393,7 +2769,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_personal":3,"id_empresa":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_personal":3,"id_empresa":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2403,7 +2779,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2462,7 +2838,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2508,7 +2884,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_personal":3,"id_empresa":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_personal":3,"id_empresa":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2518,7 +2894,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2590,7 +2966,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2637,7 +3013,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2671,7 +3047,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"red":"facebook","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"red":"instagram","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"red":"whatsapp","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"red":"tiktok","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":5,"red":"x","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"red":"facebook","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"red":"instagram","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"red":"whatsapp","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":4,"red":"tiktok","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":5,"red":"x","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2681,7 +3057,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2728,7 +3104,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2774,7 +3150,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"red":"facebook","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"red":"facebook","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2784,7 +3160,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2844,7 +3220,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2891,7 +3267,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2907,7 +3283,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todas las atenciones'
-      description: 'Devuelve todas las atenciones activas (no eliminadas) del sistema.'
+      description: 'Devuelve todas las atenciones activas.'
       authenticated: true
       deprecated: false
     headers:
@@ -2925,7 +3301,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_cliente":4,"id_personal":3,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":11,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"fase_actual":"Cotizada","cliente":{"id":1,"user_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-27853586","telefono":"+58 424 6155692","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"personal":{"id":1,"user_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-19108599","telefono":"+58 412 3929752","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},"cotizaciones":[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-21T00:00:00.000000Z","estatus":5,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"esta_vencida":false}],"id_cotizacion":1,"id_orden_compra":1}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2935,7 +3311,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -2951,7 +3327,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Crear una nueva atención'
-      description: 'Registra un nuevo ticket de atención al cliente. El sistema asigna automáticamente al personal disponible.'
+      description: 'Registra un nuevo ticket de atención al cliente asignando automáticamente un miembro del personal.'
       authenticated: true
       deprecated: false
     headers:
@@ -2966,7 +3342,7 @@ endpoints:
       id_cliente:
         custom: []
         name: id_cliente
-        description: 'ID del usuario con rol cliente. Ejemplo: 5'
+        description: 'ID del cliente. Ejemplo: 5'
         required: true
         example: 17
         type: integer
@@ -3007,30 +3383,18 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
     cleanBodyParameters:
       id_cliente: 17
       id_origen_atencion: 17
       asunto: consequatur
       notas_adicionales: consequatur
-      borrado_logico: false
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3046,7 +3410,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener una atención específica'
-      description: 'Devuelve los detalles de una atención por su ID.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -3076,7 +3440,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_cliente":4,"id_personal":3,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":11,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-06T08:55:13.000000Z","updated_at":"2026-04-06T08:55:13.000000Z"},"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"fase_actual":"Cotizada","cliente":{"id":1,"user_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-27853586","telefono":"+58 424 6155692","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"personal":{"id":1,"user_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-19108599","telefono":"+58 412 3929752","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},"cotizaciones":[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-21T00:00:00.000000Z","estatus":5,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"esta_vencida":false}],"id_cotizacion":1,"id_orden_compra":1}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3086,7 +3450,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3103,7 +3467,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Actualizar una atención existente'
-      description: 'Modifica los datos de una atención activa. Valida el rol del cliente y del personal si se cambian.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -3130,7 +3494,7 @@ endpoints:
       id_cliente:
         custom: []
         name: id_cliente
-        description: 'ID del usuario cliente.'
+        description: 'ID del cliente.'
         required: false
         example: 17
         type: integer
@@ -3141,7 +3505,7 @@ endpoints:
       id_personal:
         custom: []
         name: id_personal
-        description: 'ID del usuario personal asignado.'
+        description: 'ID del personal asignado.'
         required: false
         example: 17
         type: integer
@@ -3193,17 +3557,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
     cleanBodyParameters:
       id_cliente: 17
       id_personal: 17
@@ -3211,14 +3564,13 @@ endpoints:
       asunto: consequatur
       notas_adicionales: consequatur
       estatus: 17
-      borrado_logico: false
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3234,7 +3586,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Eliminar una atención'
-      description: 'Realiza una eliminación lógica de la atención (no se borra físicamente de la base de datos).'
+      description: 'Usa SoftDeletes nativo.'
       authenticated: true
       deprecated: false
     headers:
@@ -3265,7 +3617,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3281,7 +3633,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todas las cotizaciones'
-      description: 'Devuelve todas las cotizaciones activas junto con su orden de compra asociada.'
+      description: 'Devuelve todas las cotizaciones activas mediante SoftDeletes.'
       authenticated: true
       deprecated: false
     headers:
@@ -3299,7 +3651,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_asignada":1,"estatus":5,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","orden_compra":{"id":1,"id_cotizacion":1,"id_tasa_cambio":1,"estatus":6,"monto_total":260,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}}]'
+        content: '[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-21T00:00:00.000000Z","estatus":5,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"estado_financiero":"PAGADO","monto_total":260,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:17.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"tipo_cotizacion":{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},"atencion":{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":11,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"fase_actual":"Cotizada","cotizaciones":[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-21T00:00:00.000000Z","estatus":5,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"esta_vencida":false}]}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3309,7 +3661,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3325,7 +3677,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Crear una nueva cotización'
-      description: 'Registra una cotización en estatus "por confirmar". Luego puede confirmarse con `PUT /api/cotizaciones/{id}`.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -3392,10 +3744,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      id_tasa_asignada:
+      id_tasa_cambio:
         custom: []
-        name: id_tasa_asignada
-        description: 'ID de la tasa de gestión asignada. Ejemplo: 1'
+        name: id_tasa_cambio
+        description: 'ID de la tasa de cambio congelada (Historial Tasa). Ejemplo: 12'
         required: true
         example: 17
         type: integer
@@ -3403,13 +3755,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      fecha_vencimiento:
         custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
+        name: fecha_vencimiento
+        description: 'Fecha de caducidad de la proforma. Ejemplo: 2026-04-10'
+        required: true
+        example: consequatur
+        type: date
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -3420,15 +3772,15 @@ endpoints:
       cant_adultos: 17
       cant_menores: 17
       cant_viejos: 17
-      id_tasa_asignada: 17
-      borrado_logico: false
+      id_tasa_cambio: 17
+      fecha_vencimiento: consequatur
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3444,7 +3796,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener una cotización específica'
-      description: 'Devuelve los datos de una cotización junto con su orden de compra.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -3474,7 +3826,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_asignada":1,"estatus":5,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","orden_compra":{"id":1,"id_cotizacion":1,"id_tasa_cambio":1,"estatus":6,"monto_total":260,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}}'
+        content: '{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-21T00:00:00.000000Z","estatus":5,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"estado_financiero":"PAGADO","monto_total":260,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:17.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3484,7 +3836,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3501,7 +3853,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Actualizar una cotización existente'
-      description: 'Modifica una cotización activa. Al confirmarla (estatus = confirmado), se crea o actualiza automáticamente la orden de compra.'
+      description: 'Modifica una cotización activa. Al confirmarla (estatus = confirmado), se genera la Orden de Compra automáticamente (Estado Financiero: POR_PAGAR).'
       authenticated: true
       deprecated: false
     headers:
@@ -3528,10 +3880,10 @@ endpoints:
       id_atencion:
         custom: []
         name: id_atencion
-        description: 'ID de la atención asociada.'
+        description: 'The <code>id</code> of an existing record in the atenciones table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -3539,10 +3891,10 @@ endpoints:
       id_tipo_cotizacion:
         custom: []
         name: id_tipo_cotizacion
-        description: 'ID del tipo de cotización.'
+        description: 'The <code>id</code> of an existing record in the tipos_cotizaciones table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -3550,9 +3902,9 @@ endpoints:
       cant_adultos:
         custom: []
         name: cant_adultos
-        description: 'Cantidad de adultos.'
+        description: 'Must be at least 0.'
         required: false
-        example: 17
+        example: 73
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -3561,9 +3913,9 @@ endpoints:
       cant_menores:
         custom: []
         name: cant_menores
-        description: 'Cantidad de menores.'
+        description: 'Must be at least 0.'
         required: false
-        example: 17
+        example: 45
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -3572,31 +3924,9 @@ endpoints:
       cant_viejos:
         custom: []
         name: cant_viejos
-        description: 'Cantidad de adultos mayores.'
+        description: 'Must be at least 0.'
         required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      id_tasa_asignada:
-        custom: []
-        name: id_tasa_asignada
-        description: 'ID de la tasa de gestión.'
-        required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      estatus:
-        custom: []
-        name: estatus
-        description: 'ID del estatus (por confirmar / confirmado).'
-        required: false
-        example: 17
+        example: 56
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -3605,42 +3935,48 @@ endpoints:
       id_tasa_cambio:
         custom: []
         name: id_tasa_cambio
-        description: 'ID de la tasa de cambio (requerido al confirmar la cotización).'
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      fecha_vencimiento:
         custom: []
-        name: borrado_logico
-        description: ''
+        name: fecha_vencimiento
+        description: 'Must be a valid date.'
         required: false
-        example: true
-        type: boolean
+        example: '2026-04-06T08:59:50'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      estatus:
+        custom: []
+        name: estatus
+        description: 'The <code>id</code> of an existing record in the estatus table.'
+        required: false
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      id_atencion: 17
-      id_tipo_cotizacion: 17
-      cant_adultos: 17
-      cant_menores: 17
-      cant_viejos: 17
-      id_tasa_asignada: 17
-      estatus: 17
-      id_tasa_cambio: 17
-      borrado_logico: true
+      cant_adultos: 73
+      cant_menores: 45
+      cant_viejos: 56
+      fecha_vencimiento: '2026-04-06T08:59:50'
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3656,7 +3992,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Eliminar una cotización'
-      description: 'Realiza una eliminación lógica de la cotización (no se borra físicamente de la base de datos).'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -3687,7 +4023,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3721,7 +4057,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"tipo_cotizacion":"empresarial","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"tipo_cotizacion":"empresarial","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3731,7 +4067,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3778,7 +4114,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3824,7 +4160,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3834,7 +4170,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3894,7 +4230,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3941,7 +4277,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -3975,7 +4311,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_servicio":1,"id_cotizacion":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"id_servicio":2,"id_cotizacion":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_servicio":1,"id_cotizacion":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"id_servicio":2,"id_cotizacion":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3985,7 +4321,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4044,7 +4380,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4090,7 +4426,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_servicio":1,"id_cotizacion":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_servicio":1,"id_cotizacion":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4100,7 +4436,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4172,7 +4508,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4219,7 +4555,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4253,7 +4589,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"metodo_pago":"transferencia","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"metodo_pago":"tarjeta","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"metodo_pago":"transferencia","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"metodo_pago":"tarjeta","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4263,7 +4599,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4310,7 +4646,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4356,7 +4692,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4366,7 +4702,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4426,7 +4762,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4473,7 +4809,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4506,8 +4842,11 @@ endpoints:
     responses:
       -
         custom: []
-        status: 200
-        content: '[{"id":1,"id_cotizacion":1,"id_tasa_cambio":1,"estatus":6,"monto_total":260,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_asignada":1,"estatus":5,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},"tasa_cambio":{"id":1,"tasa_usd":"37.2300","tasa_eur":"40.5960","tasa_binance":"37.4340","tasa_personalizada":"2.00","fecha":"2026-04-03T00:00:00.000000Z","borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}}]'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4517,7 +4856,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4588,7 +4927,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4633,8 +4972,11 @@ endpoints:
     responses:
       -
         custom: []
-        status: 200
-        content: '{"id":1,"id_cotizacion":1,"id_tasa_cambio":1,"estatus":6,"monto_total":260,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_asignada":1,"estatus":5,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","servicios_cotizaciones":[{"id":1,"id_servicio":1,"id_cotizacion":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","servicio":{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","id_tasa_cambio":1,"estatus":8,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}},{"id":2,"id_servicio":2,"id_cotizacion":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","servicio":{"id":2,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","id_tasa_cambio":1,"estatus":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}}]},"tasa_cambio":{"id":1,"tasa_usd":"37.2300","tasa_eur":"40.5960","tasa_binance":"37.4340","tasa_personalizada":"2.00","fecha":"2026-04-03T00:00:00.000000Z","borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},"pagos":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"104.00","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}],"servicios":[{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","id_tasa_cambio":1,"estatus":8,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","id_tasa_cambio":1,"estatus":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]}'
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4644,7 +4986,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4716,7 +5058,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4763,7 +5105,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4779,7 +5121,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todos los pagos de clientes'
-      description: 'Devuelve todos los pagos activos (no eliminados) registrados en el sistema.'
+      description: 'Devuelve todos los pagos activos registrados en el sistema.'
       authenticated: true
       deprecated: false
     headers:
@@ -4797,7 +5139,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"fecha_pago":"2026-04-03T00:00:00.000000Z","monto_total":"104.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"estatus":6,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"fecha_pago":"2026-04-06T00:00:00.000000Z","monto_total":"260.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4807,7 +5149,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4823,9 +5165,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Registrar un nuevo pago de cliente'
-      description: |-
-        Registra un pago y distribuye el monto entre las órdenes de compra indicadas.
-        La suma de los montos asignados debe coincidir exactamente con el monto total del pago.
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -4840,10 +5180,10 @@ endpoints:
       fecha_pago:
         custom: []
         name: fecha_pago
-        description: 'Fecha en que se realizó el pago. Ejemplo: 2026-04-03'
+        description: 'Must be a valid date.'
         required: true
-        example: consequatur
-        type: date
+        example: '2026-04-06T08:59:50'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -4851,9 +5191,9 @@ endpoints:
       monto_total:
         custom: []
         name: monto_total
-        description: 'Monto total pagado. Ejemplo: 1500.50'
+        description: 'Must be at least 0.01.'
         required: true
-        example: 11613.31890586
+        example: 73
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -4862,10 +5202,10 @@ endpoints:
       id_metodo_pago:
         custom: []
         name: id_metodo_pago
-        description: 'ID del método de pago utilizado. Ejemplo: 1'
+        description: 'The <code>id</code> of an existing record in the metodos_pago table.'
         required: true
-        example: 17
-        type: integer
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -4873,9 +5213,9 @@ endpoints:
       nro_comprobante:
         custom: []
         name: nro_comprobante
-        description: 'Número de comprobante o referencia de la transferencia. Ejemplo: TRANS-987654'
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: consequatur
+        example: mqeopfuudtdsufvyvddqa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -4884,10 +5224,21 @@ endpoints:
       id_tasa_cambio:
         custom: []
         name: id_tasa_cambio
-        description: 'ID de la tasa de cambio aplicada. Ejemplo: 1'
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
         required: true
-        example: 17
-        type: integer
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      id_entidad_bancaria:
+        custom: []
+        name: id_entidad_bancaria
+        description: 'The <code>id</code> of an existing record in the entidades_bancarias table.'
+        required: true
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -4895,21 +5246,10 @@ endpoints:
       estatus:
         custom: []
         name: estatus
-        description: 'ID del estatus del pago. Ejemplo: 1'
+        description: 'The <code>id</code> of an existing record in the estatus table.'
         required: true
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -4917,7 +5257,7 @@ endpoints:
       ordenes_compra:
         custom: []
         name: ordenes_compra
-        description: 'Lista de órdenes de compra y sus montos asignados.'
+        description: 'Must have at least 1 items.'
         required: true
         example:
           - []
@@ -4929,10 +5269,10 @@ endpoints:
       'ordenes_compra[].id_orden_compra':
         custom: []
         name: 'ordenes_compra[].id_orden_compra'
-        description: 'ID de la orden de compra. Ejemplo: 1'
+        description: 'The <code>id</code> of an existing record in the ordenes_compra table.'
         required: true
-        example: 17
-        type: integer
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -4940,33 +5280,33 @@ endpoints:
       'ordenes_compra[].monto_asignado':
         custom: []
         name: 'ordenes_compra[].monto_asignado'
-        description: 'Monto asignado a esta orden de compra. Ejemplo: 1500.50'
+        description: 'Must be at least 0.01.'
         required: true
-        example: 11613.31890586
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      fecha_pago: consequatur
-      monto_total: 11613.31890586
-      id_metodo_pago: 17
-      nro_comprobante: consequatur
-      id_tasa_cambio: 17
-      estatus: 17
-      borrado_logico: false
+      fecha_pago: '2026-04-06T08:59:50'
+      monto_total: 73
+      id_metodo_pago: consequatur
+      nro_comprobante: mqeopfuudtdsufvyvddqa
+      id_tasa_cambio: consequatur
+      id_entidad_bancaria: consequatur
+      estatus: consequatur
       ordenes_compra:
         -
-          id_orden_compra: 17
-          monto_asignado: 11613.31890586
+          id_orden_compra: consequatur
+          monto_asignado: 45
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -4982,7 +5322,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener un pago específico'
-      description: 'Devuelve los detalles de un pago junto con sus órdenes de compra asociadas.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -5012,7 +5352,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"fecha_pago":"2026-04-03T00:00:00.000000Z","monto_total":"104.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"estatus":6,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z","ordenes_compra":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"104.00","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]}'
+        content: '{"id":1,"fecha_pago":"2026-04-06T00:00:00.000000Z","monto_total":"260.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"ordenes_compra":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5022,7 +5362,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5039,7 +5379,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Actualizar un pago existente'
-      description: 'Modifica los datos de un pago activo y recalcula el estatus de las órdenes de compra afectadas.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -5066,10 +5406,10 @@ endpoints:
       fecha_pago:
         custom: []
         name: fecha_pago
-        description: 'Fecha del pago.'
+        description: 'Must be a valid date.'
         required: false
-        example: consequatur
-        type: date
+        example: '2026-04-06T08:59:50'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -5077,9 +5417,9 @@ endpoints:
       monto_total:
         custom: []
         name: monto_total
-        description: 'Monto total pagado.'
+        description: 'Must be at least 0.01.'
         required: false
-        example: 11613.31890586
+        example: 73
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -5088,10 +5428,10 @@ endpoints:
       id_metodo_pago:
         custom: []
         name: id_metodo_pago
-        description: 'ID del método de pago.'
+        description: 'The <code>id</code> of an existing record in the metodos_pago table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -5099,9 +5439,9 @@ endpoints:
       nro_comprobante:
         custom: []
         name: nro_comprobante
-        description: 'Número de comprobante.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: consequatur
+        example: mqeopfuudtdsufvyvddqa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -5110,10 +5450,21 @@ endpoints:
       id_tasa_cambio:
         custom: []
         name: id_tasa_cambio
-        description: 'ID de la tasa de cambio.'
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      id_entidad_bancaria:
+        custom: []
+        name: id_entidad_bancaria
+        description: 'The <code>id</code> of an existing record in the entidades_bancarias table.'
+        required: false
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -5121,21 +5472,10 @@ endpoints:
       estatus:
         custom: []
         name: estatus
-        description: 'ID del estatus.'
+        description: 'The <code>id</code> of an existing record in the estatus table.'
         required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
-        required: false
-        example: false
-        type: boolean
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -5143,10 +5483,9 @@ endpoints:
       ordenes_compra:
         custom: []
         name: ordenes_compra
-        description: 'Lista de órdenes de compra y montos asignados.'
+        description: 'Must have at least 1 items.'
         required: false
-        example:
-          - []
+        example: null
         type: 'object[]'
         enumValues: []
         exampleWasSpecified: false
@@ -5155,10 +5494,10 @@ endpoints:
       'ordenes_compra[].id_orden_compra':
         custom: []
         name: 'ordenes_compra[].id_orden_compra'
-        description: 'ID de la orden de compra.'
+        description: 'The <code>id</code> of an existing record in the ordenes_compra table.'
         required: true
-        example: 17
-        type: integer
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -5166,33 +5505,29 @@ endpoints:
       'ordenes_compra[].monto_asignado':
         custom: []
         name: 'ordenes_compra[].monto_asignado'
-        description: 'Monto asignado.'
+        description: 'Must be at least 0.01.'
         required: true
-        example: 11613.31890586
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      fecha_pago: consequatur
-      monto_total: 11613.31890586
-      id_metodo_pago: 17
-      nro_comprobante: consequatur
-      id_tasa_cambio: 17
-      estatus: 17
-      borrado_logico: false
+      fecha_pago: '2026-04-06T08:59:50'
+      monto_total: 73
+      nro_comprobante: mqeopfuudtdsufvyvddqa
       ordenes_compra:
         -
-          id_orden_compra: 17
-          monto_asignado: 11613.31890586
+          id_orden_compra: consequatur
+          monto_asignado: 45
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5208,7 +5543,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Eliminar un pago'
-      description: 'Realiza la eliminación lógica del pago y recalcula el estatus de las órdenes de compra afectadas.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -5239,7 +5574,309 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/pagos-ordenes-compra
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/pagos-ordenes-compra
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id_pago:
+        custom: []
+        name: id_pago
+        description: 'The <code>id</code> of an existing record in the pagos table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      id_orden_compra:
+        custom: []
+        name: id_orden_compra
+        description: 'The <code>id</code> of an existing record in the ordenes_compra table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      monto_asignado:
+        custom: []
+        name: monto_asignado
+        description: 'Must be at least 0.'
+        required: true
+        example: 45
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      monto_pagado:
+        custom: []
+        name: monto_pagado
+        description: 'Must be at least 0.'
+        required: false
+        example: 56
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      id_pago: consequatur
+      id_orden_compra: consequatur
+      monto_asignado: 45
+      monto_pagado: 56
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/pagos-ordenes-compra/{pagoOrdenCompra_id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      pagoOrdenCompra_id:
+        custom: []
+        name: pagoOrdenCompra_id
+        description: 'The ID of the pagoOrdenCompra.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      pagoOrdenCompra_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/pagos-ordenes-compra/{pagoOrdenCompra_id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      pagoOrdenCompra_id:
+        custom: []
+        name: pagoOrdenCompra_id
+        description: 'The ID of the pagoOrdenCompra.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      pagoOrdenCompra_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      monto_asignado:
+        custom: []
+        name: monto_asignado
+        description: 'Must be at least 0.'
+        required: false
+        example: 73
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      monto_pagado:
+        custom: []
+        name: monto_pagado
+        description: 'Must be at least 0.'
+        required: false
+        example: 45
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      monto_asignado: 73
+      monto_pagado: 45
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/pagos-ordenes-compra/{pagoOrdenCompra_id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      pagoOrdenCompra_id:
+        custom: []
+        name: pagoOrdenCompra_id
+        description: 'The ID of the pagoOrdenCompra.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      pagoOrdenCompra_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5273,7 +5910,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-03T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-06T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-06T08:55:17.000000Z","updated_at":"2026-04-06T08:55:17.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5283,7 +5920,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5378,7 +6015,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5424,7 +6061,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-03T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-06T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-06T08:55:17.000000Z","updated_at":"2026-04-06T08:55:17.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5434,7 +6071,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5542,7 +6179,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5589,7 +6226,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5623,7 +6260,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"tipo_proveedor":"logistica","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"tipo_proveedor":"tecnologia","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"tipo_proveedor":"logistica","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"tipo_proveedor":"tecnologia","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5633,7 +6270,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5680,7 +6317,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5726,7 +6363,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5736,7 +6373,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5796,7 +6433,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5843,7 +6480,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5859,7 +6496,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todos los proveedores'
-      description: 'Devuelve todos los proveedores activos (no eliminados) del sistema.'
+      description: 'Devuelve todos los proveedores activos del sistema, incluyendo su clasificación y atribución fiscal.'
       authenticated: true
       deprecated: false
     headers:
@@ -5877,7 +6514,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","tipo_proveedor":1,"estatus":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"tipo_contribuyente":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5887,7 +6524,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -5992,10 +6629,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      estatus:
+      id_tipo_contribuyente:
         custom: []
-        name: estatus
-        description: 'ID del estatus. Ejemplo: 1'
+        name: id_tipo_contribuyente
+        description: 'ID de la denominación fiscal/contribuyente. Ejemplo: 1'
         required: true
         example: 17
         type: integer
@@ -6003,13 +6640,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      estatus:
         custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
+        name: estatus
+        description: 'ID del estatus. Ejemplo: 1'
+        required: true
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -6022,15 +6659,15 @@ endpoints:
       telefono_empresa: consequatur
       nombre_persona_contacto: consequatur
       tipo_proveedor: 17
+      id_tipo_contribuyente: 17
       estatus: 17
-      borrado_logico: false
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6076,7 +6713,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","tipo_proveedor":1,"estatus":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"tipo_contribuyente":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6086,7 +6723,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6204,10 +6841,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      estatus:
+      id_tipo_contribuyente:
         custom: []
-        name: estatus
-        description: 'ID del estatus.'
+        name: id_tipo_contribuyente
+        description: 'ID de la denominación fiscal/contribuyente.'
         required: false
         example: 17
         type: integer
@@ -6215,13 +6852,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      estatus:
         custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
+        name: estatus
+        description: 'ID del estatus.'
         required: false
-        example: false
-        type: boolean
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -6234,15 +6871,15 @@ endpoints:
       telefono_empresa: consequatur
       nombre_persona_contacto: consequatur
       tipo_proveedor: 17
+      id_tipo_contribuyente: 17
       estatus: 17
-      borrado_logico: false
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6258,7 +6895,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Eliminar un proveedor'
-      description: 'Realiza la eliminación lógica del proveedor (no se borra físicamente de la base de datos).'
+      description: 'Realiza la eliminación lógica del proveedor usando el SoftDeletes nativo de Eloquent.'
       authenticated: true
       deprecated: false
     headers:
@@ -6289,7 +6926,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6305,7 +6942,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todos los tipos de servicio'
-      description: 'Devuelve el catálogo de tipos de servicio activos (no eliminados).'
+      description: 'Devuelve el catálogo de tipos de servicio activos.'
       authenticated: true
       deprecated: false
     headers:
@@ -6323,7 +6960,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_servicio":"consultoria","id_proveedor":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6333,7 +6970,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6383,28 +7020,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      iva_defecto:
         custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
+        name: iva_defecto
+        description: 'optional Porcentaje de IVA por defecto para este tipo de servicio.'
         required: false
-        example: false
-        type: boolean
+        example: 11613.31890586
+        type: number
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
       tipo_servicio: consequatur
       id_proveedor: 17
-      borrado_logico: false
+      iva_defecto: 11613.31890586
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6420,7 +7057,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener un tipo de servicio específico'
-      description: 'Devuelve los datos de un tipo de servicio por su ID.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -6450,7 +7087,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_servicio":"consultoria","id_proveedor":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6460,7 +7097,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6523,28 +7160,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
+      iva_defecto:
         custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
+        name: iva_defecto
+        description: 'Porcentaje de IVA por defecto.'
         required: false
-        example: false
-        type: boolean
+        example: 11613.31890586
+        type: number
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
       tipo_servicio: consequatur
       id_proveedor: 17
-      borrado_logico: false
+      iva_defecto: 11613.31890586
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6559,7 +7196,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Eliminar un tipo de servicio'
+      title: |-
+        Eliminar un tipo de servicio
+        Usa SoftDeletes nativo de Eloquent.
       description: ''
       authenticated: true
       deprecated: false
@@ -6591,7 +7230,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6625,7 +7264,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tasa":"BCV USD","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"tasa":"BCV EUR","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"tasa":"BINANCE","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"tasa":"PERSONALIZADA","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"codigo":"EUR_BCV","nombre":"Euro Oficial","simbolo":"\u20ac","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"codigo":"BINANCE","nombre":"Binance P2P","simbolo":"USDT","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":4,"codigo":"PERSONALIZADA","nombre":"Tasa Interna","simbolo":"$","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6635,7 +7274,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6682,7 +7321,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6728,7 +7367,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tasa":"BCV USD","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6738,7 +7377,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6798,7 +7437,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6845,7 +7484,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6861,7 +7500,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todas las tasas de cambio'
-      description: 'Devuelve el historial de tasas de cambio activas registradas en el sistema.'
+      description: 'Devuelve el historial de tasas de cambio registradas.'
       authenticated: true
       deprecated: false
     headers:
@@ -6879,7 +7518,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tasa_usd":"37.2300","tasa_eur":"40.5960","tasa_binance":"37.4340","tasa_personalizada":"2.00","fecha":"2026-04-03T00:00:00.000000Z","borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6889,7 +7528,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -6904,10 +7543,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Registrar tasa de cambio del día'
-      description: |-
-        Crea la tasa de cambio del día actual aplicando el porcentaje de incremento personalizado sobre las tasas base.
-        Solo se permite un registro por día.
+      title: 'Registrar una nueva tasa de cambio'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -6919,10 +7556,21 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      tasa_usd:
+      id_tasa:
         custom: []
-        name: tasa_usd
-        description: 'Tasa base USD (antes del incremento). Ejemplo: 36.50'
+        name: id_tasa
+        description: 'ID de la moneda del catálogo (Ej: USD_BCV).'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      valor_cambio:
+        custom: []
+        name: valor_cambio
+        description: 'Valor numérico de la tasa. Ejemplo: 36.50'
         required: true
         example: 11613.31890586
         type: number
@@ -6930,63 +7578,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      tasa_eur:
+      fecha:
         custom: []
-        name: tasa_eur
-        description: 'Tasa base EUR (antes del incremento). Ejemplo: 39.20'
+        name: fecha
+        description: 'Fecha de la tasa. Ejemplo: 2026-04-06'
         required: true
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      tasa_binance:
-        custom: []
-        name: tasa_binance
-        description: 'Tasa base Binance/P2P (antes del incremento). Ejemplo: 37.10'
-        required: true
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      tasa_personalizada:
-        custom: []
-        name: tasa_personalizada
-        description: 'Porcentaje de incremento a aplicar sobre las tasas base. Ejemplo: 5.5'
-        required: true
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
+        example: consequatur
+        type: date
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      tasa_usd: 11613.31890586
-      tasa_eur: 11613.31890586
-      tasa_binance: 11613.31890586
-      tasa_personalizada: 11613.31890586
-      borrado_logico: false
+      id_tasa: 17
+      valor_cambio: 11613.31890586
+      fecha: consequatur
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7002,7 +7615,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener una tasa de cambio específica'
-      description: 'Devuelve los datos de una tasa de cambio por su ID.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -7032,7 +7645,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tasa_usd":"37.2300","tasa_eur":"40.5960","tasa_binance":"37.4340","tasa_personalizada":"2.00","fecha":"2026-04-03T00:00:00.000000Z","borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7042,7 +7655,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7059,7 +7672,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Actualizar una tasa de cambio'
-      description: 'Modifica una tasa de cambio activa. Si se envían los campos de tasa, se recalculan con el porcentaje personalizado.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -7083,74 +7696,49 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      tasa_usd:
+      id_tasa:
         custom: []
-        name: tasa_usd
-        description: 'Tasa base USD.'
+        name: id_tasa
+        description: 'The <code>id</code> of an existing record in the tasas table.'
         required: false
-        example: 11613.31890586
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      valor_cambio:
+        custom: []
+        name: valor_cambio
+        description: 'Must be at least 0.0001.'
+        required: false
+        example: 73
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      tasa_eur:
+      fecha:
         custom: []
-        name: tasa_eur
-        description: 'Tasa base EUR.'
+        name: fecha
+        description: 'Must be a valid date.'
         required: false
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      tasa_binance:
-        custom: []
-        name: tasa_binance
-        description: 'Tasa base Binance/P2P.'
-        required: false
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      tasa_personalizada:
-        custom: []
-        name: tasa_personalizada
-        description: 'Porcentaje de incremento a aplicar.'
-        required: false
-        example: 11613.31890586
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
-        required: false
-        example: false
-        type: boolean
+        example: '2026-04-06T08:59:50'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      tasa_usd: 11613.31890586
-      tasa_eur: 11613.31890586
-      tasa_binance: 11613.31890586
-      tasa_personalizada: 11613.31890586
-      borrado_logico: false
+      valor_cambio: 73
+      fecha: '2026-04-06T08:59:50'
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7166,7 +7754,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Eliminar una tasa de cambio'
-      description: 'Realiza la eliminación lógica de la tasa de cambio.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -7197,7 +7785,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7213,7 +7801,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todos los servicios'
-      description: 'Devuelve el listado de servicios activos (no eliminados) registrados en el sistema.'
+      description: 'Devuelve el listado de servicios activos registrados en el sistema.'
       authenticated: true
       deprecated: false
     headers:
@@ -7231,7 +7819,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","id_tasa_cambio":1,"estatus":8,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","id_tasa_cambio":1,"estatus":1,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:17.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}},{"id":2,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7241,7 +7829,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7291,10 +7879,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      descripcion:
+        custom: []
+        name: descripcion
+        description: 'optional Detalles de qué incluye el servicio.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       costo:
         custom: []
         name: costo
-        description: 'Precio de costo del servicio. Ejemplo: 150.00'
+        description: 'Precio de costo interno del servicio. Ejemplo: 150.00'
         required: true
         example: 11613.31890586
         type: number
@@ -7324,6 +7923,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      iva_establecido:
+        custom: []
+        name: iva_establecido
+        description: 'Porcentaje fijo de IVA que recaerá en el monto gravable. Ejemplo: 16.00'
+        required: false
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       id_tasa_cambio:
         custom: []
         name: id_tasa_cambio
@@ -7335,32 +7945,22 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente. Ejemplo: false'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
     cleanBodyParameters:
       id_tipo_servicio: 17
       id_proveedor: 17
+      descripcion: consequatur
       costo: 11613.31890586
       monto_gravable: 11613.31890586
       monto_no_sujeto: 11613.31890586
+      iva_establecido: 11613.31890586
       id_tasa_cambio: 17
-      borrado_logico: false
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7376,7 +7976,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener un servicio específico'
-      description: 'Devuelve los datos de un servicio por su ID.'
+      description: ''
       authenticated: true
       deprecated: false
     headers:
@@ -7406,7 +8006,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","id_tasa_cambio":1,"estatus":8,"borrado_logico":false,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:17.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-06T00:00:00.000000Z","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z","deleted_at":null}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7416,7 +8016,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7460,10 +8060,10 @@ endpoints:
       id_tipo_servicio:
         custom: []
         name: id_tipo_servicio
-        description: 'ID del tipo de servicio.'
+        description: 'The <code>id</code> of an existing record in the tipos_servicios table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -7471,20 +8071,31 @@ endpoints:
       id_proveedor:
         custom: []
         name: id_proveedor
-        description: 'ID del proveedor.'
+        description: 'The <code>id</code> of an existing record in the proveedores table.'
         required: false
-        example: 17
-        type: integer
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      descripcion:
+        custom: []
+        name: descripcion
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       costo:
         custom: []
         name: costo
-        description: 'Precio de costo.'
+        description: 'Must be at least 0.'
         required: false
-        example: 11613.31890586
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -7493,9 +8104,9 @@ endpoints:
       monto_gravable:
         custom: []
         name: monto_gravable
-        description: 'Monto gravable.'
+        description: 'Must be at least 0.'
         required: false
-        example: 11613.31890586
+        example: 56
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -7504,51 +8115,49 @@ endpoints:
       monto_no_sujeto:
         custom: []
         name: monto_no_sujeto
-        description: 'Monto no sujeto a impuestos.'
+        description: 'Must be at least 0.'
         required: false
-        example: 11613.31890586
+        example: 16
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      iva_establecido:
+        custom: []
+        name: iva_establecido
+        description: 'Must be at least 0.'
+        required: false
+        example: 50
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       id_tasa_cambio:
         custom: []
         name: id_tasa_cambio
-        description: 'ID de la tasa de cambio.'
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
         required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      borrado_logico:
-        custom: []
-        name: borrado_logico
-        description: 'Indica si el registro está eliminado lógicamente.'
-        required: false
-        example: false
-        type: boolean
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      id_tipo_servicio: 17
-      id_proveedor: 17
-      costo: 11613.31890586
-      monto_gravable: 11613.31890586
-      monto_no_sujeto: 11613.31890586
-      id_tasa_cambio: 17
-      borrado_logico: false
+      descripcion: consequatur
+      costo: 45
+      monto_gravable: 56
+      monto_no_sujeto: 16
+      iva_establecido: 50
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7563,7 +8172,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Eliminar un servicio'
+      title: |-
+        Eliminar un servicio
+        Usa SoftDeletes nativo de Eloquent.
       description: ''
       authenticated: true
       deprecated: false
@@ -7595,7 +8206,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7629,7 +8240,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"temporalidad":"Diario","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"temporalidad":"Semanal","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"temporalidad":"Mensual","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"temporalidad":"Anual","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"temporalidad":"Diario","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"temporalidad":"Semanal","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"temporalidad":"Mensual","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":4,"temporalidad":"Anual","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7639,7 +8250,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7686,7 +8297,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7732,7 +8343,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"temporalidad":"Diario","created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"temporalidad":"Diario","created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7742,7 +8353,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7802,7 +8413,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7849,7 +8460,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7883,7 +8494,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"cant_atenciones_aprobadas":5,"cant_cotizaciones_cerradas":3,"cant_cotizaciones_pagadas":2,"id_temporalidad":1,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"cant_atenciones_aprobadas":20,"cant_cotizaciones_cerradas":12,"cant_cotizaciones_pagadas":8,"id_temporalidad":2,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"cant_atenciones_aprobadas":80,"cant_cotizaciones_cerradas":50,"cant_cotizaciones_pagadas":35,"id_temporalidad":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"cant_atenciones_aprobadas":900,"cant_cotizaciones_cerradas":600,"cant_cotizaciones_pagadas":450,"id_temporalidad":4,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"cant_atenciones_aprobadas":5,"cant_cotizaciones_cerradas":3,"cant_cotizaciones_pagadas":2,"id_temporalidad":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"cant_atenciones_aprobadas":20,"cant_cotizaciones_cerradas":12,"cant_cotizaciones_pagadas":8,"id_temporalidad":2,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"cant_atenciones_aprobadas":80,"cant_cotizaciones_cerradas":50,"cant_cotizaciones_pagadas":35,"id_temporalidad":3,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":4,"cant_atenciones_aprobadas":900,"cant_cotizaciones_cerradas":600,"cant_cotizaciones_pagadas":450,"id_temporalidad":4,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7893,7 +8504,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -7976,7 +8587,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8032,7 +8643,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8128,7 +8739,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8175,7 +8786,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8209,7 +8820,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_meta":1,"id_personal":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":2,"id_meta":2,"id_personal":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":3,"id_meta":3,"id_personal":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"},{"id":4,"id_meta":4,"id_personal":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}]'
+        content: '[{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":2,"id_meta":2,"id_personal":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":3,"id_meta":3,"id_personal":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"},{"id":4,"id_meta":4,"id_personal":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8219,7 +8830,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8314,7 +8925,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8360,7 +8971,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_meta":1,"id_personal":3,"created_at":"2026-04-03T07:39:01.000000Z","updated_at":"2026-04-03T07:39:01.000000Z"}'
+        content: '{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-06T08:55:16.000000Z","updated_at":"2026-04-06T08:55:16.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8370,7 +8981,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8478,7 +9089,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8525,7 +9136,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8668,7 +9279,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8796,7 +9407,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -8924,7 +9535,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9007,7 +9618,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9114,7 +9725,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9197,7 +9808,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9282,7 +9893,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9365,7 +9976,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9460,7 +10071,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null
@@ -9504,7 +10115,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|5F7amnvcZvJGIR2a0VDAzvY9shAgeT6mbms0EddMda47f85d'
+      - 'Bearer 1|smrZSA2Z3kmIVooRFfcKaVh6JPgQdBaPjeVgQkLV32201d3d'
     controller: null
     method: null
     route: null

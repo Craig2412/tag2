@@ -5,15 +5,16 @@ namespace Database\Seeders;
 use App\Models\Atencion;
 use App\Models\Estatus;
 use App\Models\Origen;
-use App\Models\User;
+use App\Models\Cliente;
+use App\Models\Personal;
 use Illuminate\Database\Seeder;
 
 class AtencionesSeeder extends Seeder
 {
     public function run(): void
     {
-        $cliente = User::role('cliente')->first();
-        $personal = User::role('personal')->first();
+        $cliente = Cliente::first();
+        $personal = Personal::first();
         $origen = Origen::first();
 
         if (!$cliente || !$personal || !$origen) {
@@ -32,7 +33,6 @@ class AtencionesSeeder extends Seeder
             [
                 'notas_adicionales' => 'Contacto inicial desde redes.',
                 'estatus' => $estatus->id,
-                'borrado_logico' => false,
             ]
         );
     }

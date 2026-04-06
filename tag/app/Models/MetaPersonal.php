@@ -24,6 +24,6 @@ class MetaPersonal extends Model
 
     public function personal(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_personal');
+        return $this->belongsTo(Personal::class, 'id_personal');
     }
 }
