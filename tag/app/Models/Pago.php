@@ -22,6 +22,7 @@ class Pago extends Model
         'id_entidad_bancaria',
         'estatus',
         'borrado_logico',
+        'comprobante_pdf',
     ];
     // Devuelve la entidad bancaria asociada.
     public function entidadBancaria(): BelongsTo
