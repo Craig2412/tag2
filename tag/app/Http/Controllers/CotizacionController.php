@@ -95,6 +95,17 @@ class CotizacionController extends Controller
 
         $cotizacion->update($data);
 
+        // Si cambió el estatus, registrar en historial
+        if (isset($data['estatus']) && $data['estatus'] != $estatusActual) {
+            \App\Models\CotizacionHistorial::create([
+                'cotizacion_id' => $cotizacion->id,
+                'estatus_anterior' => $estatusActual,
+                'estatus_nuevo' => $data['estatus'],
+                'usuario_id' => auth()->id(),
+                'comentario' => 'Cambio de estatus desde API',
+            ]);
+        }
+
         if ($estatusNuevo === $estatusConfirmado->id) {
             $estatusPendiente = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
             $idTasaCambio = $idTasaCambio

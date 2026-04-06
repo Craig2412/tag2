@@ -92,8 +92,20 @@ class OrdenCompraController extends Controller
             }
         }
 
+        $estatusAnterior = $ordenCompra->estatus;
         $ordenCompra->update($data);
         $ordenCompra->recalcularMontoTotal();
+
+        // Si cambió el estatus, registrar en historial
+        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
+            \App\Models\OrdenCompraHistorial::create([
+                'orden_compra_id' => $ordenCompra->id,
+                'estatus_anterior' => $estatusAnterior,
+                'estatus_nuevo' => $data['estatus'],
+                'usuario_id' => auth()->id(),
+                'comentario' => 'Cambio de estatus desde API',
+            ]);
+        }
 
         return response()->json($ordenCompra->fresh());
     }

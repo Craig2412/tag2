@@ -41,6 +41,9 @@ Route::get('/status', function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
+            // Rutas de métricas
+            Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
+            Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
         Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/register/personal', [AuthController::class, 'registerPersonal'])

@@ -121,7 +121,19 @@ class AtencionController extends Controller
             }
         }
 
+        $estatusAnterior = $atencion->estatus;
         $atencion->update($data);
+
+        // Si cambió el estatus, registrar en historial
+        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
+            \App\Models\AtencionHistorial::create([
+                'atencion_id' => $atencion->id,
+                'estatus_anterior' => $estatusAnterior,
+                'estatus_nuevo' => $data['estatus'],
+                'usuario_id' => auth()->id(),
+                'comentario' => 'Cambio de estatus desde API',
+            ]);
+        }
 
         return response()->json($atencion);
     }
