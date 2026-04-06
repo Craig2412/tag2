@@ -41,6 +41,9 @@ Route::get('/status', function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
+            // Rutas de métricas
+            Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
+            Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
         Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/register/personal', [AuthController::class, 'registerPersonal'])
@@ -73,6 +76,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('ordenes-compra', OrdenCompraController::class)
         ->parameters(['ordenes-compra' => 'ordenCompra']);
     Route::apiResource('pagos', PagoController::class);
+    Route::apiResource('pagos-ordenes-compra', \App\Http\Controllers\PagoOrdenCompraController::class)
+        ->parameters(['pagos-ordenes-compra' => 'pagoOrdenCompra']);
     Route::apiResource('pagos-proveedores', PagoProveedorController::class)
         ->parameters(['pagos-proveedores' => 'pagoProveedor']);
     Route::apiResource('tipos-proveedores', TipoProveedorController::class)

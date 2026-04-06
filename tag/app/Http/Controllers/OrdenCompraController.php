@@ -85,6 +85,13 @@ class OrdenCompraController extends Controller
             ->values()
             ->all();
 
+        // Calcular el saldo pendiente
+        $montoPagado = collect($ordenCompra->pagos)->sum(function ($pago) {
+            // Si existe el campo monto_pagado, usarlo; si no, usar monto_asignado
+            return isset($pago['monto_pagado']) ? $pago['monto_pagado'] : ($pago['monto_asignado'] ?? 0);
+        });
+        $data['saldo_pendiente'] = max(0, $ordenCompra->monto_total - $montoPagado);
+
         return response()->json($data);
     }
 
@@ -112,8 +119,20 @@ class OrdenCompraController extends Controller
             }
         }
 
+        $estatusAnterior = $ordenCompra->estatus;
         $ordenCompra->update($data);
         $ordenCompra->recalcularMontoTotal();
+
+        // Si cambió el estatus, registrar en historial
+        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
+            \App\Models\OrdenCompraHistorial::create([
+                'orden_compra_id' => $ordenCompra->id,
+                'estatus_anterior' => $estatusAnterior,
+                'estatus_nuevo' => $data['estatus'],
+                'usuario_id' => auth()->id(),
+                'comentario' => 'Cambio de estatus desde API',
+            ]);
+        }
 
         return response()->json($ordenCompra->fresh());
     }

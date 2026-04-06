@@ -167,6 +167,151 @@
     }
   ],
   "item": [
+            {
+              "name": "Métricas",
+              "item": [
+                {
+                  "name": "Métricas Generales",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      { "key": "Accept", "value": "application/json" },
+                      { "key": "Authorization", "value": "Bearer {{token}}" }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metricas/generales",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["metricas", "generales"]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Ejemplo de respuesta",
+                      "originalRequest": {},
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.5,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.8,\n  \"promedio_cambio_estatus_orden_horas\": 3.2,\n  \"promedio_atenciones_con_cotizacion\": 0.85,\n  \"promedio_atenciones_con_orden\": 0.7,\n  \"promedio_cotizaciones_con_orden\": 0.82,\n  \"promedio_tiempo_pago_orden_horas\": 5.6\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Métricas por Personal",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      { "key": "Accept", "value": "application/json" },
+                      { "key": "Authorization", "value": "Bearer {{token}}" }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metricas/personal/{{personalId}}",
+                      "host": ["{{baseUrl}}"],
+                      "path": ["metricas", "personal", "{{personalId}}"]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Ejemplo de respuesta",
+                      "originalRequest": {},
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.1,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.5,\n  \"promedio_cambio_estatus_orden_horas\": 2.9,\n  \"promedio_atenciones_con_cotizacion\": 0.9,\n  \"promedio_atenciones_con_orden\": 0.8,\n  \"promedio_cotizaciones_con_orden\": 0.85,\n  \"promedio_tiempo_pago_orden_horas\": 4.2\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+        {
+          "name": "Pagos Ordenes Compra",
+          "item": [
+            {
+              "name": "Pagos Ordenes Compra - Listar",
+              "request": {
+                "method": "GET",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra"]
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Crear",
+              "request": {
+                "method": "POST",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_pago\": {{pagoId}},\n  \"id_orden_compra\": {{ordenCompraId}},\n  \"monto_asignado\": 100\n}"
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Ver",
+              "request": {
+                "method": "GET",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Actualizar",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monto_asignado\": 150\n}"
+                }
+              }
+            },
+            {
+              "name": "Pagos Ordenes Compra - Eliminar",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  { "key": "Accept", "value": "application/json" },
+                  { "key": "Authorization", "value": "Bearer {{token}}" }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
+                }
+              }
+            }
+          ]
+        },
     {
       "name": "Auth - Login (admin)",
       "event": [
