@@ -20,7 +20,7 @@ class LogroPersonalController extends Controller
     public function index(Request $request)
     {
         $data = $request->validate([
-            'id_personal' => ['sometimes', 'integer', 'exists:users,id'],
+            'id_personal' => ['sometimes', 'integer', 'exists:usuarios,id'],
             'tipo_entidad' => ['sometimes', 'in:atencion,cotizacion,orden_compra'],
             'id_entidad' => ['sometimes', 'integer', 'min:1'],
             'per_page' => ['sometimes', 'integer', 'min:1', 'max:200'],

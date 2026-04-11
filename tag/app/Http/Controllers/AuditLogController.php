@@ -12,7 +12,7 @@ class AuditLogController extends Controller
      *
      * Devuelve los registros de auditoría del sistema con filtros opcionales y paginación.
      *
-     * @queryParam user_id int Filtrar por ID de usuario. Ejemplo: 1
+     * @queryParam id_usuario int Filtrar por ID de usuario. Ejemplo: 1
      * @queryParam action string Filtrar por tipo de acción (ej. login, create, update). Ejemplo: login
      * @queryParam table_name string Filtrar por nombre de tabla. Ejemplo: empresas
      * @queryParam record_id int Filtrar por ID de registro afectado. Ejemplo: 1
@@ -35,7 +35,7 @@ class AuditLogController extends Controller
      *
      * Descarga un archivo CSV con los registros de auditoría filtrados. Soporta modo completo o resumen.
      *
-     * @queryParam user_id int Filtrar por ID de usuario.
+     * @queryParam id_usuario int Filtrar por ID de usuario.
      * @queryParam action string Filtrar por tipo de acción.
      * @queryParam table_name string Filtrar por nombre de tabla.
      * @queryParam record_id int Filtrar por ID de registro.
@@ -58,7 +58,7 @@ class AuditLogController extends Controller
                 fputcsv($output, [
                     'id',
                     'fecha_hora',
-                    'user_id',
+                    'usuario_id',
                     'user_role',
                     'action',
                     'table_name',
@@ -73,7 +73,7 @@ class AuditLogController extends Controller
                     fputcsv($output, [
                         $log->id,
                         $log->created_at,
-                        $log->user_id,
+                        $log->usuario_id,
                         $log->user_role,
                         $log->action,
                         $log->table_name,
@@ -88,7 +88,7 @@ class AuditLogController extends Controller
                 fputcsv($output, [
                     'id',
                     'fecha_hora',
-                    'user_id',
+                    'usuario_id',
                     'user_role',
                     'action',
                     'table_name',
@@ -107,7 +107,7 @@ class AuditLogController extends Controller
                     fputcsv($output, [
                         $log->id,
                         $log->created_at,
-                        $log->user_id,
+                        $log->usuario_id,
                         $log->user_role,
                         $log->action,
                         $log->table_name,
@@ -133,7 +133,7 @@ class AuditLogController extends Controller
     private function validatedFilters(Request $request, bool $withPerPage, bool $withMode = false): array
     {
         $rules = [
-            'user_id' => ['sometimes', 'integer', 'exists:users,id'],
+            'id_usuario' => ['sometimes', 'integer', 'exists:usuarios,id'],
             'action' => ['sometimes', 'string', 'max:50'],
             'table_name' => ['sometimes', 'string', 'max:255'],
             'record_id' => ['sometimes', 'integer'],
@@ -156,8 +156,8 @@ class AuditLogController extends Controller
     {
         $query = AuditLog::query()->orderByDesc('id');
 
-        if (isset($data['user_id'])) {
-            $query->where('user_id', $data['user_id']);
+        if (isset($data['id_usuario'])) {
+            $query->where('usuario_id', $data['id_usuario']);
         }
 
         if (isset($data['action'])) {

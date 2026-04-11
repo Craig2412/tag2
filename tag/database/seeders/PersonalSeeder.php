@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Usuario;
 use App\Models\Personal;
 use App\Models\Estatus;
 use Illuminate\Database\Seeder;
@@ -14,18 +14,18 @@ class PersonalSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::role('personal')->get();
+        $usuarios = Usuario::role('personal')->get();
         $estatus = Estatus::firstOrCreate(['estatus' => 'activo']);
 
-        foreach ($users as $user) {
+        foreach ($usuarios as $usuario) {
             Personal::firstOrCreate(
-                ['user_id' => $user->id],
+                ['usuario_id' => $usuario->id],
                 [
-                    'nombre' => $user->name,
+                    'nombre' => $usuario->nombre_usuario,
                     'apellido' => 'Comercial',
                     'cedula' => 'V-' . rand(10000000, 30000000),
                     'telefono' => '+58 412 ' . rand(1000000, 9999999),
-                    'correo_institucional' => strtolower($user->name) . '@tag.com',
+                    'correo_institucional' => strtolower($usuario->nombre_usuario) . '@tag.com',
                     'porcentaje_comision' => 5.00,
                     'id_estatus' => $estatus->id,
                 ]

@@ -22,7 +22,7 @@ class AtencionController extends Controller
     public function index()
     {
         // Eloquent maneja SoftDeletes automáticamente
-        $items = Atencion::with(['cliente', 'personal', 'origen', 'estatus'])
+        $items = Atencion::with(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial'])
             ->orderBy('id')
             ->get();
 
@@ -45,7 +45,7 @@ class AtencionController extends Controller
      *
      * Registra un nuevo ticket de atención al cliente asignando automáticamente un miembro del personal.
      *
-     * @bodyParam id_cliente int required ID del cliente. Ejemplo: 5
+     * @bodyParam id_cliente int required ID del cliente. Ejemplo: 1
      * @bodyParam id_origen_atencion int required ID del origen de la atención (red social / canal). Ejemplo: 1
      * @bodyParam asunto string required Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte
      * @bodyParam notas_adicionales string Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp
@@ -73,7 +73,7 @@ class AtencionController extends Controller
 
         $item = Atencion::create($data);
 
-        return response()->json($item->load(['cliente', 'personal', 'origen', 'estatus']), 201);
+        return response()->json($item->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']), 201);
     }
 
     /**
@@ -85,7 +85,7 @@ class AtencionController extends Controller
         $id_cotizacion = $cotizacion ? $cotizacion->id : null;
         $id_orden_compra = ($cotizacion && $cotizacion->ordenCompra) ? $cotizacion->ordenCompra->id : null;
         
-        $atencion->load(['cliente', 'personal', 'origen', 'estatus']);
+        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
         
         $arr = $atencion->toArray();
         $arr['id_cotizacion'] = $id_cotizacion;
@@ -96,12 +96,12 @@ class AtencionController extends Controller
     /**
      * Actualizar una atención existente
      *
-     * @bodyParam id_cliente int ID del cliente.
-     * @bodyParam id_personal int ID del personal asignado.
-     * @bodyParam id_origen_atencion int ID del origen de la atención.
-     * @bodyParam asunto string Asunto o motivo de la atención.
-     * @bodyParam notas_adicionales string Notas adicionales.
-     * @bodyParam estatus int ID del estatus de la atención.
+     * @bodyParam id_cliente int ID del cliente. Ejemplo: 1
+     * @bodyParam id_personal int ID del personal asignado. Ejemplo: 1
+     * @bodyParam id_origen_atencion int ID del origen de la atención. Ejemplo: 1
+     * @bodyParam asunto string Asunto o motivo de la atención. Ejemplo: Cambio de itinerario
+     * @bodyParam notas_adicionales string Notas adicionales. Ejemplo: Se requiere respuesta urgente
+     * @bodyParam estatus int ID del estatus de la atención. Ejemplo: 1
      */
     public function update(Request $request, Atencion $atencion)
     {
@@ -117,7 +117,7 @@ class AtencionController extends Controller
         $estatusAnterior = $atencion->estatus;
         
         $atencion->update($data);
-        $atencion->load(['cliente', 'personal', 'origen', 'estatus']);
+        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
 
         if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
             AtencionHistorial::create([

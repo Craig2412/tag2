@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Usuario;
 use App\Models\Cliente;
 use App\Models\Estatus;
 use App\Models\TipoContribuyente;
@@ -15,11 +15,11 @@ class ClientesSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::role('cliente')->get();
+        $usuarios = Usuario::role('cliente')->get();
         $estatus = Estatus::firstOrCreate(['estatus' => 'activo']);
         $tipoContribuyente = TipoContribuyente::first();
 
-        if ($users->isEmpty()) {
+        if ($usuarios->isEmpty()) {
             // Asegurar que exista un cliente aunque no haya usuarios con ese rol por ahora.
             Cliente::firstOrCreate(
                 ['cedula' => 'V-12345678'],
@@ -33,11 +33,11 @@ class ClientesSeeder extends Seeder
             );
         }
 
-        foreach ($users as $user) {
+        foreach ($usuarios as $usuario) {
             Cliente::firstOrCreate(
-                ['user_id' => $user->id],
+                ['usuario_id' => $usuario->id],
                 [
-                    'nombre' => $user->name,
+                    'nombre' => $usuario->nombre_usuario,
                     'apellido' => 'General',
                     'cedula' => 'V-' . rand(10000000, 30000000),
                     'telefono' => '+58 424 ' . rand(1000000, 9999999),

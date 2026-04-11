@@ -18,7 +18,7 @@ class OrdenCompra extends Model
     protected $fillable = [
         'id_cotizacion',
         'estatus', // Estatus Operativo
-        'estado_financiero', // Enum Controlado por Observer
+        'id_estado_financiero', // Relacion catalogo
         'monto_total',
     ];
 
@@ -41,6 +41,12 @@ class OrdenCompra extends Model
         return $this->belongsTo(Estatus::class, 'estatus');
     }
 
+    // Devuelve el estado financiero actual.
+    public function estadoFinanciero(): BelongsTo
+    {
+        return $this->belongsTo(EstadoFinanciero::class, 'id_estado_financiero');
+    }
+
     // Lista los pagos asignados a esta orden.
     public function pagos(): HasMany
     {
@@ -50,10 +56,10 @@ class OrdenCompra extends Model
     // Recalcula y persiste el monto total segun los servicios de su cotizacion.
     public function recalcularMontoTotal(): void
     {
-        $montoTotal = (float) DB::table('servicios_cotizaciones')
-            ->join('servicios', 'servicios_cotizaciones.id_servicio', '=', 'servicios.id')
-            ->where('servicios_cotizaciones.id_cotizacion', $this->id_cotizacion)
-            ->sum('servicios.total_servicio');
+        $montoTotal = (float) DB::table('servicios')
+            ->where('id_cotizacion', $this->id_cotizacion)
+            ->whereNull('deleted_at') // Consider soft deletes
+            ->sum('total_servicio');
 
         if ((float) $this->monto_total === $montoTotal) {
             return;

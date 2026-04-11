@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('metas_personal', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_meta')->constrained('metas');
-            $table->foreignId('id_personal')->constrained('users');
+            $table->foreignId('id_personal')->constrained('personal');
             $table->timestamps();
 
             $table->unique(['id_meta', 'id_personal']);

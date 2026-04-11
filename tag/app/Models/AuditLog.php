@@ -13,7 +13,7 @@ class AuditLog extends Model
     protected $table = 'audit_logs';
 
     protected $fillable = [
-        'user_id',
+        'usuario_id',
         'user_role',
         'action',
         'table_name',
@@ -35,8 +35,8 @@ class AuditLog extends Model
         'success' => 'boolean',
     ];
 
-    public function user(): BelongsTo
+    public function usuario(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 }

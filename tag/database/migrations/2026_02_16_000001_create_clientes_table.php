@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete(); // Opcional, un cliente no requiere usuario para ser cotizado
+            $table->foreignId('usuario_id')->nullable()->constrained('usuarios')->nullOnDelete(); // Opcional, un cliente no requiere usuario para ser cotizado
+            $table->string('correo_contacto')->nullable(); // Correo de facturacion/comunicacion
             $table->string('nombre');
             $table->string('apellido')->nullable();
             $table->string('cedula')->nullable();

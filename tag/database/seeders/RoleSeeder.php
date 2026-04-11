@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Estatus;
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
@@ -14,9 +14,10 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            'view:users',
-            'edit:users',
-            'delete:users',
+            'view:usuarios',
+            'create:usuarios',
+            'edit:usuarios',
+            'delete:usuarios',
             'view:tipos_proveedores',
             'create:tipos_proveedores',
             'edit:tipos_proveedores',
@@ -109,27 +110,27 @@ class RoleSeeder extends Seeder
         // Crear Usuarios Base (Estructura Minimalista)
         $users = [
             [
-                'name' => 'Admin Root',
-                'email' => 'admin@example.com',
-                'password' => Hash::make('password'),
+                'nombre_usuario' => 'Admin Root',
+                'correo' => 'admin@example.com',
+                'clave' => Hash::make('password'),
                 'role' => $adminRole,
             ],
             [
-                'name' => 'Usuario Demo',
-                'email' => 'user@example.com',
-                'password' => Hash::make('password'),
+                'nombre_usuario' => 'Usuario Demo',
+                'correo' => 'user@example.com',
+                'clave' => Hash::make('password'),
                 'role' => $userRole,
             ],
             [
-                'name' => 'Personal Comercial',
-                'email' => 'personal@example.com',
-                'password' => Hash::make('password'),
+                'nombre_usuario' => 'Personal Comercial',
+                'correo' => 'personal@example.com',
+                'clave' => Hash::make('password'),
                 'role' => $personalRole,
             ],
             [
-                'name' => 'Cliente Demo',
-                'email' => 'cliente@example.com',
-                'password' => Hash::make('password'),
+                'nombre_usuario' => 'Cliente Demo',
+                'correo' => 'cliente@example.com',
+                'clave' => Hash::make('password'),
                 'role' => $clienteRole,
             ],
         ];
@@ -138,7 +139,7 @@ class RoleSeeder extends Seeder
             $role = $userData['role'];
             unset($userData['role']);
             
-            $user = User::firstOrCreate(['email' => $userData['email']], $userData);
+            $user = Usuario::firstOrCreate(['correo' => $userData['correo']], $userData);
             $user->syncRoles([$role]);
         }
     }

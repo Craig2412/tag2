@@ -16,7 +16,7 @@ class OrdenCompraController extends Controller
      */
     public function index()
     {
-        return response()->json(OrdenCompra::with(['cotizacion', 'tasaCambio'])->orderBy('id')->get());
+        return response()->json(OrdenCompra::with(['cotizacion.tasaCambio', 'estadoFinanciero'])->orderBy('id')->get());
     }
 
     /**
@@ -25,14 +25,12 @@ class OrdenCompraController extends Controller
      * Genera una orden de compra a partir de una cotización confirmada. Solo se permite una orden por cotización.
      *
      * @bodyParam id_cotizacion int required ID de la cotización confirmada. Ejemplo: 1
-     * @bodyParam id_tasa_cambio int required ID de la tasa de cambio a aplicar. Ejemplo: 1
      * @bodyParam estatus int ID del estatus de la orden (por defecto: pendiente de pago). Ejemplo: 1
      */
     public function store(Request $request)
     {
         $data = $request->validate([
             'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
-            'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
         ]);
 
@@ -73,17 +71,14 @@ class OrdenCompraController extends Controller
         $ordenCompra->recalcularMontoTotal();
 
         $ordenCompra->load([
-            'cotizacion.serviciosCotizaciones.servicio',
-            'tasaCambio',
+            'cotizacion.servicios',
+            'cotizacion.tasaCambio',
             'pagos',
+            'estadoFinanciero',
         ]);
 
         $data = $ordenCompra->toArray();
-        $data['servicios'] = collect($ordenCompra->cotizacion?->serviciosCotizaciones ?? [])
-            ->map(fn ($relacion) => $relacion->servicio)
-            ->filter()
-            ->values()
-            ->all();
+        $data['servicios'] = $ordenCompra->cotizacion?->servicios ?? [];
 
         // Calcular el saldo pendiente
         $montoPagado = collect($ordenCompra->pagos)->sum(function ($pago) {
@@ -100,13 +95,11 @@ class OrdenCompraController extends Controller
      *
      * Modifica la tasa de cambio o el estatus de una orden de compra y recalcula su monto total.
      *
-     * @bodyParam id_tasa_cambio int ID de la tasa de cambio a aplicar.
-     * @bodyParam estatus int ID del estatus (pendiente de pago / pagado).
+     * @bodyParam estatus int ID del estatus (pendiente de pago / pagado). Ejemplo: 1
      */
     public function update(Request $request, OrdenCompra $ordenCompra)
     {
         $data = $request->validate([
-            'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
         ]);
 

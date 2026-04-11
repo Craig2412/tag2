@@ -86,8 +86,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-status">
                                 <a href="#endpoints-GETapi-status">GET api/status</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-contrato">
+                                <a href="#endpoints-GETapi-v1-contrato">Sirve el archivo openapi.yaml solo si el secreto interno es correcto.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-metricas-personal--idPersonal-">
-                                <a href="#endpoints-GETapi-metricas-personal--idPersonal-">GET api/metricas/personal/{idPersonal}</a>
+                                <a href="#endpoints-GETapi-metricas-personal--idPersonal-">Obtener métricas por personal</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-metricas-generales">
                                 <a href="#endpoints-GETapi-metricas-generales">GET api/metricas/generales</a>
@@ -172,6 +175,36 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-tipos-contribuyentes--tipoContribuyente_id-">
                                 <a href="#endpoints-DELETEapi-tipos-contribuyentes--tipoContribuyente_id-">Eliminar un tipo de contribuyente</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-clientes">
+                                <a href="#endpoints-GETapi-clientes">Listar todos los clientes</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-clientes">
+                                <a href="#endpoints-POSTapi-clientes">Crear un nuevo cliente</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-clientes--id-">
+                                <a href="#endpoints-GETapi-clientes--id-">Obtener un cliente específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-clientes--id-">
+                                <a href="#endpoints-PUTapi-clientes--id-">Actualizar un cliente existente</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-clientes--id-">
+                                <a href="#endpoints-DELETEapi-clientes--id-">Eliminar un cliente</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-personal">
+                                <a href="#endpoints-GETapi-personal">Listar todo el personal</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-personal">
+                                <a href="#endpoints-POSTapi-personal">Crear nuevo personal</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-personal--id-">
+                                <a href="#endpoints-GETapi-personal--id-">Obtener un personal específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-personal--id-">
+                                <a href="#endpoints-PUTapi-personal--id-">Actualizar personal</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-personal--id-">
+                                <a href="#endpoints-DELETEapi-personal--id-">Eliminar personal</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-empresas">
                                 <a href="#endpoints-GETapi-empresas">Listar todas las empresas</a>
@@ -277,21 +310,6 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-tipos-cotizaciones--tipoCotizacion_id-">
                                 <a href="#endpoints-DELETEapi-tipos-cotizaciones--tipoCotizacion_id-">Eliminar un tipo de cotización</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-servicios-cotizaciones">
-                                <a href="#endpoints-GETapi-servicios-cotizaciones">Listar todas las vinculaciones servicio-cotización</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-servicios-cotizaciones">
-                                <a href="#endpoints-POSTapi-servicios-cotizaciones">Asociar un servicio a una cotización</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-servicios-cotizaciones--servicioCotizacion_id-">
-                                <a href="#endpoints-GETapi-servicios-cotizaciones--servicioCotizacion_id-">Obtener una vinculación servicio-cotización específica</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">
-                                <a href="#endpoints-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">Actualizar vinculación servicio-cotización</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">
-                                <a href="#endpoints-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">Eliminar vinculación servicio-cotización</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-metodos-pago">
                                 <a href="#endpoints-GETapi-metodos-pago">Listar todos los métodos de pago</a>
@@ -546,7 +564,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 6, 2026</li>
+        <li>Last updated: April 11, 2026</li>
     </ul>
 </div>
 
@@ -564,7 +582,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
 Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derecha (o desde el menú de navegación en la parte superior izquierda en móviles).&lt;/aside&gt;</code></pre>
 
         <h1 id="autenticacion-de-solicitudes">Autenticación de solicitudes</h1>
-<p>Para autenticar las solicitudes, incluya un encabezado <strong><code>Authorization</code></strong> con el valor <strong><code>"Bearer {YOUR_TOKEN}"</code></strong>.</p>
+<p>Para autenticar las solicitudes, incluya un encabezado <strong><code>Authorization</code></strong> con el valor <strong><code>"Bearer TOKEN_DE_MUESTRA"</code></strong>.</p>
 <p>Todos los endpoints que requieren autenticación están marcados con el distintivo <code>requiere autenticación</code> en la documentación.</p>
 <p>Puede obtener su token visitando su panel de control y haciendo clic en <b>Generar token de API</b>.</p>
 
@@ -577,7 +595,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 <p>
 </p>
 
-<p>Crea un usuario con rol cliente y devuelve su token de acceso.</p>
+<p>Crea un usuario con rol cliente y su respectivo perfil.</p>
 
 <span id="example-requests-POSTapi-register">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -588,16 +606,16 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
     "http://localhost:8000/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
     \"nombre\": \"consequatur\",
     \"apellido\": \"consequatur\",
     \"cedula\": \"consequatur\",
     \"telefono\": \"consequatur\",
-    \"porcentaje_comision\": 11613.31890586,
+    \"correo_contacto\": \"consequatur\",
     \"id_tipo_contribuyente\": 17,
-    \"email\": \"qkunze@example.com\",
-    \"correo_institucional\": \"znkygloigmkwxphlvazjr\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+    \"correo\": \"consequatur\",
+    \"clave\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -610,6 +628,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
 };
 
 let body = {
@@ -617,11 +636,10 @@ let body = {
     "apellido": "consequatur",
     "cedula": "consequatur",
     "telefono": "consequatur",
-    "porcentaje_comision": 11613.31890586,
+    "correo_contacto": "consequatur",
     "id_tipo_contribuyente": 17,
-    "email": "qkunze@example.com",
-    "correo_institucional": "znkygloigmkwxphlvazjr",
-    "password": "O[2UZ5ij-e\/dl4m{o,"
+    "correo": "consequatur",
+    "clave": "consequatur"
 };
 
 fetch(url, {
@@ -705,6 +723,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-register"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -755,16 +785,16 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>Número de teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
+            <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="porcentaje_comision"                data-endpoint="POSTapi-register"
-               value="11613.31890586"
+                <input type="text" style="display: none"
+                              name="correo_contacto"                data-endpoint="POSTapi-register"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Porcentaje de comisión (0-100). Ejemplo: 10 Example: <code>11613.31890586</code></p>
+<p>Correo electrónico para comunicaciones. Ejemplo: contacto@perez.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -779,40 +809,28 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID del tipo de contribuyente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-register"
-               value="qkunze@example.com"
+                              name="correo"                data-endpoint="POSTapi-register"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Correo electrónico. Ejemplo: juan@perez.com Example: <code>qkunze@example.com</code></p>
+<p>Correo electrónico para login. Ejemplo: juan@perez.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="correo_institucional"                data-endpoint="POSTapi-register"
-               value="znkygloigmkwxphlvazjr"
-               data-component="body">
-    <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>znkygloigmkwxphlvazjr</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-register"
-               value="O[2UZ5ij-e/dl4m{o,"
+                              name="clave"                data-endpoint="POSTapi-register"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Contraseña (mínimo 8 caracteres). Ejemplo: password123 Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>Contraseña (mínimo 8 caracteres). Ejemplo: password123 Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -832,9 +850,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     "http://localhost:8000/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"email\": \"qkunze@example.com\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+    \"correo\": \"consequatur\",
+    \"clave\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -847,11 +866,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
 };
 
 let body = {
-    "email": "qkunze@example.com",
-    "password": "O[2UZ5ij-e\/dl4m{o,"
+    "correo": "consequatur",
+    "clave": "consequatur"
 };
 
 fetch(url, {
@@ -935,30 +955,42 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-login"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-login"
-               value="qkunze@example.com"
+                              name="correo"                data-endpoint="POSTapi-login"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Correo electrónico del usuario. Ejemplo: admin@example.com Example: <code>qkunze@example.com</code></p>
+<p>Correo electrónico del usuario. Ejemplo: admin@example.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-login"
-               value="O[2UZ5ij-e/dl4m{o,"
+                              name="clave"                data-endpoint="POSTapi-login"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Contraseña del usuario. Ejemplo: password Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>Contraseña del usuario. Ejemplo: password Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -978,9 +1010,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     "http://localhost:8000/api/login/admin" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"email\": \"qkunze@example.com\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+    \"correo\": \"consequatur\",
+    \"clave\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -993,11 +1026,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
 };
 
 let body = {
-    "email": "qkunze@example.com",
-    "password": "O[2UZ5ij-e\/dl4m{o,"
+    "correo": "consequatur",
+    "clave": "consequatur"
 };
 
 fetch(url, {
@@ -1081,30 +1115,42 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-login-admin"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-login-admin"
-               value="qkunze@example.com"
+                              name="correo"                data-endpoint="POSTapi-login-admin"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Correo electrónico del administrador. Ejemplo: admin@example.com Example: <code>qkunze@example.com</code></p>
+<p>Correo electrónico. Ejemplo: admin@example.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-login-admin"
-               value="O[2UZ5ij-e/dl4m{o,"
+                              name="clave"                data-endpoint="POSTapi-login-admin"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>Contraseña. Ejemplo: password Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -1124,9 +1170,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     "http://localhost:8000/api/login/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"email\": \"qkunze@example.com\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+    \"correo\": \"consequatur\",
+    \"clave\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -1139,11 +1186,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
 };
 
 let body = {
-    "email": "qkunze@example.com",
-    "password": "O[2UZ5ij-e\/dl4m{o,"
+    "correo": "consequatur",
+    "clave": "consequatur"
 };
 
 fetch(url, {
@@ -1227,30 +1275,42 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-login-user"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-login-user"
-               value="qkunze@example.com"
+                              name="correo"                data-endpoint="POSTapi-login-user"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Correo electrónico del usuario. Ejemplo: user@example.com Example: <code>qkunze@example.com</code></p>
+<p>Correo electrónico. Ejemplo: user@example.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-login-user"
-               value="O[2UZ5ij-e/dl4m{o,"
+                              name="clave"                data-endpoint="POSTapi-login-user"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>Contraseña. Ejemplo: password Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -1269,7 +1329,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/status" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1280,7 +1340,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1365,10 +1425,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-status"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1396,7 +1456,149 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-metricas-personal--idPersonal-">GET api/metricas/personal/{idPersonal}</h2>
+                    <h2 id="endpoints-GETapi-v1-contrato">Sirve el archivo openapi.yaml solo si el secreto interno es correcto.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-contrato">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/v1/contrato" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/contrato"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-contrato">
+            <blockquote>
+            <p>Ejemplo de respuesta (403):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No autorizado. Se requiere un secreto interno v&aacute;lido.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-contrato" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-v1-contrato"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-contrato"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-contrato" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-contrato">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-v1-contrato" data-method="GET"
+      data-path="api/v1/contrato"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-contrato', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-contrato"
+                    onclick="tryItOut('GETapi-v1-contrato');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-contrato"
+                    onclick="cancelTryOut('GETapi-v1-contrato');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-contrato"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/contrato</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-contrato"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-contrato"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-contrato"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-metricas-personal--idPersonal-">Obtener métricas por personal</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1410,19 +1612,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/personal/consequatur" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/metricas/personal/17" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/personal/consequatur"
+    "http://localhost:8000/api/metricas/personal/17"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1513,10 +1715,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metricas-personal--idPersonal-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1545,15 +1747,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                         <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>idPersonal</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="idPersonal"                data-endpoint="GETapi-metricas-personal--idPersonal-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="idPersonal"                data-endpoint="GETapi-metricas-personal--idPersonal-"
+               value="17"
                data-component="url">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>ID del miembro del personal. Ejemplo: 1 Example: <code>17</code></p>
             </div>
                     </form>
 
@@ -1572,7 +1774,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metricas/generales" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1583,7 +1785,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1674,10 +1876,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metricas-generales"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1720,7 +1922,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/entidades-bancarias" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1731,7 +1933,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1762,29 +1964,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;entidad&quot;: &quot;Banco Nacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;entidad&quot;: &quot;Banco Internacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -1843,10 +2045,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-entidades-bancarias"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1889,7 +2091,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/entidades-bancarias" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1904,7 +2106,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1977,10 +2179,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-entidades-bancarias"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2048,7 +2250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/entidades-bancarias/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2059,7 +2261,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2142,10 +2344,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-entidades-bancarias--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2201,7 +2403,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/entidades-bancarias/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2216,7 +2418,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2293,10 +2495,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-entidades-bancarias--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2377,7 +2579,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/entidades-bancarias/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2388,7 +2590,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2457,10 +2659,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-entidades-bancarias--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2516,7 +2718,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/logout" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2527,7 +2729,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2596,10 +2798,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-logout"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -2632,7 +2834,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>
 </p>
 
-<p>Crea un usuario con rol personal (agente interno).</p>
+<p>Crea un usuario con rol personal (agente interno) y su respectivo perfil.</p>
 
 <span id="example-requests-POSTapi-register-personal">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -2643,15 +2845,16 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     "http://localhost:8000/api/register/personal" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
     \"nombre\": \"consequatur\",
     \"apellido\": \"consequatur\",
     \"cedula\": \"qxbajwbpilpmufinllwlo\",
     \"telefono\": \"auydlsmsjuryvojcybzvr\",
-    \"porcentaje_comision\": 2,
-    \"email\": \"qkunze@example.com\",
-    \"correo_institucional\": \"znkygloigmkwxphlvazjr\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\"
+    \"porcentaje_comision\": 11613.31890586,
+    \"correo\": \"consequatur\",
+    \"correo_institucional\": \"consequatur\",
+    \"clave\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -2664,6 +2867,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
 };
 
 let body = {
@@ -2671,10 +2875,10 @@ let body = {
     "apellido": "consequatur",
     "cedula": "qxbajwbpilpmufinllwlo",
     "telefono": "auydlsmsjuryvojcybzvr",
-    "porcentaje_comision": 2,
-    "email": "qkunze@example.com",
-    "correo_institucional": "znkygloigmkwxphlvazjr",
-    "password": "O[2UZ5ij-e\/dl4m{o,"
+    "porcentaje_comision": 11613.31890586,
+    "correo": "consequatur",
+    "correo_institucional": "consequatur",
+    "clave": "consequatur"
 };
 
 fetch(url, {
@@ -2758,6 +2962,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-register-personal"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -2769,7 +2985,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Nombre del usuario. Ejemplo: Pedro Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Pedro Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -2781,7 +2997,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Apellido del usuario. Ejemplo: Gómez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Gómez Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -2814,34 +3030,22 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_comision"                data-endpoint="POSTapi-register-personal"
-               value="2"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0. Must not be greater than 100. Example: <code>2</code></p>
+<p>Porcentaje de comisión. Ejemplo: 10 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tipo_contribuyente"                data-endpoint="POSTapi-register-personal"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the tipos_contribuyentes table.</p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-register-personal"
-               value="qkunze@example.com"
+                              name="correo"                data-endpoint="POSTapi-register-personal"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Correo electrónico. Ejemplo: pedro@gomez.com Example: <code>qkunze@example.com</code></p>
+<p>Correo electrónico para login. Ejemplo: pedro@gomez.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
@@ -2850,22 +3054,22 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_institucional"                data-endpoint="POSTapi-register-personal"
-               value="znkygloigmkwxphlvazjr"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>znkygloigmkwxphlvazjr</code></p>
+<p>Correo institucional. Ejemplo: pedro.institucional@tag.com Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-register-personal"
-               value="O[2UZ5ij-e/dl4m{o,"
+                              name="clave"                data-endpoint="POSTapi-register-personal"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password123 Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>Contraseña. Ejemplo: password123 Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -2884,7 +3088,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/estatus" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2895,7 +3099,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2925,68 +3129,68 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;estatus&quot;: &quot;activo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;estatus&quot;: &quot;inactivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;estatus&quot;: &quot;en espera&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;estatus&quot;: &quot;por confirmar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;estatus&quot;: &quot;confirmado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 6,
         &quot;estatus&quot;: &quot;pendiente de pago&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 7,
         &quot;estatus&quot;: &quot;por pagar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 8,
         &quot;estatus&quot;: &quot;pagado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 9,
         &quot;estatus&quot;: &quot;en proceso&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 10,
         &quot;estatus&quot;: &quot;aprobado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -3045,10 +3249,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-estatus"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3091,7 +3295,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/estatus" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3106,7 +3310,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3179,10 +3383,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-estatus"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3238,7 +3442,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/estatus/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3249,7 +3453,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3278,8 +3482,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;estatus&quot;: &quot;activo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -3337,10 +3541,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-estatus--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3396,7 +3600,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/estatus/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3411,7 +3615,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3488,10 +3692,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-estatus--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3560,7 +3764,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/estatus/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3571,7 +3775,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3640,10 +3844,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-estatus--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3699,7 +3903,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/configuraciones-sistema" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3710,7 +3914,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3740,8 +3944,8 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -3800,10 +4004,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-configuraciones-sistema"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3846,7 +4050,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/configuraciones-sistema" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3861,7 +4065,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3934,10 +4138,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-configuraciones-sistema"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -3993,7 +4197,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/configuraciones-sistema/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4004,7 +4208,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4033,8 +4237,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;dias_vencimiento&quot;: 30,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -4092,10 +4296,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-configuraciones-sistema--configuracionSistema_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4151,7 +4355,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/configuraciones-sistema/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -4166,7 +4370,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4243,10 +4447,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-configuraciones-sistema--configuracionSistema_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4315,7 +4519,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/configuraciones-sistema/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4326,7 +4530,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4395,10 +4599,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-configuraciones-sistema--configuracionSistema_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4454,7 +4658,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/cuentas-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4465,7 +4669,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4499,8 +4703,8 @@ access-control-allow-origin: *
         &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -4560,10 +4764,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-cuentas-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4606,7 +4810,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/cuentas-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -4626,7 +4830,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4704,10 +4908,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-cuentas-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4823,7 +5027,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/cuentas-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4834,7 +5038,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4867,8 +5071,8 @@ access-control-allow-origin: *
     &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
     &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
     &quot;moneda&quot;: &quot;VES&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -4927,10 +5131,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -4986,7 +5190,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/cuentas-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -5006,7 +5210,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5088,10 +5292,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5220,7 +5424,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/cuentas-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -5231,7 +5435,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5300,10 +5504,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5359,7 +5563,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-contribuyentes" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -5370,7 +5574,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5401,22 +5605,22 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
         &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_contribuyente&quot;: &quot;Reducido&quot;,
         &quot;porcentaje_iva&quot;: &quot;8.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_contribuyente&quot;: &quot;Exento&quot;,
         &quot;porcentaje_iva&quot;: &quot;0.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -5475,10 +5679,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-contribuyentes"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5521,7 +5725,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tipos-contribuyentes" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -5537,7 +5741,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5611,10 +5815,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tipos-contribuyentes"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5682,7 +5886,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-contribuyentes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -5693,7 +5897,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5723,8 +5927,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
     &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -5782,10 +5986,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-contribuyentes--tipoContribuyente_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -5841,7 +6045,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tipos-contribuyentes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -5857,7 +6061,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -5935,10 +6139,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tipos-contribuyentes--tipoContribuyente_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6019,7 +6223,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tipos-contribuyentes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -6030,7 +6234,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6099,10 +6303,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tipos-contribuyentes--tipoContribuyente_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6143,6 +6347,2045 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
+                    <h2 id="endpoints-GETapi-clientes">Listar todos los clientes</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-clientes">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/clientes"
+);
+
+const params = {
+    "include": "usuario. Values: usuario, tipoContribuyente",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-clientes">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;usuario_id&quot;: 4,
+        &quot;correo_contacto&quot;: null,
+        &quot;nombre&quot;: &quot;Cliente Demo&quot;,
+        &quot;apellido&quot;: &quot;General&quot;,
+        &quot;cedula&quot;: &quot;V-26674932&quot;,
+        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+        &quot;id_tipo_contribuyente&quot;: 1,
+        &quot;id_estatus&quot;: 1,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-clientes" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-clientes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-clientes"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-clientes" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-clientes">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-clientes" data-method="GET"
+      data-path="api/clientes"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-clientes', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-clientes"
+                    onclick="tryItOut('GETapi-clientes');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-clientes"
+                    onclick="cancelTryOut('GETapi-clientes');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-clientes"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/clientes</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-clientes"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-clientes"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-clientes"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros de consulta</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>include</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="include"                data-endpoint="GETapi-clientes"
+               value="usuario. Values: usuario, tipoContribuyente"
+               data-component="query">
+    <br>
+<p>Relaciones a incluir. Example: <code>usuario. Values: usuario, tipoContribuyente</code></p>
+            </div>
+                </form>
+
+                    <h2 id="endpoints-POSTapi-clientes">Crear un nuevo cliente</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-clientes">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/clientes" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"usuario_id\": 17,
+    \"nombre\": \"consequatur\",
+    \"apellido\": \"consequatur\",
+    \"cedula\": \"consequatur\",
+    \"telefono\": \"consequatur\",
+    \"correo_contacto\": \"consequatur\",
+    \"id_tipo_contribuyente\": 17,
+    \"id_estatus\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/clientes"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "usuario_id": 17,
+    "nombre": "consequatur",
+    "apellido": "consequatur",
+    "cedula": "consequatur",
+    "telefono": "consequatur",
+    "correo_contacto": "consequatur",
+    "id_tipo_contribuyente": 17,
+    "id_estatus": 17
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-clientes">
+</span>
+<span id="execution-results-POSTapi-clientes" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-clientes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-clientes"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-clientes" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-clientes">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-clientes" data-method="POST"
+      data-path="api/clientes"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-clientes', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-clientes"
+                    onclick="tryItOut('POSTapi-clientes');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-clientes"
+                    onclick="cancelTryOut('POSTapi-clientes');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-clientes"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/clientes</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-clientes"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-clientes"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-clientes"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="usuario_id"                data-endpoint="POSTapi-clientes"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-clientes"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Nombre. Ejemplo: Juan Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="apellido"                data-endpoint="POSTapi-clientes"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Apellido. Ejemplo: Perez Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cedula"                data-endpoint="POSTapi-clientes"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Cédula. Ejemplo: 12345678 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="telefono"                data-endpoint="POSTapi-clientes"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="correo_contacto"                data-endpoint="POSTapi-clientes"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_tipo_contribuyente"                data-endpoint="POSTapi-clientes"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="POSTapi-clientes"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-clientes--id-">Obtener un cliente específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-clientes--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/clientes/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/clientes/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-clientes--id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;usuario_id&quot;: 4,
+    &quot;correo_contacto&quot;: null,
+    &quot;nombre&quot;: &quot;Cliente Demo&quot;,
+    &quot;apellido&quot;: &quot;General&quot;,
+    &quot;cedula&quot;: &quot;V-26674932&quot;,
+    &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+    &quot;id_tipo_contribuyente&quot;: 1,
+    &quot;id_estatus&quot;: 1,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;deleted_at&quot;: null,
+    &quot;usuario&quot;: {
+        &quot;id&quot;: 4,
+        &quot;nombre_usuario&quot;: &quot;Cliente Demo&quot;,
+        &quot;correo&quot;: &quot;cliente@example.com&quot;,
+        &quot;correo_verificado_en&quot;: null,
+        &quot;esta_activo&quot;: 1,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;all_permissions&quot;: [],
+        &quot;role_names&quot;: [
+            &quot;cliente&quot;
+        ],
+        &quot;permissions&quot;: [],
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;cliente&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;pivot&quot;: {
+                    &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
+                    &quot;model_id&quot;: 4,
+                    &quot;role_id&quot;: 4
+                },
+                &quot;permissions&quot;: []
+            }
+        ]
+    },
+    &quot;tipo_contribuyente&quot;: {
+        &quot;id&quot;: 1,
+        &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
+        &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-clientes--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-clientes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-clientes--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-clientes--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-clientes--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-clientes--id-" data-method="GET"
+      data-path="api/clientes/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-clientes--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-clientes--id-"
+                    onclick="tryItOut('GETapi-clientes--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-clientes--id-"
+                    onclick="cancelTryOut('GETapi-clientes--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-clientes--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/clientes/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-clientes--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-clientes--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the cliente. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-clientes--id-">Actualizar un cliente existente</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-clientes--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/clientes/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"usuario_id\": 17,
+    \"nombre\": \"consequatur\",
+    \"apellido\": \"consequatur\",
+    \"cedula\": \"consequatur\",
+    \"telefono\": \"consequatur\",
+    \"correo_contacto\": \"consequatur\",
+    \"id_tipo_contribuyente\": 17,
+    \"id_estatus\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/clientes/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "usuario_id": 17,
+    "nombre": "consequatur",
+    "apellido": "consequatur",
+    "cedula": "consequatur",
+    "telefono": "consequatur",
+    "correo_contacto": "consequatur",
+    "id_tipo_contribuyente": 17,
+    "id_estatus": 17
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-clientes--id-">
+</span>
+<span id="execution-results-PUTapi-clientes--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-clientes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-clientes--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-clientes--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-clientes--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-clientes--id-" data-method="PUT"
+      data-path="api/clientes/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-clientes--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-clientes--id-"
+                    onclick="tryItOut('PUTapi-clientes--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-clientes--id-"
+                    onclick="cancelTryOut('PUTapi-clientes--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-clientes--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/clientes/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/clientes/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-clientes--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-clientes--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the cliente. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="usuario_id"                data-endpoint="PUTapi-clientes--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-clientes--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Nombre. Ejemplo: Juan Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="apellido"                data-endpoint="PUTapi-clientes--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Apellido. Ejemplo: Perez Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cedula"                data-endpoint="PUTapi-clientes--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Cédula. Ejemplo: 12345678 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="telefono"                data-endpoint="PUTapi-clientes--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="correo_contacto"                data-endpoint="PUTapi-clientes--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_tipo_contribuyente"                data-endpoint="PUTapi-clientes--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="PUTapi-clientes--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-clientes--id-">Eliminar un cliente</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-clientes--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/clientes/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/clientes/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-clientes--id-">
+</span>
+<span id="execution-results-DELETEapi-clientes--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-clientes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-clientes--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-clientes--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-clientes--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-clientes--id-" data-method="DELETE"
+      data-path="api/clientes/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-clientes--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-clientes--id-"
+                    onclick="tryItOut('DELETEapi-clientes--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-clientes--id-"
+                    onclick="cancelTryOut('DELETEapi-clientes--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-clientes--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/clientes/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-clientes--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-clientes--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-clientes--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the cliente. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-personal">Listar todo el personal</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-personal">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/personal?include=usuario.+Values%3A+usuario" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/personal"
+);
+
+const params = {
+    "include": "usuario. Values: usuario",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-personal">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;usuario_id&quot;: 3,
+        &quot;nombre&quot;: &quot;Personal Comercial&quot;,
+        &quot;apellido&quot;: &quot;Comercial&quot;,
+        &quot;cedula&quot;: &quot;V-25815162&quot;,
+        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+        &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
+        &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
+        &quot;id_estatus&quot;: 1,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-personal" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-personal"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-personal"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-personal" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-personal">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-personal" data-method="GET"
+      data-path="api/personal"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-personal', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-personal"
+                    onclick="tryItOut('GETapi-personal');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-personal"
+                    onclick="cancelTryOut('GETapi-personal');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-personal"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/personal</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-personal"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-personal"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-personal"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros de consulta</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>include</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="include"                data-endpoint="GETapi-personal"
+               value="usuario. Values: usuario"
+               data-component="query">
+    <br>
+<p>Relaciones a incluir. Example: <code>usuario. Values: usuario</code></p>
+            </div>
+                </form>
+
+                    <h2 id="endpoints-POSTapi-personal">Crear nuevo personal</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-personal">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/personal" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"usuario_id\": 17,
+    \"nombre\": \"consequatur\",
+    \"apellido\": \"consequatur\",
+    \"cedula\": \"consequatur\",
+    \"telefono\": \"consequatur\",
+    \"correo_institucional\": \"consequatur\",
+    \"porcentaje_comision\": 11613.31890586,
+    \"id_estatus\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/personal"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "usuario_id": 17,
+    "nombre": "consequatur",
+    "apellido": "consequatur",
+    "cedula": "consequatur",
+    "telefono": "consequatur",
+    "correo_institucional": "consequatur",
+    "porcentaje_comision": 11613.31890586,
+    "id_estatus": 17
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-personal">
+</span>
+<span id="execution-results-POSTapi-personal" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-personal"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-personal"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-personal" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-personal">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-personal" data-method="POST"
+      data-path="api/personal"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-personal', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-personal"
+                    onclick="tryItOut('POSTapi-personal');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-personal"
+                    onclick="cancelTryOut('POSTapi-personal');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-personal"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/personal</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-personal"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-personal"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-personal"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="usuario_id"                data-endpoint="POSTapi-personal"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-personal"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Nombre. Ejemplo: Maria Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="apellido"                data-endpoint="POSTapi-personal"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Apellido. Ejemplo: Rodriguez Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cedula"                data-endpoint="POSTapi-personal"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Cédula. Ejemplo: 87654321 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="telefono"                data-endpoint="POSTapi-personal"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Teléfono. Ejemplo: 04241234567 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="correo_institucional"                data-endpoint="POSTapi-personal"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="porcentaje_comision"                data-endpoint="POSTapi-personal"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="POSTapi-personal"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-personal--id-">Obtener un personal específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-personal--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/personal/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/personal/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-personal--id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;usuario_id&quot;: 3,
+    &quot;nombre&quot;: &quot;Personal Comercial&quot;,
+    &quot;apellido&quot;: &quot;Comercial&quot;,
+    &quot;cedula&quot;: &quot;V-25815162&quot;,
+    &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+    &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
+    &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
+    &quot;id_estatus&quot;: 1,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;deleted_at&quot;: null,
+    &quot;usuario&quot;: {
+        &quot;id&quot;: 3,
+        &quot;nombre_usuario&quot;: &quot;Personal Comercial&quot;,
+        &quot;correo&quot;: &quot;personal@example.com&quot;,
+        &quot;correo_verificado_en&quot;: null,
+        &quot;esta_activo&quot;: 1,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;all_permissions&quot;: [],
+        &quot;role_names&quot;: [
+            &quot;personal&quot;
+        ],
+        &quot;permissions&quot;: [],
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;personal&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;pivot&quot;: {
+                    &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
+                    &quot;model_id&quot;: 3,
+                    &quot;role_id&quot;: 3
+                },
+                &quot;permissions&quot;: []
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-personal--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-personal--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-personal--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-personal--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-personal--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-personal--id-" data-method="GET"
+      data-path="api/personal/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-personal--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-personal--id-"
+                    onclick="tryItOut('GETapi-personal--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-personal--id-"
+                    onclick="cancelTryOut('GETapi-personal--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-personal--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/personal/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-personal--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-personal--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the personal. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-personal--id-">Actualizar personal</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-personal--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/personal/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"usuario_id\": 17,
+    \"nombre\": \"consequatur\",
+    \"apellido\": \"consequatur\",
+    \"cedula\": \"consequatur\",
+    \"telefono\": \"consequatur\",
+    \"correo_institucional\": \"consequatur\",
+    \"porcentaje_comision\": 11613.31890586,
+    \"id_estatus\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/personal/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "usuario_id": 17,
+    "nombre": "consequatur",
+    "apellido": "consequatur",
+    "cedula": "consequatur",
+    "telefono": "consequatur",
+    "correo_institucional": "consequatur",
+    "porcentaje_comision": 11613.31890586,
+    "id_estatus": 17
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-personal--id-">
+</span>
+<span id="execution-results-PUTapi-personal--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-personal--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-personal--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-personal--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-personal--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-personal--id-" data-method="PUT"
+      data-path="api/personal/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-personal--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-personal--id-"
+                    onclick="tryItOut('PUTapi-personal--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-personal--id-"
+                    onclick="cancelTryOut('PUTapi-personal--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-personal--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/personal/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/personal/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-personal--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-personal--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the personal. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="usuario_id"                data-endpoint="PUTapi-personal--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del usuario. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-personal--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Nombre. Ejemplo: Maria Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="apellido"                data-endpoint="PUTapi-personal--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Apellido. Ejemplo: Rodriguez Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cedula"                data-endpoint="PUTapi-personal--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Cédula. Ejemplo: 87654321 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="telefono"                data-endpoint="PUTapi-personal--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Teléfono. Ejemplo: 04241234567 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="correo_institucional"                data-endpoint="PUTapi-personal--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="porcentaje_comision"                data-endpoint="PUTapi-personal--id-"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="PUTapi-personal--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-personal--id-">Eliminar personal</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-personal--id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/personal/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/personal/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-personal--id-">
+</span>
+<span id="execution-results-DELETEapi-personal--id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-personal--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-personal--id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-personal--id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-personal--id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-personal--id-" data-method="DELETE"
+      data-path="api/personal/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-personal--id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-personal--id-"
+                    onclick="tryItOut('DELETEapi-personal--id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-personal--id-"
+                    onclick="cancelTryOut('DELETEapi-personal--id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-personal--id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/personal/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-personal--id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-personal--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-personal--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the personal. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-GETapi-empresas">Listar todas las empresas</h2>
 
 <p>
@@ -6158,7 +8401,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -6169,7 +8412,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6205,8 +8448,8 @@ access-control-allow-origin: *
         &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
         &quot;direccion&quot;: &quot;Direccion demo&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -6265,10 +8508,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6311,7 +8554,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -6332,7 +8575,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6411,10 +8654,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6542,7 +8785,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -6553,7 +8796,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6588,8 +8831,8 @@ access-control-allow-origin: *
     &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
     &quot;direccion&quot;: &quot;Direccion demo&quot;,
     &quot;id_tipo_contribuyente&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -6647,10 +8890,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-empresas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6706,7 +8949,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -6727,7 +8970,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6810,10 +9053,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-empresas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -6954,7 +9197,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -6965,7 +9208,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7034,10 +9277,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-empresas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7093,7 +9336,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/clientes-empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7104,7 +9347,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7187,10 +9430,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-clientes-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7233,7 +9476,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/clientes-empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7249,7 +9492,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7323,10 +9566,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-clientes-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7394,7 +9637,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/clientes-empresas/17" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7405,7 +9648,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7490,10 +9733,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-clientes-empresas--clientesEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7549,7 +9792,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/clientes-empresas/17" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7565,7 +9808,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7643,10 +9886,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-clientes-empresas--clientesEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7727,7 +9970,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/clientes-empresas/17" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7738,7 +9981,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7807,10 +10050,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-clientes-empresas--clientesEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7866,7 +10109,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/personal-empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7877,7 +10120,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7906,10 +10149,10 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">[
     {
         &quot;id&quot;: 1,
-        &quot;id_personal&quot;: 3,
+        &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -7968,10 +10211,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-personal-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8014,7 +10257,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/personal-empresas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8030,7 +10273,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8104,10 +10347,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-personal-empresas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8144,7 +10387,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del usuario con rol personal. Ejemplo: 2 Example: <code>17</code></p>
+<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresa</code></b>&nbsp;&nbsp;
@@ -8175,7 +10418,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/personal-empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -8186,7 +10429,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8214,10 +10457,10 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
-    &quot;id_personal&quot;: 3,
+    &quot;id_personal&quot;: 1,
     &quot;id_empresa&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -8275,10 +10518,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-personal-empresas--personalEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8334,7 +10577,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/personal-empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8350,7 +10593,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8428,10 +10671,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-personal-empresas--personalEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8481,7 +10724,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del usuario personal. Example: <code>17</code></p>
+<p>ID del usuario personal. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresa</code></b>&nbsp;&nbsp;
@@ -8512,7 +10755,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/personal-empresas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -8523,7 +10766,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8592,10 +10835,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-personal-empresas--personalEmpresa_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8651,7 +10894,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/origenes" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -8662,7 +10905,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8692,32 +10935,32 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;red&quot;: &quot;instagram&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;red&quot;: &quot;whatsapp&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;red&quot;: &quot;tiktok&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;red&quot;: &quot;x&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -8776,10 +11019,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-origenes"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8822,7 +11065,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/origenes" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8837,7 +11080,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -8910,10 +11153,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-origenes"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -8969,7 +11212,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/origenes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -8980,7 +11223,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9009,8 +11252,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;red&quot;: &quot;facebook&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -9068,10 +11311,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-origenes--origen_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -9127,7 +11370,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/origenes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -9142,7 +11385,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9219,10 +11462,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-origenes--origen_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -9291,7 +11534,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/origenes/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -9302,7 +11545,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9371,10 +11614,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-origenes--origen_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -9430,7 +11673,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/atenciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -9441,7 +11684,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9478,63 +11721,55 @@ access-control-allow-origin: *
         &quot;estatus&quot;: {
             &quot;id&quot;: 11,
             &quot;estatus&quot;: &quot;por aprobar&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;id_etapa_comercial&quot;: 3,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
-        &quot;fase_actual&quot;: &quot;Cotizada&quot;,
         &quot;cliente&quot;: {
             &quot;id&quot;: 1,
-            &quot;user_id&quot;: 4,
+            &quot;usuario_id&quot;: 4,
+            &quot;correo_contacto&quot;: null,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-27853586&quot;,
-            &quot;telefono&quot;: &quot;+58 424 6155692&quot;,
+            &quot;cedula&quot;: &quot;V-26674932&quot;,
+            &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;personal&quot;: {
             &quot;id&quot;: 1,
-            &quot;user_id&quot;: 3,
+            &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-19108599&quot;,
-            &quot;telefono&quot;: &quot;+58 412 3929752&quot;,
+            &quot;cedula&quot;: &quot;V-25815162&quot;,
+            &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;origen&quot;: {
             &quot;id&quot;: 1,
             &quot;red&quot;: &quot;facebook&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
         },
-        &quot;cotizaciones&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;id_atencion&quot;: 1,
-                &quot;id_tipo_cotizacion&quot;: 1,
-                &quot;cant_adultos&quot;: 2,
-                &quot;cant_menores&quot;: 1,
-                &quot;cant_viejos&quot;: 0,
-                &quot;id_tasa_cambio&quot;: 1,
-                &quot;fecha_vencimiento&quot;: &quot;2026-04-21T00:00:00.000000Z&quot;,
-                &quot;estatus&quot;: 5,
-                &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-                &quot;deleted_at&quot;: null,
-                &quot;esta_vencida&quot;: false
-            }
-        ],
+        &quot;etapa_comercial&quot;: {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;orden_compra&quot;,
+            &quot;label&quot;: &quot;Orden de Compra&quot;,
+            &quot;color&quot;: &quot;#10b981&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        },
         &quot;id_cotizacion&quot;: 1,
         &quot;id_orden_compra&quot;: 1
     }
@@ -9595,10 +11830,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-atenciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -9641,7 +11876,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/atenciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -9659,7 +11894,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9735,10 +11970,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-atenciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -9775,7 +12010,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del cliente. Ejemplo: 5 Example: <code>17</code></p>
+<p>ID del cliente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_origen_atencion</code></b>&nbsp;&nbsp;
@@ -9830,7 +12065,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/atenciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -9841,7 +12076,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -9877,63 +12112,55 @@ access-control-allow-origin: *
     &quot;estatus&quot;: {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:13.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
     },
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;id_etapa_comercial&quot;: 3,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
-    &quot;fase_actual&quot;: &quot;Cotizada&quot;,
     &quot;cliente&quot;: {
         &quot;id&quot;: 1,
-        &quot;user_id&quot;: 4,
+        &quot;usuario_id&quot;: 4,
+        &quot;correo_contacto&quot;: null,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-27853586&quot;,
-        &quot;telefono&quot;: &quot;+58 424 6155692&quot;,
+        &quot;cedula&quot;: &quot;V-26674932&quot;,
+        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;personal&quot;: {
         &quot;id&quot;: 1,
-        &quot;user_id&quot;: 3,
+        &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-19108599&quot;,
-        &quot;telefono&quot;: &quot;+58 412 3929752&quot;,
+        &quot;cedula&quot;: &quot;V-25815162&quot;,
+        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;origen&quot;: {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
-    &quot;cotizaciones&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_atencion&quot;: 1,
-            &quot;id_tipo_cotizacion&quot;: 1,
-            &quot;cant_adultos&quot;: 2,
-            &quot;cant_menores&quot;: 1,
-            &quot;cant_viejos&quot;: 0,
-            &quot;id_tasa_cambio&quot;: 1,
-            &quot;fecha_vencimiento&quot;: &quot;2026-04-21T00:00:00.000000Z&quot;,
-            &quot;estatus&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;deleted_at&quot;: null,
-            &quot;esta_vencida&quot;: false
-        }
-    ],
+    &quot;etapa_comercial&quot;: {
+        &quot;id&quot;: 3,
+        &quot;slug&quot;: &quot;orden_compra&quot;,
+        &quot;label&quot;: &quot;Orden de Compra&quot;,
+        &quot;color&quot;: &quot;#10b981&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    },
     &quot;id_cotizacion&quot;: 1,
     &quot;id_orden_compra&quot;: 1
 }</code>
@@ -9993,10 +12220,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-atenciones--atencion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10052,7 +12279,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/atenciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -10072,7 +12299,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10154,10 +12381,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10207,7 +12434,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del cliente. Example: <code>17</code></p>
+<p>ID del cliente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_personal</code></b>&nbsp;&nbsp;
@@ -10219,7 +12446,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del personal asignado. Example: <code>17</code></p>
+<p>ID del personal asignado. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_origen_atencion</code></b>&nbsp;&nbsp;
@@ -10231,7 +12458,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del origen de la atención. Example: <code>17</code></p>
+<p>ID del origen de la atención. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>asunto</code></b>&nbsp;&nbsp;
@@ -10243,7 +12470,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Asunto o motivo de la atención. Example: <code>consequatur</code></p>
+<p>Asunto o motivo de la atención. Ejemplo: Cambio de itinerario Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notas_adicionales</code></b>&nbsp;&nbsp;
@@ -10255,7 +12482,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Notas adicionales. Example: <code>consequatur</code></p>
+<p>Notas adicionales. Ejemplo: Se requiere respuesta urgente Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
@@ -10267,7 +12494,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del estatus de la atención. Example: <code>17</code></p>
+<p>ID del estatus de la atención. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -10286,7 +12513,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/atenciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10297,7 +12524,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10366,10 +12593,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-atenciones--atencion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10425,7 +12652,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10436,7 +12663,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10471,20 +12698,20 @@ access-control-allow-origin: *
         &quot;cant_menores&quot;: 1,
         &quot;cant_viejos&quot;: 0,
         &quot;id_tasa_cambio&quot;: 1,
-        &quot;fecha_vencimiento&quot;: &quot;2026-04-21T00:00:00.000000Z&quot;,
+        &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
         &quot;estatus&quot;: 5,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;esta_vencida&quot;: false,
         &quot;orden_compra&quot;: {
             &quot;id&quot;: 1,
             &quot;id_cotizacion&quot;: 1,
             &quot;estatus&quot;: 6,
-            &quot;estado_financiero&quot;: &quot;PAGADO&quot;,
+            &quot;id_estado_financiero&quot;: 3,
             &quot;monto_total&quot;: 260,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null,
             &quot;saldo_pendiente&quot;: 0,
             &quot;porcentaje_pagado&quot;: 100,
@@ -10494,16 +12721,16 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tipo_cotizacion&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
         },
         &quot;atencion&quot;: {
             &quot;id&quot;: 1,
@@ -10513,27 +12740,10 @@ access-control-allow-origin: *
             &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
             &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
             &quot;estatus&quot;: 11,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;deleted_at&quot;: null,
-            &quot;fase_actual&quot;: &quot;Cotizada&quot;,
-            &quot;cotizaciones&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;id_atencion&quot;: 1,
-                    &quot;id_tipo_cotizacion&quot;: 1,
-                    &quot;cant_adultos&quot;: 2,
-                    &quot;cant_menores&quot;: 1,
-                    &quot;cant_viejos&quot;: 0,
-                    &quot;id_tasa_cambio&quot;: 1,
-                    &quot;fecha_vencimiento&quot;: &quot;2026-04-21T00:00:00.000000Z&quot;,
-                    &quot;estatus&quot;: 5,
-                    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-                    &quot;deleted_at&quot;: null,
-                    &quot;esta_vencida&quot;: false
-                }
-            ]
+            &quot;id_etapa_comercial&quot;: 3,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     }
 ]</code>
@@ -10593,10 +12803,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10630,7 +12840,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Permite crear una cotización junto con sus servicios asociados de forma atómica.</p>
 
 <span id="example-requests-POSTapi-cotizaciones">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -10639,7 +12849,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -10649,7 +12859,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"cant_menores\": 17,
     \"cant_viejos\": 17,
     \"id_tasa_cambio\": 17,
-    \"fecha_vencimiento\": \"consequatur\"
+    \"fecha_vencimiento\": \"consequatur\",
+    \"servicios\": [
+        {
+            \"id_tipo_servicio\": 17,
+            \"id_proveedor\": 17,
+            \"descripcion\": \"consequatur\",
+            \"costo\": 11613.31890586,
+            \"monto_gravable\": 11613.31890586,
+            \"monto_no_sujeto\": 11613.31890586,
+            \"iva_establecido\": 11613.31890586,
+            \"id_tasa_cambio\": 17
+        }
+    ]
 }"
 </code></pre></div>
 
@@ -10660,7 +12882,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10672,7 +12894,19 @@ let body = {
     "cant_menores": 17,
     "cant_viejos": 17,
     "id_tasa_cambio": 17,
-    "fecha_vencimiento": "consequatur"
+    "fecha_vencimiento": "consequatur",
+    "servicios": [
+        {
+            "id_tipo_servicio": 17,
+            "id_proveedor": 17,
+            "descripcion": "consequatur",
+            "costo": 11613.31890586,
+            "monto_gravable": 11613.31890586,
+            "monto_no_sujeto": 11613.31890586,
+            "iva_establecido": 11613.31890586,
+            "id_tasa_cambio": 17
+        }
+    ]
 };
 
 fetch(url, {
@@ -10739,10 +12973,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -10779,7 +13013,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID de la atención asociada. Ejemplo: 3 Example: <code>17</code></p>
+<p>ID de la atención asociada. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_cotizacion</code></b>&nbsp;&nbsp;
@@ -10815,7 +13049,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>Cantidad de menores. Ejemplo: 1 Example: <code>17</code></p>
+<p>Cantidad de menores. Ejemplo: 0 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_viejos</code></b>&nbsp;&nbsp;
@@ -10839,7 +13073,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio congelada (Historial Tasa). Ejemplo: 12 Example: <code>17</code></p>
+<p>ID de la tasa de cambio congelada (Historial Tasa). Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_vencimiento</code></b>&nbsp;&nbsp;
@@ -10851,7 +13085,115 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Fecha de caducidad de la proforma. Ejemplo: 2026-04-10 Example: <code>consequatur</code></p>
+<p>Fecha de caducidad de la proforma. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>servicios</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+<br>
+<p>Lista de servicios a crear.</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_tipo_servicio"                data-endpoint="POSTapi-cotizaciones"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_proveedor"                data-endpoint="POSTapi-cotizaciones"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del proveedor. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>descripcion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="servicios.0.descripcion"                data-endpoint="POSTapi-cotizaciones"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Detalles del servicio. Ejemplo: Tour guiado por la ciudad Example: <code>consequatur</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.costo"                data-endpoint="POSTapi-cotizaciones"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.monto_gravable"                data-endpoint="POSTapi-cotizaciones"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Base imponible venta. Ejemplo: 120.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.monto_no_sujeto"                data-endpoint="POSTapi-cotizaciones"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>iva_establecido</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.iva_establecido"                data-endpoint="POSTapi-cotizaciones"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Porcentaje de IVA para venta. Ejemplo: 16.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_tasa_cambio"                data-endpoint="POSTapi-cotizaciones"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                    </details>
         </div>
         </form>
 
@@ -10870,7 +13212,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -10881,7 +13223,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -10915,20 +13257,20 @@ access-control-allow-origin: *
     &quot;cant_menores&quot;: 1,
     &quot;cant_viejos&quot;: 0,
     &quot;id_tasa_cambio&quot;: 1,
-    &quot;fecha_vencimiento&quot;: &quot;2026-04-21T00:00:00.000000Z&quot;,
+    &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
     &quot;estatus&quot;: 5,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;esta_vencida&quot;: false,
     &quot;orden_compra&quot;: {
         &quot;id&quot;: 1,
         &quot;id_cotizacion&quot;: 1,
         &quot;estatus&quot;: 6,
-        &quot;estado_financiero&quot;: &quot;PAGADO&quot;,
+        &quot;id_estado_financiero&quot;: 3,
         &quot;monto_total&quot;: 260,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;saldo_pendiente&quot;: 0,
         &quot;porcentaje_pagado&quot;: 100,
@@ -10938,9 +13280,9 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -11000,10 +13342,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-cotizaciones--cotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11050,7 +13392,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Modifica una cotización activa. Al confirmarla (estatus = confirmado), se genera la Orden de Compra automáticamente (Estado Financiero: POR_PAGAR).</p>
+<p>Modifica una cotización activa y sincroniza sus servicios. Al confirmarla, se genera la Orden de Compra automáticamente.</p>
 
 <span id="example-requests-PUTapi-cotizaciones--cotizacion_id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -11059,14 +13401,29 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"cant_adultos\": 73,
-    \"cant_menores\": 45,
-    \"cant_viejos\": 56,
-    \"fecha_vencimiento\": \"2026-04-06T08:59:50\"
+    \"id_atencion\": 17,
+    \"id_tipo_cotizacion\": 17,
+    \"cant_adultos\": 17,
+    \"cant_menores\": 17,
+    \"cant_viejos\": 17,
+    \"id_tasa_cambio\": 17,
+    \"fecha_vencimiento\": \"consequatur\",
+    \"estatus\": 17,
+    \"servicios\": [
+        {
+            \"id\": 17,
+            \"id_tipo_servicio\": 17,
+            \"id_proveedor\": 17,
+            \"costo\": 11613.31890586,
+            \"monto_gravable\": 11613.31890586,
+            \"monto_no_sujeto\": 11613.31890586,
+            \"id_tasa_cambio\": 17
+        }
+    ]
 }"
 </code></pre></div>
 
@@ -11077,16 +13434,31 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "cant_adultos": 73,
-    "cant_menores": 45,
-    "cant_viejos": 56,
-    "fecha_vencimiento": "2026-04-06T08:59:50"
+    "id_atencion": 17,
+    "id_tipo_cotizacion": 17,
+    "cant_adultos": 17,
+    "cant_menores": 17,
+    "cant_viejos": 17,
+    "id_tasa_cambio": 17,
+    "fecha_vencimiento": "consequatur",
+    "estatus": 17,
+    "servicios": [
+        {
+            "id": 17,
+            "id_tipo_servicio": 17,
+            "id_proveedor": 17,
+            "costo": 11613.31890586,
+            "monto_gravable": 11613.31890586,
+            "monto_no_sujeto": 11613.31890586,
+            "id_tasa_cambio": 17
+        }
+    ]
 };
 
 fetch(url, {
@@ -11157,10 +13529,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11202,27 +13574,27 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_atencion</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_atencion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_atencion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the atenciones table.</p>
+<p>ID de la atención. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_cotizacion</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tipo_cotizacion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_tipo_cotizacion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tipos_cotizaciones table.</p>
+<p>ID del tipo de cotización. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_adultos</code></b>&nbsp;&nbsp;
@@ -11231,10 +13603,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_adultos"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="73"
+               value="17"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>73</code></p>
+<p>Cantidad de adultos. Ejemplo: 2 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_menores</code></b>&nbsp;&nbsp;
@@ -11243,10 +13615,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_menores"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="45"
+               value="17"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>45</code></p>
+<p>Cantidad de menores. Ejemplo: 0 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_viejos</code></b>&nbsp;&nbsp;
@@ -11255,46 +13627,142 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_viejos"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="56"
+               value="17"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>56</code></p>
+<p>Cantidad de adultos mayores. Ejemplo: 0 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tasa_cambio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_tasa_cambio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tasas_cambio table.</p>
+<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_vencimiento</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_vencimiento"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="2026-04-06T08:59:50"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-06T08:59:50</code></p>
+<p>Fecha de vencimiento. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="estatus"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the estatus table.</p>
+<p>ID del nuevo estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>servicios</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+<br>
+<p>Lista completa de servicios (sincronización).</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del servicio si se va a actualizar. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_tipo_servicio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_proveedor"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del proveedor. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.costo"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.monto_gravable"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Base imponible venta. Ejemplo: 120.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.monto_no_sujeto"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="11613.31890586"
+               data-component="body">
+    <br>
+<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>11613.31890586</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="servicios.0.id_tasa_cambio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>17</code></p>
+                    </div>
+                                    </details>
         </div>
         </form>
 
@@ -11313,7 +13781,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -11324,7 +13792,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -11393,10 +13861,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-cotizaciones--cotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11452,7 +13920,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -11463,7 +13931,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -11493,14 +13961,14 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_cotizacion&quot;: &quot;empresarial&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -11559,10 +14027,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11605,7 +14073,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tipos-cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11620,7 +14088,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -11693,10 +14161,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tipos-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11752,7 +14220,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -11763,7 +14231,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -11792,8 +14260,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -11851,10 +14319,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-cotizaciones--tipoCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -11910,7 +14378,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tipos-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11925,7 +14393,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -12002,10 +14470,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tipos-cotizaciones--tipoCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -12074,7 +14542,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tipos-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -12085,7 +14553,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -12154,10 +14622,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tipos-cotizaciones--tipoCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -12198,798 +14666,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-servicios-cotizaciones">Listar todas las vinculaciones servicio-cotización</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Devuelve el listado de servicios asociados a cada cotización del sistema.</p>
-
-<span id="example-requests-GETapi-servicios-cotizaciones">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios-cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios-cotizaciones"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-servicios-cotizaciones">
-            <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">[
-    {
-        &quot;id&quot;: 1,
-        &quot;id_servicio&quot;: 1,
-        &quot;id_cotizacion&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
-    },
-    {
-        &quot;id&quot;: 2,
-        &quot;id_servicio&quot;: 2,
-        &quot;id_cotizacion&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
-    }
-]</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-servicios-cotizaciones" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-GETapi-servicios-cotizaciones"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-servicios-cotizaciones"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-servicios-cotizaciones" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-servicios-cotizaciones">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-GETapi-servicios-cotizaciones" data-method="GET"
-      data-path="api/servicios-cotizaciones"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-servicios-cotizaciones', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-servicios-cotizaciones"
-                    onclick="tryItOut('GETapi-servicios-cotizaciones');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-servicios-cotizaciones"
-                    onclick="cancelTryOut('GETapi-servicios-cotizaciones');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-servicios-cotizaciones"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/servicios-cotizaciones</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-servicios-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-servicios-cotizaciones"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-servicios-cotizaciones"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-POSTapi-servicios-cotizaciones">Asociar un servicio a una cotización</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-servicios-cotizaciones">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/servicios-cotizaciones" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_servicio\": 17,
-    \"id_cotizacion\": 17
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios-cotizaciones"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_servicio": 17,
-    "id_cotizacion": 17
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-servicios-cotizaciones">
-</span>
-<span id="execution-results-POSTapi-servicios-cotizaciones" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-POSTapi-servicios-cotizaciones"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-servicios-cotizaciones"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-servicios-cotizaciones" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-servicios-cotizaciones">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-POSTapi-servicios-cotizaciones" data-method="POST"
-      data-path="api/servicios-cotizaciones"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-servicios-cotizaciones', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-servicios-cotizaciones"
-                    onclick="tryItOut('POSTapi-servicios-cotizaciones');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-servicios-cotizaciones"
-                    onclick="cancelTryOut('POSTapi-servicios-cotizaciones');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-servicios-cotizaciones"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/servicios-cotizaciones</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-servicios-cotizaciones"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-servicios-cotizaciones"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-servicios-cotizaciones"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_servicio</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_servicio"                data-endpoint="POSTapi-servicios-cotizaciones"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del servicio que se asocia. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_cotizacion</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_cotizacion"                data-endpoint="POSTapi-servicios-cotizaciones"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID de la cotización a la que pertenece. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-servicios-cotizaciones--servicioCotizacion_id-">Obtener una vinculación servicio-cotización específica</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Devuelve los datos de una vinculación por su ID.</p>
-
-<span id="example-requests-GETapi-servicios-cotizaciones--servicioCotizacion_id-">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios-cotizaciones/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-servicios-cotizaciones--servicioCotizacion_id-">
-            <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;id_servicio&quot;: 1,
-    &quot;id_cotizacion&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-GETapi-servicios-cotizaciones--servicioCotizacion_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-servicios-cotizaciones--servicioCotizacion_id-">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-GETapi-servicios-cotizaciones--servicioCotizacion_id-" data-method="GET"
-      data-path="api/servicios-cotizaciones/{servicioCotizacion_id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-servicios-cotizaciones--servicioCotizacion_id-', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="tryItOut('GETapi-servicios-cotizaciones--servicioCotizacion_id-');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="cancelTryOut('GETapi-servicios-cotizaciones--servicioCotizacion_id-');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/servicios-cotizaciones/{servicioCotizacion_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>servicioCotizacion_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="servicioCotizacion_id"                data-endpoint="GETapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the servicioCotizacion. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">Actualizar vinculación servicio-cotización</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/servicios-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_servicio\": 17,
-    \"id_cotizacion\": 17
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios-cotizaciones/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_servicio": 17,
-    "id_cotizacion": 17
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">
-</span>
-<span id="execution-results-PUTapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-PUTapi-servicios-cotizaciones--servicioCotizacion_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-servicios-cotizaciones--servicioCotizacion_id-">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-PUTapi-servicios-cotizaciones--servicioCotizacion_id-" data-method="PUT"
-      data-path="api/servicios-cotizaciones/{servicioCotizacion_id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-servicios-cotizaciones--servicioCotizacion_id-', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="tryItOut('PUTapi-servicios-cotizaciones--servicioCotizacion_id-');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="cancelTryOut('PUTapi-servicios-cotizaciones--servicioCotizacion_id-');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/servicios-cotizaciones/{servicioCotizacion_id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/servicios-cotizaciones/{servicioCotizacion_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>servicioCotizacion_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="servicioCotizacion_id"                data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the servicioCotizacion. Example: <code>1</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_servicio</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_servicio"                data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del servicio. Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_cotizacion</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_cotizacion"                data-endpoint="PUTapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID de la cotización. Example: <code>17</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">Eliminar vinculación servicio-cotización</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/servicios-cotizaciones/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios-cotizaciones/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">
-</span>
-<span id="execution-results-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-" data-method="DELETE"
-      data-path="api/servicios-cotizaciones/{servicioCotizacion_id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-servicios-cotizaciones--servicioCotizacion_id-', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="tryItOut('DELETEapi-servicios-cotizaciones--servicioCotizacion_id-');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    onclick="cancelTryOut('DELETEapi-servicios-cotizaciones--servicioCotizacion_id-');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/servicios-cotizaciones/{servicioCotizacion_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>servicioCotizacion_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="servicioCotizacion_id"                data-endpoint="DELETEapi-servicios-cotizaciones--servicioCotizacion_id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the servicioCotizacion. Example: <code>1</code></p>
-            </div>
-                    </form>
-
                     <h2 id="endpoints-GETapi-metodos-pago">Listar todos los métodos de pago</h2>
 
 <p>
@@ -13005,7 +14681,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metodos-pago" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -13016,7 +14692,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13046,20 +14722,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;metodo_pago&quot;: &quot;transferencia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;metodo_pago&quot;: &quot;tarjeta&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -13118,10 +14794,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metodos-pago"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13164,7 +14840,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/metodos-pago" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -13179,7 +14855,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13252,10 +14928,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-metodos-pago"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13311,7 +14987,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metodos-pago/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -13322,7 +14998,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13351,8 +15027,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -13410,10 +15086,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metodos-pago--metodoPago_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13469,7 +15145,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/metodos-pago/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -13484,7 +15160,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13561,10 +15237,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-metodos-pago--metodoPago_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13633,7 +15309,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/metodos-pago/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -13644,7 +15320,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13713,10 +15389,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-metodos-pago--metodoPago_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13772,7 +15448,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/ordenes-compra" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -13783,7 +15459,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -13798,7 +15474,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-ordenes-compra">
             <blockquote>
-            <p>Ejemplo de respuesta (500):</p>
+            <p>Ejemplo de respuesta (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -13809,9 +15485,53 @@ content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;id_cotizacion&quot;: 1,
+        &quot;estatus&quot;: 6,
+        &quot;id_estado_financiero&quot;: 3,
+        &quot;monto_total&quot;: 260,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;saldo_pendiente&quot;: 0,
+        &quot;porcentaje_pagado&quot;: 100,
+        &quot;total_pagado&quot;: 260,
+        &quot;cotizacion&quot;: {
+            &quot;id&quot;: 1,
+            &quot;id_atencion&quot;: 1,
+            &quot;id_tipo_cotizacion&quot;: 1,
+            &quot;cant_adultos&quot;: 2,
+            &quot;cant_menores&quot;: 1,
+            &quot;cant_viejos&quot;: 0,
+            &quot;id_tasa_cambio&quot;: 1,
+            &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+            &quot;estatus&quot;: 5,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;esta_vencida&quot;: false,
+            &quot;tasa_cambio&quot;: {
+                &quot;id&quot;: 1,
+                &quot;id_tasa&quot;: 5,
+                &quot;valor_cambio&quot;: &quot;36.5000&quot;,
+                &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;deleted_at&quot;: null
+            }
+        },
+        &quot;estado_financiero&quot;: {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;pagado&quot;,
+            &quot;label&quot;: &quot;Pagado&quot;,
+            &quot;color&quot;: &quot;#10b981&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        }
+    }
+]</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-ordenes-compra" hidden>
@@ -13868,10 +15588,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-ordenes-compra"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -13914,12 +15634,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/ordenes-compra" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_cotizacion\": 17,
-    \"id_tasa_cambio\": 17,
     \"estatus\": 17
 }"
 </code></pre></div>
@@ -13931,14 +15650,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
     "id_cotizacion": 17,
-    "id_tasa_cambio": 17,
     "estatus": 17
 };
 
@@ -14006,10 +15724,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-ordenes-compra"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14049,18 +15767,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID de la cotización confirmada. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_tasa_cambio"                data-endpoint="POSTapi-ordenes-compra"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID de la tasa de cambio a aplicar. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -14089,7 +15795,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -14100,7 +15806,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -14115,7 +15821,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-ordenes-compra--ordenCompra_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (500):</p>
+            <p>Ejemplo de respuesta (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -14127,7 +15833,132 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;id&quot;: 1,
+    &quot;id_cotizacion&quot;: 1,
+    &quot;estatus&quot;: 6,
+    &quot;id_estado_financiero&quot;: 3,
+    &quot;monto_total&quot;: 260,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;deleted_at&quot;: null,
+    &quot;saldo_pendiente&quot;: 0,
+    &quot;porcentaje_pagado&quot;: 100,
+    &quot;total_pagado&quot;: 260,
+    &quot;cotizacion&quot;: {
+        &quot;id&quot;: 1,
+        &quot;id_atencion&quot;: 1,
+        &quot;id_tipo_cotizacion&quot;: 1,
+        &quot;cant_adultos&quot;: 2,
+        &quot;cant_menores&quot;: 1,
+        &quot;cant_viejos&quot;: 0,
+        &quot;id_tasa_cambio&quot;: 1,
+        &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+        &quot;estatus&quot;: 5,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;esta_vencida&quot;: false,
+        &quot;servicios&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;id_cotizacion&quot;: 1,
+                &quot;id_tipo_servicio&quot;: 1,
+                &quot;id_proveedor&quot;: 1,
+                &quot;costo&quot;: &quot;100.00&quot;,
+                &quot;descripcion&quot;: null,
+                &quot;monto_gravable&quot;: &quot;100.00&quot;,
+                &quot;monto_no_sujeto&quot;: &quot;0.00&quot;,
+                &quot;total_servicio&quot;: &quot;100.00&quot;,
+                &quot;iva_establecido&quot;: null,
+                &quot;id_tasa_cambio&quot;: 1,
+                &quot;estatus&quot;: 8,
+                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;deleted_at&quot;: null
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;id_cotizacion&quot;: 1,
+                &quot;id_tipo_servicio&quot;: 1,
+                &quot;id_proveedor&quot;: 1,
+                &quot;costo&quot;: &quot;160.00&quot;,
+                &quot;descripcion&quot;: null,
+                &quot;monto_gravable&quot;: &quot;140.00&quot;,
+                &quot;monto_no_sujeto&quot;: &quot;20.00&quot;,
+                &quot;total_servicio&quot;: &quot;160.00&quot;,
+                &quot;iva_establecido&quot;: null,
+                &quot;id_tasa_cambio&quot;: 1,
+                &quot;estatus&quot;: 1,
+                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;deleted_at&quot;: null
+            }
+        ],
+        &quot;tasa_cambio&quot;: {
+            &quot;id&quot;: 1,
+            &quot;id_tasa&quot;: 5,
+            &quot;valor_cambio&quot;: &quot;36.5000&quot;,
+            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        }
+    },
+    &quot;pagos&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;id_pago&quot;: 1,
+            &quot;id_orden_compra&quot;: 1,
+            &quot;monto_asignado&quot;: &quot;260.00&quot;,
+            &quot;monto_pagado&quot;: null,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        }
+    ],
+    &quot;estado_financiero&quot;: {
+        &quot;id&quot;: 3,
+        &quot;slug&quot;: &quot;pagado&quot;,
+        &quot;label&quot;: &quot;Pagado&quot;,
+        &quot;color&quot;: &quot;#10b981&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    },
+    &quot;servicios&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;id_cotizacion&quot;: 1,
+            &quot;id_tipo_servicio&quot;: 1,
+            &quot;id_proveedor&quot;: 1,
+            &quot;costo&quot;: &quot;100.00&quot;,
+            &quot;descripcion&quot;: null,
+            &quot;monto_gravable&quot;: &quot;100.00&quot;,
+            &quot;monto_no_sujeto&quot;: &quot;0.00&quot;,
+            &quot;total_servicio&quot;: &quot;100.00&quot;,
+            &quot;iva_establecido&quot;: null,
+            &quot;id_tasa_cambio&quot;: 1,
+            &quot;estatus&quot;: 8,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;id_cotizacion&quot;: 1,
+            &quot;id_tipo_servicio&quot;: 1,
+            &quot;id_proveedor&quot;: 1,
+            &quot;costo&quot;: &quot;160.00&quot;,
+            &quot;descripcion&quot;: null,
+            &quot;monto_gravable&quot;: &quot;140.00&quot;,
+            &quot;monto_no_sujeto&quot;: &quot;20.00&quot;,
+            &quot;total_servicio&quot;: &quot;160.00&quot;,
+            &quot;iva_establecido&quot;: null,
+            &quot;id_tasa_cambio&quot;: 1,
+            &quot;estatus&quot;: 1,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -14185,10 +16016,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-ordenes-compra--ordenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14244,11 +16075,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_tasa_cambio\": 17,
     \"estatus\": 17
 }"
 </code></pre></div>
@@ -14260,13 +16090,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "id_tasa_cambio": 17,
     "estatus": 17
 };
 
@@ -14338,10 +16167,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-ordenes-compra--ordenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14382,18 +16211,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_tasa_cambio"                data-endpoint="PUTapi-ordenes-compra--ordenCompra_id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID de la tasa de cambio a aplicar. Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -14403,7 +16220,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del estatus (pendiente de pago / pagado). Example: <code>17</code></p>
+<p>ID del estatus (pendiente de pago / pagado). Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -14422,7 +16239,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -14433,7 +16250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -14502,10 +16319,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-ordenes-compra--ordenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14561,7 +16378,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -14572,7 +16389,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -14601,15 +16418,15 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">[
     {
         &quot;id&quot;: 1,
-        &quot;fecha_pago&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
         &quot;monto_total&quot;: &quot;260.00&quot;,
         &quot;id_metodo_pago&quot;: 1,
         &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;id_entidad_bancaria&quot;: 1,
         &quot;estatus&quot;: 6,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -14669,10 +16486,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14706,7 +16523,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Permite registrar un abono de un cliente y distribuirlo entre varias órdenes de compra.</p>
 
 <span id="example-requests-POSTapi-pagos">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -14715,21 +16532,21 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/pagos" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_pago\": \"2026-04-06T08:59:50\",
-    \"monto_total\": 73,
-    \"id_metodo_pago\": \"consequatur\",
-    \"nro_comprobante\": \"mqeopfuudtdsufvyvddqa\",
-    \"id_tasa_cambio\": \"consequatur\",
-    \"id_entidad_bancaria\": \"consequatur\",
-    \"estatus\": \"consequatur\",
+    \"fecha_pago\": \"consequatur\",
+    \"monto_total\": 11613.31890586,
+    \"id_metodo_pago\": 17,
+    \"nro_comprobante\": \"consequatur\",
+    \"id_tasa_cambio\": 17,
+    \"id_entidad_bancaria\": 17,
+    \"estatus\": 17,
     \"ordenes_compra\": [
         {
-            \"id_orden_compra\": \"consequatur\",
-            \"monto_asignado\": 45
+            \"id_orden_compra\": 17,
+            \"monto_asignado\": 11613.31890586
         }
     ]
 }"
@@ -14742,23 +16559,23 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "fecha_pago": "2026-04-06T08:59:50",
-    "monto_total": 73,
-    "id_metodo_pago": "consequatur",
-    "nro_comprobante": "mqeopfuudtdsufvyvddqa",
-    "id_tasa_cambio": "consequatur",
-    "id_entidad_bancaria": "consequatur",
-    "estatus": "consequatur",
+    "fecha_pago": "consequatur",
+    "monto_total": 11613.31890586,
+    "id_metodo_pago": 17,
+    "nro_comprobante": "consequatur",
+    "id_tasa_cambio": 17,
+    "id_entidad_bancaria": 17,
+    "estatus": 17,
     "ordenes_compra": [
         {
-            "id_orden_compra": "consequatur",
-            "monto_asignado": 45
+            "id_orden_compra": 17,
+            "monto_asignado": 11613.31890586
         }
     ]
 };
@@ -14827,10 +16644,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-pagos"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -14859,15 +16676,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos"
-               value="2026-04-06T08:59:50"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-06T08:59:50</code></p>
+<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -14876,22 +16693,22 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="POSTapi-pagos"
-               value="73"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>73</code></p>
+<p>Monto total del pago. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_metodo_pago"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id_metodo_pago"                data-endpoint="POSTapi-pagos"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the metodos_pago table. Example: <code>consequatur</code></p>
+<p>ID del método de pago. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nro_comprobante</code></b>&nbsp;&nbsp;
@@ -14900,46 +16717,46 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nro_comprobante"                data-endpoint="POSTapi-pagos"
-               value="mqeopfuudtdsufvyvddqa"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+<p>Número de referencia o comprobante. Ejemplo: REF-998877 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tasa_cambio"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id_tasa_cambio"                data-endpoint="POSTapi-pagos"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tasas_cambio table. Example: <code>consequatur</code></p>
+<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_entidad_bancaria</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_entidad_bancaria"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id_entidad_bancaria"                data-endpoint="POSTapi-pagos"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the entidades_bancarias table. Example: <code>consequatur</code></p>
+<p>ID de la entidad bancaria. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="estatus"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="POSTapi-pagos"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the estatus table. Example: <code>consequatur</code></p>
+<p>ID del estatus del pago. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -14949,19 +16766,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
  &nbsp;
 <br>
-<p>Must have at least 1 items.</p>
+<p>Distribución en órdenes de compra.</p>
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_orden_compra</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="ordenes_compra.0.id_orden_compra"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="ordenes_compra.0.id_orden_compra"                data-endpoint="POSTapi-pagos"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the ordenes_compra table. Example: <code>consequatur</code></p>
+<p>ID de la orden de compra. Ejemplo: 1 Example: <code>17</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -14970,10 +16787,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.monto_asignado"                data-endpoint="POSTapi-pagos"
-               value="45"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>45</code></p>
+<p>Monto asignado a esta orden. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
                     </div>
                                     </details>
         </div>
@@ -14994,7 +16811,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -15005,7 +16822,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -15033,15 +16850,15 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
-    &quot;fecha_pago&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
+    &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
     &quot;monto_total&quot;: &quot;260.00&quot;,
     &quot;id_metodo_pago&quot;: 1,
     &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;id_entidad_bancaria&quot;: 1,
     &quot;estatus&quot;: 6,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;ordenes_compra&quot;: [
         {
@@ -15050,8 +16867,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: &quot;260.00&quot;,
             &quot;monto_pagado&quot;: null,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
         }
     ]
 }</code>
@@ -15111,10 +16928,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -15170,17 +16987,21 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/pagos/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_pago\": \"2026-04-06T08:59:50\",
-    \"monto_total\": 73,
-    \"nro_comprobante\": \"mqeopfuudtdsufvyvddqa\",
+    \"fecha_pago\": \"consequatur\",
+    \"monto_total\": 11613.31890586,
+    \"id_metodo_pago\": 17,
+    \"nro_comprobante\": \"consequatur\",
+    \"id_tasa_cambio\": 17,
+    \"id_entidad_bancaria\": 17,
+    \"estatus\": 17,
     \"ordenes_compra\": [
         {
-            \"id_orden_compra\": \"consequatur\",
-            \"monto_asignado\": 45
+            \"id_orden_compra\": 17,
+            \"monto_asignado\": 11613.31890586
         }
     ]
 }"
@@ -15193,19 +17014,23 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "fecha_pago": "2026-04-06T08:59:50",
-    "monto_total": 73,
-    "nro_comprobante": "mqeopfuudtdsufvyvddqa",
+    "fecha_pago": "consequatur",
+    "monto_total": 11613.31890586,
+    "id_metodo_pago": 17,
+    "nro_comprobante": "consequatur",
+    "id_tasa_cambio": 17,
+    "id_entidad_bancaria": 17,
+    "estatus": 17,
     "ordenes_compra": [
         {
-            "id_orden_compra": "consequatur",
-            "monto_asignado": 45
+            "id_orden_compra": 17,
+            "monto_asignado": 11613.31890586
         }
     ]
 };
@@ -15278,10 +17103,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-pagos--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -15323,15 +17148,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos--id-"
-               value="2026-04-06T08:59:50"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-06T08:59:50</code></p>
+<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -15340,22 +17165,22 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="PUTapi-pagos--id-"
-               value="73"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>73</code></p>
+<p>Monto total. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_metodo_pago"                data-endpoint="PUTapi-pagos--id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_metodo_pago"                data-endpoint="PUTapi-pagos--id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the metodos_pago table.</p>
+<p>ID del método de pago. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nro_comprobante</code></b>&nbsp;&nbsp;
@@ -15364,46 +17189,46 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nro_comprobante"                data-endpoint="PUTapi-pagos--id-"
-               value="mqeopfuudtdsufvyvddqa"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+<p>Número de comprobante. Ejemplo: REF-998877 Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tasa_cambio"                data-endpoint="PUTapi-pagos--id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_tasa_cambio"                data-endpoint="PUTapi-pagos--id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tasas_cambio table.</p>
+<p>ID de la tasa de cambio. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_entidad_bancaria</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_entidad_bancaria"                data-endpoint="PUTapi-pagos--id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_entidad_bancaria"                data-endpoint="PUTapi-pagos--id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the entidades_bancarias table.</p>
+<p>ID de la entidad bancaria. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="estatus"                data-endpoint="PUTapi-pagos--id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="PUTapi-pagos--id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the estatus table.</p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -15413,19 +17238,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <i>optional</i> &nbsp;
  &nbsp;
 <br>
-<p>Must have at least 1 items.</p>
+<p>Distribución en órdenes de compra.</p>
             </summary>
                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_orden_compra</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="ordenes_compra.0.id_orden_compra"                data-endpoint="PUTapi-pagos--id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="ordenes_compra.0.id_orden_compra"                data-endpoint="PUTapi-pagos--id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the ordenes_compra table. Example: <code>consequatur</code></p>
+<p>ID de la orden de compra. Ejemplo: 1 Example: <code>17</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -15434,10 +17259,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.monto_asignado"                data-endpoint="PUTapi-pagos--id-"
-               value="45"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>45</code></p>
+<p>Monto asignado. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
                     </div>
                                     </details>
         </div>
@@ -15458,7 +17283,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/pagos/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -15469,7 +17294,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -15538,10 +17363,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-pagos--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -15597,7 +17422,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos-ordenes-compra" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -15608,7 +17433,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -15641,8 +17466,8 @@ access-control-allow-origin: *
         &quot;id_orden_compra&quot;: 1,
         &quot;monto_asignado&quot;: &quot;260.00&quot;,
         &quot;monto_pagado&quot;: null,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -15701,10 +17526,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos-ordenes-compra"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -15747,7 +17572,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/pagos-ordenes-compra" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -15765,7 +17590,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -15841,10 +17666,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -15936,7 +17761,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos-ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -15947,7 +17772,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -15979,8 +17804,8 @@ access-control-allow-origin: *
     &quot;id_orden_compra&quot;: 1,
     &quot;monto_asignado&quot;: &quot;260.00&quot;,
     &quot;monto_pagado&quot;: null,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -16038,10 +17863,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16097,7 +17922,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/pagos-ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -16113,7 +17938,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -16191,10 +18016,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16275,7 +18100,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/pagos-ordenes-compra/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -16286,7 +18111,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -16355,10 +18180,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16414,7 +18239,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -16425,7 +18250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -16457,10 +18282,10 @@ access-control-allow-origin: *
         &quot;id_servicio&quot;: 1,
         &quot;monto&quot;: &quot;100.00&quot;,
         &quot;referencia&quot;: &quot;PP-0001&quot;,
-        &quot;fecha_pago&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
         &quot;id_metodo_pago&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -16519,10 +18344,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16565,7 +18390,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/pagos-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -16584,7 +18409,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -16661,10 +18486,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-pagos-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16768,7 +18593,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/pagos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -16779,7 +18604,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -16810,10 +18635,10 @@ access-control-allow-origin: *
     &quot;id_servicio&quot;: 1,
     &quot;monto&quot;: &quot;100.00&quot;,
     &quot;referencia&quot;: &quot;PP-0001&quot;,
-    &quot;fecha_pago&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
+    &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
     &quot;id_metodo_pago&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -16871,10 +18696,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-pagos-proveedores--pagoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -16930,7 +18755,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/pagos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -16949,7 +18774,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17030,10 +18855,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17150,7 +18975,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/pagos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -17161,7 +18986,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17230,10 +19055,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-pagos-proveedores--pagoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17289,7 +19114,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -17300,7 +19125,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17330,20 +19155,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_proveedor&quot;: &quot;logistica&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_proveedor&quot;: &quot;tecnologia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -17402,10 +19227,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17448,7 +19273,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tipos-proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -17463,7 +19288,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17536,10 +19361,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tipos-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17595,7 +19420,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -17606,7 +19431,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17635,8 +19460,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -17694,10 +19519,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipos-proveedores--tipoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17753,7 +19578,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tipos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -17768,7 +19593,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17845,10 +19670,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tipos-proveedores--tipoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -17917,7 +19742,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tipos-proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -17928,7 +19753,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -17997,10 +19822,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tipos-proveedores--tipoProveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -18056,7 +19881,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -18067,7 +19892,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -18106,12 +19931,12 @@ access-control-allow-origin: *
         &quot;tipo_proveedor&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
         },
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_contribuyente&quot;: null
     }
@@ -18172,10 +19997,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -18218,7 +20043,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/proveedores" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -18241,7 +20066,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -18322,10 +20147,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-proveedores"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -18477,7 +20302,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -18488,7 +20313,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -18526,12 +20351,12 @@ access-control-allow-origin: *
     &quot;tipo_proveedor&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     &quot;estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_contribuyente&quot;: null
 }</code>
@@ -18591,10 +20416,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-proveedores--proveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -18650,7 +20475,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -18673,7 +20498,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -18758,10 +20583,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -18926,7 +20751,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/proveedores/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -18937,7 +20762,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19006,10 +20831,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-proveedores--proveedor_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19065,7 +20890,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipo-servicio" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -19076,7 +20901,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19108,8 +20933,8 @@ access-control-allow-origin: *
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -19169,10 +20994,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipo-servicio"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19215,7 +21040,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tipo-servicio" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -19232,7 +21057,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19307,10 +21132,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tipo-servicio"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19390,7 +21215,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tipo-servicio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -19401,7 +21226,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19432,8 +21257,8 @@ access-control-allow-origin: *
     &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
     &quot;iva_defecto&quot;: null,
     &quot;id_proveedor&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -19492,10 +21317,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tipo-servicio--tipoServicio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19551,7 +21376,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tipo-servicio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -19568,7 +21393,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19647,10 +21472,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tipo-servicio--tipoServicio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19744,7 +21569,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tipo-servicio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -19755,7 +21580,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19824,10 +21649,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tipo-servicio--tipoServicio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -19883,7 +21708,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tasas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -19894,7 +21719,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -19926,40 +21751,40 @@ access-control-allow-origin: *
         &quot;codigo&quot;: &quot;USD_BCV&quot;,
         &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;codigo&quot;: &quot;EUR_BCV&quot;,
         &quot;nombre&quot;: &quot;Euro Oficial&quot;,
         &quot;simbolo&quot;: &quot;&euro;&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;codigo&quot;: &quot;BINANCE&quot;,
         &quot;nombre&quot;: &quot;Binance P2P&quot;,
         &quot;simbolo&quot;: &quot;USDT&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;codigo&quot;: &quot;PERSONALIZADA&quot;,
         &quot;nombre&quot;: &quot;Tasa Interna&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -20018,10 +21843,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tasas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20064,7 +21889,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tasas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -20079,7 +21904,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20152,10 +21977,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tasas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20211,7 +22036,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tasas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -20222,7 +22047,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20253,8 +22078,8 @@ access-control-allow-origin: *
     &quot;codigo&quot;: &quot;USD_BCV&quot;,
     &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
     &quot;simbolo&quot;: &quot;$&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -20312,10 +22137,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tasas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20371,7 +22196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tasas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -20386,7 +22211,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20463,10 +22288,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tasas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20535,7 +22360,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tasas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -20546,7 +22371,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20615,10 +22440,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tasas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20674,7 +22499,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tasas-cambio" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -20685,7 +22510,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20716,17 +22541,17 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;moneda_catalogo&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
             &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
             &quot;simbolo&quot;: &quot;Bs&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
         }
     }
 ]</code>
@@ -20786,10 +22611,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tasas-cambio"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20832,7 +22657,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/tasas-cambio" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -20849,7 +22674,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -20924,10 +22749,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-tasas-cambio"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -20964,7 +22789,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID de la moneda del catálogo (Ej: USD_BCV). Example: <code>17</code></p>
+<p>ID de la moneda del catálogo (Ej: USD_BCV). Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>valor_cambio</code></b>&nbsp;&nbsp;
@@ -20988,7 +22813,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>Fecha de la tasa. Ejemplo: 2026-04-06 Example: <code>consequatur</code></p>
+<p>Fecha de la tasa. Ejemplo: 2026-04-10 Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -21007,7 +22832,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/tasas-cambio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -21018,7 +22843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -21048,17 +22873,17 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_tasa&quot;: 5,
     &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-    &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+    &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;moneda_catalogo&quot;: {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 }</code>
  </pre>
@@ -21117,10 +22942,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-tasas-cambio--tasaCambio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -21176,12 +23001,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/tasas-cambio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"valor_cambio\": 73,
-    \"fecha\": \"2026-04-06T08:59:50\"
+    \"id_tasa\": 17,
+    \"valor_cambio\": 11613.31890586,
+    \"fecha\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -21192,14 +23018,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "valor_cambio": 73,
-    "fecha": "2026-04-06T08:59:50"
+    "id_tasa": 17,
+    "valor_cambio": 11613.31890586,
+    "fecha": "consequatur"
 };
 
 fetch(url, {
@@ -21270,10 +23097,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -21315,15 +23142,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_tasa"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_tasa"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tasas table.</p>
+<p>ID de la moneda. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>valor_cambio</code></b>&nbsp;&nbsp;
@@ -21332,22 +23159,22 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="valor_cambio"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="73"
+               value="11613.31890586"
                data-component="body">
     <br>
-<p>Must be at least 0.0001. Example: <code>73</code></p>
+<p>Valor de la tasa. Ejemplo: 36.55 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="2026-04-06T08:59:50"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-06T08:59:50</code></p>
+<p>Fecha. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -21366,7 +23193,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/tasas-cambio/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -21377,7 +23204,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -21446,10 +23273,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-tasas-cambio--tasaCambio_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -21505,7 +23332,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/servicios" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -21516,7 +23343,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -21545,6 +23372,7 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">[
     {
         &quot;id&quot;: 1,
+        &quot;id_cotizacion&quot;: 1,
         &quot;id_tipo_servicio&quot;: 1,
         &quot;id_proveedor&quot;: 1,
         &quot;costo&quot;: &quot;100.00&quot;,
@@ -21555,16 +23383,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 8,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -21578,22 +23406,23 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     },
     {
         &quot;id&quot;: 2,
+        &quot;id_cotizacion&quot;: 1,
         &quot;id_tipo_servicio&quot;: 1,
         &quot;id_proveedor&quot;: 1,
         &quot;costo&quot;: &quot;160.00&quot;,
@@ -21604,16 +23433,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -21627,17 +23456,17 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     }
@@ -21698,10 +23527,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-servicios"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -21744,10 +23573,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/servicios" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
+    \"id_cotizacion\": \"consequatur\",
     \"id_tipo_servicio\": 17,
     \"id_proveedor\": 17,
     \"descripcion\": \"consequatur\",
@@ -21766,12 +23596,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
+    "id_cotizacion": "consequatur",
     "id_tipo_servicio": 17,
     "id_proveedor": 17,
     "descripcion": "consequatur",
@@ -21846,10 +23677,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-servicios"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -21877,6 +23708,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_cotizacion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_cotizacion"                data-endpoint="POSTapi-servicios"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the cotizaciones table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
@@ -21989,7 +23832,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/servicios/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -22000,7 +23843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22028,6 +23871,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
+    &quot;id_cotizacion&quot;: 1,
     &quot;id_tipo_servicio&quot;: 1,
     &quot;id_proveedor&quot;: 1,
     &quot;costo&quot;: &quot;100.00&quot;,
@@ -22038,16 +23882,16 @@ access-control-allow-origin: *
     &quot;iva_establecido&quot;: null,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;estatus&quot;: 8,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:17.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_servicio&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;proveedor&quot;: {
@@ -22061,17 +23905,17 @@ access-control-allow-origin: *
         &quot;id_tipo_contribuyente&quot;: null,
         &quot;tipo_proveedor&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;tasa_cambio&quot;: {
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-06T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -22131,10 +23975,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-servicios--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -22190,7 +24034,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/servicios/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -22209,7 +24053,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22290,10 +24134,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-servicios--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -22334,6 +24178,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_cotizacion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_cotizacion"                data-endpoint="PUTapi-servicios--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the cotizaciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -22343,7 +24199,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tipos_servicios table.</p>
+<p>The <code>id</code> of an existing record in the tipo_servicio table.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
@@ -22447,7 +24303,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/servicios/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -22458,7 +24314,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22527,10 +24383,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-servicios--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -22586,7 +24442,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/temporalidades" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -22597,7 +24453,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22627,26 +24483,26 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;temporalidad&quot;: &quot;Diario&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;temporalidad&quot;: &quot;Semanal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;temporalidad&quot;: &quot;Mensual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;temporalidad&quot;: &quot;Anual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -22705,10 +24561,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-temporalidades"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -22751,7 +24607,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/temporalidades" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -22766,7 +24622,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22839,10 +24695,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-temporalidades"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -22898,7 +24754,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/temporalidades/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -22909,7 +24765,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -22938,8 +24794,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;temporalidad&quot;: &quot;Diario&quot;,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -22997,10 +24853,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-temporalidades--temporalidad_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23056,7 +24912,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/temporalidades/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -23071,7 +24927,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23148,10 +25004,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-temporalidades--temporalidad_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23220,7 +25076,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/temporalidades/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -23231,7 +25087,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23300,10 +25156,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-temporalidades--temporalidad_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23359,7 +25215,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -23370,7 +25226,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23403,8 +25259,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 3,
         &quot;cant_cotizaciones_pagadas&quot;: 2,
         &quot;id_temporalidad&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
@@ -23412,8 +25268,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 12,
         &quot;cant_cotizaciones_pagadas&quot;: 8,
         &quot;id_temporalidad&quot;: 2,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
@@ -23421,8 +25277,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 50,
         &quot;cant_cotizaciones_pagadas&quot;: 35,
         &quot;id_temporalidad&quot;: 3,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
@@ -23430,8 +25286,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 600,
         &quot;cant_cotizaciones_pagadas&quot;: 450,
         &quot;id_temporalidad&quot;: 4,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -23490,10 +25346,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23536,7 +25392,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/metas" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -23554,7 +25410,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23630,10 +25486,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-metas"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23725,7 +25581,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -23736,7 +25592,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23819,10 +25675,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -23878,7 +25734,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/metas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -23896,7 +25752,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -23976,10 +25832,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-metas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24084,7 +25940,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/metas/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -24095,7 +25951,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -24164,10 +26020,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-metas--id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24223,7 +26079,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metas-personal" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -24234,7 +26090,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -24265,29 +26121,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_meta&quot;: 1,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;id_meta&quot;: 2,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;id_meta&quot;: 3,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;id_meta&quot;: 4,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -24346,10 +26202,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metas-personal"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24392,7 +26248,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/metas-personal" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -24411,7 +26267,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -24488,10 +26344,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-metas-personal"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24528,7 +26384,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del usuario con rol personal. Ejemplo: 2 Example: <code>17</code></p>
+<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
@@ -24595,7 +26451,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/metas-personal/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -24606,7 +26462,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -24636,8 +26492,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_meta&quot;: 1,
     &quot;id_personal&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-06T08:55:16.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -24695,10 +26551,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-metas-personal--metaPersonal_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24754,7 +26610,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:8000/api/metas-personal/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -24773,7 +26629,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -24854,10 +26710,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -24907,7 +26763,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>ID del usuario personal. Example: <code>17</code></p>
+<p>ID del usuario personal. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
@@ -24974,7 +26830,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:8000/api/metas-personal/1" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -24985,7 +26841,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -25054,10 +26910,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-metas-personal--metaPersonal_id-"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -25113,12 +26969,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/logros-personal?id_personal=17&amp;tipo_entidad=consequatur&amp;id_entidad=17&amp;per_page=17" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_personal\": 17,
-    \"tipo_entidad\": \"atencion\",
+    \"tipo_entidad\": \"cotizacion\",
     \"id_entidad\": 45,
     \"per_page\": 16
 }"
@@ -25140,14 +26996,14 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
     "id_personal": 17,
-    "tipo_entidad": "atencion",
+    "tipo_entidad": "cotizacion",
     "id_entidad": 45,
     "per_page": 16
 };
@@ -25237,10 +27093,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-logros-personal"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -25326,7 +27182,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>17</code></p>
+<p>The <code>id</code> of an existing record in the usuarios table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_entidad</code></b>&nbsp;&nbsp;
@@ -25335,10 +27191,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="atencion"
+               value="cotizacion"
                data-component="body">
     <br>
-<p>Example: <code>atencion</code></p>
+<p>Example: <code>cotizacion</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>atencion</code></li> <li><code>cotizacion</code></li> <li><code>orden_compra</code></li></ul>
         </div>
@@ -25382,8 +27238,8 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs/export/csv?user_id=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;modo=consequatur" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;modo=consequatur" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -25394,7 +27250,7 @@ Must be one of:
 );
 
 const params = {
-    "user_id": "17",
+    "id_usuario": "17",
     "action": "consequatur",
     "table_name": "consequatur",
     "record_id": "17",
@@ -25406,7 +27262,7 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -25433,10 +27289,10 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The selected user id is invalid. (and 3 more errors)&quot;,
+    &quot;message&quot;: &quot;The selected id usuario is invalid. (and 3 more errors)&quot;,
     &quot;errors&quot;: {
-        &quot;user_id&quot;: [
-            &quot;The selected user id is invalid.&quot;
+        &quot;id_usuario&quot;: [
+            &quot;The selected id usuario is invalid.&quot;
         ],
         &quot;desde&quot;: [
             &quot;The desde field must be a valid date.&quot;
@@ -25505,10 +27361,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-audit-logs-export-csv"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -25536,12 +27392,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros de consulta</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id_usuario</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="user_id"                data-endpoint="GETapi-audit-logs-export-csv"
+               step="any"               name="id_usuario"                data-endpoint="GETapi-audit-logs-export-csv"
                value="17"
                data-component="query">
     <br>
@@ -25635,8 +27491,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs?user_id=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;per_page=17" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --get "http://localhost:8000/api/audit-logs?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;per_page=17" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -25647,7 +27503,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const params = {
-    "user_id": "17",
+    "id_usuario": "17",
     "action": "consequatur",
     "table_name": "consequatur",
     "record_id": "17",
@@ -25659,7 +27515,7 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -25686,10 +27542,10 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The selected user id is invalid. (and 2 more errors)&quot;,
+    &quot;message&quot;: &quot;The selected id usuario is invalid. (and 2 more errors)&quot;,
     &quot;errors&quot;: {
-        &quot;user_id&quot;: [
-            &quot;The selected user id is invalid.&quot;
+        &quot;id_usuario&quot;: [
+            &quot;The selected id usuario is invalid.&quot;
         ],
         &quot;desde&quot;: [
             &quot;The desde field must be a valid date.&quot;
@@ -25755,10 +27611,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-audit-logs"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -25786,12 +27642,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros de consulta</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id_usuario</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="user_id"                data-endpoint="GETapi-audit-logs"
+               step="any"               name="id_usuario"                data-endpoint="GETapi-audit-logs"
                value="17"
                data-component="query">
     <br>
@@ -25886,7 +27742,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/session" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -25905,7 +27761,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -25982,10 +27838,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-session"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -26077,7 +27933,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/availability" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26098,7 +27954,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -26177,10 +28033,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-availability"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -26296,7 +28152,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/pricing" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26315,7 +28171,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -26392,10 +28248,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-pricing"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -26487,7 +28343,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/booking" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26508,7 +28364,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -26587,10 +28443,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-booking"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -26684,7 +28540,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/ticketing" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26703,7 +28559,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -26780,10 +28636,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-ticketing"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -26875,7 +28731,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/kiu/post-sale" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26895,7 +28751,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -26973,10 +28829,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-kiu-post-sale"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -27080,7 +28936,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/api/admin-only" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -27091,7 +28947,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -27176,10 +29032,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-admin-only"
-               value="Bearer {YOUR_TOKEN}"
+               value="Bearer TOKEN_DE_MUESTRA"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_TOKEN}</code></p>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;

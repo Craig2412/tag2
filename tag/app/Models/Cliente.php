@@ -12,11 +12,12 @@ class Cliente extends Model
     protected $table = 'clientes';
 
     protected $fillable = [
-        'user_id',
+        'usuario_id',
         'nombre',
         'apellido',
         'cedula',
         'telefono',
+        'correo_contacto',
         'id_tipo_contribuyente',
         'id_estatus',
     ];
@@ -26,8 +27,8 @@ class Cliente extends Model
         return $this->belongsTo(TipoContribuyente::class, 'id_tipo_contribuyente');
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function usuario(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 }

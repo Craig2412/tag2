@@ -23,7 +23,7 @@ class OrdenCompraHistorialController extends Controller
             'orden_compra_id' => 'required|exists:ordenes_compra,id',
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         return OrdenCompraHistorial::create($data);
@@ -35,7 +35,7 @@ class OrdenCompraHistorialController extends Controller
         $data = $request->validate([
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);

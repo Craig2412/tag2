@@ -28,7 +28,10 @@ use App\Http\Controllers\TipoCotizacionController;
 use App\Http\Controllers\TipoContribuyenteController;
 use App\Http\Controllers\TipoProveedorController;
 use App\Http\Controllers\TipoServicioController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PersonalEmpresaController;
+use App\Http\Controllers\Api\ContractController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -39,6 +42,9 @@ Route::post('/login/user', [AuthController::class, 'loginUser']);
 Route::get('/status', function () {
     return response()->json(['status' => 'ok']);
 });
+
+// Ruta para que Next.js obtenga el contrato de forma segura
+Route::get('/v1/contrato', [ContractController::class, 'download']);
 
 Route::middleware('auth:sanctum')->group(function () {
             // Rutas de métricas
@@ -56,6 +62,8 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['cuentas-proveedores' => 'cuentaProveedor']);
     Route::apiResource('tipos-contribuyentes', TipoContribuyenteController::class)
         ->parameters(['tipos-contribuyentes' => 'tipoContribuyente']);
+    Route::apiResource('clientes', ClienteController::class);
+    Route::apiResource('personal', PersonalController::class);
     Route::apiResource('empresas', EmpresaController::class);
     Route::apiResource('clientes-empresas', ClientesEmpresaController::class)
         ->parameters(['clientes-empresas' => 'clientesEmpresa']);
@@ -69,8 +77,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['cotizaciones' => 'cotizacion']);
     Route::apiResource('tipos-cotizaciones', TipoCotizacionController::class)
         ->parameters(['tipos-cotizaciones' => 'tipoCotizacion']);
-    Route::apiResource('servicios-cotizaciones', ServicioCotizacionController::class)
-        ->parameters(['servicios-cotizaciones' => 'servicioCotizacion']);
     Route::apiResource('metodos-pago', MetodoPagoController::class)
         ->parameters(['metodos-pago' => 'metodoPago']);
     Route::apiResource('ordenes-compra', OrdenCompraController::class)

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('logros_personal', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_personal')->nullable()->constrained('users');
+            $table->foreignId('id_personal')->nullable()->constrained('personal');
             $table->string('tipo_entidad', 30);
             $table->unsignedBigInteger('id_entidad');
             $table->foreignId('id_estatus_anterior')->nullable()->constrained('estatus');

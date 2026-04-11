@@ -12,7 +12,7 @@ class Personal extends Model
     protected $table = 'personal';
 
     protected $fillable = [
-        'user_id',
+        'usuario_id',
         'nombre',
         'apellido',
         'cedula',
@@ -27,8 +27,8 @@ class Personal extends Model
         return $this->hasMany(LogroPersonal::class, 'id_personal');
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function usuario(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 }

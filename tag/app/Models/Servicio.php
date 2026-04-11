@@ -14,6 +14,7 @@ class Servicio extends Model
     protected $table = 'servicios';
 
     protected $fillable = [
+        'id_cotizacion',
         'id_tipo_servicio',
         'id_proveedor',
         'costo',
@@ -29,6 +30,12 @@ class Servicio extends Model
     protected $casts = [
         'iva_establecido' => 'float',
     ];
+
+    // Devuelve la cotizacion a la que pertenece el servicio.
+    public function cotizacion(): BelongsTo
+    {
+        return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
+    }
 
     // Devuelve el tipo de servicio asociado.
     public function tipoServicio(): BelongsTo

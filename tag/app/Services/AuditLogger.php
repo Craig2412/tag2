@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\AuditLog;
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +18,7 @@ class AuditLogger
         'password_confirmation',
         'current_password',
         'new_password',
+        'clave', // Agregado por traducción
     ];
 
     public static function captureBeforeUpdate(Model $model): void
@@ -104,7 +105,7 @@ class AuditLogger
     public static function logAuthEvent(
         string $action,
         Request $request,
-        ?User $user,
+        ?Usuario $usuario,
         bool $success,
         ?string $message = null,
         array $afterData = [],
@@ -112,11 +113,11 @@ class AuditLogger
     ): void
     {
         self::write([
-            'user_id' => $user?->id,
-            'user_role' => $user?->roles()->pluck('name')->implode(',') ?: null,
+            'usuario_id' => $usuario?->id,
+            'user_role' => $usuario?->roles()->pluck('name')->implode(',') ?: null,
             'action' => $action,
-            'table_name' => 'users',
-            'record_id' => $user?->id,
+            'table_name' => 'usuarios',
+            'record_id' => $usuario?->id,
             'before_data' => null,
             'after_data' => self::sanitizeArray($afterData),
             'ip_address' => $request->ip(),
@@ -164,7 +165,7 @@ class AuditLogger
         $actor = Auth::user();
 
         $payload = array_merge([
-            'user_id' => $actor?->id,
+            'usuario_id' => $actor?->id,
             'user_role' => $actor?->roles()->pluck('name')->implode(',') ?: null,
             'table_name' => null,
             'record_id' => null,

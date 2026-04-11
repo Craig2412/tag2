@@ -58,9 +58,9 @@ class Cotizacion extends Model
     }
 
     // Lista los servicios asociados a la cotizacion.
-    public function serviciosCotizaciones(): HasMany
+    public function servicios(): HasMany
     {
-        return $this->hasMany(ServicioCotizacion::class, 'id_cotizacion');
+        return $this->hasMany(Servicio::class, 'id_cotizacion');
     }
 
     // Devuelve la orden de compra asociada a la cotizacion.

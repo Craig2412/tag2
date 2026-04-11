@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use App\Models\OrdenCompra;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -36,7 +37,8 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_tipo_servicio' => ['required', 'exists:tipos_servicios,id'],
+            'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
+            'id_tipo_servicio' => ['required', 'exists:tipo_servicio,id'],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
             'descripcion' => ['nullable', 'string'],
             'costo' => ['required', 'numeric', 'min:0'],
@@ -49,6 +51,9 @@ class ServicioController extends Controller
         // La totalización (Base Imponible + Impuestos) es calculada en tiempo real 
         // e interceptada por App\Observers\ServicioObserver antes de tocar DB.
         $servicio = Servicio::create($data);
+
+        // Recalcular la orden de compra si existe
+        $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
 
         return response()->json($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']), 201);
     }
@@ -67,7 +72,8 @@ class ServicioController extends Controller
     public function update(Request $request, Servicio $servicio)
     {
         $data = $request->validate([
-            'id_tipo_servicio' => ['sometimes', 'required', 'exists:tipos_servicios,id'],
+            'id_cotizacion' => ['sometimes', 'required', 'exists:cotizaciones,id'],
+            'id_tipo_servicio' => ['sometimes', 'required', 'exists:tipo_servicio,id'],
             'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
             'descripcion' => ['sometimes', 'nullable', 'string'],
             'costo' => ['sometimes', 'required', 'numeric', 'min:0'],
@@ -77,8 +83,16 @@ class ServicioController extends Controller
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
         ]);
 
+        $idCotizacionAnterior = $servicio->id_cotizacion;
+
         // La sumatoria real es manejada en el ServicioObserver de manera autónoma.
         $servicio->update($data);
+
+        // Recalcular órdenes de compra involucradas
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacionAnterior);
+        if ($servicio->id_cotizacion !== $idCotizacionAnterior) {
+            $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
+        }
 
         return response()->json($servicio->fresh()->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
@@ -89,7 +103,18 @@ class ServicioController extends Controller
      */
     public function destroy(Servicio $servicio)
     {
+        $idCotizacion = $servicio->id_cotizacion;
         $servicio->delete();
+
+        // Recalcular la orden de compra
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacion);
+
         return response()->json(['message' => 'Eliminado correctamente']);
+    }
+
+    private function recalcularOrdenCompraPorCotizacion(int $idCotizacion): void
+    {
+        $ordenCompra = OrdenCompra::where('id_cotizacion', $idCotizacion)->first();
+        $ordenCompra?->recalcularMontoTotal();
     }
 }

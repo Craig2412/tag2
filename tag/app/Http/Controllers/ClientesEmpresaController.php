@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClienteEmpresa;
-use App\Models\User;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class ClientesEmpresaController extends Controller
@@ -31,14 +31,14 @@ class ClientesEmpresaController extends Controller
     {
         // Crea un enlace entre cliente y empresa validando el rol.
         $data = $request->validate([
-            'id_cliente' => ['required', 'exists:users,id'],
+            'id_cliente' => ['required', 'exists:clientes,id'],
             'id_empresas' => ['required', 'exists:empresas,id'],
         ]);
 
-        $cliente = User::find($data['id_cliente']);
+        $cliente = Cliente::find($data['id_cliente']);
 
-        if (!$cliente || !$cliente->hasRole('cliente')) {
-            return response()->json(['message' => 'id_cliente debe ser un usuario con rol cliente'], 422);
+        if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+            return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
         }
 
         $item = ClienteEmpresa::create($data);
@@ -69,14 +69,14 @@ class ClientesEmpresaController extends Controller
     {
         // Actualiza un enlace y valida el rol del cliente si cambia.
         $data = $request->validate([
-            'id_cliente' => ['sometimes', 'required', 'exists:users,id'],
+            'id_cliente' => ['sometimes', 'required', 'exists:clientes,id'],
             'id_empresas' => ['sometimes', 'required', 'exists:empresas,id'],
         ]);
 
         if (isset($data['id_cliente'])) {
-            $cliente = User::find($data['id_cliente']);
-            if (!$cliente || !$cliente->hasRole('cliente')) {
-                return response()->json(['message' => 'id_cliente debe ser un usuario con rol cliente'], 422);
+            $cliente = Cliente::find($data['id_cliente']);
+            if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+                return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
             }
         }
 

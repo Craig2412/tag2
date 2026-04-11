@@ -1,6 +1,6 @@
 # Autenticación de solicitudes
 
-Para autenticar las solicitudes, incluya un encabezado **`Authorization`** con el valor **`"Bearer {YOUR_TOKEN}"`**.
+Para autenticar las solicitudes, incluya un encabezado **`Authorization`** con el valor **`"Bearer TOKEN_DE_MUESTRA"`**.
 
 Todos los endpoints que requieren autenticación están marcados con el distintivo `requiere autenticación` en la documentación.
 

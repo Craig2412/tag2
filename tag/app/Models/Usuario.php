@@ -10,10 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasApiTokens, HasFactory, HasRoles, Notifiable, SoftDeletes;
+
+    protected $table = 'usuarios';
 
     /**
      * The attributes that are mass assignable.
@@ -21,10 +23,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'is_active',
+        'nombre_usuario',
+        'correo',
+        'clave',
+        'esta_activo',
     ];
 
     /**
@@ -33,7 +35,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        'clave',
         'remember_token',
     ];
 
@@ -71,8 +73,41 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'correo_verificado_en' => 'datetime',
+            'clave' => 'hashed',
         ];
+    }
+
+    /**
+     * Reemplazar el campo password por defecto para Auth de Laravel.
+     */
+    public function getAuthPassword()
+    {
+        return $this->clave;
+    }
+
+    /**
+     * Reemplazar el campo email por defecto si Laravel lo usa directamente en algunos procesos.
+     * Aunque usualmente se configura en el login controller.
+     */
+    public function getEmailAttribute()
+    {
+        return $this->correo;
+    }
+
+    /**
+     * Obtener el perfil de personal asociado al usuario.
+     */
+    public function personal(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Personal::class, 'usuario_id');
+    }
+
+    /**
+     * Obtener el perfil de cliente asociado al usuario.
+     */
+    public function cliente(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Cliente::class, 'usuario_id');
     }
 }

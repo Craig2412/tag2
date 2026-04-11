@@ -23,7 +23,7 @@ class CotizacionHistorialController extends Controller
             'cotizacion_id' => 'required|exists:cotizaciones,id',
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         return CotizacionHistorial::create($data);
@@ -35,7 +35,7 @@ class CotizacionHistorialController extends Controller
         $data = $request->validate([
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);

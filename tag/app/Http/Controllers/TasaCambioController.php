@@ -27,9 +27,9 @@ class TasaCambioController extends Controller
     /**
      * Registrar una nueva tasa de cambio
      *
-     * @bodyParam id_tasa int required ID de la moneda del catálogo (Ej: USD_BCV).
+     * @bodyParam id_tasa int required ID de la moneda del catálogo (Ej: USD_BCV). Ejemplo: 1
      * @bodyParam valor_cambio number required Valor numérico de la tasa. Ejemplo: 36.50
-     * @bodyParam fecha date required Fecha de la tasa. Ejemplo: 2026-04-06
+     * @bodyParam fecha date required Fecha de la tasa. Ejemplo: 2026-04-10
      */
     public function store(Request $request)
     {
@@ -65,6 +65,10 @@ class TasaCambioController extends Controller
 
     /**
      * Actualizar una tasa de cambio
+     *
+     * @bodyParam id_tasa int ID de la moneda. Ejemplo: 1
+     * @bodyParam valor_cambio number Valor de la tasa. Ejemplo: 36.55
+     * @bodyParam fecha date Fecha. Ejemplo: 2026-04-11
      */
     public function update(Request $request, TasaCambio $tasaCambio)
     {

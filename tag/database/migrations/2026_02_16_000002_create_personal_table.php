@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('personal', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete(); // El personal casi siempre tendrá login, pero es buena práctica separarlo
+            $table->foreignId('usuario_id')->nullable()->constrained('usuarios')->nullOnDelete(); // El personal casi siempre tendrá login, pero es buena práctica separarlo
             $table->string('nombre');
             $table->string('apellido')->nullable();
             $table->string('cedula')->nullable();

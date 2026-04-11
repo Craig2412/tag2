@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('asunto');
             $table->text('notas_adicionales')->nullable();
             $table->foreignId('estatus')->constrained('estatus'); // Estado Operativo
+            $table->foreignId('id_etapa_comercial')->default(1)->constrained('etapas_comerciales');
             $table->timestamps();
             $table->softDeletes();
         });

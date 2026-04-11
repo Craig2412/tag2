@@ -24,6 +24,19 @@ class PagoController extends Controller
 
     /**
      * Registrar un nuevo pago de cliente
+     *
+     * Permite registrar un abono de un cliente y distribuirlo entre varias órdenes de compra.
+     *
+     * @bodyParam fecha_pago date required Fecha del pago. Ejemplo: 2026-04-11
+     * @bodyParam monto_total number required Monto total del pago. Ejemplo: 500.00
+     * @bodyParam id_metodo_pago int required ID del método de pago. Ejemplo: 1
+     * @bodyParam nro_comprobante string required Número de referencia o comprobante. Ejemplo: REF-998877
+     * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
+     * @bodyParam id_entidad_bancaria int required ID de la entidad bancaria. Ejemplo: 1
+     * @bodyParam estatus int required ID del estatus del pago. Ejemplo: 1
+     * @bodyParam ordenes_compra object[] required Distribución en órdenes de compra.
+     * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
+     * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado a esta orden. Ejemplo: 500.00
      */
     public function store(Request $request)
     {
@@ -88,6 +101,17 @@ class PagoController extends Controller
 
     /**
      * Actualizar un pago existente
+     *
+     * @bodyParam fecha_pago date Fecha del pago. Ejemplo: 2026-04-11
+     * @bodyParam monto_total number Monto total. Ejemplo: 500.00
+     * @bodyParam id_metodo_pago int ID del método de pago. Ejemplo: 1
+     * @bodyParam nro_comprobante string Número de comprobante. Ejemplo: REF-998877
+     * @bodyParam id_tasa_cambio int ID de la tasa de cambio. Ejemplo: 1
+     * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Ejemplo: 1
+     * @bodyParam estatus int ID del estatus. Ejemplo: 1
+     * @bodyParam ordenes_compra object[] Distribución en órdenes de compra.
+     * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
+     * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado. Ejemplo: 500.00
      */
     public function update(Request $request, Pago $pago)
     {

@@ -14,10 +14,6 @@ class Atencion extends Model
 
     protected $table = 'atenciones';
 
-    protected $appends = [
-        'fase_actual'
-    ];
-
     protected $fillable = [
         'id_cliente',
         'id_personal',
@@ -25,6 +21,7 @@ class Atencion extends Model
         'asunto',
         'notas_adicionales',
         'estatus',
+        'id_etapa_comercial',
     ];
 
     // Devuelve el cliente asociado a la atencion.
@@ -57,27 +54,8 @@ class Atencion extends Model
         return $this->hasMany(Cotizacion::class, 'id_atencion');
     }
 
-    /**
-     * ESTADO DERIVADO DE MÁQUINA DE ESTADOS:
-     * Calcula dinámicamente en qué fase comercial se encuentra este ticket
-     * evaluando si existen relaciones descendientes (Cotizaciones/Ordenes).
-     */
-    public function getFaseActualAttribute(): string
+    public function etapaComercial(): BelongsTo
     {
-        // Se asume Eager Loading previo de 'cotizaciones.orden_compra'
-        if ($this->cotizaciones->isEmpty()) {
-            return 'En Atención';
-        }
-
-        $tieneOrden = $this->cotizaciones->contains(function ($cotizacion) {
-            // Relación cargada o presente físicamente
-            return $cotizacion->orden_compra !== null;
-        });
-
-        if ($tieneOrden) {
-            return 'En Orden de Compra';
-        }
-
-        return 'Cotizada';
+        return $this->belongsTo(EtapaComercial::class, 'id_etapa_comercial');
     }
 }
