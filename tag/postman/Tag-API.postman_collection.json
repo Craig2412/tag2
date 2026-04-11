@@ -2229,7 +2229,7 @@
             "method": "POST",
             "header": [
               { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Content-Type", "value": "multipart/form-data" },
               { "key": "Authorization", "value": "Bearer {{token}}" }
             ],
             "url": {
@@ -2238,8 +2238,19 @@
               "path": ["pagos"]
             },
             "body": {
-              "mode": "raw",
-              "raw": "{\n  \"fecha_pago\": \"2026-02-17\",\n  \"monto_total\": 120,\n  \"id_metodo_pago\": {{metodoPagoId}},\n  \"nro_comprobante\": \"COMP-0002\",\n  \"id_tasa_cambio\": {{tasaCambioId}},\n  \"estatus\": {{estatusPendientePagoId}},\n  \"ordenes_compra\": [\n    {\n      \"id_orden_compra\": {{ordenCompraId}},\n      \"monto_asignado\": 120\n    }\n  ]\n}"
+              "mode": "formdata",
+              "formdata": [
+                { "key": "fecha_pago", "value": "2026-02-17", "type": "text" },
+                { "key": "monto_total", "value": "120", "type": "text" },
+                { "key": "id_metodo_pago", "value": "{{metodoPagoId}}", "type": "text" },
+                { "key": "nro_comprobante", "value": "COMP-0002", "type": "text" },
+                { "key": "id_tasa_cambio", "value": "{{tasaCambioId}}", "type": "text" },
+                { "key": "id_entidad_bancaria", "value": "{{entidadBancariaId}}", "type": "text", "description": "ID de la entidad bancaria" },
+                { "key": "estatus", "value": "{{estatusPendientePagoId}}", "type": "text" },
+                { "key": "ordenes_compra[0][id_orden_compra]", "value": "{{ordenCompraId}}", "type": "text" },
+                { "key": "ordenes_compra[0][monto_asignado]", "value": "120", "type": "text" },
+                { "key": "comprobante_pdf", "type": "file", "src": "", "description": "PDF opcional, máx 4MB" }
+              ]
             }
           }
         },

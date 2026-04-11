@@ -51,7 +51,22 @@ class PagoController extends Controller
             'ordenes_compra' => ['required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
+            'comprobante_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:4096'], // 4MB max
         ]);
+
+        // Manejo del archivo PDF (opcional)
+        $rutaComprobante = null;
+        if ($request->hasFile('comprobante_pdf')) {
+            $file = $request->file('comprobante_pdf');
+            // Validación extra de seguridad MIME
+            if ($file->getMimeType() !== 'application/pdf') {
+                return response()->json(['message' => 'El archivo debe ser un PDF válido'], 422);
+            }
+            $nombreSeguro = \Str::random(40) . '.pdf';
+            $rutaComprobante = $file->storeAs('public/comprobantes_pagos', $nombreSeguro);
+            // Guardar solo la ruta relativa para exponerla luego
+            $rutaComprobante = str_replace('public/', 'storage/', $rutaComprobante);
+        }
 
         $sumaAsignada = collect($data['ordenes_compra'])->sum('monto_asignado');
         if (abs($sumaAsignada - $data['monto_total']) > 0.01) {
@@ -63,19 +78,15 @@ class PagoController extends Controller
             if ($totalServicios <= 0) {
                 return response()->json(['message' => 'La orden de compra no tiene servicios asociados'], 422);
             }
-
-            $totalPagado = $this->totalPagadoOrdenCompra($detalle['id_orden_compra']);
-            if (($totalPagado + $detalle['monto_asignado']) > $totalServicios) {
-                return response()->json(['message' => 'El monto supera el total de la orden de compra'], 422);
-            }
         }
 
         $pago = DB::transaction(function () use ($data) {
             $ordenesCompra = $data['ordenes_compra'];
             unset($data['ordenes_compra']);
-
+            if ($rutaComprobante) {
+                $data['comprobante_pdf'] = $rutaComprobante;
+            }
             $pago = Pago::create($data);
-
             foreach ($ordenesCompra as $detalle) {
                 // Al crear este pivote, el PagoOrdenCompraObserver recalculará el estado_financiero automáticamente.
                 PagoOrdenCompra::create([
@@ -84,7 +95,6 @@ class PagoController extends Controller
                     'monto_asignado' => $detalle['monto_asignado'],
                 ]);
             }
-
             return $pago;
         });
 
@@ -141,11 +151,6 @@ class PagoController extends Controller
                 $totalServicios = $this->totalServiciosOrdenCompra($detalle['id_orden_compra']);
                 if ($totalServicios <= 0) {
                     return response()->json(['message' => 'La orden de compra no tiene servicios aplicados'], 422);
-                }
-
-                $totalPagado = $this->totalPagadoOrdenCompra($detalle['id_orden_compra'], $pago->id);
-                if (($totalPagado + $detalle['monto_asignado']) > $totalServicios) {
-                    return response()->json(['message' => 'El monto supera el total de la orden de compra'], 422);
                 }
             }
         }
