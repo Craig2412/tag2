@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->foreign('cotizacion_id')->references('id')->on('cotizaciones');
             $table->foreign('estatus_anterior')->references('id')->on('estatus');
             $table->foreign('estatus_nuevo')->references('id')->on('estatus');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }
 

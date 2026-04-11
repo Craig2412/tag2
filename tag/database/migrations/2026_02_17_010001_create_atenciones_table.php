@@ -10,14 +10,15 @@ return new class extends Migration
     {
         Schema::create('atenciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cliente')->constrained('users');
-            $table->foreignId('id_personal')->constrained('users');
+            $table->foreignId('id_cliente')->constrained('clientes');
+            $table->foreignId('id_personal')->constrained('personal');
             $table->foreignId('id_origen_atencion')->constrained('origenes');
             $table->string('asunto');
             $table->text('notas_adicionales')->nullable();
-            $table->foreignId('estatus')->constrained('estatus');
-            $table->boolean('borrado_logico')->default(false);
+            $table->foreignId('estatus')->constrained('estatus'); // Estado Operativo
+            $table->foreignId('id_etapa_comercial')->default(1)->constrained('etapas_comerciales');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Atencion extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'atenciones';
 
@@ -20,23 +21,19 @@ class Atencion extends Model
         'asunto',
         'notas_adicionales',
         'estatus',
-        'borrado_logico',
-    ];
-
-    protected $casts = [
-        'borrado_logico' => 'boolean',
+        'id_etapa_comercial',
     ];
 
     // Devuelve el cliente asociado a la atencion.
     public function cliente(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_cliente');
+        return $this->belongsTo(Cliente::class, 'id_cliente');
     }
 
     // Devuelve el personal asignado a la atencion.
     public function personal(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_personal');
+        return $this->belongsTo(Personal::class, 'id_personal');
     }
 
     // Devuelve la red o canal de origen.
@@ -55,5 +52,10 @@ class Atencion extends Model
     public function cotizaciones(): HasMany
     {
         return $this->hasMany(Cotizacion::class, 'id_atencion');
+    }
+
+    public function etapaComercial(): BelongsTo
+    {
+        return $this->belongsTo(EtapaComercial::class, 'id_etapa_comercial');
     }
 }

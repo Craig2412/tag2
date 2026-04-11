@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\Estatus;
-use App\Models\Tasa;
+use App\Models\TasaCambio;
 use App\Models\TipoCotizacion;
 use Illuminate\Database\Seeder;
 
@@ -14,10 +14,10 @@ class CotizacionesSeeder extends Seeder
     public function run(): void
     {
         $atencion = Atencion::first();
-        $tasaAsignada = Tasa::first();
+        $tasaCambio = TasaCambio::first();
         $tipo = TipoCotizacion::where('tipo_cotizacion', 'personal')->first();
 
-        if (!$atencion || !$tasaAsignada || !$tipo) {
+        if (!$atencion || !$tasaCambio || !$tipo) {
             return;
         }
 
@@ -30,9 +30,9 @@ class CotizacionesSeeder extends Seeder
                 'cant_menores' => 1,
                 'cant_viejos' => 0,
                 'id_tipo_cotizacion' => $tipo->id,
-                'id_tasa_asignada' => $tasaAsignada->id,
+                'id_tasa_cambio' => $tasaCambio->id,
+                'fecha_vencimiento' => now()->addDays(15),
                 'estatus' => $estatus->id,
-                'borrado_logico' => false,
             ]
         );
     }

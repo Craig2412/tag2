@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\DB;
 class MetricasController extends Controller
 {
     // Métricas por personal
+    /**
+     * Obtener métricas por personal
+     *
+     * @urlParam idPersonal int required ID del miembro del personal. Ejemplo: 1
+     */
     public function porPersonal($idPersonal)
     {
         return $this->calcularMetricas($idPersonal);

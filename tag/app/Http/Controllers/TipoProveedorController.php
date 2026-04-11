@@ -8,12 +8,22 @@ use Illuminate\Validation\Rule;
 
 class TipoProveedorController extends Controller
 {
+    /**
+     * Listar todos los tipos de proveedor
+     *
+     * Devuelve el catálogo completo de tipos de proveedor registrados.
+     */
     public function index()
     {
         // Lista los tipos de proveedor y los devuelve en JSON.
         return response()->json(TipoProveedor::orderBy('id')->get());
     }
 
+    /**
+     * Crear un nuevo tipo de proveedor
+     *
+     * @bodyParam tipo_proveedor string required Nombre del tipo de proveedor. Ejemplo: Mayorista
+     */
     public function store(Request $request)
     {
         // Crea un tipo de proveedor con datos validados y lo devuelve.
@@ -26,12 +36,22 @@ class TipoProveedorController extends Controller
         return response()->json($tipoProveedor, 201);
     }
 
+    /**
+     * Obtener un tipo de proveedor específico
+     *
+     * Devuelve los datos de un tipo de proveedor por su ID.
+     */
     public function show(TipoProveedor $tipoProveedor)
     {
         // Muestra un tipo de proveedor por id.
         return response()->json($tipoProveedor);
     }
 
+    /**
+     * Actualizar un tipo de proveedor
+     *
+     * @bodyParam tipo_proveedor string required Nombre del tipo de proveedor.
+     */
     public function update(Request $request, TipoProveedor $tipoProveedor)
     {
         // Actualiza un tipo de proveedor y devuelve el resultado.
@@ -49,11 +69,16 @@ class TipoProveedorController extends Controller
         return response()->json($tipoProveedor);
     }
 
+    /**
+     * Eliminar un tipo de proveedor
+     *
+     * Elimina permanentemente el tipo de proveedor del sistema.
+     */
     public function destroy(TipoProveedor $tipoProveedor)
     {
         // Elimina el tipo de proveedor y confirma el resultado.
         $tipoProveedor->delete();
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 }

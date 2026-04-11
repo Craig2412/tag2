@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->foreign('orden_compra_id')->references('id')->on('ordenes_compra');
             $table->foreign('estatus_anterior')->references('id')->on('estatus');
             $table->foreign('estatus_nuevo')->references('id')->on('estatus');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }
 

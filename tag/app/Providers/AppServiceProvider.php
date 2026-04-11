@@ -4,6 +4,14 @@ namespace App\Providers;
 
 use App\Services\AuditLogger;
 use App\Services\LogroPersonalLogger;
+use App\Models\Servicio;
+use App\Models\PagoOrdenCompra;
+use App\Models\Cotizacion;
+use App\Models\OrdenCompra;
+use App\Observers\ServicioObserver;
+use App\Observers\PagoOrdenCompraObserver;
+use App\Observers\CotizacionObserver;
+use App\Observers\OrdenCompraObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Servicio::observe(ServicioObserver::class);
+        PagoOrdenCompra::observe(PagoOrdenCompraObserver::class);
+        Cotizacion::observe(CotizacionObserver::class);
+        OrdenCompra::observe(OrdenCompraObserver::class);
+
         Event::listen('eloquent.updating: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
 

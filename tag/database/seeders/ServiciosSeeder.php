@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\Servicio;
 use App\Models\TasaCambio;
@@ -14,9 +15,10 @@ class ServiciosSeeder extends Seeder
     {
         $tipoServicio = TipoServicio::first();
         $tasaCambio = TasaCambio::first();
+        $cotizacion = Cotizacion::first();
         $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
 
-        if (!$tipoServicio || !$tasaCambio) {
+        if (!$tipoServicio || !$tasaCambio || !$cotizacion) {
             return;
         }
 
@@ -28,6 +30,7 @@ class ServiciosSeeder extends Seeder
         foreach ($items as $item) {
             Servicio::firstOrCreate(
                 [
+                    'id_cotizacion' => $cotizacion->id,
                     'id_tipo_servicio' => $tipoServicio->id,
                     'id_proveedor' => $tipoServicio->id_proveedor,
                     'id_tasa_cambio' => $tasaCambio->id,
@@ -38,7 +41,6 @@ class ServiciosSeeder extends Seeder
                     'monto_no_sujeto' => $item['monto_no_sujeto'],
                     'total_servicio' => $item['monto_gravable'] + $item['monto_no_sujeto'],
                     'estatus' => $estatusActivo->id,
-                    'borrado_logico' => false,
                 ]
             );
         }

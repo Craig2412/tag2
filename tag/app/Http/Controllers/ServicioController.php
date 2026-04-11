@@ -3,98 +3,118 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use App\Models\OrdenCompra;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
+    /**
+     * Listar todos los servicios
+     *
+     * Devuelve el listado de servicios activos registrados en el sistema.
+     */
     public function index()
     {
-        // Lista los servicios activos y los devuelve en JSON.
-        $servicios = Servicio::where('borrado_logico', false)
+        $servicios = Servicio::with(['tipoServicio', 'proveedor', 'tasaCambio'])
             ->orderBy('id')
             ->get();
 
         return response()->json($servicios);
     }
 
+    /**
+     * Crear un nuevo servicio
+     * 
+     * @bodyParam id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
+     * @bodyParam id_proveedor int required ID del proveedor del servicio. Ejemplo: 1
+     * @bodyParam descripcion string optional Detalles de qué incluye el servicio.
+     * @bodyParam costo number required Precio de costo interno del servicio. Ejemplo: 150.00
+     * @bodyParam monto_gravable number required Monto sobre el cual se aplica IVA. Ejemplo: 150.00
+     * @bodyParam monto_no_sujeto number required Monto libre de impuestos. Ejemplo: 0.00
+     * @bodyParam iva_establecido number Porcentaje fijo de IVA que recaerá en el monto gravable. Ejemplo: 16.00
+     * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
+     */
     public function store(Request $request)
     {
-        // Crea un servicio con datos validados y lo devuelve.
         $data = $request->validate([
+            'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
             'id_tipo_servicio' => ['required', 'exists:tipo_servicio,id'],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
-            'costo' => ['required', 'numeric'],
-            'monto_gravable' => ['required', 'numeric'],
-            'monto_no_sujeto' => ['required', 'numeric'],
-            'iva_establecido' => ['nullable', 'numeric'],
+            'descripcion' => ['nullable', 'string'],
+            'costo' => ['required', 'numeric', 'min:0'],
+            'monto_gravable' => ['required', 'numeric', 'min:0'],
+            'monto_no_sujeto' => ['required', 'numeric', 'min:0'],
+            'iva_establecido' => ['nullable', 'numeric', 'min:0'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
-        $data['total_servicio'] = $this->calcularTotalServicio(
-            $data['monto_gravable'],
-            $data['monto_no_sujeto']
-        );
-        $data['borrado_logico'] = $data['borrado_logico'] ?? false;
-
+        // La totalización (Base Imponible + Impuestos) es calculada en tiempo real 
+        // e interceptada por App\Observers\ServicioObserver antes de tocar DB.
         $servicio = Servicio::create($data);
 
-        return response()->json($servicio, 201);
+        // Recalcular la orden de compra si existe
+        $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
+
+        return response()->json($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']), 201);
     }
 
+    /**
+     * Obtener un servicio específico
+     */
     public function show(Servicio $servicio)
     {
-        // Muestra un servicio si no esta marcado como borrado.
-        if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
-        return response()->json($servicio);
+        return response()->json($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
 
+    /**
+     * Actualizar un servicio existente
+     */
     public function update(Request $request, Servicio $servicio)
     {
-        // Actualiza un servicio activo y devuelve el resultado.
-        if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
         $data = $request->validate([
+            'id_cotizacion' => ['sometimes', 'required', 'exists:cotizaciones,id'],
             'id_tipo_servicio' => ['sometimes', 'required', 'exists:tipo_servicio,id'],
             'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
-            'costo' => ['sometimes', 'required', 'numeric'],
-            'monto_gravable' => ['sometimes', 'required', 'numeric'],
-            'monto_no_sujeto' => ['sometimes', 'required', 'numeric'],
-            'iva_establecido' => ['nullable', 'numeric'],
+            'descripcion' => ['sometimes', 'nullable', 'string'],
+            'costo' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'monto_gravable' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'monto_no_sujeto' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'iva_establecido' => ['sometimes', 'nullable', 'numeric', 'min:0'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
-        if (array_key_exists('monto_gravable', $data) || array_key_exists('monto_no_sujeto', $data)) {
-            $gravable = $data['monto_gravable'] ?? $servicio->monto_gravable;
-            $noSujeto = $data['monto_no_sujeto'] ?? $servicio->monto_no_sujeto;
-            $data['total_servicio'] = $this->calcularTotalServicio($gravable, $noSujeto);
-        }
+        $idCotizacionAnterior = $servicio->id_cotizacion;
 
+        // La sumatoria real es manejada en el ServicioObserver de manera autónoma.
         $servicio->update($data);
 
-        return response()->json($servicio);
-    }
-
-    public function destroy(Servicio $servicio)
-    {
-        // Marca el servicio como borrado logico.
-        if ($servicio->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
+        // Recalcular órdenes de compra involucradas
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacionAnterior);
+        if ($servicio->id_cotizacion !== $idCotizacionAnterior) {
+            $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
         }
 
-        $servicio->update(['borrado_logico' => true]);
-
-        return response()->json(['message' => 'Deleted']);
+        return response()->json($servicio->fresh()->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
 
-    private function calcularTotalServicio(float $montoGravable, float $montoNoSujeto): float
+    /**
+     * Eliminar un servicio
+     * Usa SoftDeletes nativo de Eloquent.
+     */
+    public function destroy(Servicio $servicio)
     {
-        return $montoGravable + $montoNoSujeto;
+        $idCotizacion = $servicio->id_cotizacion;
+        $servicio->delete();
+
+        // Recalcular la orden de compra
+        $this->recalcularOrdenCompraPorCotizacion($idCotizacion);
+
+        return response()->json(['message' => 'Eliminado correctamente']);
+    }
+
+    private function recalcularOrdenCompraPorCotizacion(int $idCotizacion): void
+    {
+        $ordenCompra = OrdenCompra::where('id_cotizacion', $idCotizacion)->first();
+        $ordenCompra?->recalcularMontoTotal();
     }
 }

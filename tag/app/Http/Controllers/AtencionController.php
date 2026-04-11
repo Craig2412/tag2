@@ -6,29 +6,31 @@ use App\Models\Atencion;
 use App\Models\ClienteEmpresa;
 use App\Models\Estatus;
 use App\Models\PersonalEmpresa;
-use App\Models\User;
+use App\Models\Cliente;
+use App\Models\Personal;
+use App\Models\AtencionHistorial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AtencionController extends Controller
 {
+    /**
+     * Listar todas las atenciones
+     *
+     * Devuelve todas las atenciones activas.
+     */
     public function index()
     {
-        // Lista las atenciones activas y las devuelve en JSON, incluyendo id_cotizacion e id_orden_compra.
-        $items = Atencion::where('borrado_logico', false)
+        // Eloquent maneja SoftDeletes automáticamente
+        $items = Atencion::with(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial'])
             ->orderBy('id')
             ->get();
 
         $result = $items->map(function ($atencion) {
-            // Buscar la cotización más reciente (por id mayor)
             $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
             $id_cotizacion = $cotizacion ? $cotizacion->id : null;
-            // Buscar la orden de compra asociada a esa cotización
-            $id_orden_compra = null;
-            if ($cotizacion && $cotizacion->ordenCompra) {
-                $id_orden_compra = $cotizacion->ordenCompra->id;
-            }
-            // Devolver la atención como array + los campos extra
+            $id_orden_compra = ($cotizacion && $cotizacion->ordenCompra) ? $cotizacion->ordenCompra->id : null;
+
             $arr = $atencion->toArray();
             $arr['id_cotizacion'] = $id_cotizacion;
             $arr['id_orden_compra'] = $id_orden_compra;
@@ -38,99 +40,91 @@ class AtencionController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Crear una nueva atención
+     *
+     * Registra un nuevo ticket de atención al cliente asignando automáticamente un miembro del personal.
+     *
+     * @bodyParam id_cliente int required ID del cliente. Ejemplo: 1
+     * @bodyParam id_origen_atencion int required ID del origen de la atención (red social / canal). Ejemplo: 1
+     * @bodyParam asunto string required Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte
+     * @bodyParam notas_adicionales string Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp
+     */
     public function store(Request $request)
     {
-        // Crea una atencion, valida roles y asigna estatus inicial.
         $data = $request->validate([
-            'id_cliente' => ['required', 'exists:users,id'],
+            'id_cliente' => ['required', 'exists:clientes,id'],
             'id_origen_atencion' => ['required', 'exists:origenes,id'],
             'asunto' => ['required', 'string', 'max:255'],
             'notas_adicionales' => ['nullable', 'string'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
-        $cliente = User::find($data['id_cliente']);
-
-        if (!$cliente || !$cliente->hasRole('cliente')) {
-            return response()->json(['message' => 'id_cliente debe ser un usuario con rol cliente'], 422);
-        }
+        $cliente = Cliente::find($data['id_cliente']);
 
         $personalId = $this->resolverPersonalAsignado($cliente->id);
         if (!$personalId) {
-            return response()->json(['message' => 'No hay personal disponible para asignar la atencion'], 422);
+            return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
         }
 
         $estatus = Estatus::firstOrCreate(['estatus' => 'por aprobar']);
 
         $data['id_personal'] = $personalId;
         $data['estatus'] = $estatus->id;
-        $data['borrado_logico'] = $data['borrado_logico'] ?? false;
 
         $item = Atencion::create($data);
 
-        return response()->json($item, 201);
+        return response()->json($item->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']), 201);
     }
 
+    /**
+     * Obtener una atención específica
+     */
     public function show(Atencion $atencion)
     {
-        // Muestra una atencion si no esta marcada como borrada, incluyendo id_cotizacion e id_orden_compra.
-        if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
         $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
         $id_cotizacion = $cotizacion ? $cotizacion->id : null;
-        $id_orden_compra = null;
-        if ($cotizacion && $cotizacion->ordenCompra) {
-            $id_orden_compra = $cotizacion->ordenCompra->id;
-        }
+        $id_orden_compra = ($cotizacion && $cotizacion->ordenCompra) ? $cotizacion->ordenCompra->id : null;
+        
+        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
+        
         $arr = $atencion->toArray();
         $arr['id_cotizacion'] = $id_cotizacion;
         $arr['id_orden_compra'] = $id_orden_compra;
         return response()->json($arr);
     }
 
+    /**
+     * Actualizar una atención existente
+     *
+     * @bodyParam id_cliente int ID del cliente. Ejemplo: 1
+     * @bodyParam id_personal int ID del personal asignado. Ejemplo: 1
+     * @bodyParam id_origen_atencion int ID del origen de la atención. Ejemplo: 1
+     * @bodyParam asunto string Asunto o motivo de la atención. Ejemplo: Cambio de itinerario
+     * @bodyParam notas_adicionales string Notas adicionales. Ejemplo: Se requiere respuesta urgente
+     * @bodyParam estatus int ID del estatus de la atención. Ejemplo: 1
+     */
     public function update(Request $request, Atencion $atencion)
     {
-        // Actualiza una atencion activa y valida roles cuando cambian.
-        if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
         $data = $request->validate([
-            'id_cliente' => ['sometimes', 'required', 'exists:users,id'],
-            'id_personal' => ['sometimes', 'required', 'exists:users,id'],
+            'id_cliente' => ['sometimes', 'required', 'exists:clientes,id'],
+            'id_personal' => ['sometimes', 'required', 'exists:personal,id'],
             'id_origen_atencion' => ['sometimes', 'required', 'exists:origenes,id'],
             'asunto' => ['sometimes', 'required', 'string', 'max:255'],
             'notas_adicionales' => ['sometimes', 'nullable', 'string'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
-            'borrado_logico' => ['sometimes', 'boolean'],
         ]);
 
-        if (isset($data['id_cliente'])) {
-            $cliente = User::find($data['id_cliente']);
-            if (!$cliente || !$cliente->hasRole('cliente')) {
-                return response()->json(['message' => 'id_cliente debe ser un usuario con rol cliente'], 422);
-            }
-        }
-
-        if (isset($data['id_personal'])) {
-            $personal = User::find($data['id_personal']);
-            if (!$personal || !$personal->hasRole('personal')) {
-                return response()->json(['message' => 'id_personal debe ser un usuario con rol personal'], 422);
-            }
-        }
-
         $estatusAnterior = $atencion->estatus;
+        
         $atencion->update($data);
+        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
 
-        // Si cambió el estatus, registrar en historial
         if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
-            \App\Models\AtencionHistorial::create([
+            AtencionHistorial::create([
                 'atencion_id' => $atencion->id,
                 'estatus_anterior' => $estatusAnterior,
                 'estatus_nuevo' => $data['estatus'],
-                'usuario_id' => auth()->id(),
+                'usuario_id' => auth()->id(), // El usuario que muta mantiene auth()->id() (El operador logueado)
                 'comentario' => 'Cambio de estatus desde API',
             ]);
         }
@@ -138,16 +132,15 @@ class AtencionController extends Controller
         return response()->json($atencion);
     }
 
+    /**
+     * Eliminar una atención
+     *
+     * Usa SoftDeletes nativo.
+     */
     public function destroy(Atencion $atencion)
     {
-        // Marca la atencion como borrada de forma logica.
-        if ($atencion->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
-        }
-
-        $atencion->update(['borrado_logico' => true]);
-
-        return response()->json(['message' => 'Deleted']);
+        $atencion->delete();
+        return response()->json(['message' => 'Eliminada correctamente']);
     }
 
     private function resolverPersonalAsignado(int $idCliente): ?int
@@ -167,7 +160,7 @@ class AtencionController extends Controller
         }
 
         $estatusConcluido = Estatus::firstOrCreate(['estatus' => 'aprobado']);
-        $personalIds = User::role('personal')->pluck('id')->all();
+        $personalIds = Personal::pluck('id')->all(); // Ya no buscamos roles en Users. Todo Personal es un personal comercial.
 
         if (empty($personalIds)) {
             return null;
@@ -175,7 +168,7 @@ class AtencionController extends Controller
 
         $conteos = DB::table('atenciones')
             ->select('id_personal', DB::raw('COUNT(*) as total'))
-            ->where('borrado_logico', false)
+            ->whereNull('deleted_at') // Nativo softDeletes en vez de borrado_logico
             ->where('estatus', '!=', $estatusConcluido->id)
             ->whereIn('id_personal', $personalIds)
             ->groupBy('id_personal')

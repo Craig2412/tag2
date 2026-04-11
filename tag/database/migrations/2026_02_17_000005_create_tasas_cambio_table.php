@@ -10,13 +10,11 @@ return new class extends Migration
     {
         Schema::create('tasas_cambio', function (Blueprint $table) {
             $table->id();
-            $table->decimal('tasa_usd', 12, 4);
-            $table->decimal('tasa_eur', 12, 4);
-            $table->decimal('tasa_binance', 12, 4);
-            $table->decimal('tasa_personalizada', 5, 2);
+            $table->foreignId('id_tasa')->constrained('tasas')->cascadeOnDelete(); // Apunta al catálogo (Ej: "USD_BCV")
+            $table->decimal('valor_cambio', 12, 4); // El multiplicador numérico del día
             $table->date('fecha');
-            $table->boolean('borrado_logico')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

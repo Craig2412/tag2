@@ -10,14 +10,20 @@ class TasasSeeder extends Seeder
     public function run(): void
     {
         $items = [
-            'BCV USD',
-            'BCV EUR',
-            'BINANCE',
-            'PERSONALIZADA',
+            ['codigo' => 'USD_BCV', 'nombre' => 'Dólar BCV', 'simbolo' => '$'],
+            ['codigo' => 'EUR_BCV', 'nombre' => 'Euro Oficial', 'simbolo' => '€'],
+            ['codigo' => 'BINANCE', 'nombre' => 'Binance P2P', 'simbolo' => 'USDT'],
+            ['codigo' => 'PERSONALIZADA', 'nombre' => 'Tasa Interna', 'simbolo' => '$'],
         ];
 
-        foreach ($items as $tasa) {
-            Tasa::firstOrCreate(['tasa' => $tasa]);
+        foreach ($items as $item) {
+            Tasa::firstOrCreate(
+                ['codigo' => $item['codigo']],
+                [
+                    'nombre' => $item['nombre'],
+                    'simbolo' => $item['simbolo']
+                ]
+            );
         }
     }
 }

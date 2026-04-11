@@ -20,7 +20,7 @@ class ClienteEmpresa extends Model
     // Devuelve el cliente asociado.
     public function cliente(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id_cliente');
+        return $this->belongsTo(Cliente::class, 'id_cliente');
     }
 
     // Devuelve la empresa asociada.

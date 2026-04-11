@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('clientes_empresas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cliente')->constrained('users');
+            $table->foreignId('id_cliente')->constrained('clientes');
             $table->foreignId('id_empresas')->constrained('empresas');
             $table->timestamps();
 

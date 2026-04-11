@@ -24,7 +24,6 @@ class ProveedoresSeeder extends Seeder
                 'nombre_persona_contacto' => 'Maria Perez',
                 'tipo_proveedor' => $tipo->id,
                 'estatus' => $estatus->id,
-                'borrado_logico' => false,
             ]
         );
     }

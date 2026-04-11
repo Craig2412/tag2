@@ -5,30 +5,37 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Servicio extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'servicios';
 
     protected $fillable = [
+        'id_cotizacion',
         'id_tipo_servicio',
         'id_proveedor',
         'costo',
+        'descripcion', // Campo nuevo
         'monto_gravable',
         'monto_no_sujeto',
         'total_servicio',
         'iva_establecido',
         'id_tasa_cambio',
         'estatus',
-        'borrado_logico',
     ];
 
     protected $casts = [
-        'borrado_logico' => 'boolean',
         'iva_establecido' => 'float',
     ];
+
+    // Devuelve la cotizacion a la que pertenece el servicio.
+    public function cotizacion(): BelongsTo
+    {
+        return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
+    }
 
     // Devuelve el tipo de servicio asociado.
     public function tipoServicio(): BelongsTo

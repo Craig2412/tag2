@@ -3,129 +3,129 @@
 namespace App\Http\Controllers;
 
 use App\Models\TasaCambio;
+use App\Models\Tasa;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TasaCambioController extends Controller
 {
-    private function validarUnRegistroPorDia(string $fecha): ?\Illuminate\Http\JsonResponse
-    {
-        $existeRegistroDelDia = TasaCambio::whereDate('fecha', $fecha)->exists();
-
-        if ($existeRegistroDelDia) {
-            return response()->json([
-                'message' => 'Ya existe una tasa de cambio registrada para la fecha de hoy',
-            ], 422);
-        }
-
-        return null;
-    }
-
+    /**
+     * Listar todas las tasas de cambio
+     *
+     * Devuelve el historial de tasas de cambio registradas.
+     */
     public function index()
     {
-        // Lista las tasas activas y las devuelve en JSON.
-        $tasas = TasaCambio::where('borrado_logico', false)
-            ->orderBy('id')
+        $tasas = TasaCambio::with('monedaCatalogo')
+            ->orderByDesc('fecha')
+            ->orderBy('id_tasa')
             ->get();
 
         return response()->json($tasas);
     }
 
+    /**
+     * Registrar una nueva tasa de cambio
+     *
+     * @bodyParam id_tasa int required ID de la moneda del catálogo (Ej: USD_BCV). Ejemplo: 1
+     * @bodyParam valor_cambio number required Valor numérico de la tasa. Ejemplo: 36.50
+     * @bodyParam fecha date required Fecha de la tasa. Ejemplo: 2026-04-10
+     */
     public function store(Request $request)
     {
-        // Crea una tasa de cambio aplicando porcentaje personalizado a las tasas base.
         $data = $request->validate([
-            'tasa_usd' => ['required', 'numeric', 'min:0.0001'],
-            'tasa_eur' => ['required', 'numeric', 'min:0.0001'],
-            'tasa_binance' => ['required', 'numeric', 'min:0.0001'],
-            'tasa_personalizada' => ['required', 'numeric', 'min:0'],
-            'borrado_logico' => ['sometimes', 'boolean'],
+            'id_tasa' => ['required', 'exists:tasas,id'],
+            'valor_cambio' => ['required', 'numeric', 'min:0.0001'],
+            'fecha' => ['required', 'date'],
         ]);
 
-        $data = $this->aplicarIncrementoPorcentual($data);
+        // Evitar duplicados para la misma moneda y fecha
+        $existe = TasaCambio::where('id_tasa', $data['id_tasa'])
+            ->whereDate('fecha', $data['fecha'])
+            ->exists();
 
-        $data['fecha'] = now()->toDateString();
-        $data['borrado_logico'] = $data['borrado_logico'] ?? false;
-
-        $errorValidacion = $this->validarUnRegistroPorDia($data['fecha']);
-        if ($errorValidacion) {
-            return $errorValidacion;
+        if ($existe) {
+            return response()->json([
+                'message' => 'Ya existe un registro para esta moneda en la fecha indicada',
+            ], 422);
         }
 
         $tasa = TasaCambio::create($data);
 
-        return response()->json($tasa, 201);
+        return response()->json($tasa->load('monedaCatalogo'), 201);
     }
 
+    /**
+     * Obtener una tasa de cambio específica
+     */
     public function show(TasaCambio $tasaCambio)
     {
-        // Muestra la tasa si no esta borrada.
-        if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
-        return response()->json($tasaCambio);
+        return response()->json($tasaCambio->load('monedaCatalogo'));
     }
 
+    /**
+     * Actualizar una tasa de cambio
+     *
+     * @bodyParam id_tasa int ID de la moneda. Ejemplo: 1
+     * @bodyParam valor_cambio number Valor de la tasa. Ejemplo: 36.55
+     * @bodyParam fecha date Fecha. Ejemplo: 2026-04-11
+     */
     public function update(Request $request, TasaCambio $tasaCambio)
     {
-        // Actualiza una tasa activa y devuelve el resultado.
-        if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Not found'], 404);
-        }
-
         $data = $request->validate([
-            'tasa_usd' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
-            'tasa_eur' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
-            'tasa_binance' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
-            'tasa_personalizada' => ['sometimes', 'required', 'numeric', 'min:0'],
-            'borrado_logico' => ['sometimes', 'boolean'],
+            'id_tasa' => ['sometimes', 'required', 'exists:tasas,id'],
+            'valor_cambio' => ['sometimes', 'required', 'numeric', 'min:0.0001'],
+            'fecha' => ['sometimes', 'required', 'date'],
         ]);
 
-        $camposTasa = ['tasa_usd', 'tasa_eur', 'tasa_binance', 'tasa_personalizada'];
-        $algunCampoTasa = collect($camposTasa)->contains(fn (string $campo) => array_key_exists($campo, $data));
+        if (isset($data['id_tasa']) || isset($data['fecha'])) {
+            $idTasa = $data['id_tasa'] ?? $tasaCambio->id_tasa;
+            $fecha = $data['fecha'] ?? $tasaCambio->fecha;
 
-        if ($algunCampoTasa) {
-            $faltantes = collect($camposTasa)
-                ->filter(fn (string $campo) => !array_key_exists($campo, $data))
-                ->values()
-                ->all();
+            $existe = TasaCambio::where('id_tasa', $idTasa)
+                ->whereDate('fecha', $fecha)
+                ->where('id', '!=', $tasaCambio->id)
+                ->exists();
 
-            if (!empty($faltantes)) {
+            if ($existe) {
                 return response()->json([
-                    'message' => 'Para recalcular tasas debes enviar tasa_usd, tasa_eur, tasa_binance y tasa_personalizada',
-                    'faltantes' => $faltantes,
+                    'message' => 'Ya existe otro registro para esta moneda en la fecha indicada',
                 ], 422);
             }
-
-            $data = $this->aplicarIncrementoPorcentual($data);
         }
 
         $tasaCambio->update($data);
 
-        return response()->json($tasaCambio);
+        return response()->json($tasaCambio->load('monedaCatalogo'));
     }
 
+    /**
+     * Eliminar una tasa de cambio
+     */
     public function destroy(TasaCambio $tasaCambio)
     {
-        // Marca la tasa como borrada de forma logica.
-        if ($tasaCambio->borrado_logico) {
-            return response()->json(['message' => 'Already deleted']);
-        }
-
-        $tasaCambio->update(['borrado_logico' => true]);
-
-        return response()->json(['message' => 'Deleted']);
+        $tasaCambio->delete();
+        return response()->json(['message' => 'Eliminado correctamente']);
     }
 
-    private function aplicarIncrementoPorcentual(array $data): array
+    /**
+     * Obtener las últimas tasas vigentes
+     *
+     * Útil para el frontend para mostrar la tasa actual de cada moneda.
+     */
+    public function vigentes()
     {
-        $porcentaje = (float) $data['tasa_personalizada'];
-        $factor = 1 + ($porcentaje / 100);
+        $tasasVigentes = Tasa::with(['tasasHistorial' => function($query) {
+            $query->latest('fecha')->latest('id');
+        }])->get()->map(function($tasa) {
+            return [
+                'moneda' => $tasa->codigo,
+                'nombre' => $tasa->nombre,
+                'simbolo' => $tasa->simbolo,
+                'ultima_tasa' => $tasa->tasasHistorial->first()
+            ];
+        });
 
-        $data['tasa_usd'] = round(((float) $data['tasa_usd']) * $factor, 4);
-        $data['tasa_eur'] = round(((float) $data['tasa_eur']) * $factor, 4);
-        $data['tasa_binance'] = round(((float) $data['tasa_binance']) * $factor, 4);
-
-        return $data;
+        return response()->json($tasasVigentes);
     }
 }

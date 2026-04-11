@@ -23,7 +23,7 @@ class AtencionHistorialController extends Controller
             'atencion_id' => 'required|exists:atenciones,id',
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         return AtencionHistorial::create($data);
@@ -35,7 +35,7 @@ class AtencionHistorialController extends Controller
         $data = $request->validate([
             'estatus_anterior' => 'nullable|exists:estatus,id',
             'estatus_nuevo' => 'required|exists:estatus,id',
-            'usuario_id' => 'nullable|exists:users,id',
+            'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);
