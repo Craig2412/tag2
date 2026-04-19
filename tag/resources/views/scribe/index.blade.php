@@ -1964,29 +1964,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;entidad&quot;: &quot;Banco Nacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;entidad&quot;: &quot;Banco Internacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -3129,68 +3129,68 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;estatus&quot;: &quot;activo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;estatus&quot;: &quot;inactivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;estatus&quot;: &quot;en espera&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;estatus&quot;: &quot;por confirmar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;estatus&quot;: &quot;confirmado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 6,
         &quot;estatus&quot;: &quot;pendiente de pago&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 7,
         &quot;estatus&quot;: &quot;por pagar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 8,
         &quot;estatus&quot;: &quot;pagado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 9,
         &quot;estatus&quot;: &quot;en proceso&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 10,
         &quot;estatus&quot;: &quot;aprobado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -3482,8 +3482,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;estatus&quot;: &quot;activo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -3944,8 +3944,8 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -4237,8 +4237,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;dias_vencimiento&quot;: 30,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -4703,8 +4703,8 @@ access-control-allow-origin: *
         &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -5071,8 +5071,8 @@ access-control-allow-origin: *
     &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
     &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
     &quot;moneda&quot;: &quot;VES&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -5605,22 +5605,22 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
         &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_contribuyente&quot;: &quot;Reducido&quot;,
         &quot;porcentaje_iva&quot;: &quot;8.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_contribuyente&quot;: &quot;Exento&quot;,
         &quot;porcentaje_iva&quot;: &quot;0.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -5927,8 +5927,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
     &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -6412,12 +6412,12 @@ access-control-allow-origin: *
         &quot;correo_contacto&quot;: null,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-26674932&quot;,
-        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+        &quot;cedula&quot;: &quot;V-10537841&quot;,
+        &quot;telefono&quot;: &quot;+58 424 9507005&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -6824,12 +6824,12 @@ access-control-allow-origin: *
     &quot;correo_contacto&quot;: null,
     &quot;nombre&quot;: &quot;Cliente Demo&quot;,
     &quot;apellido&quot;: &quot;General&quot;,
-    &quot;cedula&quot;: &quot;V-26674932&quot;,
-    &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+    &quot;cedula&quot;: &quot;V-10537841&quot;,
+    &quot;telefono&quot;: &quot;+58 424 9507005&quot;,
     &quot;id_tipo_contribuyente&quot;: 1,
     &quot;id_estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;usuario&quot;: {
         &quot;id&quot;: 4,
@@ -6837,8 +6837,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;cliente@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [],
         &quot;role_names&quot;: [
@@ -6850,8 +6850,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;cliente&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:48:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:48:00.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 4,
@@ -6865,8 +6865,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
         &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -7434,13 +7434,13 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-25815162&quot;,
-        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+        &quot;cedula&quot;: &quot;V-12541769&quot;,
+        &quot;telefono&quot;: &quot;+58 412 5555227&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -7846,13 +7846,13 @@ access-control-allow-origin: *
     &quot;usuario_id&quot;: 3,
     &quot;nombre&quot;: &quot;Personal Comercial&quot;,
     &quot;apellido&quot;: &quot;Comercial&quot;,
-    &quot;cedula&quot;: &quot;V-25815162&quot;,
-    &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+    &quot;cedula&quot;: &quot;V-12541769&quot;,
+    &quot;telefono&quot;: &quot;+58 412 5555227&quot;,
     &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
     &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
     &quot;id_estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;usuario&quot;: {
         &quot;id&quot;: 3,
@@ -7860,8 +7860,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;personal@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [],
         &quot;role_names&quot;: [
@@ -7873,8 +7873,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;personal&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:48:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:48:00.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 3,
@@ -8448,8 +8448,8 @@ access-control-allow-origin: *
         &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
         &quot;direccion&quot;: &quot;Direccion demo&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -8831,8 +8831,8 @@ access-control-allow-origin: *
     &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
     &quot;direccion&quot;: &quot;Direccion demo&quot;,
     &quot;id_tipo_contribuyente&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -10151,8 +10151,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -10459,8 +10459,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_personal&quot;: 1,
     &quot;id_empresa&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -10935,32 +10935,32 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;red&quot;: &quot;instagram&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;red&quot;: &quot;whatsapp&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;red&quot;: &quot;tiktok&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;red&quot;: &quot;x&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -11252,8 +11252,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;red&quot;: &quot;facebook&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -11721,12 +11721,12 @@ access-control-allow-origin: *
         &quot;estatus&quot;: {
             &quot;id&quot;: 11,
             &quot;estatus&quot;: &quot;por aprobar&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
         },
         &quot;id_etapa_comercial&quot;: 3,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;cliente&quot;: {
             &quot;id&quot;: 1,
@@ -11734,12 +11734,12 @@ access-control-allow-origin: *
             &quot;correo_contacto&quot;: null,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-26674932&quot;,
-            &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+            &quot;cedula&quot;: &quot;V-10537841&quot;,
+            &quot;telefono&quot;: &quot;+58 424 9507005&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;personal&quot;: {
@@ -11747,28 +11747,28 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-25815162&quot;,
-            &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+            &quot;cedula&quot;: &quot;V-12541769&quot;,
+            &quot;telefono&quot;: &quot;+58 412 5555227&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;origen&quot;: {
             &quot;id&quot;: 1,
             &quot;red&quot;: &quot;facebook&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         },
         &quot;etapa_comercial&quot;: {
             &quot;id&quot;: 3,
             &quot;slug&quot;: &quot;orden_compra&quot;,
             &quot;label&quot;: &quot;Orden de Compra&quot;,
             &quot;color&quot;: &quot;#10b981&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         },
         &quot;id_cotizacion&quot;: 1,
         &quot;id_orden_compra&quot;: 1
@@ -12112,12 +12112,12 @@ access-control-allow-origin: *
     &quot;estatus&quot;: {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:47:59.000000Z&quot;
     },
     &quot;id_etapa_comercial&quot;: 3,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;cliente&quot;: {
         &quot;id&quot;: 1,
@@ -12125,12 +12125,12 @@ access-control-allow-origin: *
         &quot;correo_contacto&quot;: null,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-26674932&quot;,
-        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+        &quot;cedula&quot;: &quot;V-10537841&quot;,
+        &quot;telefono&quot;: &quot;+58 424 9507005&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;personal&quot;: {
@@ -12138,28 +12138,28 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-25815162&quot;,
-        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+        &quot;cedula&quot;: &quot;V-12541769&quot;,
+        &quot;telefono&quot;: &quot;+58 412 5555227&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;origen&quot;: {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     &quot;etapa_comercial&quot;: {
         &quot;id&quot;: 3,
         &quot;slug&quot;: &quot;orden_compra&quot;,
         &quot;label&quot;: &quot;Orden de Compra&quot;,
         &quot;color&quot;: &quot;#10b981&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     &quot;id_cotizacion&quot;: 1,
     &quot;id_orden_compra&quot;: 1
@@ -12700,8 +12700,8 @@ access-control-allow-origin: *
         &quot;id_tasa_cambio&quot;: 1,
         &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
         &quot;estatus&quot;: 5,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;esta_vencida&quot;: false,
         &quot;orden_compra&quot;: {
@@ -12710,8 +12710,8 @@ access-control-allow-origin: *
             &quot;estatus&quot;: 6,
             &quot;id_estado_financiero&quot;: 3,
             &quot;monto_total&quot;: 260,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null,
             &quot;saldo_pendiente&quot;: 0,
             &quot;porcentaje_pagado&quot;: 100,
@@ -12722,15 +12722,15 @@ access-control-allow-origin: *
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
             &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tipo_cotizacion&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         },
         &quot;atencion&quot;: {
             &quot;id&quot;: 1,
@@ -12741,8 +12741,8 @@ access-control-allow-origin: *
             &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
             &quot;estatus&quot;: 11,
             &quot;id_etapa_comercial&quot;: 3,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     }
@@ -13259,8 +13259,8 @@ access-control-allow-origin: *
     &quot;id_tasa_cambio&quot;: 1,
     &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
     &quot;estatus&quot;: 5,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;esta_vencida&quot;: false,
     &quot;orden_compra&quot;: {
@@ -13269,8 +13269,8 @@ access-control-allow-origin: *
         &quot;estatus&quot;: 6,
         &quot;id_estado_financiero&quot;: 3,
         &quot;monto_total&quot;: 260,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;saldo_pendiente&quot;: 0,
         &quot;porcentaje_pagado&quot;: 100,
@@ -13281,8 +13281,8 @@ access-control-allow-origin: *
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
         &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -13961,14 +13961,14 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_cotizacion&quot;: &quot;empresarial&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -14260,8 +14260,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -14722,20 +14722,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;metodo_pago&quot;: &quot;transferencia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;metodo_pago&quot;: &quot;tarjeta&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -15027,8 +15027,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -15492,8 +15492,8 @@ access-control-allow-origin: *
         &quot;estatus&quot;: 6,
         &quot;id_estado_financiero&quot;: 3,
         &quot;monto_total&quot;: 260,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;saldo_pendiente&quot;: 0,
         &quot;porcentaje_pagado&quot;: 100,
@@ -15508,8 +15508,8 @@ access-control-allow-origin: *
             &quot;id_tasa_cambio&quot;: 1,
             &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
             &quot;estatus&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null,
             &quot;esta_vencida&quot;: false,
             &quot;tasa_cambio&quot;: {
@@ -15517,8 +15517,8 @@ access-control-allow-origin: *
                 &quot;id_tasa&quot;: 5,
                 &quot;valor_cambio&quot;: &quot;36.5000&quot;,
                 &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             }
         },
@@ -15527,8 +15527,8 @@ access-control-allow-origin: *
             &quot;slug&quot;: &quot;pagado&quot;,
             &quot;label&quot;: &quot;Pagado&quot;,
             &quot;color&quot;: &quot;#10b981&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         }
     }
 ]</code>
@@ -15838,8 +15838,8 @@ access-control-allow-origin: *
     &quot;estatus&quot;: 6,
     &quot;id_estado_financiero&quot;: 3,
     &quot;monto_total&quot;: 260,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;saldo_pendiente&quot;: 0,
     &quot;porcentaje_pagado&quot;: 100,
@@ -15854,8 +15854,8 @@ access-control-allow-origin: *
         &quot;id_tasa_cambio&quot;: 1,
         &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
         &quot;estatus&quot;: 5,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;esta_vencida&quot;: false,
         &quot;servicios&quot;: [
@@ -15872,8 +15872,8 @@ access-control-allow-origin: *
                 &quot;iva_establecido&quot;: null,
                 &quot;id_tasa_cambio&quot;: 1,
                 &quot;estatus&quot;: 8,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             },
             {
@@ -15889,8 +15889,8 @@ access-control-allow-origin: *
                 &quot;iva_establecido&quot;: null,
                 &quot;id_tasa_cambio&quot;: 1,
                 &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             }
         ],
@@ -15899,8 +15899,8 @@ access-control-allow-origin: *
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
             &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     },
@@ -15911,8 +15911,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: &quot;260.00&quot;,
             &quot;monto_pagado&quot;: null,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         }
     ],
     &quot;estado_financiero&quot;: {
@@ -15920,8 +15920,8 @@ access-control-allow-origin: *
         &quot;slug&quot;: &quot;pagado&quot;,
         &quot;label&quot;: &quot;Pagado&quot;,
         &quot;color&quot;: &quot;#10b981&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     &quot;servicios&quot;: [
         {
@@ -15937,8 +15937,8 @@ access-control-allow-origin: *
             &quot;iva_establecido&quot;: null,
             &quot;id_tasa_cambio&quot;: 1,
             &quot;estatus&quot;: 8,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -15954,8 +15954,8 @@ access-control-allow-origin: *
             &quot;iva_establecido&quot;: null,
             &quot;id_tasa_cambio&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -16420,13 +16420,14 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
         &quot;monto_total&quot;: &quot;260.00&quot;,
+        &quot;comprobante_pdf&quot;: null,
         &quot;id_metodo_pago&quot;: 1,
         &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;id_entidad_bancaria&quot;: 1,
         &quot;estatus&quot;: 6,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -16533,24 +16534,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"fecha_pago\": \"consequatur\",
-    \"monto_total\": 11613.31890586,
-    \"id_metodo_pago\": 17,
-    \"nro_comprobante\": \"consequatur\",
-    \"id_tasa_cambio\": 17,
-    \"id_entidad_bancaria\": 17,
-    \"estatus\": 17,
-    \"ordenes_compra\": [
-        {
-            \"id_orden_compra\": 17,
-            \"monto_asignado\": 11613.31890586
-        }
-    ]
-}"
-</code></pre></div>
+    --form "fecha_pago=consequatur"\
+    --form "monto_total=11613.31890586"\
+    --form "id_metodo_pago=17"\
+    --form "nro_comprobante=consequatur"\
+    --form "id_tasa_cambio=17"\
+    --form "id_entidad_bancaria=17"\
+    --form "estatus=17"\
+    --form "ordenes_compra[][id_orden_compra]=17"\
+    --form "ordenes_compra[][monto_asignado]=11613.31890586"\
+    --form "comprobante_pdf=@C:\Users\cpustorevzla\AppData\Local\Temp\phpBBEF.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -16560,30 +16555,26 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 const headers = {
     "Authorization": "Bearer TOKEN_DE_MUESTRA",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "fecha_pago": "consequatur",
-    "monto_total": 11613.31890586,
-    "id_metodo_pago": 17,
-    "nro_comprobante": "consequatur",
-    "id_tasa_cambio": 17,
-    "id_entidad_bancaria": 17,
-    "estatus": 17,
-    "ordenes_compra": [
-        {
-            "id_orden_compra": 17,
-            "monto_asignado": 11613.31890586
-        }
-    ]
-};
+const body = new FormData();
+body.append('fecha_pago', 'consequatur');
+body.append('monto_total', '11613.31890586');
+body.append('id_metodo_pago', '17');
+body.append('nro_comprobante', 'consequatur');
+body.append('id_tasa_cambio', '17');
+body.append('id_entidad_bancaria', '17');
+body.append('estatus', '17');
+body.append('ordenes_compra[][id_orden_compra]', '17');
+body.append('ordenes_compra[][monto_asignado]', '11613.31890586');
+body.append('comprobante_pdf', document.querySelector('input[name="comprobante_pdf"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -16608,7 +16599,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <form id="form-POSTapi-pagos" data-method="POST"
       data-path="api/pagos"
       data-authed="1"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-pagos', this);">
@@ -16656,10 +16647,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi-pagos"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -16794,6 +16785,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                     </div>
                                     </details>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comprobante_pdf</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="comprobante_pdf"                data-endpoint="POSTapi-pagos"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>C:\Users\cpustorevzla\AppData\Local\Temp\phpBBEF.tmp</code></p>
+        </div>
         </form>
 
                     <h2 id="endpoints-GETapi-pagos--id-">Obtener un pago específico</h2>
@@ -16852,13 +16855,14 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
     &quot;monto_total&quot;: &quot;260.00&quot;,
+    &quot;comprobante_pdf&quot;: null,
     &quot;id_metodo_pago&quot;: 1,
     &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;id_entidad_bancaria&quot;: 1,
     &quot;estatus&quot;: 6,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;ordenes_compra&quot;: [
         {
@@ -16867,8 +16871,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: &quot;260.00&quot;,
             &quot;monto_pagado&quot;: null,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         }
     ]
 }</code>
@@ -17466,8 +17470,8 @@ access-control-allow-origin: *
         &quot;id_orden_compra&quot;: 1,
         &quot;monto_asignado&quot;: &quot;260.00&quot;,
         &quot;monto_pagado&quot;: null,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -17804,8 +17808,8 @@ access-control-allow-origin: *
     &quot;id_orden_compra&quot;: 1,
     &quot;monto_asignado&quot;: &quot;260.00&quot;,
     &quot;monto_pagado&quot;: null,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -18284,8 +18288,8 @@ access-control-allow-origin: *
         &quot;referencia&quot;: &quot;PP-0001&quot;,
         &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
         &quot;id_metodo_pago&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -18637,8 +18641,8 @@ access-control-allow-origin: *
     &quot;referencia&quot;: &quot;PP-0001&quot;,
     &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
     &quot;id_metodo_pago&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -19155,20 +19159,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_proveedor&quot;: &quot;logistica&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_proveedor&quot;: &quot;tecnologia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -19460,8 +19464,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -19931,12 +19935,12 @@ access-control-allow-origin: *
         &quot;tipo_proveedor&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         },
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_contribuyente&quot;: null
     }
@@ -20351,12 +20355,12 @@ access-control-allow-origin: *
     &quot;tipo_proveedor&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     &quot;estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_contribuyente&quot;: null
 }</code>
@@ -20933,8 +20937,8 @@ access-control-allow-origin: *
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -21257,8 +21261,8 @@ access-control-allow-origin: *
     &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
     &quot;iva_defecto&quot;: null,
     &quot;id_proveedor&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -21751,40 +21755,40 @@ access-control-allow-origin: *
         &quot;codigo&quot;: &quot;USD_BCV&quot;,
         &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;codigo&quot;: &quot;EUR_BCV&quot;,
         &quot;nombre&quot;: &quot;Euro Oficial&quot;,
         &quot;simbolo&quot;: &quot;&euro;&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;codigo&quot;: &quot;BINANCE&quot;,
         &quot;nombre&quot;: &quot;Binance P2P&quot;,
         &quot;simbolo&quot;: &quot;USDT&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;codigo&quot;: &quot;PERSONALIZADA&quot;,
         &quot;nombre&quot;: &quot;Tasa Interna&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -22078,8 +22082,8 @@ access-control-allow-origin: *
     &quot;codigo&quot;: &quot;USD_BCV&quot;,
     &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
     &quot;simbolo&quot;: &quot;$&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -22542,16 +22546,16 @@ access-control-allow-origin: *
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
         &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;moneda_catalogo&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
             &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
             &quot;simbolo&quot;: &quot;Bs&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
         }
     }
 ]</code>
@@ -22874,16 +22878,16 @@ access-control-allow-origin: *
     &quot;id_tasa&quot;: 5,
     &quot;valor_cambio&quot;: &quot;36.5000&quot;,
     &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;moneda_catalogo&quot;: {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 }</code>
  </pre>
@@ -23383,16 +23387,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 8,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -23406,8 +23410,8 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
@@ -23415,8 +23419,8 @@ access-control-allow-origin: *
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
             &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     },
@@ -23433,16 +23437,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -23456,8 +23460,8 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
@@ -23465,8 +23469,8 @@ access-control-allow-origin: *
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
             &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     }
@@ -23882,16 +23886,16 @@ access-control-allow-origin: *
     &quot;iva_establecido&quot;: null,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;estatus&quot;: 8,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_servicio&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;proveedor&quot;: {
@@ -23905,8 +23909,8 @@ access-control-allow-origin: *
         &quot;id_tipo_contribuyente&quot;: null,
         &quot;tipo_proveedor&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;tasa_cambio&quot;: {
@@ -23914,8 +23918,8 @@ access-control-allow-origin: *
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
         &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -24483,26 +24487,26 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;temporalidad&quot;: &quot;Diario&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;temporalidad&quot;: &quot;Semanal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;temporalidad&quot;: &quot;Mensual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;temporalidad&quot;: &quot;Anual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -24794,8 +24798,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;temporalidad&quot;: &quot;Diario&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -25259,8 +25263,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 3,
         &quot;cant_cotizaciones_pagadas&quot;: 2,
         &quot;id_temporalidad&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
@@ -25268,8 +25272,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 12,
         &quot;cant_cotizaciones_pagadas&quot;: 8,
         &quot;id_temporalidad&quot;: 2,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
@@ -25277,8 +25281,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 50,
         &quot;cant_cotizaciones_pagadas&quot;: 35,
         &quot;id_temporalidad&quot;: 3,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
@@ -25286,8 +25290,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 600,
         &quot;cant_cotizaciones_pagadas&quot;: 450,
         &quot;id_temporalidad&quot;: 4,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -26121,29 +26125,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_meta&quot;: 1,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;id_meta&quot;: 2,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;id_meta&quot;: 3,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;id_meta&quot;: 4,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -26492,8 +26496,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_meta&quot;: 1,
     &quot;id_personal&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-11T20:48:02.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -26974,7 +26978,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --data "{
     \"id_personal\": 17,
-    \"tipo_entidad\": \"cotizacion\",
+    \"tipo_entidad\": \"atencion\",
     \"id_entidad\": 45,
     \"per_page\": 16
 }"
@@ -27003,7 +27007,7 @@ const headers = {
 
 let body = {
     "id_personal": 17,
-    "tipo_entidad": "cotizacion",
+    "tipo_entidad": "atencion",
     "id_entidad": 45,
     "per_page": 16
 };
@@ -27191,10 +27195,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="cotizacion"
+               value="atencion"
                data-component="body">
     <br>
-<p>Example: <code>cotizacion</code></p>
+<p>Example: <code>atencion</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>atencion</code></li> <li><code>cotizacion</code></li> <li><code>orden_compra</code></li></ul>
         </div>

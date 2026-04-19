@@ -48,4 +48,14 @@ Puedes obtener reportes instantáneos de:
 
 ## 🛠️ Próximo Paso (Fase 1)
 
-Antes de implementar este módulo de CxP, realizaremos el **Refactor de Servicios y Cotizaciones** para pasar de Muchos-a-Muchos a **Uno-a-Muchos**, lo cual es el cimiento necesario para que esta arquitectura financiera funcione correctamente.
+Antes de implementar este módulo de CxP, realizaremos el **Refactor de Servicios y Cotizaciones** para pasar de Muchos-a-Muchos a **Uno-a-Muchos**, lo cual es el cimiento necesario para que esta arquitectura financiera funcione correctamente. *(Completado)*
+
+## 📝 Nuevos Puntos por Decidir (Fase 2)
+
+### 1. Pagos en Lote por Proveedor
+- **Pregunta**: ¿Se permitirá pagar múltiples servicios de un mismo proveedor en una sola transacción/referencia bancaria?
+- **Implicación**: Requiere que la interfaz de CxP permita agrupar deudas pendientes por `id_proveedor`.
+
+### 2. Origen del Cálculo para el Proveedor
+- **Pregunta**: ¿El monto a pagar al proveedor es el `costo` plano registrado en el servicio, o se debe calcular algún IVA adicional sobre ese costo?
+- **Estado Actual**: Actualmente el sistema suma `total_servicio` para la Orden de Compra, pero el `total_servicio` parece estar más ligado al precio de venta. Es vital definir si existe un `total_costo` (Costo + IVA Proveedor).

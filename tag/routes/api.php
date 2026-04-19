@@ -48,12 +48,12 @@ Route::get('/v1/contrato', [ContractController::class, 'download']);
 
 Route::middleware('auth:sanctum')->group(function () {
             // Rutas de métricas
-            Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
-            Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
-        Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
+    Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
+    Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
+    Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/register/personal', [AuthController::class, 'registerPersonal'])
-        ->middleware('role:admin');
+    ->middleware('role:admin');
 
     Route::apiResource('estatus', EstatusController::class);
     Route::apiResource('configuraciones-sistema', ConfiguracionSistemaController::class)

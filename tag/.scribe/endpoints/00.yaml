@@ -337,7 +337,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -381,7 +381,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -437,7 +437,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -481,7 +481,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -515,7 +515,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"entidad":"Banco de Prueba","estatus":1,"created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":2,"entidad":"Banco Ejemplo","estatus":1,"created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":3,"entidad":"Banco Nacional","estatus":1,"created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":4,"entidad":"Banco Internacional","estatus":1,"created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}]'
+        content: '[{"id":1,"entidad":"Banco de Prueba","estatus":1,"created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":2,"entidad":"Banco Ejemplo","estatus":1,"created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":3,"entidad":"Banco Nacional","estatus":1,"created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":4,"entidad":"Banco Internacional","estatus":1,"created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -525,7 +525,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -583,7 +583,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -639,7 +639,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -710,7 +710,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -757,7 +757,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -792,7 +792,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -954,7 +954,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"estatus":"activo","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":2,"estatus":"inactivo","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":3,"estatus":"en espera","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":4,"estatus":"por confirmar","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":5,"estatus":"confirmado","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":6,"estatus":"pendiente de pago","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":7,"estatus":"por pagar","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":8,"estatus":"pagado","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":9,"estatus":"en proceso","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":10,"estatus":"aprobado","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}]'
+        content: '[{"id":1,"estatus":"activo","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":2,"estatus":"inactivo","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":3,"estatus":"en espera","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":4,"estatus":"por confirmar","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":5,"estatus":"confirmado","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":6,"estatus":"pendiente de pago","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":7,"estatus":"por pagar","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":8,"estatus":"pagado","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":9,"estatus":"en proceso","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":10,"estatus":"aprobado","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -964,7 +964,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1011,7 +1011,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1057,7 +1057,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"estatus":"activo","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}'
+        content: '{"id":1,"estatus":"activo","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1067,7 +1067,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1127,7 +1127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1174,7 +1174,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1208,7 +1208,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"dias_vencimiento":30,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"dias_vencimiento":30,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1218,7 +1218,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1265,7 +1265,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1311,7 +1311,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"dias_vencimiento":30,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"dias_vencimiento":30,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1321,7 +1321,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1381,7 +1381,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1428,7 +1428,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1462,7 +1462,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]'
+        content: '[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1472,7 +1472,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1579,7 +1579,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1625,7 +1625,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}'
+        content: '{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","entidad_financiera":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1635,7 +1635,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1755,7 +1755,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1802,7 +1802,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1836,7 +1836,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":2,"tipo_contribuyente":"Reducido","porcentaje_iva":"8.00","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},{"id":3,"tipo_contribuyente":"Exento","porcentaje_iva":"0.00","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}]'
+        content: '[{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":2,"tipo_contribuyente":"Reducido","porcentaje_iva":"8.00","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},{"id":3,"tipo_contribuyente":"Exento","porcentaje_iva":"0.00","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1846,7 +1846,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1905,7 +1905,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -1951,7 +1951,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}'
+        content: '{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1961,7 +1961,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2033,7 +2033,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2080,7 +2080,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2126,7 +2126,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26674932","telefono":"+58 424 6143148","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]'
+        content: '[{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-10537841","telefono":"+58 424 9507005","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2136,7 +2136,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2267,7 +2267,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2313,7 +2313,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26674932","telefono":"+58 424 6143148","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","correo_verificado_en":null,"esta_activo":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"all_permissions":[],"role_names":["cliente"],"permissions":[],"roles":[{"id":4,"name":"cliente","guard_name":"web","created_at":"2026-04-11T20:11:57.000000Z","updated_at":"2026-04-11T20:11:57.000000Z","pivot":{"model_type":"App\\Models\\Usuario","model_id":4,"role_id":4},"permissions":[]}]},"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"}}'
+        content: '{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-10537841","telefono":"+58 424 9507005","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null,"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","correo_verificado_en":null,"esta_activo":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null,"all_permissions":[],"role_names":["cliente"],"permissions":[],"roles":[{"id":4,"name":"cliente","guard_name":"web","created_at":"2026-04-11T20:48:00.000000Z","updated_at":"2026-04-11T20:48:00.000000Z","pivot":{"model_type":"App\\Models\\Usuario","model_id":4,"role_id":4},"permissions":[]}]},"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":"16.00","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2323,7 +2323,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2467,7 +2467,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2514,7 +2514,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2560,7 +2560,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-25815162","telefono":"+58 412 2222702","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]'
+        content: '[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-12541769","telefono":"+58 412 5555227","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2570,7 +2570,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2701,7 +2701,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2747,7 +2747,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-25815162","telefono":"+58 412 2222702","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","correo_verificado_en":null,"esta_activo":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"all_permissions":[],"role_names":["personal"],"permissions":[],"roles":[{"id":3,"name":"personal","guard_name":"web","created_at":"2026-04-11T20:11:57.000000Z","updated_at":"2026-04-11T20:11:57.000000Z","pivot":{"model_type":"App\\Models\\Usuario","model_id":3,"role_id":3},"permissions":[]}]}}'
+        content: '{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-12541769","telefono":"+58 412 5555227","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","correo_verificado_en":null,"esta_activo":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null,"all_permissions":[],"role_names":["personal"],"permissions":[],"roles":[{"id":3,"name":"personal","guard_name":"web","created_at":"2026-04-11T20:48:00.000000Z","updated_at":"2026-04-11T20:48:00.000000Z","pivot":{"model_type":"App\\Models\\Usuario","model_id":3,"role_id":3},"permissions":[]}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2757,7 +2757,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2901,7 +2901,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2948,7 +2948,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -2982,7 +2982,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2992,7 +2992,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3111,7 +3111,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3157,7 +3157,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3167,7 +3167,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3299,7 +3299,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3346,7 +3346,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3390,7 +3390,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3449,7 +3449,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3508,7 +3508,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3580,7 +3580,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3627,7 +3627,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3661,7 +3661,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3671,7 +3671,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3730,7 +3730,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3776,7 +3776,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3786,7 +3786,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3858,7 +3858,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3905,7 +3905,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3939,7 +3939,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"red":"facebook","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"red":"instagram","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"red":"whatsapp","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":4,"red":"tiktok","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":5,"red":"x","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"red":"facebook","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"red":"instagram","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"red":"whatsapp","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":4,"red":"tiktok","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":5,"red":"x","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3949,7 +3949,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -3996,7 +3996,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4042,7 +4042,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"red":"facebook","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"red":"facebook","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4052,7 +4052,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4112,7 +4112,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4159,7 +4159,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4193,7 +4193,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},"id_etapa_comercial":3,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"cliente":{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26674932","telefono":"+58 424 6143148","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"personal":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-25815162","telefono":"+58 412 2222702","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"etapa_comercial":{"id":3,"slug":"orden_compra","label":"Orden de Compra","color":"#10b981","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"id_cotizacion":1,"id_orden_compra":1}]'
+        content: '[{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},"id_etapa_comercial":3,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"cliente":{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-10537841","telefono":"+58 424 9507005","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null},"personal":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-12541769","telefono":"+58 412 5555227","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"etapa_comercial":{"id":3,"slug":"orden_compra","label":"Orden de Compra","color":"#10b981","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"id_cotizacion":1,"id_orden_compra":1}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4203,7 +4203,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4286,7 +4286,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4332,7 +4332,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:11:55.000000Z","updated_at":"2026-04-11T20:11:55.000000Z"},"id_etapa_comercial":3,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"cliente":{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26674932","telefono":"+58 424 6143148","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"personal":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-25815162","telefono":"+58 412 2222702","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"etapa_comercial":{"id":3,"slug":"orden_compra","label":"Orden de Compra","color":"#10b981","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"id_cotizacion":1,"id_orden_compra":1}'
+        content: '{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":{"id":11,"estatus":"por aprobar","created_at":"2026-04-11T20:47:59.000000Z","updated_at":"2026-04-11T20:47:59.000000Z"},"id_etapa_comercial":3,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"cliente":{"id":1,"usuario_id":4,"correo_contacto":null,"nombre":"Cliente Demo","apellido":"General","cedula":"V-10537841","telefono":"+58 424 9507005","id_tipo_contribuyente":1,"id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null},"personal":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-12541769","telefono":"+58 412 5555227","correo_institucional":"personal comercial@tag.com","porcentaje_comision":"5.00","id_estatus":1,"created_at":"2026-04-11T20:48:01.000000Z","updated_at":"2026-04-11T20:48:01.000000Z","deleted_at":null},"origen":{"id":1,"red":"facebook","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"etapa_comercial":{"id":3,"slug":"orden_compra","label":"Orden de Compra","color":"#10b981","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"id_cotizacion":1,"id_orden_compra":1}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4342,7 +4342,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4462,7 +4462,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4509,7 +4509,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4543,7 +4543,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"tipo_cotizacion":{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"atencion":{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":11,"id_etapa_comercial":3,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}}]'
+        content: '[{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"tipo_cotizacion":{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"atencion":{"id":1,"id_cliente":1,"id_personal":1,"id_origen_atencion":1,"asunto":"Solicitud de informacion","notas_adicionales":"Contacto inicial desde redes.","estatus":11,"id_etapa_comercial":3,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4553,7 +4553,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4782,7 +4782,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -4828,7 +4828,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}}'
+        content: '{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"esta_vencida":false,"orden_compra":{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4838,7 +4838,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5080,7 +5080,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5127,7 +5127,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5161,7 +5161,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"tipo_cotizacion":"empresarial","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"tipo_cotizacion":"empresarial","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5171,7 +5171,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5218,7 +5218,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5264,7 +5264,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"tipo_cotizacion":"personal","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5274,7 +5274,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5334,7 +5334,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5381,7 +5381,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5415,7 +5415,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"metodo_pago":"transferencia","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"metodo_pago":"tarjeta","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"metodo_pago":"transferencia","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"metodo_pago":"tarjeta","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5425,7 +5425,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5472,7 +5472,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5518,7 +5518,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"metodo_pago":"efectivo","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5528,7 +5528,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5588,7 +5588,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5635,7 +5635,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5669,7 +5669,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260,"cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"esta_vencida":false,"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}},"estado_financiero":{"id":3,"slug":"pagado","label":"Pagado","color":"#10b981","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}}]'
+        content: '[{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260,"cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"esta_vencida":false,"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}},"estado_financiero":{"id":3,"slug":"pagado","label":"Pagado","color":"#10b981","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5679,7 +5679,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5738,7 +5738,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5784,7 +5784,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260,"cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"esta_vencida":false,"servicios":[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}],"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}},"pagos":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}],"estado_financiero":{"id":3,"slug":"pagado","label":"Pagado","color":"#10b981","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"servicios":[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]}'
+        content: '{"id":1,"id_cotizacion":1,"estatus":6,"id_estado_financiero":3,"monto_total":260,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"saldo_pendiente":0,"porcentaje_pagado":100,"total_pagado":260,"cotizacion":{"id":1,"id_atencion":1,"id_tipo_cotizacion":1,"cant_adultos":2,"cant_menores":1,"cant_viejos":0,"id_tasa_cambio":1,"fecha_vencimiento":"2026-04-26T00:00:00.000000Z","estatus":5,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"esta_vencida":false,"servicios":[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}],"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}},"pagos":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}],"estado_financiero":{"id":3,"slug":"pagado","label":"Pagado","color":"#10b981","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"servicios":[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5794,7 +5794,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5854,7 +5854,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5901,7 +5901,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5935,7 +5935,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"fecha_pago":"2026-04-11T00:00:00.000000Z","monto_total":"260.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]'
+        content: '[{"id":1,"fecha_pago":"2026-04-11T00:00:00.000000Z","monto_total":"260.00","comprobante_pdf":null,"id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -5945,7 +5945,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -5966,7 +5966,7 @@ endpoints:
       deprecated: false
     headers:
       Authorization: 'Bearer TOKEN_DE_MUESTRA'
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -6062,6 +6062,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      comprobante_pdf:
+        custom: []
+        name: comprobante_pdf
+        description: 'Must be a file. Must not be greater than 4096 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       'ordenes_compra[].id_orden_compra':
         custom: []
         name: 'ordenes_compra[].id_orden_compra'
@@ -6096,13 +6107,14 @@ endpoints:
         -
           id_orden_compra: 17
           monto_asignado: 11613.31890586
-    fileParameters: []
+    fileParameters:
+      comprobante_pdf: null
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6148,7 +6160,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"fecha_pago":"2026-04-11T00:00:00.000000Z","monto_total":"260.00","id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"ordenes_compra":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]}'
+        content: '{"id":1,"fecha_pago":"2026-04-11T00:00:00.000000Z","monto_total":"260.00","comprobante_pdf":null,"id_metodo_pago":1,"nro_comprobante":"COMP-0001","id_tasa_cambio":1,"id_entidad_bancaria":1,"estatus":6,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"ordenes_compra":[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6158,7 +6170,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6328,7 +6340,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6375,7 +6387,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6409,7 +6421,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6419,7 +6431,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6502,7 +6514,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6548,7 +6560,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"id_pago":1,"id_orden_compra":1,"monto_asignado":"260.00","monto_pagado":null,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6558,7 +6570,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6630,7 +6642,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6677,7 +6689,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6711,7 +6723,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-11T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-11T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6721,7 +6733,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6816,7 +6828,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6862,7 +6874,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-11T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"id_servicio":1,"monto":"100.00","referencia":"PP-0001","fecha_pago":"2026-04-11T00:00:00.000000Z","id_metodo_pago":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -6872,7 +6884,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -6980,7 +6992,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7027,7 +7039,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7061,7 +7073,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"tipo_proveedor":"logistica","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"tipo_proveedor":"tecnologia","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"tipo_proveedor":"logistica","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"tipo_proveedor":"tecnologia","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7071,7 +7083,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7118,7 +7130,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7164,7 +7176,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7174,7 +7186,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7234,7 +7246,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7281,7 +7293,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7315,7 +7327,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"tipo_contribuyente":null}]'
+        content: '[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"tipo_contribuyente":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7325,7 +7337,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7468,7 +7480,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7514,7 +7526,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"tipo_contribuyente":null}'
+        content: '{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":{"id":1,"tipo_proveedor":"servicios profesionales","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"tipo_contribuyente":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7524,7 +7536,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7680,7 +7692,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7727,7 +7739,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7761,7 +7773,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}]'
+        content: '[{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7771,7 +7783,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7842,7 +7854,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7888,7 +7900,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}'
+        content: '{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -7898,7 +7910,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -7982,7 +7994,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8031,7 +8043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8065,7 +8077,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"codigo":"EUR_BCV","nombre":"Euro Oficial","simbolo":"\u20ac","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"codigo":"BINANCE","nombre":"Binance P2P","simbolo":"USDT","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":4,"codigo":"PERSONALIZADA","nombre":"Tasa Interna","simbolo":"$","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"codigo":"EUR_BCV","nombre":"Euro Oficial","simbolo":"\u20ac","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"codigo":"BINANCE","nombre":"Binance P2P","simbolo":"USDT","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":4,"codigo":"PERSONALIZADA","nombre":"Tasa Interna","simbolo":"$","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8075,7 +8087,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8122,7 +8134,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8168,7 +8180,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"codigo":"USD_BCV","nombre":"D\u00f3lar BCV","simbolo":"$","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8178,7 +8190,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8238,7 +8250,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8285,7 +8297,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8319,7 +8331,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}}]'
+        content: '[{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8329,7 +8341,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8400,7 +8412,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8446,7 +8458,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}}'
+        content: '{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"moneda_catalogo":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8456,7 +8468,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8540,7 +8552,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8587,7 +8599,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8621,7 +8633,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}}]'
+        content: '[{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}},{"id":2,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"160.00","descripcion":null,"monto_gravable":"140.00","monto_no_sujeto":"20.00","total_servicio":"160.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8631,7 +8643,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8774,7 +8786,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8820,7 +8832,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z","deleted_at":null}}'
+        content: '{"id":1,"id_cotizacion":1,"id_tipo_servicio":1,"id_proveedor":1,"costo":"100.00","descripcion":null,"monto_gravable":"100.00","monto_no_sujeto":"0.00","total_servicio":"100.00","iva_establecido":null,"id_tasa_cambio":1,"estatus":8,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null,"tipo_servicio":{"id":1,"tipo_servicio":"consultoria","iva_defecto":null,"id_proveedor":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"estatus":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null},"tasa_cambio":{"id":1,"id_tasa":5,"valor_cambio":"36.5000","fecha":"2026-04-11T00:00:00.000000Z","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z","deleted_at":null}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -8830,7 +8842,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -8982,7 +8994,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9031,7 +9043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9065,7 +9077,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"temporalidad":"Diario","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"temporalidad":"Semanal","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"temporalidad":"Mensual","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":4,"temporalidad":"Anual","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"temporalidad":"Diario","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"temporalidad":"Semanal","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"temporalidad":"Mensual","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":4,"temporalidad":"Anual","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -9075,7 +9087,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9122,7 +9134,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9168,7 +9180,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"temporalidad":"Diario","created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"temporalidad":"Diario","created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -9178,7 +9190,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9238,7 +9250,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9285,7 +9297,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9319,7 +9331,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"cant_atenciones_aprobadas":5,"cant_cotizaciones_cerradas":3,"cant_cotizaciones_pagadas":2,"id_temporalidad":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"cant_atenciones_aprobadas":20,"cant_cotizaciones_cerradas":12,"cant_cotizaciones_pagadas":8,"id_temporalidad":2,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"cant_atenciones_aprobadas":80,"cant_cotizaciones_cerradas":50,"cant_cotizaciones_pagadas":35,"id_temporalidad":3,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":4,"cant_atenciones_aprobadas":900,"cant_cotizaciones_cerradas":600,"cant_cotizaciones_pagadas":450,"id_temporalidad":4,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"cant_atenciones_aprobadas":5,"cant_cotizaciones_cerradas":3,"cant_cotizaciones_pagadas":2,"id_temporalidad":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"cant_atenciones_aprobadas":20,"cant_cotizaciones_cerradas":12,"cant_cotizaciones_pagadas":8,"id_temporalidad":2,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"cant_atenciones_aprobadas":80,"cant_cotizaciones_cerradas":50,"cant_cotizaciones_pagadas":35,"id_temporalidad":3,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":4,"cant_atenciones_aprobadas":900,"cant_cotizaciones_cerradas":600,"cant_cotizaciones_pagadas":450,"id_temporalidad":4,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -9329,7 +9341,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9412,7 +9424,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9468,7 +9480,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9564,7 +9576,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9611,7 +9623,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9645,7 +9657,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '[{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":2,"id_meta":2,"id_personal":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":3,"id_meta":3,"id_personal":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"},{"id":4,"id_meta":4,"id_personal":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}]'
+        content: '[{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":2,"id_meta":2,"id_personal":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":3,"id_meta":3,"id_personal":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"},{"id":4,"id_meta":4,"id_personal":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -9655,7 +9667,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9750,7 +9762,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9796,7 +9808,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-11T20:11:58.000000Z","updated_at":"2026-04-11T20:11:58.000000Z"}'
+        content: '{"id":1,"id_meta":1,"id_personal":1,"created_at":"2026-04-11T20:48:02.000000Z","updated_at":"2026-04-11T20:48:02.000000Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -9806,7 +9818,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9914,7 +9926,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -9961,7 +9973,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10053,7 +10065,7 @@ endpoints:
         name: tipo_entidad
         description: ''
         required: false
-        example: cotizacion
+        example: atencion
         type: string
         enumValues:
           - atencion
@@ -10086,7 +10098,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       id_personal: 17
-      tipo_entidad: cotizacion
+      tipo_entidad: atencion
       id_entidad: 45
       per_page: 16
     fileParameters: []
@@ -10104,7 +10116,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10232,7 +10244,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10360,7 +10372,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10443,7 +10455,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10550,7 +10562,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10633,7 +10645,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10718,7 +10730,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10801,7 +10813,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10896,7 +10908,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
@@ -10940,7 +10952,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|9uUvHp4nzGIa7B6YQ6QnaWl7Fd1fJa1vcaFAuTlMfcf463c9'
+      - 'Bearer 1|cnWeJjzaTkmyIss6NUVud2JhIku05Dw5odK6FiJJ9941568f'
     controller: null
     method: null
     route: null
