@@ -15,6 +15,11 @@ use App\Observers\OrdenCompraObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use App\Listeners\BroadcastPermissionsChanged;
+use Spatie\Permission\Events\RoleAssigned;
+use Spatie\Permission\Events\RoleRemoved;
+use Spatie\Permission\Events\PermissionGranted;
+use Spatie\Permission\Events\PermissionRevoked;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -77,5 +82,11 @@ class AppServiceProvider extends ServiceProvider
                 AuditLogger::logModelDeleted($model);
             }
         });
+
+        // Register listeners for Spatie Permission events to sync session via WebSockets
+        Event::listen(RoleAssigned::class, BroadcastPermissionsChanged::class);
+        Event::listen(RoleRemoved::class, BroadcastPermissionsChanged::class);
+        Event::listen(PermissionGranted::class, BroadcastPermissionsChanged::class);
+        Event::listen(PermissionRevoked::class, BroadcastPermissionsChanged::class);
     }
 }

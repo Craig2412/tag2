@@ -32,6 +32,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PersonalEmpresaController;
 use App\Http\Controllers\Api\ContractController;
+use App\Http\Controllers\BroadcastingController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -47,7 +48,13 @@ Route::get('/status', function () {
 Route::get('/v1/contrato', [ContractController::class, 'download']);
 
 Route::middleware('auth:sanctum')->group(function () {
-            // Rutas de métricas
+    // User profile: used by Next.js to silently refresh the session JWT
+    Route::get('/me', [AuthController::class, 'me']);
+
+    // Broadcasting channel auth: validated via routes/channels.php
+    Route::post('/broadcasting/auth', [BroadcastingController::class, 'auth']);
+
+    // Rutas de métricas
     Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
     Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
     Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
