@@ -109,13 +109,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('audit-logs', [AuditLogController::class, 'index'])
         ->middleware('role:admin');
 
-    Route::prefix('kiu')->controller(KiuController::class)->group(function () {
-        Route::post('session', 'session');
-        Route::post('availability', 'availability');
-        Route::post('pricing', 'pricing');
-        Route::post('booking', 'booking');
-        Route::post('ticketing', 'ticketing');
-        Route::post('post-sale', 'postSale');
+    Route::prefix('kiu')->group(function (): void {
+        Route::post('session', [KiuController::class, 'session']);
+        Route::post('availability', [KiuController::class, 'availability']);
+        Route::post('pricing', [KiuController::class, 'pricing']);
+        Route::post('booking', [KiuController::class, 'booking']);
+        Route::post('ticketing', [KiuController::class, 'ticketing']);
+        Route::post('post-sale', [KiuController::class, 'postSale']);
     });
 
     Route::get('/admin-only', function () {

@@ -36,64 +36,77 @@ return [
     ],
 
     'kiu' => [
+        // Endpoint base SOAP (ws3)
+        'base_url' => env('KIU_BASE_URL', 'https://ssl00.kiusys.com/ws3/index.php'),
+
+        // Entorno
         'sandbox' => env('KIU_SANDBOX', true),
-        'base_url' => env('KIU_BASE_URL'),
-        'transport' => env('KIU_TRANSPORT', 'xml'),
-        'timeout' => (int) env('KIU_TIMEOUT', 30),
-        'verify' => env('KIU_VERIFY_SSL', true),
+
+        // Transporte por defecto de integracion legacy
+        'transport' => env('KIU_TRANSPORT', 'form_params'),
+        'target' => env('KIU_TARGET', 'Production'),
+        'version' => env('KIU_VERSION', '3.0'),
+        'primary_lang' => env('KIU_PRIMARY_LANG', 'en-us'),
+        'iso_country' => env('KIU_ISO_COUNTRY', 'PA'),
+        'iso_currency' => env('KIU_ISO_CURRENCY', 'USD'),
+        'requestor_type' => env('KIU_REQUESTOR_TYPE', '5'),
+        'booking_channel_type' => env('KIU_BOOKING_CHANNEL_TYPE', '1'),
+
+        // Credenciales por defecto
         'auth' => [
-            'mode' => env('KIU_AUTH_MODE', 'none'),
             'username' => env('KIU_USERNAME'),
             'password' => env('KIU_PASSWORD'),
             'office_id' => env('KIU_OFFICE_ID'),
             'agent_sine' => env('KIU_AGENT_SINE'),
-            'headers' => [
-                'username' => env('KIU_HEADER_USERNAME', 'X-KIU-Username'),
-                'password' => env('KIU_HEADER_PASSWORD', 'X-KIU-Password'),
-                'office_id' => env('KIU_HEADER_OFFICE_ID', 'X-KIU-Office-Id'),
-                'agent_sine' => env('KIU_HEADER_AGENT_SINE', 'X-KIU-Agent-Sine'),
-            ],
         ],
+
+        // Headers por defecto
         'default_headers' => [
-            'Accept' => env('KIU_ACCEPT_HEADER', 'application/xml'),
-            'User-Agent' => env('APP_NAME', 'Laravel').'/kiu-sandbox-client',
+            'Accept' => env('KIU_ACCEPT_HEADER', 'application/xml, text/xml, */*'),
+            'Content-Type' => env('KIU_CONTENT_TYPE', 'application/x-www-form-urlencoded'),
         ],
+
+        // Timeout y SSL
+        'timeout' => (int) env('KIU_TIMEOUT', 30),
+        'verify' => env('KIU_VERIFY_SSL', true),
+
+        // Configuracion de operaciones legacy
         'operations' => [
             'session' => [
-                'path' => env('KIU_SESSION_PATH', '/session'),
-                'transport' => env('KIU_SESSION_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_SESSION_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_SESSION_SOAP_ACTION'),
+                'path' => env('KIU_SESSION_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_SESSION_SOAP_ACTION', ''),
+                'transport' => env('KIU_SESSION_TRANSPORT', 'form_params'),
             ],
             'availability' => [
-                'path' => env('KIU_AVAILABILITY_PATH', '/availability'),
-                'transport' => env('KIU_AVAILABILITY_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_AVAILABILITY_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_AVAILABILITY_SOAP_ACTION'),
+                'path' => env('KIU_AVAILABILITY_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_AVAILABILITY_SOAP_ACTION', ''),
+                'transport' => env('KIU_AVAILABILITY_TRANSPORT', 'form_params'),
             ],
             'pricing' => [
-                'path' => env('KIU_PRICING_PATH', '/pricing'),
-                'transport' => env('KIU_PRICING_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_PRICING_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_PRICING_SOAP_ACTION'),
+                'path' => env('KIU_PRICING_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_PRICING_SOAP_ACTION', ''),
+                'transport' => env('KIU_PRICING_TRANSPORT', 'form_params'),
             ],
             'booking' => [
-                'path' => env('KIU_BOOKING_PATH', '/booking'),
-                'transport' => env('KIU_BOOKING_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_BOOKING_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_BOOKING_SOAP_ACTION'),
+                'path' => env('KIU_BOOKING_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_BOOKING_SOAP_ACTION', ''),
+                'transport' => env('KIU_BOOKING_TRANSPORT', 'form_params'),
             ],
             'ticketing' => [
-                'path' => env('KIU_TICKETING_PATH', '/ticketing'),
-                'transport' => env('KIU_TICKETING_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_TICKETING_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_TICKETING_SOAP_ACTION'),
+                'path' => env('KIU_TICKETING_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_TICKETING_SOAP_ACTION', ''),
+                'transport' => env('KIU_TICKETING_TRANSPORT', 'form_params'),
             ],
             'post_sale' => [
-                'path' => env('KIU_POST_SALE_PATH', '/post-sale'),
-                'transport' => env('KIU_POST_SALE_TRANSPORT', env('KIU_TRANSPORT', 'xml')),
-                'content_type' => env('KIU_POST_SALE_CONTENT_TYPE', 'text/xml; charset=utf-8'),
-                'soap_action' => env('KIU_POST_SALE_SOAP_ACTION'),
+                'path' => env('KIU_POST_SALE_PATH', '/'),
+                'content_type' => 'application/x-www-form-urlencoded',
+                'soap_action' => env('KIU_POST_SALE_SOAP_ACTION', ''),
+                'transport' => env('KIU_POST_SALE_TRANSPORT', 'form_params'),
             ],
         ],
     ],

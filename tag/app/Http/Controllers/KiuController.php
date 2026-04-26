@@ -14,14 +14,14 @@ class KiuController extends Controller
     }
 
     /**
-     * Abrir sesión en Kiu
+     * Abrir sesion en Kiu
      *
-     * Inicia una sesión SOAP con el sistema GDS de Kiu.
+     * Inicia una sesion SOAP con el sistema GDS de Kiu.
      *
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
      * @bodyParam credentials object Credenciales de Kiu (username, password, office_id).
      * @bodyParam context object Datos de contexto adicionales.
-     * @bodyParam context.session_label string Etiqueta para identificar la sesión. Ejemplo: MI-SESION-1
+     * @bodyParam context.session_label string Etiqueta para identificar la sesion. Ejemplo: MI-SESION-1
      */
     public function session(Request $request): JsonResponse
     {
@@ -39,8 +39,8 @@ class KiuController extends Controller
      *
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
      * @bodyParam context object Datos de contexto adicionales.
-     * @bodyParam context.origin string Código IATA del aeropuerto de origen. Ejemplo: CCS
-     * @bodyParam context.destination string Código IATA del aeropuerto de destino. Ejemplo: MIA
+     * @bodyParam context.origin string Codigo IATA del aeropuerto de origen. Ejemplo: CCS
+     * @bodyParam context.destination string Codigo IATA del aeropuerto de destino. Ejemplo: MIA
      * @bodyParam context.departure_date date Fecha de salida. Ejemplo: 2026-05-20
      * @bodyParam context.adults int Cantidad de adultos. Ejemplo: 1
      */
@@ -63,12 +63,12 @@ class KiuController extends Controller
     /**
      * Calcular precio de vuelo o reserva en Kiu
      *
-     * Obtiene el precio detallado de una reserva o selección de vuelos.
+     * Obtiene el precio detallado de una reserva o seleccion de vuelos.
      *
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
      * @bodyParam context object Datos de contexto adicionales.
-     * @bodyParam context.reservation_code string Código PNR de la reserva en Kiu. Ejemplo: ABCD12
-     * @bodyParam context.currency string Código de moneda (ej. USD). Ejemplo: USD
+     * @bodyParam context.reservation_code string Codigo PNR de la reserva en Kiu. Ejemplo: ABCD12
+     * @bodyParam context.currency string Codigo de moneda (ej. USD). Ejemplo: USD
      */
     public function pricing(Request $request): JsonResponse
     {
@@ -89,7 +89,7 @@ class KiuController extends Controller
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
      * @bodyParam context object Datos de pasajeros y contacto.
      * @bodyParam context.passengers object[] Lista de pasajeros de la reserva.
-     * @bodyParam context.contact_email email Correo electrónico de contacto para la reserva.
+     * @bodyParam context.contact_email email Correo electronico de contacto para la reserva.
      */
     public function booking(Request $request): JsonResponse
     {
@@ -108,7 +108,7 @@ class KiuController extends Controller
     /**
      * Emitir boleto en Kiu
      *
-     * Realiza la emisión del boleto electrónico para una reserva confirmada y pagada.
+     * Realiza la emision del boleto electronico para una reserva confirmada y pagada.
      *
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
      * @bodyParam context object Detalles de pago y reserva.
@@ -127,15 +127,15 @@ class KiuController extends Controller
     }
 
     /**
-     * Operaciones post-venta en Kiu (Anulación / Reembolso / Cancelación)
+     * Operaciones post-venta en Kiu (Anulacion / Reembolso / Cancelacion)
      *
-     * Ejecuta una acción post-venta sobre una reserva o boleto emitido.
+     * Ejecuta una accion post-venta sobre una reserva o boleto emitido.
      *
      * @bodyParam payload string required El payload XML SOAP de la solicitud.
-     * @bodyParam context object Detalles de la acción a ejecutar.
-     * @bodyParam context.action string required Acción post-venta (void, refund, cancel, change, reissue). Ejemplo: void
-     * @bodyParam context.reservation_code string Código PNR de la reserva.
-     * @bodyParam context.ticket_number string Número del boleto emitido.
+     * @bodyParam context object Detalles de la accion a ejecutar.
+     * @bodyParam context.action string required Accion post-venta (void, refund, cancel, change, reissue). Ejemplo: void
+     * @bodyParam context.reservation_code string Codigo PNR de la reserva.
+     * @bodyParam context.ticket_number string Numero del boleto emitido.
      */
     public function postSale(Request $request): JsonResponse
     {
@@ -152,7 +152,7 @@ class KiuController extends Controller
     private function baseRules(): array
     {
         return [
-            'payload' => ['required'],
+            'payload' => ['sometimes', 'string'],
             'headers' => ['sometimes', 'array'],
             'headers.*' => ['nullable', 'string'],
             'query' => ['sometimes', 'array'],

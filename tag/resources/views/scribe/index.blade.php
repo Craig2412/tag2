@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "http://localhost";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -564,7 +564,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 11, 2026</li>
+        <li>Last updated: April 12, 2026</li>
     </ul>
 </div>
 
@@ -574,7 +574,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
         <h1 id="introduccion">Introducción</h1>
 <p>API REST del sistema de gestión de agencia de viajes TAG.</p>
 <aside>
-    <strong>URL Base</strong>: <code>http://localhost:8000</code>
+    <strong>URL Base</strong>: <code>http://localhost</code>
 </aside>
 <pre><code>Esta documentación tiene como objetivo proporcionar toda la información necesaria para trabajar con nuestra API.
 
@@ -603,7 +603,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register" \
+    "http://localhost/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -622,7 +622,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register"
+    "http://localhost/api/register"
 );
 
 const headers = {
@@ -847,7 +847,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login" \
+    "http://localhost/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -860,7 +860,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login"
+    "http://localhost/api/login"
 );
 
 const headers = {
@@ -1007,7 +1007,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/admin" \
+    "http://localhost/api/login/admin" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -1020,7 +1020,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/admin"
+    "http://localhost/api/login/admin"
 );
 
 const headers = {
@@ -1167,7 +1167,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/user" \
+    "http://localhost/api/login/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -1180,7 +1180,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/user"
+    "http://localhost/api/login/user"
 );
 
 const headers = {
@@ -1328,7 +1328,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/status" \
+    --get "http://localhost/api/status" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1336,7 +1336,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/status"
+    "http://localhost/api/status"
 );
 
 const headers = {
@@ -1470,7 +1470,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/contrato" \
+    --get "http://localhost/api/v1/contrato" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1478,7 +1478,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/contrato"
+    "http://localhost/api/v1/contrato"
 );
 
 const headers = {
@@ -1612,7 +1612,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/personal/17" \
+    --get "http://localhost/api/metricas/personal/17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1620,7 +1620,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/personal/17"
+    "http://localhost/api/metricas/personal/17"
 );
 
 const headers = {
@@ -1773,7 +1773,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/generales" \
+    --get "http://localhost/api/metricas/generales" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1781,7 +1781,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/generales"
+    "http://localhost/api/metricas/generales"
 );
 
 const headers = {
@@ -1921,7 +1921,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias" \
+    --get "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1929,7 +1929,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -1964,29 +1964,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;entidad&quot;: &quot;Banco Nacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;entidad&quot;: &quot;Banco Internacional&quot;,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -2090,7 +2090,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/entidades-bancarias" \
+    "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2102,7 +2102,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -2249,7 +2249,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias/1" \
+    --get "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2257,7 +2257,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -2402,7 +2402,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2414,7 +2414,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -2578,7 +2578,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2586,7 +2586,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -2717,7 +2717,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/logout" \
+    "http://localhost/api/logout" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2725,7 +2725,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logout"
+    "http://localhost/api/logout"
 );
 
 const headers = {
@@ -2842,7 +2842,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register/personal" \
+    "http://localhost/api/register/personal" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -2861,7 +2861,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register/personal"
+    "http://localhost/api/register/personal"
 );
 
 const headers = {
@@ -3087,7 +3087,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus" \
+    --get "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3095,7 +3095,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -3129,68 +3129,68 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;estatus&quot;: &quot;activo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;estatus&quot;: &quot;inactivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;estatus&quot;: &quot;en espera&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;estatus&quot;: &quot;por confirmar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;estatus&quot;: &quot;confirmado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 6,
         &quot;estatus&quot;: &quot;pendiente de pago&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 7,
         &quot;estatus&quot;: &quot;por pagar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 8,
         &quot;estatus&quot;: &quot;pagado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 9,
         &quot;estatus&quot;: &quot;en proceso&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 10,
         &quot;estatus&quot;: &quot;aprobado&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -3294,7 +3294,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estatus" \
+    "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3306,7 +3306,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -3441,7 +3441,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus/1" \
+    --get "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3449,7 +3449,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -3482,8 +3482,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;estatus&quot;: &quot;activo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -3599,7 +3599,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3611,7 +3611,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -3763,7 +3763,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3771,7 +3771,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -3902,7 +3902,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema" \
+    --get "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3910,7 +3910,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -3944,8 +3944,8 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -4049,7 +4049,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/configuraciones-sistema" \
+    "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -4061,7 +4061,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -4196,7 +4196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema/1" \
+    --get "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4204,7 +4204,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -4237,8 +4237,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;dias_vencimiento&quot;: 30,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -4354,7 +4354,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -4366,7 +4366,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -4518,7 +4518,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4526,7 +4526,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -4657,7 +4657,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores" \
+    --get "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4665,7 +4665,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -4703,8 +4703,8 @@ access-control-allow-origin: *
         &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -4809,7 +4809,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cuentas-proveedores" \
+    "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -4826,7 +4826,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -5026,7 +5026,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores/1" \
+    --get "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5034,7 +5034,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -5071,8 +5071,8 @@ access-control-allow-origin: *
     &quot;entidad_financiera&quot;: &quot;Banco Demo&quot;,
     &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
     &quot;moneda&quot;: &quot;VES&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -5189,7 +5189,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -5206,7 +5206,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -5423,7 +5423,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5431,7 +5431,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -5562,7 +5562,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes" \
+    --get "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5570,7 +5570,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -5605,22 +5605,22 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
         &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_contribuyente&quot;: &quot;Reducido&quot;,
         &quot;porcentaje_iva&quot;: &quot;8.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_contribuyente&quot;: &quot;Exento&quot;,
         &quot;porcentaje_iva&quot;: &quot;0.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -5724,7 +5724,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-contribuyentes" \
+    "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -5737,7 +5737,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -5885,7 +5885,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes/1" \
+    --get "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5893,7 +5893,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -5927,8 +5927,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
     &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -6044,7 +6044,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -6057,7 +6057,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -6222,7 +6222,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6230,7 +6230,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -6361,7 +6361,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
+    --get "http://localhost/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6369,7 +6369,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const params = {
@@ -6412,12 +6412,12 @@ access-control-allow-origin: *
         &quot;correo_contacto&quot;: null,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-26674932&quot;,
-        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+        &quot;cedula&quot;: &quot;V-21998809&quot;,
+        &quot;telefono&quot;: &quot;+58 424 6833616&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -6535,7 +6535,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes" \
+    "http://localhost/api/clientes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -6554,7 +6554,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const headers = {
@@ -6780,7 +6780,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes/1" \
+    --get "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6788,7 +6788,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -6824,12 +6824,12 @@ access-control-allow-origin: *
     &quot;correo_contacto&quot;: null,
     &quot;nombre&quot;: &quot;Cliente Demo&quot;,
     &quot;apellido&quot;: &quot;General&quot;,
-    &quot;cedula&quot;: &quot;V-26674932&quot;,
-    &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+    &quot;cedula&quot;: &quot;V-21998809&quot;,
+    &quot;telefono&quot;: &quot;+58 424 6833616&quot;,
     &quot;id_tipo_contribuyente&quot;: 1,
     &quot;id_estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;usuario&quot;: {
         &quot;id&quot;: 4,
@@ -6837,8 +6837,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;cliente@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [],
         &quot;role_names&quot;: [
@@ -6850,8 +6850,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 4,
                 &quot;name&quot;: &quot;cliente&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-12T16:25:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-12T16:25:00.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 4,
@@ -6865,8 +6865,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
         &quot;porcentaje_iva&quot;: &quot;16.00&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -6983,7 +6983,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7002,7 +7002,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -7245,7 +7245,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7253,7 +7253,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -7384,7 +7384,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal?include=usuario.+Values%3A+usuario" \
+    --get "http://localhost/api/personal?include=usuario.+Values%3A+usuario" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7392,7 +7392,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const params = {
@@ -7434,13 +7434,13 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-25815162&quot;,
-        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+        &quot;cedula&quot;: &quot;V-13402998&quot;,
+        &quot;telefono&quot;: &quot;+58 412 2546476&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -7558,7 +7558,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal" \
+    "http://localhost/api/personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7577,7 +7577,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const headers = {
@@ -7803,7 +7803,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal/1" \
+    --get "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7811,7 +7811,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -7846,13 +7846,13 @@ access-control-allow-origin: *
     &quot;usuario_id&quot;: 3,
     &quot;nombre&quot;: &quot;Personal Comercial&quot;,
     &quot;apellido&quot;: &quot;Comercial&quot;,
-    &quot;cedula&quot;: &quot;V-25815162&quot;,
-    &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+    &quot;cedula&quot;: &quot;V-13402998&quot;,
+    &quot;telefono&quot;: &quot;+58 412 2546476&quot;,
     &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
     &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
     &quot;id_estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;usuario&quot;: {
         &quot;id&quot;: 3,
@@ -7860,8 +7860,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;personal@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [],
         &quot;role_names&quot;: [
@@ -7873,8 +7873,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;personal&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:57.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-12T16:25:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-12T16:25:00.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 3,
@@ -7999,7 +7999,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8018,7 +8018,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -8261,7 +8261,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8269,7 +8269,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -8400,7 +8400,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas" \
+    --get "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8408,7 +8408,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -8448,8 +8448,8 @@ access-control-allow-origin: *
         &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
         &quot;direccion&quot;: &quot;Direccion demo&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -8553,7 +8553,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/empresas" \
+    "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8571,7 +8571,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -8784,7 +8784,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas/1" \
+    --get "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8792,7 +8792,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -8831,8 +8831,8 @@ access-control-allow-origin: *
     &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
     &quot;direccion&quot;: &quot;Direccion demo&quot;,
     &quot;id_tipo_contribuyente&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -8948,7 +8948,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8966,7 +8966,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -9196,7 +9196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9204,7 +9204,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -9335,7 +9335,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas" \
+    --get "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9343,7 +9343,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -9475,7 +9475,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes-empresas" \
+    "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9488,7 +9488,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -9636,7 +9636,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas/17" \
+    --get "http://localhost/api/clientes-empresas/17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9644,7 +9644,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost/api/clientes-empresas/17"
 );
 
 const headers = {
@@ -9791,7 +9791,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes-empresas/17" \
+    "http://localhost/api/clientes-empresas/17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9804,7 +9804,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost/api/clientes-empresas/17"
 );
 
 const headers = {
@@ -9969,7 +9969,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes-empresas/17" \
+    "http://localhost/api/clientes-empresas/17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9977,7 +9977,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost/api/clientes-empresas/17"
 );
 
 const headers = {
@@ -10108,7 +10108,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas" \
+    --get "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10116,7 +10116,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -10151,8 +10151,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -10256,7 +10256,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal-empresas" \
+    "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10269,7 +10269,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -10417,7 +10417,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas/1" \
+    --get "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10425,7 +10425,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -10459,8 +10459,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_personal&quot;: 1,
     &quot;id_empresa&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -10576,7 +10576,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10589,7 +10589,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -10754,7 +10754,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10762,7 +10762,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -10893,7 +10893,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes" \
+    --get "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10901,7 +10901,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -10935,32 +10935,32 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;red&quot;: &quot;instagram&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;red&quot;: &quot;whatsapp&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;red&quot;: &quot;tiktok&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;red&quot;: &quot;x&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -11064,7 +11064,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/origenes" \
+    "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11076,7 +11076,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -11211,7 +11211,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes/1" \
+    --get "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11219,7 +11219,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -11252,8 +11252,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;red&quot;: &quot;facebook&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -11369,7 +11369,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11381,7 +11381,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -11533,7 +11533,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11541,7 +11541,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -11672,7 +11672,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones" \
+    --get "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11680,7 +11680,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -11721,12 +11721,12 @@ access-control-allow-origin: *
         &quot;estatus&quot;: {
             &quot;id&quot;: 11,
             &quot;estatus&quot;: &quot;por aprobar&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
         },
         &quot;id_etapa_comercial&quot;: 3,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;cliente&quot;: {
             &quot;id&quot;: 1,
@@ -11734,12 +11734,12 @@ access-control-allow-origin: *
             &quot;correo_contacto&quot;: null,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-26674932&quot;,
-            &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+            &quot;cedula&quot;: &quot;V-21998809&quot;,
+            &quot;telefono&quot;: &quot;+58 424 6833616&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;personal&quot;: {
@@ -11747,28 +11747,28 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-25815162&quot;,
-            &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+            &quot;cedula&quot;: &quot;V-13402998&quot;,
+            &quot;telefono&quot;: &quot;+58 412 2546476&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
             &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;origen&quot;: {
             &quot;id&quot;: 1,
             &quot;red&quot;: &quot;facebook&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         },
         &quot;etapa_comercial&quot;: {
             &quot;id&quot;: 3,
             &quot;slug&quot;: &quot;orden_compra&quot;,
             &quot;label&quot;: &quot;Orden de Compra&quot;,
             &quot;color&quot;: &quot;#10b981&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         },
         &quot;id_cotizacion&quot;: 1,
         &quot;id_orden_compra&quot;: 1
@@ -11875,7 +11875,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/atenciones" \
+    "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11890,7 +11890,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -12064,7 +12064,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones/1" \
+    --get "http://localhost/api/atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12072,7 +12072,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost/api/atenciones/1"
 );
 
 const headers = {
@@ -12112,12 +12112,12 @@ access-control-allow-origin: *
     &quot;estatus&quot;: {
         &quot;id&quot;: 11,
         &quot;estatus&quot;: &quot;por aprobar&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:55.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:24:59.000000Z&quot;
     },
     &quot;id_etapa_comercial&quot;: 3,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;cliente&quot;: {
         &quot;id&quot;: 1,
@@ -12125,12 +12125,12 @@ access-control-allow-origin: *
         &quot;correo_contacto&quot;: null,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-26674932&quot;,
-        &quot;telefono&quot;: &quot;+58 424 6143148&quot;,
+        &quot;cedula&quot;: &quot;V-21998809&quot;,
+        &quot;telefono&quot;: &quot;+58 424 6833616&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;personal&quot;: {
@@ -12138,28 +12138,28 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-25815162&quot;,
-        &quot;telefono&quot;: &quot;+58 412 2222702&quot;,
+        &quot;cedula&quot;: &quot;V-13402998&quot;,
+        &quot;telefono&quot;: &quot;+58 412 2546476&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: &quot;5.00&quot;,
         &quot;id_estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;origen&quot;: {
         &quot;id&quot;: 1,
         &quot;red&quot;: &quot;facebook&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     &quot;etapa_comercial&quot;: {
         &quot;id&quot;: 3,
         &quot;slug&quot;: &quot;orden_compra&quot;,
         &quot;label&quot;: &quot;Orden de Compra&quot;,
         &quot;color&quot;: &quot;#10b981&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     &quot;id_cotizacion&quot;: 1,
     &quot;id_orden_compra&quot;: 1
@@ -12278,7 +12278,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/atenciones/1" \
+    "http://localhost/api/atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12295,7 +12295,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost/api/atenciones/1"
 );
 
 const headers = {
@@ -12512,7 +12512,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/atenciones/1" \
+    "http://localhost/api/atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12520,7 +12520,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost/api/atenciones/1"
 );
 
 const headers = {
@@ -12651,7 +12651,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones" \
+    --get "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12659,7 +12659,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -12698,10 +12698,10 @@ access-control-allow-origin: *
         &quot;cant_menores&quot;: 1,
         &quot;cant_viejos&quot;: 0,
         &quot;id_tasa_cambio&quot;: 1,
-        &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+        &quot;fecha_vencimiento&quot;: &quot;2026-04-27T00:00:00.000000Z&quot;,
         &quot;estatus&quot;: 5,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;esta_vencida&quot;: false,
         &quot;orden_compra&quot;: {
@@ -12710,8 +12710,8 @@ access-control-allow-origin: *
             &quot;estatus&quot;: 6,
             &quot;id_estado_financiero&quot;: 3,
             &quot;monto_total&quot;: 260,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null,
             &quot;saldo_pendiente&quot;: 0,
             &quot;porcentaje_pagado&quot;: 100,
@@ -12721,16 +12721,16 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tipo_cotizacion&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         },
         &quot;atencion&quot;: {
             &quot;id&quot;: 1,
@@ -12741,8 +12741,8 @@ access-control-allow-origin: *
             &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
             &quot;estatus&quot;: 11,
             &quot;id_etapa_comercial&quot;: 3,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     }
@@ -12848,7 +12848,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cotizaciones" \
+    "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12878,7 +12878,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -13211,7 +13211,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones/1" \
+    --get "http://localhost/api/cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13219,7 +13219,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost/api/cotizaciones/1"
 );
 
 const headers = {
@@ -13257,10 +13257,10 @@ access-control-allow-origin: *
     &quot;cant_menores&quot;: 1,
     &quot;cant_viejos&quot;: 0,
     &quot;id_tasa_cambio&quot;: 1,
-    &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+    &quot;fecha_vencimiento&quot;: &quot;2026-04-27T00:00:00.000000Z&quot;,
     &quot;estatus&quot;: 5,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;esta_vencida&quot;: false,
     &quot;orden_compra&quot;: {
@@ -13269,8 +13269,8 @@ access-control-allow-origin: *
         &quot;estatus&quot;: 6,
         &quot;id_estado_financiero&quot;: 3,
         &quot;monto_total&quot;: 260,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;saldo_pendiente&quot;: 0,
         &quot;porcentaje_pagado&quot;: 100,
@@ -13280,9 +13280,9 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -13400,7 +13400,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cotizaciones/1" \
+    "http://localhost/api/cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -13430,7 +13430,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost/api/cotizaciones/1"
 );
 
 const headers = {
@@ -13780,7 +13780,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cotizaciones/1" \
+    "http://localhost/api/cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13788,7 +13788,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost/api/cotizaciones/1"
 );
 
 const headers = {
@@ -13919,7 +13919,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones" \
+    --get "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13927,7 +13927,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -13961,14 +13961,14 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_cotizacion&quot;: &quot;empresarial&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -14072,7 +14072,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-cotizaciones" \
+    "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14084,7 +14084,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -14219,7 +14219,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones/1" \
+    --get "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14227,7 +14227,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -14260,8 +14260,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_cotizacion&quot;: &quot;personal&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -14377,7 +14377,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14389,7 +14389,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -14541,7 +14541,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14549,7 +14549,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -14680,7 +14680,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago" \
+    --get "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14688,7 +14688,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -14722,20 +14722,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;metodo_pago&quot;: &quot;transferencia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;metodo_pago&quot;: &quot;tarjeta&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -14839,7 +14839,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metodos-pago" \
+    "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14851,7 +14851,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -14986,7 +14986,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago/1" \
+    --get "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14994,7 +14994,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -15027,8 +15027,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -15144,7 +15144,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15156,7 +15156,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -15308,7 +15308,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15316,7 +15316,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -15447,7 +15447,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra" \
+    --get "http://localhost/api/ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15455,7 +15455,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra"
+    "http://localhost/api/ordenes-compra"
 );
 
 const headers = {
@@ -15492,8 +15492,8 @@ access-control-allow-origin: *
         &quot;estatus&quot;: 6,
         &quot;id_estado_financiero&quot;: 3,
         &quot;monto_total&quot;: 260,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;saldo_pendiente&quot;: 0,
         &quot;porcentaje_pagado&quot;: 100,
@@ -15506,19 +15506,19 @@ access-control-allow-origin: *
             &quot;cant_menores&quot;: 1,
             &quot;cant_viejos&quot;: 0,
             &quot;id_tasa_cambio&quot;: 1,
-            &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+            &quot;fecha_vencimiento&quot;: &quot;2026-04-27T00:00:00.000000Z&quot;,
             &quot;estatus&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null,
             &quot;esta_vencida&quot;: false,
             &quot;tasa_cambio&quot;: {
                 &quot;id&quot;: 1,
                 &quot;id_tasa&quot;: 5,
                 &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-                &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             }
         },
@@ -15527,8 +15527,8 @@ access-control-allow-origin: *
             &quot;slug&quot;: &quot;pagado&quot;,
             &quot;label&quot;: &quot;Pagado&quot;,
             &quot;color&quot;: &quot;#10b981&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         }
     }
 ]</code>
@@ -15633,7 +15633,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/ordenes-compra" \
+    "http://localhost/api/ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15646,7 +15646,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra"
+    "http://localhost/api/ordenes-compra"
 );
 
 const headers = {
@@ -15794,7 +15794,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra/1" \
+    --get "http://localhost/api/ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15802,7 +15802,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost/api/ordenes-compra/1"
 );
 
 const headers = {
@@ -15838,8 +15838,8 @@ access-control-allow-origin: *
     &quot;estatus&quot;: 6,
     &quot;id_estado_financiero&quot;: 3,
     &quot;monto_total&quot;: 260,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;saldo_pendiente&quot;: 0,
     &quot;porcentaje_pagado&quot;: 100,
@@ -15852,10 +15852,10 @@ access-control-allow-origin: *
         &quot;cant_menores&quot;: 1,
         &quot;cant_viejos&quot;: 0,
         &quot;id_tasa_cambio&quot;: 1,
-        &quot;fecha_vencimiento&quot;: &quot;2026-04-26T00:00:00.000000Z&quot;,
+        &quot;fecha_vencimiento&quot;: &quot;2026-04-27T00:00:00.000000Z&quot;,
         &quot;estatus&quot;: 5,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;esta_vencida&quot;: false,
         &quot;servicios&quot;: [
@@ -15872,8 +15872,8 @@ access-control-allow-origin: *
                 &quot;iva_establecido&quot;: null,
                 &quot;id_tasa_cambio&quot;: 1,
                 &quot;estatus&quot;: 8,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             },
             {
@@ -15889,8 +15889,8 @@ access-control-allow-origin: *
                 &quot;iva_establecido&quot;: null,
                 &quot;id_tasa_cambio&quot;: 1,
                 &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
                 &quot;deleted_at&quot;: null
             }
         ],
@@ -15898,9 +15898,9 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     },
@@ -15911,8 +15911,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: &quot;260.00&quot;,
             &quot;monto_pagado&quot;: null,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         }
     ],
     &quot;estado_financiero&quot;: {
@@ -15920,8 +15920,8 @@ access-control-allow-origin: *
         &quot;slug&quot;: &quot;pagado&quot;,
         &quot;label&quot;: &quot;Pagado&quot;,
         &quot;color&quot;: &quot;#10b981&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     &quot;servicios&quot;: [
         {
@@ -15937,8 +15937,8 @@ access-control-allow-origin: *
             &quot;iva_establecido&quot;: null,
             &quot;id_tasa_cambio&quot;: 1,
             &quot;estatus&quot;: 8,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -15954,8 +15954,8 @@ access-control-allow-origin: *
             &quot;iva_establecido&quot;: null,
             &quot;id_tasa_cambio&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -16074,7 +16074,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/ordenes-compra/1" \
+    "http://localhost/api/ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16086,7 +16086,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost/api/ordenes-compra/1"
 );
 
 const headers = {
@@ -16238,7 +16238,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/ordenes-compra/1" \
+    "http://localhost/api/ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16246,7 +16246,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost/api/ordenes-compra/1"
 );
 
 const headers = {
@@ -16377,7 +16377,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos" \
+    --get "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16385,7 +16385,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
@@ -16418,15 +16418,16 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">[
     {
         &quot;id&quot;: 1,
-        &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
         &quot;monto_total&quot;: &quot;260.00&quot;,
+        &quot;comprobante_pdf&quot;: null,
         &quot;id_metodo_pago&quot;: 1,
         &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;id_entidad_bancaria&quot;: 1,
         &quot;estatus&quot;: 6,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -16531,59 +16532,49 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos" \
+    "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"fecha_pago\": \"consequatur\",
-    \"monto_total\": 11613.31890586,
-    \"id_metodo_pago\": 17,
-    \"nro_comprobante\": \"consequatur\",
-    \"id_tasa_cambio\": 17,
-    \"id_entidad_bancaria\": 17,
-    \"estatus\": 17,
-    \"ordenes_compra\": [
-        {
-            \"id_orden_compra\": 17,
-            \"monto_asignado\": 11613.31890586
-        }
-    ]
-}"
-</code></pre></div>
+    --form "fecha_pago=consequatur"\
+    --form "monto_total=11613.31890586"\
+    --form "id_metodo_pago=17"\
+    --form "nro_comprobante=consequatur"\
+    --form "id_tasa_cambio=17"\
+    --form "id_entidad_bancaria=17"\
+    --form "estatus=17"\
+    --form "ordenes_compra[][id_orden_compra]=17"\
+    --form "ordenes_compra[][monto_asignado]=11613.31890586"\
+    --form "comprobante_pdf=@C:\Users\javir\AppData\Local\Temp\php5D0B.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
     "Authorization": "Bearer TOKEN_DE_MUESTRA",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "fecha_pago": "consequatur",
-    "monto_total": 11613.31890586,
-    "id_metodo_pago": 17,
-    "nro_comprobante": "consequatur",
-    "id_tasa_cambio": 17,
-    "id_entidad_bancaria": 17,
-    "estatus": 17,
-    "ordenes_compra": [
-        {
-            "id_orden_compra": 17,
-            "monto_asignado": 11613.31890586
-        }
-    ]
-};
+const body = new FormData();
+body.append('fecha_pago', 'consequatur');
+body.append('monto_total', '11613.31890586');
+body.append('id_metodo_pago', '17');
+body.append('nro_comprobante', 'consequatur');
+body.append('id_tasa_cambio', '17');
+body.append('id_entidad_bancaria', '17');
+body.append('estatus', '17');
+body.append('ordenes_compra[][id_orden_compra]', '17');
+body.append('ordenes_compra[][monto_asignado]', '11613.31890586');
+body.append('comprobante_pdf', document.querySelector('input[name="comprobante_pdf"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -16608,7 +16599,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <form id="form-POSTapi-pagos" data-method="POST"
       data-path="api/pagos"
       data-authed="1"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-pagos', this);">
@@ -16656,10 +16647,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi-pagos"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -16794,6 +16785,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                     </div>
                                     </details>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comprobante_pdf</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="comprobante_pdf"                data-endpoint="POSTapi-pagos"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>C:\Users\javir\AppData\Local\Temp\php5D0B.tmp</code></p>
+        </div>
         </form>
 
                     <h2 id="endpoints-GETapi-pagos--id-">Obtener un pago específico</h2>
@@ -16810,7 +16813,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos/1" \
+    --get "http://localhost/api/pagos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16818,7 +16821,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost/api/pagos/1"
 );
 
 const headers = {
@@ -16850,15 +16853,16 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
-    &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+    &quot;fecha_pago&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
     &quot;monto_total&quot;: &quot;260.00&quot;,
+    &quot;comprobante_pdf&quot;: null,
     &quot;id_metodo_pago&quot;: 1,
     &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;id_entidad_bancaria&quot;: 1,
     &quot;estatus&quot;: 6,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;ordenes_compra&quot;: [
         {
@@ -16867,8 +16871,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: &quot;260.00&quot;,
             &quot;monto_pagado&quot;: null,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         }
     ]
 }</code>
@@ -16986,7 +16990,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos/1" \
+    "http://localhost/api/pagos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17010,7 +17014,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost/api/pagos/1"
 );
 
 const headers = {
@@ -17282,7 +17286,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos/1" \
+    "http://localhost/api/pagos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17290,7 +17294,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost/api/pagos/1"
 );
 
 const headers = {
@@ -17421,7 +17425,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra" \
+    --get "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17429,7 +17433,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -17466,8 +17470,8 @@ access-control-allow-origin: *
         &quot;id_orden_compra&quot;: 1,
         &quot;monto_asignado&quot;: &quot;260.00&quot;,
         &quot;monto_pagado&quot;: null,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -17571,7 +17575,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-ordenes-compra" \
+    "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17586,7 +17590,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -17760,7 +17764,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    --get "http://localhost/api/pagos-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17768,7 +17772,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost/api/pagos-ordenes-compra/1"
 );
 
 const headers = {
@@ -17804,8 +17808,8 @@ access-control-allow-origin: *
     &quot;id_orden_compra&quot;: 1,
     &quot;monto_asignado&quot;: &quot;260.00&quot;,
     &quot;monto_pagado&quot;: null,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -17921,7 +17925,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    "http://localhost/api/pagos-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17934,7 +17938,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost/api/pagos-ordenes-compra/1"
 );
 
 const headers = {
@@ -18099,7 +18103,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    "http://localhost/api/pagos-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18107,7 +18111,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost/api/pagos-ordenes-compra/1"
 );
 
 const headers = {
@@ -18238,7 +18242,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores" \
+    --get "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18246,7 +18250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -18282,10 +18286,10 @@ access-control-allow-origin: *
         &quot;id_servicio&quot;: 1,
         &quot;monto&quot;: &quot;100.00&quot;,
         &quot;referencia&quot;: &quot;PP-0001&quot;,
-        &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
         &quot;id_metodo_pago&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -18389,7 +18393,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-proveedores" \
+    "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18405,7 +18409,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -18592,7 +18596,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores/1" \
+    --get "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18600,7 +18604,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -18635,10 +18639,10 @@ access-control-allow-origin: *
     &quot;id_servicio&quot;: 1,
     &quot;monto&quot;: &quot;100.00&quot;,
     &quot;referencia&quot;: &quot;PP-0001&quot;,
-    &quot;fecha_pago&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
+    &quot;fecha_pago&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
     &quot;id_metodo_pago&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -18754,7 +18758,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18770,7 +18774,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -18974,7 +18978,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18982,7 +18986,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -19113,7 +19117,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores" \
+    --get "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19121,7 +19125,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -19155,20 +19159,20 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;tipo_proveedor&quot;: &quot;logistica&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;tipo_proveedor&quot;: &quot;tecnologia&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -19272,7 +19276,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-proveedores" \
+    "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19284,7 +19288,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -19419,7 +19423,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores/1" \
+    --get "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19427,7 +19431,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -19460,8 +19464,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -19577,7 +19581,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19589,7 +19593,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -19741,7 +19745,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19749,7 +19753,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -19880,7 +19884,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores" \
+    --get "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19888,7 +19892,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -19931,12 +19935,12 @@ access-control-allow-origin: *
         &quot;tipo_proveedor&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         },
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_contribuyente&quot;: null
     }
@@ -20042,7 +20046,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/proveedores" \
+    "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20062,7 +20066,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -20301,7 +20305,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores/1" \
+    --get "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20309,7 +20313,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -20351,12 +20355,12 @@ access-control-allow-origin: *
     &quot;tipo_proveedor&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     &quot;estatus&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_contribuyente&quot;: null
 }</code>
@@ -20474,7 +20478,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20494,7 +20498,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -20750,7 +20754,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20758,7 +20762,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -20889,7 +20893,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio" \
+    --get "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20897,7 +20901,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -20933,8 +20937,8 @@ access-control-allow-origin: *
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 ]</code>
@@ -21039,7 +21043,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipo-servicio" \
+    "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21053,7 +21057,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -21214,7 +21218,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio/1" \
+    --get "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21222,7 +21226,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -21257,8 +21261,8 @@ access-control-allow-origin: *
     &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
     &quot;iva_defecto&quot;: null,
     &quot;id_proveedor&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null
 }</code>
  </pre>
@@ -21375,7 +21379,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21389,7 +21393,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -21568,7 +21572,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21576,7 +21580,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -21707,7 +21711,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas" \
+    --get "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21715,7 +21719,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -21751,40 +21755,40 @@ access-control-allow-origin: *
         &quot;codigo&quot;: &quot;USD_BCV&quot;,
         &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;codigo&quot;: &quot;EUR_BCV&quot;,
         &quot;nombre&quot;: &quot;Euro Oficial&quot;,
         &quot;simbolo&quot;: &quot;&euro;&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;codigo&quot;: &quot;BINANCE&quot;,
         &quot;nombre&quot;: &quot;Binance P2P&quot;,
         &quot;simbolo&quot;: &quot;USDT&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;codigo&quot;: &quot;PERSONALIZADA&quot;,
         &quot;nombre&quot;: &quot;Tasa Interna&quot;,
         &quot;simbolo&quot;: &quot;$&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -21888,7 +21892,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas" \
+    "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21900,7 +21904,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -22035,7 +22039,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas/1" \
+    --get "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22043,7 +22047,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -22078,8 +22082,8 @@ access-control-allow-origin: *
     &quot;codigo&quot;: &quot;USD_BCV&quot;,
     &quot;nombre&quot;: &quot;D&oacute;lar BCV&quot;,
     &quot;simbolo&quot;: &quot;$&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -22195,7 +22199,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -22207,7 +22211,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -22359,7 +22363,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22367,7 +22371,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -22498,7 +22502,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio" \
+    --get "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22506,7 +22510,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -22541,17 +22545,17 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;moneda_catalogo&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
             &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
             &quot;simbolo&quot;: &quot;Bs&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
         }
     }
 ]</code>
@@ -22656,7 +22660,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas-cambio" \
+    "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -22670,7 +22674,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -22831,7 +22835,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio/1" \
+    --get "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22839,7 +22843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -22873,17 +22877,17 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_tasa&quot;: 5,
     &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-    &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;moneda_catalogo&quot;: {
         &quot;id&quot;: 5,
         &quot;codigo&quot;: &quot;VES_BCV&quot;,
         &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
         &quot;simbolo&quot;: &quot;Bs&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 }</code>
  </pre>
@@ -23000,7 +23004,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -23014,7 +23018,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -23192,7 +23196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23200,7 +23204,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -23331,7 +23335,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios" \
+    --get "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23339,7 +23343,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -23383,16 +23387,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 8,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -23406,17 +23410,17 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     },
@@ -23433,16 +23437,16 @@ access-control-allow-origin: *
         &quot;iva_establecido&quot;: null,
         &quot;id_tasa_cambio&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
             &quot;iva_defecto&quot;: null,
             &quot;id_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;proveedor&quot;: {
@@ -23456,17 +23460,17 @@ access-control-allow-origin: *
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
             &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         &quot;tasa_cambio&quot;: {
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-            &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+            &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     }
@@ -23572,7 +23576,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/servicios" \
+    "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -23592,7 +23596,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -23831,7 +23835,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios/1" \
+    --get "http://localhost/api/servicios/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23839,7 +23843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost/api/servicios/1"
 );
 
 const headers = {
@@ -23882,16 +23886,16 @@ access-control-allow-origin: *
     &quot;iva_establecido&quot;: null,
     &quot;id_tasa_cambio&quot;: 1,
     &quot;estatus&quot;: 8,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
     &quot;deleted_at&quot;: null,
     &quot;tipo_servicio&quot;: {
         &quot;id&quot;: 1,
         &quot;tipo_servicio&quot;: &quot;consultoria&quot;,
         &quot;iva_defecto&quot;: null,
         &quot;id_proveedor&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;proveedor&quot;: {
@@ -23905,17 +23909,17 @@ access-control-allow-origin: *
         &quot;id_tipo_contribuyente&quot;: null,
         &quot;tipo_proveedor&quot;: 1,
         &quot;estatus&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     },
     &quot;tasa_cambio&quot;: {
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: &quot;36.5000&quot;,
-        &quot;fecha&quot;: &quot;2026-04-11T00:00:00.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
+        &quot;fecha&quot;: &quot;2026-04-12T00:00:00.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -24033,7 +24037,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/servicios/1" \
+    "http://localhost/api/servicios/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24049,7 +24053,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost/api/servicios/1"
 );
 
 const headers = {
@@ -24302,7 +24306,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/servicios/1" \
+    "http://localhost/api/servicios/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24310,7 +24314,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost/api/servicios/1"
 );
 
 const headers = {
@@ -24441,7 +24445,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades" \
+    --get "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24449,7 +24453,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -24483,26 +24487,26 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 1,
         &quot;temporalidad&quot;: &quot;Diario&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;temporalidad&quot;: &quot;Semanal&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;temporalidad&quot;: &quot;Mensual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;temporalidad&quot;: &quot;Anual&quot;,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -24606,7 +24610,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/temporalidades" \
+    "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24618,7 +24622,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -24753,7 +24757,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades/1" \
+    --get "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24761,7 +24765,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -24794,8 +24798,8 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;id&quot;: 1,
     &quot;temporalidad&quot;: &quot;Diario&quot;,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -24911,7 +24915,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24923,7 +24927,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -25075,7 +25079,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25083,7 +25087,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -25214,7 +25218,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas" \
+    --get "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25222,7 +25226,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -25259,8 +25263,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 3,
         &quot;cant_cotizaciones_pagadas&quot;: 2,
         &quot;id_temporalidad&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
@@ -25268,8 +25272,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 12,
         &quot;cant_cotizaciones_pagadas&quot;: 8,
         &quot;id_temporalidad&quot;: 2,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
@@ -25277,8 +25281,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 50,
         &quot;cant_cotizaciones_pagadas&quot;: 35,
         &quot;id_temporalidad&quot;: 3,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
@@ -25286,8 +25290,8 @@ access-control-allow-origin: *
         &quot;cant_cotizaciones_cerradas&quot;: 600,
         &quot;cant_cotizaciones_pagadas&quot;: 450,
         &quot;id_temporalidad&quot;: 4,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -25391,7 +25395,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas" \
+    "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25406,7 +25410,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -25580,7 +25584,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas/1" \
+    --get "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25588,7 +25592,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -25733,7 +25737,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25748,7 +25752,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -25939,7 +25943,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25947,7 +25951,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -26078,7 +26082,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal" \
+    --get "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26086,7 +26090,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -26121,29 +26125,29 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_meta&quot;: 1,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
         &quot;id_meta&quot;: 2,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
         &quot;id_meta&quot;: 3,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
         &quot;id_meta&quot;: 4,
         &quot;id_personal&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -26247,7 +26251,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas-personal" \
+    "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26263,7 +26267,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -26450,7 +26454,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal/1" \
+    --get "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26458,7 +26462,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -26492,8 +26496,8 @@ access-control-allow-origin: *
     &quot;id&quot;: 1,
     &quot;id_meta&quot;: 1,
     &quot;id_personal&quot;: 1,
-    &quot;created_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2026-04-11T20:11:58.000000Z&quot;
+    &quot;created_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2026-04-12T16:25:01.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -26609,7 +26613,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26625,7 +26629,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -26829,7 +26833,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26837,7 +26841,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -26968,13 +26972,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/logros-personal?id_personal=17&amp;tipo_entidad=consequatur&amp;id_entidad=17&amp;per_page=17" \
+    --get "http://localhost/api/logros-personal?id_personal=17&amp;tipo_entidad=consequatur&amp;id_entidad=17&amp;per_page=17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_personal\": 17,
-    \"tipo_entidad\": \"cotizacion\",
+    \"tipo_entidad\": \"orden_compra\",
     \"id_entidad\": 45,
     \"per_page\": 16
 }"
@@ -26983,7 +26987,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logros-personal"
+    "http://localhost/api/logros-personal"
 );
 
 const params = {
@@ -27003,7 +27007,7 @@ const headers = {
 
 let body = {
     "id_personal": 17,
-    "tipo_entidad": "cotizacion",
+    "tipo_entidad": "orden_compra",
     "id_entidad": 45,
     "per_page": 16
 };
@@ -27191,10 +27195,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="cotizacion"
+               value="orden_compra"
                data-component="body">
     <br>
-<p>Example: <code>cotizacion</code></p>
+<p>Example: <code>orden_compra</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>atencion</code></li> <li><code>cotizacion</code></li> <li><code>orden_compra</code></li></ul>
         </div>
@@ -27238,7 +27242,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;modo=consequatur" \
+    --get "http://localhost/api/audit-logs/export/csv?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;modo=consequatur" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27246,7 +27250,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs/export/csv"
+    "http://localhost/api/audit-logs/export/csv"
 );
 
 const params = {
@@ -27491,7 +27495,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;per_page=17" \
+    --get "http://localhost/api/audit-logs?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;per_page=17" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27499,7 +27503,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs"
+    "http://localhost/api/audit-logs"
 );
 
 const params = {
@@ -27741,7 +27745,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/session" \
+    "http://localhost/api/kiu/session" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27757,7 +27761,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/session"
+    "http://localhost/api/kiu/session"
 );
 
 const headers = {
@@ -27932,7 +27936,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/availability" \
+    "http://localhost/api/kiu/availability" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27950,7 +27954,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/availability"
+    "http://localhost/api/kiu/availability"
 );
 
 const headers = {
@@ -28151,7 +28155,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/pricing" \
+    "http://localhost/api/kiu/pricing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28167,7 +28171,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/pricing"
+    "http://localhost/api/kiu/pricing"
 );
 
 const headers = {
@@ -28342,7 +28346,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/booking" \
+    "http://localhost/api/kiu/booking" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28360,7 +28364,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/booking"
+    "http://localhost/api/kiu/booking"
 );
 
 const headers = {
@@ -28539,7 +28543,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/ticketing" \
+    "http://localhost/api/kiu/ticketing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28555,7 +28559,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/ticketing"
+    "http://localhost/api/kiu/ticketing"
 );
 
 const headers = {
@@ -28730,7 +28734,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/post-sale" \
+    "http://localhost/api/kiu/post-sale" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28747,7 +28751,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/post-sale"
+    "http://localhost/api/kiu/post-sale"
 );
 
 const headers = {
@@ -28935,7 +28939,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/admin-only" \
+    --get "http://localhost/api/admin-only" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28943,7 +28947,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/admin-only"
+    "http://localhost/api/admin-only"
 );
 
 const headers = {
