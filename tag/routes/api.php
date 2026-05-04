@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\ConfiguracionSistemaController;
+use App\Http\Controllers\CuentaPorPagarController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\KiuController;
@@ -32,6 +33,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PersonalEmpresaController;
 use App\Http\Controllers\Api\ContractController;
+use App\Http\Controllers\BroadcastingController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -47,19 +49,27 @@ Route::get('/status', function () {
 Route::get('/v1/contrato', [ContractController::class, 'download']);
 
 Route::middleware('auth:sanctum')->group(function () {
-            // Rutas de métricas
-            Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
-            Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
-        Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
+    // User profile: used by Next.js to silently refresh the session JWT
+    Route::get('/me', [AuthController::class, 'me']);
+
+    // Broadcasting channel auth: validated via routes/channels.php
+    Route::post('/broadcasting/auth', [BroadcastingController::class, 'auth']);
+
+    // Rutas de métricas
+    Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);
+    Route::get('metricas/generales', [\App\Http\Controllers\MetricasController::class, 'generales']);
+    Route::apiResource('entidades-bancarias', \App\Http\Controllers\EntidadBancariaController::class);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/register/personal', [AuthController::class, 'registerPersonal'])
-        ->middleware('role:admin');
+    ->middleware('role:admin');
 
     Route::apiResource('estatus', EstatusController::class);
     Route::apiResource('configuraciones-sistema', ConfiguracionSistemaController::class)
         ->parameters(['configuraciones-sistema' => 'configuracionSistema']);
     Route::apiResource('cuentas-proveedores', CuentaProveedorController::class)
         ->parameters(['cuentas-proveedores' => 'cuentaProveedor']);
+    Route::apiResource('cuentas-por-pagar', CuentaPorPagarController::class)
+        ->parameters(['cuentas-por-pagar' => 'cuentaPorPagar']);
     Route::apiResource('tipos-contribuyentes', TipoContribuyenteController::class)
         ->parameters(['tipos-contribuyentes' => 'tipoContribuyente']);
     Route::apiResource('clientes', ClienteController::class);

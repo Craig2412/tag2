@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MetodoPago;
+use App\Http\Resources\MetodoPagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class MetodoPagoController extends Controller
     public function index()
     {
         // Lista los metodos de pago y los devuelve en JSON.
-        return response()->json(MetodoPago::orderBy('id')->get());
+        return MetodoPagoResource::collection(MetodoPago::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class MetodoPagoController extends Controller
 
         $item = MetodoPago::create($data);
 
-        return response()->json($item, 201);
+        return new MetodoPagoResource($item);
     }
 
     /**
@@ -44,7 +45,7 @@ class MetodoPagoController extends Controller
     public function show(MetodoPago $metodoPago)
     {
         // Muestra un metodo de pago por id.
-        return response()->json($metodoPago);
+        return new MetodoPagoResource($metodoPago);
     }
 
     /**
@@ -66,7 +67,7 @@ class MetodoPagoController extends Controller
 
         $metodoPago->update($data);
 
-        return response()->json($metodoPago);
+        return new MetodoPagoResource($metodoPago);
     }
 
     /**
@@ -77,6 +78,6 @@ class MetodoPagoController extends Controller
         // Elimina el metodo de pago y confirma el resultado.
         $metodoPago->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

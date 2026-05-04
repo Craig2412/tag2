@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ConfiguracionSistema;
+use App\Http\Resources\ConfiguracionSistemaResource;
 use Illuminate\Http\Request;
 
 class ConfiguracionSistemaController extends Controller
@@ -15,7 +16,7 @@ class ConfiguracionSistemaController extends Controller
     public function index()
     {
         // Lista las configuraciones del sistema y las devuelve en JSON.
-        return response()->json(ConfiguracionSistema::orderBy('id')->get());
+        return ConfiguracionSistemaResource::collection(ConfiguracionSistema::orderBy('id')->get());
     }
 
     /**
@@ -34,7 +35,7 @@ class ConfiguracionSistemaController extends Controller
 
         $item = ConfiguracionSistema::create($data);
 
-        return response()->json($item, 201);
+        return new ConfiguracionSistemaResource($item);
     }
 
     /**
@@ -45,7 +46,7 @@ class ConfiguracionSistemaController extends Controller
     public function show(ConfiguracionSistema $configuracionSistema)
     {
         // Muestra una configuracion del sistema por id.
-        return response()->json($configuracionSistema);
+        return new ConfiguracionSistemaResource($configuracionSistema);
     }
 
     /**
@@ -64,7 +65,7 @@ class ConfiguracionSistemaController extends Controller
 
         $configuracionSistema->update($data);
 
-        return response()->json($configuracionSistema);
+        return new ConfiguracionSistemaResource($configuracionSistema);
     }
 
     /**
@@ -77,6 +78,6 @@ class ConfiguracionSistemaController extends Controller
         // Elimina una configuracion del sistema y confirma el resultado.
         $configuracionSistema->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

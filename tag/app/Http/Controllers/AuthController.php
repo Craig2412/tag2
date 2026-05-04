@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PermissionsUpdated;
 use App\Models\Estatus;
 use App\Models\Usuario;
 use App\Models\Cliente;
@@ -205,6 +206,27 @@ class AuthController extends Controller
         AuditLogger::logAuthEvent('LOGOUT', $request, $usuario, true, 'Logout exitoso', [], 200);
 
         return response()->json(['message' => 'Sesión cerrada correctamente']);
+    }
+
+    /**
+     * Get the authenticated user's current profile, roles, and permissions.
+     * Used by the Next.js frontend to silently refresh the session JWT.
+     */
+    public function me(Request $request)
+    {
+        $usuario = $request->user()->load(['roles', 'permissions']);
+        return response()->json(['usuario' => $usuario]);
+    }
+
+    /**
+     * Manually trigger a PermissionsUpdated broadcast for a user.
+     * Useful for testing and for admin interfaces that change roles.
+     *
+     * @param int $userId
+     */
+    public static function broadcastPermissionsChanged(int $userId): void
+    {
+        broadcast(new PermissionsUpdated($userId))->toOthers();
     }
 
     private function abilitiesFor(Usuario $usuario): array

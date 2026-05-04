@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tasa;
+use App\Http\Resources\TasaResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class TasaController extends Controller
     public function index()
     {
         // Lista las tasas y las devuelve en JSON.
-        return response()->json(Tasa::orderBy('id')->get());
+        return TasaResource::collection(Tasa::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class TasaController extends Controller
 
         $item = Tasa::create($data);
 
-        return response()->json($item, 201);
+        return new TasaResource($item);
     }
 
     /**
@@ -44,7 +45,7 @@ class TasaController extends Controller
     public function show(Tasa $tasa)
     {
         // Muestra una tasa por id.
-        return response()->json($tasa);
+        return new TasaResource($tasa);
     }
 
     /**
@@ -66,7 +67,7 @@ class TasaController extends Controller
 
         $tasa->update($data);
 
-        return response()->json($tasa);
+        return new TasaResource($tasa);
     }
 
     /**
@@ -77,6 +78,6 @@ class TasaController extends Controller
         // Elimina la tasa y confirma el resultado.
         $tasa->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

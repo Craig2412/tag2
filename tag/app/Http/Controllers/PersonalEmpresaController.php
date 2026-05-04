@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PersonalEmpresa;
 use App\Models\Personal;
+use App\Http\Resources\PersonalEmpresaResource;
 use Illuminate\Http\Request;
 
 class PersonalEmpresaController extends Controller
@@ -16,7 +17,7 @@ class PersonalEmpresaController extends Controller
     public function index()
     {
         // Lista los enlaces personal-empresa y los devuelve en JSON.
-        return response()->json(PersonalEmpresa::orderBy('id')->get());
+        return PersonalEmpresaResource::collection(PersonalEmpresa::orderBy('id')->get());
     }
 
     /**
@@ -41,7 +42,7 @@ class PersonalEmpresaController extends Controller
 
         $item = PersonalEmpresa::create($data);
 
-        return response()->json($item, 201);
+        return new PersonalEmpresaResource($item);
     }
 
     /**
@@ -52,7 +53,7 @@ class PersonalEmpresaController extends Controller
     public function show(PersonalEmpresa $personalEmpresa)
     {
         // Muestra un enlace personal-empresa por id.
-        return response()->json($personalEmpresa);
+        return new PersonalEmpresaResource($personalEmpresa);
     }
 
     /**
@@ -78,7 +79,7 @@ class PersonalEmpresaController extends Controller
 
         $personalEmpresa->update($data);
 
-        return response()->json($personalEmpresa);
+        return new PersonalEmpresaResource($personalEmpresa);
     }
 
     /**
@@ -89,6 +90,6 @@ class PersonalEmpresaController extends Controller
         // Elimina el enlace personal-empresa y confirma el resultado.
         $personalEmpresa->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

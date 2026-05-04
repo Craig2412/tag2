@@ -6,6 +6,7 @@ use App\Models\Estatus;
 use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
+use App\Http\Resources\PagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,7 @@ class PagoController extends Controller
     public function index()
     {
         $items = Pago::orderBy('id')->get();
-        return response()->json($items);
+        return PagoResource::collection($items);
     }
 
     /**
@@ -98,7 +99,7 @@ class PagoController extends Controller
             return $pago;
         });
 
-        return response()->json($pago, 201);
+        return new PagoResource($pago);
     }
 
     /**
@@ -106,7 +107,7 @@ class PagoController extends Controller
      */
     public function show(Pago $pago)
     {
-        return response()->json($pago->load('ordenesCompra'));
+        return new PagoResource($pago->load('ordenesCompra'));
     }
 
     /**
@@ -178,21 +179,31 @@ class PagoController extends Controller
             }
         });
 
-        return response()->json($pago->fresh('ordenesCompra'));
+        return new PagoResource($pago->fresh()->load('ordenesCompra'));
     }
 
     /**
      * Eliminar un pago
+     *
+     * El orden es crítico:
+     * 1. Eliminar los pivotes PRIMERO → el PagoOrdenCompraObserver recalcula el
+     *    estado_financiero de cada OrdenCompra con el pago todavía visible (softDeletes).
+     * 2. Soft-delete del pago DESPUÉS → ya no afecta los recálculos.
+     * Todo en una transacción para garantizar atomicidad.
      */
     public function destroy(Pago $pago)
     {
-        // Al ejecutar ->delete(), los eventos Eloquent en Cascada o manuales deben ser manejados
-        $pago->delete();
+        DB::transaction(function () use ($pago) {
+            // 1. Eliminar pivotes → dispara PagoOrdenCompraObserver::deleted()
+            //    En este momento el pago padre aún NO está soft-deleted,
+            //    por lo que el Observer puede leer correctamente los montos vigentes.
+            PagoOrdenCompra::where('id_pago', $pago->id)->each(fn ($pivote) => $pivote->delete());
 
-        // Eliminar pivotes para que la Máquina de Estados se corrija.
-        PagoOrdenCompra::where('id_pago', $pago->id)->delete();
+            // 2. Soft-delete del pago padre
+            $pago->delete();
+        });
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 
     private function totalServiciosOrdenCompra(int $idOrdenCompra): float

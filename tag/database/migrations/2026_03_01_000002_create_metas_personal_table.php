@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_meta')->constrained('metas');
             $table->foreignId('id_personal')->constrained('personal');
+            $table->boolean('es_recurrente')->default(true)->comment('Si es true, se reinicia automáticamente cada periodo');
             $table->timestamps();
 
             $table->unique(['id_meta', 'id_personal']);

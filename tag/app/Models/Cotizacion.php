@@ -30,6 +30,11 @@ class Cotizacion extends Model
         'fecha_vencimiento' => 'date',
     ];
 
+    protected $dispatchesEvents = [
+        'saved' => \App\Events\CotizacionGuardado::class,
+        'deleted' => \App\Events\CotizacionGuardado::class,
+    ];
+
     // Expone campos calculados en el JSON automáticamente
     protected $appends = ['esta_vencida'];
 

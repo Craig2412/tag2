@@ -19,6 +19,7 @@ class OrdenCompra extends Model
         'id_cotizacion',
         'estatus', // Estatus Operativo
         'id_estado_financiero', // Relacion catalogo
+        'id_estado_financiero_egreso', // Nuevo: Relación para egresos (proveedores)
         'monto_total',
     ];
 
@@ -45,6 +46,18 @@ class OrdenCompra extends Model
     public function estadoFinanciero(): BelongsTo
     {
         return $this->belongsTo(EstadoFinanciero::class, 'id_estado_financiero');
+    }
+
+    // Devuelve el estado financiero de egresos (pagos a proveedores).
+    public function estadoFinancieroEgreso(): BelongsTo
+    {
+        return $this->belongsTo(EstadoFinanciero::class, 'id_estado_financiero_egreso');
+    }
+
+    // Lista las cuentas por pagar asociadas a esta orden.
+    public function cuentasPorPagar(): HasMany
+    {
+        return $this->hasMany(CuentaPorPagar::class, 'id_orden_compra');
     }
 
     // Lista los pagos asignados a esta orden.

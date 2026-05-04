@@ -6,6 +6,9 @@ use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
+use App\Http\Resources\CotizacionResource;
+use App\Events\CotizacionEstatusActualizado;
+use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +26,7 @@ class CotizacionController extends Controller
             ->get()
             ->values();
 
-        return response()->json($items);
+        return CotizacionResource::collection($items);
     }
 
     /**
@@ -70,8 +73,7 @@ class CotizacionController extends Controller
         ]);
 
         return DB::transaction(function () use ($data) {
-            $estatus = Estatus::firstOrCreate(['estatus' => 'por confirmar']);
-            $data['estatus'] = $estatus->id;
+            $data['estatus'] = EstatusResolver::idOrFail('por confirmar');
 
             $item = Cotizacion::create($data);
 
@@ -82,7 +84,15 @@ class CotizacionController extends Controller
                 }
             }
 
-            return response()->json($item->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'servicios']), 201);
+            // Registrar estatus inicial en el historial
+            event(new CotizacionEstatusActualizado(
+                cotizacion: $item,
+                estatusAnterior: null,
+                estatusNuevo: $item->estatus,
+                comentario: 'Cotización creada',
+            ));
+
+            return new CotizacionResource($item->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'servicios']));
         });
     }
 
@@ -91,7 +101,7 @@ class CotizacionController extends Controller
      */
     public function show(Cotizacion $cotizacion)
     {
-        return response()->json($cotizacion->load(['ordenCompra', 'tasaCambio']));
+        return new CotizacionResource($cotizacion->load(['ordenCompra', 'tasaCambio']));
     }
 
     /**
@@ -137,18 +147,18 @@ class CotizacionController extends Controller
             'servicios.*.id_tasa_cambio' => ['required_with:servicios', 'exists:tasas_cambio,id'],
         ]);
 
-        $estatusPorConfirmar = Estatus::firstOrCreate(['estatus' => 'por confirmar']);
-        $estatusConfirmado = Estatus::firstOrCreate(['estatus' => 'confirmado']);
+        $idPorConfirmar = EstatusResolver::idOrFail('por confirmar');
+        $idConfirmado   = EstatusResolver::idOrFail('confirmado');
 
-        if (isset($data['estatus']) && !in_array($data['estatus'], [$estatusPorConfirmar->id, $estatusConfirmado->id], true)) {
+        if (isset($data['estatus']) && !in_array($data['estatus'], [$idPorConfirmar, $idConfirmado], true)) {
             return response()->json(['message' => 'La cotización solo admite estatus por confirmar o confirmado'], 422);
         }
 
-        return DB::transaction(function () use ($data, $cotizacion, $estatusConfirmado, $estatusPorConfirmar) {
+        return DB::transaction(function () use ($data, $cotizacion, $idConfirmado, $idPorConfirmar) {
             $estatusActual = (int) $cotizacion->getRawOriginal('estatus');
             $estatusNuevo = $data['estatus'] ?? $estatusActual;
 
-            if ($estatusActual === $estatusConfirmado->id && $estatusNuevo === $estatusPorConfirmar->id) {
+            if ($estatusActual === $idConfirmado && $estatusNuevo === $idPorConfirmar) {
                 // No lanzamos excepcion aqui para el transaction, sino respuesta directa
                 abort(422, 'Una cotización confirmada no puede devolverse a por confirmar');
             }
@@ -176,26 +186,24 @@ class CotizacionController extends Controller
 
             // --- Registro de Historial ---
             if (isset($data['estatus']) && $data['estatus'] != $estatusActual) {
-                \App\Models\CotizacionHistorial::create([
-                    'cotizacion_id' => $cotizacion->id,
-                    'estatus_anterior' => $estatusActual,
-                    'estatus_nuevo' => $data['estatus'],
-                    'usuario_id' => auth()->id(),
-                    'comentario' => 'Cambio de estatus desde API',
-                ]);
+                event(new CotizacionEstatusActualizado(
+                    cotizacion: $cotizacion,
+                    estatusAnterior: $estatusActual,
+                    estatusNuevo: $data['estatus'],
+                ));
             }
 
             // --- MÁQUINA DE ESTADOS / DISPARADOR DE ORDEN COMPRA ---
-            if ($estatusNuevo === $estatusConfirmado->id) {
-                $estatusOperativo = Estatus::firstOrCreate(['estatus' => 'Pendiente Procesamiento']);
+            if ($estatusNuevo === $idConfirmado) {
+                $estatusOperativo = EstatusResolver::id('Pendiente Procesamiento');
                 $estadoFinancieroPendiente = \App\Models\EstadoFinanciero::where('slug', 'pendiente')->first()?->id ?? 1;
                 
                 OrdenCompra::updateOrCreate(
                     ['id_cotizacion' => $cotizacion->id],
                     [
-                        'estatus' => $estatusOperativo->id,
+                        'estatus'              => $estatusOperativo,
                         'id_estado_financiero' => $estadoFinancieroPendiente,
-                        'monto_total' => 0,
+                        'monto_total'          => 0,
                     ]
                 );
             }
@@ -204,7 +212,7 @@ class CotizacionController extends Controller
             $ordenCompra = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
             $ordenCompra?->recalcularMontoTotal();
 
-            return response()->json($cotizacion->fresh()->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'ordenCompra', 'servicios']));
+            return new CotizacionResource($cotizacion->fresh()->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'ordenCompra', 'servicios']));
         });
     }
 
@@ -214,6 +222,6 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         $cotizacion->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

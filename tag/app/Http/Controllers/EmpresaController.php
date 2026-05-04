@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use App\Http\Resources\EmpresaResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class EmpresaController extends Controller
     public function index()
     {
         // Lista las empresas y las devuelve en JSON.
-        return response()->json(Empresa::orderBy('id')->get());
+        return EmpresaResource::collection(Empresa::orderBy('id')->get());
     }
 
     /**
@@ -48,7 +49,7 @@ class EmpresaController extends Controller
         $item = Empresa::create($data);
         $item->load(['tipoContribuyente']);
 
-        return response()->json($item, 201);
+        return new EmpresaResource($item);
     }
 
     /**
@@ -59,7 +60,7 @@ class EmpresaController extends Controller
     public function show(Empresa $empresa)
     {
         // Muestra una empresa por id.
-        return response()->json($empresa);
+        return new EmpresaResource($empresa);
     }
 
     /**
@@ -97,7 +98,7 @@ class EmpresaController extends Controller
         $empresa->update($data);
         $empresa->load(['tipoContribuyente']);
 
-        return response()->json($empresa);
+        return new EmpresaResource($empresa);
     }
 
     /**
@@ -110,6 +111,6 @@ class EmpresaController extends Controller
         // Elimina la empresa y confirma el resultado.
         $empresa->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

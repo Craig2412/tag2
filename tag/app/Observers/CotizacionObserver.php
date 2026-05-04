@@ -13,9 +13,7 @@ class CotizacionObserver
      */
     public function saved(Cotizacion $cotizacion): void
     {
-        if ($atencion = Atencion::find($cotizacion->id_atencion)) {
-            EstadoFaseService::sincronizarFaseAtencion($atencion);
-        }
+        event(new \App\Events\CotizacionGuardado($cotizacion));
     }
 
     /**
@@ -23,8 +21,6 @@ class CotizacionObserver
      */
     public function deleted(Cotizacion $cotizacion): void
     {
-        if ($atencion = Atencion::find($cotizacion->id_atencion)) {
-            EstadoFaseService::sincronizarFaseAtencion($atencion);
-        }
+        event(new \App\Events\CotizacionGuardado($cotizacion));
     }
 }

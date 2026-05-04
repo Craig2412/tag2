@@ -39,7 +39,11 @@ class EstadoFaseService
 
         // 3. Sincronizar físicamente en la BD si hubo un cambio
         if ($atencion->id_etapa_comercial !== $etapa->id) {
+            $etapaAnterior = $atencion->id_etapa_comercial;
             $atencion->updateQuietly(['id_etapa_comercial' => $etapa->id]);
+            
+            // Disparar evento para registrar historial
+            event(new \App\Events\AtencionEtapaCambiada($atencion, $etapaAnterior, $etapa->id));
         }
     }
 
@@ -69,6 +73,36 @@ class EstadoFaseService
         // 3. Sincronizar físicamente en la BD si hubo un cambio
         if ($orden->id_estado_financiero !== $estado->id) {
             $orden->updateQuietly(['id_estado_financiero' => $estado->id]);
+        }
+    }
+
+    /**
+     * Evalúa los pagos realizados a proveedores y le asigna el estado de egreso correcto.
+     */
+    public static function sincronizarEstadoEgreso(OrdenCompra $orden): void
+    {
+        $cuentas = $orden->cuentasPorPagar;
+        
+        if ($cuentas->isEmpty()) {
+            // Si no hay cuentas por pagar aún, lo dejamos como pendiente
+            $slugEstado = 'pendiente';
+        } else {
+            $montoTotalDeuda = $cuentas->sum('monto_total');
+            $saldoPendienteTotal = $cuentas->sum('saldo_pendiente');
+
+            if ($saldoPendienteTotal <= 0) {
+                $slugEstado = 'pagado';
+            } elseif ($saldoPendienteTotal >= $montoTotalDeuda) {
+                $slugEstado = 'pendiente';
+            } else {
+                $slugEstado = 'parcial';
+            }
+        }
+
+        $estado = EstadoFinanciero::where('slug', $slugEstado)->first();
+
+        if ($estado && $orden->id_estado_financiero_egreso !== $estado->id) {
+            $orden->updateQuietly(['id_estado_financiero_egreso' => $estado->id]);
         }
     }
 }

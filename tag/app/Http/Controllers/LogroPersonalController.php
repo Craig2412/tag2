@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LogroPersonal;
+use App\Http\Resources\LogroPersonalResource;
 use Illuminate\Http\Request;
 
 class LogroPersonalController extends Controller
@@ -44,6 +45,6 @@ class LogroPersonalController extends Controller
 
         $perPage = $data['per_page'] ?? 50;
 
-        return response()->json($query->paginate($perPage));
+        return LogroPersonalResource::collection($query->paginate($perPage));
     }
 }

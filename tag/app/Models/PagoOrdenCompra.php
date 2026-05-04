@@ -19,6 +19,11 @@ class PagoOrdenCompra extends Model
         'monto_pagado',
     ];
 
+    protected $dispatchesEvents = [
+        'saved' => \App\Events\PagoOrdenCompraGuardado::class,
+        'deleted' => \App\Events\PagoOrdenCompraGuardado::class,
+    ];
+
     // Devuelve el pago asociado.
     public function pago(): BelongsTo
     {

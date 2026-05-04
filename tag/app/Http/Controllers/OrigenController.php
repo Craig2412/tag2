@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Origen;
+use App\Http\Resources\OrigenResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class OrigenController extends Controller
     public function index()
     {
         // Lista los orígenes y los devuelve en JSON.
-        return response()->json(Origen::orderBy('id')->get());
+        return OrigenResource::collection(Origen::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class OrigenController extends Controller
 
         $origen = Origen::create($data);
 
-        return response()->json($origen, 201);
+        return new OrigenResource($origen);
     }
 
     /**
@@ -44,7 +45,7 @@ class OrigenController extends Controller
     public function show(Origen $origen)
     {
         // Muestra un origen por id.
-        return response()->json($origen);
+        return new OrigenResource($origen);
     }
 
     /**
@@ -66,7 +67,7 @@ class OrigenController extends Controller
 
         $origen->update($data);
 
-        return response()->json($origen);
+        return new OrigenResource($origen);
     }
 
     /**
@@ -77,6 +78,6 @@ class OrigenController extends Controller
         // Elimina el origen y confirma el resultado.
         $origen->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

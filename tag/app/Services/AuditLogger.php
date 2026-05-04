@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Jobs\PersistirAuditLog;
 use App\Models\AuditLog;
 use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
@@ -112,22 +113,24 @@ class AuditLogger
         ?int $statusCode = null
     ): void
     {
+        // Auth events son siempre síncronos: se deben persistir en el mismo request
+        // (login fallido, token inválido, etc. deben quedar registrados inmediatamente)
         self::write([
-            'usuario_id' => $usuario?->id,
-            'user_role' => $usuario?->roles()->pluck('name')->implode(',') ?: null,
-            'action' => $action,
-            'table_name' => 'usuarios',
-            'record_id' => $usuario?->id,
+            'usuario_id'  => $usuario?->id,
+            'user_role'   => $usuario?->roles()->pluck('name')->implode(',') ?: null,
+            'action'      => $action,
+            'table_name'  => 'usuarios',
+            'record_id'   => $usuario?->id,
             'before_data' => null,
-            'after_data' => self::sanitizeArray($afterData),
-            'ip_address' => $request->ip(),
-            'user_agent' => $request->userAgent(),
-            'route' => $request->path(),
+            'after_data'  => self::sanitizeArray($afterData),
+            'ip_address'  => $request->ip(),
+            'user_agent'  => $request->userAgent(),
+            'route'       => $request->path(),
             'http_method' => $request->method(),
             'status_code' => $statusCode,
-            'success' => $success,
-            'message' => $message,
-        ]);
+            'success'     => $success,
+            'message'     => $message,
+        ], async: false);
     }
 
     private static function shouldAuditModel(Model $model): bool
@@ -159,27 +162,33 @@ class AuditLogger
         return $data;
     }
 
-    private static function write(array $data): void
+    private static function write(array $data, bool $async = true): void
     {
         $request = request();
-        $actor = Auth::user();
+        $actor   = Auth::user();
 
         $payload = array_merge([
-            'usuario_id' => $actor?->id,
-            'user_role' => $actor?->roles()->pluck('name')->implode(',') ?: null,
-            'table_name' => null,
-            'record_id' => null,
+            'usuario_id'  => $actor?->id,
+            'user_role'   => $actor?->roles()->pluck('name')->implode(',') ?: null,
+            'table_name'  => null,
+            'record_id'   => null,
             'before_data' => null,
-            'after_data' => null,
-            'ip_address' => $request?->ip(),
-            'user_agent' => $request?->userAgent(),
-            'route' => $request?->path(),
+            'after_data'  => null,
+            'ip_address'  => $request?->ip(),
+            'user_agent'  => $request?->userAgent(),
+            'route'       => $request?->path(),
             'http_method' => $request?->method(),
             'status_code' => null,
-            'success' => true,
-            'message' => null,
+            'success'     => true,
+            'message'     => null,
         ], $data);
 
-        AuditLog::create($payload);
+        if ($async) {
+            // CRUD models → queue async: no bloquea el request HTTP
+            PersistirAuditLog::dispatch($payload);
+        } else {
+            // Auth events → síncrono: deben persistirse incluso si el request falla
+            AuditLog::create($payload);
+        }
     }
 }

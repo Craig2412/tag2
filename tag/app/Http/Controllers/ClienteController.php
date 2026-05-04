@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Estatus;
+use App\Services\ClienteService;
+use App\Http\Resources\ClienteResource;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ClienteController extends Controller
 {
@@ -25,7 +28,7 @@ class ClienteController extends Controller
             }
         }
 
-        return response()->json($query->orderBy('id')->get());
+        return ClienteResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -40,7 +43,7 @@ class ClienteController extends Controller
      * @bodyParam id_tipo_contribuyente int ID tipo contribuyente. Ejemplo: 1
      * @bodyParam id_estatus int ID estatus. Ejemplo: 1
      */
-    public function store(Request $request)
+    public function store(Request $request, ClienteService $service)
     {
         $data = $request->validate([
             'usuario_id' => ['nullable', 'exists:usuarios,id'],
@@ -51,6 +54,15 @@ class ClienteController extends Controller
             'correo_contacto' => ['nullable', 'email', 'max:255'],
             'id_tipo_contribuyente' => ['nullable', 'exists:tipos_contribuyentes,id'],
             'id_estatus' => ['nullable', 'exists:estatus,id'],
+
+            // Datos anidados del usuario
+            'usuario' => ['sometimes', 'array'],
+            'usuario.nombre_usuario' => ['required_with:usuario', 'string', 'max:255', 'unique:usuarios,nombre_usuario'],
+            'usuario.correo' => ['required_with:usuario', 'email', 'unique:usuarios,correo'],
+            'usuario.clave' => ['required_with:usuario', 'string', 'min:8'],
+            'usuario.esta_activo' => ['sometimes', 'boolean'],
+            'usuario.roles' => ['sometimes', 'array'],
+            'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
         if (!isset($data['id_estatus'])) {
@@ -58,9 +70,14 @@ class ClienteController extends Controller
             $data['id_estatus'] = $estatusActivo?->id;
         }
 
-        $item = Cliente::create($data);
-
-        return response()->json($item->load(['usuario', 'tipoContribuyente']), 201);
+        try {
+            $item = $service->createCliente($data);
+            return (new ClienteResource($item->load(['usuario', 'tipoContribuyente'])))
+                ->response()
+                ->setStatusCode(201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al crear cliente: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -68,7 +85,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return response()->json($cliente->load(['usuario', 'tipoContribuyente']));
+        return new ClienteResource($cliente->load(['usuario', 'tipoContribuyente']));
     }
 
     /**
@@ -83,7 +100,7 @@ class ClienteController extends Controller
      * @bodyParam id_tipo_contribuyente int ID tipo contribuyente. Ejemplo: 1
      * @bodyParam id_estatus int ID estatus. Ejemplo: 1
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Cliente $cliente, ClienteService $service)
     {
         $data = $request->validate([
             'usuario_id' => ['sometimes', 'nullable', 'exists:usuarios,id'],
@@ -94,11 +111,29 @@ class ClienteController extends Controller
             'correo_contacto' => ['sometimes', 'nullable', 'email', 'max:255'],
             'id_tipo_contribuyente' => ['sometimes', 'nullable', 'exists:tipos_contribuyentes,id'],
             'id_estatus' => ['sometimes', 'nullable', 'exists:estatus,id'],
+
+            // Datos anidados del usuario
+            'usuario' => ['sometimes', 'array'],
+            'usuario.nombre_usuario' => [
+                'sometimes', 'string', 'max:255', 
+                $cliente->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($cliente->usuario_id) : ''
+            ],
+            'usuario.correo' => [
+                'sometimes', 'email', 
+                $cliente->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($cliente->usuario_id) : ''
+            ],
+            'usuario.clave' => ['sometimes', 'nullable', 'string', 'min:8'],
+            'usuario.esta_activo' => ['sometimes', 'boolean'],
+            'usuario.roles' => ['sometimes', 'array'],
+            'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
-        $cliente->update($data);
-
-        return response()->json($cliente->load(['usuario', 'tipoContribuyente']));
+        try {
+            $updatedCliente = $service->updateCliente($cliente, $data);
+            return new ClienteResource($updatedCliente->load(['usuario', 'tipoContribuyente']));
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al actualizar cliente: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -107,6 +142,6 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

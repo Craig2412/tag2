@@ -4,92 +4,121 @@ namespace App\Http\Controllers;
 
 use App\Models\Estatus;
 use App\Models\PagoProveedor;
-use App\Models\Servicio;
+use App\Models\CuentaPorPagar;
+use App\Http\Resources\PagoProveedorResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Events\PagoProveedorCreado;
+use App\Events\PagoProveedorEliminado;
 
 class PagoProveedorController extends Controller
 {
     /**
      * Listar todos los pagos a proveedores
-     *
-     * Devuelve el historial de pagos realizados a proveedores por la prestación de servicios.
      */
     public function index()
     {
-        // Lista los pagos a proveedores y los devuelve en JSON.
-        return response()->json(PagoProveedor::orderBy('id')->get());
+        return PagoProveedorResource::collection(PagoProveedor::with(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar'])->orderBy('id', 'desc')->get());
     }
 
     /**
-     * Registrar un pago a proveedor
-     * 
-     * @bodyParam id_servicio int required ID del servicio que se está pagando. Ejemplo: 1
-     * @bodyParam monto number required Monto abonado al proveedor. Ejemplo: 250.00
-     * @bodyParam referencia string required Referencia o comprobante del pago. Ejemplo: REF-12345
-     * @bodyParam fecha_pago date required Fecha de realización del pago. Ejemplo: 2026-04-03
-     * @bodyParam id_metodo_pago int required ID del método de pago utilizado. Ejemplo: 2
+     * Registrar un pago a proveedor y asociarlo a cuentas por pagar
      */
     public function store(Request $request)
     {
-        // Registra un pago y actualiza el estatus del servicio si se completa el pago total.
         $data = $request->validate([
-            'id_servicio' => ['required', 'exists:servicios,id'],
-            'monto' => ['required', 'numeric', 'min:0.01'],
+            'id_proveedor' => ['required', 'exists:proveedores,id'],
+            'monto_total' => ['required', 'numeric', 'min:0.01'],
+            'id_tasa_cambio' => ['nullable', 'exists:tasas_cambio,id'],
             'referencia' => ['required', 'string', 'max:255'],
             'fecha_pago' => ['required', 'date'],
             'id_metodo_pago' => ['required', 'exists:metodos_pago,id'],
+            'estatus' => ['required', 'exists:estatus,id'],
+            'comprobante' => ['nullable', 'string'],
+            
+            // Relación con cuentas por pagar
+            'cuentas' => ['nullable', 'array'],
+            'cuentas.*.id_cuenta_por_pagar' => ['required', 'exists:cuentas_por_pagar,id'],
+            'cuentas.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
         ]);
 
-        $this->validarMontoServicio($data['id_servicio'], $data['monto']);
+        // Verificar que el monto total coincida con la suma de montos asignados si se enviaron cuentas
+        if (!empty($data['cuentas'])) {
+            $sumaAsignada = collect($data['cuentas'])->sum('monto_asignado');
+            // Validar con una pequeña tolerancia por redondeo si es necesario
+            if (abs($sumaAsignada - $data['monto_total']) > 0.01) {
+                return response()->json([
+                    'message' => 'La suma de los montos asignados a las cuentas no coincide con el monto total del pago.'
+                ], 422);
+            }
+        }
 
-        $pago = PagoProveedor::create($data);
+        try {
+            $pago = DB::transaction(function () use ($data) {
+                // 1. Crear el pago
+                $pago = PagoProveedor::create([
+                    'id_proveedor'   => $data['id_proveedor'],
+                    'monto_total'    => $data['monto_total'],
+                    'id_tasa_cambio' => $data['id_tasa_cambio'] ?? null,
+                    'referencia'     => $data['referencia'],
+                    'fecha_pago'     => $data['fecha_pago'],
+                    'id_metodo_pago' => $data['id_metodo_pago'],
+                    'estatus'        => $data['estatus'],
+                    'comprobante'    => $data['comprobante'] ?? null,
+                ]);
 
-        $this->actualizarEstatusServicio($data['id_servicio']);
+                // 2. Asociar a cuentas por pagar si se proporcionaron
+                if (!empty($data['cuentas'])) {
+                    $syncData = [];
+                    foreach ($data['cuentas'] as $cuenta) {
+                        $syncData[$cuenta['id_cuenta_por_pagar']] = ['monto_asignado' => $cuenta['monto_asignado']];
+                    }
+                    $pago->cuentasPorPagar()->sync($syncData);
+                }
 
-        return response()->json($pago, 201);
+                // 3. Disparar el evento de creación (los listeners se encargan de amortizar y sincronizar)
+                event(new PagoProveedorCreado($pago));
+
+                return $pago;
+            });
+
+            $pago->load(['proveedor', 'cuentasPorPagar']);
+            return new PagoProveedorResource($pago);
+
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al registrar el pago: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
      * Obtener un pago a proveedor específico
-     *
-     * Devuelve los detalles de un pago a proveedor por su ID.
      */
     public function show(PagoProveedor $pagoProveedor)
     {
-        // Muestra un pago a proveedor por id.
-        return response()->json($pagoProveedor);
+        $pagoProveedor->load(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar']);
+        return new PagoProveedorResource($pagoProveedor);
     }
 
     /**
      * Actualizar un pago a proveedor
-     * 
-     * @bodyParam id_servicio int ID del servicio.
-     * @bodyParam monto number Monto abonado.
-     * @bodyParam referencia string Referencia del pago.
-     * @bodyParam fecha_pago date Fecha del pago.
-     * @bodyParam id_metodo_pago int ID del método de pago.
      */
     public function update(Request $request, PagoProveedor $pagoProveedor)
     {
-        // Actualiza un pago y recalcula el estatus del servicio afectado.
         $data = $request->validate([
-            'id_servicio' => ['sometimes', 'required', 'exists:servicios,id'],
-            'monto' => ['sometimes', 'required', 'numeric', 'min:0.01'],
+            'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
+            'monto_total' => ['sometimes', 'required', 'numeric', 'min:0.01'],
+            'id_tasa_cambio' => ['sometimes', 'nullable', 'exists:tasas_cambio,id'],
             'referencia' => ['sometimes', 'required', 'string', 'max:255'],
             'fecha_pago' => ['sometimes', 'required', 'date'],
             'id_metodo_pago' => ['sometimes', 'required', 'exists:metodos_pago,id'],
+            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'comprobante' => ['sometimes', 'nullable', 'string'],
         ]);
 
-        $idServicio = $data['id_servicio'] ?? $pagoProveedor->id_servicio;
-        $nuevoMonto = $data['monto'] ?? $pagoProveedor->monto;
-
-        $this->validarMontoServicio($idServicio, $nuevoMonto, $pagoProveedor->id);
-
         $pagoProveedor->update($data);
+        $pagoProveedor->load(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar']);
 
-        $this->actualizarEstatusServicio($idServicio);
-
-        return response()->json($pagoProveedor);
+        return new PagoProveedorResource($pagoProveedor);
     }
 
     /**
@@ -97,48 +126,19 @@ class PagoProveedorController extends Controller
      */
     public function destroy(PagoProveedor $pagoProveedor)
     {
-        // Elimina el pago y recalcula el estatus del servicio.
-        $idServicio = $pagoProveedor->id_servicio;
+        try {
+            DB::transaction(function () use ($pagoProveedor) {
+                // Disparamos el evento ANTES de eliminar el pago para que el listener pueda leer las relaciones
+                event(new PagoProveedorEliminado($pagoProveedor));
 
-        $pagoProveedor->delete();
+                // Eliminar relaciones pivot y el pago
+                $pagoProveedor->cuentasPorPagar()->detach();
+                $pagoProveedor->delete();
+            });
 
-        $this->actualizarEstatusServicio($idServicio);
-
-        return response()->json(['message' => 'Eliminado correctamente']);
-    }
-
-    private function validarMontoServicio(int $idServicio, float $monto, ?int $ignoreId = null): void
-    {
-        $servicio = Servicio::find($idServicio);
-
-        if (!$servicio) {
-            abort(422, 'Servicio no encontrado');
-        }
-
-        $totalPagado = PagoProveedor::where('id_servicio', $idServicio)
-            ->when($ignoreId, function ($query) use ($ignoreId) {
-                $query->where('id', '!=', $ignoreId);
-            })
-            ->sum('monto');
-
-        if (($totalPagado + $monto) > $servicio->total_servicio) {
-            abort(422, 'El monto supera el total del servicio');
-        }
-    }
-
-    private function actualizarEstatusServicio(int $idServicio): void
-    {
-        $servicio = Servicio::find($idServicio);
-
-        if (!$servicio) {
-            return;
-        }
-
-        $totalPagado = PagoProveedor::where('id_servicio', $idServicio)->sum('monto');
-
-        if ($totalPagado >= $servicio->total_servicio) {
-            $estatusPagado = Estatus::firstOrCreate(['estatus' => 'pagado']);
-            $servicio->update(['estatus' => $estatusPagado->id]);
+            return response()->json(['data' => ['message' => 'Eliminado correctamente y saldos restaurados']]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error al eliminar: ' . $e->getMessage()], 500);
         }
     }
 }

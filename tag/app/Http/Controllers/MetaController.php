@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meta;
+use App\Http\Resources\MetaResource;
 use Illuminate\Http\Request;
 
 class MetaController extends Controller
@@ -15,7 +16,7 @@ class MetaController extends Controller
     public function index()
     {
         // Lista las metas y las devuelve en JSON.
-        return response()->json(Meta::orderBy('id')->get());
+        return MetaResource::collection(Meta::orderBy('id')->get());
     }
 
     /**
@@ -40,7 +41,7 @@ class MetaController extends Controller
 
         $item = Meta::create($data);
 
-        return response()->json($item, 201);
+        return new MetaResource($item);
     }
 
     /**
@@ -51,7 +52,7 @@ class MetaController extends Controller
     public function show(Meta $metum)
     {
         // Muestra una meta por id (Nota: Laravel pluraliza Meta como Metae/Metum en el binding).
-        return response()->json($metum);
+        return new MetaResource($metum);
     }
 
     /**
@@ -76,7 +77,7 @@ class MetaController extends Controller
 
         $metum->update($data);
 
-        return response()->json($metum);
+        return new MetaResource($metum);
     }
 
     /**
@@ -89,6 +90,6 @@ class MetaController extends Controller
         // Elimina la meta y confirma el resultado.
         $metum->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

@@ -14,6 +14,8 @@ class Temporalidad extends Model
 
     protected $fillable = [
         'temporalidad',
+        'slug',
+        'carbon_method',
     ];
 
     public function metas(): HasMany

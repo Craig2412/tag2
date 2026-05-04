@@ -14,11 +14,18 @@ class Meta extends Model
     protected $table = 'metas';
 
     protected $fillable = [
-        'cant_atenciones_aprobadas',
-        'cant_cotizaciones_cerradas',
-        'cant_cotizaciones_pagadas',
+        'nombre',
+        'tipo_entidad',
+        'id_estatus_objetivo',
+        'es_monetario',
+        'valor_objetivo',
         'id_temporalidad',
     ];
+
+    public function estatusObjetivo(): BelongsTo
+    {
+        return $this->belongsTo(Estatus::class, 'id_estatus_objetivo');
+    }
 
     public function temporalidad(): BelongsTo
     {
