@@ -22,14 +22,14 @@ class TasaController extends Controller
 
     /**
      * Crear una nueva tasa de gestión
-     * 
-     * @bodyParam tasa string required Nombre de la tasa de gestión. Ejemplo: Tasa Administrativa
      */
     public function store(Request $request)
     {
         // Crea una tasa con datos validados y la devuelve.
         $data = $request->validate([
-            'tasa' => ['required', 'string', 'max:255', 'unique:tasas,tasa'],
+            'codigo'  => ['required', 'string', 'max:50', 'unique:tasas,codigo'],
+            'nombre'  => ['required', 'string', 'max:255'],
+            'simbolo' => ['required', 'string', 'max:10'],
         ]);
 
         $item = Tasa::create($data);
@@ -39,8 +39,6 @@ class TasaController extends Controller
 
     /**
      * Obtener una tasa de gestión específica
-     *
-     * Devuelve los datos de una tasa por su ID.
      */
     public function show(Tasa $tasa)
     {
@@ -50,19 +48,19 @@ class TasaController extends Controller
 
     /**
      * Actualizar una tasa de gestión existente
-     * 
-     * @bodyParam tasa string required Nombre de la tasa.
      */
     public function update(Request $request, Tasa $tasa)
     {
         // Actualiza una tasa y devuelve el resultado.
         $data = $request->validate([
-            'tasa' => [
+            'codigo' => [
                 'required',
                 'string',
-                'max:255',
-                Rule::unique('tasas', 'tasa')->ignore($tasa->id),
+                'max:50',
+                Rule::unique('tasas', 'codigo')->ignore($tasa->id),
             ],
+            'nombre'  => ['required', 'string', 'max:255'],
+            'simbolo' => ['required', 'string', 'max:10'],
         ]);
 
         $tasa->update($data);

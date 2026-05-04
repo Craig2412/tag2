@@ -17,7 +17,7 @@ class EntidadBancaria extends Model
         'estatus',
     ];
 
-    public function estatus(): BelongsTo
+    public function estatus_relation(): BelongsTo
     {
         return $this->belongsTo(Estatus::class, 'estatus');
     }

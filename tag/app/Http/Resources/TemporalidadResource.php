@@ -11,7 +11,8 @@ class TemporalidadResource extends JsonResource
     {
         return [
             'id'            => $this->id,
-            'nombre'        => $this->nombre,
+            'temporalidad'  => $this->temporalidad,
+            'slug'          => $this->slug,
             'carbon_method' => $this->carbon_method,
         ];
     }

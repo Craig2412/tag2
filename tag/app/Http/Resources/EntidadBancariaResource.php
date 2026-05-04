@@ -15,7 +15,7 @@ class EntidadBancariaResource extends JsonResource
             'estatus'  => $this->estatus,
 
             // Relaciones
-            'estatus_info' => new EstatusResource($this->whenLoaded('estatus')),
+            'estatus_info' => new EstatusResource($this->whenLoaded('estatus_relation')),
         ];
     }
 }
