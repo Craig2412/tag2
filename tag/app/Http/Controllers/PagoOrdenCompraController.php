@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PagoOrdenCompra;
+use App\Http\Resources\PagoOrdenCompraResource;
 use Illuminate\Http\Request;
 
 class PagoOrdenCompraController extends Controller
@@ -10,13 +11,13 @@ class PagoOrdenCompraController extends Controller
     // Listar todas las relaciones pago-orden-compra
     public function index()
     {
-        return response()->json(PagoOrdenCompra::all());
+        return PagoOrdenCompraResource::collection(PagoOrdenCompra::all());
     }
 
     // Ver una relación específica
     public function show(PagoOrdenCompra $pagoOrdenCompra)
     {
-        return response()->json($pagoOrdenCompra);
+        return new PagoOrdenCompraResource($pagoOrdenCompra);
     }
 
     // Crear una nueva relación
@@ -29,7 +30,7 @@ class PagoOrdenCompraController extends Controller
             'monto_pagado' => 'nullable|numeric|min:0',
         ]);
         $relacion = PagoOrdenCompra::create($data);
-        return response()->json($relacion, 201);
+        return new PagoOrdenCompraResource($relacion);
     }
 
     // Actualizar una relación
@@ -40,7 +41,7 @@ class PagoOrdenCompraController extends Controller
             'monto_pagado' => 'nullable|numeric|min:0',
         ]);
         $pagoOrdenCompra->update($data);
-        return response()->json($pagoOrdenCompra);
+        return new PagoOrdenCompraResource($pagoOrdenCompra);
     }
 
     // Eliminar una relación

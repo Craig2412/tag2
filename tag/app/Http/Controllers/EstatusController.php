@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estatus;
+use App\Http\Resources\EstatusResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class EstatusController extends Controller
     public function index()
     {
         // Lista los estatus y los devuelve en JSON.
-        return response()->json(Estatus::orderBy('id')->get());
+        return EstatusResource::collection(Estatus::orderBy('id')->get());
     }
 
     /**
@@ -35,7 +36,7 @@ class EstatusController extends Controller
 
         $estatus = Estatus::create($data);
 
-        return response()->json($estatus, 201);
+        return new EstatusResource($estatus);
     }
 
     /**
@@ -46,7 +47,7 @@ class EstatusController extends Controller
     public function show(Estatus $estatus)
     {
         // Muestra un estatus por id.
-        return response()->json($estatus);
+        return new EstatusResource($estatus);
     }
 
     /**
@@ -70,7 +71,7 @@ class EstatusController extends Controller
 
         $estatus->update($data);
 
-        return response()->json($estatus);
+        return new EstatusResource($estatus);
     }
 
     /**
@@ -83,6 +84,6 @@ class EstatusController extends Controller
         // Elimina el estatus y confirma el resultado.
         $estatus->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

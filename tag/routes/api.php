@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\ConfiguracionSistemaController;
+use App\Http\Controllers\CuentaPorPagarController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\KiuController;
@@ -67,6 +68,8 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['configuraciones-sistema' => 'configuracionSistema']);
     Route::apiResource('cuentas-proveedores', CuentaProveedorController::class)
         ->parameters(['cuentas-proveedores' => 'cuentaProveedor']);
+    Route::apiResource('cuentas-por-pagar', CuentaPorPagarController::class)
+        ->parameters(['cuentas-por-pagar' => 'cuentaPorPagar']);
     Route::apiResource('tipos-contribuyentes', TipoContribuyenteController::class)
         ->parameters(['tipos-contribuyentes' => 'tipoContribuyente']);
     Route::apiResource('clientes', ClienteController::class);

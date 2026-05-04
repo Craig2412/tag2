@@ -10,7 +10,9 @@ return new class extends Migration
     {
         Schema::create('temporalidades', function (Blueprint $table) {
             $table->id();
-            $table->string('temporalidad')->unique();
+            $table->string('temporalidad');
+            $table->string('slug')->unique();
+            $table->string('carbon_method')->comment('Método de Carbon para calcular el inicio del periodo (ej: startOfWeek)');
             $table->timestamps();
         });
     }

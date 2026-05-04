@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use App\Models\OrdenCompra;
+use App\Http\Resources\ServicioResource;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -19,7 +20,7 @@ class ServicioController extends Controller
             ->orderBy('id')
             ->get();
 
-        return response()->json($servicios);
+        return ServicioResource::collection($servicios);
     }
 
     /**
@@ -55,7 +56,7 @@ class ServicioController extends Controller
         // Recalcular la orden de compra si existe
         $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
 
-        return response()->json($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']), 201);
+        return new ServicioResource($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
 
     /**
@@ -63,7 +64,7 @@ class ServicioController extends Controller
      */
     public function show(Servicio $servicio)
     {
-        return response()->json($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']));
+        return new ServicioResource($servicio->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
 
     /**
@@ -94,7 +95,7 @@ class ServicioController extends Controller
             $this->recalcularOrdenCompraPorCotizacion($servicio->id_cotizacion);
         }
 
-        return response()->json($servicio->fresh()->load(['tipoServicio', 'proveedor', 'tasaCambio']));
+        return new ServicioResource($servicio->fresh()->load(['tipoServicio', 'proveedor', 'tasaCambio']));
     }
 
     /**
@@ -109,7 +110,7 @@ class ServicioController extends Controller
         // Recalcular la orden de compra
         $this->recalcularOrdenCompraPorCotizacion($idCotizacion);
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 
     private function recalcularOrdenCompraPorCotizacion(int $idCotizacion): void

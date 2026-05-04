@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TasaCambio;
 use App\Models\Tasa;
+use App\Http\Resources\TasaCambioResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -21,7 +22,7 @@ class TasaCambioController extends Controller
             ->orderBy('id_tasa')
             ->get();
 
-        return response()->json($tasas);
+        return TasaCambioResource::collection($tasas);
     }
 
     /**
@@ -52,7 +53,7 @@ class TasaCambioController extends Controller
 
         $tasa = TasaCambio::create($data);
 
-        return response()->json($tasa->load('monedaCatalogo'), 201);
+        return new TasaCambioResource($tasa->load('monedaCatalogo'));
     }
 
     /**
@@ -60,7 +61,7 @@ class TasaCambioController extends Controller
      */
     public function show(TasaCambio $tasaCambio)
     {
-        return response()->json($tasaCambio->load('monedaCatalogo'));
+        return new TasaCambioResource($tasaCambio->load('monedaCatalogo'));
     }
 
     /**
@@ -96,7 +97,7 @@ class TasaCambioController extends Controller
 
         $tasaCambio->update($data);
 
-        return response()->json($tasaCambio->load('monedaCatalogo'));
+        return new TasaCambioResource($tasaCambio->load('monedaCatalogo'));
     }
 
     /**
@@ -105,7 +106,7 @@ class TasaCambioController extends Controller
     public function destroy(TasaCambio $tasaCambio)
     {
         $tasaCambio->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 
     /**
@@ -126,6 +127,6 @@ class TasaCambioController extends Controller
             ];
         });
 
-        return response()->json($tasasVigentes);
+        return response()->json(['data' => $tasasVigentes]);
     }
 }

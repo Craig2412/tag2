@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MetaPersonal;
 use App\Models\Personal;
+use App\Http\Resources\MetaPersonalResource;
 use Illuminate\Http\Request;
 
 class MetaPersonalController extends Controller
@@ -16,7 +17,7 @@ class MetaPersonalController extends Controller
     public function index()
     {
         // Lista las metas personales y las devuelve en JSON.
-        return response()->json(MetaPersonal::orderBy('id')->get());
+        return MetaPersonalResource::collection(MetaPersonal::orderBy('id')->get());
     }
 
     /**
@@ -49,7 +50,7 @@ class MetaPersonalController extends Controller
 
         $item = MetaPersonal::create($data);
 
-        return response()->json($item, 201);
+        return new MetaPersonalResource($item);
     }
 
     /**
@@ -60,7 +61,7 @@ class MetaPersonalController extends Controller
     public function show(MetaPersonal $metaPersonal)
     {
         // Muestra una meta personal por id.
-        return response()->json($metaPersonal);
+        return new MetaPersonalResource($metaPersonal);
     }
 
     /**
@@ -94,7 +95,7 @@ class MetaPersonalController extends Controller
 
         $metaPersonal->update($data);
 
-        return response()->json($metaPersonal);
+        return new MetaPersonalResource($metaPersonal);
     }
 
     /**
@@ -107,6 +108,6 @@ class MetaPersonalController extends Controller
         // Elimina la meta personal y confirma el resultado.
         $metaPersonal->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

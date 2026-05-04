@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
+use App\Http\Resources\ProveedorResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -20,7 +21,7 @@ class ProveedorController extends Controller
             ->orderBy('id')
             ->get();
 
-        return response()->json($proveedores);
+        return ProveedorResource::collection($proveedores);
     }
 
     /**
@@ -54,7 +55,7 @@ class ProveedorController extends Controller
 
         $proveedor = Proveedor::create($data);
 
-        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']), 201);
+        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
     }
 
     /**
@@ -64,7 +65,7 @@ class ProveedorController extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
+        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
     }
 
     /**
@@ -110,7 +111,7 @@ class ProveedorController extends Controller
 
         $proveedor->update($data);
 
-        return response()->json($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
+        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
     }
 
     /**
@@ -122,6 +123,6 @@ class ProveedorController extends Controller
     {
         $proveedor->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

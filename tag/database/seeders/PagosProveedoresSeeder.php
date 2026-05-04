@@ -12,26 +12,23 @@ class PagosProveedoresSeeder extends Seeder
 {
     public function run(): void
     {
-        $servicio = Servicio::first();
+        $proveedor = \App\Models\Proveedor::first();
         $metodoPago = MetodoPago::first();
 
-        if (!$servicio || !$metodoPago) {
+        if (!$proveedor || !$metodoPago) {
             return;
         }
 
         PagoProveedor::firstOrCreate(
             [
-                'id_servicio' => $servicio->id,
                 'referencia' => 'PP-0001',
             ],
             [
-                'monto' => $servicio->total_servicio,
+                'id_proveedor' => $proveedor->id,
+                'monto_total' => 1500.00, // Monto de ejemplo
                 'fecha_pago' => now()->toDateString(),
                 'id_metodo_pago' => $metodoPago->id,
             ]
         );
-
-        $estatusPagado = Estatus::firstOrCreate(['estatus' => 'pagado']);
-        $servicio->update(['estatus' => $estatusPagado->id]);
     }
 }

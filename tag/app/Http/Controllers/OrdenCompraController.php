@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cotizacion;
 use App\Models\Estatus;
 use App\Models\OrdenCompra;
+use App\Http\Resources\OrdenCompraResource;
 use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
@@ -16,7 +17,7 @@ class OrdenCompraController extends Controller
      */
     public function index()
     {
-        return response()->json(OrdenCompra::with(['cotizacion.tasaCambio', 'estadoFinanciero'])->orderBy('id')->get());
+        return OrdenCompraResource::collection(OrdenCompra::with(['cotizacion.tasaCambio', 'estadoFinanciero'])->orderBy('id')->get());
     }
 
     /**
@@ -58,7 +59,7 @@ class OrdenCompraController extends Controller
         $item = OrdenCompra::create($data);
         $item->recalcularMontoTotal();
 
-        return response()->json($item->fresh(), 201);
+        return new OrdenCompraResource($item->fresh());
     }
 
     /**
@@ -87,7 +88,7 @@ class OrdenCompraController extends Controller
         });
         $data['saldo_pendiente'] = max(0, $ordenCompra->monto_total - $montoPagado);
 
-        return response()->json($data);
+        return new OrdenCompraResource((object) $data);
     }
 
     /**
@@ -127,7 +128,7 @@ class OrdenCompraController extends Controller
             ]);
         }
 
-        return response()->json($ordenCompra->fresh());
+        return new OrdenCompraResource($ordenCompra->fresh());
     }
 
     /**
@@ -139,6 +140,6 @@ class OrdenCompraController extends Controller
     {
         $ordenCompra->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

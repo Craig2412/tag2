@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoContribuyente;
+use App\Http\Resources\TipoContribuyenteResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class TipoContribuyenteController extends Controller
     public function index()
     {
         // Lista los tipos de contribuyentes y los devuelve en JSON.
-        return response()->json(TipoContribuyente::orderBy('id')->get());
+        return TipoContribuyenteResource::collection(TipoContribuyente::orderBy('id')->get());
     }
 
     /**
@@ -35,7 +36,7 @@ class TipoContribuyenteController extends Controller
 
         $item = TipoContribuyente::create($data);
 
-        return response()->json($item, 201);
+        return new TipoContribuyenteResource($item);
     }
 
     /**
@@ -46,7 +47,7 @@ class TipoContribuyenteController extends Controller
     public function show(TipoContribuyente $tipoContribuyente)
     {
         // Muestra un tipo de contribuyente por id.
-        return response()->json($tipoContribuyente);
+        return new TipoContribuyenteResource($tipoContribuyente);
     }
 
     /**
@@ -70,7 +71,7 @@ class TipoContribuyenteController extends Controller
 
         $tipoContribuyente->update($data);
 
-        return response()->json($tipoContribuyente);
+        return new TipoContribuyenteResource($tipoContribuyente);
     }
 
     /**
@@ -81,6 +82,6 @@ class TipoContribuyenteController extends Controller
         // Elimina el tipo de contribuyente y confirma el resultado.
         $tipoContribuyente->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

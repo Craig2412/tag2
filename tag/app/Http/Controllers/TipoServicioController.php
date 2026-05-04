@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoServicio;
+use App\Http\Resources\TipoServicioResource;
 use Illuminate\Http\Request;
 
 class TipoServicioController extends Controller
@@ -17,7 +18,7 @@ class TipoServicioController extends Controller
         // Eloquent maneja SoftDeletes automáticamente
         $tipos = TipoServicio::orderBy('id')->get();
 
-        return response()->json($tipos);
+        return TipoServicioResource::collection($tipos);
     }
 
     /**
@@ -37,7 +38,7 @@ class TipoServicioController extends Controller
 
         $tipoServicio = TipoServicio::create($data);
 
-        return response()->json($tipoServicio, 201);
+        return new TipoServicioResource($tipoServicio);
     }
 
     /**
@@ -45,7 +46,7 @@ class TipoServicioController extends Controller
      */
     public function show(TipoServicio $tipoServicio)
     {
-        return response()->json($tipoServicio);
+        return new TipoServicioResource($tipoServicio);
     }
 
     /**
@@ -65,7 +66,7 @@ class TipoServicioController extends Controller
 
         $tipoServicio->update($data);
 
-        return response()->json($tipoServicio);
+        return new TipoServicioResource($tipoServicio);
     }
 
     /**
@@ -75,6 +76,6 @@ class TipoServicioController extends Controller
     public function destroy(TipoServicio $tipoServicio)
     {
         $tipoServicio->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

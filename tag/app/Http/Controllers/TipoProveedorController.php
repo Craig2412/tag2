@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoProveedor;
+use App\Http\Resources\TipoProveedorResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class TipoProveedorController extends Controller
     public function index()
     {
         // Lista los tipos de proveedor y los devuelve en JSON.
-        return response()->json(TipoProveedor::orderBy('id')->get());
+        return TipoProveedorResource::collection(TipoProveedor::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class TipoProveedorController extends Controller
 
         $tipoProveedor = TipoProveedor::create($data);
 
-        return response()->json($tipoProveedor, 201);
+        return new TipoProveedorResource($tipoProveedor);
     }
 
     /**
@@ -44,7 +45,7 @@ class TipoProveedorController extends Controller
     public function show(TipoProveedor $tipoProveedor)
     {
         // Muestra un tipo de proveedor por id.
-        return response()->json($tipoProveedor);
+        return new TipoProveedorResource($tipoProveedor);
     }
 
     /**
@@ -66,7 +67,7 @@ class TipoProveedorController extends Controller
 
         $tipoProveedor->update($data);
 
-        return response()->json($tipoProveedor);
+        return new TipoProveedorResource($tipoProveedor);
     }
 
     /**
@@ -79,6 +80,6 @@ class TipoProveedorController extends Controller
         // Elimina el tipo de proveedor y confirma el resultado.
         $tipoProveedor->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

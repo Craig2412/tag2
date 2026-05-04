@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CuentaProveedor;
+use App\Http\Resources\CuentaProveedorResource;
 use Illuminate\Http\Request;
 
 class CuentaProveedorController extends Controller
@@ -15,7 +16,7 @@ class CuentaProveedorController extends Controller
     public function index()
     {
         // Lista las cuentas de proveedores y las devuelve en JSON.
-        return response()->json(CuentaProveedor::orderBy('id')->get());
+        return CuentaProveedorResource::collection(CuentaProveedor::orderBy('id')->get());
     }
 
     /**
@@ -44,7 +45,7 @@ class CuentaProveedorController extends Controller
 
         $item = CuentaProveedor::create($data);
 
-        return response()->json($item, 201);
+        return new CuentaProveedorResource($item);
     }
 
     /**
@@ -55,7 +56,7 @@ class CuentaProveedorController extends Controller
     public function show(CuentaProveedor $cuentaProveedor)
     {
         // Muestra una cuenta de proveedor por id.
-        return response()->json($cuentaProveedor);
+        return new CuentaProveedorResource($cuentaProveedor);
     }
 
     /**
@@ -84,7 +85,7 @@ class CuentaProveedorController extends Controller
 
         $cuentaProveedor->update($data);
 
-        return response()->json($cuentaProveedor);
+        return new CuentaProveedorResource($cuentaProveedor);
     }
 
     /**
@@ -97,6 +98,6 @@ class CuentaProveedorController extends Controller
         // Elimina la cuenta de proveedor y confirma el resultado.
         $cuentaProveedor->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClienteEmpresa;
 use App\Models\Cliente;
+use App\Http\Resources\ClienteEmpresaResource;
 use Illuminate\Http\Request;
 
 class ClientesEmpresaController extends Controller
@@ -16,7 +17,7 @@ class ClientesEmpresaController extends Controller
     public function index()
     {
         // Lista los enlaces cliente-empresa y los devuelve en JSON.
-        return response()->json(ClienteEmpresa::orderBy('id')->get());
+        return ClienteEmpresaResource::collection(ClienteEmpresa::orderBy('id')->get());
     }
 
     /**
@@ -43,7 +44,7 @@ class ClientesEmpresaController extends Controller
 
         $item = ClienteEmpresa::create($data);
 
-        return response()->json($item, 201);
+        return new ClienteEmpresaResource($item);
     }
 
     /**
@@ -54,7 +55,7 @@ class ClientesEmpresaController extends Controller
     public function show(ClienteEmpresa $clientesEmpresa)
     {
         // Muestra un enlace cliente-empresa por id.
-        return response()->json($clientesEmpresa);
+        return new ClienteEmpresaResource($clientesEmpresa);
     }
 
     /**
@@ -82,7 +83,7 @@ class ClientesEmpresaController extends Controller
 
         $clientesEmpresa->update($data);
 
-        return response()->json($clientesEmpresa);
+        return new ClienteEmpresaResource($clientesEmpresa);
     }
 
     /**
@@ -95,6 +96,6 @@ class ClientesEmpresaController extends Controller
         // Elimina el enlace cliente-empresa y confirma el resultado.
         $clientesEmpresa->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

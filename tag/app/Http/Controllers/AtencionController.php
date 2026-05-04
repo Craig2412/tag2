@@ -8,7 +8,9 @@ use App\Models\Estatus;
 use App\Models\PersonalEmpresa;
 use App\Models\Cliente;
 use App\Models\Personal;
-use App\Models\AtencionHistorial;
+use App\Http\Resources\AtencionResource;
+use App\Events\AtencionEstatusActualizado;
+use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,23 +23,34 @@ class AtencionController extends Controller
      */
     public function index()
     {
-        // Eloquent maneja SoftDeletes automáticamente
-        $items = Atencion::with(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial'])
+        // withCount no es suficiente: necesitamos la última cotización y su OC.
+        // Usamos eager loading con constraint para traer solo la cotización más reciente
+        // por atención, evitando el N+1 que ejecutaba 2 queries por cada atención.
+        $items = Atencion::with([
+                'cliente',
+                'personal',
+                'origen',
+                'estatus',
+                'etapaComercial',
+                'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
+                'cotizaciones.ordenCompra',
+            ])
             ->orderBy('id')
             ->get();
 
-        $result = $items->map(function ($atencion) {
-            $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
-            $id_cotizacion = $cotizacion ? $cotizacion->id : null;
-            $id_orden_compra = ($cotizacion && $cotizacion->ordenCompra) ? $cotizacion->ordenCompra->id : null;
+        $result = $items->map(function (Atencion $atencion) {
+            // Sin queries adicionales — todo está en memoria
+            $cotizacion      = $atencion->cotizaciones->first();
+            $id_cotizacion   = $cotizacion?->id;
+            $id_orden_compra = $cotizacion?->ordenCompra?->id;
 
             $arr = $atencion->toArray();
-            $arr['id_cotizacion'] = $id_cotizacion;
+            $arr['id_cotizacion']   = $id_cotizacion;
             $arr['id_orden_compra'] = $id_orden_compra;
             return $arr;
         });
 
-        return response()->json($result);
+        return AtencionResource::collection(collect($result));
     }
 
     /**
@@ -66,14 +79,25 @@ class AtencionController extends Controller
             return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
         }
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'por aprobar']);
+        $estatusId = EstatusResolver::id('por aprobar');
+        if (!$estatusId) {
+            return response()->json(['message' => 'Estatus "por aprobar" no configurado en el catálogo'], 500);
+        }
 
         $data['id_personal'] = $personalId;
-        $data['estatus'] = $estatus->id;
+        $data['estatus'] = $estatusId;
 
         $item = Atencion::create($data);
 
-        return response()->json($item->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']), 201);
+        // Registrar estatus inicial en el historial
+        event(new AtencionEstatusActualizado(
+            atencion: $item,
+            estatusAnterior: null,
+            estatusNuevo: $item->estatus,
+            comentario: 'Atención creada',
+        ));
+
+        return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'etapaComercial']));
     }
 
     /**
@@ -81,16 +105,26 @@ class AtencionController extends Controller
      */
     public function show(Atencion $atencion)
     {
-        $cotizacion = $atencion->cotizaciones()->orderByDesc('id')->first();
-        $id_cotizacion = $cotizacion ? $cotizacion->id : null;
-        $id_orden_compra = ($cotizacion && $cotizacion->ordenCompra) ? $cotizacion->ordenCompra->id : null;
-        
-        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
-        
+        // Igual que index(): eager load para evitar queries adicionales
+        $atencion->load([
+            'cliente',
+            'personal',
+            'origen',
+            'estatus',
+            'etapaComercial',
+            'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
+            'cotizaciones.ordenCompra',
+        ]);
+
+        $cotizacion      = $atencion->cotizaciones->first();
+        $id_cotizacion   = $cotizacion?->id;
+        $id_orden_compra = $cotizacion?->ordenCompra?->id;
+
         $arr = $atencion->toArray();
-        $arr['id_cotizacion'] = $id_cotizacion;
+        $arr['id_cotizacion']   = $id_cotizacion;
         $arr['id_orden_compra'] = $id_orden_compra;
-        return response()->json($arr);
+
+        return new AtencionResource((object) $arr);
     }
 
     /**
@@ -120,16 +154,14 @@ class AtencionController extends Controller
         $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
 
         if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
-            AtencionHistorial::create([
-                'atencion_id' => $atencion->id,
-                'estatus_anterior' => $estatusAnterior,
-                'estatus_nuevo' => $data['estatus'],
-                'usuario_id' => auth()->id(), // El usuario que muta mantiene auth()->id() (El operador logueado)
-                'comentario' => 'Cambio de estatus desde API',
-            ]);
+            event(new AtencionEstatusActualizado(
+                atencion: $atencion,
+                estatusAnterior: $estatusAnterior,
+                estatusNuevo: $data['estatus'],
+            ));
         }
 
-        return response()->json($atencion);
+        return new AtencionResource($atencion);
     }
 
     /**
@@ -140,7 +172,7 @@ class AtencionController extends Controller
     public function destroy(Atencion $atencion)
     {
         $atencion->delete();
-        return response()->json(['message' => 'Eliminada correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminada correctamente']]);
     }
 
     private function resolverPersonalAsignado(int $idCliente): ?int
@@ -159,7 +191,7 @@ class AtencionController extends Controller
             }
         }
 
-        $estatusConcluido = Estatus::firstOrCreate(['estatus' => 'aprobado']);
+        $estatusConcluido = Estatus::where('estatus', 'aprobado')->value('id') ?? 0;
         $personalIds = Personal::pluck('id')->all(); // Ya no buscamos roles en Users. Todo Personal es un personal comercial.
 
         if (empty($personalIds)) {

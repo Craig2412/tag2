@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Temporalidad;
+use App\Http\Resources\TemporalidadResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class TemporalidadController extends Controller
     public function index()
     {
         // Lista las temporalidades y las devuelve en JSON.
-        return response()->json(Temporalidad::orderBy('id')->get());
+        return TemporalidadResource::collection(Temporalidad::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class TemporalidadController extends Controller
 
         $item = Temporalidad::create($data);
 
-        return response()->json($item, 201);
+        return new TemporalidadResource($item);
     }
 
     /**
@@ -44,7 +45,7 @@ class TemporalidadController extends Controller
     public function show(Temporalidad $temporalidad)
     {
         // Muestra una temporalidad por id.
-        return response()->json($temporalidad);
+        return new TemporalidadResource($temporalidad);
     }
 
     /**
@@ -66,7 +67,7 @@ class TemporalidadController extends Controller
 
         $temporalidad->update($data);
 
-        return response()->json($temporalidad);
+        return new TemporalidadResource($temporalidad);
     }
 
     /**
@@ -77,6 +78,6 @@ class TemporalidadController extends Controller
         // Elimina la temporalidad y confirma el resultado.
         $temporalidad->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

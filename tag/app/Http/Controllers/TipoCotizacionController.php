@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoCotizacion;
+use App\Http\Resources\TipoCotizacionResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,7 @@ class TipoCotizacionController extends Controller
     public function index()
     {
         // Lista los tipos de cotización y los devuelve en JSON.
-        return response()->json(TipoCotizacion::orderBy('id')->get());
+        return TipoCotizacionResource::collection(TipoCotizacion::orderBy('id')->get());
     }
 
     /**
@@ -33,7 +34,7 @@ class TipoCotizacionController extends Controller
 
         $item = TipoCotizacion::create($data);
 
-        return response()->json($item, 201);
+        return new TipoCotizacionResource($item);
     }
 
     /**
@@ -44,7 +45,7 @@ class TipoCotizacionController extends Controller
     public function show(TipoCotizacion $tipoCotizacion)
     {
         // Muestra un tipo de cotización por id.
-        return response()->json($tipoCotizacion);
+        return new TipoCotizacionResource($tipoCotizacion);
     }
 
     /**
@@ -66,7 +67,7 @@ class TipoCotizacionController extends Controller
 
         $tipoCotizacion->update($data);
 
-        return response()->json($tipoCotizacion);
+        return new TipoCotizacionResource($tipoCotizacion);
     }
 
     /**
@@ -77,6 +78,6 @@ class TipoCotizacionController extends Controller
         // Elimina el tipo de cotización y confirma el resultado.
         $tipoCotizacion->delete();
 
-        return response()->json(['message' => 'Eliminado correctamente']);
+        return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }
