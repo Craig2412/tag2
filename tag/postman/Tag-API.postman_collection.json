@@ -162,156 +162,253 @@
     },
     {
       "key": "kiuXmlPayload",
-      "value": "<KIURequest></KIURequest>",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "usuarioId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "entidadBancariaId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "pagoOrdenCompraId",
+      "value": "1",
       "type": "string"
     }
   ],
   "item": [
-            {
-              "name": "Métricas",
-              "item": [
-                {
-                  "name": "Métricas Generales",
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      { "key": "Accept", "value": "application/json" },
-                      { "key": "Authorization", "value": "Bearer {{token}}" }
-                    ],
-                    "url": {
-                      "raw": "{{baseUrl}}/metricas/generales",
-                      "host": ["{{baseUrl}}"],
-                      "path": ["metricas", "generales"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "name": "Ejemplo de respuesta",
-                      "originalRequest": {},
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.5,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.8,\n  \"promedio_cambio_estatus_orden_horas\": 3.2,\n  \"promedio_atenciones_con_cotizacion\": 0.85,\n  \"promedio_atenciones_con_orden\": 0.7,\n  \"promedio_cotizaciones_con_orden\": 0.82,\n  \"promedio_tiempo_pago_orden_horas\": 5.6\n}"
-                    }
-                  ]
-                },
-                {
-                  "name": "Métricas por Personal",
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      { "key": "Accept", "value": "application/json" },
-                      { "key": "Authorization", "value": "Bearer {{token}}" }
-                    ],
-                    "url": {
-                      "raw": "{{baseUrl}}/metricas/personal/{{personalId}}",
-                      "host": ["{{baseUrl}}"],
-                      "path": ["metricas", "personal", "{{personalId}}"]
-                    }
-                  },
-                  "response": [
-                    {
-                      "name": "Ejemplo de respuesta",
-                      "originalRequest": {},
-                      "status": "OK",
-                      "code": 200,
-                      "_postman_previewlanguage": "json",
-                      "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.1,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.5,\n  \"promedio_cambio_estatus_orden_horas\": 2.9,\n  \"promedio_atenciones_con_cotizacion\": 0.9,\n  \"promedio_atenciones_con_orden\": 0.8,\n  \"promedio_cotizaciones_con_orden\": 0.85,\n  \"promedio_tiempo_pago_orden_horas\": 4.2\n}"
-                    }
-                  ]
-                }
-              ]
-            },
+    {
+      "name": "M├®tricas",
+      "item": [
         {
-          "name": "Pagos Ordenes Compra",
-          "item": [
-            {
-              "name": "Pagos Ordenes Compra - Listar",
-              "request": {
-                "method": "GET",
-                "header": [
-                  { "key": "Accept", "value": "application/json" },
-                  { "key": "Authorization", "value": "Bearer {{token}}" }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["pagos-ordenes-compra"]
-                }
+          "name": "M├®tricas Generales",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
               }
-            },
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metricas/generales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metricas",
+                "generales"
+              ]
+            }
+          },
+          "response": [
             {
-              "name": "Pagos Ordenes Compra - Crear",
-              "request": {
-                "method": "POST",
-                "header": [
-                  { "key": "Accept", "value": "application/json" },
-                  { "key": "Content-Type", "value": "application/json" },
-                  { "key": "Authorization", "value": "Bearer {{token}}" }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/pagos-ordenes-compra",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["pagos-ordenes-compra"]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"id_pago\": {{pagoId}},\n  \"id_orden_compra\": {{ordenCompraId}},\n  \"monto_asignado\": 100\n}"
-                }
-              }
-            },
-            {
-              "name": "Pagos Ordenes Compra - Ver",
-              "request": {
-                "method": "GET",
-                "header": [
-                  { "key": "Accept", "value": "application/json" },
-                  { "key": "Authorization", "value": "Bearer {{token}}" }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
-                }
-              }
-            },
-            {
-              "name": "Pagos Ordenes Compra - Actualizar",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  { "key": "Accept", "value": "application/json" },
-                  { "key": "Content-Type", "value": "application/json" },
-                  { "key": "Authorization", "value": "Bearer {{token}}" }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"monto_asignado\": 150\n}"
-                }
-              }
-            },
-            {
-              "name": "Pagos Ordenes Compra - Eliminar",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  { "key": "Accept", "value": "application/json" },
-                  { "key": "Authorization", "value": "Bearer {{token}}" }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["pagos-ordenes-compra", "{{pagoOrdenCompraId}}"]
-                }
-              }
+              "name": "Ejemplo de respuesta",
+              "originalRequest": {},
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.5,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.8,\n  \"promedio_cambio_estatus_orden_horas\": 3.2,\n  \"promedio_atenciones_con_cotizacion\": 0.85,\n  \"promedio_atenciones_con_orden\": 0.7,\n  \"promedio_cotizaciones_con_orden\": 0.82,\n  \"promedio_tiempo_pago_orden_horas\": 5.6\n}"
             }
           ]
         },
+        {
+          "name": "M├®tricas por Personal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metricas/personal/{{personalId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metricas",
+                "personal",
+                "{{personalId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Ejemplo de respuesta",
+              "originalRequest": {},
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"promedio_cambio_estatus_atencion_horas\": 2.1,\n  \"promedio_cambio_estatus_cotizacion_horas\": 1.5,\n  \"promedio_cambio_estatus_orden_horas\": 2.9,\n  \"promedio_atenciones_con_cotizacion\": 0.9,\n  \"promedio_atenciones_con_orden\": 0.8,\n  \"promedio_cotizaciones_con_orden\": 0.85,\n  \"promedio_tiempo_pago_orden_horas\": 4.2\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pagos Ordenes Compra",
+      "item": [
+        {
+          "name": "Pagos Ordenes Compra - Listar",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos-ordenes-compra",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-ordenes-compra"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pagos Ordenes Compra - Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos-ordenes-compra",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-ordenes-compra"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_pago\": {{pagoId}},\n  \"id_orden_compra\": {{ordenCompraId}},\n  \"monto_asignado\": 100\n}"
+            }
+          }
+        },
+        {
+          "name": "Pagos Ordenes Compra - Ver",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-ordenes-compra",
+                "{{pagoOrdenCompraId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pagos Ordenes Compra - Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-ordenes-compra",
+                "{{pagoOrdenCompraId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_asignado\": 150\n}"
+            }
+          }
+        },
+        {
+          "name": "Pagos Ordenes Compra - Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pagos-ordenes-compra/{{pagoOrdenCompraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-ordenes-compra",
+                "{{pagoOrdenCompraId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
     {
       "name": "Auth - Login (admin)",
       "event": [
@@ -332,17 +429,28 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Content-Type", "value": "application/json" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/login/admin",
-          "host": ["{{baseUrl}}"],
-          "path": ["login", "admin"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "login",
+            "admin"
+          ]
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password\"\n}"
+          "raw": "{\n  \"correo\": \"admin@example.com\",\n  \"clave\": \"password\"\n}"
         }
       }
     },
@@ -366,17 +474,28 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Content-Type", "value": "application/json" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/login/user",
-          "host": ["{{baseUrl}}"],
-          "path": ["login", "user"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "login",
+            "user"
+          ]
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password\"\n}"
+          "raw": "{\n  \"correo\": \"user@example.com\",\n  \"clave\": \"password\"\n}"
         }
       }
     },
@@ -385,18 +504,32 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Content-Type", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/register/personal",
-          "host": ["{{baseUrl}}"],
-          "path": ["register", "personal"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "register",
+            "personal"
+          ]
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"nombre\": \"Personal\",\n  \"apellido\": \"Demo\",\n  \"cedula\": \"V-12345678\",\n  \"telefono\": \"0412-0000000\",\n  \"porcentaje_comision\": 5,\n  \"id_tipo_contribuyente\": {{tipoContribuyenteId}},\n  \"email\": \"personal@example.com\",\n  \"correo_institucional\": \"personal@empresa.com\",\n  \"password\": \"password\"\n}"
+          "raw": "{\n  \"nombre\": \"Personal\",\n  \"apellido\": \"Demo\",\n  \"cedula\": \"V-12345678\",\n  \"telefono\": \"0412-0000000\",\n  \"porcentaje_comision\": 5,\n  \"id_tipo_contribuyente\": {{tipoContribuyenteId}},\n  \"correo\": \"personal@example.com\",\n  \"correo_institucional\": \"personal@empresa.com\",\n  \"clave\": \"password\"\n}"
         }
       }
     },
@@ -405,13 +538,23 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{token}}" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/logout",
-          "host": ["{{baseUrl}}"],
-          "path": ["logout"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "logout"
+          ]
         }
       }
     },
@@ -420,13 +563,23 @@
       "request": {
         "method": "GET",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/admin-only",
-          "host": ["{{baseUrl}}"],
-          "path": ["admin-only"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "admin-only"
+          ]
         }
       }
     },
@@ -435,15 +588,28 @@
       "request": {
         "method": "GET",
         "header": [
-          { "key": "Accept", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
         ],
         "url": {
           "raw": "{{baseUrl}}/logros-personal?per_page=50",
-          "host": ["{{baseUrl}}"],
-          "path": ["logros-personal"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "logros-personal"
+          ],
           "query": [
-            { "key": "per_page", "value": "50" }
+            {
+              "key": "per_page",
+              "value": "50"
+            }
           ]
         }
       }
@@ -452,138 +618,22 @@
       "name": "API - Status",
       "request": {
         "method": "GET",
-        "header": [{ "key": "Accept", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
         "url": {
           "raw": "{{baseUrl}}/status",
-          "host": ["{{baseUrl}}"],
-          "path": ["status"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "status"
+          ]
         }
       }
-    },
-    {
-      "name": "KIU Sandbox",
-      "item": [
-        {
-          "name": "KIU - Session",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/session",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "session"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"session_label\": \"sandbox-login\"\n  }\n}"
-            }
-          }
-        },
-        {
-          "name": "KIU - Availability",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/availability",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "availability"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"origin\": \"CCS\",\n    \"destination\": \"MAD\",\n    \"departure_date\": \"2026-04-15\",\n    \"adults\": 1\n  }\n}"
-            }
-          }
-        },
-        {
-          "name": "KIU - Pricing",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/pricing",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "pricing"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"reservation_code\": \"ABC123\",\n    \"currency\": \"USD\"\n  }\n}"
-            }
-          }
-        },
-        {
-          "name": "KIU - Booking",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/booking",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "booking"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"contact_email\": \"cliente@example.com\",\n    \"passengers\": [\n      {\n        \"first_name\": \"JUAN\",\n        \"last_name\": \"PEREZ\",\n        \"type\": \"ADT\"\n      }\n    ]\n  }\n}"
-            }
-          }
-        },
-        {
-          "name": "KIU - Ticketing",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/ticketing",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "ticketing"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"reservation_code\": \"ABC123\",\n    \"payment_reference\": \"PAY-001\"\n  }\n}"
-            }
-          }
-        },
-        {
-          "name": "KIU - Post Sale",
-          "request": {
-            "method": "POST",
-            "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/kiu/post-sale",
-              "host": ["{{baseUrl}}"],
-              "path": ["kiu", "post-sale"]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"payload\": {\n    \"request\": \"{{kiuXmlPayload}}\"\n  },\n  \"context\": {\n    \"action\": \"cancel\",\n    \"reservation_code\": \"ABC123\",\n    \"reason\": \"Prueba de sandbox\"\n  }\n}"
-            }
-          }
-        }
-      ]
     },
     {
       "name": "Tipos Proveedores",
@@ -593,13 +643,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-proveedores"
+              ]
             }
           }
         },
@@ -608,14 +668,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-proveedores"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -628,13 +701,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-proveedores",
+                "{{tipoProveedorId}}"
+              ]
             }
           }
         },
@@ -643,14 +727,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-proveedores",
+                "{{tipoProveedorId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -663,13 +761,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-proveedores/{{tipoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-proveedores", "{{tipoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-proveedores",
+                "{{tipoProveedorId}}"
+              ]
             }
           }
         }
@@ -683,13 +792,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/configuraciones-sistema",
-              "host": ["{{baseUrl}}"],
-              "path": ["configuraciones-sistema"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configuraciones-sistema"
+              ]
             }
           }
         },
@@ -698,14 +817,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/configuraciones-sistema",
-              "host": ["{{baseUrl}}"],
-              "path": ["configuraciones-sistema"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configuraciones-sistema"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -718,13 +850,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configuraciones-sistema",
+                "{{configuracionSistemaId}}"
+              ]
             }
           }
         },
@@ -733,14 +876,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configuraciones-sistema",
+                "{{configuracionSistemaId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -753,13 +910,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/configuraciones-sistema/{{configuracionSistemaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["configuraciones-sistema", "{{configuracionSistemaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configuraciones-sistema",
+                "{{configuracionSistemaId}}"
+              ]
             }
           }
         }
@@ -773,13 +941,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedores"
+              ]
             }
           }
         },
@@ -788,14 +966,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedores"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -808,13 +999,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["proveedores", "{{proveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedores",
+                "{{proveedorId}}"
+              ]
             }
           }
         },
@@ -823,14 +1025,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["proveedores", "{{proveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedores",
+                "{{proveedorId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -843,13 +1059,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/proveedores/{{proveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["proveedores", "{{proveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proveedores",
+                "{{proveedorId}}"
+              ]
             }
           }
         }
@@ -863,13 +1090,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipo-servicio",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipo-servicio"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipo-servicio"
+              ]
             }
           }
         },
@@ -878,14 +1115,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipo-servicio",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipo-servicio"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipo-servicio"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -898,13 +1148,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipo-servicio",
+                "{{tipoServicioId}}"
+              ]
             }
           }
         },
@@ -913,14 +1174,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipo-servicio",
+                "{{tipoServicioId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -933,13 +1208,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipo-servicio/{{tipoServicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipo-servicio", "{{tipoServicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipo-servicio",
+                "{{tipoServicioId}}"
+              ]
             }
           }
         }
@@ -953,13 +1239,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas-cambio",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas-cambio"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas-cambio"
+              ]
             }
           }
         },
@@ -968,14 +1264,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas-cambio",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas-cambio"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas-cambio"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -988,13 +1297,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas-cambio",
+                "{{tasaCambioId}}"
+              ]
             }
           }
         },
@@ -1003,14 +1323,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas-cambio",
+                "{{tasaCambioId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1023,13 +1357,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas-cambio/{{tasaCambioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas-cambio", "{{tasaCambioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas-cambio",
+                "{{tasaCambioId}}"
+              ]
             }
           }
         }
@@ -1043,13 +1388,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-contribuyentes",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-contribuyentes"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-contribuyentes"
+              ]
             }
           }
         },
@@ -1058,14 +1413,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-contribuyentes",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-contribuyentes"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-contribuyentes"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1078,13 +1446,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-contribuyentes/{{tipoContribuyenteId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-contribuyentes", "{{tipoContribuyenteId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-contribuyentes",
+                "{{tipoContribuyenteId}}"
+              ]
             }
           }
         },
@@ -1093,14 +1472,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-contribuyentes/{{tipoContribuyenteId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-contribuyentes", "{{tipoContribuyenteId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-contribuyentes",
+                "{{tipoContribuyenteId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1113,13 +1506,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-contribuyentes/{{tipoContribuyenteId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-contribuyentes", "{{tipoContribuyenteId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-contribuyentes",
+                "{{tipoContribuyenteId}}"
+              ]
             }
           }
         }
@@ -1133,13 +1537,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/empresas",
-              "host": ["{{baseUrl}}"],
-              "path": ["empresas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "empresas"
+              ]
             }
           }
         },
@@ -1148,14 +1562,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/empresas",
-              "host": ["{{baseUrl}}"],
-              "path": ["empresas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "empresas"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1168,13 +1595,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/empresas/{{empresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["empresas", "{{empresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "empresas",
+                "{{empresaId}}"
+              ]
             }
           }
         },
@@ -1183,14 +1621,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/empresas/{{empresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["empresas", "{{empresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "empresas",
+                "{{empresaId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1203,13 +1655,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/empresas/{{empresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["empresas", "{{empresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "empresas",
+                "{{empresaId}}"
+              ]
             }
           }
         }
@@ -1223,13 +1686,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/personal-empresas",
-              "host": ["{{baseUrl}}"],
-              "path": ["personal-empresas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "personal-empresas"
+              ]
             }
           }
         },
@@ -1238,14 +1711,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/personal-empresas",
-              "host": ["{{baseUrl}}"],
-              "path": ["personal-empresas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "personal-empresas"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1258,13 +1744,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/personal-empresas/{{personalEmpresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["personal-empresas", "{{personalEmpresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "personal-empresas",
+                "{{personalEmpresaId}}"
+              ]
             }
           }
         },
@@ -1273,14 +1770,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/personal-empresas/{{personalEmpresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["personal-empresas", "{{personalEmpresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "personal-empresas",
+                "{{personalEmpresaId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1293,13 +1804,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/personal-empresas/{{personalEmpresaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["personal-empresas", "{{personalEmpresaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "personal-empresas",
+                "{{personalEmpresaId}}"
+              ]
             }
           }
         }
@@ -1313,13 +1835,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-proveedores"
+              ]
             }
           }
         },
@@ -1328,14 +1860,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-proveedores"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1348,13 +1893,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos-proveedores/{{pagoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos-proveedores", "{{pagoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-proveedores",
+                "{{pagoProveedorId}}"
+              ]
             }
           }
         },
@@ -1363,14 +1919,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos-proveedores/{{pagoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos-proveedores", "{{pagoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-proveedores",
+                "{{pagoProveedorId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1383,13 +1953,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos-proveedores/{{pagoProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos-proveedores", "{{pagoProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos-proveedores",
+                "{{pagoProveedorId}}"
+              ]
             }
           }
         }
@@ -1403,13 +1984,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cuentas-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["cuentas-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cuentas-proveedores"
+              ]
             }
           }
         },
@@ -1418,14 +2009,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cuentas-proveedores",
-              "host": ["{{baseUrl}}"],
-              "path": ["cuentas-proveedores"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cuentas-proveedores"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1438,13 +2042,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cuentas-proveedores/{{cuentaProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cuentas-proveedores", "{{cuentaProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cuentas-proveedores",
+                "{{cuentaProveedorId}}"
+              ]
             }
           }
         },
@@ -1453,14 +2068,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cuentas-proveedores/{{cuentaProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cuentas-proveedores", "{{cuentaProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cuentas-proveedores",
+                "{{cuentaProveedorId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1473,13 +2102,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cuentas-proveedores/{{cuentaProveedorId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cuentas-proveedores", "{{cuentaProveedorId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cuentas-proveedores",
+                "{{cuentaProveedorId}}"
+              ]
             }
           }
         }
@@ -1493,13 +2133,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios"
+              ]
             }
           }
         },
@@ -1508,14 +2158,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1528,13 +2191,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios/{{servicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios", "{{servicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios",
+                "{{servicioId}}"
+              ]
             }
           }
         },
@@ -1543,14 +2217,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios/{{servicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios", "{{servicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios",
+                "{{servicioId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1563,13 +2251,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios/{{servicioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios", "{{servicioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios",
+                "{{servicioId}}"
+              ]
             }
           }
         }
@@ -1583,13 +2282,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/origenes",
-              "host": ["{{baseUrl}}"],
-              "path": ["origenes"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "origenes"
+              ]
             }
           }
         },
@@ -1598,14 +2307,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/origenes",
-              "host": ["{{baseUrl}}"],
-              "path": ["origenes"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "origenes"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1618,13 +2340,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/origenes/{{origenId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["origenes", "{{origenId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "origenes",
+                "{{origenId}}"
+              ]
             }
           }
         },
@@ -1633,14 +2366,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/origenes/{{origenId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["origenes", "{{origenId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "origenes",
+                "{{origenId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1653,13 +2400,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/origenes/{{origenId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["origenes", "{{origenId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "origenes",
+                "{{origenId}}"
+              ]
             }
           }
         }
@@ -1673,13 +2431,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/atenciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "atenciones"
+              ]
             }
           }
         },
@@ -1688,14 +2456,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/atenciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "atenciones"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1708,13 +2489,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones", "{{atencionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "atenciones",
+                "{{atencionId}}"
+              ]
             }
           }
         },
@@ -1723,14 +2515,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones", "{{atencionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "atenciones",
+                "{{atencionId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1743,13 +2549,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/atenciones/{{atencionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["atenciones", "{{atencionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "atenciones",
+                "{{atencionId}}"
+              ]
             }
           }
         }
@@ -1763,13 +2580,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizaciones"
+              ]
             }
           }
         },
@@ -1778,14 +2605,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizaciones"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1798,13 +2638,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cotizaciones", "{{cotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizaciones",
+                "{{cotizacionId}}"
+              ]
             }
           }
         },
@@ -1813,14 +2664,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cotizaciones", "{{cotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizaciones",
+                "{{cotizacionId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1833,13 +2698,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/cotizaciones/{{cotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["cotizaciones", "{{cotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizaciones",
+                "{{cotizacionId}}"
+              ]
             }
           }
         }
@@ -1853,13 +2729,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/ordenes-compra",
-              "host": ["{{baseUrl}}"],
-              "path": ["ordenes-compra"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ordenes-compra"
+              ]
             }
           }
         },
@@ -1868,14 +2754,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/ordenes-compra",
-              "host": ["{{baseUrl}}"],
-              "path": ["ordenes-compra"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ordenes-compra"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1888,13 +2787,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["ordenes-compra", "{{ordenCompraId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ordenes-compra",
+                "{{ordenCompraId}}"
+              ]
             }
           }
         },
@@ -1903,14 +2813,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["ordenes-compra", "{{ordenCompraId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ordenes-compra",
+                "{{ordenCompraId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1923,13 +2847,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/ordenes-compra/{{ordenCompraId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["ordenes-compra", "{{ordenCompraId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ordenes-compra",
+                "{{ordenCompraId}}"
+              ]
             }
           }
         }
@@ -1943,13 +2878,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-cotizaciones"
+              ]
             }
           }
         },
@@ -1958,14 +2903,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-cotizaciones"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -1978,13 +2936,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-cotizaciones/{{tipoCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-cotizaciones", "{{tipoCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-cotizaciones",
+                "{{tipoCotizacionId}}"
+              ]
             }
           }
         },
@@ -1993,14 +2962,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-cotizaciones/{{tipoCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-cotizaciones", "{{tipoCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-cotizaciones",
+                "{{tipoCotizacionId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2013,13 +2996,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tipos-cotizaciones/{{tipoCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tipos-cotizaciones", "{{tipoCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos-cotizaciones",
+                "{{tipoCotizacionId}}"
+              ]
             }
           }
         }
@@ -2033,13 +3027,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios-cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios-cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios-cotizaciones"
+              ]
             }
           }
         },
@@ -2048,14 +3052,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios-cotizaciones",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios-cotizaciones"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios-cotizaciones"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2068,13 +3085,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios-cotizaciones",
+                "{{servicioCotizacionId}}"
+              ]
             }
           }
         },
@@ -2083,14 +3111,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios-cotizaciones",
+                "{{servicioCotizacionId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2103,13 +3145,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/servicios-cotizaciones/{{servicioCotizacionId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["servicios-cotizaciones", "{{servicioCotizacionId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicios-cotizaciones",
+                "{{servicioCotizacionId}}"
+              ]
             }
           }
         }
@@ -2123,13 +3176,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metodos-pago",
-              "host": ["{{baseUrl}}"],
-              "path": ["metodos-pago"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metodos-pago"
+              ]
             }
           }
         },
@@ -2138,14 +3201,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metodos-pago",
-              "host": ["{{baseUrl}}"],
-              "path": ["metodos-pago"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metodos-pago"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2158,13 +3234,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metodos-pago", "{{metodoPagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metodos-pago",
+                "{{metodoPagoId}}"
+              ]
             }
           }
         },
@@ -2173,14 +3260,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metodos-pago", "{{metodoPagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metodos-pago",
+                "{{metodoPagoId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2193,13 +3294,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metodos-pago/{{metodoPagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metodos-pago", "{{metodoPagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metodos-pago",
+                "{{metodoPagoId}}"
+              ]
             }
           }
         }
@@ -2213,13 +3325,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos"
+              ]
             }
           }
         },
@@ -2228,28 +3350,83 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "multipart/form-data" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos"
+              ]
             },
             "body": {
               "mode": "formdata",
               "formdata": [
-                { "key": "fecha_pago", "value": "2026-02-17", "type": "text" },
-                { "key": "monto_total", "value": "120", "type": "text" },
-                { "key": "id_metodo_pago", "value": "{{metodoPagoId}}", "type": "text" },
-                { "key": "nro_comprobante", "value": "COMP-0002", "type": "text" },
-                { "key": "id_tasa_cambio", "value": "{{tasaCambioId}}", "type": "text" },
-                { "key": "id_entidad_bancaria", "value": "{{entidadBancariaId}}", "type": "text", "description": "ID de la entidad bancaria" },
-                { "key": "estatus", "value": "{{estatusPendientePagoId}}", "type": "text" },
-                { "key": "ordenes_compra[0][id_orden_compra]", "value": "{{ordenCompraId}}", "type": "text" },
-                { "key": "ordenes_compra[0][monto_asignado]", "value": "120", "type": "text" },
-                { "key": "comprobante_pdf", "type": "file", "src": "", "description": "PDF opcional, máx 4MB" }
+                {
+                  "key": "fecha_pago",
+                  "value": "2026-02-17",
+                  "type": "text"
+                },
+                {
+                  "key": "monto_total",
+                  "value": "120",
+                  "type": "text"
+                },
+                {
+                  "key": "id_metodo_pago",
+                  "value": "{{metodoPagoId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "nro_comprobante",
+                  "value": "COMP-0002",
+                  "type": "text"
+                },
+                {
+                  "key": "id_tasa_cambio",
+                  "value": "{{tasaCambioId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "id_entidad_bancaria",
+                  "value": "{{entidadBancariaId}}",
+                  "type": "text",
+                  "description": "ID de la entidad bancaria"
+                },
+                {
+                  "key": "estatus",
+                  "value": "{{estatusPendientePagoId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "ordenes_compra[0][id_orden_compra]",
+                  "value": "{{ordenCompraId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "ordenes_compra[0][monto_asignado]",
+                  "value": "120",
+                  "type": "text"
+                },
+                {
+                  "key": "comprobante_pdf",
+                  "type": "file",
+                  "src": "",
+                  "description": "PDF opcional, m├íx 4MB"
+                }
               ]
             }
           }
@@ -2259,13 +3436,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos/{{pagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos", "{{pagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos",
+                "{{pagoId}}"
+              ]
             }
           }
         },
@@ -2274,14 +3462,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos/{{pagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos", "{{pagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos",
+                "{{pagoId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2294,13 +3496,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/pagos/{{pagoId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["pagos", "{{pagoId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pagos",
+                "{{pagoId}}"
+              ]
             }
           }
         }
@@ -2314,13 +3527,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/temporalidades",
-              "host": ["{{baseUrl}}"],
-              "path": ["temporalidades"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temporalidades"
+              ]
             }
           }
         },
@@ -2329,14 +3552,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/temporalidades",
-              "host": ["{{baseUrl}}"],
-              "path": ["temporalidades"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temporalidades"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2349,13 +3585,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["temporalidades", "{{temporalidadId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temporalidades",
+                "{{temporalidadId}}"
+              ]
             }
           }
         },
@@ -2364,14 +3611,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["temporalidades", "{{temporalidadId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temporalidades",
+                "{{temporalidadId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2384,13 +3645,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/temporalidades/{{temporalidadId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["temporalidades", "{{temporalidadId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temporalidades",
+                "{{temporalidadId}}"
+              ]
             }
           }
         }
@@ -2404,13 +3676,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas"
+              ]
             }
           }
         },
@@ -2419,14 +3701,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2439,13 +3734,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas/{{metaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas", "{{metaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas",
+                "{{metaId}}"
+              ]
             }
           }
         },
@@ -2454,14 +3760,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas/{{metaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas", "{{metaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas",
+                "{{metaId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2474,13 +3794,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas/{{metaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas", "{{metaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas",
+                "{{metaId}}"
+              ]
             }
           }
         }
@@ -2494,13 +3825,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas-personal",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas-personal"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas-personal"
+              ]
             }
           }
         },
@@ -2509,14 +3850,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas-personal",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas-personal"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas-personal"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2529,13 +3883,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas-personal", "{{metaPersonalId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas-personal",
+                "{{metaPersonalId}}"
+              ]
             }
           }
         },
@@ -2544,14 +3909,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas-personal", "{{metaPersonalId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas-personal",
+                "{{metaPersonalId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2564,13 +3943,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/metas-personal/{{metaPersonalId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["metas-personal", "{{metaPersonalId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metas-personal",
+                "{{metaPersonalId}}"
+              ]
             }
           }
         }
@@ -2584,13 +3974,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas"
+              ]
             }
           }
         },
@@ -2599,14 +3999,27 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2619,13 +4032,24 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas/{{tasaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas", "{{tasaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas",
+                "{{tasaId}}"
+              ]
             }
           }
         },
@@ -2634,14 +4058,28 @@
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas/{{tasaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas", "{{tasaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas",
+                "{{tasaId}}"
+              ]
             },
             "body": {
               "mode": "raw",
@@ -2654,13 +4092,24 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/tasas/{{tasaId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["tasas", "{{tasaId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasas",
+                "{{tasaId}}"
+              ]
             }
           }
         }
@@ -2674,13 +4123,23 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/audit-logs",
-              "host": ["{{baseUrl}}"],
-              "path": ["audit-logs"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs"
+              ]
             }
           }
         },
@@ -2689,35 +4148,67 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/audit-logs?user_id={{personalId}}&per_page=20",
-              "host": ["{{baseUrl}}"],
-              "path": ["audit-logs"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs"
+              ],
               "query": [
-                { "key": "user_id", "value": "{{personalId}}" },
-                { "key": "per_page", "value": "20" }
+                {
+                  "key": "user_id",
+                  "value": "{{personalId}}"
+                },
+                {
+                  "key": "per_page",
+                  "value": "20"
+                }
               ]
             }
           }
         },
         {
-          "name": "Auditoria - Filtrar por acción",
+          "name": "Auditoria - Filtrar por acci├│n",
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/audit-logs?action=UPDATE&per_page=20",
-              "host": ["{{baseUrl}}"],
-              "path": ["audit-logs"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs"
+              ],
               "query": [
-                { "key": "action", "value": "UPDATE" },
-                { "key": "per_page", "value": "20" }
+                {
+                  "key": "action",
+                  "value": "UPDATE"
+                },
+                {
+                  "key": "per_page",
+                  "value": "20"
+                }
               ]
             }
           }
@@ -2727,16 +4218,34 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "text/csv" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/audit-logs/export/csv?desde=2026-01-01&hasta=2026-12-31",
-              "host": ["{{baseUrl}}"],
-              "path": ["audit-logs", "export", "csv"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs",
+                "export",
+                "csv"
+              ],
               "query": [
-                { "key": "desde", "value": "2026-01-01" },
-                { "key": "hasta", "value": "2026-12-31" }
+                {
+                  "key": "desde",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "hasta",
+                  "value": "2026-12-31"
+                }
               ]
             }
           }
@@ -2746,20 +4255,292 @@
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Accept", "value": "text/csv" },
-              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/audit-logs/export/csv?modo=resumen&desde=2026-01-01&hasta=2026-12-31",
-              "host": ["{{baseUrl}}"],
-              "path": ["audit-logs", "export", "csv"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs",
+                "export",
+                "csv"
+              ],
               "query": [
-                { "key": "modo", "value": "resumen" },
-                { "key": "desde", "value": "2026-01-01" },
-                { "key": "hasta", "value": "2026-12-31" }
+                {
+                  "key": "modo",
+                  "value": "resumen"
+                },
+                {
+                  "key": "desde",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "hasta",
+                  "value": "2026-12-31"
+                }
               ]
             }
           }
+        }
+      ]
+    },
+    {
+      "name": "KIU SOAP Legacy",
+      "item": [
+        {
+          "name": "KIU - Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"session_label\": \"TAG-SESSION\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/session",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "session"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
+        },
+        {
+          "name": "KIU - Availability",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"origin\": \"CCS\",\n    \"destination\": \"MIA\",\n    \"departure_date\": \"2026-05-20\",\n    \"adults\": 1\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/availability",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "availability"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
+        },
+        {
+          "name": "KIU - Pricing",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"currency\": \"USD\",\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0,\n    \"segment\": {\n      \"origin\": \"CCS\",\n      \"destination\": \"MIA\",\n      \"departure_datetime\": \"2026-05-20T08:00:00\",\n      \"arrival_datetime\": \"2026-05-20T12:30:00\",\n      \"flight_number\": \"1234\",\n      \"booking_class\": \"Y\",\n      \"marketing_airline\": \"AA\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/pricing",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "pricing"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
+        },
+        {
+          "name": "KIU - Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"contact_email\": \"test@example.com\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/booking",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "booking"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
+        },
+        {
+          "name": "KIU - Ticketing",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"reservation_code\": \"ABCD12\",\n    \"payment_reference\": \"REF-001\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/ticketing",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "ticketing"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
+        },
+        {
+          "name": "KIU - Post Sale",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"action\": \"void\",\n    \"reservation_code\": \"ABCD12\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/kiu/post-sale",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "kiu",
+                "post-sale"
+              ]
+            },
+            "description": "Integracion KIU en modo SOAP legacy."
+          },
+          "response": []
         }
       ]
     }
