@@ -32,7 +32,13 @@ class BuildDocs extends Command
         // 0. Limpiar cachés iniciales
         $this->warn('--- Paso 0: Limpiando todas las cachés ---');
         $this->call('config:clear');
-        $this->call('cache:clear');
+        
+        try {
+            $this->call('cache:clear');
+        } catch (\Exception $e) {
+            $this->warn('⚠️ No se pudo limpiar la caché (probablemente la BD no tiene las tablas aún). Continuando...');
+        }
+
         if ($this->getLaravel()->make('files')->exists(base_path('resources/docs'))) {
             $this->warn('Limpiando caché de Scribe...');
             $this->call('scribe:cache:clear');

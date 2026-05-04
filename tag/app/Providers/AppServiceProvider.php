@@ -31,10 +31,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use App\Listeners\BroadcastPermissionsChanged;
-use Spatie\Permission\Events\RoleAssigned;
-use Spatie\Permission\Events\RoleRemoved;
-use Spatie\Permission\Events\PermissionGranted;
-use Spatie\Permission\Events\PermissionRevoked;
+use Spatie\Permission\Events\RoleAttached;
+use Spatie\Permission\Events\RoleDetached;
+use Spatie\Permission\Events\PermissionAttached;
+use Spatie\Permission\Events\PermissionDetached;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -122,9 +122,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Register listeners for Spatie Permission events to sync session via WebSockets
-        Event::listen(RoleAssigned::class, BroadcastPermissionsChanged::class);
-        Event::listen(RoleRemoved::class, BroadcastPermissionsChanged::class);
-        Event::listen(PermissionGranted::class, BroadcastPermissionsChanged::class);
-        Event::listen(PermissionRevoked::class, BroadcastPermissionsChanged::class);
+        Event::listen(RoleAttached::class, BroadcastPermissionsChanged::class);
+        Event::listen(RoleDetached::class, BroadcastPermissionsChanged::class);
+        Event::listen(PermissionAttached::class, BroadcastPermissionsChanged::class);
+        Event::listen(PermissionDetached::class, BroadcastPermissionsChanged::class);
     }
 }

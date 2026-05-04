@@ -26,7 +26,9 @@ class PersistirAuditLog implements ShouldQueue
 
     public function __construct(
         public readonly array $payload,
-    ) {}
+    ) {
+        $this->onQueue('logs');
+    }
 
     public function handle(): void
     {

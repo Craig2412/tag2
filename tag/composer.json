@@ -37,16 +37,26 @@
     },
     "scripts": {
         "setup": [
+            "Composer\\Config::disableProcessTimeout",
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
-            "@php artisan migrate --force",
             "@php artisan storage:link --ansi",
             "@php artisan app:build-docs"
         ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "composer install",
+            "@php artisan app:build-docs",
+            "@composer dev"
+        ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac\" \"php artisan serve\" \"php artisan queue:listen --queue=default,logs --tries=1 --timeout=0\" \"php artisan reverb:start\" --names=server,queue,reverb --kill-others"
+        ],
+        "_dev-con-pail-unix": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac,#fb7185\" \"php artisan serve\" \"php artisan queue:listen --queue=default,logs --tries=1 --timeout=0\" \"php artisan reverb:start\" \"php artisan pail --timeout=0\" --names=server,queue,reverb,logs --kill-others"
         ],
         "test": [
             "@php artisan config:clear --ansi",

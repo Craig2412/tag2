@@ -18,13 +18,10 @@ class BroadcastPermissionsChanged
      */
     public function handle($event): void
     {
-        $user = $event->user;
+        $user = $event->model ?? null;
 
         if ($user instanceof Usuario) {
-            // Signal the frontend that permissions have changed
-            broadcast(new PermissionsUpdated($user->id))->toOthers();
-            
-            Log::info("Permissions changed for user ID: {$user->id}. Broadcast emitted.");
+            broadcast(new PermissionsUpdated($user->id));
         }
     }
 }
