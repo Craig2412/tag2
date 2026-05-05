@@ -58,7 +58,7 @@ class RoleSeeder extends Seeder
             'create:atenciones_personal',
             'edit:atenciones_personal',
             'delete:atenciones_personal',
-            'view:get_cotizaciones',
+            'view:cotizaciones',
             'create:cotizaciones',
             'edit:cotizaciones',
             'delete:cotizaciones',
@@ -102,6 +102,48 @@ class RoleSeeder extends Seeder
             'create:configuraciones_sistema',
             'edit:configuraciones_sistema',
             'delete:configuraciones_sistema',
+            'view:temporalidades',
+            'create:temporalidades',
+            'edit:temporalidades',
+            'delete:temporalidades',
+            'view:entidades_bancarias',
+            'create:entidades_bancarias',
+            'edit:entidades_bancarias',
+            'delete:entidades_bancarias',
+            'view:metas',
+            'create:metas',
+            'edit:metas',
+            'delete:metas',
+            'view:metas_personal',
+            'create:metas_personal',
+            'edit:metas_personal',
+            'delete:metas_personal',
+            'view:ordenes_compra',
+            'create:ordenes_compra',
+            'edit:ordenes_compra',
+            'delete:ordenes_compra',
+            'view:tasas',
+            'create:tasas',
+            'edit:tasas',
+            'delete:tasas',
+            'view:cuentas_por_pagar',
+            'create:cuentas_por_pagar',
+            'edit:cuentas_por_pagar',
+            'delete:cuentas_por_pagar',
+            'view:clientes_empresas',
+            'create:clientes_empresas',
+            'edit:clientes_empresas',
+            'delete:clientes_empresas',
+            'view:pagos_ordenes_compra',
+            'create:pagos_ordenes_compra',
+            'edit:pagos_ordenes_compra',
+            'delete:pagos_ordenes_compra',
+            'view:estatus',
+            'create:estatus',
+            'edit:estatus',
+            'delete:estatus',
+            'view:logros_personal',
+            'view:audit_logs',
         ];
 
         foreach ($permissions as $permission) {
@@ -146,7 +188,7 @@ class RoleSeeder extends Seeder
         foreach ($users as $userData) {
             $role = $userData['role'];
             unset($userData['role']);
-            
+
             $user = Usuario::firstOrCreate(['correo' => $userData['correo']], $userData);
             $user->syncRoles([$role]);
         }

@@ -16,7 +16,7 @@ class CuentaProveedor extends Model
     protected $fillable = [
         'id_proveedor',
         'numero_cuenta',
-        'entidad_financiera',
+        'nombre_banco',
         'tipo_cuenta',
         'moneda',
     ];

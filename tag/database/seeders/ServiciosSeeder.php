@@ -7,6 +7,7 @@ use App\Models\Estatus;
 use App\Models\Servicio;
 use App\Models\TasaCambio;
 use App\Models\TipoServicio;
+use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
 
 class ServiciosSeeder extends Seeder
@@ -16,9 +17,10 @@ class ServiciosSeeder extends Seeder
         $tipoServicio = TipoServicio::first();
         $tasaCambio = TasaCambio::first();
         $cotizacion = Cotizacion::first();
+        $proveedor = Proveedor::first();
         $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
 
-        if (!$tipoServicio || !$tasaCambio || !$cotizacion) {
+        if (!$tipoServicio || !$tasaCambio || !$cotizacion || !$proveedor) {
             return;
         }
 
@@ -32,7 +34,7 @@ class ServiciosSeeder extends Seeder
                 [
                     'id_cotizacion' => $cotizacion->id,
                     'id_tipo_servicio' => $tipoServicio->id,
-                    'id_proveedor' => $tipoServicio->id_proveedor,
+                    'id_proveedor' => $proveedor->id,
                     'id_tasa_cambio' => $tasaCambio->id,
                     'costo' => $item['costo'],
                 ],

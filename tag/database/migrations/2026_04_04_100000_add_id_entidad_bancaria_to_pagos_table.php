@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pagos', function (Blueprint $table) {
-            $table->foreignId('id_entidad_bancaria')->after('id_tasa_cambio')->constrained('entidades_bancarias');
+            $table->foreignId('id_entidad_bancaria')->nullable()->after('id_tasa_cambio')->constrained('entidades_bancarias');
         });
     }
 

@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_proveedor')->constrained('proveedores');
             $table->string('numero_cuenta');
-            $table->string('entidad_financiera');
+            $table->string('nombre_banco');
             $table->string('tipo_cuenta');
             $table->string('moneda');
             $table->timestamps();

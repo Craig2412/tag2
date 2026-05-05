@@ -26,6 +26,7 @@ class ProveedorResource extends JsonResource
             'tipo_proveedor_info'     => new TipoProveedorResource($this->whenLoaded('tipoProveedor')),
             'estatus_info'            => new EstatusResource($this->whenLoaded('estatus')),
             'tipos_servicio'          => TipoServicioResource::collection($this->whenLoaded('tiposServicio')),
+            'cuentas'                 => CuentaProveedorResource::collection($this->whenLoaded('cuentas')),
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

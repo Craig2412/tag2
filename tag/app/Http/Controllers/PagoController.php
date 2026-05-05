@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estatus;
+use App\Models\MetodoPago;
 use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
@@ -33,7 +34,7 @@ class PagoController extends Controller
      * @bodyParam id_metodo_pago int required ID del método de pago. Ejemplo: 1
      * @bodyParam nro_comprobante string required Número de referencia o comprobante. Ejemplo: REF-998877
      * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
-     * @bodyParam id_entidad_bancaria int required ID de la entidad bancaria. Ejemplo: 1
+     * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Requerido si el método de pago es bancario. Null si es Efectivo. Ejemplo: 1
      * @bodyParam estatus int required ID del estatus del pago. Ejemplo: 1
      * @bodyParam ordenes_compra object[] required Distribución en órdenes de compra.
      * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
@@ -47,13 +48,26 @@ class PagoController extends Controller
             'id_metodo_pago' => ['required', 'exists:metodos_pago,id'],
             'nro_comprobante' => ['required', 'string', 'max:255'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['required', 'exists:entidades_bancarias,id'],
+            'id_entidad_bancaria' => ['nullable', 'exists:entidades_bancarias,id'],
             'estatus' => ['required', 'exists:estatus,id'],
             'ordenes_compra' => ['required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
-            'comprobante_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:4096'], // 4MB max
+            'comprobante_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:4096'],
         ]);
+
+        // Validación dinámica: si el método de pago tiene entidades bancarias asociadas, la entidad es obligatoria
+        $metodoPago = MetodoPago::with('entidadesBancarias')->find($data['id_metodo_pago']);
+        if ($metodoPago->entidadesBancarias->isNotEmpty() && empty($data['id_entidad_bancaria'])) {
+            return response()->json([
+                'message' => 'El método de pago seleccionado requiere una entidad bancaria.',
+                'errors' => ['id_entidad_bancaria' => ['Debe seleccionar una entidad bancaria para este método de pago.']]
+            ], 422);
+        }
+        // Si el método no tiene bancos (ej. Efectivo), forzamos null sin importar lo que llegue
+        if ($metodoPago->entidadesBancarias->isEmpty()) {
+            $data['id_entidad_bancaria'] = null;
+        }
 
         // Manejo del archivo PDF (opcional)
         $rutaComprobante = null;
@@ -132,7 +146,7 @@ class PagoController extends Controller
             'id_metodo_pago' => ['sometimes', 'required', 'exists:metodos_pago,id'],
             'nro_comprobante' => ['sometimes', 'required', 'string', 'max:255'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['sometimes', 'required', 'exists:entidades_bancarias,id'],
+            'id_entidad_bancaria' => ['nullable', 'exists:entidades_bancarias,id'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
             'ordenes_compra' => ['sometimes', 'required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],

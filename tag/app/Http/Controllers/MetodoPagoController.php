@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MetodoPago;
+use App\Http\Resources\EntidadBancariaResource;
 use App\Http\Resources\MetodoPagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -16,8 +17,9 @@ class MetodoPagoController extends Controller
      */
     public function index()
     {
-        // Lista los metodos de pago y los devuelve en JSON.
-        return MetodoPagoResource::collection(MetodoPago::orderBy('id')->get());
+        // Lista los metodos de pago incluyendo sus entidades bancarias asociadas.
+        $metodos = MetodoPago::with('entidadesBancarias')->orderBy('id')->get();
+        return MetodoPagoResource::collection($metodos);
     }
 
     /**
@@ -27,14 +29,19 @@ class MetodoPagoController extends Controller
      */
     public function store(Request $request)
     {
-        // Crea un metodo de pago con datos validados y lo devuelve.
         $data = $request->validate([
             'metodo_pago' => ['required', 'string', 'max:255', 'unique:metodos_pago,metodo_pago'],
+            'entidades_bancarias' => ['nullable', 'array'],
+            'entidades_bancarias.*' => ['exists:entidades_bancarias,id'],
         ]);
 
         $item = MetodoPago::create($data);
 
-        return new MetodoPagoResource($item);
+        if (isset($data['entidades_bancarias'])) {
+            $item->entidadesBancarias()->sync($data['entidades_bancarias']);
+        }
+
+        return new MetodoPagoResource($item->load('entidadesBancarias'));
     }
 
     /**
@@ -44,30 +51,36 @@ class MetodoPagoController extends Controller
      */
     public function show(MetodoPago $metodoPago)
     {
-        // Muestra un metodo de pago por id.
-        return new MetodoPagoResource($metodoPago);
+        return new MetodoPagoResource($metodoPago->load('entidadesBancarias'));
     }
 
     /**
      * Actualizar un método de pago
      * 
      * @bodyParam metodo_pago string required Nombre del método de pago. Ejemplo: Transferencia Zelle
+     * @bodyParam entidades_bancarias int[] Lista de IDs de entidades bancarias asociadas. Example: [1, 2]
      */
     public function update(Request $request, MetodoPago $metodoPago)
     {
-        // Actualiza un metodo de pago y devuelve el resultado.
         $data = $request->validate([
             'metodo_pago' => [
+                'sometimes',
                 'required',
                 'string',
                 'max:255',
                 Rule::unique('metodos_pago', 'metodo_pago')->ignore($metodoPago->id),
             ],
+            'entidades_bancarias' => ['nullable', 'array'],
+            'entidades_bancarias.*' => ['exists:entidades_bancarias,id'],
         ]);
 
         $metodoPago->update($data);
 
-        return new MetodoPagoResource($metodoPago);
+        if (isset($data['entidades_bancarias'])) {
+            $metodoPago->entidadesBancarias()->sync($data['entidades_bancarias']);
+        }
+
+        return new MetodoPagoResource($metodoPago->load('entidadesBancarias'));
     }
 
     /**
@@ -79,5 +92,15 @@ class MetodoPagoController extends Controller
         $metodoPago->delete();
 
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
+    }
+    /**
+     * Obtener entidades bancarias de un método de pago
+     *
+     * Devuelve las entidades bancarias asociadas al método de pago dado.
+     * Si el arreglo está vacío, el método no requiere entidad bancaria (ej. Efectivo).
+     */
+    public function entidadesBancarias(MetodoPago $metodoPago)
+    {
+        return EntidadBancariaResource::collection($metodoPago->entidadesBancarias);
     }
 }

@@ -90,6 +90,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->parameters(['tipos-cotizaciones' => 'tipoCotizacion']);
     Route::apiResource('metodos-pago', MetodoPagoController::class)
         ->parameters(['metodos-pago' => 'metodoPago']);
+    Route::get('metodos-pago/{metodoPago}/entidades-bancarias', [MetodoPagoController::class, 'entidadesBancarias']);
     Route::apiResource('ordenes-compra', OrdenCompraController::class)
         ->parameters(['ordenes-compra' => 'ordenCompra']);
     Route::apiResource('pagos', PagoController::class);

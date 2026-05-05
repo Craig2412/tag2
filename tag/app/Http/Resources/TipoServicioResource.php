@@ -12,11 +12,10 @@ class TipoServicioResource extends JsonResource
         return [
             'id'           => $this->id,
             'tipo_servicio' => $this->tipo_servicio,
-            'id_proveedor' => $this->id_proveedor,
             'iva_defecto'  => (float) $this->iva_defecto,
 
             // Relaciones
-            'proveedor'    => new ProveedorResource($this->whenLoaded('proveedor')),
+            'proveedores'  => ProveedorResource::collection($this->whenLoaded('proveedores')),
         ];
     }
 }
