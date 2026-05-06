@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('valor_objetivo', 15, 2);
             $table->foreignId('id_temporalidad')->constrained('temporalidades');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

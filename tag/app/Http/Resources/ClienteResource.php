@@ -18,7 +18,6 @@ class ClienteResource extends JsonResource
             'telefono'              => $this->telefono,
             'correo_contacto'       => $this->correo_contacto,
             'id_tipo_contribuyente' => $this->id_tipo_contribuyente,
-            'id_estatus'            => $this->id_estatus,
 
             // Relaciones
             'tipo_contribuyente' => new TipoContribuyenteResource($this->whenLoaded('tipoContribuyente')),

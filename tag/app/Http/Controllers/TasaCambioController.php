@@ -15,10 +15,19 @@ class TasaCambioController extends Controller
      *
      * Devuelve el historial de tasas de cambio registradas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasas = TasaCambio::with('monedaCatalogo')
-            ->orderByDesc('fecha')
+        $query = TasaCambio::query();
+
+        if ($request->has('include')) {
+            $allowed = ['monedaCatalogo'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        $tasas = $query->orderByDesc('fecha')
             ->orderBy('id_tasa')
             ->get();
 

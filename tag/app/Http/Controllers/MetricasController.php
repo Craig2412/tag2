@@ -34,7 +34,7 @@ class MetricasController extends Controller
     private function calcularMetricas($idPersonal = null)
     {
         // Filtros base
-        $atenciones = Atencion::query();
+        $atenciones = Atencion::withTrashed();
         if ($idPersonal) {
             $atenciones->where('id_personal', $idPersonal);
         }

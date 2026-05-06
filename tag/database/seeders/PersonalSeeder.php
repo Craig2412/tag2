@@ -15,7 +15,6 @@ class PersonalSeeder extends Seeder
     public function run(): void
     {
         $usuarios = Usuario::role('personal')->get();
-        $estatus = Estatus::firstOrCreate(['estatus' => 'activo']);
 
         foreach ($usuarios as $usuario) {
             Personal::firstOrCreate(
@@ -27,7 +26,6 @@ class PersonalSeeder extends Seeder
                     'telefono' => '+58 412 ' . rand(1000000, 9999999),
                     'correo_institucional' => strtolower($usuario->nombre_usuario) . '@tag.com',
                     'porcentaje_comision' => 5.00,
-                    'id_estatus' => $estatus->id,
                 ]
             );
         }

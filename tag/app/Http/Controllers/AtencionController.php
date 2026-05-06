@@ -13,6 +13,7 @@ use App\Events\AtencionEstatusActualizado;
 use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class AtencionController extends Controller
 {
@@ -21,36 +22,33 @@ class AtencionController extends Controller
      *
      * Devuelve todas las atenciones activas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // withCount no es suficiente: necesitamos la última cotización y su OC.
-        // Usamos eager loading con constraint para traer solo la cotización más reciente
-        // por atención, evitando el N+1 que ejecutaba 2 queries por cada atención.
-        $items = Atencion::with([
-                'cliente',
-                'personal',
-                'origen',
-                'estatus',
-                'etapaComercial',
-                'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
-                'cotizaciones.ordenCompra',
-            ])
-            ->orderBy('id')
-            ->get();
+        $query = Atencion::query();
 
-        $result = $items->map(function (Atencion $atencion) {
-            // Sin queries adicionales — todo está en memoria
-            $cotizacion      = $atencion->cotizaciones->first();
-            $id_cotizacion   = $cotizacion?->id;
-            $id_orden_compra = $cotizacion?->ordenCompra?->id;
+        // Relaciones por defecto
+        $query->with([
+            'cliente' => fn($q) => $q->withTrashed(),
+            'personal' => fn($q) => $q->withTrashed(),
+            'origen' => fn($q) => $q->withTrashed(),
+            'estatus',
+            'etapaComercial' => fn($q) => $q->withTrashed(),
+            'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
+            'cotizaciones.ordenCompra',
+        ]);
 
-            $arr = $atencion->toArray();
-            $arr['id_cotizacion']   = $id_cotizacion;
-            $arr['id_orden_compra'] = $id_orden_compra;
-            return $arr;
-        });
+        // Soporte para relaciones adicionales
+        if ($request->has('include')) {
+            $allowed = ['cliente', 'personal', 'origen', 'estatus', 'etapaComercial', 'cotizaciones'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
 
-        return AtencionResource::collection(collect($result));
+        $items = $query->orderBy('id')->get();
+
+        return AtencionResource::collection($items);
     }
 
     /**
@@ -66,8 +64,8 @@ class AtencionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_cliente' => ['required', 'exists:clientes,id'],
-            'id_origen_atencion' => ['required', 'exists:origenes,id'],
+            'id_cliente' => ['required', Rule::exists('clientes', 'id')->whereNull('deleted_at')],
+            'id_origen_atencion' => ['required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['required', 'string', 'max:255'],
             'notas_adicionales' => ['nullable', 'string'],
         ]);
@@ -107,24 +105,16 @@ class AtencionController extends Controller
     {
         // Igual que index(): eager load para evitar queries adicionales
         $atencion->load([
-            'cliente',
-            'personal',
-            'origen',
+            'cliente' => fn($q) => $q->withTrashed(),
+            'personal' => fn($q) => $q->withTrashed(),
+            'origen' => fn($q) => $q->withTrashed(),
             'estatus',
-            'etapaComercial',
+            'etapaComercial' => fn($q) => $q->withTrashed(),
             'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
             'cotizaciones.ordenCompra',
         ]);
 
-        $cotizacion      = $atencion->cotizaciones->first();
-        $id_cotizacion   = $cotizacion?->id;
-        $id_orden_compra = $cotizacion?->ordenCompra?->id;
-
-        $arr = $atencion->toArray();
-        $arr['id_cotizacion']   = $id_cotizacion;
-        $arr['id_orden_compra'] = $id_orden_compra;
-
-        return new AtencionResource((object) $arr);
+        return new AtencionResource($atencion);
     }
 
     /**
@@ -140,9 +130,9 @@ class AtencionController extends Controller
     public function update(Request $request, Atencion $atencion)
     {
         $data = $request->validate([
-            'id_cliente' => ['sometimes', 'required', 'exists:clientes,id'],
-            'id_personal' => ['sometimes', 'required', 'exists:personal,id'],
-            'id_origen_atencion' => ['sometimes', 'required', 'exists:origenes,id'],
+            'id_cliente' => ['sometimes', 'required', Rule::exists('clientes', 'id')->whereNull('deleted_at')],
+            'id_personal' => ['sometimes', 'required', Rule::exists('personal', 'id')->whereNull('deleted_at')],
+            'id_origen_atencion' => ['sometimes', 'required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['sometimes', 'required', 'string', 'max:255'],
             'notas_adicionales' => ['sometimes', 'nullable', 'string'],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
@@ -201,7 +191,7 @@ class AtencionController extends Controller
         $conteos = DB::table('atenciones')
             ->select('id_personal', DB::raw('COUNT(*) as total'))
             ->whereNull('deleted_at') // Nativo softDeletes en vez de borrado_logico
-            ->where('estatus', '!=', $estatusConcluido->id)
+            ->where('estatus', '!=', $estatusConcluido)
             ->whereIn('id_personal', $personalIds)
             ->groupBy('id_personal')
             ->pluck('total', 'id_personal')

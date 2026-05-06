@@ -23,7 +23,6 @@ return new class extends Migration
             $table->decimal('total_servicio', 12, 2);
             $table->decimal('iva_establecido', 5, 2)->nullable();
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
-            $table->foreignId('estatus')->nullable()->constrained('estatus');
             $table->timestamps();
             $table->softDeletes();
         });

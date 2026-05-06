@@ -24,19 +24,12 @@ class Proveedor extends Model
         'nombre_persona_contacto',
         'id_tipo_contribuyente',
         'tipo_proveedor',
-        'estatus',
     ];
 
     // Devuelve el tipo de proveedor asociado.
     public function tipoProveedor(): BelongsTo
     {
         return $this->belongsTo(TipoProveedor::class, 'tipo_proveedor');
-    }
-
-    // Devuelve el estatus actual del proveedor.
-    public function estatus(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'estatus');
     }
 
     // Lista los tipos de servicio autorizados para este proveedor.

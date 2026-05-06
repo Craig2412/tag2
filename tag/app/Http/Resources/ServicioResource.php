@@ -21,13 +21,11 @@ class ServicioResource extends JsonResource
             'total_servicio'   => (float) $this->total_servicio,
             'iva_establecido'  => (float) $this->iva_establecido,
             'id_tasa_cambio'   => $this->id_tasa_cambio,
-            'estatus'          => $this->estatus,
 
             // Relaciones
             'tipo_servicio'    => new TipoServicioResource($this->whenLoaded('tipoServicio')),
             'proveedor'        => new ProveedorResource($this->whenLoaded('proveedor')),
             'tasa_cambio'      => new TasaCambioResource($this->whenLoaded('tasaCambio')),
-            'estatus_info'     => new EstatusResource($this->whenLoaded('estatus')),
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

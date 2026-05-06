@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('tipo_contribuyente')->unique();
             $table->decimal('porcentaje_iva', 5, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

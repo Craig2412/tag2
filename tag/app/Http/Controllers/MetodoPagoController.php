@@ -15,11 +15,19 @@ class MetodoPagoController extends Controller
      *
      * Devuelve el catálogo de métodos de pago disponibles en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Lista los metodos de pago incluyendo sus entidades bancarias asociadas.
-        $metodos = MetodoPago::with('entidadesBancarias')->orderBy('id')->get();
-        return MetodoPagoResource::collection($metodos);
+        $query = MetodoPago::query();
+
+        if ($request->has('include')) {
+            $allowed = ['entidadesBancarias'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        return MetodoPagoResource::collection($query->orderBy('id')->get());
     }
 
     /**

@@ -9,12 +9,22 @@ class AtencionHistorialController extends Controller
 {
     public function index()
     {
-        return AtencionHistorial::all();
+        return AtencionHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'atencion' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->get();
     }
 
     public function show($id)
     {
-        return AtencionHistorial::findOrFail($id);
+        return AtencionHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'atencion' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)

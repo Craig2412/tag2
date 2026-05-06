@@ -18,7 +18,6 @@ class PersonalResource extends JsonResource
             'telefono'            => $this->telefono,
             'correo_institucional' => $this->correo_institucional,
             'porcentaje_comision' => (float) $this->porcentaje_comision,
-            'id_estatus'          => $this->id_estatus,
 
             // Solo se incluye si la relación fue cargada Y el usuario tiene permiso
             'usuario' => $this->when(

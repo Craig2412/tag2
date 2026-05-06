@@ -16,7 +16,6 @@ class ClientesSeeder extends Seeder
     public function run(): void
     {
         $usuarios = Usuario::role('cliente')->get();
-        $estatus = Estatus::firstOrCreate(['estatus' => 'activo']);
         $tipoContribuyente = TipoContribuyente::first();
 
         if ($usuarios->isEmpty()) {
@@ -28,7 +27,6 @@ class ClientesSeeder extends Seeder
                     'apellido' => 'Final',
                     'telefono' => '+58 212 555-1212',
                     'id_tipo_contribuyente' => $tipoContribuyente ? $tipoContribuyente->id : null,
-                    'id_estatus' => $estatus->id,
                 ]
             );
         }
@@ -42,7 +40,6 @@ class ClientesSeeder extends Seeder
                     'cedula' => 'V-' . rand(10000000, 30000000),
                     'telefono' => '+58 424 ' . rand(1000000, 9999999),
                     'id_tipo_contribuyente' => $tipoContribuyente ? $tipoContribuyente->id : null,
-                    'id_estatus' => $estatus->id,
                 ]
             );
         }

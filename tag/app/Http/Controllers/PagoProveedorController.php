@@ -18,7 +18,13 @@ class PagoProveedorController extends Controller
      */
     public function index()
     {
-        return PagoProveedorResource::collection(PagoProveedor::with(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar'])->orderBy('id', 'desc')->get());
+        return PagoProveedorResource::collection(PagoProveedor::with([
+            'proveedor' => fn($q) => $q->withTrashed(),
+            'tasaCambio',
+            'metodoPago' => fn($q) => $q->withTrashed(),
+            'estatus_pago',
+            'cuentasPorPagar'
+        ])->orderBy('id', 'desc')->get());
     }
 
     /**
@@ -82,7 +88,10 @@ class PagoProveedorController extends Controller
                 return $pago;
             });
 
-            $pago->load(['proveedor', 'cuentasPorPagar']);
+            $pago->load([
+                'proveedor' => fn($q) => $q->withTrashed(),
+                'cuentasPorPagar'
+            ]);
             return new PagoProveedorResource($pago);
 
         } catch (\Exception $e) {
@@ -95,7 +104,13 @@ class PagoProveedorController extends Controller
      */
     public function show(PagoProveedor $pagoProveedor)
     {
-        $pagoProveedor->load(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar']);
+        $pagoProveedor->load([
+            'proveedor' => fn($q) => $q->withTrashed(),
+            'tasaCambio',
+            'metodoPago' => fn($q) => $q->withTrashed(),
+            'estatus_pago',
+            'cuentasPorPagar'
+        ]);
         return new PagoProveedorResource($pagoProveedor);
     }
 
@@ -116,7 +131,13 @@ class PagoProveedorController extends Controller
         ]);
 
         $pagoProveedor->update($data);
-        $pagoProveedor->load(['proveedor', 'tasaCambio', 'metodoPago', 'estatus_pago', 'cuentasPorPagar']);
+        $pagoProveedor->load([
+            'proveedor' => fn($q) => $q->withTrashed(),
+            'tasaCambio',
+            'metodoPago' => fn($q) => $q->withTrashed(),
+            'estatus_pago',
+            'cuentasPorPagar'
+        ]);
 
         return new PagoProveedorResource($pagoProveedor);
     }

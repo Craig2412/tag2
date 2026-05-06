@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('id_estatus_nuevo')->constrained('estatus');
             $table->unsignedBigInteger('tiempo_transcurrido_segundos')->default(0);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->index(['tipo_entidad', 'id_entidad']);
             $table->index('id_personal');

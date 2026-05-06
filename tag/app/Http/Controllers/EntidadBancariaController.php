@@ -14,9 +14,19 @@ class EntidadBancariaController extends Controller
      *
      * Devuelve el catálogo de entidades bancarias registradas en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return EntidadBancariaResource::collection(EntidadBancaria::with('metodosPago')->get());
+        $query = EntidadBancaria::query();
+
+        if ($request->has('include')) {
+            $allowed = ['metodosPago', 'estatus_relation'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        return EntidadBancariaResource::collection($query->orderBy('entidad')->get());
     }
 
     /**
@@ -30,7 +40,6 @@ class EntidadBancariaController extends Controller
     {
         $data = $request->validate([
             'entidad' => ['required', 'string', 'max:255'],
-            'estatus' => ['nullable', 'exists:estatus,id'],
             'metodos_pago' => ['nullable', 'array'],
             'metodos_pago.*' => ['exists:metodos_pago,id'],
         ]);
@@ -55,14 +64,12 @@ class EntidadBancariaController extends Controller
      * Actualizar una entidad bancaria existente
      *
      * @bodyParam entidad string Nombre de la entidad bancaria.
-     * @bodyParam estatus int ID del estatus.
      * @bodyParam metodos_pago int[] Lista de IDs de métodos de pago asociados. Example: [1, 2]
      */
     public function update(Request $request, EntidadBancaria $entidadBancaria)
     {
         $data = $request->validate([
             'entidad' => ['sometimes', 'required', 'string', 'max:255'],
-            'estatus' => ['nullable', 'exists:estatus,id'],
             'metodos_pago' => ['nullable', 'array'],
             'metodos_pago.*' => ['exists:metodos_pago,id'],
         ]);

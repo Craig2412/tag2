@@ -12,10 +12,8 @@ class EntidadBancariaResource extends JsonResource
         return [
             'id'       => $this->id,
             'entidad'  => $this->entidad,
-            'estatus'  => $this->estatus,
 
             // Relaciones
-            'estatus_info'  => new EstatusResource($this->whenLoaded('estatus_relation')),
             'metodos_pago'  => MetodoPagoResource::collection($this->whenLoaded('metodosPago')),
         ];
     }

@@ -19,6 +19,10 @@ class AtencionResource extends JsonResource
             'estatus'             => $this->estatus,
             'id_etapa_comercial'  => $this->id_etapa_comercial,
 
+            // Campos calculados para el frontend
+            'id_cotizacion'       => $this->cotizaciones?->first()?->id,
+            'id_orden_compra'     => $this->cotizaciones?->first()?->ordenCompra?->id,
+
             // Relaciones
             'cliente'             => new ClienteResource($this->whenLoaded('cliente')),
             'personal'            => new PersonalResource($this->whenLoaded('personal')),

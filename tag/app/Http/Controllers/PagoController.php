@@ -10,6 +10,7 @@ use App\Models\PagoOrdenCompra;
 use App\Http\Resources\PagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class PagoController extends Controller
 {
@@ -18,10 +19,25 @@ class PagoController extends Controller
      *
      * Devuelve todos los pagos activos registrados en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Pago::orderBy('id')->get();
-        return PagoResource::collection($items);
+        $query = Pago::query();
+
+        // Soporte para relaciones
+        if ($request->has('include')) {
+            $allowed = ['metodoPago', 'entidadBancaria', 'tasaCambio', 'estatus', 'ordenesCompra'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'entidadBancaria' || $include === 'metodoPago') {
+                        return [$include => fn($q) => $q->withTrashed()];
+                    }
+                    return [$include => fn($q) => $q];
+                })->toArray());
+            }
+        }
+
+        return PagoResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -45,10 +61,10 @@ class PagoController extends Controller
         $data = $request->validate([
             'fecha_pago' => ['required', 'date'],
             'monto_total' => ['required', 'numeric', 'min:0.01'],
-            'id_metodo_pago' => ['required', 'exists:metodos_pago,id'],
+            'id_metodo_pago' => ['required', Rule::exists('metodos_pago', 'id')->whereNull('deleted_at')],
             'nro_comprobante' => ['required', 'string', 'max:255'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['nullable', 'exists:entidades_bancarias,id'],
+            'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
             'estatus' => ['required', 'exists:estatus,id'],
             'ordenes_compra' => ['required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
@@ -143,10 +159,10 @@ class PagoController extends Controller
         $data = $request->validate([
             'fecha_pago' => ['sometimes', 'required', 'date'],
             'monto_total' => ['sometimes', 'required', 'numeric', 'min:0.01'],
-            'id_metodo_pago' => ['sometimes', 'required', 'exists:metodos_pago,id'],
+            'id_metodo_pago' => ['sometimes', 'required', Rule::exists('metodos_pago', 'id')->whereNull('deleted_at')],
             'nro_comprobante' => ['sometimes', 'required', 'string', 'max:255'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['nullable', 'exists:entidades_bancarias,id'],
+            'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
             'ordenes_compra' => ['sometimes', 'required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],

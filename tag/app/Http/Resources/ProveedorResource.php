@@ -19,12 +19,10 @@ class ProveedorResource extends JsonResource
             'nombre_persona_contacto' => $this->nombre_persona_contacto,
             'id_tipo_contribuyente'   => $this->id_tipo_contribuyente,
             'tipo_proveedor'          => $this->tipo_proveedor,
-            'estatus'                 => $this->estatus,
 
             // Relaciones
             'tipo_contribuyente'      => new TipoContribuyenteResource($this->whenLoaded('tipoContribuyente')),
             'tipo_proveedor_info'     => new TipoProveedorResource($this->whenLoaded('tipoProveedor')),
-            'estatus_info'            => new EstatusResource($this->whenLoaded('estatus')),
             'tipos_servicio'          => TipoServicioResource::collection($this->whenLoaded('tiposServicio')),
             'cuentas'                 => CuentaProveedorResource::collection($this->whenLoaded('cuentas')),
 

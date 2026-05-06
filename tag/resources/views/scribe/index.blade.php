@@ -4890,8 +4890,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;admin@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [
             &quot;view:usuarios&quot;,
@@ -5033,8 +5033,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;admin&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 1,
@@ -5045,8 +5045,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 1,
                         &quot;name&quot;: &quot;view:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 1
@@ -5056,8 +5056,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 2,
                         &quot;name&quot;: &quot;create:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 2
@@ -5067,8 +5067,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;edit:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 3
@@ -5078,8 +5078,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 4,
                         &quot;name&quot;: &quot;delete:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 4
@@ -5089,8 +5089,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 5,
                         &quot;name&quot;: &quot;view:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 5
@@ -5100,8 +5100,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 6,
                         &quot;name&quot;: &quot;create:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 6
@@ -5111,8 +5111,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 7,
                         &quot;name&quot;: &quot;edit:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 7
@@ -5122,8 +5122,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 8,
                         &quot;name&quot;: &quot;delete:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 8
@@ -5133,8 +5133,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 9,
                         &quot;name&quot;: &quot;view:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 9
@@ -5144,8 +5144,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 10,
                         &quot;name&quot;: &quot;create:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 10
@@ -5155,8 +5155,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 11,
                         &quot;name&quot;: &quot;edit:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 11
@@ -5166,8 +5166,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 12,
                         &quot;name&quot;: &quot;delete:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 12
@@ -5177,8 +5177,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 13,
                         &quot;name&quot;: &quot;view:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 13
@@ -5188,8 +5188,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 14,
                         &quot;name&quot;: &quot;create:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 14
@@ -5199,8 +5199,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 15,
                         &quot;name&quot;: &quot;edit:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 15
@@ -5210,8 +5210,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 16,
                         &quot;name&quot;: &quot;delete:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 16
@@ -5221,8 +5221,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 17,
                         &quot;name&quot;: &quot;view:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 17
@@ -5232,8 +5232,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 18,
                         &quot;name&quot;: &quot;create:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:10.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 18
@@ -5243,8 +5243,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 19,
                         &quot;name&quot;: &quot;edit:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 19
@@ -5254,8 +5254,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 20,
                         &quot;name&quot;: &quot;delete:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 20
@@ -5265,8 +5265,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 21,
                         &quot;name&quot;: &quot;view:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 21
@@ -5276,8 +5276,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 22,
                         &quot;name&quot;: &quot;create:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 22
@@ -5287,8 +5287,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 23,
                         &quot;name&quot;: &quot;edit:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 23
@@ -5298,8 +5298,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 24,
                         &quot;name&quot;: &quot;delete:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 24
@@ -5309,8 +5309,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 25,
                         &quot;name&quot;: &quot;view:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 25
@@ -5320,8 +5320,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 26,
                         &quot;name&quot;: &quot;create:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 26
@@ -5331,8 +5331,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 27,
                         &quot;name&quot;: &quot;edit:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 27
@@ -5342,8 +5342,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 28,
                         &quot;name&quot;: &quot;delete:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 28
@@ -5353,8 +5353,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 29,
                         &quot;name&quot;: &quot;view:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 29
@@ -5364,8 +5364,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 30,
                         &quot;name&quot;: &quot;create:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 30
@@ -5375,8 +5375,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 31,
                         &quot;name&quot;: &quot;edit:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 31
@@ -5386,8 +5386,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 32,
                         &quot;name&quot;: &quot;delete:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 32
@@ -5397,8 +5397,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 33,
                         &quot;name&quot;: &quot;view:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 33
@@ -5408,8 +5408,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 34,
                         &quot;name&quot;: &quot;create:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 34
@@ -5419,8 +5419,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 35,
                         &quot;name&quot;: &quot;edit:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 35
@@ -5430,8 +5430,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 36,
                         &quot;name&quot;: &quot;delete:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 36
@@ -5441,8 +5441,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 37,
                         &quot;name&quot;: &quot;view:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 37
@@ -5452,8 +5452,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 38,
                         &quot;name&quot;: &quot;create:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 38
@@ -5463,8 +5463,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 39,
                         &quot;name&quot;: &quot;edit:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 39
@@ -5474,8 +5474,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 40,
                         &quot;name&quot;: &quot;delete:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 40
@@ -5485,8 +5485,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 41,
                         &quot;name&quot;: &quot;view:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 41
@@ -5496,8 +5496,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 42,
                         &quot;name&quot;: &quot;create:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 42
@@ -5507,8 +5507,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 43,
                         &quot;name&quot;: &quot;edit:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 43
@@ -5518,8 +5518,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 44,
                         &quot;name&quot;: &quot;delete:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 44
@@ -5529,8 +5529,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 45,
                         &quot;name&quot;: &quot;view:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 45
@@ -5540,8 +5540,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 46,
                         &quot;name&quot;: &quot;create:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 46
@@ -5551,8 +5551,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 47,
                         &quot;name&quot;: &quot;edit:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 47
@@ -5562,8 +5562,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 48,
                         &quot;name&quot;: &quot;delete:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 48
@@ -5573,8 +5573,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 49,
                         &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 49
@@ -5584,8 +5584,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 50,
                         &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 50
@@ -5595,8 +5595,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 51,
                         &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 51
@@ -5606,8 +5606,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 52,
                         &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 52
@@ -5617,8 +5617,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 53,
                         &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 53
@@ -5628,8 +5628,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 54,
                         &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 54
@@ -5639,8 +5639,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 55,
                         &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 55
@@ -5650,8 +5650,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 56,
                         &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 56
@@ -5661,8 +5661,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 57,
                         &quot;name&quot;: &quot;view:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 57
@@ -5672,8 +5672,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 58,
                         &quot;name&quot;: &quot;create:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 58
@@ -5683,8 +5683,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 59,
                         &quot;name&quot;: &quot;edit:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 59
@@ -5694,8 +5694,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 60,
                         &quot;name&quot;: &quot;delete:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 60
@@ -5705,8 +5705,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 61,
                         &quot;name&quot;: &quot;view:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 61
@@ -5716,8 +5716,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 62,
                         &quot;name&quot;: &quot;create:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 62
@@ -5727,8 +5727,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 63,
                         &quot;name&quot;: &quot;edit:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 63
@@ -5738,8 +5738,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 64,
                         &quot;name&quot;: &quot;delete:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 64
@@ -5749,8 +5749,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 65,
                         &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 65
@@ -5760,8 +5760,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 66,
                         &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 66
@@ -5771,8 +5771,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 67,
                         &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 67
@@ -5782,8 +5782,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 68,
                         &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 68
@@ -5793,8 +5793,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 69,
                         &quot;name&quot;: &quot;view:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 69
@@ -5804,8 +5804,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 70,
                         &quot;name&quot;: &quot;create:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 70
@@ -5815,8 +5815,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 71,
                         &quot;name&quot;: &quot;edit:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 71
@@ -5826,8 +5826,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 72,
                         &quot;name&quot;: &quot;delete:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 72
@@ -5837,8 +5837,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 73,
                         &quot;name&quot;: &quot;view:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 73
@@ -5848,8 +5848,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 74,
                         &quot;name&quot;: &quot;create:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 74
@@ -5859,8 +5859,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 75,
                         &quot;name&quot;: &quot;edit:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 75
@@ -5870,8 +5870,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 76,
                         &quot;name&quot;: &quot;delete:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 76
@@ -5881,8 +5881,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 77,
                         &quot;name&quot;: &quot;view:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 77
@@ -5892,8 +5892,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 78,
                         &quot;name&quot;: &quot;create:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 78
@@ -5903,8 +5903,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 79,
                         &quot;name&quot;: &quot;edit:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 79
@@ -5914,8 +5914,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 80,
                         &quot;name&quot;: &quot;delete:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 80
@@ -5925,8 +5925,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 81,
                         &quot;name&quot;: &quot;view:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 81
@@ -5936,8 +5936,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 82,
                         &quot;name&quot;: &quot;create:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 82
@@ -5947,8 +5947,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 83,
                         &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 83
@@ -5958,8 +5958,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 84,
                         &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 84
@@ -5969,8 +5969,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 85,
                         &quot;name&quot;: &quot;view:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 85
@@ -5980,8 +5980,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 86,
                         &quot;name&quot;: &quot;create:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 86
@@ -5991,8 +5991,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 87,
                         &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 87
@@ -6002,8 +6002,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 88,
                         &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 88
@@ -6013,8 +6013,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 89,
                         &quot;name&quot;: &quot;view:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 89
@@ -6024,8 +6024,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 90,
                         &quot;name&quot;: &quot;create:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 90
@@ -6035,8 +6035,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 91,
                         &quot;name&quot;: &quot;edit:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 91
@@ -6046,8 +6046,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 92,
                         &quot;name&quot;: &quot;delete:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 92
@@ -6057,8 +6057,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 93,
                         &quot;name&quot;: &quot;view:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 93
@@ -6068,8 +6068,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 94,
                         &quot;name&quot;: &quot;create:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 94
@@ -6079,8 +6079,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 95,
                         &quot;name&quot;: &quot;edit:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 95
@@ -6090,8 +6090,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 96,
                         &quot;name&quot;: &quot;delete:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 96
@@ -6101,8 +6101,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 97,
                         &quot;name&quot;: &quot;view:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 97
@@ -6112,8 +6112,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 98,
                         &quot;name&quot;: &quot;create:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 98
@@ -6123,8 +6123,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 99,
                         &quot;name&quot;: &quot;edit:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 99
@@ -6134,8 +6134,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 100,
                         &quot;name&quot;: &quot;delete:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 100
@@ -6145,8 +6145,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 101,
                         &quot;name&quot;: &quot;view:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 101
@@ -6156,8 +6156,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 102,
                         &quot;name&quot;: &quot;create:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 102
@@ -6167,8 +6167,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 103,
                         &quot;name&quot;: &quot;edit:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 103
@@ -6178,8 +6178,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 104,
                         &quot;name&quot;: &quot;delete:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 104
@@ -6189,8 +6189,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 105,
                         &quot;name&quot;: &quot;view:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 105
@@ -6200,8 +6200,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 106,
                         &quot;name&quot;: &quot;create:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 106
@@ -6211,8 +6211,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 107,
                         &quot;name&quot;: &quot;edit:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 107
@@ -6222,8 +6222,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 108,
                         &quot;name&quot;: &quot;delete:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 108
@@ -6233,8 +6233,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 109,
                         &quot;name&quot;: &quot;view:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 109
@@ -6244,8 +6244,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 110,
                         &quot;name&quot;: &quot;create:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 110
@@ -6255,8 +6255,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 111,
                         &quot;name&quot;: &quot;edit:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 111
@@ -6266,8 +6266,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 112,
                         &quot;name&quot;: &quot;delete:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 112
@@ -6277,8 +6277,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 113,
                         &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 113
@@ -6288,8 +6288,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 114,
                         &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 114
@@ -6299,8 +6299,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 115,
                         &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 115
@@ -6310,8 +6310,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 116,
                         &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 116
@@ -6321,8 +6321,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 117,
                         &quot;name&quot;: &quot;view:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 117
@@ -6332,8 +6332,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 118,
                         &quot;name&quot;: &quot;create:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 118
@@ -6343,8 +6343,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 119,
                         &quot;name&quot;: &quot;edit:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 119
@@ -6354,8 +6354,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 120,
                         &quot;name&quot;: &quot;delete:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 120
@@ -6365,8 +6365,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 121,
                         &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 121
@@ -6376,8 +6376,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 122,
                         &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 122
@@ -6387,8 +6387,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 123,
                         &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 123
@@ -6398,8 +6398,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 124,
                         &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 124
@@ -6409,8 +6409,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 125,
                         &quot;name&quot;: &quot;view:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 125
@@ -6420,8 +6420,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 126,
                         &quot;name&quot;: &quot;create:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 126
@@ -6431,8 +6431,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 127,
                         &quot;name&quot;: &quot;edit:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:11.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 127
@@ -6442,8 +6442,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 128,
                         &quot;name&quot;: &quot;delete:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 128
@@ -6453,8 +6453,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 129,
                         &quot;name&quot;: &quot;view:logros_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 129
@@ -6464,8 +6464,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 130,
                         &quot;name&quot;: &quot;view:audit_logs&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-06T06:46:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 130
@@ -6929,63 +6929,19 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
-            &quot;estatus&quot;: 1,
-            &quot;metodos_pago&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;metodo_pago&quot;: &quot;transferencia&quot;
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;metodo_pago&quot;: &quot;tarjeta&quot;
-                }
-            ]
+            &quot;entidad&quot;: &quot;Banco de Prueba&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
-            &quot;estatus&quot;: 1,
-            &quot;metodos_pago&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;metodo_pago&quot;: &quot;transferencia&quot;
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;metodo_pago&quot;: &quot;tarjeta&quot;
-                }
-            ]
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;entidad&quot;: &quot;Banco Nacional&quot;,
-            &quot;estatus&quot;: 1,
-            &quot;metodos_pago&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;metodo_pago&quot;: &quot;transferencia&quot;
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;metodo_pago&quot;: &quot;tarjeta&quot;
-                }
-            ]
+            &quot;entidad&quot;: &quot;Banco Ejemplo&quot;
         },
         {
             &quot;id&quot;: 4,
-            &quot;entidad&quot;: &quot;Banco Internacional&quot;,
-            &quot;estatus&quot;: 1,
-            &quot;metodos_pago&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;metodo_pago&quot;: &quot;transferencia&quot;
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;metodo_pago&quot;: &quot;tarjeta&quot;
-                }
-            ]
+            &quot;entidad&quot;: &quot;Banco Internacional&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;entidad&quot;: &quot;Banco Nacional&quot;
         }
     ]
 }</code>
@@ -7096,11 +7052,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --data "{
     \"entidad\": \"consequatur\",
-    \"estatus\": 17,
     \"metodos_pago\": [
         1,
         2
-    ]
+    ],
+    \"estatus\": 17
 }"
 </code></pre></div>
 
@@ -7118,11 +7074,11 @@ const headers = {
 
 let body = {
     "entidad": "consequatur",
-    "estatus": 17,
     "metodos_pago": [
         1,
         2
-    ]
+    ],
+    "estatus": 17
 };
 
 fetch(url, {
@@ -7232,18 +7188,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>Nombre de la entidad bancaria. Ejemplo: Banco de Venezuela Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="POSTapi-entidades-bancarias"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>metodos_pago</code></b>&nbsp;&nbsp;
 <small>integer[]</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -7256,6 +7200,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                data-component="body">
     <br>
 <p>Lista de IDs de métodos de pago asociados.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="POSTapi-entidades-bancarias"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -7315,7 +7271,6 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
-        &quot;estatus&quot;: 1,
         &quot;metodos_pago&quot;: [
             {
                 &quot;id&quot;: 2,
@@ -7448,7 +7403,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --data "{
     \"entidad\": \"consequatur\",
-    \"estatus\": 17,
     \"metodos_pago\": [
         1,
         2
@@ -7470,7 +7424,6 @@ const headers = {
 
 let body = {
     "entidad": "consequatur",
-    "estatus": 17,
     "metodos_pago": [
         1,
         2
@@ -7599,18 +7552,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                data-component="body">
     <br>
 <p>Nombre de la entidad bancaria. Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="PUTapi-entidades-bancarias--entidadBancaria_id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>metodos_pago</code></b>&nbsp;&nbsp;
@@ -9001,8 +8942,8 @@ access-control-allow-origin: *
         {
             &quot;id&quot;: 1,
             &quot;dias_vencimiento&quot;: 30,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         }
     ]
 }</code>
@@ -9296,8 +9237,8 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9764,8 +9705,8 @@ access-control-allow-origin: *
             &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
             &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
             &quot;moneda&quot;: &quot;VES&quot;,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -10119,8 +10060,8 @@ access-control-allow-origin: *
         &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -12293,13 +12234,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 4,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-17261241&quot;,
-            &quot;telefono&quot;: &quot;+58 424 4068346&quot;,
+            &quot;cedula&quot;: &quot;V-14182934&quot;,
+            &quot;telefono&quot;: &quot;+58 424 6535054&quot;,
             &quot;correo_contacto&quot;: null,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         }
     ]
 }</code>
@@ -12429,13 +12369,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"telefono\": \"consequatur\",
     \"correo_contacto\": \"consequatur\",
     \"id_tipo_contribuyente\": 17,
-    \"id_estatus\": 17,
     \"usuario\": {
         \"nombre_usuario\": \"vazjrcnfbaqywuxhgjjmz\",
         \"correo\": \"jullrich@example.net\",
         \"clave\": \"bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu\",
-        \"esta_activo\": true
-    }
+        \"esta_activo\": false
+    },
+    \"id_estatus\": 17
 }"
 </code></pre></div>
 
@@ -12459,13 +12399,13 @@ let body = {
     "telefono": "consequatur",
     "correo_contacto": "consequatur",
     "id_tipo_contribuyente": 17,
-    "id_estatus": 17,
     "usuario": {
         "nombre_usuario": "vazjrcnfbaqywuxhgjjmz",
         "correo": "jullrich@example.net",
         "clave": "bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu",
-        "esta_activo": true
-    }
+        "esta_activo": false
+    },
+    "id_estatus": 17
 };
 
 fetch(url, {
@@ -12647,18 +12587,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_estatus"                data-endpoint="POSTapi-clientes"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>usuario</code></b>&nbsp;&nbsp;
@@ -12724,7 +12652,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -12741,6 +12669,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>The <code>name</code> of an existing record in the roles table.</p>
                     </div>
                                     </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="POSTapi-clientes"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -12802,11 +12742,10 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 4,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-17261241&quot;,
-        &quot;telefono&quot;: &quot;+58 424 4068346&quot;,
+        &quot;cedula&quot;: &quot;V-14182934&quot;,
+        &quot;telefono&quot;: &quot;+58 424 6535054&quot;,
         &quot;correo_contacto&quot;: null,
         &quot;id_tipo_contribuyente&quot;: 1,
-        &quot;id_estatus&quot;: 1,
         &quot;tipo_contribuyente&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
@@ -12821,11 +12760,11 @@ access-control-allow-origin: *
                 &quot;cliente&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
     }
 }</code>
  </pre>
@@ -12954,13 +12893,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"telefono\": \"consequatur\",
     \"correo_contacto\": \"consequatur\",
     \"id_tipo_contribuyente\": 17,
-    \"id_estatus\": 17,
     \"usuario\": {
         \"nombre_usuario\": \"vazjrcnfbaqywuxhgjjmz\",
         \"correo\": \"jullrich@example.net\",
         \"clave\": \"bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu\",
-        \"esta_activo\": false
-    }
+        \"esta_activo\": true
+    },
+    \"id_estatus\": 17
 }"
 </code></pre></div>
 
@@ -12984,13 +12923,13 @@ let body = {
     "telefono": "consequatur",
     "correo_contacto": "consequatur",
     "id_tipo_contribuyente": 17,
-    "id_estatus": 17,
     "usuario": {
         "nombre_usuario": "vazjrcnfbaqywuxhgjjmz",
         "correo": "jullrich@example.net",
         "clave": "bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu",
-        "esta_activo": false
-    }
+        "esta_activo": true
+    },
+    "id_estatus": 17
 };
 
 fetch(url, {
@@ -13189,18 +13128,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_estatus"                data-endpoint="PUTapi-clientes--id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>usuario</code></b>&nbsp;&nbsp;
@@ -13266,7 +13193,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -13283,6 +13210,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>The <code>name</code> of an existing record in the roles table.</p>
                     </div>
                                     </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="PUTapi-clientes--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -13490,13 +13429,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-29065642&quot;,
-            &quot;telefono&quot;: &quot;+58 412 1813055&quot;,
+            &quot;cedula&quot;: &quot;V-20195349&quot;,
+            &quot;telefono&quot;: &quot;+58 412 2436074&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: 5,
-            &quot;id_estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         }
     ]
 }</code>
@@ -13626,13 +13564,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"telefono\": \"consequatur\",
     \"correo_institucional\": \"consequatur\",
     \"porcentaje_comision\": 11613.31890586,
-    \"id_estatus\": 17,
     \"usuario\": {
         \"nombre_usuario\": \"azjrcnfbaqywuxhgjjmzu\",
         \"correo\": \"uhoeger@example.com\",
         \"clave\": \"qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux\",
-        \"esta_activo\": true
-    }
+        \"esta_activo\": false
+    },
+    \"id_estatus\": 17
 }"
 </code></pre></div>
 
@@ -13656,13 +13594,13 @@ let body = {
     "telefono": "consequatur",
     "correo_institucional": "consequatur",
     "porcentaje_comision": 11613.31890586,
-    "id_estatus": 17,
     "usuario": {
         "nombre_usuario": "azjrcnfbaqywuxhgjjmzu",
         "correo": "uhoeger@example.com",
         "clave": "qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux",
-        "esta_activo": true
-    }
+        "esta_activo": false
+    },
+    "id_estatus": 17
 };
 
 fetch(url, {
@@ -13844,18 +13782,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_estatus"                data-endpoint="POSTapi-personal"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>usuario</code></b>&nbsp;&nbsp;
@@ -13921,7 +13847,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -13938,6 +13864,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>The <code>name</code> of an existing record in the roles table.</p>
                     </div>
                                     </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="POSTapi-personal"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -13999,11 +13937,10 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-29065642&quot;,
-        &quot;telefono&quot;: &quot;+58 412 1813055&quot;,
+        &quot;cedula&quot;: &quot;V-20195349&quot;,
+        &quot;telefono&quot;: &quot;+58 412 2436074&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: 5,
-        &quot;id_estatus&quot;: 1,
         &quot;usuario&quot;: {
             &quot;id&quot;: 3,
             &quot;nombre_usuario&quot;: &quot;Personal Comercial&quot;,
@@ -14013,11 +13950,11 @@ access-control-allow-origin: *
                 &quot;personal&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
     }
 }</code>
  </pre>
@@ -14146,13 +14083,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"telefono\": \"consequatur\",
     \"correo_institucional\": \"consequatur\",
     \"porcentaje_comision\": 11613.31890586,
-    \"id_estatus\": 17,
     \"usuario\": {
         \"nombre_usuario\": \"azjrcnfbaqywuxhgjjmzu\",
         \"correo\": \"uhoeger@example.com\",
         \"clave\": \"qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux\",
-        \"esta_activo\": true
-    }
+        \"esta_activo\": false
+    },
+    \"id_estatus\": 17
 }"
 </code></pre></div>
 
@@ -14176,13 +14113,13 @@ let body = {
     "telefono": "consequatur",
     "correo_institucional": "consequatur",
     "porcentaje_comision": 11613.31890586,
-    "id_estatus": 17,
     "usuario": {
         "nombre_usuario": "azjrcnfbaqywuxhgjjmzu",
         "correo": "uhoeger@example.com",
         "clave": "qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux",
-        "esta_activo": true
-    }
+        "esta_activo": false
+    },
+    "id_estatus": 17
 };
 
 fetch(url, {
@@ -14381,18 +14318,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_estatus"                data-endpoint="PUTapi-personal--id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
                 <b style="line-height: 2;"><code>usuario</code></b>&nbsp;&nbsp;
@@ -14458,7 +14383,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -14475,6 +14400,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>The <code>name</code> of an existing record in the roles table.</p>
                     </div>
                                     </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_estatus"                data-endpoint="PUTapi-personal--id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
         </div>
         </form>
 
@@ -14680,8 +14617,8 @@ access-control-allow-origin: *
             &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
             &quot;direccion&quot;: &quot;Direccion demo&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -15065,8 +15002,13 @@ access-control-allow-origin: *
         &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
         &quot;direccion&quot;: &quot;Direccion demo&quot;,
         &quot;id_tipo_contribuyente&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+        &quot;tipo_contribuyente&quot;: {
+            &quot;id&quot;: 1,
+            &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
+            &quot;porcentaje_iva&quot;: 16
+        },
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -16389,8 +16331,8 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_personal&quot;: 1,
             &quot;id_empresa&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -16699,8 +16641,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -17932,7 +17874,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-atenciones">
             <blockquote>
-            <p>Ejemplo de respuesta (500):</p>
+            <p>Ejemplo de respuesta (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -17944,7 +17886,88 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;id_cliente&quot;: 1,
+            &quot;id_personal&quot;: 1,
+            &quot;id_origen_atencion&quot;: 1,
+            &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
+            &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
+            &quot;estatus&quot;: 11,
+            &quot;id_etapa_comercial&quot;: 1,
+            &quot;id_cotizacion&quot;: 1,
+            &quot;id_orden_compra&quot;: 1,
+            &quot;cliente&quot;: {
+                &quot;id&quot;: 1,
+                &quot;usuario_id&quot;: 4,
+                &quot;nombre&quot;: &quot;Cliente Demo&quot;,
+                &quot;apellido&quot;: &quot;General&quot;,
+                &quot;cedula&quot;: &quot;V-14182934&quot;,
+                &quot;telefono&quot;: &quot;+58 424 6535054&quot;,
+                &quot;correo_contacto&quot;: null,
+                &quot;id_tipo_contribuyente&quot;: 1,
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
+            },
+            &quot;personal&quot;: {
+                &quot;id&quot;: 1,
+                &quot;usuario_id&quot;: 3,
+                &quot;nombre&quot;: &quot;Personal Comercial&quot;,
+                &quot;apellido&quot;: &quot;Comercial&quot;,
+                &quot;cedula&quot;: &quot;V-20195349&quot;,
+                &quot;telefono&quot;: &quot;+58 412 2436074&quot;,
+                &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
+                &quot;porcentaje_comision&quot;: 5,
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
+            },
+            &quot;origen&quot;: {
+                &quot;id&quot;: 1,
+                &quot;red&quot;: &quot;facebook&quot;
+            },
+            &quot;etapa_comercial&quot;: {
+                &quot;id&quot;: 1,
+                &quot;slug&quot;: &quot;atencion&quot;,
+                &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
+                &quot;color&quot;: &quot;#3b82f6&quot;,
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;deleted_at&quot;: null
+            },
+            &quot;cotizaciones&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;id_atencion&quot;: 1,
+                    &quot;id_tipo_cotizacion&quot;: 1,
+                    &quot;cant_adultos&quot;: 2,
+                    &quot;cant_menores&quot;: 1,
+                    &quot;cant_viejos&quot;: 0,
+                    &quot;id_tasa_cambio&quot;: 1,
+                    &quot;fecha_vencimiento&quot;: &quot;2026-05-21&quot;,
+                    &quot;esta_vencida&quot;: false,
+                    &quot;estatus&quot;: 5,
+                    &quot;orden_compra&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;id_cotizacion&quot;: 1,
+                        &quot;estatus&quot;: 6,
+                        &quot;id_estado_financiero&quot;: 3,
+                        &quot;id_estado_financiero_egreso&quot;: null,
+                        &quot;monto_total&quot;: 260,
+                        &quot;total_pagado&quot;: 260,
+                        &quot;saldo_pendiente&quot;: 0,
+                        &quot;porcentaje_pagado&quot;: 100,
+                        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+                    },
+                    &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+                }
+            ],
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -18263,7 +18286,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-atenciones--atencion_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (500):</p>
+            <p>Ejemplo de respuesta (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -18275,7 +18298,86 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;id_cliente&quot;: 1,
+        &quot;id_personal&quot;: 1,
+        &quot;id_origen_atencion&quot;: 1,
+        &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
+        &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
+        &quot;estatus&quot;: 11,
+        &quot;id_etapa_comercial&quot;: 1,
+        &quot;id_cotizacion&quot;: 1,
+        &quot;id_orden_compra&quot;: 1,
+        &quot;cliente&quot;: {
+            &quot;id&quot;: 1,
+            &quot;usuario_id&quot;: 4,
+            &quot;nombre&quot;: &quot;Cliente Demo&quot;,
+            &quot;apellido&quot;: &quot;General&quot;,
+            &quot;cedula&quot;: &quot;V-14182934&quot;,
+            &quot;telefono&quot;: &quot;+58 424 6535054&quot;,
+            &quot;correo_contacto&quot;: null,
+            &quot;id_tipo_contribuyente&quot;: 1,
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
+        },
+        &quot;personal&quot;: {
+            &quot;id&quot;: 1,
+            &quot;usuario_id&quot;: 3,
+            &quot;nombre&quot;: &quot;Personal Comercial&quot;,
+            &quot;apellido&quot;: &quot;Comercial&quot;,
+            &quot;cedula&quot;: &quot;V-20195349&quot;,
+            &quot;telefono&quot;: &quot;+58 412 2436074&quot;,
+            &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
+            &quot;porcentaje_comision&quot;: 5,
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
+        },
+        &quot;origen&quot;: {
+            &quot;id&quot;: 1,
+            &quot;red&quot;: &quot;facebook&quot;
+        },
+        &quot;etapa_comercial&quot;: {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;atencion&quot;,
+            &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
+            &quot;color&quot;: &quot;#3b82f6&quot;,
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        &quot;cotizaciones&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;id_atencion&quot;: 1,
+                &quot;id_tipo_cotizacion&quot;: 1,
+                &quot;cant_adultos&quot;: 2,
+                &quot;cant_menores&quot;: 1,
+                &quot;cant_viejos&quot;: 0,
+                &quot;id_tasa_cambio&quot;: 1,
+                &quot;fecha_vencimiento&quot;: &quot;2026-05-21&quot;,
+                &quot;esta_vencida&quot;: false,
+                &quot;estatus&quot;: 5,
+                &quot;orden_compra&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;id_cotizacion&quot;: 1,
+                    &quot;estatus&quot;: 6,
+                    &quot;id_estado_financiero&quot;: 3,
+                    &quot;id_estado_financiero_egreso&quot;: null,
+                    &quot;monto_total&quot;: 260,
+                    &quot;total_pagado&quot;: 260,
+                    &quot;saldo_pendiente&quot;: 0,
+                    &quot;porcentaje_pagado&quot;: 100,
+                    &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+                },
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+            }
+        ],
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -18815,43 +18917,8 @@ access-control-allow-origin: *
             &quot;fecha_vencimiento&quot;: &quot;2026-05-21&quot;,
             &quot;esta_vencida&quot;: false,
             &quot;estatus&quot;: 5,
-            &quot;atencion&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_cliente&quot;: 1,
-                &quot;id_personal&quot;: 1,
-                &quot;id_origen_atencion&quot;: 1,
-                &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
-                &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
-                &quot;estatus&quot;: 11,
-                &quot;id_etapa_comercial&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
-            },
-            &quot;tipo_cotizacion&quot;: {
-                &quot;id&quot;: 1,
-                &quot;tipo_cotizacion&quot;: &quot;personal&quot;
-            },
-            &quot;tasa_cambio&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_tasa&quot;: 5,
-                &quot;valor_cambio&quot;: 36.5,
-                &quot;fecha&quot;: &quot;2026-05-06&quot;
-            },
-            &quot;orden_compra&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_cotizacion&quot;: 1,
-                &quot;estatus&quot;: 6,
-                &quot;id_estado_financiero&quot;: 3,
-                &quot;id_estado_financiero_egreso&quot;: null,
-                &quot;monto_total&quot;: 260,
-                &quot;total_pagado&quot;: 260,
-                &quot;saldo_pendiente&quot;: 0,
-                &quot;porcentaje_pagado&quot;: 100,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -19385,11 +19452,11 @@ access-control-allow-origin: *
             &quot;total_pagado&quot;: 260,
             &quot;saldo_pendiente&quot;: 0,
             &quot;porcentaje_pagado&quot;: 100,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -20826,60 +20893,15 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;metodo_pago&quot;: &quot;efectivo&quot;,
-            &quot;entidades_bancarias&quot;: []
+            &quot;metodo_pago&quot;: &quot;efectivo&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;metodo_pago&quot;: &quot;transferencia&quot;,
-            &quot;entidades_bancarias&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 2,
-                    &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;entidad&quot;: &quot;Banco Nacional&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 4,
-                    &quot;entidad&quot;: &quot;Banco Internacional&quot;,
-                    &quot;estatus&quot;: 1
-                }
-            ]
+            &quot;metodo_pago&quot;: &quot;transferencia&quot;
         },
         {
             &quot;id&quot;: 3,
-            &quot;metodo_pago&quot;: &quot;tarjeta&quot;,
-            &quot;entidades_bancarias&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;entidad&quot;: &quot;Banco de Prueba&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 2,
-                    &quot;entidad&quot;: &quot;Banco Ejemplo&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;entidad&quot;: &quot;Banco Nacional&quot;,
-                    &quot;estatus&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 4,
-                    &quot;entidad&quot;: &quot;Banco Internacional&quot;,
-                    &quot;estatus&quot;: 1
-                }
-            ]
+            &quot;metodo_pago&quot;: &quot;tarjeta&quot;
         }
     ]
 }</code>
@@ -21852,19 +21874,20 @@ access-control-allow-origin: *
                     &quot;valor_cambio&quot;: 36.5,
                     &quot;fecha&quot;: &quot;2026-05-06&quot;
                 },
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
             },
             &quot;estado_financiero&quot;: {
                 &quot;id&quot;: 3,
                 &quot;slug&quot;: &quot;pagado&quot;,
                 &quot;label&quot;: &quot;Pagado&quot;,
                 &quot;color&quot;: &quot;#10b981&quot;,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;deleted_at&quot;: null
             },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -22637,8 +22660,8 @@ access-control-allow-origin: *
             &quot;id_tasa_cambio&quot;: 1,
             &quot;id_entidad_bancaria&quot;: 1,
             &quot;estatus&quot;: 6,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -22756,7 +22779,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --form "estatus=17"\
     --form "ordenes_compra[][id_orden_compra]=17"\
     --form "ordenes_compra[][monto_asignado]=11613.31890586"\
-    --form "comprobante_pdf=@C:\Users\cpustorevzla\AppData\Local\Temp\phpEEB.tmp" </code></pre></div>
+    --form "comprobante_pdf=@C:\Users\PC\AppData\Local\Temp\php2640.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -23006,7 +23029,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>C:\Users\cpustorevzla\AppData\Local\Temp\phpEEB.tmp</code></p>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>C:\Users\PC\AppData\Local\Temp\php2640.tmp</code></p>
         </div>
         </form>
 
@@ -23079,12 +23102,12 @@ access-control-allow-origin: *
                 &quot;id_orden_compra&quot;: 1,
                 &quot;monto_asignado&quot;: 260,
                 &quot;monto_pagado&quot;: 0,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -23688,8 +23711,8 @@ access-control-allow-origin: *
             &quot;id_orden_compra&quot;: 1,
             &quot;monto_asignado&quot;: 260,
             &quot;monto_pagado&quot;: 0,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -24028,8 +24051,8 @@ access-control-allow-origin: *
         &quot;id_orden_compra&quot;: 1,
         &quot;monto_asignado&quot;: 260,
         &quot;monto_pagado&quot;: 0,
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -24523,9 +24546,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
             },
             &quot;tasa_cambio&quot;: null,
             &quot;metodo_pago&quot;: {
@@ -24533,8 +24555,8 @@ access-control-allow-origin: *
                 &quot;metodo_pago&quot;: &quot;efectivo&quot;
             },
             &quot;cuentas_saldadas&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -24647,7 +24669,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"id_proveedor\": \"consequatur\",
     \"monto_total\": 45,
     \"referencia\": \"qeopfuudtdsufvyvddqam\",
-    \"fecha_pago\": \"2026-05-06T06:46:30\",
+    \"fecha_pago\": \"2026-05-06T22:40:14\",
     \"id_metodo_pago\": \"consequatur\",
     \"estatus\": \"consequatur\",
     \"comprobante\": \"consequatur\",
@@ -24676,7 +24698,7 @@ let body = {
     "id_proveedor": "consequatur",
     "monto_total": 45,
     "referencia": "qeopfuudtdsufvyvddqam",
-    "fecha_pago": "2026-05-06T06:46:30",
+    "fecha_pago": "2026-05-06T22:40:14",
     "id_metodo_pago": "consequatur",
     "estatus": "consequatur",
     "comprobante": "consequatur",
@@ -24837,10 +24859,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos-proveedores"
-               value="2026-05-06T06:46:30"
+               value="2026-05-06T22:40:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-06T06:46:30</code></p>
+<p>Must be a valid date. Example: <code>2026-05-06T22:40:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -24989,9 +25011,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         },
         &quot;tasa_cambio&quot;: null,
         &quot;metodo_pago&quot;: {
@@ -24999,8 +25020,8 @@ access-control-allow-origin: *
             &quot;metodo_pago&quot;: &quot;efectivo&quot;
         },
         &quot;cuentas_saldadas&quot;: [],
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -25124,7 +25145,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --data "{
     \"monto_total\": 73,
     \"referencia\": \"mqeopfuudtdsufvyvddqa\",
-    \"fecha_pago\": \"2026-05-06T06:46:30\",
+    \"fecha_pago\": \"2026-05-06T22:40:14\",
     \"comprobante\": \"consequatur\"
 }"
 </code></pre></div>
@@ -25144,7 +25165,7 @@ const headers = {
 let body = {
     "monto_total": 73,
     "referencia": "mqeopfuudtdsufvyvddqa",
-    "fecha_pago": "2026-05-06T06:46:30",
+    "fecha_pago": "2026-05-06T22:40:14",
     "comprobante": "consequatur"
 };
 
@@ -25314,10 +25335,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="2026-05-06T06:46:30"
+               value="2026-05-06T22:40:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-06T06:46:30</code></p>
+<p>Must be a valid date. Example: <code>2026-05-06T22:40:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -26323,43 +26344,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;estatus&quot;: 1,
-            &quot;tipo_contribuyente&quot;: null,
-            &quot;tipo_proveedor_info&quot;: {
-                &quot;id&quot;: 1,
-                &quot;tipo_proveedor&quot;: &quot;servicios profesionales&quot;
-            },
-            &quot;tipos_servicio&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;tipo_servicio&quot;: &quot;Alojamiento&quot;,
-                    &quot;iva_defecto&quot;: 16
-                },
-                {
-                    &quot;id&quot;: 2,
-                    &quot;tipo_servicio&quot;: &quot;Traslado&quot;,
-                    &quot;iva_defecto&quot;: 16
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;tipo_servicio&quot;: &quot;Vuelo&quot;,
-                    &quot;iva_defecto&quot;: 16
-                }
-            ],
-            &quot;cuentas&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;id_proveedor&quot;: 1,
-                    &quot;numero_cuenta&quot;: &quot;0102-0000-0000-0000-0000&quot;,
-                    &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
-                    &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
-                    &quot;moneda&quot;: &quot;VES&quot;,
-                    &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
-                }
-            ],
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -26477,7 +26463,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"nombre_persona_contacto\": \"consequatur\",
     \"tipo_proveedor\": 17,
     \"id_tipo_contribuyente\": 17,
-    \"estatus\": 17,
     \"tipos_servicio\": [
         1,
         2
@@ -26489,7 +26474,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             \"tipo_cuenta\": \"Corriente\",
             \"moneda\": \"VES\"
         }
-    ]
+    ],
+    \"estatus\": 17
 }"
 </code></pre></div>
 
@@ -26514,7 +26500,6 @@ let body = {
     "nombre_persona_contacto": "consequatur",
     "tipo_proveedor": 17,
     "id_tipo_contribuyente": 17,
-    "estatus": 17,
     "tipos_servicio": [
         1,
         2
@@ -26526,7 +26511,8 @@ let body = {
             "tipo_cuenta": "Corriente",
             "moneda": "VES"
         }
-    ]
+    ],
+    "estatus": 17
 };
 
 fetch(url, {
@@ -26720,18 +26706,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID de la denominación fiscal/contribuyente. Ejemplo: 1 Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="POSTapi-proveedores"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipos_servicio</code></b>&nbsp;&nbsp;
 <small>integer[]</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -26805,6 +26779,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                     </div>
                                     </details>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="POSTapi-proveedores"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+        </div>
         </form>
 
                     <h2 id="endpoints-GETapi-proveedores--proveedor_id-">Obtener un proveedor específico</h2>
@@ -26870,7 +26856,6 @@ access-control-allow-origin: *
         &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
         &quot;id_tipo_contribuyente&quot;: null,
         &quot;tipo_proveedor&quot;: 1,
-        &quot;estatus&quot;: 1,
         &quot;tipo_contribuyente&quot;: null,
         &quot;tipo_proveedor_info&quot;: {
             &quot;id&quot;: 1,
@@ -26901,12 +26886,12 @@ access-control-allow-origin: *
                 &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
                 &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
                 &quot;moneda&quot;: &quot;VES&quot;,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -27036,7 +27021,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"nombre_persona_contacto\": \"consequatur\",
     \"tipo_proveedor\": 17,
     \"id_tipo_contribuyente\": 17,
-    \"estatus\": 17,
     \"tipos_servicio\": [
         17
     ],
@@ -27048,7 +27032,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             \"tipo_cuenta\": \"consequatur\",
             \"moneda\": \"consequatur\"
         }
-    ]
+    ],
+    \"estatus\": 17
 }"
 </code></pre></div>
 
@@ -27073,7 +27058,6 @@ let body = {
     "nombre_persona_contacto": "consequatur",
     "tipo_proveedor": 17,
     "id_tipo_contribuyente": 17,
-    "estatus": 17,
     "tipos_servicio": [
         17
     ],
@@ -27085,7 +27069,8 @@ let body = {
             "tipo_cuenta": "consequatur",
             "moneda": "consequatur"
         }
-    ]
+    ],
+    "estatus": 17
 };
 
 fetch(url, {
@@ -27296,18 +27281,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>ID de la denominación fiscal/contribuyente. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus. Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipos_servicio</code></b>&nbsp;&nbsp;
 <small>integer[]</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -27392,6 +27365,18 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>Moneda de la cuenta. Example: <code>consequatur</code></p>
                     </div>
                                     </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estatus"                data-endpoint="PUTapi-proveedores--proveedor_id-"
+               value="17"
+               data-component="body">
+    <br>
+<p>ID del estatus. Example: <code>17</code></p>
         </div>
         </form>
 
@@ -27603,9 +27588,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;estatus&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
                 }
             ]
         },
@@ -27624,9 +27608,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;estatus&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
                 }
             ]
         },
@@ -27645,9 +27628,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;estatus&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
                 }
             ]
         },
@@ -28003,9 +27985,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
             }
         ]
     }
@@ -29347,13 +29328,7 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-06&quot;,
-            &quot;moneda&quot;: {
-                &quot;id&quot;: 5,
-                &quot;codigo&quot;: &quot;VES_BCV&quot;,
-                &quot;nombre&quot;: &quot;Bol&iacute;var BCV&quot;,
-                &quot;simbolo&quot;: &quot;Bs&quot;
-            }
+            &quot;fecha&quot;: &quot;2026-05-06&quot;
         }
     ]
 }</code>
@@ -30182,34 +30157,8 @@ access-control-allow-origin: *
             &quot;total_servicio&quot;: 100,
             &quot;iva_establecido&quot;: 0,
             &quot;id_tasa_cambio&quot;: 1,
-            &quot;estatus&quot;: 1,
-            &quot;tipo_servicio&quot;: {
-                &quot;id&quot;: 1,
-                &quot;tipo_servicio&quot;: &quot;Alojamiento&quot;,
-                &quot;iva_defecto&quot;: 16
-            },
-            &quot;proveedor&quot;: {
-                &quot;id&quot;: 1,
-                &quot;nombre_empresa&quot;: &quot;Servicios Delta&quot;,
-                &quot;razon_comercial&quot;: &quot;Delta Servicios&quot;,
-                &quot;rif&quot;: &quot;J-12345678-9&quot;,
-                &quot;correo_empresa&quot;: &quot;contacto@serviciosdelta.test&quot;,
-                &quot;telefono_empresa&quot;: &quot;02120000000&quot;,
-                &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
-                &quot;id_tipo_contribuyente&quot;: null,
-                &quot;tipo_proveedor&quot;: 1,
-                &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
-            },
-            &quot;tasa_cambio&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_tasa&quot;: 5,
-                &quot;valor_cambio&quot;: 36.5,
-                &quot;fecha&quot;: &quot;2026-05-06&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -30223,34 +30172,8 @@ access-control-allow-origin: *
             &quot;total_servicio&quot;: 160,
             &quot;iva_establecido&quot;: 0,
             &quot;id_tasa_cambio&quot;: 1,
-            &quot;estatus&quot;: 1,
-            &quot;tipo_servicio&quot;: {
-                &quot;id&quot;: 1,
-                &quot;tipo_servicio&quot;: &quot;Alojamiento&quot;,
-                &quot;iva_defecto&quot;: 16
-            },
-            &quot;proveedor&quot;: {
-                &quot;id&quot;: 1,
-                &quot;nombre_empresa&quot;: &quot;Servicios Delta&quot;,
-                &quot;razon_comercial&quot;: &quot;Delta Servicios&quot;,
-                &quot;rif&quot;: &quot;J-12345678-9&quot;,
-                &quot;correo_empresa&quot;: &quot;contacto@serviciosdelta.test&quot;,
-                &quot;telefono_empresa&quot;: &quot;02120000000&quot;,
-                &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
-                &quot;id_tipo_contribuyente&quot;: null,
-                &quot;tipo_proveedor&quot;: 1,
-                &quot;estatus&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
-            },
-            &quot;tasa_cambio&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_tasa&quot;: 5,
-                &quot;valor_cambio&quot;: 36.5,
-                &quot;fecha&quot;: &quot;2026-05-06&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         }
     ]
 }</code>
@@ -30500,7 +30423,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value="consequatur"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the cotizaciones table. Example: <code>consequatur</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
@@ -30665,7 +30588,6 @@ access-control-allow-origin: *
         &quot;total_servicio&quot;: 100,
         &quot;iva_establecido&quot;: 0,
         &quot;id_tasa_cambio&quot;: 1,
-        &quot;estatus&quot;: 1,
         &quot;tipo_servicio&quot;: {
             &quot;id&quot;: 1,
             &quot;tipo_servicio&quot;: &quot;Alojamiento&quot;,
@@ -30681,9 +30603,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;estatus&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
         },
         &quot;tasa_cambio&quot;: {
             &quot;id&quot;: 1,
@@ -30691,8 +30612,8 @@ access-control-allow-origin: *
             &quot;valor_cambio&quot;: 36.5,
             &quot;fecha&quot;: &quot;2026-05-06&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-06T22:40:13.000000Z&quot;
     }
 }</code>
  </pre>
@@ -30963,7 +30884,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the cotizaciones table.</p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
@@ -30975,7 +30896,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tipo_servicio table.</p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
@@ -30987,7 +30908,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the proveedores table.</p>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>descripcion</code></b>&nbsp;&nbsp;
@@ -32070,8 +31991,14 @@ access-control-allow-origin: *
             &quot;es_monetario&quot;: false,
             &quot;valor_objetivo&quot;: 50,
             &quot;id_temporalidad&quot;: 3,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;temporalidad&quot;: {
+                &quot;id&quot;: 3,
+                &quot;temporalidad&quot;: &quot;Mensual&quot;,
+                &quot;slug&quot;: &quot;mensual&quot;,
+                &quot;carbon_method&quot;: &quot;startOfMonth&quot;
+            },
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -32081,8 +32008,14 @@ access-control-allow-origin: *
             &quot;es_monetario&quot;: true,
             &quot;valor_objetivo&quot;: 2500,
             &quot;id_temporalidad&quot;: 2,
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
+            &quot;temporalidad&quot;: {
+                &quot;id&quot;: 2,
+                &quot;temporalidad&quot;: &quot;Semanal&quot;,
+                &quot;slug&quot;: &quot;semanal&quot;,
+                &quot;carbon_method&quot;: &quot;startOfWeek&quot;
+            },
+            &quot;created_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-06T22:40:12.000000Z&quot;
         }
     ]
 }</code>
@@ -32423,6 +32356,7 @@ access-control-allow-origin: *
         &quot;es_monetario&quot;: false,
         &quot;valor_objetivo&quot;: 0,
         &quot;id_temporalidad&quot;: null,
+        &quot;temporalidad&quot;: null,
         &quot;created_at&quot;: null,
         &quot;updated_at&quot;: null
     }
@@ -32913,7 +32847,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-metas-personal">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -32925,60 +32859,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_meta&quot;: 1,
-            &quot;id_personal&quot;: 1,
-            &quot;es_recurrente&quot;: true,
-            &quot;progreso_actual&quot;: 1,
-            &quot;meta&quot;: {
-                &quot;id&quot;: 1,
-                &quot;nombre&quot;: &quot;Cierre de Atenciones Mensual&quot;,
-                &quot;tipo_entidad&quot;: &quot;atencion&quot;,
-                &quot;id_estatus_objetivo&quot;: 10,
-                &quot;es_monetario&quot;: false,
-                &quot;valor_objetivo&quot;: 50,
-                &quot;id_temporalidad&quot;: 3,
-                &quot;temporalidad&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;temporalidad&quot;: &quot;Mensual&quot;,
-                    &quot;slug&quot;: &quot;mensual&quot;,
-                    &quot;carbon_method&quot;: &quot;startOfMonth&quot;
-                },
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;id_meta&quot;: 2,
-            &quot;id_personal&quot;: 1,
-            &quot;es_recurrente&quot;: true,
-            &quot;progreso_actual&quot;: &quot;260.00&quot;,
-            &quot;meta&quot;: {
-                &quot;id&quot;: 2,
-                &quot;nombre&quot;: &quot;Recaudaci&oacute;n por Ventas Semanal&quot;,
-                &quot;tipo_entidad&quot;: &quot;orden_compra&quot;,
-                &quot;id_estatus_objetivo&quot;: 8,
-                &quot;es_monetario&quot;: true,
-                &quot;valor_objetivo&quot;: 2500,
-                &quot;id_temporalidad&quot;: 2,
-                &quot;temporalidad&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;temporalidad&quot;: &quot;Semanal&quot;,
-                    &quot;slug&quot;: &quot;semanal&quot;,
-                    &quot;carbon_method&quot;: &quot;startOfWeek&quot;
-                },
-                &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -33311,7 +33192,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-metas-personal--metaPersonal_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -33323,32 +33204,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;id_meta&quot;: 1,
-        &quot;id_personal&quot;: 1,
-        &quot;es_recurrente&quot;: true,
-        &quot;progreso_actual&quot;: 1,
-        &quot;meta&quot;: {
-            &quot;id&quot;: 1,
-            &quot;nombre&quot;: &quot;Cierre de Atenciones Mensual&quot;,
-            &quot;tipo_entidad&quot;: &quot;atencion&quot;,
-            &quot;id_estatus_objetivo&quot;: 10,
-            &quot;es_monetario&quot;: false,
-            &quot;valor_objetivo&quot;: 50,
-            &quot;id_temporalidad&quot;: 3,
-            &quot;temporalidad&quot;: {
-                &quot;id&quot;: 3,
-                &quot;temporalidad&quot;: &quot;Mensual&quot;,
-                &quot;slug&quot;: &quot;mensual&quot;,
-                &quot;carbon_method&quot;: &quot;startOfMonth&quot;
-            },
-            &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-        },
-        &quot;created_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-06T06:46:18.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>

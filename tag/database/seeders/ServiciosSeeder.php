@@ -18,7 +18,6 @@ class ServiciosSeeder extends Seeder
         $tasaCambio = TasaCambio::first();
         $cotizacion = Cotizacion::first();
         $proveedor = Proveedor::first();
-        $estatusActivo = Estatus::firstOrCreate(['estatus' => 'activo']);
 
         if (!$tipoServicio || !$tasaCambio || !$cotizacion || !$proveedor) {
             return;
@@ -42,7 +41,6 @@ class ServiciosSeeder extends Seeder
                     'monto_gravable' => $item['monto_gravable'],
                     'monto_no_sujeto' => $item['monto_no_sujeto'],
                     'total_servicio' => $item['monto_gravable'] + $item['monto_no_sujeto'],
-                    'estatus' => $estatusActivo->id,
                 ]
             );
         }

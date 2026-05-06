@@ -11,6 +11,7 @@ use App\Events\CotizacionEstatusActualizado;
 use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class CotizacionController extends Controller
 {
@@ -19,12 +20,25 @@ class CotizacionController extends Controller
      *
      * Devuelve todas las cotizaciones activas mediante SoftDeletes.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Cotizacion::orderBy('id')
-            ->with(['ordenCompra', 'tasaCambio', 'tipoCotizacion', 'atencion'])
-            ->get()
-            ->values();
+        $query = Cotizacion::query();
+
+        // Soporte para filtros
+        if ($request->has('id_atencion')) {
+            $query->where('id_atencion', $request->id_atencion);
+        }
+
+        // Soporte para relaciones
+        if ($request->has('include')) {
+            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        $items = $query->orderBy('id')->get();
 
         return CotizacionResource::collection($items);
     }
@@ -54,16 +68,16 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_atencion' => ['required', 'exists:atenciones,id'],
-            'id_tipo_cotizacion' => ['required', 'exists:tipos_cotizaciones,id'],
+            'id_atencion' => ['required', Rule::exists('atenciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_cotizacion' => ['required', Rule::exists('tipos_cotizaciones', 'id')->whereNull('deleted_at')],
             'cant_adultos' => ['required', 'integer', 'min:0'],
             'cant_menores' => ['required', 'integer', 'min:0'],
             'cant_viejos' => ['required', 'integer', 'min:0'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'fecha_vencimiento' => ['required', 'date'],
             'servicios' => ['sometimes', 'array'],
-            'servicios.*.id_tipo_servicio' => ['required_with:servicios', 'exists:tipo_servicio,id'],
-            'servicios.*.id_proveedor' => ['required_with:servicios', 'exists:proveedores,id'],
+            'servicios.*.id_tipo_servicio' => ['required_with:servicios', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'servicios.*.id_proveedor' => ['required_with:servicios', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
             'servicios.*.descripcion' => ['nullable', 'string'],
             'servicios.*.costo' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_gravable' => ['required_with:servicios', 'numeric', 'min:0'],
@@ -92,7 +106,15 @@ class CotizacionController extends Controller
                 comentario: 'Cotización creada',
             ));
 
-            return new CotizacionResource($item->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'servicios']));
+            return new CotizacionResource($item->load([
+                'atencion' => fn($q) => $q->withTrashed(),
+                'atencion.cliente' => fn($q) => $q->withTrashed(),
+                'atencion.personal' => fn($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn($q) => $q->withTrashed(),
+                'tasaCambio',
+                'estatus',
+                'servicios'
+            ]));
         });
     }
 
@@ -129,8 +151,8 @@ class CotizacionController extends Controller
     public function update(Request $request, Cotizacion $cotizacion)
     {
         $data = $request->validate([
-            'id_atencion' => ['sometimes', 'required', 'exists:atenciones,id'],
-            'id_tipo_cotizacion' => ['sometimes', 'required', 'exists:tipos_cotizaciones,id'],
+            'id_atencion' => ['sometimes', 'required', Rule::exists('atenciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_cotizacion' => ['sometimes', 'required', Rule::exists('tipos_cotizaciones', 'id')->whereNull('deleted_at')],
             'cant_adultos' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_menores' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_viejos' => ['sometimes', 'required', 'integer', 'min:0'],
@@ -139,8 +161,8 @@ class CotizacionController extends Controller
             'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
             'servicios' => ['sometimes', 'array'],
             'servicios.*.id' => ['sometimes', 'exists:servicios,id'],
-            'servicios.*.id_tipo_servicio' => ['required_with:servicios', 'exists:tipo_servicio,id'],
-            'servicios.*.id_proveedor' => ['required_with:servicios', 'exists:proveedores,id'],
+            'servicios.*.id_tipo_servicio' => ['required_with:servicios', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'servicios.*.id_proveedor' => ['required_with:servicios', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
             'servicios.*.costo' => ['required_with:servicios', 'numeric' , 'min:0'],
             'servicios.*.monto_gravable' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_no_sujeto' => ['required_with:servicios', 'numeric', 'min:0'],
@@ -212,7 +234,16 @@ class CotizacionController extends Controller
             $ordenCompra = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
             $ordenCompra?->recalcularMontoTotal();
 
-            return new CotizacionResource($cotizacion->fresh()->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'ordenCompra', 'servicios']));
+            return new CotizacionResource($cotizacion->fresh()->load([
+                'atencion' => fn($q) => $q->withTrashed(),
+                'atencion.cliente' => fn($q) => $q->withTrashed(),
+                'atencion.personal' => fn($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn($q) => $q->withTrashed(),
+                'tasaCambio',
+                'estatus',
+                'ordenCompra',
+                'servicios'
+            ]));
         });
     }
 

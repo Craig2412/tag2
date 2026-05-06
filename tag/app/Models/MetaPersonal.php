@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MetaPersonal extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'metas_personal';
 
@@ -38,8 +39,12 @@ class MetaPersonal extends Model
      */
     public function getProgresoActualAttribute()
     {
-        $meta = $this->meta;
-        $temporalidad = $meta->temporalidad;
+        $meta = $this->meta()->withTrashed()->first();
+        if (!$meta) return 0;
+
+        $temporalidad = $meta->temporalidad()->withTrashed()->first();
+        if (!$temporalidad) return 0;
+
         $metodoInicio = $temporalidad->carbon_method; // ej: startOfWeek
         $metodoFin = str_replace('start', 'end', $metodoInicio); // ej: endOfWeek
 

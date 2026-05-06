@@ -6,6 +6,7 @@ use App\Models\Servicio;
 use App\Models\OrdenCompra;
 use App\Http\Resources\ServicioResource;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ServicioController extends Controller
 {
@@ -14,13 +15,34 @@ class ServicioController extends Controller
      *
      * Devuelve el listado de servicios activos registrados en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $servicios = Servicio::with(['tipoServicio', 'proveedor', 'tasaCambio'])
-            ->orderBy('id')
-            ->get();
+        $query = Servicio::query();
 
-        return ServicioResource::collection($servicios);
+        // Soporte para filtros
+        if ($request->has('id_cotizacion')) {
+            $query->where('id_cotizacion', $request->id_cotizacion);
+        }
+
+        if ($request->has('id_proveedor')) {
+            $query->where('id_proveedor', $request->id_proveedor);
+        }
+
+        // Soporte para relaciones
+        if ($request->has('include')) {
+            $allowed = ['tipoServicio', 'proveedor', 'tasaCambio'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'proveedor' || $include === 'tipoServicio') {
+                        return [$include => fn($q) => $q->withTrashed()];
+                    }
+                    return [$include => fn($q) => $q];
+                })->toArray());
+            }
+        }
+
+        return ServicioResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -38,9 +60,9 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
-            'id_tipo_servicio' => ['required', 'exists:tipo_servicio,id'],
-            'id_proveedor' => ['required', 'exists:proveedores,id'],
+            'id_cotizacion' => ['required', Rule::exists('cotizaciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_servicio' => ['required', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'id_proveedor' => ['required', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
             'descripcion' => ['nullable', 'string'],
             'costo' => ['required', 'numeric', 'min:0'],
             'monto_gravable' => ['required', 'numeric', 'min:0'],
@@ -73,9 +95,9 @@ class ServicioController extends Controller
     public function update(Request $request, Servicio $servicio)
     {
         $data = $request->validate([
-            'id_cotizacion' => ['sometimes', 'required', 'exists:cotizaciones,id'],
-            'id_tipo_servicio' => ['sometimes', 'required', 'exists:tipo_servicio,id'],
-            'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
+            'id_cotizacion' => ['sometimes', 'required', Rule::exists('cotizaciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_servicio' => ['sometimes', 'required', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'id_proveedor' => ['sometimes', 'required', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
             'descripcion' => ['sometimes', 'nullable', 'string'],
             'costo' => ['sometimes', 'required', 'numeric', 'min:0'],
             'monto_gravable' => ['sometimes', 'required', 'numeric', 'min:0'],

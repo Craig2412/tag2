@@ -9,12 +9,22 @@ class OrdenCompraHistorialController extends Controller
 {
     public function index()
     {
-        return OrdenCompraHistorial::all();
+        return OrdenCompraHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'ordenCompra' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->get();
     }
 
     public function show($id)
     {
-        return OrdenCompraHistorial::findOrFail($id);
+        return OrdenCompraHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'ordenCompra' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)

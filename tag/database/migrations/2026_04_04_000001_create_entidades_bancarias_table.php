@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('entidades_bancarias', function (Blueprint $table) {
             $table->id();
             $table->string('entidad');
-            $table->foreignId('estatus')->nullable()->constrained('estatus');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

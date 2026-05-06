@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->foreignId('id_tipo_contribuyente')->constrained('tipos_contribuyentes');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

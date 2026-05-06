@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('telefono')->nullable();
             $table->string('correo_institucional')->nullable();
             $table->decimal('porcentaje_comision', 5, 2)->default(0);
-            $table->foreignId('id_estatus')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

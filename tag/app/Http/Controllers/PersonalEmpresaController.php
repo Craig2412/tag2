@@ -14,10 +14,29 @@ class PersonalEmpresaController extends Controller
      *
      * Devuelve el listado de usuarios de tipo personal vinculados con empresas para atender sus cuentas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Lista los enlaces personal-empresa y los devuelve en JSON.
-        return PersonalEmpresaResource::collection(PersonalEmpresa::orderBy('id')->get());
+        $query = PersonalEmpresa::query();
+
+        // Soporte para filtros
+        if ($request->has('id_empresa')) {
+            $query->where('id_empresa', $request->id_empresa);
+        }
+
+        if ($request->has('id_personal')) {
+            $query->where('id_personal', $request->id_personal);
+        }
+
+        // Soporte para carga de relaciones
+        if ($request->has('include')) {
+            $allowed = ['personal', 'empresa'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (!empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        return PersonalEmpresaResource::collection($query->orderBy('id')->get());
     }
 
     /**

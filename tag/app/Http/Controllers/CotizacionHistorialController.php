@@ -9,12 +9,22 @@ class CotizacionHistorialController extends Controller
 {
     public function index()
     {
-        return CotizacionHistorial::all();
+        return CotizacionHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'cotizacion' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->get();
     }
 
     public function show($id)
     {
-        return CotizacionHistorial::findOrFail($id);
+        return CotizacionHistorial::with([
+            'usuario' => fn($q) => $q->withTrashed(),
+            'cotizacion' => fn($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)

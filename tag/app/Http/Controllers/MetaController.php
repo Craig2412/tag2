@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meta;
 use App\Http\Resources\MetaResource;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MetaController extends Controller
 {
@@ -16,7 +17,7 @@ class MetaController extends Controller
     public function index()
     {
         // Lista las metas y las devuelve en JSON.
-        return MetaResource::collection(Meta::orderBy('id')->get());
+        return MetaResource::collection(Meta::with(['temporalidad' => fn($q) => $q->withTrashed()])->orderBy('id')->get());
     }
 
     /**
@@ -34,12 +35,13 @@ class MetaController extends Controller
         // Crea una meta con datos validados y la devuelve.
         $data = $request->validate([
             'monto' => ['required', 'numeric', 'min:0.01'],
-            'id_temporalidad' => ['required', 'exists:temporalidades,id'],
+            'id_temporalidad' => ['required', Rule::exists('temporalidades', 'id')->whereNull('deleted_at')],
             'fecha_inicio' => ['required', 'date'],
             'fecha_fin' => ['required', 'date', 'after_or_equal:fecha_inicio'],
         ]);
 
         $item = Meta::create($data);
+        $item->load(['temporalidad' => fn($q) => $q->withTrashed()]);
 
         return new MetaResource($item);
     }
@@ -52,7 +54,7 @@ class MetaController extends Controller
     public function show(Meta $metum)
     {
         // Muestra una meta por id (Nota: Laravel pluraliza Meta como Metae/Metum en el binding).
-        return new MetaResource($metum);
+        return new MetaResource($metum->load(['temporalidad' => fn($q) => $q->withTrashed()]));
     }
 
     /**
@@ -70,12 +72,13 @@ class MetaController extends Controller
         // Actualiza una meta y devuelve el resultado.
         $data = $request->validate([
             'monto' => ['sometimes', 'required', 'numeric', 'min:0.01'],
-            'id_temporalidad' => ['sometimes', 'required', 'exists:temporalidades,id'],
+            'id_temporalidad' => ['sometimes', 'required', \Illuminate\Validation\Rule::exists('temporalidades', 'id')->whereNull('deleted_at')],
             'fecha_inicio' => ['sometimes', 'required', 'date'],
             'fecha_fin' => ['sometimes', 'required', 'date', 'after_or_equal:fecha_inicio'],
         ]);
 
         $metum->update($data);
+        $metum->load(['temporalidad' => fn($q) => $q->withTrashed()]);
 
         return new MetaResource($metum);
     }
