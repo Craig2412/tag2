@@ -21,10 +21,19 @@ class MetasPersonalSeeder extends Seeder
         foreach ($metas as $index => $meta) {
             $idPersonal = $personalIds[$index % $personalIds->count()];
 
-            MetaPersonal::firstOrCreate([
-                'id_meta' => $meta->id,
-                'id_personal' => $idPersonal,
-            ]);
+            MetaPersonal::firstOrCreate(
+                [
+                    'id_meta'     => $meta->id,
+                    'id_personal' => $idPersonal,
+                ],
+                [
+                    'monto'           => $meta->valor_objetivo,
+                    'id_temporalidad' => $meta->id_temporalidad,
+                    'fecha_inicio'    => now()->startOfMonth(),
+                    'fecha_fin'       => now()->endOfMonth(),
+                    'es_recurrente'   => true,
+                ]
+            );
         }
     }
 }

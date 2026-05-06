@@ -6,8 +6,9 @@ use App\Events\OrdenCompraGuardado;
 use App\Events\PagoOrdenCompraGuardado;
 use App\Models\OrdenCompra;
 use App\Services\EstadoFaseService;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SincronizarEstadoFinancieroListener
+class SincronizarEstadoFinancieroListener implements ShouldQueue
 {
     /**
      * Handle the event.

@@ -34,6 +34,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PersonalEmpresaController;
 use App\Http\Controllers\Api\ContractController;
 use App\Http\Controllers\BroadcastingController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -120,6 +122,13 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('role:admin');
     Route::get('audit-logs', [AuditLogController::class, 'index'])
         ->middleware('role:admin');
+
+
+    // Gestión de Roles y Permisos (Configuración)
+    Route::middleware('role:admin')->group(function () {
+        Route::apiResource('roles', RoleController::class);
+        Route::apiResource('permisos', PermissionController::class);
+    });
 
     Route::prefix('kiu')->group(function (): void {
         Route::post('session', [KiuController::class, 'session']);

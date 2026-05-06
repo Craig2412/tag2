@@ -6,8 +6,9 @@ use App\Events\PagoProveedorCreado;
 use App\Models\CuentaPorPagar;
 use App\Models\Estatus;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class AmortizarCuentaPorPagarListener
+class AmortizarCuentaPorPagarListener implements ShouldQueue
 {
     public function handle(PagoProveedorCreado $event): void
     {

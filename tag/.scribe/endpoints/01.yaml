@@ -83,7 +83,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|BaDmLDvNDSLsUPLWh5NGbw2ihXH17Pexyeg3Aje67910ba27'
+      - 'Bearer 1|qd6cuLrnMMashLfaaPrBCPU2YQskrnf7e9DtAfTH5816ba9f'
     controller: null
     method: null
     route: null

@@ -6,8 +6,9 @@ use App\Events\PagoProveedorEliminado;
 use App\Models\CuentaPorPagar;
 use App\Models\Estatus;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RestaurarSaldoCuentaPorPagarListener
+class RestaurarSaldoCuentaPorPagarListener implements ShouldQueue
 {
     public function handle(PagoProveedorEliminado $event): void
     {

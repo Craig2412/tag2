@@ -9,6 +9,7 @@ use App\Models\PagoOrdenCompra;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Observers\ServicioObserver;
+use App\Observers\PagoOrdenCompraObserver;
 
 use App\Events\OrdenCompraGuardado;
 use App\Events\OrdenCompraAprobada;
@@ -52,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Servicio::observe(ServicioObserver::class);
+        PagoOrdenCompra::observe(PagoOrdenCompraObserver::class);
+        \App\Models\PagoProveedorCuenta::observe(\App\Observers\PagoProveedorCuentaObserver::class);
 
         Event::listen(OrdenCompraGuardado::class, [
             SincronizarPadreOrdenCompraListener::class,
@@ -78,6 +81,7 @@ class AppServiceProvider extends ServiceProvider
         // Historial de cambios de estatus operativo
         Event::listen(AtencionEstatusActualizado::class, RegistrarHistorialEstatusAtencionListener::class);
         Event::listen(CotizacionEstatusActualizado::class, RegistrarHistorialEstatusCotizacionListener::class);
+        Event::listen(CotizacionEstatusActualizado::class, \App\Listeners\GenerarOrdenDesdeCotizacionListener::class);
 
         Event::listen('eloquent.updating: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;

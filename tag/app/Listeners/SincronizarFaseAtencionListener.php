@@ -5,8 +5,9 @@ namespace App\Listeners;
 use App\Events\CotizacionGuardado;
 use App\Models\Atencion;
 use App\Services\EstadoFaseService;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SincronizarFaseAtencionListener
+class SincronizarFaseAtencionListener implements ShouldQueue
 {
     public function handle(CotizacionGuardado $event): void
     {

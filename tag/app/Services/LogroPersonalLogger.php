@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Jobs\PersistirLogroPersonal;
 use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\LogroPersonal;
@@ -42,24 +43,29 @@ class LogroPersonalLogger
         }
 
         $tipoEntidad = self::resolveTipoEntidad($model);
+
+        // Resolvemos el id_personal ANTES de encolar, precargando relaciones
+        // para evitar consultas N+1 lazy dentro del Job.
         $idPersonal = self::resolvePersonalId($model);
 
+        // Buscamos el último logro también aquí para calcular duración correctamente.
+        // Usamos datos primitivos en el payload para que sea serialization-safe.
         $ultimoLogro = LogroPersonal::where('tipo_entidad', $tipoEntidad)
             ->where('id_entidad', $model->getKey())
             ->latest('id')
-            ->first();
+            ->value('created_at');
 
-        $inicio = $ultimoLogro?->created_at ?? $model->getRawOriginal('created_at') ?? now();
+        $inicio   = $ultimoLogro ?? ($model->getRawOriginal('created_at') ?? now());
         $duracion = max(0, now()->diffInSeconds($inicio));
 
-        LogroPersonal::create([
-            'id_personal' => $idPersonal,
-            'tipo_entidad' => $tipoEntidad,
-            'id_entidad' => $model->getKey(),
-            'id_estatus_anterior' => $before,
-            'id_estatus_nuevo' => $after,
+        PersistirLogroPersonal::dispatch([
+            'id_personal'                  => $idPersonal,
+            'tipo_entidad'                 => $tipoEntidad,
+            'id_entidad'                   => $model->getKey(),
+            'id_estatus_anterior'          => $before,
+            'id_estatus_nuevo'             => $after,
             'tiempo_transcurrido_segundos' => $duracion,
-        ]);
+        ], auth()->id());
     }
 
     private static function isTrackable(Model $model): bool
@@ -72,21 +78,38 @@ class LogroPersonalLogger
     private static function resolveTipoEntidad(Model $model): string
     {
         return match (true) {
-            $model instanceof Atencion => 'atencion',
+            $model instanceof Atencion   => 'atencion',
             $model instanceof Cotizacion => 'cotizacion',
-            default => 'orden_compra',
+            default                      => 'orden_compra',
         };
     }
 
+    /**
+     * Resuelve el id_personal precargando relaciones faltantes con loadMissing()
+     * para evitar consultas N+1 al acceder a relaciones lazy.
+     */
     private static function resolvePersonalId(Model $model): ?int
     {
-        return match (true) {
-            $model instanceof Atencion => $model->id_personal ? (int) $model->id_personal : null,
-            $model instanceof Cotizacion => $model->atencion?->id_personal ? (int) $model->atencion->id_personal : null,
-            $model instanceof OrdenCompra => $model->cotizacion?->atencion?->id_personal
+        if ($model instanceof Atencion) {
+            return $model->id_personal ? (int) $model->id_personal : null;
+        }
+
+        if ($model instanceof Cotizacion) {
+            // Precarga la relación si aún no fue cargada en el request
+            $model->loadMissing('atencion');
+            return $model->atencion?->id_personal
+                ? (int) $model->atencion->id_personal
+                : null;
+        }
+
+        if ($model instanceof OrdenCompra) {
+            // Precarga la cadena completa si no está en memoria
+            $model->loadMissing('cotizacion.atencion');
+            return $model->cotizacion?->atencion?->id_personal
                 ? (int) $model->cotizacion->atencion->id_personal
-                : null,
-            default => null,
-        };
+                : null;
+        }
+
+        return null;
     }
 }

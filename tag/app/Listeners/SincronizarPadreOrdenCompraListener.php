@@ -6,8 +6,9 @@ use App\Events\OrdenCompraGuardado;
 use App\Models\Cotizacion;
 use App\Models\Atencion;
 use App\Services\EstadoFaseService;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SincronizarPadreOrdenCompraListener
+class SincronizarPadreOrdenCompraListener implements ShouldQueue
 {
     public function handle(OrdenCompraGuardado $event): void
     {

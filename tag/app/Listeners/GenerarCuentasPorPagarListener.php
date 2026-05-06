@@ -5,13 +5,15 @@ namespace App\Listeners;
 use App\Events\OrdenCompraAprobada;
 use App\Models\CuentaPorPagar;
 use App\Models\Servicio;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GenerarCuentasPorPagarListener
+class GenerarCuentasPorPagarListener implements ShouldQueue
 {
     public function handle(OrdenCompraAprobada $event): void
     {
         $orden = $event->orden;
-        $servicios = Servicio::where('id_orden_compra', $orden->id)->get();
+        // Los servicios pertenecen a la Cotizacion, no directamente a la OrdenCompra
+        $servicios = Servicio::where('id_cotizacion', $orden->id_cotizacion)->get();
 
         // Agrupar por proveedor
         $porProveedor = $servicios->groupBy('id_proveedor');
