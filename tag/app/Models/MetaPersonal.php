@@ -53,7 +53,7 @@ class MetaPersonal extends Model
 
         $query = LogroPersonal::where('id_personal', $this->id_personal)
             ->where('tipo_entidad', $meta->tipo_entidad)
-            ->where('id_estatus_nuevo', $meta->id_estatus_objetivo)
+            ->where('estatus_nuevo', $meta->estatus_objetivo)
             ->whereBetween('created_at', [$inicio, $fin]);
 
         if ($meta->es_monetario) {
@@ -62,6 +62,64 @@ class MetaPersonal extends Model
         }
 
         return $query->count();
+    }
+
+    /**
+     * Devuelve un arreglo con el histórico de progreso de los últimos N periodos.
+     */
+    public function getProgresoHistoricoAttribute(int $periodos = 6): array
+    {
+        $meta = $this->meta()->withTrashed()->first();
+        if (!$meta) return [];
+
+        $temporalidad = $meta->temporalidad()->withTrashed()->first();
+        if (!$temporalidad) return [];
+
+        $metodoInicio = $temporalidad->carbon_method; // ej: startOfWeek
+        $metodoFin = str_replace('start', 'end', $metodoInicio); // ej: endOfWeek
+
+        $resultado = [];
+
+        // Para temporalidades, restamos la unidad adecuada
+        $metodoSub = match (strtolower($temporalidad->slug)) {
+            'diario'   => 'subDays',
+            'semanal'  => 'subWeeks',
+            'mensual'  => 'subMonths',
+            'anual'    => 'subYears',
+            default    => 'subMonths',
+        };
+
+        for ($i = 0; $i < $periodos; $i++) {
+            $fecha = now()->$metodoSub($i);
+            $inicio = $fecha->copy()->$metodoInicio();
+            $fin = $fecha->copy()->$metodoFin();
+
+            $query = LogroPersonal::where('id_personal', $this->id_personal)
+                ->where('tipo_entidad', $meta->tipo_entidad)
+                ->where('estatus_nuevo', $meta->estatus_objetivo)
+                ->whereBetween('created_at', [$inicio, $fin]);
+
+            $progreso = $meta->es_monetario
+                ? $this->calcularSumaMonetaria($query, $meta)
+                : $query->count();
+
+            // Formato de periodo según temporalidad
+            $label = match (strtolower($temporalidad->slug)) {
+                'diario'   => $inicio->format('d M'),
+                'semanal'  => 'Semana ' . $inicio->format('W Y'),
+                'mensual'  => $inicio->translatedFormat('M Y'),
+                'anual'    => $inicio->format('Y'),
+                default    => $inicio->format('d/m/Y'),
+            };
+
+            $resultado[] = [
+                'periodo'  => ucfirst($label),
+                'progreso' => $progreso,
+                'objetivo' => $meta->valor_objetivo,
+            ];
+        }
+
+        return array_reverse($resultado); // cronológico: más antiguo primero
     }
 
     private function calcularSumaMonetaria($query, $meta)

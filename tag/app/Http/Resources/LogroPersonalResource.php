@@ -14,14 +14,12 @@ class LogroPersonalResource extends JsonResource
             'id_personal'                  => $this->id_personal,
             'tipo_entidad'                 => $this->tipo_entidad,
             'id_entidad'                   => $this->id_entidad,
-            'id_estatus_anterior'          => $this->id_estatus_anterior,
-            'id_estatus_nuevo'             => $this->id_estatus_nuevo,
+            'estatus_anterior'             => $this->estatus_anterior,
+            'estatus_nuevo'                => $this->estatus_nuevo,
             'tiempo_transcurrido_segundos' => $this->tiempo_transcurrido_segundos,
 
             // Relaciones
-            'personal'         => new PersonalResource($this->whenLoaded('personal')),
-            'estatus_anterior'  => new EstatusResource($this->whenLoaded('estatusAnterior')),
-            'estatus_nuevo'     => new EstatusResource($this->whenLoaded('estatusNuevo')),
+            'personal' => new PersonalResource($this->whenLoaded('personal')),
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

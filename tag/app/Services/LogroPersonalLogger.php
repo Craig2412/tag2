@@ -20,7 +20,7 @@ class LogroPersonalLogger
         }
 
         $objectId = spl_object_id($model);
-        self::$beforeStatus[$objectId] = (int) $model->getRawOriginal('estatus');
+        self::$beforeStatus[$objectId] = self::resolveSlug($model, useOriginal: true);
     }
 
     public static function logStatusChange(Model $model): void
@@ -37,7 +37,7 @@ class LogroPersonalLogger
             return;
         }
 
-        $after = (int) $model->getAttribute('estatus');
+        $after = self::resolveSlug($model, useOriginal: false);
         if ($before === $after) {
             return;
         }
@@ -62,8 +62,8 @@ class LogroPersonalLogger
             'id_personal'                  => $idPersonal,
             'tipo_entidad'                 => $tipoEntidad,
             'id_entidad'                   => $model->getKey(),
-            'id_estatus_anterior'          => $before,
-            'id_estatus_nuevo'             => $after,
+            'estatus_anterior'             => $before,
+            'estatus_nuevo'                => $after,
             'tiempo_transcurrido_segundos' => $duracion,
         ], auth()->id());
     }
@@ -82,6 +82,36 @@ class LogroPersonalLogger
             $model instanceof Cotizacion => 'cotizacion',
             default                      => 'orden_compra',
         };
+    }
+
+    /**
+     * Resuelve el slug del estado actual (o anterior) del modelo.
+     * Cada modelo usa un campo y tabla de estados distinta.
+     */
+    private static function resolveSlug(Model $model, bool $useOriginal): ?string
+    {
+        if ($model instanceof Atencion) {
+            $id = $useOriginal
+                ? $model->getRawOriginal('id_estado_atencion')
+                : $model->getAttribute('id_estado_atencion');
+            return \App\Models\EstadoAtencion::find($id)?->slug;
+        }
+
+        if ($model instanceof Cotizacion) {
+            $id = $useOriginal
+                ? $model->getRawOriginal('id_estado_cotizacion')
+                : $model->getAttribute('id_estado_cotizacion');
+            return \App\Models\EstadoCotizacion::find($id)?->slug;
+        }
+
+        if ($model instanceof OrdenCompra) {
+            $id = $useOriginal
+                ? $model->getRawOriginal('id_estado_orden_compra')
+                : $model->getAttribute('id_estado_orden_compra');
+            return \App\Models\EstadoOrdenCompra::find($id)?->slug;
+        }
+
+        return null;
     }
 
     /**

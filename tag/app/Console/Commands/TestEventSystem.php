@@ -20,6 +20,8 @@ use App\Models\CuentaPorPagar;
 use App\Models\EstadoFinanciero;
 use App\Models\EtapaComercial;
 use App\Models\LogroPersonal;
+use App\Models\Meta;
+use App\Models\MetaPersonal;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
 use Illuminate\Console\Command;
@@ -79,6 +81,7 @@ class TestEventSystem extends Command
         }
 
         $this->printSummary();
+        $this->mostrarProgresoMetas();
 
         return $this->failed > 0 ? self::FAILURE : self::SUCCESS;
     }
@@ -127,17 +130,17 @@ class TestEventSystem extends Command
 
         // Disparamos el job manualmente con datos de prueba
         PersistirLogroPersonal::dispatch([
-            'tipo_entidad'        => 'atencion',
-            'id_entidad'          => 1,
-            'id_estatus_anterior' => 1,
-            'id_estatus_nuevo'    => 2,
+            'tipo_entidad'    => 'atencion',
+            'id_entidad'      => 1,
+            'estatus_anterior' => 'por_aprobar',
+            'estatus_nuevo'   => 'aprobado',
         ], 1); // Forzamos usuario ID 1
 
         $after = LogroPersonal::count();
         $this->assert($after > $before, 'PersistirLogroPersonal crea un registro en logros_personal', "Se esperaba incremento, hay {$after}");
 
         $last = LogroPersonal::latest('id')->first();
-        $this->assert((int) $last?->id_estatus_nuevo === 2, 'El LogroPersonal tiene id_estatus_nuevo=2 correcto', "id_estatus_nuevo encontrado: {$last?->id_estatus_nuevo}");
+        $this->assert($last?->estatus_nuevo === 'aprobado', 'El LogroPersonal tiene estatus_nuevo="aprobado" correcto', "estatus_nuevo encontrado: {$last?->estatus_nuevo}");
     }
 
     /**
@@ -204,9 +207,9 @@ class TestEventSystem extends Command
 
         $historial = AtencionHistorial::where('atencion_id', $atencion->id)->latest('id')->first();
         $this->assert(
-            (int) $historial?->estatus_nuevo === 2,
-            'AtencionHistorial tiene estatus_nuevo=2',
-            "estatus_nuevo: {$historial?->estatus_nuevo}"
+            (int) $historial?->id_estado_nuevo === 2,
+            'AtencionHistorial tiene id_estado_nuevo=2 (estado aprobado)',
+            "id_estado_nuevo encontrado: {$historial?->id_estado_nuevo}"
         );
     }
 
@@ -484,6 +487,101 @@ class TestEventSystem extends Command
                 $this->line("    <fg=red>{$diff}</> filas eliminadas en <fg=white>{$tabla}</> ({$countAntes} → {$countDespues})");
             } else {
                 $this->line("    <fg=gray>  0</> cambios en {$tabla} ({$countAntes})");
+            }
+        }
+    }
+    /**
+     * Muestra el progreso_actual de todas las MetaPersonal registradas en BD.
+     * Sirve para verificar visualmente que el cálculo de metas funciona con los logros.
+     */
+    private function mostrarProgresoMetas(): void
+    {
+        $this->newLine();
+        $this->line('╔══════════════════════════════════════════════════════════╗');
+        $this->line('║          PROGRESO ACTUAL DE METAS POR VENDEDOR           ║');
+        $this->line('╚══════════════════════════════════════════════════════════╝');
+        $this->newLine();
+
+        $metasPersonal = MetaPersonal::with([
+            'personal',
+            'meta' => fn($q) => $q->withTrashed(),
+            'meta.temporalidad' => fn($q) => $q->withTrashed(),
+        ])->get();
+
+        if ($metasPersonal->isEmpty()) {
+            $this->line('  <fg=yellow>⊘ No hay metas asignadas en BD. Corre los seeders.</>') ;
+            $this->newLine();
+            return;
+        }
+
+        // Agrupa por vendedor para mostrar ordenado
+        $porPersonal = $metasPersonal->groupBy('id_personal');
+
+        foreach ($porPersonal as $idPersonal => $metas) {
+            $nombre = $metas->first()?->personal?->nombre ?? "Personal #{$idPersonal}";
+            $this->line("  <fg=cyan;options=bold>👤 {$nombre}</>");
+
+            foreach ($metas as $mp) {
+                $meta         = $mp->meta;
+                $temporalidad = $meta?->temporalidad?->temporalidad ?? '?';
+                $objetivo     = $meta?->valor_objetivo ?? 0;
+                $progreso     = $mp->progreso_actual;
+                $esMon        = $meta?->es_monetario;
+                $slug         = $meta?->estatus_objetivo ?? '?';
+                $tipo         = $meta?->tipo_entidad ?? '?';
+
+                // Porcentaje de avance
+                $pct = $objetivo > 0 ? round(($progreso / $objetivo) * 100, 1) : 0;
+
+                // Barra visual de progreso (20 caracteres)
+                $llenos   = (int) min(20, round($pct / 5));
+                $vacios   = 20 - $llenos;
+                $barra    = str_repeat('█', $llenos) . str_repeat('░', $vacios);
+
+                // Color según avance
+                $color = match (true) {
+                    $pct >= 100 => 'green',
+                    $pct >= 50  => 'yellow',
+                    default     => 'red',
+                };
+
+                $valorFmt = $esMon
+                    ? '$' . number_format($progreso, 2) . ' / $' . number_format($objetivo, 2)
+                    : "{$progreso} / {$objetivo}";
+
+                $this->line("    <fg=white>{$meta?->nombre}</>");
+                $this->line("    Tipo: <fg=gray>{$tipo}</> | Slug objetivo: <fg=gray>{$slug}</> | Temporalidad: <fg=gray>{$temporalidad}</>");
+
+                // Mostrar el histórico de los últimos 4 periodos
+                $historico = $mp->getProgresoHistoricoAttribute(4);
+
+                foreach ($historico as $h) {
+                    $periodo = str_pad($h['periodo'], 12);
+                    $hProg   = $h['progreso'];
+                    $hObj    = $h['objetivo'];
+                    
+                    $pct = $hObj > 0 ? round(($hProg / $hObj) * 100, 1) : 0;
+                    $llenos = (int) min(20, round($pct / 5));
+                    $vacios = 20 - $llenos;
+                    $barra = str_repeat('█', $llenos) . str_repeat('░', $vacios);
+
+                    $color = match (true) {
+                        $pct >= 100 => 'green',
+                        $pct >= 50  => 'yellow',
+                        default     => 'red',
+                    };
+
+                    $valorFmt = $esMon
+                        ? '$' . number_format($hProg, 2) . ' / $' . number_format($hObj, 2)
+                        : "{$hProg} / {$hObj}";
+
+                    // Marca el periodo actual
+                    $esActual = ($h === end($historico)) ? ' (Actual)' : '';
+
+                    $this->line("      <fg=gray>{$periodo}</> <fg={$color}>[{$barra}] {$pct}%</> — {$valorFmt}<fg=gray>{$esActual}</>");
+                }
+
+                $this->newLine();
             }
         }
     }

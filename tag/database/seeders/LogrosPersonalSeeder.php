@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Atencion;
+use App\Models\OrdenCompra;
 use App\Models\Personal;
-use App\Models\Estatus;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,36 +13,39 @@ class LogrosPersonalSeeder extends Seeder
     public function run()
     {
         $personal = Personal::first();
-        $estatusAprobado = Estatus::where('estatus', 'aprobado')->first();
-        $estatusPagado = Estatus::where('estatus', 'pagado')->first();
 
-        if (!$personal || !$estatusAprobado || !$estatusPagado) {
+        if (!$personal) {
             return;
         }
 
-        // Simular que el vendedor aprobó una Atención hoy
+        // Busca IDs reales de entidades en BD para que el progreso monetario funcione.
+        // Si no existen, usa 0 como fallback (el logro existe pero no suma monto).
+        $idAtencion    = Atencion::value('id')    ?? 0;
+        $idOrdenCompra = OrdenCompra::value('id') ?? 0;
+
         DB::table('logros_personal')->insert([
             [
-                'id_personal' => $personal->id,
-                'tipo_entidad' => 'atencion',
-                'id_entidad' => 1, // ID de la atención seeder
-                'id_estatus_anterior' => 1,
-                'id_estatus_nuevo' => $estatusAprobado->id,
+                // Simular que el vendedor aprobó una Atención hoy
+                'id_personal'                  => $personal->id,
+                'tipo_entidad'                 => 'atencion',
+                'id_entidad'                   => $idAtencion,
+                'estatus_anterior'             => 'por_aprobar',
+                'estatus_nuevo'                => 'aprobado',
                 'tiempo_transcurrido_segundos' => 1800,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at'                   => now(),
+                'updated_at'                   => now(),
             ],
-            // Simular que el vendedor cerró una Orden de Compra pagada hoy
             [
-                'id_personal' => $personal->id,
-                'tipo_entidad' => 'orden_compra',
-                'id_entidad' => 1, // ID de la orden seeder
-                'id_estatus_anterior' => 1,
-                'id_estatus_nuevo' => $estatusPagado->id,
+                // Simular que el vendedor cerró una Orden de Compra pagada hoy
+                'id_personal'                  => $personal->id,
+                'tipo_entidad'                 => 'orden_compra',
+                'id_entidad'                   => $idOrdenCompra,
+                'estatus_anterior'             => 'pendiente',
+                'estatus_nuevo'                => 'pagado',
                 'tiempo_transcurrido_segundos' => 3600,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
+                'created_at'                   => now(),
+                'updated_at'                   => now(),
+            ],
         ]);
     }
 }

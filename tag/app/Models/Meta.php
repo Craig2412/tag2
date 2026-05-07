@@ -17,16 +17,12 @@ class Meta extends Model
     protected $fillable = [
         'nombre',
         'tipo_entidad',
-        'id_estatus_objetivo',
+        'estatus_objetivo',
         'es_monetario',
         'valor_objetivo',
         'id_temporalidad',
     ];
 
-    public function estatusObjetivo(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'id_estatus_objetivo');
-    }
 
     public function temporalidad(): BelongsTo
     {
