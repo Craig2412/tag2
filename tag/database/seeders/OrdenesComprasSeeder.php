@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Cotizacion;
-use App\Models\Estatus;
+use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
 use Illuminate\Database\Seeder;
 
@@ -17,10 +17,10 @@ class OrdenesComprasSeeder extends Seeder
             return;
         }
 
-        $estatusConfirmado = Estatus::firstOrCreate(['estatus' => 'confirmado']);
-        $estatusPendiente = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
+        $estatusConfirmado = EstadoCotizacion::firstOrCreate(['slug' => 'aprobada'], ['nombre' => 'Aprobada', 'color' => '#10B981']);
+        $estatusPendiente = \App\Models\Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
 
-        $cotizacion->update(['estatus' => $estatusConfirmado->id]);
+        $cotizacion->update(['id_estado_cotizacion' => $estatusConfirmado->id]);
 
         OrdenCompra::firstOrCreate(
             ['id_cotizacion' => $cotizacion->id],

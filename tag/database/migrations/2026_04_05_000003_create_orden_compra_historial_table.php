@@ -9,17 +9,12 @@ return new class extends Migration {
     {
         Schema::create('orden_compra_historial', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('orden_compra_id');
-            $table->unsignedBigInteger('estatus_anterior')->nullable();
-            $table->unsignedBigInteger('estatus_nuevo');
-            $table->unsignedBigInteger('usuario_id')->nullable();
+            $table->foreignId('orden_compra_id')->constrained('ordenes_compra');
+            $table->foreignId('id_estado_anterior')->nullable()->constrained('estados_ordenes_compra');
+            $table->foreignId('id_estado_nuevo')->constrained('estados_ordenes_compra');
+            $table->foreignId('usuario_id')->nullable()->constrained('usuarios');
             $table->text('comentario')->nullable();
             $table->timestamps();
-
-            $table->foreign('orden_compra_id')->references('id')->on('ordenes_compra');
-            $table->foreign('estatus_anterior')->references('id')->on('estatus');
-            $table->foreign('estatus_nuevo')->references('id')->on('estatus');
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }
 

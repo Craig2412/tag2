@@ -6,34 +6,24 @@ use App\Models\OrdenCompra;
 use App\Models\Cotizacion;
 use App\Models\Atencion;
 use App\Services\EstadoFaseService;
-use App\Services\EstatusResolver;
+use App\Events\OrdenCompraGuardado;
 
 class OrdenCompraObserver
 {
     /**
-     * Handle the OrdenCompra "saved" event.
+     * Emite el evento genérico de guardado para que los listeners
+     * (SincronizarPadre, SincronizarEstadoFinanciero) reaccionen.
+     * La lógica de "¿está aprobada?" ya no vive aquí:
+     * GenerarOrdenDesdeCotizacionListener dispara OrdenCompraAprobada directamente.
      */
     public function saved(OrdenCompra $ordenCompra): void
     {
-        // Emitimos evento genérico de guardado
-        event(new \App\Events\OrdenCompraGuardado($ordenCompra));
-
-        // EstatusResolver usa cache de 5min — evita query a DB en cada save()
-        $estatusAprobada = EstatusResolver::id('aprobada');
-
-        if ($estatusAprobada === null) {
-            return;
-        }
-
-        $esAprobada = (int) $ordenCompra->getRawOriginal('estatus') === (int) $estatusAprobada;
-
-        if ($esAprobada && ($ordenCompra->wasChanged('estatus') || $ordenCompra->wasRecentlyCreated)) {
-            event(new \App\Events\OrdenCompraAprobada($ordenCompra));
-        }
+        event(new OrdenCompraGuardado($ordenCompra));
     }
 
     /**
-     * Handle the OrdenCompra "deleted" event.
+     * Cuando se elimina una OC, sincronizamos el padre para que la Atención
+     * retroceda de fase si corresponde.
      */
     public function deleted(OrdenCompra $ordenCompra): void
     {

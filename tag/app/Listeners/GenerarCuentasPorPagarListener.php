@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\OrdenCompraAprobada;
 use App\Models\CuentaPorPagar;
 use App\Models\Servicio;
+use App\Models\EstadoFinanciero;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class GenerarCuentasPorPagarListener implements ShouldQueue
@@ -21,9 +22,9 @@ class GenerarCuentasPorPagarListener implements ShouldQueue
         foreach ($porProveedor as $idProveedor => $servs) {
             $monto = $servs->sum('costo'); // solo el campo costo, sin IVA
             
-            // Buscamos el estatus "por pagar" o "pendiente" de forma dinámica
-            $estatusPorPagar = \App\Models\Estatus::where('estatus', 'like', '%por pagar%')->first();
-            $idEstatus = $estatusPorPagar ? $estatusPorPagar->id : 1;
+            // Buscamos el estado financiero "pendiente" de forma dinámica
+            $estadoPendiente = EstadoFinanciero::where('slug', 'pendiente')->first();
+            $idEstado = $estadoPendiente ? $estadoPendiente->id : 1;
 
             // Solo creamos si no existe ya para esta orden y proveedor
             CuentaPorPagar::firstOrCreate(
@@ -34,7 +35,7 @@ class GenerarCuentasPorPagarListener implements ShouldQueue
                 [
                     'monto_total'     => $monto,
                     'saldo_pendiente' => $monto,
-                    'estatus'         => $idEstatus,
+                    'id_estado_financiero' => $idEstado,
                 ]
             );
         }

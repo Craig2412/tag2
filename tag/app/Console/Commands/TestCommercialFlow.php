@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Cotizacion;
 use App\Models\Servicio;
-use App\Models\Estatus;
+use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
 use App\Models\CuentaPorPagar;
 use App\Events\CotizacionEstatusActualizado;
@@ -24,19 +24,22 @@ class TestCommercialFlow extends Command
         Config::set('queue.default', 'sync');
 
         // 1. Buscar estatus Aprobado
-        $estatusAprobado = Estatus::where('estatus', 'like', '%aprob%')->first();
+        $estatusAprobado = EstadoCotizacion::where('estatus', 'like', '%aprob%')->first();
         if (!$estatusAprobado) {
             $this->error("No se encontró un estatus que contenga 'aprob' en la base de datos.");
             return;
         }
 
+        $this->comment("1. Creando Cotización inicial...");
+        $estatusPendiente = EstadoCotizacion::where('slug', 'pendiente')->firstOrFail();
+        
         // 2. Crear Cotización
         $cotizacion = Cotizacion::create([
             'id_atencion' => 1,
             'id_tipo_cotizacion' => 1,
             'referencia' => 'TEST-' . time(),
             'monto_total' => 0,
-            'estatus' => 1,
+            'id_estado_cotizacion' => $estatusPendiente->id,
             'cant_adultos' => 1,
             'cant_menores' => 0,
             'cant_viejos' => 0,
@@ -71,10 +74,8 @@ class TestCommercialFlow extends Command
 
         // 4. DISPARAR LA APROBACIÓN
         $this->info("⌛ Cambiando estatus a '{$estatusAprobado->estatus}'...");
-        $cotizacion->estatus = $estatusAprobado->id;
-        $cotizacion->save();
-
-        // Disparar el evento
+        $this->comment("\n3. Aprobando Cotización (Dispara evento CotizacionEstatusActualizado)...");
+        $estatusAprobado = EstadoCotizacion::where('slug', 'aprobada')->firstOrFail();
         event(new CotizacionEstatusActualizado($cotizacion, 1, $estatusAprobado->id));
 
         // 5. VERIFICACIONES

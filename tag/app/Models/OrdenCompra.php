@@ -17,9 +17,9 @@ class OrdenCompra extends Model
 
     protected $fillable = [
         'id_cotizacion',
-        'estatus', // Estatus Operativo
-        'id_estado_financiero', // Relacion catalogo
-        'id_estado_financiero_egreso', // Nuevo: Relación para egresos (proveedores)
+        'id_estado_orden_compra',      // Estado operativo propio catálogo
+        'id_estado_financiero',        // Estado financiero (ingresos cliente)
+        'id_estado_financiero_egreso', // Estado financiero (egresos proveedor)
         'monto_total',
     ];
 
@@ -36,10 +36,10 @@ class OrdenCompra extends Model
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
     }
 
-    // Devuelve el estatus actual de la orden.
-    public function estatus(): BelongsTo
+    // Devuelve el estado operativo actual de la orden.
+    public function estadoOrdenCompra(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoOrdenCompra::class, 'id_estado_orden_compra');
     }
 
     // Devuelve el estado financiero actual.

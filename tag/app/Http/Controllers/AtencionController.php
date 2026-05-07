@@ -8,9 +8,9 @@ use App\Models\Estatus;
 use App\Models\PersonalEmpresa;
 use App\Models\Cliente;
 use App\Models\Personal;
+use App\Models\EstadoAtencion;
 use App\Http\Resources\AtencionResource;
 use App\Events\AtencionEstatusActualizado;
-use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -31,7 +31,7 @@ class AtencionController extends Controller
             'cliente' => fn($q) => $q->withTrashed(),
             'personal' => fn($q) => $q->withTrashed(),
             'origen' => fn($q) => $q->withTrashed(),
-            'estatus',
+            'estadoAtencion',
             'etapaComercial' => fn($q) => $q->withTrashed(),
             'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
             'cotizaciones.ordenCompra',
@@ -39,7 +39,7 @@ class AtencionController extends Controller
 
         // Soporte para relaciones adicionales
         if ($request->has('include')) {
-            $allowed = ['cliente', 'personal', 'origen', 'estatus', 'etapaComercial', 'cotizaciones'];
+            $allowed = ['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial', 'cotizaciones'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
             if (!empty($includes)) {
                 $query->with($includes);
@@ -77,13 +77,13 @@ class AtencionController extends Controller
             return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
         }
 
-        $estatusId = EstatusResolver::id('por aprobar');
-        if (!$estatusId) {
-            return response()->json(['message' => 'Estatus "por aprobar" no configurado en el catálogo'], 500);
+        $estado = EstadoAtencion::where('slug', 'abierta')->first();
+        if (!$estado) {
+            return response()->json(['message' => 'Estado "abierta" no configurado en el catálogo'], 500);
         }
 
         $data['id_personal'] = $personalId;
-        $data['estatus'] = $estatusId;
+        $data['id_estado_atencion'] = $estado->id;
 
         $item = Atencion::create($data);
 
@@ -91,7 +91,7 @@ class AtencionController extends Controller
         event(new AtencionEstatusActualizado(
             atencion: $item,
             estatusAnterior: null,
-            estatusNuevo: $item->estatus,
+            estatusNuevo: $item->id_estado_atencion,
             comentario: 'Atención creada',
         ));
 
@@ -108,7 +108,7 @@ class AtencionController extends Controller
             'cliente' => fn($q) => $q->withTrashed(),
             'personal' => fn($q) => $q->withTrashed(),
             'origen' => fn($q) => $q->withTrashed(),
-            'estatus',
+            'estadoAtencion',
             'etapaComercial' => fn($q) => $q->withTrashed(),
             'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
             'cotizaciones.ordenCompra',
@@ -135,19 +135,19 @@ class AtencionController extends Controller
             'id_origen_atencion' => ['sometimes', 'required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['sometimes', 'required', 'string', 'max:255'],
             'notas_adicionales' => ['sometimes', 'nullable', 'string'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_atencion' => ['sometimes', 'required', 'exists:estados_atenciones,id'],
         ]);
 
-        $estatusAnterior = $atencion->estatus;
+        $estatusAnterior = $atencion->id_estado_atencion;
         
         $atencion->update($data);
-        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
+        $atencion->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']);
 
-        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
+        if (isset($data['id_estado_atencion']) && $data['id_estado_atencion'] != $estatusAnterior) {
             event(new AtencionEstatusActualizado(
                 atencion: $atencion,
                 estatusAnterior: $estatusAnterior,
-                estatusNuevo: $data['estatus'],
+                estatusNuevo: $data['id_estado_atencion'],
             ));
         }
 
@@ -181,7 +181,8 @@ class AtencionController extends Controller
             }
         }
 
-        $estatusConcluido = Estatus::where('estatus', 'aprobado')->value('id') ?? 0;
+        $estadoCerradoGanado = EstadoAtencion::where('slug', 'cerrada_ganada')->value('id') ?? 0;
+        $estadoCerradoPerdido = EstadoAtencion::where('slug', 'cerrada_perdida')->value('id') ?? 0;
         $personalIds = Personal::pluck('id')->all(); // Ya no buscamos roles en Users. Todo Personal es un personal comercial.
 
         if (empty($personalIds)) {
@@ -191,7 +192,7 @@ class AtencionController extends Controller
         $conteos = DB::table('atenciones')
             ->select('id_personal', DB::raw('COUNT(*) as total'))
             ->whereNull('deleted_at') // Nativo softDeletes en vez de borrado_logico
-            ->where('estatus', '!=', $estatusConcluido)
+            ->whereNotIn('id_estado_atencion', [$estadoCerradoGanado, $estadoCerradoPerdido])
             ->whereIn('id_personal', $personalIds)
             ->groupBy('id_personal')
             ->pluck('total', 'id_personal')

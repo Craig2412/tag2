@@ -8,6 +8,7 @@ use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
 use App\Models\TasaCambio;
+use App\Models\EstadoConciliacion;
 use Illuminate\Database\Seeder;
 
 class PagosSeeder extends Seeder
@@ -25,7 +26,7 @@ class PagosSeeder extends Seeder
             return;
         }
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
+        $estadoConciliacion = EstadoConciliacion::where('slug', 'por_conciliar')->first();
 
         $contador = 1;
         foreach ($ordenesCompra as $ordenCompra) {
@@ -50,7 +51,7 @@ class PagosSeeder extends Seeder
                     'id_metodo_pago' => $metodo->id,
                     'id_tasa_cambio' => $tasa->id,
                     'id_entidad_bancaria' => $entidadBancaria->id,
-                    'estatus' => $estatus->id,
+                    'id_estado_conciliacion' => $estadoConciliacion ? $estadoConciliacion->id : 1,
                 ]
             );
 

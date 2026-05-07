@@ -7,7 +7,7 @@ use App\Models\CuentaPorPagar;
 use App\Models\PagoProveedor;
 use App\Models\PagoProveedorCuenta;
 use App\Models\Proveedor;
-use App\Models\Estatus;
+use App\Models\EstadoFinanciero;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +19,7 @@ class CicloCompletoEgresosSeeder extends Seeder
             // 1. Obtener datos base
             $orden = OrdenCompra::first() ?? OrdenCompra::factory()->create();
             $proveedor = Proveedor::first() ?? Proveedor::create(['nombre' => 'Proveedor de Prueba']);
-            $estatusPendiente = Estatus::where('estatus', 'pendiente')->first() ?? Estatus::first();
+            $estadoPendiente = EstadoFinanciero::where('slug', 'pendiente')->first() ?? EstadoFinanciero::first();
 
             // 2. Crear una Cuenta por Pagar (Deuda) de $500
             $cxp = CuentaPorPagar::create([
@@ -27,7 +27,7 @@ class CicloCompletoEgresosSeeder extends Seeder
                 'id_proveedor'    => $proveedor->id,
                 'monto_total'     => 500.00,
                 'saldo_pendiente' => 500.00,
-                'estatus'         => $estatusPendiente->id,
+                'id_estado_financiero' => $estadoPendiente->id,
             ]);
 
             dump(">>> CxP Creada: #{$cxp->id} con saldo de $500.00");

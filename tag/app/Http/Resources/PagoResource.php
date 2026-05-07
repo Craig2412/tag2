@@ -17,12 +17,13 @@ class PagoResource extends JsonResource
             'nro_comprobante'     => $this->nro_comprobante,
             'id_tasa_cambio'      => $this->id_tasa_cambio,
             'id_entidad_bancaria' => $this->id_entidad_bancaria,
-            'estatus'             => $this->estatus,
+            'id_estado_conciliacion' => $this->id_estado_conciliacion,
 
             // Relaciones
             'metodo_pago'         => new MetodoPagoResource($this->whenLoaded('metodoPago')),
             'tasa_cambio'         => new TasaCambioResource($this->whenLoaded('tasaCambio')),
             'entidad_bancaria'    => $this->whenLoaded('entidadBancaria'),
+            'estado_conciliacion' => $this->whenLoaded('estadoConciliacion'),
             'ordenes_compra'      => PagoOrdenCompraResource::collection($this->whenLoaded('ordenesCompra')),
 
             'created_at' => $this->created_at,

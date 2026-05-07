@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Events\CotizacionGuardado;
 
 class Cotizacion extends Model
 {
@@ -23,7 +24,7 @@ class Cotizacion extends Model
         'cant_viejos',
         'id_tasa_cambio',
         'fecha_vencimiento',
-        'estatus',
+        'id_estado_cotizacion',
     ];
 
     protected $casts = [
@@ -31,8 +32,8 @@ class Cotizacion extends Model
     ];
 
     protected $dispatchesEvents = [
-        'saved' => \App\Events\CotizacionGuardado::class,
-        'deleted' => \App\Events\CotizacionGuardado::class,
+        'saved'   => CotizacionGuardado::class,
+        'deleted' => CotizacionGuardado::class,
     ];
 
     // Expone campos calculados en el JSON automáticamente
@@ -56,10 +57,10 @@ class Cotizacion extends Model
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
-    // Devuelve el estatus actual de la cotizacion.
-    public function estatus(): BelongsTo
+    // Devuelve el estado operativo de la cotizacion.
+    public function estadoCotizacion(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoCotizacion::class, 'id_estado_cotizacion');
     }
 
     // Lista los servicios asociados a la cotizacion.

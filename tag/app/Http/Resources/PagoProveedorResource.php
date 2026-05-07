@@ -18,8 +18,6 @@ class PagoProveedorResource extends JsonResource
             'fecha_pago'      => $this->fecha_pago?->format('Y-m-d'),
             'id_metodo_pago'  => $this->id_metodo_pago,
             'comprobante'     => $this->comprobante,
-            'estatus'         => $this->estatus,
-
             // Relaciones
             'proveedor'       => new ProveedorResource($this->whenLoaded('proveedor')),
             'tasa_cambio'     => new TasaCambioResource($this->whenLoaded('tasaCambio')),

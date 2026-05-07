@@ -15,7 +15,7 @@ class CuentaPorPagarController extends Controller
      */
     public function index()
     {
-        return CuentaPorPagarResource::collection(CuentaPorPagar::with(['proveedor', 'ordenCompra', 'estatusCuenta'])->orderBy('id', 'desc')->get());
+        return CuentaPorPagarResource::collection(CuentaPorPagar::with(['proveedor', 'ordenCompra', 'estadoFinanciero'])->orderBy('id', 'desc')->get());
     }
 
     /**
@@ -28,11 +28,11 @@ class CuentaPorPagarController extends Controller
             'id_proveedor' => ['required', 'exists:proveedores,id'],
             'monto_total' => ['required', 'numeric', 'min:0.01'],
             'saldo_pendiente' => ['required', 'numeric', 'min:0'],
-            'estatus' => ['required', 'exists:estatus,id'],
+            'id_estado_financiero' => ['required', 'exists:estados_financieros,id'],
         ]);
 
         $cuenta = CuentaPorPagar::create($data);
-        $cuenta->load(['proveedor', 'ordenCompra', 'estatusCuenta']);
+        $cuenta->load(['proveedor', 'ordenCompra', 'estadoFinanciero']);
 
         return new CuentaPorPagarResource($cuenta);
     }
@@ -42,7 +42,7 @@ class CuentaPorPagarController extends Controller
      */
     public function show(CuentaPorPagar $cuentaPorPagar)
     {
-        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estatusCuenta', 'pagos']);
+        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos']);
         return new CuentaPorPagarResource($cuentaPorPagar);
     }
 
@@ -56,11 +56,11 @@ class CuentaPorPagarController extends Controller
             'id_proveedor' => ['sometimes', 'required', 'exists:proveedores,id'],
             'monto_total' => ['sometimes', 'required', 'numeric', 'min:0.01'],
             'saldo_pendiente' => ['sometimes', 'required', 'numeric', 'min:0'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_financiero' => ['sometimes', 'required', 'exists:estados_financieros,id'],
         ]);
 
         $cuentaPorPagar->update($data);
-        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estatusCuenta']);
+        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero']);
 
         return new CuentaPorPagarResource($cuentaPorPagar);
     }

@@ -12,9 +12,10 @@ class CotizacionHistorial extends Model
     protected $table = 'cotizacion_historial';
     protected $fillable = [
         'cotizacion_id',
-        'estatus_anterior',
-        'estatus_nuevo',
+        'id_estado_anterior',
+        'id_estado_nuevo',
         'usuario_id',
+        'comentario',
     ];
 
     public function usuario(): BelongsTo
@@ -27,13 +28,13 @@ class CotizacionHistorial extends Model
         return $this->belongsTo(Cotizacion::class, 'cotizacion_id');
     }
 
-    public function estatusAnteriorObj(): BelongsTo
+    public function estadoAnteriorObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_anterior');
+        return $this->belongsTo(EstadoCotizacion::class, 'id_estado_anterior');
     }
 
-    public function estatusNuevoObj(): BelongsTo
+    public function estadoNuevoObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_nuevo');
+        return $this->belongsTo(EstadoCotizacion::class, 'id_estado_nuevo');
     }
 }

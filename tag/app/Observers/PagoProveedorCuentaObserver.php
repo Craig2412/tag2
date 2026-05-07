@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\PagoProveedorCuenta;
 use App\Services\EstadoFaseService;
+use App\Models\EstadoFinanciero;
 
 class PagoProveedorCuentaObserver
 {
@@ -17,8 +18,19 @@ class PagoProveedorCuentaObserver
             // 1. Restar el monto asignado del saldo pendiente
             $cuenta->saldo_pendiente -= $pagoCuenta->monto_asignado;
             
-            // 2. Si el saldo es <= 0, actualizamos el estatus de la cuenta a "Liquidado" (puedes ajustar el ID según tu catálogo)
-            // Por ahora solo aseguramos que el saldo baje.
+            // Lógica de estados financieros
+            $slugEstado = 'parcial';
+            if ($cuenta->saldo_pendiente <= 0) {
+                $slugEstado = 'pagado';
+            } elseif ($cuenta->saldo_pendiente >= $cuenta->monto_total) {
+                $slugEstado = 'pendiente';
+            }
+
+            $estado = EstadoFinanciero::where('slug', $slugEstado)->first();
+            if ($estado) {
+                $cuenta->id_estado_financiero = $estado->id;
+            }
+
             $cuenta->save();
 
             // 3. Sincronizar el estado de egreso de la Orden de Compra
@@ -37,6 +49,20 @@ class PagoProveedorCuentaObserver
         if ($cuenta) {
             // Revertimos el saldo
             $cuenta->saldo_pendiente += $pagoCuenta->monto_asignado;
+
+            // Lógica de estados financieros
+            $slugEstado = 'parcial';
+            if ($cuenta->saldo_pendiente >= $cuenta->monto_total) {
+                $slugEstado = 'pendiente';
+            } elseif ($cuenta->saldo_pendiente <= 0) {
+                $slugEstado = 'pagado';
+            }
+
+            $estado = EstadoFinanciero::where('slug', $slugEstado)->first();
+            if ($estado) {
+                $cuenta->id_estado_financiero = $estado->id;
+            }
+
             $cuenta->save();
 
             if ($cuenta->ordenCompra) {

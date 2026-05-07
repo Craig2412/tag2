@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('cant_viejos');
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio'); // Congela el valor del día
             $table->date('fecha_vencimiento'); // Control de vigencia financiera
-            $table->foreignId('estatus')->constrained('estatus'); // Estado Operativo
+            $table->foreignId('id_estado_cotizacion')->constrained('estados_cotizaciones'); // Estado Operativo
             $table->timestamps();
             $table->softDeletes();
         });

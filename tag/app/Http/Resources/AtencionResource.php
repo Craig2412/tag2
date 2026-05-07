@@ -16,7 +16,7 @@ class AtencionResource extends JsonResource
             'id_origen_atencion'  => $this->id_origen_atencion,
             'asunto'              => $this->asunto,
             'notas_adicionales'   => $this->notas_adicionales,
-            'estatus'             => $this->estatus,
+            'id_estado_atencion'  => $this->id_estado_atencion,
             'id_etapa_comercial'  => $this->id_etapa_comercial,
 
             // Campos calculados para el frontend
@@ -27,6 +27,7 @@ class AtencionResource extends JsonResource
             'cliente'             => new ClienteResource($this->whenLoaded('cliente')),
             'personal'            => new PersonalResource($this->whenLoaded('personal')),
             'origen'              => new OrigenResource($this->whenLoaded('origen')),
+            'estado_atencion'     => $this->whenLoaded('estadoAtencion'),
             'etapa_comercial'     => $this->whenLoaded('etapaComercial'),
             'cotizaciones'        => CotizacionResource::collection($this->whenLoaded('cotizaciones')),
 

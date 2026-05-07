@@ -20,7 +20,7 @@ class Atencion extends Model
         'id_origen_atencion',
         'asunto',
         'notas_adicionales',
-        'estatus',
+        'id_estado_atencion',
         'id_etapa_comercial',
     ];
 
@@ -42,10 +42,10 @@ class Atencion extends Model
         return $this->belongsTo(Origen::class, 'id_origen_atencion');
     }
 
-    // Devuelve el estatus actual de la atencion.
-    public function estatus(): BelongsTo
+    // Devuelve el estado operativo de la atencion.
+    public function estadoAtencion(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoAtencion::class, 'id_estado_atencion');
     }
 
     // Lista las cotizaciones asociadas a la atencion.

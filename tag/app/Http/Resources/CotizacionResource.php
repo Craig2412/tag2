@@ -20,7 +20,6 @@ class CotizacionResource extends JsonResource
             'fecha_vencimiento'   => $this->fecha_vencimiento?->format('Y-m-d'),
             // Campo calculado del modelo: indica si la cotizacion ya venció
             'esta_vencida'        => $this->esta_vencida,
-            'estatus'             => $this->estatus,
 
             // Relaciones
             'atencion'            => new AtencionResource($this->whenLoaded('atencion')),
@@ -28,6 +27,9 @@ class CotizacionResource extends JsonResource
             'tasa_cambio'         => new TasaCambioResource($this->whenLoaded('tasaCambio')),
             'servicios'           => ServicioResource::collection($this->whenLoaded('servicios')),
             'orden_compra'        => new OrdenCompraResource($this->whenLoaded('ordenCompra')),
+
+            'id_estado_cotizacion' => $this->id_estado_cotizacion,
+            'estado_cotizacion'    => $this->whenLoaded('estadoCotizacion'),
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

@@ -21,7 +21,7 @@ class Pago extends Model
         'nro_comprobante',
         'id_tasa_cambio',
         'id_entidad_bancaria',
-        'estatus',
+        'id_estado_conciliacion',
     ];
     // Devuelve la entidad bancaria asociada.
     public function entidadBancaria(): BelongsTo
@@ -51,9 +51,9 @@ class Pago extends Model
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
-    // Devuelve el estatus actual del pago.
-    public function estatus(): BelongsTo
+    // Devuelve el estado de conciliacion actual del pago.
+    public function estadoConciliacion(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoConciliacion::class, 'id_estado_conciliacion');
     }
 }

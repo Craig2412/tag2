@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Atencion;
-use App\Models\Estatus;
+use App\Models\EstadoAtencion;
 use App\Models\Origen;
 use App\Models\Cliente;
 use App\Models\Personal;
@@ -21,7 +21,7 @@ class AtencionesSeeder extends Seeder
             return;
         }
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'por aprobar']);
+        $estado = EstadoAtencion::where('slug', 'abierta')->first();
 
         Atencion::firstOrCreate(
             [
@@ -32,7 +32,7 @@ class AtencionesSeeder extends Seeder
             ],
             [
                 'notas_adicionales' => 'Contacto inicial desde redes.',
-                'estatus' => $estatus->id,
+                'id_estado_atencion' => $estado ? $estado->id : 1,
             ]
         );
     }

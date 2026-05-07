@@ -13,12 +13,12 @@ use App\Events\PagoProveedorEliminado;
 use App\Events\PagoOrdenCompraGuardado;
 use App\Jobs\PersistirAuditLog;
 use App\Jobs\PersistirLogroPersonal;
-use App\Listeners\AmortizarCuentaPorPagarListener;
+
 use App\Listeners\BroadcastPermissionsChanged;
 use App\Listeners\GenerarCuentasPorPagarListener;
 use App\Listeners\RegistrarHistorialEstatusAtencionListener;
 use App\Listeners\RegistrarHistorialEstatusCotizacionListener;
-use App\Listeners\RestaurarSaldoCuentaPorPagarListener;
+
 use App\Listeners\SincronizarEstadoFinancieroListener;
 use App\Listeners\SincronizarFaseAtencionListener;
 use App\Listeners\SincronizarPadreOrdenCompraListener;
@@ -87,8 +87,8 @@ class DiagnosticarEventSystem extends Command
             OrdenCompraGuardado::class      => [SincronizarPadreOrdenCompraListener::class, SincronizarEstadoFinancieroListener::class],
             OrdenCompraAprobada::class      => [GenerarCuentasPorPagarListener::class],
             PagoOrdenCompraGuardado::class  => [SincronizarEstadoFinancieroListener::class],
-            PagoProveedorCreado::class      => [AmortizarCuentaPorPagarListener::class, SincronizarEstadoFinancieroListener::class],
-            PagoProveedorEliminado::class   => [RestaurarSaldoCuentaPorPagarListener::class, SincronizarEstadoFinancieroListener::class],
+            PagoProveedorCreado::class      => [SincronizarEstadoFinancieroListener::class],
+            PagoProveedorEliminado::class   => [SincronizarEstadoFinancieroListener::class],
             CotizacionGuardado::class       => [SincronizarFaseAtencionListener::class],
             AtencionEstatusActualizado::class => [RegistrarHistorialEstatusAtencionListener::class],
             CotizacionEstatusActualizado::class => [RegistrarHistorialEstatusCotizacionListener::class],
@@ -133,12 +133,12 @@ class DiagnosticarEventSystem extends Command
     private function checkListenersShouldQueue(): void
     {
         $listeners = [
-            AmortizarCuentaPorPagarListener::class,
+
             BroadcastPermissionsChanged::class,
             GenerarCuentasPorPagarListener::class,
             RegistrarHistorialEstatusAtencionListener::class,
             RegistrarHistorialEstatusCotizacionListener::class,
-            RestaurarSaldoCuentaPorPagarListener::class,
+
             SincronizarEstadoFinancieroListener::class,
             SincronizarFaseAtencionListener::class,
             SincronizarPadreOrdenCompraListener::class,

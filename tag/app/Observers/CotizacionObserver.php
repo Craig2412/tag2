@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Cotizacion;
 use App\Models\Atencion;
 use App\Services\EstadoFaseService;
+use App\Events\CotizacionGuardado;
 
 class CotizacionObserver
 {
@@ -13,7 +14,7 @@ class CotizacionObserver
      */
     public function saved(Cotizacion $cotizacion): void
     {
-        event(new \App\Events\CotizacionGuardado($cotizacion));
+        event(new CotizacionGuardado($cotizacion));
     }
 
     /**
@@ -21,6 +22,6 @@ class CotizacionObserver
      */
     public function deleted(Cotizacion $cotizacion): void
     {
-        event(new \App\Events\CotizacionGuardado($cotizacion));
+        event(new CotizacionGuardado($cotizacion));
     }
 }

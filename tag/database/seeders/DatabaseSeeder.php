@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             EstatusSeeder::class,
+            EstadoConciliacionSeeder::class,
+            EstadoAtencionSeeder::class,
+            EstadoCotizacionSeeder::class,
+            EstadoOrdenCompraSeeder::class,
             TiposContribuyentesSeeder::class, // Necesario para Clientes y Proveedores
             EntidadBancariaSeeder::class,
             RoleSeeder::class, // Crea los usuarios base (name, email, pass)
@@ -34,10 +38,10 @@ class DatabaseSeeder extends Seeder
             TasasCambioSeeder::class,
             OrigenesSeeder::class,
             CatalogosSeeder::class,
-            AtencionesSeeder::class,
-            CotizacionesSeeder::class,
+            // AtencionesSeeder::class,
+            // CotizacionesSeeder::class,
             ServiciosSeeder::class,
-            OrdenesComprasSeeder::class,
+            // OrdenesComprasSeeder::class,
             MetodosPagoSeeder::class,
             MetodoPagoEntidadBancariaSeeder::class,
             PagosSeeder::class,

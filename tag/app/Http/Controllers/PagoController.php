@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Estatus;
 use App\Models\MetodoPago;
-use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
+use App\Models\EstadoConciliacion;
 use App\Http\Resources\PagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,7 @@ class PagoController extends Controller
 
         // Soporte para relaciones
         if ($request->has('include')) {
-            $allowed = ['metodoPago', 'entidadBancaria', 'tasaCambio', 'estatus', 'ordenesCompra'];
+            $allowed = ['metodoPago', 'entidadBancaria', 'tasaCambio', 'estadoConciliacion', 'ordenesCompra'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
             if (!empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
@@ -65,7 +65,6 @@ class PagoController extends Controller
             'nro_comprobante' => ['required', 'string', 'max:255'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
-            'estatus' => ['required', 'exists:estatus,id'],
             'ordenes_compra' => ['required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
@@ -117,6 +116,11 @@ class PagoController extends Controller
             if ($rutaComprobante) {
                 $data['comprobante_pdf'] = $rutaComprobante;
             }
+            
+            // Forzar el estado inicial a "por conciliar"
+            $estadoInicial = EstadoConciliacion::where('slug', 'por_conciliar')->first();
+            $data['id_estado_conciliacion'] = $estadoInicial ? $estadoInicial->id : 1;
+
             $pago = Pago::create($data);
             foreach ($ordenesCompra as $detalle) {
                 // Al crear este pivote, el PagoOrdenCompraObserver recalculará el estado_financiero automáticamente.
@@ -163,7 +167,7 @@ class PagoController extends Controller
             'nro_comprobante' => ['sometimes', 'required', 'string', 'max:255'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
             'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_conciliacion' => ['sometimes', 'required', 'exists:estados_conciliacion,id'],
             'ordenes_compra' => ['sometimes', 'required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],

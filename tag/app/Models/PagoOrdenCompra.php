@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Events\PagoOrdenCompraGuardado;
 
 class PagoOrdenCompra extends Model
 {
@@ -20,8 +21,8 @@ class PagoOrdenCompra extends Model
     ];
 
     protected $dispatchesEvents = [
-        'saved' => \App\Events\PagoOrdenCompraGuardado::class,
-        'deleted' => \App\Events\PagoOrdenCompraGuardado::class,
+        'saved'   => PagoOrdenCompraGuardado::class,
+        'deleted' => PagoOrdenCompraGuardado::class,
     ];
 
     // Devuelve el pago asociado.

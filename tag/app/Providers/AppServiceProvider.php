@@ -10,6 +10,10 @@ use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Observers\ServicioObserver;
 use App\Observers\PagoOrdenCompraObserver;
+use App\Models\PagoProveedorCuenta;
+use App\Observers\PagoProveedorCuentaObserver;
+use App\Observers\OrdenCompraObserver;
+use App\Observers\CotizacionObserver;
 
 use App\Events\OrdenCompraGuardado;
 use App\Events\OrdenCompraAprobada;
@@ -24,8 +28,6 @@ use App\Listeners\SincronizarPadreOrdenCompraListener;
 use App\Listeners\SincronizarEstadoFinancieroListener;
 use App\Listeners\SincronizarFaseAtencionListener;
 use App\Listeners\GenerarCuentasPorPagarListener;
-use App\Listeners\AmortizarCuentaPorPagarListener;
-use App\Listeners\RestaurarSaldoCuentaPorPagarListener;
 use App\Listeners\RegistrarHistorialEstatusAtencionListener;
 use App\Listeners\RegistrarHistorialEstatusCotizacionListener;
 use Illuminate\Database\Eloquent\Model;
@@ -54,12 +56,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Servicio::observe(ServicioObserver::class);
         PagoOrdenCompra::observe(PagoOrdenCompraObserver::class);
-        \App\Models\PagoProveedorCuenta::observe(\App\Observers\PagoProveedorCuentaObserver::class);
+        PagoProveedorCuenta::observe(PagoProveedorCuentaObserver::class);
+        OrdenCompra::observe(OrdenCompraObserver::class);
+        Cotizacion::observe(CotizacionObserver::class);
 
-        Event::listen(OrdenCompraGuardado::class, [
-            SincronizarPadreOrdenCompraListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
+        Event::listen(OrdenCompraGuardado::class, SincronizarPadreOrdenCompraListener::class);
+        Event::listen(OrdenCompraGuardado::class, SincronizarEstadoFinancieroListener::class);
 
         Event::listen(OrdenCompraAprobada::class, GenerarCuentasPorPagarListener::class);
         
@@ -67,21 +69,13 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(PagoOrdenCompraGuardado::class, SincronizarEstadoFinancieroListener::class);
         
         // Pagos a Proveedores (Egresos)
-        Event::listen(PagoProveedorCreado::class, [
-            AmortizarCuentaPorPagarListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
-        Event::listen(PagoProveedorEliminado::class, [
-            RestaurarSaldoCuentaPorPagarListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
+        Event::listen(PagoProveedorCreado::class, SincronizarEstadoFinancieroListener::class);
+        Event::listen(PagoProveedorEliminado::class, SincronizarEstadoFinancieroListener::class);
 
         Event::listen(CotizacionGuardado::class, SincronizarFaseAtencionListener::class);
 
-        // Historial de cambios de estatus operativo
-        Event::listen(AtencionEstatusActualizado::class, RegistrarHistorialEstatusAtencionListener::class);
-        Event::listen(CotizacionEstatusActualizado::class, RegistrarHistorialEstatusCotizacionListener::class);
-        Event::listen(CotizacionEstatusActualizado::class, \App\Listeners\GenerarOrdenDesdeCotizacionListener::class);
+        // Historial de cambios de estatus operativo (Auto-descubiertos por Laravel)
+        // Eliminados de aquí para evitar que se disparen duplicados.
 
         Event::listen('eloquent.updating: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;

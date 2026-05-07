@@ -22,7 +22,6 @@ class PagoProveedorController extends Controller
             'proveedor' => fn($q) => $q->withTrashed(),
             'tasaCambio',
             'metodoPago' => fn($q) => $q->withTrashed(),
-            'estatus_pago',
             'cuentasPorPagar'
         ])->orderBy('id', 'desc')->get());
     }
@@ -39,7 +38,6 @@ class PagoProveedorController extends Controller
             'referencia' => ['required', 'string', 'max:255'],
             'fecha_pago' => ['required', 'date'],
             'id_metodo_pago' => ['required', 'exists:metodos_pago,id'],
-            'estatus' => ['required', 'exists:estatus,id'],
             'comprobante' => ['nullable', 'string'],
             
             // Relación con cuentas por pagar
@@ -69,7 +67,6 @@ class PagoProveedorController extends Controller
                     'referencia'     => $data['referencia'],
                     'fecha_pago'     => $data['fecha_pago'],
                     'id_metodo_pago' => $data['id_metodo_pago'],
-                    'estatus'        => $data['estatus'],
                     'comprobante'    => $data['comprobante'] ?? null,
                 ]);
 
@@ -108,7 +105,6 @@ class PagoProveedorController extends Controller
             'proveedor' => fn($q) => $q->withTrashed(),
             'tasaCambio',
             'metodoPago' => fn($q) => $q->withTrashed(),
-            'estatus_pago',
             'cuentasPorPagar'
         ]);
         return new PagoProveedorResource($pagoProveedor);
@@ -126,7 +122,6 @@ class PagoProveedorController extends Controller
             'referencia' => ['sometimes', 'required', 'string', 'max:255'],
             'fecha_pago' => ['sometimes', 'required', 'date'],
             'id_metodo_pago' => ['sometimes', 'required', 'exists:metodos_pago,id'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
             'comprobante' => ['sometimes', 'nullable', 'string'],
         ]);
 
@@ -135,7 +130,6 @@ class PagoProveedorController extends Controller
             'proveedor' => fn($q) => $q->withTrashed(),
             'tasaCambio',
             'metodoPago' => fn($q) => $q->withTrashed(),
-            'estatus_pago',
             'cuentasPorPagar'
         ]);
 
