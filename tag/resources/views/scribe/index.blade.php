@@ -387,14 +387,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-ordenes-compra">
                                 <a href="#endpoints-GETapi-ordenes-compra">Listar todas las órdenes de compra</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-ordenes-compra">
-                                <a href="#endpoints-POSTapi-ordenes-compra">Crear una nueva orden de compra</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-ordenes-compra--ordenCompra_id-">
                                 <a href="#endpoints-GETapi-ordenes-compra--ordenCompra_id-">Obtener una orden de compra específica</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-ordenes-compra--ordenCompra_id-">
-                                <a href="#endpoints-PUTapi-ordenes-compra--ordenCompra_id-">Actualizar una orden de compra existente</a>
+                                <a href="#endpoints-PUTapi-ordenes-compra--ordenCompra_id-">Actualizar el estado operativo de una orden de compra</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-ordenes-compra--ordenCompra_id-">
                                 <a href="#endpoints-DELETEapi-ordenes-compra--ordenCompra_id-">Eliminar una orden de compra</a>
@@ -640,7 +637,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 7, 2026</li>
+        <li>Last updated: May 17, 2026</li>
     </ul>
 </div>
 
@@ -1369,10 +1366,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"consequatur\",
-    \"guard_name\": \"consequatur\",
+    \"name\": \"architecto\",
+    \"guard_name\": \"architecto\",
     \"permissions\": [
-        \"consequatur\"
+        \"architecto\"
     ]
 }"
 </code></pre></div>
@@ -1390,10 +1387,10 @@ const headers = {
 };
 
 let body = {
-    "name": "consequatur",
-    "guard_name": "consequatur",
+    "name": "architecto",
+    "guard_name": "architecto",
     "permissions": [
-        "consequatur"
+        "architecto"
     ]
 };
 
@@ -1498,10 +1495,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-roles"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre único del rol. Ejemplo: Supervisor Example: <code>consequatur</code></p>
+<p>Nombre único del rol. Ejemplo: Supervisor Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>guard_name</code></b>&nbsp;&nbsp;
@@ -1510,10 +1507,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="guard_name"                data-endpoint="POSTapi-roles"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del guard de Laravel. Por defecto 'web'. Ejemplo: web Example: <code>consequatur</code></p>
+<p>Nombre del guard de Laravel. Por defecto 'web'. Ejemplo: web Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>permissions</code></b>&nbsp;&nbsp;
@@ -2230,9 +2227,9 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"consequatur\",
+    \"name\": \"architecto\",
     \"permissions\": [
-        \"consequatur\"
+        \"architecto\"
     ]
 }"
 </code></pre></div>
@@ -2250,9 +2247,9 @@ const headers = {
 };
 
 let body = {
-    "name": "consequatur",
+    "name": "architecto",
     "permissions": [
-        "consequatur"
+        "architecto"
     ]
 };
 
@@ -2374,10 +2371,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-roles--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre único del rol. Ejemplo: Gerente Example: <code>consequatur</code></p>
+<p>Nombre único del rol. Ejemplo: Gerente Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>permissions</code></b>&nbsp;&nbsp;
@@ -3216,8 +3213,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"consequatur\",
-    \"guard_name\": \"consequatur\"
+    \"name\": \"architecto\",
+    \"guard_name\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -3234,8 +3231,8 @@ const headers = {
 };
 
 let body = {
-    "name": "consequatur",
-    "guard_name": "consequatur"
+    "name": "architecto",
+    "guard_name": "architecto"
 };
 
 fetch(url, {
@@ -3339,10 +3336,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-permisos"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre único del permiso. Ejemplo: view:reportes_financieros Example: <code>consequatur</code></p>
+<p>Nombre único del permiso. Ejemplo: view:reportes_financieros Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>guard_name</code></b>&nbsp;&nbsp;
@@ -3351,10 +3348,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="guard_name"                data-endpoint="POSTapi-permisos"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del guard de Laravel. Por defecto 'web'. Example: <code>consequatur</code></p>
+<p>Nombre del guard de Laravel. Por defecto 'web'. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -3535,7 +3532,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"consequatur\"
+    \"name\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -3552,7 +3549,7 @@ const headers = {
 };
 
 let body = {
-    "name": "consequatur"
+    "name": "architecto"
 };
 
 fetch(url, {
@@ -3673,10 +3670,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-permisos--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nuevo nombre único del permiso. Example: <code>consequatur</code></p>
+<p>Nuevo nombre único del permiso. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -3841,14 +3838,14 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"consequatur\",
-    \"telefono\": \"consequatur\",
-    \"correo_contacto\": \"consequatur\",
-    \"id_tipo_contribuyente\": 17,
-    \"correo\": \"consequatur\",
-    \"clave\": \"consequatur\"
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"architecto\",
+    \"telefono\": \"architecto\",
+    \"correo_contacto\": \"architecto\",
+    \"id_tipo_contribuyente\": 16,
+    \"correo\": \"architecto\",
+    \"clave\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -3865,14 +3862,14 @@ const headers = {
 };
 
 let body = {
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "consequatur",
-    "telefono": "consequatur",
-    "correo_contacto": "consequatur",
-    "id_tipo_contribuyente": 17,
-    "correo": "consequatur",
-    "clave": "consequatur"
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "architecto",
+    "telefono": "architecto",
+    "correo_contacto": "architecto",
+    "id_tipo_contribuyente": 16,
+    "correo": "architecto",
+    "clave": "architecto"
 };
 
 fetch(url, {
@@ -3976,10 +3973,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del usuario. Ejemplo: Juan Example: <code>consequatur</code></p>
+<p>Nombre del usuario. Ejemplo: Juan Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -3988,10 +3985,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido del usuario. Ejemplo: Pérez Example: <code>consequatur</code></p>
+<p>Apellido del usuario. Ejemplo: Pérez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -4000,10 +3997,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de cédula de identidad. Ejemplo: 12345678 Example: <code>consequatur</code></p>
+<p>Número de cédula de identidad. Ejemplo: 12345678 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -4012,10 +4009,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
+<p>Número de teléfono. Ejemplo: 04121234567 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
@@ -4024,10 +4021,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_contacto"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico para comunicaciones. Ejemplo: contacto@perez.com Example: <code>consequatur</code></p>
+<p>Correo electrónico para comunicaciones. Ejemplo: contacto@perez.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -4036,10 +4033,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="POSTapi-register"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de contribuyente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -4048,10 +4045,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico para login. Ejemplo: juan@perez.com Example: <code>consequatur</code></p>
+<p>Correo electrónico para login. Ejemplo: juan@perez.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -4060,10 +4057,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="clave"                data-endpoint="POSTapi-register"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Contraseña (mínimo 8 caracteres). Ejemplo: password123 Example: <code>consequatur</code></p>
+<p>Contraseña (mínimo 8 caracteres). Ejemplo: password123 Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -4085,8 +4082,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"correo\": \"consequatur\",
-    \"clave\": \"consequatur\"
+    \"correo\": \"architecto\",
+    \"clave\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -4103,8 +4100,8 @@ const headers = {
 };
 
 let body = {
-    "correo": "consequatur",
-    "clave": "consequatur"
+    "correo": "architecto",
+    "clave": "architecto"
 };
 
 fetch(url, {
@@ -4208,10 +4205,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo"                data-endpoint="POSTapi-login"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico del usuario. Ejemplo: admin@example.com Example: <code>consequatur</code></p>
+<p>Correo electrónico del usuario. Ejemplo: admin@example.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -4220,10 +4217,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="clave"                data-endpoint="POSTapi-login"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Contraseña del usuario. Ejemplo: password Example: <code>consequatur</code></p>
+<p>Contraseña del usuario. Ejemplo: password Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -4245,8 +4242,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"correo\": \"consequatur\",
-    \"clave\": \"consequatur\"
+    \"correo\": \"architecto\",
+    \"clave\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -4263,8 +4260,8 @@ const headers = {
 };
 
 let body = {
-    "correo": "consequatur",
-    "clave": "consequatur"
+    "correo": "architecto",
+    "clave": "architecto"
 };
 
 fetch(url, {
@@ -4368,10 +4365,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo"                data-endpoint="POSTapi-login-admin"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico. Ejemplo: admin@example.com Example: <code>consequatur</code></p>
+<p>Correo electrónico. Ejemplo: admin@example.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -4380,10 +4377,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="clave"                data-endpoint="POSTapi-login-admin"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password Example: <code>consequatur</code></p>
+<p>Contraseña. Ejemplo: password Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -4405,8 +4402,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"correo\": \"consequatur\",
-    \"clave\": \"consequatur\"
+    \"correo\": \"architecto\",
+    \"clave\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -4423,8 +4420,8 @@ const headers = {
 };
 
 let body = {
-    "correo": "consequatur",
-    "clave": "consequatur"
+    "correo": "architecto",
+    "clave": "architecto"
 };
 
 fetch(url, {
@@ -4528,10 +4525,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo"                data-endpoint="POSTapi-login-user"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico. Ejemplo: user@example.com Example: <code>consequatur</code></p>
+<p>Correo electrónico. Ejemplo: user@example.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -4540,10 +4537,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="clave"                data-endpoint="POSTapi-login-user"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password Example: <code>consequatur</code></p>
+<p>Contraseña. Ejemplo: password Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -4890,8 +4887,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;admin@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [
             &quot;view:usuarios&quot;,
@@ -5033,8 +5030,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;admin&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 1,
@@ -5045,8 +5042,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 1,
                         &quot;name&quot;: &quot;view:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 1
@@ -5056,8 +5053,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 2,
                         &quot;name&quot;: &quot;create:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 2
@@ -5067,8 +5064,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;edit:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 3
@@ -5078,8 +5075,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 4,
                         &quot;name&quot;: &quot;delete:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 4
@@ -5089,8 +5086,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 5,
                         &quot;name&quot;: &quot;view:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 5
@@ -5100,8 +5097,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 6,
                         &quot;name&quot;: &quot;create:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 6
@@ -5111,8 +5108,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 7,
                         &quot;name&quot;: &quot;edit:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 7
@@ -5122,8 +5119,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 8,
                         &quot;name&quot;: &quot;delete:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 8
@@ -5133,8 +5130,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 9,
                         &quot;name&quot;: &quot;view:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 9
@@ -5144,8 +5141,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 10,
                         &quot;name&quot;: &quot;create:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 10
@@ -5155,8 +5152,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 11,
                         &quot;name&quot;: &quot;edit:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 11
@@ -5166,8 +5163,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 12,
                         &quot;name&quot;: &quot;delete:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 12
@@ -5177,8 +5174,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 13,
                         &quot;name&quot;: &quot;view:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 13
@@ -5188,8 +5185,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 14,
                         &quot;name&quot;: &quot;create:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 14
@@ -5199,8 +5196,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 15,
                         &quot;name&quot;: &quot;edit:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 15
@@ -5210,8 +5207,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 16,
                         &quot;name&quot;: &quot;delete:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 16
@@ -5221,8 +5218,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 17,
                         &quot;name&quot;: &quot;view:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 17
@@ -5232,8 +5229,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 18,
                         &quot;name&quot;: &quot;create:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 18
@@ -5243,8 +5240,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 19,
                         &quot;name&quot;: &quot;edit:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 19
@@ -5254,8 +5251,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 20,
                         &quot;name&quot;: &quot;delete:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 20
@@ -5265,8 +5262,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 21,
                         &quot;name&quot;: &quot;view:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 21
@@ -5276,8 +5273,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 22,
                         &quot;name&quot;: &quot;create:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 22
@@ -5287,8 +5284,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 23,
                         &quot;name&quot;: &quot;edit:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 23
@@ -5298,8 +5295,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 24,
                         &quot;name&quot;: &quot;delete:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 24
@@ -5309,8 +5306,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 25,
                         &quot;name&quot;: &quot;view:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 25
@@ -5320,8 +5317,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 26,
                         &quot;name&quot;: &quot;create:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 26
@@ -5331,8 +5328,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 27,
                         &quot;name&quot;: &quot;edit:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 27
@@ -5342,8 +5339,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 28,
                         &quot;name&quot;: &quot;delete:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 28
@@ -5353,8 +5350,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 29,
                         &quot;name&quot;: &quot;view:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 29
@@ -5364,8 +5361,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 30,
                         &quot;name&quot;: &quot;create:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 30
@@ -5375,8 +5372,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 31,
                         &quot;name&quot;: &quot;edit:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 31
@@ -5386,8 +5383,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 32,
                         &quot;name&quot;: &quot;delete:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 32
@@ -5397,8 +5394,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 33,
                         &quot;name&quot;: &quot;view:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 33
@@ -5408,8 +5405,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 34,
                         &quot;name&quot;: &quot;create:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 34
@@ -5419,8 +5416,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 35,
                         &quot;name&quot;: &quot;edit:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 35
@@ -5430,8 +5427,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 36,
                         &quot;name&quot;: &quot;delete:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 36
@@ -5441,8 +5438,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 37,
                         &quot;name&quot;: &quot;view:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 37
@@ -5452,8 +5449,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 38,
                         &quot;name&quot;: &quot;create:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 38
@@ -5463,8 +5460,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 39,
                         &quot;name&quot;: &quot;edit:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 39
@@ -5474,8 +5471,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 40,
                         &quot;name&quot;: &quot;delete:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 40
@@ -5485,8 +5482,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 41,
                         &quot;name&quot;: &quot;view:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 41
@@ -5496,8 +5493,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 42,
                         &quot;name&quot;: &quot;create:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 42
@@ -5507,8 +5504,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 43,
                         &quot;name&quot;: &quot;edit:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 43
@@ -5518,8 +5515,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 44,
                         &quot;name&quot;: &quot;delete:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 44
@@ -5529,8 +5526,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 45,
                         &quot;name&quot;: &quot;view:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 45
@@ -5540,8 +5537,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 46,
                         &quot;name&quot;: &quot;create:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 46
@@ -5551,8 +5548,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 47,
                         &quot;name&quot;: &quot;edit:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 47
@@ -5562,8 +5559,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 48,
                         &quot;name&quot;: &quot;delete:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 48
@@ -5573,8 +5570,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 49,
                         &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 49
@@ -5584,8 +5581,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 50,
                         &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 50
@@ -5595,8 +5592,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 51,
                         &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 51
@@ -5606,8 +5603,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 52,
                         &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 52
@@ -5617,8 +5614,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 53,
                         &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:15.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 53
@@ -5628,8 +5625,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 54,
                         &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 54
@@ -5639,8 +5636,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 55,
                         &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 55
@@ -5650,8 +5647,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 56,
                         &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 56
@@ -5661,8 +5658,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 57,
                         &quot;name&quot;: &quot;view:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 57
@@ -5672,8 +5669,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 58,
                         &quot;name&quot;: &quot;create:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 58
@@ -5683,8 +5680,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 59,
                         &quot;name&quot;: &quot;edit:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 59
@@ -5694,8 +5691,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 60,
                         &quot;name&quot;: &quot;delete:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 60
@@ -5705,8 +5702,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 61,
                         &quot;name&quot;: &quot;view:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 61
@@ -5716,8 +5713,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 62,
                         &quot;name&quot;: &quot;create:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 62
@@ -5727,8 +5724,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 63,
                         &quot;name&quot;: &quot;edit:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 63
@@ -5738,8 +5735,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 64,
                         &quot;name&quot;: &quot;delete:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 64
@@ -5749,8 +5746,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 65,
                         &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 65
@@ -5760,8 +5757,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 66,
                         &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 66
@@ -5771,8 +5768,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 67,
                         &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 67
@@ -5782,8 +5779,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 68,
                         &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 68
@@ -5793,8 +5790,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 69,
                         &quot;name&quot;: &quot;view:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 69
@@ -5804,8 +5801,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 70,
                         &quot;name&quot;: &quot;create:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 70
@@ -5815,8 +5812,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 71,
                         &quot;name&quot;: &quot;edit:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 71
@@ -5826,8 +5823,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 72,
                         &quot;name&quot;: &quot;delete:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 72
@@ -5837,8 +5834,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 73,
                         &quot;name&quot;: &quot;view:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 73
@@ -5848,8 +5845,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 74,
                         &quot;name&quot;: &quot;create:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 74
@@ -5859,8 +5856,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 75,
                         &quot;name&quot;: &quot;edit:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 75
@@ -5870,8 +5867,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 76,
                         &quot;name&quot;: &quot;delete:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 76
@@ -5881,8 +5878,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 77,
                         &quot;name&quot;: &quot;view:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 77
@@ -5892,8 +5889,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 78,
                         &quot;name&quot;: &quot;create:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 78
@@ -5903,8 +5900,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 79,
                         &quot;name&quot;: &quot;edit:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 79
@@ -5914,8 +5911,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 80,
                         &quot;name&quot;: &quot;delete:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 80
@@ -5925,8 +5922,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 81,
                         &quot;name&quot;: &quot;view:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 81
@@ -5936,8 +5933,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 82,
                         &quot;name&quot;: &quot;create:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 82
@@ -5947,8 +5944,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 83,
                         &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 83
@@ -5958,8 +5955,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 84,
                         &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 84
@@ -5969,8 +5966,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 85,
                         &quot;name&quot;: &quot;view:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 85
@@ -5980,8 +5977,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 86,
                         &quot;name&quot;: &quot;create:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 86
@@ -5991,8 +5988,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 87,
                         &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 87
@@ -6002,8 +5999,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 88,
                         &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 88
@@ -6013,8 +6010,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 89,
                         &quot;name&quot;: &quot;view:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 89
@@ -6024,8 +6021,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 90,
                         &quot;name&quot;: &quot;create:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 90
@@ -6035,8 +6032,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 91,
                         &quot;name&quot;: &quot;edit:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 91
@@ -6046,8 +6043,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 92,
                         &quot;name&quot;: &quot;delete:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 92
@@ -6057,8 +6054,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 93,
                         &quot;name&quot;: &quot;view:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 93
@@ -6068,8 +6065,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 94,
                         &quot;name&quot;: &quot;create:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 94
@@ -6079,8 +6076,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 95,
                         &quot;name&quot;: &quot;edit:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 95
@@ -6090,8 +6087,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 96,
                         &quot;name&quot;: &quot;delete:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 96
@@ -6101,8 +6098,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 97,
                         &quot;name&quot;: &quot;view:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 97
@@ -6112,8 +6109,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 98,
                         &quot;name&quot;: &quot;create:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 98
@@ -6123,8 +6120,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 99,
                         &quot;name&quot;: &quot;edit:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:16.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 99
@@ -6134,8 +6131,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 100,
                         &quot;name&quot;: &quot;delete:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 100
@@ -6145,8 +6142,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 101,
                         &quot;name&quot;: &quot;view:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 101
@@ -6156,8 +6153,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 102,
                         &quot;name&quot;: &quot;create:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 102
@@ -6167,8 +6164,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 103,
                         &quot;name&quot;: &quot;edit:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 103
@@ -6178,8 +6175,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 104,
                         &quot;name&quot;: &quot;delete:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 104
@@ -6189,8 +6186,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 105,
                         &quot;name&quot;: &quot;view:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 105
@@ -6200,8 +6197,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 106,
                         &quot;name&quot;: &quot;create:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 106
@@ -6211,8 +6208,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 107,
                         &quot;name&quot;: &quot;edit:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 107
@@ -6222,8 +6219,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 108,
                         &quot;name&quot;: &quot;delete:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 108
@@ -6233,8 +6230,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 109,
                         &quot;name&quot;: &quot;view:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 109
@@ -6244,8 +6241,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 110,
                         &quot;name&quot;: &quot;create:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 110
@@ -6255,8 +6252,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 111,
                         &quot;name&quot;: &quot;edit:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 111
@@ -6266,8 +6263,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 112,
                         &quot;name&quot;: &quot;delete:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 112
@@ -6277,8 +6274,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 113,
                         &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 113
@@ -6288,8 +6285,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 114,
                         &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 114
@@ -6299,8 +6296,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 115,
                         &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 115
@@ -6310,8 +6307,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 116,
                         &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 116
@@ -6321,8 +6318,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 117,
                         &quot;name&quot;: &quot;view:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 117
@@ -6332,8 +6329,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 118,
                         &quot;name&quot;: &quot;create:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 118
@@ -6343,8 +6340,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 119,
                         &quot;name&quot;: &quot;edit:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 119
@@ -6354,8 +6351,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 120,
                         &quot;name&quot;: &quot;delete:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 120
@@ -6365,8 +6362,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 121,
                         &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 121
@@ -6376,8 +6373,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 122,
                         &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 122
@@ -6387,8 +6384,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 123,
                         &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 123
@@ -6398,8 +6395,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 124,
                         &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 124
@@ -6409,8 +6406,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 125,
                         &quot;name&quot;: &quot;view:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 125
@@ -6420,8 +6417,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 126,
                         &quot;name&quot;: &quot;create:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 126
@@ -6431,8 +6428,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 127,
                         &quot;name&quot;: &quot;edit:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 127
@@ -6442,8 +6439,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 128,
                         &quot;name&quot;: &quot;delete:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 128
@@ -6453,8 +6450,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 129,
                         &quot;name&quot;: &quot;view:logros_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 129
@@ -6464,8 +6461,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 130,
                         &quot;name&quot;: &quot;view:audit_logs&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:17.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 130
@@ -6578,7 +6575,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/personal/17" \
+    --get "http://localhost:8000/api/metricas/personal/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6586,7 +6583,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/personal/17"
+    "http://localhost:8000/api/metricas/personal/16"
 );
 
 const headers = {
@@ -6718,10 +6715,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="idPersonal"                data-endpoint="GETapi-metricas-personal--idPersonal-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>ID del miembro del personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del miembro del personal. Ejemplo: 1 Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -6781,9 +6778,9 @@ access-control-allow-origin: *
     &quot;promedio_cambio_estatus_atencion_horas&quot;: 0,
     &quot;promedio_cambio_estatus_cotizacion_horas&quot;: 0,
     &quot;promedio_cambio_estatus_orden_horas&quot;: 0,
-    &quot;promedio_atenciones_con_cotizacion&quot;: 1,
-    &quot;promedio_atenciones_con_orden&quot;: 1,
-    &quot;promedio_cotizaciones_con_orden&quot;: 1,
+    &quot;promedio_atenciones_con_cotizacion&quot;: 0,
+    &quot;promedio_atenciones_con_orden&quot;: 0,
+    &quot;promedio_cotizaciones_con_orden&quot;: 0,
     &quot;promedio_tiempo_pago_orden_horas&quot;: 0
 }</code>
  </pre>
@@ -7051,12 +7048,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"entidad\": \"consequatur\",
+    \"entidad\": \"architecto\",
     \"metodos_pago\": [
         1,
         2
     ],
-    \"estatus\": 17
+    \"estatus\": 16
 }"
 </code></pre></div>
 
@@ -7073,12 +7070,12 @@ const headers = {
 };
 
 let body = {
-    "entidad": "consequatur",
+    "entidad": "architecto",
     "metodos_pago": [
         1,
         2
     ],
-    "estatus": 17
+    "estatus": 16
 };
 
 fetch(url, {
@@ -7182,10 +7179,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="entidad"                data-endpoint="POSTapi-entidades-bancarias"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la entidad bancaria. Ejemplo: Banco de Venezuela Example: <code>consequatur</code></p>
+<p>Nombre de la entidad bancaria. Ejemplo: Banco de Venezuela Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>metodos_pago</code></b>&nbsp;&nbsp;
@@ -7208,10 +7205,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="POSTapi-entidades-bancarias"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -7402,7 +7399,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"entidad\": \"consequatur\",
+    \"entidad\": \"architecto\",
     \"metodos_pago\": [
         1,
         2
@@ -7423,7 +7420,7 @@ const headers = {
 };
 
 let body = {
-    "entidad": "consequatur",
+    "entidad": "architecto",
     "metodos_pago": [
         1,
         2
@@ -7548,10 +7545,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="entidad"                data-endpoint="PUTapi-entidades-bancarias--entidadBancaria_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la entidad bancaria. Example: <code>consequatur</code></p>
+<p>Nombre de la entidad bancaria. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>metodos_pago</code></b>&nbsp;&nbsp;
@@ -7852,14 +7849,14 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --data "{
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"qxbajwbpilpmufinllwlo\",
-    \"telefono\": \"auydlsmsjuryvojcybzvr\",
-    \"porcentaje_comision\": 11613.31890586,
-    \"correo\": \"consequatur\",
-    \"correo_institucional\": \"consequatur\",
-    \"clave\": \"consequatur\"
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"g\",
+    \"telefono\": \"z\",
+    \"porcentaje_comision\": 4326.41688,
+    \"correo\": \"architecto\",
+    \"correo_institucional\": \"architecto\",
+    \"clave\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -7876,14 +7873,14 @@ const headers = {
 };
 
 let body = {
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "qxbajwbpilpmufinllwlo",
-    "telefono": "auydlsmsjuryvojcybzvr",
-    "porcentaje_comision": 11613.31890586,
-    "correo": "consequatur",
-    "correo_institucional": "consequatur",
-    "clave": "consequatur"
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "g",
+    "telefono": "z",
+    "porcentaje_comision": 4326.41688,
+    "correo": "architecto",
+    "correo_institucional": "architecto",
+    "clave": "architecto"
 };
 
 fetch(url, {
@@ -7987,10 +7984,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="POSTapi-register-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre. Ejemplo: Pedro Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Pedro Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -7999,10 +7996,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="POSTapi-register-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido. Ejemplo: Gómez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Gómez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -8011,10 +8008,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="POSTapi-register-personal"
-               value="qxbajwbpilpmufinllwlo"
+               value="g"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>qxbajwbpilpmufinllwlo</code></p>
+<p>Must not be greater than 255 characters. Example: <code>g</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -8023,10 +8020,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="POSTapi-register-personal"
-               value="auydlsmsjuryvojcybzvr"
+               value="z"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>auydlsmsjuryvojcybzvr</code></p>
+<p>Must not be greater than 255 characters. Example: <code>z</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
@@ -8035,10 +8032,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_comision"                data-endpoint="POSTapi-register-personal"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de comisión. Ejemplo: 10 Example: <code>11613.31890586</code></p>
+<p>Porcentaje de comisión. Ejemplo: 10 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -8047,10 +8044,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo"                data-endpoint="POSTapi-register-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico para login. Ejemplo: pedro@gomez.com Example: <code>consequatur</code></p>
+<p>Correo electrónico para login. Ejemplo: pedro@gomez.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
@@ -8059,10 +8056,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_institucional"                data-endpoint="POSTapi-register-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo institucional. Ejemplo: pedro.institucional@tag.com Example: <code>consequatur</code></p>
+<p>Correo institucional. Ejemplo: pedro.institucional@tag.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -8071,10 +8068,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="clave"                data-endpoint="POSTapi-register-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Contraseña. Ejemplo: password123 Example: <code>consequatur</code></p>
+<p>Contraseña. Ejemplo: password123 Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -8295,7 +8292,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"estatus\": \"consequatur\"
+    \"estatus\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -8312,7 +8309,7 @@ const headers = {
 };
 
 let body = {
-    "estatus": "consequatur"
+    "estatus": "architecto"
 };
 
 fetch(url, {
@@ -8416,10 +8413,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="estatus"                data-endpoint="POSTapi-estatus"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del estatus. Ejemplo: pendiente de pago Example: <code>consequatur</code></p>
+<p>Nombre del estatus. Ejemplo: pendiente de pago Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -8601,7 +8598,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"estatus\": \"consequatur\"
+    \"estatus\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -8618,7 +8615,7 @@ const headers = {
 };
 
 let body = {
-    "estatus": "consequatur"
+    "estatus": "architecto"
 };
 
 fetch(url, {
@@ -8739,10 +8736,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="estatus"                data-endpoint="PUTapi-estatus--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del estatus. Example: <code>consequatur</code></p>
+<p>Nombre del estatus. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -8942,8 +8939,8 @@ access-control-allow-origin: *
         {
             &quot;id&quot;: 1,
             &quot;dias_vencimiento&quot;: 30,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -9053,7 +9050,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"dias_vencimiento\": 17
+    \"dias_vencimiento\": 16
 }"
 </code></pre></div>
 
@@ -9070,7 +9067,7 @@ const headers = {
 };
 
 let body = {
-    "dias_vencimiento": 17
+    "dias_vencimiento": 16
 };
 
 fetch(url, {
@@ -9174,10 +9171,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="dias_vencimiento"                data-endpoint="POSTapi-configuraciones-sistema"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Días para que venza un proceso. Ejemplo: 30 Example: <code>17</code></p>
+<p>Días para que venza un proceso. Ejemplo: 30 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -9237,8 +9234,8 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9360,7 +9357,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"dias_vencimiento\": 17
+    \"dias_vencimiento\": 16
 }"
 </code></pre></div>
 
@@ -9377,7 +9374,7 @@ const headers = {
 };
 
 let body = {
-    "dias_vencimiento": 17
+    "dias_vencimiento": 16
 };
 
 fetch(url, {
@@ -9498,10 +9495,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="dias_vencimiento"                data-endpoint="PUTapi-configuraciones-sistema--configuracionSistema_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Días para que venza un proceso. Ejemplo: 30 Example: <code>17</code></p>
+<p>Días para que venza un proceso. Ejemplo: 30 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -9705,8 +9702,8 @@ access-control-allow-origin: *
             &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
             &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
             &quot;moneda&quot;: &quot;VES&quot;,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -9816,11 +9813,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_proveedor\": 17,
-    \"numero_cuenta\": \"consequatur\",
-    \"nombre_banco\": \"consequatur\",
-    \"tipo_cuenta\": \"consequatur\",
-    \"moneda\": \"consequatur\"
+    \"id_proveedor\": 16,
+    \"numero_cuenta\": \"architecto\",
+    \"nombre_banco\": \"architecto\",
+    \"tipo_cuenta\": \"architecto\",
+    \"moneda\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -9837,11 +9834,11 @@ const headers = {
 };
 
 let body = {
-    "id_proveedor": 17,
-    "numero_cuenta": "consequatur",
-    "nombre_banco": "consequatur",
-    "tipo_cuenta": "consequatur",
-    "moneda": "consequatur"
+    "id_proveedor": 16,
+    "numero_cuenta": "architecto",
+    "nombre_banco": "architecto",
+    "tipo_cuenta": "architecto",
+    "moneda": "architecto"
 };
 
 fetch(url, {
@@ -9945,10 +9942,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_proveedor"                data-endpoint="POSTapi-cuentas-proveedores"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del proveedor. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del proveedor. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>numero_cuenta</code></b>&nbsp;&nbsp;
@@ -9957,10 +9954,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="numero_cuenta"                data-endpoint="POSTapi-cuentas-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de cuenta bancaria. Ejemplo: 0102-0000-000000000000 Example: <code>consequatur</code></p>
+<p>Número de cuenta bancaria. Ejemplo: 0102-0000-000000000000 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre_banco</code></b>&nbsp;&nbsp;
@@ -9969,10 +9966,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_banco"                data-endpoint="POSTapi-cuentas-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del banco del proveedor. Ejemplo: Citibank Example: <code>consequatur</code></p>
+<p>Nombre del banco del proveedor. Ejemplo: Citibank Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_cuenta</code></b>&nbsp;&nbsp;
@@ -9981,10 +9978,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_cuenta"                data-endpoint="POSTapi-cuentas-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Tipo de cuenta (Ahorros / Corriente). Ejemplo: Corriente Example: <code>consequatur</code></p>
+<p>Tipo de cuenta (Ahorros / Corriente). Ejemplo: Corriente Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>moneda</code></b>&nbsp;&nbsp;
@@ -9993,10 +9990,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="moneda"                data-endpoint="POSTapi-cuentas-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Moneda de la cuenta (VES / USD). Ejemplo: VES Example: <code>consequatur</code></p>
+<p>Moneda de la cuenta (VES / USD). Ejemplo: VES Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -10060,8 +10057,8 @@ access-control-allow-origin: *
         &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -10183,11 +10180,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_proveedor\": 17,
-    \"numero_cuenta\": \"consequatur\",
-    \"nombre_banco\": \"consequatur\",
-    \"tipo_cuenta\": \"consequatur\",
-    \"moneda\": \"consequatur\"
+    \"id_proveedor\": 16,
+    \"numero_cuenta\": \"architecto\",
+    \"nombre_banco\": \"architecto\",
+    \"tipo_cuenta\": \"architecto\",
+    \"moneda\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -10204,11 +10201,11 @@ const headers = {
 };
 
 let body = {
-    "id_proveedor": 17,
-    "numero_cuenta": "consequatur",
-    "nombre_banco": "consequatur",
-    "tipo_cuenta": "consequatur",
-    "moneda": "consequatur"
+    "id_proveedor": 16,
+    "numero_cuenta": "architecto",
+    "nombre_banco": "architecto",
+    "tipo_cuenta": "architecto",
+    "moneda": "architecto"
 };
 
 fetch(url, {
@@ -10329,10 +10326,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_proveedor"                data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del proveedor. Example: <code>17</code></p>
+<p>ID del proveedor. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>numero_cuenta</code></b>&nbsp;&nbsp;
@@ -10341,10 +10338,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="numero_cuenta"                data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de cuenta bancaria. Example: <code>consequatur</code></p>
+<p>Número de cuenta bancaria. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre_banco</code></b>&nbsp;&nbsp;
@@ -10353,10 +10350,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_banco"                data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del banco del proveedor. Example: <code>consequatur</code></p>
+<p>Nombre del banco del proveedor. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_cuenta</code></b>&nbsp;&nbsp;
@@ -10365,10 +10362,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_cuenta"                data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Tipo de cuenta. Example: <code>consequatur</code></p>
+<p>Tipo de cuenta. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>moneda</code></b>&nbsp;&nbsp;
@@ -10377,10 +10374,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="moneda"                data-endpoint="PUTapi-cuentas-proveedores--cuentaProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Moneda de la cuenta. Example: <code>consequatur</code></p>
+<p>Moneda de la cuenta. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -10684,10 +10681,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_proveedor\": \"consequatur\",
-    \"monto_total\": 45,
-    \"saldo_pendiente\": 56,
-    \"id_estado_financiero\": \"consequatur\"
+    \"id_proveedor\": \"architecto\",
+    \"monto_total\": 39,
+    \"saldo_pendiente\": 84,
+    \"id_estado_financiero\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -10704,10 +10701,10 @@ const headers = {
 };
 
 let body = {
-    "id_proveedor": "consequatur",
-    "monto_total": 45,
-    "saldo_pendiente": 56,
-    "id_estado_financiero": "consequatur"
+    "id_proveedor": "architecto",
+    "monto_total": 39,
+    "saldo_pendiente": 84,
+    "id_estado_financiero": "architecto"
 };
 
 fetch(url, {
@@ -10823,10 +10820,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_proveedor"                data-endpoint="POSTapi-cuentas-por-pagar"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the proveedores table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the proveedores table. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -10835,10 +10832,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="POSTapi-cuentas-por-pagar"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>45</code></p>
+<p>Must be at least 0.01. Example: <code>39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>saldo_pendiente</code></b>&nbsp;&nbsp;
@@ -10847,10 +10844,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="saldo_pendiente"                data-endpoint="POSTapi-cuentas-por-pagar"
-               value="56"
+               value="84"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>56</code></p>
+<p>Must be at least 0. Example: <code>84</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_financiero</code></b>&nbsp;&nbsp;
@@ -10859,10 +10856,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_estado_financiero"                data-endpoint="POSTapi-cuentas-por-pagar"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the estados_financieros table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the estados_financieros table. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -10880,7 +10877,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-por-pagar/17" \
+    --get "http://localhost:8000/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10888,7 +10885,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/17"
+    "http://localhost:8000/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -10919,7 +10916,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\CuentaPorPagar] 17&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\CuentaPorPagar] 16&quot;
 }</code>
  </pre>
     </span>
@@ -11014,10 +11011,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cuentaPorPagar_id"                data-endpoint="GETapi-cuentas-por-pagar--cuentaPorPagar_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cuentaPorPagar. Example: <code>17</code></p>
+<p>The ID of the cuentaPorPagar. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -11035,20 +11032,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-por-pagar/17" \
+    "http://localhost:8000/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto_total\": 73,
-    \"saldo_pendiente\": 45
+    \"monto_total\": 27,
+    \"saldo_pendiente\": 39
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/17"
+    "http://localhost:8000/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11058,8 +11055,8 @@ const headers = {
 };
 
 let body = {
-    "monto_total": 73,
-    "saldo_pendiente": 45
+    "monto_total": 27,
+    "saldo_pendiente": 39
 };
 
 fetch(url, {
@@ -11167,10 +11164,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cuentaPorPagar_id"                data-endpoint="PUTapi-cuentas-por-pagar--cuentaPorPagar_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cuentaPorPagar. Example: <code>17</code></p>
+<p>The ID of the cuentaPorPagar. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -11204,10 +11201,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="PUTapi-cuentas-por-pagar--cuentaPorPagar_id-"
-               value="73"
+               value="27"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>73</code></p>
+<p>Must be at least 0.01. Example: <code>27</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>saldo_pendiente</code></b>&nbsp;&nbsp;
@@ -11216,10 +11213,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="saldo_pendiente"                data-endpoint="PUTapi-cuentas-por-pagar--cuentaPorPagar_id-"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>45</code></p>
+<p>Must be at least 0. Example: <code>39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_financiero</code></b>&nbsp;&nbsp;
@@ -11249,7 +11246,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-por-pagar/17" \
+    "http://localhost:8000/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11257,7 +11254,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/17"
+    "http://localhost:8000/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11367,10 +11364,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cuentaPorPagar_id"                data-endpoint="DELETEapi-cuentas-por-pagar--cuentaPorPagar_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cuentaPorPagar. Example: <code>17</code></p>
+<p>The ID of the cuentaPorPagar. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -11551,8 +11548,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_contribuyente\": \"consequatur\",
-    \"porcentaje_iva\": 11613.31890586
+    \"tipo_contribuyente\": \"architecto\",
+    \"porcentaje_iva\": 4326.41688
 }"
 </code></pre></div>
 
@@ -11569,8 +11566,8 @@ const headers = {
 };
 
 let body = {
-    "tipo_contribuyente": "consequatur",
-    "porcentaje_iva": 11613.31890586
+    "tipo_contribuyente": "architecto",
+    "porcentaje_iva": 4326.41688
 };
 
 fetch(url, {
@@ -11674,10 +11671,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_contribuyente"                data-endpoint="POSTapi-tipos-contribuyentes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de contribuyente. Ejemplo: Especial Example: <code>consequatur</code></p>
+<p>Nombre del tipo de contribuyente. Ejemplo: Especial Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>porcentaje_iva</code></b>&nbsp;&nbsp;
@@ -11686,10 +11683,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_iva"                data-endpoint="POSTapi-tipos-contribuyentes"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de IVA aplicable (0-100). Ejemplo: 16 Example: <code>11613.31890586</code></p>
+<p>Porcentaje de IVA aplicable (0-100). Ejemplo: 16 Example: <code>4326.41688</code></p>
         </div>
         </form>
 
@@ -11871,8 +11868,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_contribuyente\": \"consequatur\",
-    \"porcentaje_iva\": 11613.31890586
+    \"tipo_contribuyente\": \"architecto\",
+    \"porcentaje_iva\": 4326.41688
 }"
 </code></pre></div>
 
@@ -11889,8 +11886,8 @@ const headers = {
 };
 
 let body = {
-    "tipo_contribuyente": "consequatur",
-    "porcentaje_iva": 11613.31890586
+    "tipo_contribuyente": "architecto",
+    "porcentaje_iva": 4326.41688
 };
 
 fetch(url, {
@@ -12011,10 +12008,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_contribuyente"                data-endpoint="PUTapi-tipos-contribuyentes--tipoContribuyente_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de contribuyente. Example: <code>consequatur</code></p>
+<p>Nombre del tipo de contribuyente. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>porcentaje_iva</code></b>&nbsp;&nbsp;
@@ -12023,10 +12020,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_iva"                data-endpoint="PUTapi-tipos-contribuyentes--tipoContribuyente_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de IVA aplicable. Example: <code>11613.31890586</code></p>
+<p>Porcentaje de IVA aplicable. Example: <code>4326.41688</code></p>
         </div>
         </form>
 
@@ -12234,12 +12231,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 4,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-21505975&quot;,
-            &quot;telefono&quot;: &quot;+58 424 1953651&quot;,
+            &quot;cedula&quot;: &quot;V-26685994&quot;,
+            &quot;telefono&quot;: &quot;+58 424 7498324&quot;,
             &quot;correo_contacto&quot;: null,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -12362,20 +12359,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"usuario_id\": 17,
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"consequatur\",
-    \"telefono\": \"consequatur\",
-    \"correo_contacto\": \"consequatur\",
-    \"id_tipo_contribuyente\": 17,
+    \"usuario_id\": 16,
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"architecto\",
+    \"telefono\": \"architecto\",
+    \"correo_contacto\": \"architecto\",
+    \"id_tipo_contribuyente\": 16,
     \"usuario\": {
-        \"nombre_usuario\": \"vazjrcnfbaqywuxhgjjmz\",
-        \"correo\": \"jullrich@example.net\",
-        \"clave\": \"bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu\",
+        \"nombre_usuario\": \"i\",
+        \"correo\": \"okon.justina@example.com\",
+        \"clave\": \"nikhwaykcmyuwpwlvqwrsitcps\",
         \"esta_activo\": true
     },
-    \"id_estatus\": 17
+    \"id_estatus\": 16
 }"
 </code></pre></div>
 
@@ -12392,20 +12389,20 @@ const headers = {
 };
 
 let body = {
-    "usuario_id": 17,
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "consequatur",
-    "telefono": "consequatur",
-    "correo_contacto": "consequatur",
-    "id_tipo_contribuyente": 17,
+    "usuario_id": 16,
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "architecto",
+    "telefono": "architecto",
+    "correo_contacto": "architecto",
+    "id_tipo_contribuyente": 16,
     "usuario": {
-        "nombre_usuario": "vazjrcnfbaqywuxhgjjmz",
-        "correo": "jullrich@example.net",
-        "clave": "bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu",
+        "nombre_usuario": "i",
+        "correo": "okon.justina@example.com",
+        "clave": "nikhwaykcmyuwpwlvqwrsitcps",
         "esta_activo": true
     },
-    "id_estatus": 17
+    "id_estatus": 16
 };
 
 fetch(url, {
@@ -12509,10 +12506,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="usuario_id"                data-endpoint="POSTapi-clientes"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -12521,10 +12518,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="POSTapi-clientes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre. Ejemplo: Juan Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Juan Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -12533,10 +12530,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="POSTapi-clientes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido. Ejemplo: Perez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Perez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -12545,10 +12542,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="POSTapi-clientes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Cédula. Ejemplo: 12345678 Example: <code>consequatur</code></p>
+<p>Cédula. Ejemplo: 12345678 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -12557,10 +12554,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="POSTapi-clientes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
+<p>Teléfono. Ejemplo: 04121234567 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
@@ -12569,10 +12566,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_contacto"                data-endpoint="POSTapi-clientes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>consequatur</code></p>
+<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -12581,10 +12578,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="POSTapi-clientes"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -12603,10 +12600,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.nombre_usuario"                data-endpoint="POSTapi-clientes"
-               value="vazjrcnfbaqywuxhgjjmz"
+               value="i"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must not be greater than 255 characters. Example: <code>vazjrcnfbaqywuxhgjjmz</code></p>
+<p>This field is required when <code>usuario</code> is present. Must not be greater than 255 characters. Example: <code>i</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -12615,10 +12612,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.correo"                data-endpoint="POSTapi-clientes"
-               value="jullrich@example.net"
+               value="okon.justina@example.com"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must be a valid email address. Example: <code>jullrich@example.net</code></p>
+<p>This field is required when <code>usuario</code> is present. Must be a valid email address. Example: <code>okon.justina@example.com</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -12627,10 +12624,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.clave"                data-endpoint="POSTapi-clientes"
-               value="bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu"
+               value="nikhwaykcmyuwpwlvqwrsitcps"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must be at least 8 characters. Example: <code>bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu</code></p>
+<p>This field is required when <code>usuario</code> is present. Must be at least 8 characters. Example: <code>nikhwaykcmyuwpwlvqwrsitcps</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>esta_activo</code></b>&nbsp;&nbsp;
@@ -12677,10 +12674,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_estatus"                data-endpoint="POSTapi-clientes"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -12742,8 +12739,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 4,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-21505975&quot;,
-        &quot;telefono&quot;: &quot;+58 424 1953651&quot;,
+        &quot;cedula&quot;: &quot;V-26685994&quot;,
+        &quot;telefono&quot;: &quot;+58 424 7498324&quot;,
         &quot;correo_contacto&quot;: null,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;tipo_contribuyente&quot;: {
@@ -12760,11 +12757,11 @@ access-control-allow-origin: *
                 &quot;cliente&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -12886,20 +12883,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"usuario_id\": 17,
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"consequatur\",
-    \"telefono\": \"consequatur\",
-    \"correo_contacto\": \"consequatur\",
-    \"id_tipo_contribuyente\": 17,
+    \"usuario_id\": 16,
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"architecto\",
+    \"telefono\": \"architecto\",
+    \"correo_contacto\": \"architecto\",
+    \"id_tipo_contribuyente\": 16,
     \"usuario\": {
-        \"nombre_usuario\": \"vazjrcnfbaqywuxhgjjmz\",
-        \"correo\": \"jullrich@example.net\",
-        \"clave\": \"bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu\",
-        \"esta_activo\": true
+        \"nombre_usuario\": \"i\",
+        \"correo\": \"okon.justina@example.com\",
+        \"clave\": \"nikhwaykcmyuwpwlvqwrsitcps\",
+        \"esta_activo\": false
     },
-    \"id_estatus\": 17
+    \"id_estatus\": 16
 }"
 </code></pre></div>
 
@@ -12916,20 +12913,20 @@ const headers = {
 };
 
 let body = {
-    "usuario_id": 17,
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "consequatur",
-    "telefono": "consequatur",
-    "correo_contacto": "consequatur",
-    "id_tipo_contribuyente": 17,
+    "usuario_id": 16,
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "architecto",
+    "telefono": "architecto",
+    "correo_contacto": "architecto",
+    "id_tipo_contribuyente": 16,
     "usuario": {
-        "nombre_usuario": "vazjrcnfbaqywuxhgjjmz",
-        "correo": "jullrich@example.net",
-        "clave": "bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu",
-        "esta_activo": true
+        "nombre_usuario": "i",
+        "correo": "okon.justina@example.com",
+        "clave": "nikhwaykcmyuwpwlvqwrsitcps",
+        "esta_activo": false
     },
-    "id_estatus": 17
+    "id_estatus": 16
 };
 
 fetch(url, {
@@ -13050,10 +13047,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="usuario_id"                data-endpoint="PUTapi-clientes--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -13062,10 +13059,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="PUTapi-clientes--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre. Ejemplo: Juan Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Juan Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -13074,10 +13071,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="PUTapi-clientes--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido. Ejemplo: Perez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Perez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -13086,10 +13083,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="PUTapi-clientes--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Cédula. Ejemplo: 12345678 Example: <code>consequatur</code></p>
+<p>Cédula. Ejemplo: 12345678 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -13098,10 +13095,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="PUTapi-clientes--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono. Ejemplo: 04121234567 Example: <code>consequatur</code></p>
+<p>Teléfono. Ejemplo: 04121234567 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_contacto</code></b>&nbsp;&nbsp;
@@ -13110,10 +13107,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_contacto"                data-endpoint="PUTapi-clientes--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>consequatur</code></p>
+<p>Correo de contacto. Ejemplo: juan.perez@email.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -13122,10 +13119,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="PUTapi-clientes--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID tipo contribuyente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -13144,10 +13141,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.nombre_usuario"                data-endpoint="PUTapi-clientes--id-"
-               value="vazjrcnfbaqywuxhgjjmz"
+               value="i"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vazjrcnfbaqywuxhgjjmz</code></p>
+<p>Must not be greater than 255 characters. Example: <code>i</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -13156,10 +13153,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.correo"                data-endpoint="PUTapi-clientes--id-"
-               value="jullrich@example.net"
+               value="okon.justina@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>jullrich@example.net</code></p>
+<p>Must be a valid email address. Example: <code>okon.justina@example.com</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -13168,10 +13165,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.clave"                data-endpoint="PUTapi-clientes--id-"
-               value="bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu"
+               value="nikhwaykcmyuwpwlvqwrsitcps"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Example: <code>bqouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyu</code></p>
+<p>Must be at least 8 characters. Example: <code>nikhwaykcmyuwpwlvqwrsitcps</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>esta_activo</code></b>&nbsp;&nbsp;
@@ -13193,7 +13190,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -13218,10 +13215,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_estatus"                data-endpoint="PUTapi-clientes--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -13429,12 +13426,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-22500948&quot;,
-            &quot;telefono&quot;: &quot;+58 412 1828539&quot;,
+            &quot;cedula&quot;: &quot;V-26089189&quot;,
+            &quot;telefono&quot;: &quot;+58 412 5156340&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -13557,20 +13554,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"usuario_id\": 17,
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"consequatur\",
-    \"telefono\": \"consequatur\",
-    \"correo_institucional\": \"consequatur\",
-    \"porcentaje_comision\": 11613.31890586,
+    \"usuario_id\": 16,
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"architecto\",
+    \"telefono\": \"architecto\",
+    \"correo_institucional\": \"architecto\",
+    \"porcentaje_comision\": 4326.41688,
     \"usuario\": {
-        \"nombre_usuario\": \"azjrcnfbaqywuxhgjjmzu\",
-        \"correo\": \"uhoeger@example.com\",
-        \"clave\": \"qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux\",
-        \"esta_activo\": true
+        \"nombre_usuario\": \"y\",
+        \"correo\": \"justina.gaylord@example.org\",
+        \"clave\": \"ikhwaykcmyuwpwlvqwrsitcpsc\",
+        \"esta_activo\": false
     },
-    \"id_estatus\": 17
+    \"id_estatus\": 16
 }"
 </code></pre></div>
 
@@ -13587,20 +13584,20 @@ const headers = {
 };
 
 let body = {
-    "usuario_id": 17,
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "consequatur",
-    "telefono": "consequatur",
-    "correo_institucional": "consequatur",
-    "porcentaje_comision": 11613.31890586,
+    "usuario_id": 16,
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "architecto",
+    "telefono": "architecto",
+    "correo_institucional": "architecto",
+    "porcentaje_comision": 4326.41688,
     "usuario": {
-        "nombre_usuario": "azjrcnfbaqywuxhgjjmzu",
-        "correo": "uhoeger@example.com",
-        "clave": "qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux",
-        "esta_activo": true
+        "nombre_usuario": "y",
+        "correo": "justina.gaylord@example.org",
+        "clave": "ikhwaykcmyuwpwlvqwrsitcpsc",
+        "esta_activo": false
     },
-    "id_estatus": 17
+    "id_estatus": 16
 };
 
 fetch(url, {
@@ -13704,10 +13701,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="usuario_id"                data-endpoint="POSTapi-personal"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario (auth). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario (auth). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -13716,10 +13713,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="POSTapi-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre. Ejemplo: Maria Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Maria Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -13728,10 +13725,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="POSTapi-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido. Ejemplo: Rodriguez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Rodriguez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -13740,10 +13737,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="POSTapi-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Cédula. Ejemplo: 87654321 Example: <code>consequatur</code></p>
+<p>Cédula. Ejemplo: 87654321 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -13752,10 +13749,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="POSTapi-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono. Ejemplo: 04241234567 Example: <code>consequatur</code></p>
+<p>Teléfono. Ejemplo: 04241234567 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
@@ -13764,10 +13761,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_institucional"                data-endpoint="POSTapi-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>consequatur</code></p>
+<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
@@ -13776,10 +13773,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_comision"                data-endpoint="POSTapi-personal"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
+<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -13798,10 +13795,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.nombre_usuario"                data-endpoint="POSTapi-personal"
-               value="azjrcnfbaqywuxhgjjmzu"
+               value="y"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must not be greater than 255 characters. Example: <code>azjrcnfbaqywuxhgjjmzu</code></p>
+<p>This field is required when <code>usuario</code> is present. Must not be greater than 255 characters. Example: <code>y</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -13810,10 +13807,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.correo"                data-endpoint="POSTapi-personal"
-               value="uhoeger@example.com"
+               value="justina.gaylord@example.org"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must be a valid email address. Example: <code>uhoeger@example.com</code></p>
+<p>This field is required when <code>usuario</code> is present. Must be a valid email address. Example: <code>justina.gaylord@example.org</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -13822,10 +13819,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.clave"                data-endpoint="POSTapi-personal"
-               value="qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux"
+               value="ikhwaykcmyuwpwlvqwrsitcpsc"
                data-component="body">
     <br>
-<p>This field is required when <code>usuario</code> is present. Must be at least 8 characters. Example: <code>qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux</code></p>
+<p>This field is required when <code>usuario</code> is present. Must be at least 8 characters. Example: <code>ikhwaykcmyuwpwlvqwrsitcpsc</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>esta_activo</code></b>&nbsp;&nbsp;
@@ -13847,7 +13844,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -13872,10 +13869,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_estatus"                data-endpoint="POSTapi-personal"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -13937,8 +13934,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-22500948&quot;,
-        &quot;telefono&quot;: &quot;+58 412 1828539&quot;,
+        &quot;cedula&quot;: &quot;V-26089189&quot;,
+        &quot;telefono&quot;: &quot;+58 412 5156340&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: 5,
         &quot;usuario&quot;: {
@@ -13950,11 +13947,11 @@ access-control-allow-origin: *
                 &quot;personal&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -14076,20 +14073,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"usuario_id\": 17,
-    \"nombre\": \"consequatur\",
-    \"apellido\": \"consequatur\",
-    \"cedula\": \"consequatur\",
-    \"telefono\": \"consequatur\",
-    \"correo_institucional\": \"consequatur\",
-    \"porcentaje_comision\": 11613.31890586,
+    \"usuario_id\": 16,
+    \"nombre\": \"architecto\",
+    \"apellido\": \"architecto\",
+    \"cedula\": \"architecto\",
+    \"telefono\": \"architecto\",
+    \"correo_institucional\": \"architecto\",
+    \"porcentaje_comision\": 4326.41688,
     \"usuario\": {
-        \"nombre_usuario\": \"azjrcnfbaqywuxhgjjmzu\",
-        \"correo\": \"uhoeger@example.com\",
-        \"clave\": \"qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux\",
-        \"esta_activo\": true
+        \"nombre_usuario\": \"y\",
+        \"correo\": \"justina.gaylord@example.org\",
+        \"clave\": \"ikhwaykcmyuwpwlvqwrsitcpsc\",
+        \"esta_activo\": false
     },
-    \"id_estatus\": 17
+    \"id_estatus\": 16
 }"
 </code></pre></div>
 
@@ -14106,20 +14103,20 @@ const headers = {
 };
 
 let body = {
-    "usuario_id": 17,
-    "nombre": "consequatur",
-    "apellido": "consequatur",
-    "cedula": "consequatur",
-    "telefono": "consequatur",
-    "correo_institucional": "consequatur",
-    "porcentaje_comision": 11613.31890586,
+    "usuario_id": 16,
+    "nombre": "architecto",
+    "apellido": "architecto",
+    "cedula": "architecto",
+    "telefono": "architecto",
+    "correo_institucional": "architecto",
+    "porcentaje_comision": 4326.41688,
     "usuario": {
-        "nombre_usuario": "azjrcnfbaqywuxhgjjmzu",
-        "correo": "uhoeger@example.com",
-        "clave": "qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux",
-        "esta_activo": true
+        "nombre_usuario": "y",
+        "correo": "justina.gaylord@example.org",
+        "clave": "ikhwaykcmyuwpwlvqwrsitcpsc",
+        "esta_activo": false
     },
-    "id_estatus": 17
+    "id_estatus": 16
 };
 
 fetch(url, {
@@ -14240,10 +14237,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="usuario_id"                data-endpoint="PUTapi-personal--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -14252,10 +14249,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="PUTapi-personal--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre. Ejemplo: Maria Example: <code>consequatur</code></p>
+<p>Nombre. Ejemplo: Maria Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>apellido</code></b>&nbsp;&nbsp;
@@ -14264,10 +14261,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="apellido"                data-endpoint="PUTapi-personal--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Apellido. Ejemplo: Rodriguez Example: <code>consequatur</code></p>
+<p>Apellido. Ejemplo: Rodriguez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cedula</code></b>&nbsp;&nbsp;
@@ -14276,10 +14273,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cedula"                data-endpoint="PUTapi-personal--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Cédula. Ejemplo: 87654321 Example: <code>consequatur</code></p>
+<p>Cédula. Ejemplo: 87654321 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono</code></b>&nbsp;&nbsp;
@@ -14288,10 +14285,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono"                data-endpoint="PUTapi-personal--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono. Ejemplo: 04241234567 Example: <code>consequatur</code></p>
+<p>Teléfono. Ejemplo: 04241234567 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_institucional</code></b>&nbsp;&nbsp;
@@ -14300,10 +14297,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_institucional"                data-endpoint="PUTapi-personal--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>consequatur</code></p>
+<p>Correo institucional. Ejemplo: maria.rodriguez@tag.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>porcentaje_comision</code></b>&nbsp;&nbsp;
@@ -14312,10 +14309,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="porcentaje_comision"                data-endpoint="PUTapi-personal--id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>11613.31890586</code></p>
+<p>Porcentaje de comisión. Ejemplo: 5.50 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -14334,10 +14331,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.nombre_usuario"                data-endpoint="PUTapi-personal--id-"
-               value="azjrcnfbaqywuxhgjjmzu"
+               value="y"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>azjrcnfbaqywuxhgjjmzu</code></p>
+<p>Must not be greater than 255 characters. Example: <code>y</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
@@ -14346,10 +14343,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.correo"                data-endpoint="PUTapi-personal--id-"
-               value="uhoeger@example.com"
+               value="justina.gaylord@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>uhoeger@example.com</code></p>
+<p>Must be a valid email address. Example: <code>justina.gaylord@example.org</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>clave</code></b>&nbsp;&nbsp;
@@ -14358,10 +14355,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="usuario.clave"                data-endpoint="PUTapi-personal--id-"
-               value="qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux"
+               value="ikhwaykcmyuwpwlvqwrsitcpsc"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Example: <code>qouzswiwxtrkimfcatbxspzmrazsroyjpxmqesedyghenqcopwvownkbamlnfngefbeilfzsyux</code></p>
+<p>Must be at least 8 characters. Example: <code>ikhwaykcmyuwpwlvqwrsitcpsc</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>esta_activo</code></b>&nbsp;&nbsp;
@@ -14383,7 +14380,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -14408,10 +14405,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_estatus"                data-endpoint="PUTapi-personal--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -14617,8 +14614,8 @@ access-control-allow-origin: *
             &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
             &quot;direccion&quot;: &quot;Direccion demo&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -14728,13 +14725,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"razon_social\": \"consequatur\",
-    \"razon_comercial\": \"consequatur\",
-    \"rif\": \"consequatur\",
-    \"numero_telefono\": \"consequatur\",
-    \"correo_electronico\": \"consequatur\",
-    \"direccion\": \"consequatur\",
-    \"id_tipo_contribuyente\": 17
+    \"razon_social\": \"architecto\",
+    \"razon_comercial\": \"architecto\",
+    \"rif\": \"architecto\",
+    \"numero_telefono\": \"architecto\",
+    \"correo_electronico\": \"architecto\",
+    \"direccion\": \"architecto\",
+    \"id_tipo_contribuyente\": 16
 }"
 </code></pre></div>
 
@@ -14751,13 +14748,13 @@ const headers = {
 };
 
 let body = {
-    "razon_social": "consequatur",
-    "razon_comercial": "consequatur",
-    "rif": "consequatur",
-    "numero_telefono": "consequatur",
-    "correo_electronico": "consequatur",
-    "direccion": "consequatur",
-    "id_tipo_contribuyente": 17
+    "razon_social": "architecto",
+    "razon_comercial": "architecto",
+    "rif": "architecto",
+    "numero_telefono": "architecto",
+    "correo_electronico": "architecto",
+    "direccion": "architecto",
+    "id_tipo_contribuyente": 16
 };
 
 fetch(url, {
@@ -14861,10 +14858,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_social"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Razón social de la empresa. Ejemplo: Corporación Delta C.A. Example: <code>consequatur</code></p>
+<p>Razón social de la empresa. Ejemplo: Corporación Delta C.A. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>razon_comercial</code></b>&nbsp;&nbsp;
@@ -14873,10 +14870,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_comercial"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre comercial. Ejemplo: Delta Tech Example: <code>consequatur</code></p>
+<p>Nombre comercial. Ejemplo: Delta Tech Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rif</code></b>&nbsp;&nbsp;
@@ -14885,10 +14882,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="rif"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>RIF de la empresa. Ejemplo: J-12345678-0 Example: <code>consequatur</code></p>
+<p>RIF de la empresa. Ejemplo: J-12345678-0 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>numero_telefono</code></b>&nbsp;&nbsp;
@@ -14897,10 +14894,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="numero_telefono"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono de contacto. Ejemplo: +58 212 555 1234 Example: <code>consequatur</code></p>
+<p>Teléfono de contacto. Ejemplo: +58 212 555 1234 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_electronico</code></b>&nbsp;&nbsp;
@@ -14909,10 +14906,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_electronico"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico de contacto. Ejemplo: contacto@delta.com Example: <code>consequatur</code></p>
+<p>Correo electrónico de contacto. Ejemplo: contacto@delta.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -14921,10 +14918,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="direccion"                data-endpoint="POSTapi-empresas"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Dirección física de la empresa. Ejemplo: Av. Las Mercedes, Caracas Example: <code>consequatur</code></p>
+<p>Dirección física de la empresa. Ejemplo: Av. Las Mercedes, Caracas Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -14933,10 +14930,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="POSTapi-empresas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de contribuyente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -15007,8 +15004,8 @@ access-control-allow-origin: *
             &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
             &quot;porcentaje_iva&quot;: 16
         },
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -15130,13 +15127,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"razon_social\": \"consequatur\",
-    \"razon_comercial\": \"consequatur\",
-    \"rif\": \"consequatur\",
-    \"numero_telefono\": \"consequatur\",
-    \"correo_electronico\": \"consequatur\",
-    \"direccion\": \"consequatur\",
-    \"id_tipo_contribuyente\": 17
+    \"razon_social\": \"architecto\",
+    \"razon_comercial\": \"architecto\",
+    \"rif\": \"architecto\",
+    \"numero_telefono\": \"architecto\",
+    \"correo_electronico\": \"architecto\",
+    \"direccion\": \"architecto\",
+    \"id_tipo_contribuyente\": 16
 }"
 </code></pre></div>
 
@@ -15153,13 +15150,13 @@ const headers = {
 };
 
 let body = {
-    "razon_social": "consequatur",
-    "razon_comercial": "consequatur",
-    "rif": "consequatur",
-    "numero_telefono": "consequatur",
-    "correo_electronico": "consequatur",
-    "direccion": "consequatur",
-    "id_tipo_contribuyente": 17
+    "razon_social": "architecto",
+    "razon_comercial": "architecto",
+    "rif": "architecto",
+    "numero_telefono": "architecto",
+    "correo_electronico": "architecto",
+    "direccion": "architecto",
+    "id_tipo_contribuyente": 16
 };
 
 fetch(url, {
@@ -15280,10 +15277,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_social"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Razón social de la empresa. Example: <code>consequatur</code></p>
+<p>Razón social de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>razon_comercial</code></b>&nbsp;&nbsp;
@@ -15292,10 +15289,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_comercial"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre comercial. Example: <code>consequatur</code></p>
+<p>Nombre comercial. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rif</code></b>&nbsp;&nbsp;
@@ -15304,10 +15301,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="rif"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>RIF de la empresa. Example: <code>consequatur</code></p>
+<p>RIF de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>numero_telefono</code></b>&nbsp;&nbsp;
@@ -15316,10 +15313,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="numero_telefono"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono de contacto. Example: <code>consequatur</code></p>
+<p>Teléfono de contacto. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_electronico</code></b>&nbsp;&nbsp;
@@ -15328,10 +15325,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_electronico"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico de contacto. Example: <code>consequatur</code></p>
+<p>Correo electrónico de contacto. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -15340,10 +15337,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="direccion"                data-endpoint="PUTapi-empresas--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Dirección física de la empresa. Example: <code>consequatur</code></p>
+<p>Dirección física de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -15352,10 +15349,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="PUTapi-empresas--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de contribuyente. Example: <code>17</code></p>
+<p>ID del tipo de contribuyente. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -15659,8 +15656,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_cliente\": 17,
-    \"id_empresas\": 17
+    \"id_cliente\": 16,
+    \"id_empresas\": 16
 }"
 </code></pre></div>
 
@@ -15677,8 +15674,8 @@ const headers = {
 };
 
 let body = {
-    "id_cliente": 17,
-    "id_empresas": 17
+    "id_cliente": 16,
+    "id_empresas": 16
 };
 
 fetch(url, {
@@ -15782,10 +15779,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_cliente"                data-endpoint="POSTapi-clientes-empresas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario con rol cliente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario con rol cliente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresas</code></b>&nbsp;&nbsp;
@@ -15794,10 +15791,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_empresas"                data-endpoint="POSTapi-clientes-empresas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la empresa. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la empresa. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -15815,7 +15812,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas/17" \
+    --get "http://localhost:8000/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15823,7 +15820,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost:8000/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -15854,7 +15851,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\ClienteEmpresa] 17&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\ClienteEmpresa] 16&quot;
 }</code>
  </pre>
     </span>
@@ -15949,10 +15946,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="clientesEmpresa_id"                data-endpoint="GETapi-clientes-empresas--clientesEmpresa_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the clientesEmpresa. Example: <code>17</code></p>
+<p>The ID of the clientesEmpresa. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -15970,20 +15967,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes-empresas/17" \
+    "http://localhost:8000/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_cliente\": 17,
-    \"id_empresas\": 17
+    \"id_cliente\": 16,
+    \"id_empresas\": 16
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost:8000/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -15993,8 +15990,8 @@ const headers = {
 };
 
 let body = {
-    "id_cliente": 17,
-    "id_empresas": 17
+    "id_cliente": 16,
+    "id_empresas": 16
 };
 
 fetch(url, {
@@ -16102,10 +16099,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="clientesEmpresa_id"                data-endpoint="PUTapi-clientes-empresas--clientesEmpresa_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the clientesEmpresa. Example: <code>17</code></p>
+<p>The ID of the clientesEmpresa. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -16115,10 +16112,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_cliente"                data-endpoint="PUTapi-clientes-empresas--clientesEmpresa_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario cliente. Example: <code>17</code></p>
+<p>ID del usuario cliente. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresas</code></b>&nbsp;&nbsp;
@@ -16127,10 +16124,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_empresas"                data-endpoint="PUTapi-clientes-empresas--clientesEmpresa_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la empresa. Example: <code>17</code></p>
+<p>ID de la empresa. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -16148,7 +16145,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes-empresas/17" \
+    "http://localhost:8000/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16156,7 +16153,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/17"
+    "http://localhost:8000/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16266,10 +16263,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="clientesEmpresa_id"                data-endpoint="DELETEapi-clientes-empresas--clientesEmpresa_id-"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the clientesEmpresa. Example: <code>17</code></p>
+<p>The ID of the clientesEmpresa. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -16331,8 +16328,8 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_personal&quot;: 1,
             &quot;id_empresa&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -16442,8 +16439,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_personal\": 17,
-    \"id_empresa\": 17
+    \"id_personal\": 16,
+    \"id_empresa\": 16
 }"
 </code></pre></div>
 
@@ -16460,8 +16457,8 @@ const headers = {
 };
 
 let body = {
-    "id_personal": 17,
-    "id_empresa": 17
+    "id_personal": 16,
+    "id_empresa": 16
 };
 
 fetch(url, {
@@ -16565,10 +16562,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="POSTapi-personal-empresas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresa</code></b>&nbsp;&nbsp;
@@ -16577,10 +16574,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_empresa"                data-endpoint="POSTapi-personal-empresas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la empresa a vincular. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la empresa a vincular. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -16641,8 +16638,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -16764,8 +16761,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_personal\": 17,
-    \"id_empresa\": 17
+    \"id_personal\": 16,
+    \"id_empresa\": 16
 }"
 </code></pre></div>
 
@@ -16782,8 +16779,8 @@ const headers = {
 };
 
 let body = {
-    "id_personal": 17,
-    "id_empresa": 17
+    "id_personal": 16,
+    "id_empresa": 16
 };
 
 fetch(url, {
@@ -16904,10 +16901,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="PUTapi-personal-empresas--personalEmpresa_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario personal. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_empresa</code></b>&nbsp;&nbsp;
@@ -16916,10 +16913,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_empresa"                data-endpoint="PUTapi-personal-empresas--personalEmpresa_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la empresa. Example: <code>17</code></p>
+<p>ID de la empresa. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -17244,7 +17241,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"red\": \"consequatur\"
+    \"red\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -17261,7 +17258,7 @@ const headers = {
 };
 
 let body = {
-    "red": "consequatur"
+    "red": "architecto"
 };
 
 fetch(url, {
@@ -17365,10 +17362,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="red"                data-endpoint="POSTapi-origenes"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la red social o canal de origen. Ejemplo: Instagram Example: <code>consequatur</code></p>
+<p>Nombre de la red social o canal de origen. Ejemplo: Instagram Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -17549,7 +17546,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"red\": \"consequatur\"
+    \"red\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -17566,7 +17563,7 @@ const headers = {
 };
 
 let body = {
-    "red": "consequatur"
+    "red": "architecto"
 };
 
 fetch(url, {
@@ -17687,10 +17684,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="red"                data-endpoint="PUTapi-origenes--origen_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la red social o canal. Example: <code>consequatur</code></p>
+<p>Nombre de la red social o canal. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -17886,96 +17883,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_cliente&quot;: 1,
-            &quot;id_personal&quot;: 1,
-            &quot;id_origen_atencion&quot;: 1,
-            &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
-            &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
-            &quot;id_estado_atencion&quot;: 1,
-            &quot;id_etapa_comercial&quot;: 1,
-            &quot;id_cotizacion&quot;: 1,
-            &quot;id_orden_compra&quot;: 1,
-            &quot;cliente&quot;: {
-                &quot;id&quot;: 1,
-                &quot;usuario_id&quot;: 4,
-                &quot;nombre&quot;: &quot;Cliente Demo&quot;,
-                &quot;apellido&quot;: &quot;General&quot;,
-                &quot;cedula&quot;: &quot;V-21505975&quot;,
-                &quot;telefono&quot;: &quot;+58 424 1953651&quot;,
-                &quot;correo_contacto&quot;: null,
-                &quot;id_tipo_contribuyente&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
-            },
-            &quot;personal&quot;: {
-                &quot;id&quot;: 1,
-                &quot;usuario_id&quot;: 3,
-                &quot;nombre&quot;: &quot;Personal Comercial&quot;,
-                &quot;apellido&quot;: &quot;Comercial&quot;,
-                &quot;cedula&quot;: &quot;V-22500948&quot;,
-                &quot;telefono&quot;: &quot;+58 412 1828539&quot;,
-                &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
-                &quot;porcentaje_comision&quot;: 5,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
-            },
-            &quot;origen&quot;: {
-                &quot;id&quot;: 1,
-                &quot;red&quot;: &quot;facebook&quot;
-            },
-            &quot;estado_atencion&quot;: {
-                &quot;id&quot;: 1,
-                &quot;slug&quot;: &quot;abierta&quot;,
-                &quot;nombre&quot;: &quot;Abierta&quot;,
-                &quot;color&quot;: &quot;#10B981&quot;,
-                &quot;created_at&quot;: null,
-                &quot;updated_at&quot;: null
-            },
-            &quot;etapa_comercial&quot;: {
-                &quot;id&quot;: 1,
-                &quot;slug&quot;: &quot;atencion&quot;,
-                &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
-                &quot;color&quot;: &quot;#3b82f6&quot;,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;deleted_at&quot;: null
-            },
-            &quot;cotizaciones&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;id_atencion&quot;: 1,
-                    &quot;id_tipo_cotizacion&quot;: 1,
-                    &quot;cant_adultos&quot;: 2,
-                    &quot;cant_menores&quot;: 1,
-                    &quot;cant_viejos&quot;: 0,
-                    &quot;id_tasa_cambio&quot;: 1,
-                    &quot;fecha_vencimiento&quot;: &quot;2026-05-22&quot;,
-                    &quot;esta_vencida&quot;: false,
-                    &quot;orden_compra&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;id_cotizacion&quot;: 1,
-                        &quot;estatus&quot;: 6,
-                        &quot;id_estado_financiero&quot;: 3,
-                        &quot;id_estado_financiero_egreso&quot;: null,
-                        &quot;monto_total&quot;: 260,
-                        &quot;total_pagado&quot;: 260,
-                        &quot;saldo_pendiente&quot;: 0,
-                        &quot;porcentaje_pagado&quot;: 100,
-                        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-                    },
-                    &quot;id_estado_cotizacion&quot;: 2,
-                    &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-                }
-            ],
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -18083,10 +17991,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_cliente\": 17,
-    \"id_origen_atencion\": 17,
-    \"asunto\": \"consequatur\",
-    \"notas_adicionales\": \"consequatur\"
+    \"id_cliente\": 16,
+    \"id_origen_atencion\": 16,
+    \"asunto\": \"architecto\",
+    \"notas_adicionales\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -18103,10 +18011,10 @@ const headers = {
 };
 
 let body = {
-    "id_cliente": 17,
-    "id_origen_atencion": 17,
-    "asunto": "consequatur",
-    "notas_adicionales": "consequatur"
+    "id_cliente": 16,
+    "id_origen_atencion": 16,
+    "asunto": "architecto",
+    "notas_adicionales": "architecto"
 };
 
 fetch(url, {
@@ -18210,10 +18118,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_cliente"                data-endpoint="POSTapi-atenciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del cliente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del cliente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_origen_atencion</code></b>&nbsp;&nbsp;
@@ -18222,10 +18130,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_origen_atencion"                data-endpoint="POSTapi-atenciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del origen de la atención (red social / canal). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del origen de la atención (red social / canal). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>asunto</code></b>&nbsp;&nbsp;
@@ -18234,10 +18142,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="asunto"                data-endpoint="POSTapi-atenciones"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte Example: <code>consequatur</code></p>
+<p>Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notas_adicionales</code></b>&nbsp;&nbsp;
@@ -18246,10 +18154,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="notas_adicionales"                data-endpoint="POSTapi-atenciones"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp Example: <code>consequatur</code></p>
+<p>Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -18267,7 +18175,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones/1" \
+    --get "http://localhost:8000/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18275,7 +18183,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost:8000/api/atenciones/16"
 );
 
 const headers = {
@@ -18294,7 +18202,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-atenciones--atencion_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -18306,94 +18214,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;id_cliente&quot;: 1,
-        &quot;id_personal&quot;: 1,
-        &quot;id_origen_atencion&quot;: 1,
-        &quot;asunto&quot;: &quot;Solicitud de informacion&quot;,
-        &quot;notas_adicionales&quot;: &quot;Contacto inicial desde redes.&quot;,
-        &quot;id_estado_atencion&quot;: 1,
-        &quot;id_etapa_comercial&quot;: 1,
-        &quot;id_cotizacion&quot;: 1,
-        &quot;id_orden_compra&quot;: 1,
-        &quot;cliente&quot;: {
-            &quot;id&quot;: 1,
-            &quot;usuario_id&quot;: 4,
-            &quot;nombre&quot;: &quot;Cliente Demo&quot;,
-            &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-21505975&quot;,
-            &quot;telefono&quot;: &quot;+58 424 1953651&quot;,
-            &quot;correo_contacto&quot;: null,
-            &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
-        },
-        &quot;personal&quot;: {
-            &quot;id&quot;: 1,
-            &quot;usuario_id&quot;: 3,
-            &quot;nombre&quot;: &quot;Personal Comercial&quot;,
-            &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-22500948&quot;,
-            &quot;telefono&quot;: &quot;+58 412 1828539&quot;,
-            &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
-            &quot;porcentaje_comision&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
-        },
-        &quot;origen&quot;: {
-            &quot;id&quot;: 1,
-            &quot;red&quot;: &quot;facebook&quot;
-        },
-        &quot;estado_atencion&quot;: {
-            &quot;id&quot;: 1,
-            &quot;slug&quot;: &quot;abierta&quot;,
-            &quot;nombre&quot;: &quot;Abierta&quot;,
-            &quot;color&quot;: &quot;#10B981&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null
-        },
-        &quot;etapa_comercial&quot;: {
-            &quot;id&quot;: 1,
-            &quot;slug&quot;: &quot;atencion&quot;,
-            &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
-            &quot;color&quot;: &quot;#3b82f6&quot;,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;deleted_at&quot;: null
-        },
-        &quot;cotizaciones&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;id_atencion&quot;: 1,
-                &quot;id_tipo_cotizacion&quot;: 1,
-                &quot;cant_adultos&quot;: 2,
-                &quot;cant_menores&quot;: 1,
-                &quot;cant_viejos&quot;: 0,
-                &quot;id_tasa_cambio&quot;: 1,
-                &quot;fecha_vencimiento&quot;: &quot;2026-05-22&quot;,
-                &quot;esta_vencida&quot;: false,
-                &quot;orden_compra&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;id_cotizacion&quot;: 1,
-                    &quot;estatus&quot;: 6,
-                    &quot;id_estado_financiero&quot;: 3,
-                    &quot;id_estado_financiero_egreso&quot;: null,
-                    &quot;monto_total&quot;: 260,
-                    &quot;total_pagado&quot;: 260,
-                    &quot;saldo_pendiente&quot;: 0,
-                    &quot;porcentaje_pagado&quot;: 100,
-                    &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-                },
-                &quot;id_estado_cotizacion&quot;: 2,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-            }
-        ],
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Atencion] 16&quot;
 }</code>
  </pre>
     </span>
@@ -18488,10 +18309,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="atencion_id"                data-endpoint="GETapi-atenciones--atencion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the atencion. Example: <code>1</code></p>
+<p>The ID of the atencion. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -18509,24 +18330,24 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/atenciones/1" \
+    "http://localhost:8000/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_cliente\": 17,
-    \"id_personal\": 17,
-    \"id_origen_atencion\": 17,
-    \"asunto\": \"consequatur\",
-    \"notas_adicionales\": \"consequatur\",
-    \"estatus\": 17
+    \"id_cliente\": 16,
+    \"id_personal\": 16,
+    \"id_origen_atencion\": 16,
+    \"asunto\": \"architecto\",
+    \"notas_adicionales\": \"architecto\",
+    \"estatus\": 16
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost:8000/api/atenciones/16"
 );
 
 const headers = {
@@ -18536,12 +18357,12 @@ const headers = {
 };
 
 let body = {
-    "id_cliente": 17,
-    "id_personal": 17,
-    "id_origen_atencion": 17,
-    "asunto": "consequatur",
-    "notas_adicionales": "consequatur",
-    "estatus": 17
+    "id_cliente": 16,
+    "id_personal": 16,
+    "id_origen_atencion": 16,
+    "asunto": "architecto",
+    "notas_adicionales": "architecto",
+    "estatus": 16
 };
 
 fetch(url, {
@@ -18649,10 +18470,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="atencion_id"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the atencion. Example: <code>1</code></p>
+<p>The ID of the atencion. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -18662,10 +18483,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_cliente"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del cliente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del cliente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_personal</code></b>&nbsp;&nbsp;
@@ -18674,10 +18495,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del personal asignado. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del personal asignado. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_origen_atencion</code></b>&nbsp;&nbsp;
@@ -18686,10 +18507,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_origen_atencion"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del origen de la atención. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del origen de la atención. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>asunto</code></b>&nbsp;&nbsp;
@@ -18698,10 +18519,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="asunto"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Asunto o motivo de la atención. Ejemplo: Cambio de itinerario Example: <code>consequatur</code></p>
+<p>Asunto o motivo de la atención. Ejemplo: Cambio de itinerario Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notas_adicionales</code></b>&nbsp;&nbsp;
@@ -18710,10 +18531,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="notas_adicionales"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Notas adicionales. Ejemplo: Se requiere respuesta urgente Example: <code>consequatur</code></p>
+<p>Notas adicionales. Ejemplo: Se requiere respuesta urgente Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_atencion</code></b>&nbsp;&nbsp;
@@ -18734,10 +18555,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus de la atención. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus de la atención. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -18755,7 +18576,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/atenciones/1" \
+    "http://localhost:8000/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18763,7 +18584,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/1"
+    "http://localhost:8000/api/atenciones/16"
 );
 
 const headers = {
@@ -18873,10 +18694,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="atencion_id"                data-endpoint="DELETEapi-atenciones--atencion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the atencion. Example: <code>1</code></p>
+<p>The ID of the atencion. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -18933,22 +18754,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_atencion&quot;: 1,
-            &quot;id_tipo_cotizacion&quot;: 1,
-            &quot;cant_adultos&quot;: 2,
-            &quot;cant_menores&quot;: 1,
-            &quot;cant_viejos&quot;: 0,
-            &quot;id_tasa_cambio&quot;: 1,
-            &quot;fecha_vencimiento&quot;: &quot;2026-05-22&quot;,
-            &quot;esta_vencida&quot;: false,
-            &quot;id_estado_cotizacion&quot;: 2,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -19056,23 +18862,23 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_atencion\": 17,
-    \"id_tipo_cotizacion\": 17,
-    \"cant_adultos\": 17,
-    \"cant_menores\": 17,
-    \"cant_viejos\": 17,
-    \"id_tasa_cambio\": 17,
-    \"fecha_vencimiento\": \"consequatur\",
+    \"id_atencion\": 16,
+    \"id_tipo_cotizacion\": 16,
+    \"cant_adultos\": 16,
+    \"cant_menores\": 16,
+    \"cant_viejos\": 16,
+    \"id_tasa_cambio\": 16,
+    \"fecha_vencimiento\": \"architecto\",
     \"servicios\": [
         {
-            \"id_tipo_servicio\": 17,
-            \"id_proveedor\": 17,
-            \"descripcion\": \"consequatur\",
-            \"costo\": 11613.31890586,
-            \"monto_gravable\": 11613.31890586,
-            \"monto_no_sujeto\": 11613.31890586,
-            \"iva_establecido\": 11613.31890586,
-            \"id_tasa_cambio\": 17
+            \"id_tipo_servicio\": 16,
+            \"id_proveedor\": 16,
+            \"descripcion\": \"architecto\",
+            \"costo\": 4326.41688,
+            \"monto_gravable\": 4326.41688,
+            \"monto_no_sujeto\": 4326.41688,
+            \"iva_establecido\": 4326.41688,
+            \"id_tasa_cambio\": 16
         }
     ]
 }"
@@ -19091,23 +18897,23 @@ const headers = {
 };
 
 let body = {
-    "id_atencion": 17,
-    "id_tipo_cotizacion": 17,
-    "cant_adultos": 17,
-    "cant_menores": 17,
-    "cant_viejos": 17,
-    "id_tasa_cambio": 17,
-    "fecha_vencimiento": "consequatur",
+    "id_atencion": 16,
+    "id_tipo_cotizacion": 16,
+    "cant_adultos": 16,
+    "cant_menores": 16,
+    "cant_viejos": 16,
+    "id_tasa_cambio": 16,
+    "fecha_vencimiento": "architecto",
     "servicios": [
         {
-            "id_tipo_servicio": 17,
-            "id_proveedor": 17,
-            "descripcion": "consequatur",
-            "costo": 11613.31890586,
-            "monto_gravable": 11613.31890586,
-            "monto_no_sujeto": 11613.31890586,
-            "iva_establecido": 11613.31890586,
-            "id_tasa_cambio": 17
+            "id_tipo_servicio": 16,
+            "id_proveedor": 16,
+            "descripcion": "architecto",
+            "costo": 4326.41688,
+            "monto_gravable": 4326.41688,
+            "monto_no_sujeto": 4326.41688,
+            "iva_establecido": 4326.41688,
+            "id_tasa_cambio": 16
         }
     ]
 };
@@ -19213,10 +19019,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_atencion"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la atención asociada. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la atención asociada. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_cotizacion</code></b>&nbsp;&nbsp;
@@ -19225,10 +19031,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_cotizacion"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de cotización. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de cotización. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_adultos</code></b>&nbsp;&nbsp;
@@ -19237,10 +19043,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_adultos"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de adultos. Ejemplo: 2 Example: <code>17</code></p>
+<p>Cantidad de adultos. Ejemplo: 2 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_menores</code></b>&nbsp;&nbsp;
@@ -19249,10 +19055,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_menores"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de menores. Ejemplo: 0 Example: <code>17</code></p>
+<p>Cantidad de menores. Ejemplo: 0 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_viejos</code></b>&nbsp;&nbsp;
@@ -19261,10 +19067,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_viejos"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de adultos mayores. Ejemplo: 0 Example: <code>17</code></p>
+<p>Cantidad de adultos mayores. Ejemplo: 0 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -19273,10 +19079,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa_cambio"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio congelada (Historial Tasa). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa de cambio congelada (Historial Tasa). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_vencimiento</code></b>&nbsp;&nbsp;
@@ -19285,10 +19091,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_vencimiento"                data-endpoint="POSTapi-cotizaciones"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de caducidad de la proforma. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+<p>Fecha de caducidad de la proforma. Ejemplo: 2026-04-30 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -19307,10 +19113,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_tipo_servicio"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
@@ -19319,10 +19125,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_proveedor"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del proveedor. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del proveedor. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>descripcion</code></b>&nbsp;&nbsp;
@@ -19331,10 +19137,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="servicios.0.descripcion"                data-endpoint="POSTapi-cotizaciones"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Detalles del servicio. Ejemplo: Tour guiado por la ciudad Example: <code>consequatur</code></p>
+<p>Detalles del servicio. Ejemplo: Tour guiado por la ciudad Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
@@ -19343,10 +19149,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.costo"                data-endpoint="POSTapi-cotizaciones"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>11613.31890586</code></p>
+<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
@@ -19355,10 +19161,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.monto_gravable"                data-endpoint="POSTapi-cotizaciones"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Base imponible venta. Ejemplo: 120.00 Example: <code>11613.31890586</code></p>
+<p>Base imponible venta. Ejemplo: 120.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
@@ -19367,10 +19173,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.monto_no_sujeto"                data-endpoint="POSTapi-cotizaciones"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>11613.31890586</code></p>
+<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>iva_establecido</code></b>&nbsp;&nbsp;
@@ -19379,10 +19185,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.iva_establecido"                data-endpoint="POSTapi-cotizaciones"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de IVA para venta. Ejemplo: 16.00 Example: <code>11613.31890586</code></p>
+<p>Porcentaje de IVA para venta. Ejemplo: 16.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -19391,10 +19197,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_tasa_cambio"                data-endpoint="POSTapi-cotizaciones"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                     </details>
         </div>
@@ -19414,7 +19220,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones/1" \
+    --get "http://localhost:8000/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19422,7 +19228,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost:8000/api/cotizaciones/16"
 );
 
 const headers = {
@@ -19441,7 +19247,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-cotizaciones--cotizacion_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -19453,39 +19259,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;id_atencion&quot;: 1,
-        &quot;id_tipo_cotizacion&quot;: 1,
-        &quot;cant_adultos&quot;: 2,
-        &quot;cant_menores&quot;: 1,
-        &quot;cant_viejos&quot;: 0,
-        &quot;id_tasa_cambio&quot;: 1,
-        &quot;fecha_vencimiento&quot;: &quot;2026-05-22&quot;,
-        &quot;esta_vencida&quot;: false,
-        &quot;tasa_cambio&quot;: {
-            &quot;id&quot;: 1,
-            &quot;id_tasa&quot;: 5,
-            &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-07&quot;
-        },
-        &quot;orden_compra&quot;: {
-            &quot;id&quot;: 1,
-            &quot;id_cotizacion&quot;: 1,
-            &quot;estatus&quot;: 6,
-            &quot;id_estado_financiero&quot;: 3,
-            &quot;id_estado_financiero_egreso&quot;: null,
-            &quot;monto_total&quot;: 260,
-            &quot;total_pagado&quot;: 260,
-            &quot;saldo_pendiente&quot;: 0,
-            &quot;porcentaje_pagado&quot;: 100,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        },
-        &quot;id_estado_cotizacion&quot;: 2,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Cotizacion] 16&quot;
 }</code>
  </pre>
     </span>
@@ -19580,10 +19354,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cotizacion_id"                data-endpoint="GETapi-cotizaciones--cotizacion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cotizacion. Example: <code>1</code></p>
+<p>The ID of the cotizacion. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -19601,28 +19375,28 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cotizaciones/1" \
+    "http://localhost:8000/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_atencion\": 17,
-    \"id_tipo_cotizacion\": 17,
-    \"cant_adultos\": 17,
-    \"cant_menores\": 17,
-    \"cant_viejos\": 17,
-    \"id_tasa_cambio\": 17,
-    \"fecha_vencimiento\": \"consequatur\",
-    \"id_estado_cotizacion\": 17,
+    \"id_atencion\": 16,
+    \"id_tipo_cotizacion\": 16,
+    \"cant_adultos\": 16,
+    \"cant_menores\": 16,
+    \"cant_viejos\": 16,
+    \"id_tasa_cambio\": 16,
+    \"fecha_vencimiento\": \"architecto\",
+    \"id_estado_cotizacion\": 16,
     \"servicios\": [
         {
-            \"id\": 17,
-            \"id_tipo_servicio\": 17,
-            \"id_proveedor\": 17,
-            \"costo\": 11613.31890586,
-            \"monto_gravable\": 11613.31890586,
-            \"monto_no_sujeto\": 11613.31890586,
-            \"id_tasa_cambio\": 17
+            \"id\": 16,
+            \"id_tipo_servicio\": 16,
+            \"id_proveedor\": 16,
+            \"costo\": 4326.41688,
+            \"monto_gravable\": 4326.41688,
+            \"monto_no_sujeto\": 4326.41688,
+            \"id_tasa_cambio\": 16
         }
     ]
 }"
@@ -19631,7 +19405,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost:8000/api/cotizaciones/16"
 );
 
 const headers = {
@@ -19641,23 +19415,23 @@ const headers = {
 };
 
 let body = {
-    "id_atencion": 17,
-    "id_tipo_cotizacion": 17,
-    "cant_adultos": 17,
-    "cant_menores": 17,
-    "cant_viejos": 17,
-    "id_tasa_cambio": 17,
-    "fecha_vencimiento": "consequatur",
-    "id_estado_cotizacion": 17,
+    "id_atencion": 16,
+    "id_tipo_cotizacion": 16,
+    "cant_adultos": 16,
+    "cant_menores": 16,
+    "cant_viejos": 16,
+    "id_tasa_cambio": 16,
+    "fecha_vencimiento": "architecto",
+    "id_estado_cotizacion": 16,
     "servicios": [
         {
-            "id": 17,
-            "id_tipo_servicio": 17,
-            "id_proveedor": 17,
-            "costo": 11613.31890586,
-            "monto_gravable": 11613.31890586,
-            "monto_no_sujeto": 11613.31890586,
-            "id_tasa_cambio": 17
+            "id": 16,
+            "id_tipo_servicio": 16,
+            "id_proveedor": 16,
+            "costo": 4326.41688,
+            "monto_gravable": 4326.41688,
+            "monto_no_sujeto": 4326.41688,
+            "id_tasa_cambio": 16
         }
     ]
 };
@@ -19767,10 +19541,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cotizacion_id"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cotizacion. Example: <code>1</code></p>
+<p>The ID of the cotizacion. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -19780,10 +19554,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_atencion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la atención. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la atención. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_cotizacion</code></b>&nbsp;&nbsp;
@@ -19792,10 +19566,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_cotizacion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de cotización. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de cotización. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_adultos</code></b>&nbsp;&nbsp;
@@ -19804,10 +19578,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_adultos"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de adultos. Ejemplo: 2 Example: <code>17</code></p>
+<p>Cantidad de adultos. Ejemplo: 2 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_menores</code></b>&nbsp;&nbsp;
@@ -19816,10 +19590,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_menores"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de menores. Ejemplo: 0 Example: <code>17</code></p>
+<p>Cantidad de menores. Ejemplo: 0 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cant_viejos</code></b>&nbsp;&nbsp;
@@ -19828,10 +19602,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cant_viejos"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de adultos mayores. Ejemplo: 0 Example: <code>17</code></p>
+<p>Cantidad de adultos mayores. Ejemplo: 0 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -19840,10 +19614,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa_cambio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_vencimiento</code></b>&nbsp;&nbsp;
@@ -19852,10 +19626,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_vencimiento"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de vencimiento. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+<p>Fecha de vencimiento. Ejemplo: 2026-04-30 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_cotizacion</code></b>&nbsp;&nbsp;
@@ -19864,10 +19638,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_estado_cotizacion"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del nuevo estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del nuevo estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -19886,10 +19660,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del servicio si se va a actualizar. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del servicio si se va a actualizar. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
@@ -19898,10 +19672,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_tipo_servicio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
@@ -19910,10 +19684,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_proveedor"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del proveedor. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del proveedor. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
@@ -19922,10 +19696,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.costo"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>11613.31890586</code></p>
+<p>Costo para el proveedor. Ejemplo: 100.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
@@ -19934,10 +19708,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.monto_gravable"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Base imponible venta. Ejemplo: 120.00 Example: <code>11613.31890586</code></p>
+<p>Base imponible venta. Ejemplo: 120.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
@@ -19946,10 +19720,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.monto_no_sujeto"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>11613.31890586</code></p>
+<p>Monto no sujeto a IVA venta. Ejemplo: 0.00 Example: <code>4326.41688</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -19958,10 +19732,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="servicios.0.id_tasa_cambio"                data-endpoint="PUTapi-cotizaciones--cotizacion_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa aplicada al servicio. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                     </details>
         </div>
@@ -19981,7 +19755,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cotizaciones/1" \
+    "http://localhost:8000/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19989,7 +19763,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/1"
+    "http://localhost:8000/api/cotizaciones/16"
 );
 
 const headers = {
@@ -20099,10 +19873,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cotizacion_id"                data-endpoint="DELETEapi-cotizaciones--cotizacion_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the cotizacion. Example: <code>1</code></p>
+<p>The ID of the cotizacion. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -20276,7 +20050,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_cotizacion\": \"consequatur\"
+    \"tipo_cotizacion\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -20293,7 +20067,7 @@ const headers = {
 };
 
 let body = {
-    "tipo_cotizacion": "consequatur"
+    "tipo_cotizacion": "architecto"
 };
 
 fetch(url, {
@@ -20397,10 +20171,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_cotizacion"                data-endpoint="POSTapi-tipos-cotizaciones"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de cotización. Ejemplo: Nacional Example: <code>consequatur</code></p>
+<p>Nombre del tipo de cotización. Ejemplo: Nacional Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -20581,7 +20355,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_cotizacion\": \"consequatur\"
+    \"tipo_cotizacion\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -20598,7 +20372,7 @@ const headers = {
 };
 
 let body = {
-    "tipo_cotizacion": "consequatur"
+    "tipo_cotizacion": "architecto"
 };
 
 fetch(url, {
@@ -20719,10 +20493,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_cotizacion"                data-endpoint="PUTapi-tipos-cotizaciones--tipoCotizacion_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de cotización. Example: <code>consequatur</code></p>
+<p>Nombre del tipo de cotización. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -21039,7 +20813,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"metodo_pago\": \"consequatur\"
+    \"metodo_pago\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -21056,7 +20830,7 @@ const headers = {
 };
 
 let body = {
-    "metodo_pago": "consequatur"
+    "metodo_pago": "architecto"
 };
 
 fetch(url, {
@@ -21160,10 +20934,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="metodo_pago"                data-endpoint="POSTapi-metodos-pago"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del método de pago. Ejemplo: Efectivo - Divisas Example: <code>consequatur</code></p>
+<p>Nombre del método de pago. Ejemplo: Efectivo - Divisas Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>entidades_bancarias</code></b>&nbsp;&nbsp;
@@ -21359,7 +21133,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"metodo_pago\": \"consequatur\",
+    \"metodo_pago\": \"architecto\",
     \"entidades_bancarias\": [
         1,
         2
@@ -21380,7 +21154,7 @@ const headers = {
 };
 
 let body = {
-    "metodo_pago": "consequatur",
+    "metodo_pago": "architecto",
     "entidades_bancarias": [
         1,
         2
@@ -21505,10 +21279,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="metodo_pago"                data-endpoint="PUTapi-metodos-pago--metodoPago_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del método de pago. Ejemplo: Transferencia Zelle Example: <code>consequatur</code></p>
+<p>Nombre del método de pago. Ejemplo: Transferencia Zelle Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>entidades_bancarias</code></b>&nbsp;&nbsp;
@@ -21827,7 +21601,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Devuelve todas las órdenes de compra con su cotización y tasa de cambio asociadas.</p>
+<p>Devuelve todas las órdenes con su cotización, tasa de cambio y estado operativo.</p>
 
 <span id="example-requests-GETapi-ordenes-compra">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -21874,50 +21648,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_cotizacion&quot;: 1,
-            &quot;estatus&quot;: 6,
-            &quot;id_estado_financiero&quot;: 3,
-            &quot;id_estado_financiero_egreso&quot;: null,
-            &quot;monto_total&quot;: 260,
-            &quot;total_pagado&quot;: 260,
-            &quot;saldo_pendiente&quot;: 0,
-            &quot;porcentaje_pagado&quot;: 100,
-            &quot;cotizacion&quot;: {
-                &quot;id&quot;: 1,
-                &quot;id_atencion&quot;: 1,
-                &quot;id_tipo_cotizacion&quot;: 1,
-                &quot;cant_adultos&quot;: 2,
-                &quot;cant_menores&quot;: 1,
-                &quot;cant_viejos&quot;: 0,
-                &quot;id_tasa_cambio&quot;: 1,
-                &quot;fecha_vencimiento&quot;: &quot;2026-05-22&quot;,
-                &quot;esta_vencida&quot;: false,
-                &quot;tasa_cambio&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;id_tasa&quot;: 5,
-                    &quot;valor_cambio&quot;: 36.5,
-                    &quot;fecha&quot;: &quot;2026-05-07&quot;
-                },
-                &quot;id_estado_cotizacion&quot;: 2,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-            },
-            &quot;estado_financiero&quot;: {
-                &quot;id&quot;: 3,
-                &quot;slug&quot;: &quot;pagado&quot;,
-                &quot;label&quot;: &quot;Pagado&quot;,
-                &quot;color&quot;: &quot;#10b981&quot;,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;deleted_at&quot;: null
-            },
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -22006,174 +21737,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-ordenes-compra">Crear una nueva orden de compra</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Genera una orden de compra a partir de una cotización confirmada. Solo se permite una orden por cotización.</p>
-
-<span id="example-requests-POSTapi-ordenes-compra">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/ordenes-compra" \
-    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_cotizacion\": 17,
-    \"estatus\": 17
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra"
-);
-
-const headers = {
-    "Authorization": "Bearer TOKEN_DE_MUESTRA",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_cotizacion": 17,
-    "estatus": 17
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-ordenes-compra">
-</span>
-<span id="execution-results-POSTapi-ordenes-compra" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-POSTapi-ordenes-compra"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-ordenes-compra"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-ordenes-compra" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-ordenes-compra">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-POSTapi-ordenes-compra" data-method="POST"
-      data-path="api/ordenes-compra"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-ordenes-compra', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-ordenes-compra"
-                    onclick="tryItOut('POSTapi-ordenes-compra');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-ordenes-compra"
-                    onclick="cancelTryOut('POSTapi-ordenes-compra');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-ordenes-compra"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/ordenes-compra</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-ordenes-compra"
-               value="Bearer TOKEN_DE_MUESTRA"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-ordenes-compra"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-ordenes-compra"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_cotizacion</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id_cotizacion"                data-endpoint="POSTapi-ordenes-compra"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID de la cotización confirmada. Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="POSTapi-ordenes-compra"
-               value="17"
-               data-component="body">
-    <br>
-<p>ID del estatus de la orden (por defecto: pendiente de pago). Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-        </form>
-
                     <h2 id="endpoints-GETapi-ordenes-compra--ordenCompra_id-">Obtener una orden de compra específica</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Devuelve los detalles de una orden de compra, incluyendo servicios, tasa de cambio y pagos asociados.</p>
+<p>Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos y estados.</p>
 
 <span id="example-requests-GETapi-ordenes-compra--ordenCompra_id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -22181,7 +21751,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra/1" \
+    --get "http://localhost:8000/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22189,7 +21759,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost:8000/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -22208,7 +21778,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-ordenes-compra--ordenCompra_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (500):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -22220,7 +21790,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\OrdenCompra] 16&quot;
 }</code>
  </pre>
     </span>
@@ -22315,20 +21885,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenCompra_id"                data-endpoint="GETapi-ordenes-compra--ordenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the ordenCompra. Example: <code>1</code></p>
+<p>The ID of the ordenCompra. Example: <code>16</code></p>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-ordenes-compra--ordenCompra_id-">Actualizar una orden de compra existente</h2>
+                    <h2 id="endpoints-PUTapi-ordenes-compra--ordenCompra_id-">Actualizar el estado operativo de una orden de compra</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Modifica la tasa de cambio o el estatus de una orden de compra y recalcula su monto total.</p>
+<p>Solo permite transiciones de estado válidas del catálogo estados_ordenes_compra.</p>
 
 <span id="example-requests-PUTapi-ordenes-compra--ordenCompra_id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -22336,19 +21906,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/ordenes-compra/1" \
+    "http://localhost:8000/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"estatus\": 17
+    \"id_estado_orden_compra\": 16
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost:8000/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -22358,7 +21928,7 @@ const headers = {
 };
 
 let body = {
-    "estatus": 17
+    "id_estado_orden_compra": 16
 };
 
 fetch(url, {
@@ -22466,23 +22036,23 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenCompra_id"                data-endpoint="PUTapi-ordenes-compra--ordenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the ordenCompra. Example: <code>1</code></p>
+<p>The ID of the ordenCompra. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>id_estado_orden_compra</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="PUTapi-ordenes-compra--ordenCompra_id-"
-               value="17"
+               step="any"               name="id_estado_orden_compra"                data-endpoint="PUTapi-ordenes-compra--ordenCompra_id-"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus (pendiente de pago / pagado). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estado operativo. Ejemplo: 2 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -22492,7 +22062,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Elimina permanentemente la orden de compra del sistema.</p>
+<p>Elimina (soft delete) la orden de compra del sistema.</p>
 
 <span id="example-requests-DELETEapi-ordenes-compra--ordenCompra_id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -22500,7 +22070,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/ordenes-compra/1" \
+    "http://localhost:8000/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22508,7 +22078,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/1"
+    "http://localhost:8000/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -22618,10 +22188,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenCompra_id"                data-endpoint="DELETEapi-ordenes-compra--ordenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the ordenCompra. Example: <code>1</code></p>
+<p>The ID of the ordenCompra. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -22678,20 +22248,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;fecha_pago&quot;: &quot;2026-05-07&quot;,
-            &quot;monto_total&quot;: 260,
-            &quot;id_metodo_pago&quot;: 1,
-            &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
-            &quot;id_tasa_cambio&quot;: 1,
-            &quot;id_entidad_bancaria&quot;: 1,
-            &quot;id_estado_conciliacion&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -22798,16 +22355,16 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "fecha_pago=consequatur"\
-    --form "monto_total=11613.31890586"\
-    --form "id_metodo_pago=17"\
-    --form "nro_comprobante=consequatur"\
-    --form "id_tasa_cambio=17"\
-    --form "id_entidad_bancaria=17"\
-    --form "ordenes_compra[][id_orden_compra]=17"\
-    --form "ordenes_compra[][monto_asignado]=11613.31890586"\
-    --form "estatus=17"\
-    --form "comprobante_pdf=@C:\Users\cpustorevzla\AppData\Local\Temp\phpC77F.tmp" </code></pre></div>
+    --form "fecha_pago=architecto"\
+    --form "monto_total=4326.41688"\
+    --form "id_metodo_pago=16"\
+    --form "nro_comprobante=architecto"\
+    --form "id_tasa_cambio=16"\
+    --form "id_entidad_bancaria=16"\
+    --form "ordenes_compra[][id_orden_compra]=16"\
+    --form "ordenes_compra[][monto_asignado]=4326.41688"\
+    --form "estatus=16"\
+    --form "comprobante_pdf=@/tmp/phpmvU0uB" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -22822,15 +22379,15 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('fecha_pago', 'consequatur');
-body.append('monto_total', '11613.31890586');
-body.append('id_metodo_pago', '17');
-body.append('nro_comprobante', 'consequatur');
-body.append('id_tasa_cambio', '17');
-body.append('id_entidad_bancaria', '17');
-body.append('ordenes_compra[][id_orden_compra]', '17');
-body.append('ordenes_compra[][monto_asignado]', '11613.31890586');
-body.append('estatus', '17');
+body.append('fecha_pago', 'architecto');
+body.append('monto_total', '4326.41688');
+body.append('id_metodo_pago', '16');
+body.append('nro_comprobante', 'architecto');
+body.append('id_tasa_cambio', '16');
+body.append('id_entidad_bancaria', '16');
+body.append('ordenes_compra[][id_orden_compra]', '16');
+body.append('ordenes_compra[][monto_asignado]', '4326.41688');
+body.append('estatus', '16');
 body.append('comprobante_pdf', document.querySelector('input[name="comprobante_pdf"]').files[0]);
 
 fetch(url, {
@@ -22934,10 +22491,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
+<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -22946,10 +22503,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="POSTapi-pagos"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto total del pago. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
+<p>Monto total del pago. Ejemplo: 500.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -22958,10 +22515,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_metodo_pago"                data-endpoint="POSTapi-pagos"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del método de pago. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del método de pago. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nro_comprobante</code></b>&nbsp;&nbsp;
@@ -22970,10 +22527,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nro_comprobante"                data-endpoint="POSTapi-pagos"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de referencia o comprobante. Ejemplo: REF-998877 Example: <code>consequatur</code></p>
+<p>Número de referencia o comprobante. Ejemplo: REF-998877 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -22982,10 +22539,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa_cambio"                data-endpoint="POSTapi-pagos"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_entidad_bancaria</code></b>&nbsp;&nbsp;
@@ -22994,10 +22551,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_entidad_bancaria"                data-endpoint="POSTapi-pagos"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la entidad bancaria. Requerido si el método de pago es bancario. Null si es Efectivo. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la entidad bancaria. Requerido si el método de pago es bancario. Null si es Efectivo. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -23016,10 +22573,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.id_orden_compra"                data-endpoint="POSTapi-pagos"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la orden de compra. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la orden de compra. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -23028,10 +22585,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.monto_asignado"                data-endpoint="POSTapi-pagos"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto asignado a esta orden. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
+<p>Monto asignado a esta orden. Ejemplo: 500.00 Example: <code>4326.41688</code></p>
                     </div>
                                     </details>
         </div>
@@ -23045,7 +22602,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>C:\Users\cpustorevzla\AppData\Local\Temp\phpC77F.tmp</code></p>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpmvU0uB</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
@@ -23054,10 +22611,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="POSTapi-pagos"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus del pago. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus del pago. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -23075,7 +22632,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos/1" \
+    --get "http://localhost:8000/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23083,7 +22640,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost:8000/api/pagos/16"
 );
 
 const headers = {
@@ -23102,7 +22659,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-pagos--id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -23114,29 +22671,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;fecha_pago&quot;: &quot;2026-05-07&quot;,
-        &quot;monto_total&quot;: 260,
-        &quot;id_metodo_pago&quot;: 1,
-        &quot;nro_comprobante&quot;: &quot;COMP-0001&quot;,
-        &quot;id_tasa_cambio&quot;: 1,
-        &quot;id_entidad_bancaria&quot;: 1,
-        &quot;id_estado_conciliacion&quot;: 1,
-        &quot;ordenes_compra&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;id_pago&quot;: 1,
-                &quot;id_orden_compra&quot;: 1,
-                &quot;monto_asignado&quot;: 260,
-                &quot;monto_pagado&quot;: 0,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-            }
-        ],
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Pago] 16&quot;
 }</code>
  </pre>
     </span>
@@ -23231,10 +22766,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-pagos--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pago. Example: <code>1</code></p>
+<p>The ID of the pago. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -23252,31 +22787,31 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos/1" \
+    "http://localhost:8000/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_pago\": \"consequatur\",
-    \"monto_total\": 11613.31890586,
-    \"id_metodo_pago\": 17,
-    \"nro_comprobante\": \"consequatur\",
-    \"id_tasa_cambio\": 17,
-    \"id_entidad_bancaria\": 17,
+    \"fecha_pago\": \"architecto\",
+    \"monto_total\": 4326.41688,
+    \"id_metodo_pago\": 16,
+    \"nro_comprobante\": \"architecto\",
+    \"id_tasa_cambio\": 16,
+    \"id_entidad_bancaria\": 16,
     \"ordenes_compra\": [
         {
-            \"id_orden_compra\": 17,
-            \"monto_asignado\": 11613.31890586
+            \"id_orden_compra\": 16,
+            \"monto_asignado\": 4326.41688
         }
     ],
-    \"estatus\": 17
+    \"estatus\": 16
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost:8000/api/pagos/16"
 );
 
 const headers = {
@@ -23286,19 +22821,19 @@ const headers = {
 };
 
 let body = {
-    "fecha_pago": "consequatur",
-    "monto_total": 11613.31890586,
-    "id_metodo_pago": 17,
-    "nro_comprobante": "consequatur",
-    "id_tasa_cambio": 17,
-    "id_entidad_bancaria": 17,
+    "fecha_pago": "architecto",
+    "monto_total": 4326.41688,
+    "id_metodo_pago": 16,
+    "nro_comprobante": "architecto",
+    "id_tasa_cambio": 16,
+    "id_entidad_bancaria": 16,
     "ordenes_compra": [
         {
-            "id_orden_compra": 17,
-            "monto_asignado": 11613.31890586
+            "id_orden_compra": 16,
+            "monto_asignado": 4326.41688
         }
     ],
-    "estatus": 17
+    "estatus": 16
 };
 
 fetch(url, {
@@ -23406,10 +22941,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-pagos--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pago. Example: <code>1</code></p>
+<p>The ID of the pago. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -23419,10 +22954,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
+<p>Fecha del pago. Ejemplo: 2026-04-11 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -23431,10 +22966,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="PUTapi-pagos--id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto total. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
+<p>Monto total. Ejemplo: 500.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -23443,10 +22978,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_metodo_pago"                data-endpoint="PUTapi-pagos--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del método de pago. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del método de pago. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nro_comprobante</code></b>&nbsp;&nbsp;
@@ -23455,10 +22990,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nro_comprobante"                data-endpoint="PUTapi-pagos--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Número de comprobante. Ejemplo: REF-998877 Example: <code>consequatur</code></p>
+<p>Número de comprobante. Ejemplo: REF-998877 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -23467,10 +23002,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa_cambio"                data-endpoint="PUTapi-pagos--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa de cambio. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_entidad_bancaria</code></b>&nbsp;&nbsp;
@@ -23479,10 +23014,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_entidad_bancaria"                data-endpoint="PUTapi-pagos--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la entidad bancaria. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la entidad bancaria. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_conciliacion</code></b>&nbsp;&nbsp;
@@ -23513,10 +23048,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.id_orden_compra"                data-endpoint="PUTapi-pagos--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la orden de compra. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la orden de compra. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -23525,10 +23060,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="ordenes_compra.0.monto_asignado"                data-endpoint="PUTapi-pagos--id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto asignado. Ejemplo: 500.00 Example: <code>11613.31890586</code></p>
+<p>Monto asignado. Ejemplo: 500.00 Example: <code>4326.41688</code></p>
                     </div>
                                     </details>
         </div>
@@ -23539,10 +23074,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="PUTapi-pagos--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -23566,7 +23101,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos/1" \
+    "http://localhost:8000/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23574,7 +23109,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/1"
+    "http://localhost:8000/api/pagos/16"
 );
 
 const headers = {
@@ -23684,10 +23219,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-pagos--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pago. Example: <code>1</code></p>
+<p>The ID of the pago. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -23744,17 +23279,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_pago&quot;: 1,
-            &quot;id_orden_compra&quot;: 1,
-            &quot;monto_asignado&quot;: 260,
-            &quot;monto_pagado&quot;: 0,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -23862,10 +23387,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_pago\": \"consequatur\",
-    \"id_orden_compra\": \"consequatur\",
-    \"monto_asignado\": 45,
-    \"monto_pagado\": 56
+    \"id_pago\": \"architecto\",
+    \"id_orden_compra\": \"architecto\",
+    \"monto_asignado\": 39,
+    \"monto_pagado\": 84
 }"
 </code></pre></div>
 
@@ -23882,10 +23407,10 @@ const headers = {
 };
 
 let body = {
-    "id_pago": "consequatur",
-    "id_orden_compra": "consequatur",
-    "monto_asignado": 45,
-    "monto_pagado": 56
+    "id_pago": "architecto",
+    "id_orden_compra": "architecto",
+    "monto_asignado": 39,
+    "monto_pagado": 84
 };
 
 fetch(url, {
@@ -23989,10 +23514,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_pago"                data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the pagos table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the pagos table. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_orden_compra</code></b>&nbsp;&nbsp;
@@ -24001,10 +23526,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_orden_compra"                data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the ordenes_compra table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the ordenes_compra table. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -24013,10 +23538,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_asignado"                data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>45</code></p>
+<p>Must be at least 0. Example: <code>39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_pagado</code></b>&nbsp;&nbsp;
@@ -24025,10 +23550,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_pagado"                data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="56"
+               value="84"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>56</code></p>
+<p>Must be at least 0. Example: <code>84</code></p>
         </div>
         </form>
 
@@ -24046,7 +23571,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    --get "http://localhost:8000/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24054,7 +23579,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost:8000/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -24073,7 +23598,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-pagos-ordenes-compra--pagoOrdenCompra_id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -24085,15 +23610,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;id_pago&quot;: 1,
-        &quot;id_orden_compra&quot;: 1,
-        &quot;monto_asignado&quot;: 260,
-        &quot;monto_pagado&quot;: 0,
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\PagoOrdenCompra] 16&quot;
 }</code>
  </pre>
     </span>
@@ -24188,10 +23705,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="pagoOrdenCompra_id"                data-endpoint="GETapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pagoOrdenCompra. Example: <code>1</code></p>
+<p>The ID of the pagoOrdenCompra. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -24209,20 +23726,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    "http://localhost:8000/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto_asignado\": 73,
-    \"monto_pagado\": 45
+    \"monto_asignado\": 27,
+    \"monto_pagado\": 39
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost:8000/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -24232,8 +23749,8 @@ const headers = {
 };
 
 let body = {
-    "monto_asignado": 73,
-    "monto_pagado": 45
+    "monto_asignado": 27,
+    "monto_pagado": 39
 };
 
 fetch(url, {
@@ -24341,10 +23858,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="pagoOrdenCompra_id"                data-endpoint="PUTapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pagoOrdenCompra. Example: <code>1</code></p>
+<p>The ID of the pagoOrdenCompra. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -24354,10 +23871,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_asignado"                data-endpoint="PUTapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="73"
+               value="27"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>73</code></p>
+<p>Must be at least 0. Example: <code>27</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_pagado</code></b>&nbsp;&nbsp;
@@ -24366,10 +23883,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_pagado"                data-endpoint="PUTapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>45</code></p>
+<p>Must be at least 0. Example: <code>39</code></p>
         </div>
         </form>
 
@@ -24387,7 +23904,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-ordenes-compra/1" \
+    "http://localhost:8000/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24395,7 +23912,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/1"
+    "http://localhost:8000/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -24505,10 +24022,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="pagoOrdenCompra_id"                data-endpoint="DELETEapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the pagoOrdenCompra. Example: <code>1</code></p>
+<p>The ID of the pagoOrdenCompra. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -24572,7 +24089,7 @@ access-control-allow-origin: *
             &quot;monto_total&quot;: 1500,
             &quot;id_tasa_cambio&quot;: null,
             &quot;referencia&quot;: &quot;PP-0001&quot;,
-            &quot;fecha_pago&quot;: &quot;2026-05-07&quot;,
+            &quot;fecha_pago&quot;: &quot;2026-05-17&quot;,
             &quot;id_metodo_pago&quot;: 1,
             &quot;comprobante&quot;: null,
             &quot;proveedor&quot;: {
@@ -24585,8 +24102,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
             },
             &quot;tasa_cambio&quot;: null,
             &quot;metodo_pago&quot;: {
@@ -24594,8 +24111,8 @@ access-control-allow-origin: *
                 &quot;metodo_pago&quot;: &quot;efectivo&quot;
             },
             &quot;cuentas_saldadas&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -24705,16 +24222,16 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_proveedor\": \"consequatur\",
-    \"monto_total\": 45,
-    \"referencia\": \"qeopfuudtdsufvyvddqam\",
-    \"fecha_pago\": \"2026-05-07T05:59:20\",
-    \"id_metodo_pago\": \"consequatur\",
-    \"comprobante\": \"consequatur\",
+    \"id_proveedor\": \"architecto\",
+    \"monto_total\": 39,
+    \"referencia\": \"g\",
+    \"fecha_pago\": \"2026-05-17T04:39:00\",
+    \"id_metodo_pago\": \"architecto\",
+    \"comprobante\": \"architecto\",
     \"cuentas\": [
         {
-            \"id_cuenta_por_pagar\": \"consequatur\",
-            \"monto_asignado\": 45
+            \"id_cuenta_por_pagar\": \"architecto\",
+            \"monto_asignado\": 39
         }
     ]
 }"
@@ -24733,16 +24250,16 @@ const headers = {
 };
 
 let body = {
-    "id_proveedor": "consequatur",
-    "monto_total": 45,
-    "referencia": "qeopfuudtdsufvyvddqam",
-    "fecha_pago": "2026-05-07T05:59:20",
-    "id_metodo_pago": "consequatur",
-    "comprobante": "consequatur",
+    "id_proveedor": "architecto",
+    "monto_total": 39,
+    "referencia": "g",
+    "fecha_pago": "2026-05-17T04:39:00",
+    "id_metodo_pago": "architecto",
+    "comprobante": "architecto",
     "cuentas": [
         {
-            "id_cuenta_por_pagar": "consequatur",
-            "monto_asignado": 45
+            "id_cuenta_por_pagar": "architecto",
+            "monto_asignado": 39
         }
     ]
 };
@@ -24848,10 +24365,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_proveedor"                data-endpoint="POSTapi-pagos-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the proveedores table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the proveedores table. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_total</code></b>&nbsp;&nbsp;
@@ -24860,10 +24377,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="POSTapi-pagos-proveedores"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>45</code></p>
+<p>Must be at least 0.01. Example: <code>39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -24884,10 +24401,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="referencia"                data-endpoint="POSTapi-pagos-proveedores"
-               value="qeopfuudtdsufvyvddqam"
+               value="g"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>qeopfuudtdsufvyvddqam</code></p>
+<p>Must not be greater than 255 characters. Example: <code>g</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
@@ -24896,10 +24413,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos-proveedores"
-               value="2026-05-07T05:59:20"
+               value="2026-05-17T04:39:00"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-07T05:59:20</code></p>
+<p>Must be a valid date. Example: <code>2026-05-17T04:39:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -24908,10 +24425,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_metodo_pago"                data-endpoint="POSTapi-pagos-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the metodos_pago table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the metodos_pago table. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>comprobante</code></b>&nbsp;&nbsp;
@@ -24920,10 +24437,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="comprobante"                data-endpoint="POSTapi-pagos-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -24942,10 +24459,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cuentas.0.id_cuenta_por_pagar"                data-endpoint="POSTapi-pagos-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the cuentas_por_pagar table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the cuentas_por_pagar table. Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>monto_asignado</code></b>&nbsp;&nbsp;
@@ -24954,10 +24471,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cuentas.0.monto_asignado"                data-endpoint="POSTapi-pagos-proveedores"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>45</code></p>
+<p>Must be at least 0.01. Example: <code>39</code></p>
                     </div>
                                     </details>
         </div>
@@ -25022,7 +24539,7 @@ access-control-allow-origin: *
         &quot;monto_total&quot;: 1500,
         &quot;id_tasa_cambio&quot;: null,
         &quot;referencia&quot;: &quot;PP-0001&quot;,
-        &quot;fecha_pago&quot;: &quot;2026-05-07&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-05-17&quot;,
         &quot;id_metodo_pago&quot;: 1,
         &quot;comprobante&quot;: null,
         &quot;proveedor&quot;: {
@@ -25035,8 +24552,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         },
         &quot;tasa_cambio&quot;: null,
         &quot;metodo_pago&quot;: {
@@ -25044,8 +24561,8 @@ access-control-allow-origin: *
             &quot;metodo_pago&quot;: &quot;efectivo&quot;
         },
         &quot;cuentas_saldadas&quot;: [],
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -25167,10 +24684,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto_total\": 73,
-    \"referencia\": \"mqeopfuudtdsufvyvddqa\",
-    \"fecha_pago\": \"2026-05-07T05:59:20\",
-    \"comprobante\": \"consequatur\"
+    \"monto_total\": 27,
+    \"referencia\": \"n\",
+    \"fecha_pago\": \"2026-05-17T04:39:00\",
+    \"comprobante\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -25187,10 +24704,10 @@ const headers = {
 };
 
 let body = {
-    "monto_total": 73,
-    "referencia": "mqeopfuudtdsufvyvddqa",
-    "fecha_pago": "2026-05-07T05:59:20",
-    "comprobante": "consequatur"
+    "monto_total": 27,
+    "referencia": "n",
+    "fecha_pago": "2026-05-17T04:39:00",
+    "comprobante": "architecto"
 };
 
 fetch(url, {
@@ -25323,10 +24840,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_total"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="73"
+               value="27"
                data-component="body">
     <br>
-<p>Must be at least 0.01. Example: <code>73</code></p>
+<p>Must be at least 0.01. Example: <code>27</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -25347,10 +24864,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="referencia"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="mqeopfuudtdsufvyvddqa"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
@@ -25359,10 +24876,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="2026-05-07T05:59:20"
+               value="2026-05-17T04:39:00"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-07T05:59:20</code></p>
+<p>Must be a valid date. Example: <code>2026-05-17T04:39:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -25383,10 +24900,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="comprobante"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -25703,7 +25220,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_proveedor\": \"consequatur\"
+    \"tipo_proveedor\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -25720,7 +25237,7 @@ const headers = {
 };
 
 let body = {
-    "tipo_proveedor": "consequatur"
+    "tipo_proveedor": "architecto"
 };
 
 fetch(url, {
@@ -25824,10 +25341,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_proveedor"                data-endpoint="POSTapi-tipos-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de proveedor. Ejemplo: Mayorista Example: <code>consequatur</code></p>
+<p>Nombre del tipo de proveedor. Ejemplo: Mayorista Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -26008,7 +25525,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_proveedor\": \"consequatur\"
+    \"tipo_proveedor\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -26025,7 +25542,7 @@ const headers = {
 };
 
 let body = {
-    "tipo_proveedor": "consequatur"
+    "tipo_proveedor": "architecto"
 };
 
 fetch(url, {
@@ -26146,10 +25663,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_proveedor"                data-endpoint="PUTapi-tipos-proveedores--tipoProveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de proveedor. Example: <code>consequatur</code></p>
+<p>Nombre del tipo de proveedor. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -26356,8 +25873,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -26467,14 +25984,14 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nombre_empresa\": \"consequatur\",
-    \"razon_comercial\": \"consequatur\",
-    \"rif\": \"consequatur\",
-    \"correo_empresa\": \"consequatur\",
-    \"telefono_empresa\": \"consequatur\",
-    \"nombre_persona_contacto\": \"consequatur\",
-    \"tipo_proveedor\": 17,
-    \"id_tipo_contribuyente\": 17,
+    \"nombre_empresa\": \"architecto\",
+    \"razon_comercial\": \"architecto\",
+    \"rif\": \"architecto\",
+    \"correo_empresa\": \"architecto\",
+    \"telefono_empresa\": \"architecto\",
+    \"nombre_persona_contacto\": \"architecto\",
+    \"tipo_proveedor\": 16,
+    \"id_tipo_contribuyente\": 16,
     \"tipos_servicio\": [
         1,
         2
@@ -26487,7 +26004,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             \"moneda\": \"VES\"
         }
     ],
-    \"estatus\": 17
+    \"estatus\": 16
 }"
 </code></pre></div>
 
@@ -26504,14 +26021,14 @@ const headers = {
 };
 
 let body = {
-    "nombre_empresa": "consequatur",
-    "razon_comercial": "consequatur",
-    "rif": "consequatur",
-    "correo_empresa": "consequatur",
-    "telefono_empresa": "consequatur",
-    "nombre_persona_contacto": "consequatur",
-    "tipo_proveedor": 17,
-    "id_tipo_contribuyente": 17,
+    "nombre_empresa": "architecto",
+    "razon_comercial": "architecto",
+    "rif": "architecto",
+    "correo_empresa": "architecto",
+    "telefono_empresa": "architecto",
+    "nombre_persona_contacto": "architecto",
+    "tipo_proveedor": 16,
+    "id_tipo_contribuyente": 16,
     "tipos_servicio": [
         1,
         2
@@ -26524,7 +26041,7 @@ let body = {
             "moneda": "VES"
         }
     ],
-    "estatus": 17
+    "estatus": 16
 };
 
 fetch(url, {
@@ -26628,10 +26145,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_empresa"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Razón social de la empresa. Ejemplo: Suministros Globales S.A. Example: <code>consequatur</code></p>
+<p>Razón social de la empresa. Ejemplo: Suministros Globales S.A. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>razon_comercial</code></b>&nbsp;&nbsp;
@@ -26640,10 +26157,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_comercial"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre comercial. Ejemplo: Global Sum Example: <code>consequatur</code></p>
+<p>Nombre comercial. Ejemplo: Global Sum Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rif</code></b>&nbsp;&nbsp;
@@ -26652,10 +26169,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="rif"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>RIF de la empresa. Ejemplo: J-87654321-0 Example: <code>consequatur</code></p>
+<p>RIF de la empresa. Ejemplo: J-87654321-0 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_empresa</code></b>&nbsp;&nbsp;
@@ -26664,10 +26181,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_empresa"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico de contacto. Ejemplo: ventas@globalsum.com Example: <code>consequatur</code></p>
+<p>Correo electrónico de contacto. Ejemplo: ventas@globalsum.com Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono_empresa</code></b>&nbsp;&nbsp;
@@ -26676,10 +26193,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono_empresa"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono de la empresa. Ejemplo: +58 212 999 8888 Example: <code>consequatur</code></p>
+<p>Teléfono de la empresa. Ejemplo: +58 212 999 8888 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre_persona_contacto</code></b>&nbsp;&nbsp;
@@ -26688,10 +26205,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_persona_contacto"                data-endpoint="POSTapi-proveedores"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la persona de contacto. Ejemplo: María Rodríguez Example: <code>consequatur</code></p>
+<p>Nombre de la persona de contacto. Ejemplo: María Rodríguez Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_proveedor</code></b>&nbsp;&nbsp;
@@ -26700,10 +26217,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="tipo_proveedor"                data-endpoint="POSTapi-proveedores"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de proveedor. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de proveedor. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -26712,10 +26229,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="POSTapi-proveedores"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la denominación fiscal/contribuyente. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la denominación fiscal/contribuyente. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipos_servicio</code></b>&nbsp;&nbsp;
@@ -26798,10 +26315,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="POSTapi-proveedores"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -26898,12 +26415,12 @@ access-control-allow-origin: *
                 &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
                 &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
                 &quot;moneda&quot;: &quot;VES&quot;,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
     }
 }</code>
  </pre>
@@ -27025,27 +26542,27 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nombre_empresa\": \"consequatur\",
-    \"razon_comercial\": \"consequatur\",
-    \"rif\": \"consequatur\",
-    \"correo_empresa\": \"consequatur\",
-    \"telefono_empresa\": \"consequatur\",
-    \"nombre_persona_contacto\": \"consequatur\",
-    \"tipo_proveedor\": 17,
-    \"id_tipo_contribuyente\": 17,
+    \"nombre_empresa\": \"architecto\",
+    \"razon_comercial\": \"architecto\",
+    \"rif\": \"architecto\",
+    \"correo_empresa\": \"architecto\",
+    \"telefono_empresa\": \"architecto\",
+    \"nombre_persona_contacto\": \"architecto\",
+    \"tipo_proveedor\": 16,
+    \"id_tipo_contribuyente\": 16,
     \"tipos_servicio\": [
-        17
+        16
     ],
     \"cuentas\": [
         {
-            \"id\": 17,
-            \"numero_cuenta\": \"consequatur\",
-            \"nombre_banco\": \"consequatur\",
-            \"tipo_cuenta\": \"consequatur\",
-            \"moneda\": \"consequatur\"
+            \"id\": 16,
+            \"numero_cuenta\": \"architecto\",
+            \"nombre_banco\": \"architecto\",
+            \"tipo_cuenta\": \"architecto\",
+            \"moneda\": \"architecto\"
         }
     ],
-    \"estatus\": 17
+    \"estatus\": 16
 }"
 </code></pre></div>
 
@@ -27062,27 +26579,27 @@ const headers = {
 };
 
 let body = {
-    "nombre_empresa": "consequatur",
-    "razon_comercial": "consequatur",
-    "rif": "consequatur",
-    "correo_empresa": "consequatur",
-    "telefono_empresa": "consequatur",
-    "nombre_persona_contacto": "consequatur",
-    "tipo_proveedor": 17,
-    "id_tipo_contribuyente": 17,
+    "nombre_empresa": "architecto",
+    "razon_comercial": "architecto",
+    "rif": "architecto",
+    "correo_empresa": "architecto",
+    "telefono_empresa": "architecto",
+    "nombre_persona_contacto": "architecto",
+    "tipo_proveedor": 16,
+    "id_tipo_contribuyente": 16,
     "tipos_servicio": [
-        17
+        16
     ],
     "cuentas": [
         {
-            "id": 17,
-            "numero_cuenta": "consequatur",
-            "nombre_banco": "consequatur",
-            "tipo_cuenta": "consequatur",
-            "moneda": "consequatur"
+            "id": 16,
+            "numero_cuenta": "architecto",
+            "nombre_banco": "architecto",
+            "tipo_cuenta": "architecto",
+            "moneda": "architecto"
         }
     ],
-    "estatus": 17
+    "estatus": 16
 };
 
 fetch(url, {
@@ -27203,10 +26720,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_empresa"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Razón social de la empresa. Example: <code>consequatur</code></p>
+<p>Razón social de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>razon_comercial</code></b>&nbsp;&nbsp;
@@ -27215,10 +26732,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="razon_comercial"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre comercial. Example: <code>consequatur</code></p>
+<p>Nombre comercial. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rif</code></b>&nbsp;&nbsp;
@@ -27227,10 +26744,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="rif"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>RIF de la empresa. Example: <code>consequatur</code></p>
+<p>RIF de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>correo_empresa</code></b>&nbsp;&nbsp;
@@ -27239,10 +26756,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="correo_empresa"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Correo electrónico de contacto. Example: <code>consequatur</code></p>
+<p>Correo electrónico de contacto. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefono_empresa</code></b>&nbsp;&nbsp;
@@ -27251,10 +26768,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="telefono_empresa"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Teléfono de la empresa. Example: <code>consequatur</code></p>
+<p>Teléfono de la empresa. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre_persona_contacto</code></b>&nbsp;&nbsp;
@@ -27263,10 +26780,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre_persona_contacto"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre de la persona de contacto. Example: <code>consequatur</code></p>
+<p>Nombre de la persona de contacto. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_proveedor</code></b>&nbsp;&nbsp;
@@ -27275,10 +26792,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="tipo_proveedor"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de proveedor. Example: <code>17</code></p>
+<p>ID del tipo de proveedor. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_contribuyente</code></b>&nbsp;&nbsp;
@@ -27287,10 +26804,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_contribuyente"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la denominación fiscal/contribuyente. Example: <code>17</code></p>
+<p>ID de la denominación fiscal/contribuyente. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipos_servicio</code></b>&nbsp;&nbsp;
@@ -27323,10 +26840,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cuentas.0.id"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Opcional. ID de la cuenta para actualizar una existente. Example: <code>17</code></p>
+<p>Opcional. ID de la cuenta para actualizar una existente. Example: <code>16</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>numero_cuenta</code></b>&nbsp;&nbsp;
@@ -27335,10 +26852,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cuentas.0.numero_cuenta"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El número de la cuenta. Example: <code>consequatur</code></p>
+<p>El número de la cuenta. Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>nombre_banco</code></b>&nbsp;&nbsp;
@@ -27347,10 +26864,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cuentas.0.nombre_banco"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del banco. Example: <code>consequatur</code></p>
+<p>Nombre del banco. Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>tipo_cuenta</code></b>&nbsp;&nbsp;
@@ -27359,10 +26876,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cuentas.0.tipo_cuenta"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Tipo de cuenta bancaria. Example: <code>consequatur</code></p>
+<p>Tipo de cuenta bancaria. Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>moneda</code></b>&nbsp;&nbsp;
@@ -27371,10 +26888,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="cuentas.0.moneda"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Moneda de la cuenta. Example: <code>consequatur</code></p>
+<p>Moneda de la cuenta. Example: <code>architecto</code></p>
                     </div>
                                     </details>
         </div>
@@ -27385,10 +26902,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="estatus"                data-endpoint="PUTapi-proveedores--proveedor_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del estatus. Example: <code>17</code></p>
+<p>ID del estatus. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -27600,8 +27117,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
                 }
             ]
         },
@@ -27620,8 +27137,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
                 }
             ]
         },
@@ -27640,8 +27157,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
                 }
             ]
         },
@@ -27765,8 +27282,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_servicio\": \"consequatur\",
-    \"iva_defecto\": 11613.31890586,
+    \"tipo_servicio\": \"architecto\",
+    \"iva_defecto\": 4326.41688,
     \"proveedores\": [
         1,
         2
@@ -27787,8 +27304,8 @@ const headers = {
 };
 
 let body = {
-    "tipo_servicio": "consequatur",
-    "iva_defecto": 11613.31890586,
+    "tipo_servicio": "architecto",
+    "iva_defecto": 4326.41688,
     "proveedores": [
         1,
         2
@@ -27896,10 +27413,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_servicio"                data-endpoint="POSTapi-tipo-servicio"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre descriptivo del tipo de servicio. Ejemplo: Emisión de Boletos Example: <code>consequatur</code></p>
+<p>Nombre descriptivo del tipo de servicio. Ejemplo: Emisión de Boletos Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>iva_defecto</code></b>&nbsp;&nbsp;
@@ -27908,10 +27425,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="iva_defecto"                data-endpoint="POSTapi-tipo-servicio"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>optional Porcentaje de IVA por defecto para este tipo de servicio. Example: <code>11613.31890586</code></p>
+<p>optional Porcentaje de IVA por defecto para este tipo de servicio. Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>proveedores</code></b>&nbsp;&nbsp;
@@ -27997,8 +27514,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
             }
         ]
     }
@@ -28122,8 +27639,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"tipo_servicio\": \"consequatur\",
-    \"iva_defecto\": 11613.31890586,
+    \"tipo_servicio\": \"architecto\",
+    \"iva_defecto\": 4326.41688,
     \"proveedores\": [
         1,
         2
@@ -28144,8 +27661,8 @@ const headers = {
 };
 
 let body = {
-    "tipo_servicio": "consequatur",
-    "iva_defecto": 11613.31890586,
+    "tipo_servicio": "architecto",
+    "iva_defecto": 4326.41688,
     "proveedores": [
         1,
         2
@@ -28270,10 +27787,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_servicio"                data-endpoint="PUTapi-tipo-servicio--tipoServicio_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Nombre del tipo de servicio. Example: <code>consequatur</code></p>
+<p>Nombre del tipo de servicio. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>iva_defecto</code></b>&nbsp;&nbsp;
@@ -28282,10 +27799,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="iva_defecto"                data-endpoint="PUTapi-tipo-servicio--tipoServicio_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje de IVA por defecto. Example: <code>11613.31890586</code></p>
+<p>Porcentaje de IVA por defecto. Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>proveedores</code></b>&nbsp;&nbsp;
@@ -28635,9 +28152,9 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"codigo\": \"vmqeopfuudtdsufvyvddq\",
-    \"nombre\": \"amniihfqcoynlazghdtqt\",
-    \"simbolo\": \"qxbajwbpi\"
+    \"codigo\": \"b\",
+    \"nombre\": \"n\",
+    \"simbolo\": \"gzmiyv\"
 }"
 </code></pre></div>
 
@@ -28654,9 +28171,9 @@ const headers = {
 };
 
 let body = {
-    "codigo": "vmqeopfuudtdsufvyvddq",
-    "nombre": "amniihfqcoynlazghdtqt",
-    "simbolo": "qxbajwbpi"
+    "codigo": "b",
+    "nombre": "n",
+    "simbolo": "gzmiyv"
 };
 
 fetch(url, {
@@ -28760,10 +28277,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="codigo"                data-endpoint="POSTapi-tasas"
-               value="vmqeopfuudtdsufvyvddq"
+               value="b"
                data-component="body">
     <br>
-<p>Must not be greater than 50 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Must not be greater than 50 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -28772,10 +28289,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="POSTapi-tasas"
-               value="amniihfqcoynlazghdtqt"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>simbolo</code></b>&nbsp;&nbsp;
@@ -28784,10 +28301,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="simbolo"                data-endpoint="POSTapi-tasas"
-               value="qxbajwbpi"
+               value="gzmiyv"
                data-component="body">
     <br>
-<p>Must not be greater than 10 characters. Example: <code>qxbajwbpi</code></p>
+<p>Must not be greater than 10 characters. Example: <code>gzmiyv</code></p>
         </div>
         </form>
 
@@ -28970,9 +28487,9 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"codigo\": \"vmqeopfuudtdsufvyvddq\",
-    \"nombre\": \"amniihfqcoynlazghdtqt\",
-    \"simbolo\": \"qxbajwbpi\"
+    \"codigo\": \"b\",
+    \"nombre\": \"n\",
+    \"simbolo\": \"gzmiyv\"
 }"
 </code></pre></div>
 
@@ -28989,9 +28506,9 @@ const headers = {
 };
 
 let body = {
-    "codigo": "vmqeopfuudtdsufvyvddq",
-    "nombre": "amniihfqcoynlazghdtqt",
-    "simbolo": "qxbajwbpi"
+    "codigo": "b",
+    "nombre": "n",
+    "simbolo": "gzmiyv"
 };
 
 fetch(url, {
@@ -29112,10 +28629,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="codigo"                data-endpoint="PUTapi-tasas--id-"
-               value="vmqeopfuudtdsufvyvddq"
+               value="b"
                data-component="body">
     <br>
-<p>Must not be greater than 50 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Must not be greater than 50 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
@@ -29124,10 +28641,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="nombre"                data-endpoint="PUTapi-tasas--id-"
-               value="amniihfqcoynlazghdtqt"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>simbolo</code></b>&nbsp;&nbsp;
@@ -29136,10 +28653,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="simbolo"                data-endpoint="PUTapi-tasas--id-"
-               value="qxbajwbpi"
+               value="gzmiyv"
                data-component="body">
     <br>
-<p>Must not be greater than 10 characters. Example: <code>qxbajwbpi</code></p>
+<p>Must not be greater than 10 characters. Example: <code>gzmiyv</code></p>
         </div>
         </form>
 
@@ -29340,7 +28857,7 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-07&quot;
+            &quot;fecha&quot;: &quot;2026-05-17&quot;
         }
     ]
 }</code>
@@ -29450,9 +28967,9 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_tasa\": 17,
-    \"valor_cambio\": 11613.31890586,
-    \"fecha\": \"consequatur\"
+    \"id_tasa\": 16,
+    \"valor_cambio\": 4326.41688,
+    \"fecha\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -29469,9 +28986,9 @@ const headers = {
 };
 
 let body = {
-    "id_tasa": 17,
-    "valor_cambio": 11613.31890586,
-    "fecha": "consequatur"
+    "id_tasa": 16,
+    "valor_cambio": 4326.41688,
+    "fecha": "architecto"
 };
 
 fetch(url, {
@@ -29575,10 +29092,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa"                data-endpoint="POSTapi-tasas-cambio"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la moneda del catálogo (Ej: USD_BCV). Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la moneda del catálogo (Ej: USD_BCV). Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>valor_cambio</code></b>&nbsp;&nbsp;
@@ -29587,10 +29104,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="valor_cambio"                data-endpoint="POSTapi-tasas-cambio"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Valor numérico de la tasa. Ejemplo: 36.50 Example: <code>11613.31890586</code></p>
+<p>Valor numérico de la tasa. Ejemplo: 36.50 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha</code></b>&nbsp;&nbsp;
@@ -29599,10 +29116,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha"                data-endpoint="POSTapi-tasas-cambio"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de la tasa. Ejemplo: 2026-04-10 Example: <code>consequatur</code></p>
+<p>Fecha de la tasa. Ejemplo: 2026-04-10 Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -29663,7 +29180,7 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: 36.5,
-        &quot;fecha&quot;: &quot;2026-05-07&quot;,
+        &quot;fecha&quot;: &quot;2026-05-17&quot;,
         &quot;moneda&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
@@ -29791,9 +29308,9 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_tasa\": 17,
-    \"valor_cambio\": 11613.31890586,
-    \"fecha\": \"consequatur\"
+    \"id_tasa\": 16,
+    \"valor_cambio\": 4326.41688,
+    \"fecha\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -29810,9 +29327,9 @@ const headers = {
 };
 
 let body = {
-    "id_tasa": 17,
-    "valor_cambio": 11613.31890586,
-    "fecha": "consequatur"
+    "id_tasa": 16,
+    "valor_cambio": 4326.41688,
+    "fecha": "architecto"
 };
 
 fetch(url, {
@@ -29933,10 +29450,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la moneda. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la moneda. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>valor_cambio</code></b>&nbsp;&nbsp;
@@ -29945,10 +29462,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="valor_cambio"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Valor de la tasa. Ejemplo: 36.55 Example: <code>11613.31890586</code></p>
+<p>Valor de la tasa. Ejemplo: 36.55 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha</code></b>&nbsp;&nbsp;
@@ -29957,10 +29474,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha"                data-endpoint="PUTapi-tasas-cambio--tasaCambio_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha. Ejemplo: 2026-04-11 Example: <code>consequatur</code></p>
+<p>Fecha. Ejemplo: 2026-04-11 Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -30156,38 +29673,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;id_cotizacion&quot;: 1,
-            &quot;id_tipo_servicio&quot;: 1,
-            &quot;id_proveedor&quot;: 1,
-            &quot;descripcion&quot;: null,
-            &quot;costo&quot;: 100,
-            &quot;monto_gravable&quot;: 100,
-            &quot;monto_no_sujeto&quot;: 0,
-            &quot;total_servicio&quot;: 100,
-            &quot;iva_establecido&quot;: 0,
-            &quot;id_tasa_cambio&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;id_cotizacion&quot;: 1,
-            &quot;id_tipo_servicio&quot;: 1,
-            &quot;id_proveedor&quot;: 1,
-            &quot;descripcion&quot;: null,
-            &quot;costo&quot;: 160,
-            &quot;monto_gravable&quot;: 140,
-            &quot;monto_no_sujeto&quot;: 20,
-            &quot;total_servicio&quot;: 160,
-            &quot;iva_establecido&quot;: 0,
-            &quot;id_tasa_cambio&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        }
-    ]
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -30295,15 +29781,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_cotizacion\": \"consequatur\",
-    \"id_tipo_servicio\": 17,
-    \"id_proveedor\": 17,
-    \"descripcion\": \"consequatur\",
-    \"costo\": 11613.31890586,
-    \"monto_gravable\": 11613.31890586,
-    \"monto_no_sujeto\": 11613.31890586,
-    \"iva_establecido\": 11613.31890586,
-    \"id_tasa_cambio\": 17
+    \"id_cotizacion\": \"architecto\",
+    \"id_tipo_servicio\": 16,
+    \"id_proveedor\": 16,
+    \"descripcion\": \"architecto\",
+    \"costo\": 4326.41688,
+    \"monto_gravable\": 4326.41688,
+    \"monto_no_sujeto\": 4326.41688,
+    \"iva_establecido\": 4326.41688,
+    \"id_tasa_cambio\": 16
 }"
 </code></pre></div>
 
@@ -30320,15 +29806,15 @@ const headers = {
 };
 
 let body = {
-    "id_cotizacion": "consequatur",
-    "id_tipo_servicio": 17,
-    "id_proveedor": 17,
-    "descripcion": "consequatur",
-    "costo": 11613.31890586,
-    "monto_gravable": 11613.31890586,
-    "monto_no_sujeto": 11613.31890586,
-    "iva_establecido": 11613.31890586,
-    "id_tasa_cambio": 17
+    "id_cotizacion": "architecto",
+    "id_tipo_servicio": 16,
+    "id_proveedor": 16,
+    "descripcion": "architecto",
+    "costo": 4326.41688,
+    "monto_gravable": 4326.41688,
+    "monto_no_sujeto": 4326.41688,
+    "iva_establecido": 4326.41688,
+    "id_tasa_cambio": 16
 };
 
 fetch(url, {
@@ -30432,10 +29918,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="id_cotizacion"                data-endpoint="POSTapi-servicios"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tipo_servicio</code></b>&nbsp;&nbsp;
@@ -30444,10 +29930,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tipo_servicio"                data-endpoint="POSTapi-servicios"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del tipo de servicio. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_proveedor</code></b>&nbsp;&nbsp;
@@ -30456,10 +29942,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_proveedor"                data-endpoint="POSTapi-servicios"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del proveedor del servicio. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del proveedor del servicio. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>descripcion</code></b>&nbsp;&nbsp;
@@ -30468,10 +29954,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="descripcion"                data-endpoint="POSTapi-servicios"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>optional Detalles de qué incluye el servicio. Example: <code>consequatur</code></p>
+<p>optional Detalles de qué incluye el servicio. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
@@ -30480,10 +29966,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="costo"                data-endpoint="POSTapi-servicios"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Precio de costo interno del servicio. Ejemplo: 150.00 Example: <code>11613.31890586</code></p>
+<p>Precio de costo interno del servicio. Ejemplo: 150.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
@@ -30492,10 +29978,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_gravable"                data-endpoint="POSTapi-servicios"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto sobre el cual se aplica IVA. Ejemplo: 150.00 Example: <code>11613.31890586</code></p>
+<p>Monto sobre el cual se aplica IVA. Ejemplo: 150.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
@@ -30504,10 +29990,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_no_sujeto"                data-endpoint="POSTapi-servicios"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto libre de impuestos. Ejemplo: 0.00 Example: <code>11613.31890586</code></p>
+<p>Monto libre de impuestos. Ejemplo: 0.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>iva_establecido</code></b>&nbsp;&nbsp;
@@ -30516,10 +30002,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="iva_establecido"                data-endpoint="POSTapi-servicios"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Porcentaje fijo de IVA que recaerá en el monto gravable. Ejemplo: 16.00 Example: <code>11613.31890586</code></p>
+<p>Porcentaje fijo de IVA que recaerá en el monto gravable. Ejemplo: 16.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -30528,10 +30014,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_tasa_cambio"                data-endpoint="POSTapi-servicios"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la tasa de cambio aplicada. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -30549,7 +30035,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios/1" \
+    --get "http://localhost:8000/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30557,7 +30043,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost:8000/api/servicios/16"
 );
 
 const headers = {
@@ -30576,7 +30062,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-servicios--id-">
             <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
+            <p>Ejemplo de respuesta (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -30588,45 +30074,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;id_cotizacion&quot;: 1,
-        &quot;id_tipo_servicio&quot;: 1,
-        &quot;id_proveedor&quot;: 1,
-        &quot;descripcion&quot;: null,
-        &quot;costo&quot;: 100,
-        &quot;monto_gravable&quot;: 100,
-        &quot;monto_no_sujeto&quot;: 0,
-        &quot;total_servicio&quot;: 100,
-        &quot;iva_establecido&quot;: 0,
-        &quot;id_tasa_cambio&quot;: 1,
-        &quot;tipo_servicio&quot;: {
-            &quot;id&quot;: 1,
-            &quot;tipo_servicio&quot;: &quot;Alojamiento&quot;,
-            &quot;iva_defecto&quot;: 16
-        },
-        &quot;proveedor&quot;: {
-            &quot;id&quot;: 1,
-            &quot;nombre_empresa&quot;: &quot;Servicios Delta&quot;,
-            &quot;razon_comercial&quot;: &quot;Delta Servicios&quot;,
-            &quot;rif&quot;: &quot;J-12345678-9&quot;,
-            &quot;correo_empresa&quot;: &quot;contacto@serviciosdelta.test&quot;,
-            &quot;telefono_empresa&quot;: &quot;02120000000&quot;,
-            &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
-            &quot;id_tipo_contribuyente&quot;: null,
-            &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-        },
-        &quot;tasa_cambio&quot;: {
-            &quot;id&quot;: 1,
-            &quot;id_tasa&quot;: 5,
-            &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-07&quot;
-        },
-        &quot;created_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-07T05:59:19.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Servicio] 16&quot;
 }</code>
  </pre>
     </span>
@@ -30721,10 +30169,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-servicios--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the servicio. Example: <code>1</code></p>
+<p>The ID of the servicio. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -30742,23 +30190,23 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/servicios/1" \
+    "http://localhost:8000/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"descripcion\": \"consequatur\",
-    \"costo\": 45,
-    \"monto_gravable\": 56,
-    \"monto_no_sujeto\": 16,
-    \"iva_establecido\": 50
+    \"descripcion\": \"architecto\",
+    \"costo\": 39,
+    \"monto_gravable\": 84,
+    \"monto_no_sujeto\": 12,
+    \"iva_establecido\": 77
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost:8000/api/servicios/16"
 );
 
 const headers = {
@@ -30768,11 +30216,11 @@ const headers = {
 };
 
 let body = {
-    "descripcion": "consequatur",
-    "costo": 45,
-    "monto_gravable": 56,
-    "monto_no_sujeto": 16,
-    "iva_establecido": 50
+    "descripcion": "architecto",
+    "costo": 39,
+    "monto_gravable": 84,
+    "monto_no_sujeto": 12,
+    "iva_establecido": 77
 };
 
 fetch(url, {
@@ -30880,10 +30328,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-servicios--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the servicio. Example: <code>1</code></p>
+<p>The ID of the servicio. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -30929,10 +30377,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="descripcion"                data-endpoint="PUTapi-servicios--id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>costo</code></b>&nbsp;&nbsp;
@@ -30941,10 +30389,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="costo"                data-endpoint="PUTapi-servicios--id-"
-               value="45"
+               value="39"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>45</code></p>
+<p>Must be at least 0. Example: <code>39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_gravable</code></b>&nbsp;&nbsp;
@@ -30953,10 +30401,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_gravable"                data-endpoint="PUTapi-servicios--id-"
-               value="56"
+               value="84"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>56</code></p>
+<p>Must be at least 0. Example: <code>84</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto_no_sujeto</code></b>&nbsp;&nbsp;
@@ -30965,10 +30413,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto_no_sujeto"                data-endpoint="PUTapi-servicios--id-"
-               value="16"
+               value="12"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>16</code></p>
+<p>Must be at least 0. Example: <code>12</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>iva_establecido</code></b>&nbsp;&nbsp;
@@ -30977,10 +30425,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="iva_establecido"                data-endpoint="PUTapi-servicios--id-"
-               value="50"
+               value="77"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>50</code></p>
+<p>Must be at least 0. Example: <code>77</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_tasa_cambio</code></b>&nbsp;&nbsp;
@@ -31011,7 +30459,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/servicios/1" \
+    "http://localhost:8000/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31019,7 +30467,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/1"
+    "http://localhost:8000/api/servicios/16"
 );
 
 const headers = {
@@ -31129,10 +30577,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-servicios--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the servicio. Example: <code>1</code></p>
+<p>The ID of the servicio. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -31322,8 +30770,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"temporalidad\": \"vmqeopfuudtdsufvyvddq\",
-    \"carbon_method\": \"amniihfqcoynlazghdtqt\"
+    \"temporalidad\": \"b\",
+    \"carbon_method\": \"n\"
 }"
 </code></pre></div>
 
@@ -31340,8 +30788,8 @@ const headers = {
 };
 
 let body = {
-    "temporalidad": "vmqeopfuudtdsufvyvddq",
-    "carbon_method": "amniihfqcoynlazghdtqt"
+    "temporalidad": "b",
+    "carbon_method": "n"
 };
 
 fetch(url, {
@@ -31445,10 +30893,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="temporalidad"                data-endpoint="POSTapi-temporalidades"
-               value="vmqeopfuudtdsufvyvddq"
+               value="b"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>carbon_method</code></b>&nbsp;&nbsp;
@@ -31457,10 +30905,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="carbon_method"                data-endpoint="POSTapi-temporalidades"
-               value="amniihfqcoynlazghdtqt"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
         </div>
         </form>
 
@@ -31643,8 +31091,8 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"temporalidad\": \"vmqeopfuudtdsufvyvddq\",
-    \"carbon_method\": \"amniihfqcoynlazghdtqt\"
+    \"temporalidad\": \"b\",
+    \"carbon_method\": \"n\"
 }"
 </code></pre></div>
 
@@ -31661,8 +31109,8 @@ const headers = {
 };
 
 let body = {
-    "temporalidad": "vmqeopfuudtdsufvyvddq",
-    "carbon_method": "amniihfqcoynlazghdtqt"
+    "temporalidad": "b",
+    "carbon_method": "n"
 };
 
 fetch(url, {
@@ -31783,10 +31231,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="temporalidad"                data-endpoint="PUTapi-temporalidades--temporalidad_id-"
-               value="vmqeopfuudtdsufvyvddq"
+               value="b"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>carbon_method</code></b>&nbsp;&nbsp;
@@ -31795,10 +31243,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="carbon_method"                data-endpoint="PUTapi-temporalidades--temporalidad_id-"
-               value="amniihfqcoynlazghdtqt"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
         </div>
         </form>
 
@@ -31947,7 +31395,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Devuelve el listado de metas de ventas configuradas en el sistema.</p>
+
 
 <span id="example-requests-GETapi-metas">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -31999,7 +31447,7 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;nombre&quot;: &quot;Cierre de Atenciones Mensual&quot;,
             &quot;tipo_entidad&quot;: &quot;atencion&quot;,
-            &quot;id_estatus_objetivo&quot;: 10,
+            &quot;estatus_objetivo&quot;: &quot;aprobado&quot;,
             &quot;es_monetario&quot;: false,
             &quot;valor_objetivo&quot;: 50,
             &quot;id_temporalidad&quot;: 3,
@@ -32009,14 +31457,14 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;mensual&quot;,
                 &quot;carbon_method&quot;: &quot;startOfMonth&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;nombre&quot;: &quot;Recaudaci&oacute;n por Ventas Semanal&quot;,
             &quot;tipo_entidad&quot;: &quot;orden_compra&quot;,
-            &quot;id_estatus_objetivo&quot;: 8,
+            &quot;estatus_objetivo&quot;: &quot;pagado&quot;,
             &quot;es_monetario&quot;: true,
             &quot;valor_objetivo&quot;: 2500,
             &quot;id_temporalidad&quot;: 2,
@@ -32026,8 +31474,8 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;semanal&quot;,
                 &quot;carbon_method&quot;: &quot;startOfWeek&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-07T05:59:18.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
         }
     ]
 }</code>
@@ -32124,7 +31572,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Registra una meta de ventas para un periodo y monto específico.</p>
+
 
 <span id="example-requests-POSTapi-metas">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -32137,10 +31585,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto\": 11613.31890586,
-    \"id_temporalidad\": 17,
-    \"fecha_inicio\": \"consequatur\",
-    \"fecha_fin\": \"consequatur\"
+    \"nombre\": \"architecto\",
+    \"tipo_entidad\": \"architecto\",
+    \"estatus_objetivo\": \"architecto\",
+    \"es_monetario\": false,
+    \"valor_objetivo\": 4326.41688,
+    \"id_temporalidad\": 16
 }"
 </code></pre></div>
 
@@ -32157,10 +31607,12 @@ const headers = {
 };
 
 let body = {
-    "monto": 11613.31890586,
-    "id_temporalidad": 17,
-    "fecha_inicio": "consequatur",
-    "fecha_fin": "consequatur"
+    "nombre": "architecto",
+    "tipo_entidad": "architecto",
+    "estatus_objetivo": "architecto",
+    "es_monetario": false,
+    "valor_objetivo": 4326.41688,
+    "id_temporalidad": 16
 };
 
 fetch(url, {
@@ -32258,16 +31710,74 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                                 <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-metas"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Nombre descriptivo de la meta. Ejemplo: Cierre de Atenciones Mensual Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tipo_entidad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tipo_entidad"                data-endpoint="POSTapi-metas"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Tipo de entidad: atencion, cotizacion, orden_compra Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estatus_objetivo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="estatus_objetivo"                data-endpoint="POSTapi-metas"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug del estado que marca el hito. Ejemplo: aprobado Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>es_monetario</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-metas" style="display: none">
+            <input type="radio" name="es_monetario"
+                   value="true"
+                   data-endpoint="POSTapi-metas"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-metas" style="display: none">
+            <input type="radio" name="es_monetario"
+                   value="false"
+                   data-endpoint="POSTapi-metas"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Si true, suma montos; si false, cuenta registros. No aplica para atencion. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>valor_objetivo</code></b>&nbsp;&nbsp;
 <small>number</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="monto"                data-endpoint="POSTapi-metas"
-               value="11613.31890586"
+               step="any"               name="valor_objetivo"                data-endpoint="POSTapi-metas"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto objetivo de la meta. Ejemplo: 50000.00 Example: <code>11613.31890586</code></p>
+<p>Meta numérica o monetaria a alcanzar. Ejemplo: 50 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_temporalidad</code></b>&nbsp;&nbsp;
@@ -32276,34 +31786,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_temporalidad"                data-endpoint="POSTapi-metas"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la temporalidad (Mensual, Anual, etc). Ejemplo: 1 Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fecha_inicio</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="fecha_inicio"                data-endpoint="POSTapi-metas"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Fecha de inicio de la meta. Ejemplo: 2026-04-01 Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="fecha_fin"                data-endpoint="POSTapi-metas"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Fecha de fin de la meta. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+<p>ID de la temporalidad (Mensual, Semanal, etc). Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -32313,7 +31799,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Devuelve los datos de una meta por su ID.</p>
+
 
 <span id="example-requests-GETapi-metas--id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -32364,7 +31850,7 @@ access-control-allow-origin: *
         &quot;id&quot;: null,
         &quot;nombre&quot;: null,
         &quot;tipo_entidad&quot;: null,
-        &quot;id_estatus_objetivo&quot;: null,
+        &quot;estatus_objetivo&quot;: null,
         &quot;es_monetario&quot;: false,
         &quot;valor_objetivo&quot;: 0,
         &quot;id_temporalidad&quot;: null,
@@ -32479,7 +31965,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Modifica los parámetros de una meta de ventas existente.</p>
+
 
 <span id="example-requests-PUTapi-metas--id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -32492,10 +31978,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto\": 11613.31890586,
-    \"id_temporalidad\": 17,
-    \"fecha_inicio\": \"consequatur\",
-    \"fecha_fin\": \"consequatur\"
+    \"nombre\": \"architecto\",
+    \"tipo_entidad\": \"architecto\",
+    \"estatus_objetivo\": \"architecto\",
+    \"es_monetario\": false,
+    \"valor_objetivo\": 4326.41688,
+    \"id_temporalidad\": 16
 }"
 </code></pre></div>
 
@@ -32512,10 +32000,12 @@ const headers = {
 };
 
 let body = {
-    "monto": 11613.31890586,
-    "id_temporalidad": 17,
-    "fecha_inicio": "consequatur",
-    "fecha_fin": "consequatur"
+    "nombre": "architecto",
+    "tipo_entidad": "architecto",
+    "estatus_objetivo": "architecto",
+    "es_monetario": false,
+    "valor_objetivo": 4326.41688,
+    "id_temporalidad": 16
 };
 
 fetch(url, {
@@ -32630,16 +32120,74 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                             <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-metas--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Nombre descriptivo de la meta. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tipo_entidad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tipo_entidad"                data-endpoint="PUTapi-metas--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Tipo de entidad: atencion, cotizacion, orden_compra Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estatus_objetivo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="estatus_objetivo"                data-endpoint="PUTapi-metas--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug del estado que marca el hito. Ejemplo: aprobado Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>es_monetario</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-metas--id-" style="display: none">
+            <input type="radio" name="es_monetario"
+                   value="true"
+                   data-endpoint="PUTapi-metas--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-metas--id-" style="display: none">
+            <input type="radio" name="es_monetario"
+                   value="false"
+                   data-endpoint="PUTapi-metas--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Si true, suma montos; si false, cuenta registros. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>valor_objetivo</code></b>&nbsp;&nbsp;
 <small>number</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="monto"                data-endpoint="PUTapi-metas--id-"
-               value="11613.31890586"
+               step="any"               name="valor_objetivo"                data-endpoint="PUTapi-metas--id-"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto objetivo. Example: <code>11613.31890586</code></p>
+<p>Meta numérica o monetaria a alcanzar. Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_temporalidad</code></b>&nbsp;&nbsp;
@@ -32648,34 +32196,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_temporalidad"                data-endpoint="PUTapi-metas--id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la temporalidad. Example: <code>17</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fecha_inicio</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="fecha_inicio"                data-endpoint="PUTapi-metas--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Fecha de inicio. Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="fecha_fin"                data-endpoint="PUTapi-metas--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Fecha de fin. Example: <code>consequatur</code></p>
+<p>ID de la temporalidad. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -32685,7 +32209,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Elimina permanentemente la meta del sistema.</p>
+
 
 <span id="example-requests-DELETEapi-metas--id-">
 <blockquote>Ejemplo de petición:</blockquote>
@@ -32979,11 +32503,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_personal\": 17,
-    \"monto\": 11613.31890586,
-    \"id_temporalidad\": 17,
-    \"fecha_inicio\": \"consequatur\",
-    \"fecha_fin\": \"consequatur\"
+    \"id_personal\": 16,
+    \"monto\": 4326.41688,
+    \"id_temporalidad\": 16,
+    \"fecha_inicio\": \"architecto\",
+    \"fecha_fin\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -33000,11 +32524,11 @@ const headers = {
 };
 
 let body = {
-    "id_personal": 17,
-    "monto": 11613.31890586,
-    "id_temporalidad": 17,
-    "fecha_inicio": "consequatur",
-    "fecha_fin": "consequatur"
+    "id_personal": 16,
+    "monto": 4326.41688,
+    "id_temporalidad": 16,
+    "fecha_inicio": "architecto",
+    "fecha_fin": "architecto"
 };
 
 fetch(url, {
@@ -33108,10 +32632,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="POSTapi-metas-personal"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario con rol personal. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
@@ -33120,10 +32644,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto"                data-endpoint="POSTapi-metas-personal"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto objetivo de la meta personal. Ejemplo: 10000.00 Example: <code>11613.31890586</code></p>
+<p>Monto objetivo de la meta personal. Ejemplo: 10000.00 Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_temporalidad</code></b>&nbsp;&nbsp;
@@ -33132,10 +32656,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_temporalidad"                data-endpoint="POSTapi-metas-personal"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la temporalidad. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID de la temporalidad. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_inicio</code></b>&nbsp;&nbsp;
@@ -33144,10 +32668,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="POSTapi-metas-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de inicio. Ejemplo: 2026-04-01 Example: <code>consequatur</code></p>
+<p>Fecha de inicio. Ejemplo: 2026-04-01 Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -33156,10 +32680,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="POSTapi-metas-personal"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de fin. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+<p>Fecha de fin. Ejemplo: 2026-04-30 Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -33337,11 +32861,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_personal\": 17,
-    \"monto\": 11613.31890586,
-    \"id_temporalidad\": 17,
-    \"fecha_inicio\": \"consequatur\",
-    \"fecha_fin\": \"consequatur\"
+    \"id_personal\": 16,
+    \"monto\": 4326.41688,
+    \"id_temporalidad\": 16,
+    \"fecha_inicio\": \"architecto\",
+    \"fecha_fin\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -33358,11 +32882,11 @@ const headers = {
 };
 
 let body = {
-    "id_personal": 17,
-    "monto": 11613.31890586,
-    "id_temporalidad": 17,
-    "fecha_inicio": "consequatur",
-    "fecha_fin": "consequatur"
+    "id_personal": 16,
+    "monto": 4326.41688,
+    "id_temporalidad": 16,
+    "fecha_inicio": "architecto",
+    "fecha_fin": "architecto"
 };
 
 fetch(url, {
@@ -33483,10 +33007,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID del usuario personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>ID del usuario personal. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
@@ -33495,10 +33019,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="monto"                data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="11613.31890586"
+               value="4326.41688"
                data-component="body">
     <br>
-<p>Monto objetivo. Example: <code>11613.31890586</code></p>
+<p>Monto objetivo. Example: <code>4326.41688</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_temporalidad</code></b>&nbsp;&nbsp;
@@ -33507,10 +33031,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_temporalidad"                data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>ID de la temporalidad. Example: <code>17</code></p>
+<p>ID de la temporalidad. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_inicio</code></b>&nbsp;&nbsp;
@@ -33519,10 +33043,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de inicio. Example: <code>consequatur</code></p>
+<p>Fecha de inicio. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -33531,10 +33055,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-metas-personal--metaPersonal_id-"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de fin. Example: <code>consequatur</code></p>
+<p>Fecha de fin. Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -33691,15 +33215,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/logros-personal?id_personal=17&amp;tipo_entidad=consequatur&amp;id_entidad=17&amp;per_page=17" \
+    --get "http://localhost:8000/api/logros-personal?id_personal=16&amp;tipo_entidad=architecto&amp;id_entidad=16&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id_personal\": 17,
+    \"id_personal\": 16,
     \"tipo_entidad\": \"atencion\",
-    \"id_entidad\": 45,
-    \"per_page\": 16
+    \"id_entidad\": 22,
+    \"per_page\": 7
 }"
 </code></pre></div>
 
@@ -33710,10 +33234,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const params = {
-    "id_personal": "17",
-    "tipo_entidad": "consequatur",
-    "id_entidad": "17",
-    "per_page": "17",
+    "id_personal": "16",
+    "tipo_entidad": "architecto",
+    "id_entidad": "16",
+    "per_page": "16",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -33725,10 +33249,10 @@ const headers = {
 };
 
 let body = {
-    "id_personal": 17,
+    "id_personal": 16,
     "tipo_entidad": "atencion",
-    "id_entidad": 45,
-    "per_page": 16
+    "id_entidad": 22,
+    "per_page": 7
 };
 
 fetch(url, {
@@ -33853,10 +33377,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="GETapi-logros-personal"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID del usuario con rol personal. Ejemplo: 1 Example: <code>17</code></p>
+<p>Filtrar por ID del usuario con rol personal. Ejemplo: 1 Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>tipo_entidad</code></b>&nbsp;&nbsp;
@@ -33865,10 +33389,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Filtrar por tipo de entidad (atencion, cotizacion, orden_compra). Ejemplo: atencion Example: <code>consequatur</code></p>
+<p>Filtrar por tipo de entidad (atencion, cotizacion, orden_compra). Ejemplo: atencion Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id_entidad</code></b>&nbsp;&nbsp;
@@ -33877,10 +33401,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_entidad"                data-endpoint="GETapi-logros-personal"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID de la entidad. Ejemplo: 1 Example: <code>17</code></p>
+<p>Filtrar por ID de la entidad. Ejemplo: 1 Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
@@ -33889,10 +33413,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-logros-personal"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Cantidad de resultados por página. Ejemplo: 50 Example: <code>17</code></p>
+<p>Cantidad de resultados por página. Ejemplo: 50 Example: <code>16</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -33902,10 +33426,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_personal"                data-endpoint="GETapi-logros-personal"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the usuarios table. Example: <code>17</code></p>
+<p>The <code>id</code> of an existing record in the usuarios table. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tipo_entidad</code></b>&nbsp;&nbsp;
@@ -33928,10 +33452,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_entidad"                data-endpoint="GETapi-logros-personal"
-               value="45"
+               value="22"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>45</code></p>
+<p>Must be at least 1. Example: <code>22</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
@@ -33940,10 +33464,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-logros-personal"
-               value="16"
+               value="7"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 200. Example: <code>16</code></p>
+<p>Must be at least 1. Must not be greater than 200. Example: <code>7</code></p>
         </div>
         </form>
 
@@ -33961,7 +33485,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;modo=consequatur" \
+    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;modo=architecto" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33973,13 +33497,13 @@ Must be one of:
 );
 
 const params = {
-    "id_usuario": "17",
-    "action": "consequatur",
-    "table_name": "consequatur",
-    "record_id": "17",
-    "desde": "consequatur",
-    "hasta": "consequatur",
-    "modo": "consequatur",
+    "id_usuario": "16",
+    "action": "architecto",
+    "table_name": "architecto",
+    "record_id": "16",
+    "desde": "architecto",
+    "hasta": "architecto",
+    "modo": "architecto",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -34121,10 +33645,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_usuario"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID de usuario. Example: <code>17</code></p>
+<p>Filtrar por ID de usuario. Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
@@ -34133,10 +33657,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="action"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Filtrar por tipo de acción. Example: <code>consequatur</code></p>
+<p>Filtrar por tipo de acción. Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>table_name</code></b>&nbsp;&nbsp;
@@ -34145,10 +33669,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="table_name"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Filtrar por nombre de tabla. Example: <code>consequatur</code></p>
+<p>Filtrar por nombre de tabla. Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
@@ -34157,10 +33681,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="record_id"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID de registro. Example: <code>17</code></p>
+<p>Filtrar por ID de registro. Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>desde</code></b>&nbsp;&nbsp;
@@ -34169,10 +33693,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="desde"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>date Fecha de inicio del filtro. Example: <code>consequatur</code></p>
+<p>date Fecha de inicio del filtro. Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hasta</code></b>&nbsp;&nbsp;
@@ -34181,10 +33705,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="hasta"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>date Fecha de fin del filtro. Example: <code>consequatur</code></p>
+<p>date Fecha de fin del filtro. Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>modo</code></b>&nbsp;&nbsp;
@@ -34193,10 +33717,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="modo"                data-endpoint="GETapi-audit-logs-export-csv"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Modo de exportación (completo, resumen). Ejemplo: completo Example: <code>consequatur</code></p>
+<p>Modo de exportación (completo, resumen). Ejemplo: completo Example: <code>architecto</code></p>
             </div>
                 </form>
 
@@ -34214,7 +33738,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs?id_usuario=17&amp;action=consequatur&amp;table_name=consequatur&amp;record_id=17&amp;desde=consequatur&amp;hasta=consequatur&amp;per_page=17" \
+    --get "http://localhost:8000/api/audit-logs?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -34226,13 +33750,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 );
 
 const params = {
-    "id_usuario": "17",
-    "action": "consequatur",
-    "table_name": "consequatur",
-    "record_id": "17",
-    "desde": "consequatur",
-    "hasta": "consequatur",
-    "per_page": "17",
+    "id_usuario": "16",
+    "action": "architecto",
+    "table_name": "architecto",
+    "record_id": "16",
+    "desde": "architecto",
+    "hasta": "architecto",
+    "per_page": "16",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -34371,10 +33895,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id_usuario"                data-endpoint="GETapi-audit-logs"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID de usuario. Ejemplo: 1 Example: <code>17</code></p>
+<p>Filtrar por ID de usuario. Ejemplo: 1 Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>action</code></b>&nbsp;&nbsp;
@@ -34383,10 +33907,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="action"                data-endpoint="GETapi-audit-logs"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Filtrar por tipo de acción (ej. login, create, update). Ejemplo: login Example: <code>consequatur</code></p>
+<p>Filtrar por tipo de acción (ej. login, create, update). Ejemplo: login Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>table_name</code></b>&nbsp;&nbsp;
@@ -34395,10 +33919,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="table_name"                data-endpoint="GETapi-audit-logs"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>Filtrar por nombre de tabla. Ejemplo: empresas Example: <code>consequatur</code></p>
+<p>Filtrar por nombre de tabla. Ejemplo: empresas Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
@@ -34407,10 +33931,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="record_id"                data-endpoint="GETapi-audit-logs"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Filtrar por ID de registro afectado. Ejemplo: 1 Example: <code>17</code></p>
+<p>Filtrar por ID de registro afectado. Ejemplo: 1 Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>desde</code></b>&nbsp;&nbsp;
@@ -34419,10 +33943,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="desde"                data-endpoint="GETapi-audit-logs"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>date Fecha de inicio del filtro. Ejemplo: 2026-04-01 Example: <code>consequatur</code></p>
+<p>date Fecha de inicio del filtro. Ejemplo: 2026-04-01 Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>hasta</code></b>&nbsp;&nbsp;
@@ -34431,10 +33955,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="hasta"                data-endpoint="GETapi-audit-logs"
-               value="consequatur"
+               value="architecto"
                data-component="query">
     <br>
-<p>date Fecha de fin del filtro. Ejemplo: 2026-04-30 Example: <code>consequatur</code></p>
+<p>date Fecha de fin del filtro. Ejemplo: 2026-04-30 Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
@@ -34443,10 +33967,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-audit-logs"
-               value="17"
+               value="16"
                data-component="query">
     <br>
-<p>Cantidad de resultados por página. Ejemplo: 50 Example: <code>17</code></p>
+<p>Cantidad de resultados por página. Ejemplo: 50 Example: <code>16</code></p>
             </div>
                 </form>
 
@@ -34469,10 +33993,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"credentials\": [],
     \"context\": {
-        \"session_label\": \"consequatur\"
+        \"session_label\": \"architecto\"
     }
 }"
 </code></pre></div>
@@ -34490,10 +34014,10 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "credentials": [],
     "context": {
-        "session_label": "consequatur"
+        "session_label": "architecto"
     }
 };
 
@@ -34598,10 +34122,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-session"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>credentials</code></b>&nbsp;&nbsp;
@@ -34632,10 +34156,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.session_label"                data-endpoint="POSTapi-kiu-session"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Etiqueta para identificar la sesion. Ejemplo: MI-SESION-1 Example: <code>consequatur</code></p>
+<p>Etiqueta para identificar la sesion. Ejemplo: MI-SESION-1 Example: <code>architecto</code></p>
                     </div>
                                     </details>
         </div>
@@ -34660,12 +34184,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"context\": {
-        \"origin\": \"consequatur\",
-        \"destination\": \"consequatur\",
-        \"departure_date\": \"consequatur\",
-        \"adults\": 17
+        \"origin\": \"architecto\",
+        \"destination\": \"architecto\",
+        \"departure_date\": \"architecto\",
+        \"adults\": 16
     }
 }"
 </code></pre></div>
@@ -34683,12 +34207,12 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "context": {
-        "origin": "consequatur",
-        "destination": "consequatur",
-        "departure_date": "consequatur",
-        "adults": 17
+        "origin": "architecto",
+        "destination": "architecto",
+        "departure_date": "architecto",
+        "adults": 16
     }
 };
 
@@ -34793,10 +34317,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-availability"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -34815,10 +34339,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.origin"                data-endpoint="POSTapi-kiu-availability"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Codigo IATA del aeropuerto de origen. Ejemplo: CCS Example: <code>consequatur</code></p>
+<p>Codigo IATA del aeropuerto de origen. Ejemplo: CCS Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>destination</code></b>&nbsp;&nbsp;
@@ -34827,10 +34351,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.destination"                data-endpoint="POSTapi-kiu-availability"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Codigo IATA del aeropuerto de destino. Ejemplo: MIA Example: <code>consequatur</code></p>
+<p>Codigo IATA del aeropuerto de destino. Ejemplo: MIA Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>departure_date</code></b>&nbsp;&nbsp;
@@ -34839,10 +34363,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.departure_date"                data-endpoint="POSTapi-kiu-availability"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Fecha de salida. Ejemplo: 2026-05-20 Example: <code>consequatur</code></p>
+<p>Fecha de salida. Ejemplo: 2026-05-20 Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>adults</code></b>&nbsp;&nbsp;
@@ -34851,10 +34375,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="context.adults"                data-endpoint="POSTapi-kiu-availability"
-               value="17"
+               value="16"
                data-component="body">
     <br>
-<p>Cantidad de adultos. Ejemplo: 1 Example: <code>17</code></p>
+<p>Cantidad de adultos. Ejemplo: 1 Example: <code>16</code></p>
                     </div>
                                     </details>
         </div>
@@ -34879,10 +34403,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"context\": {
-        \"reservation_code\": \"consequatur\",
-        \"currency\": \"consequatur\"
+        \"reservation_code\": \"architecto\",
+        \"currency\": \"architecto\"
     }
 }"
 </code></pre></div>
@@ -34900,10 +34424,10 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "context": {
-        "reservation_code": "consequatur",
-        "currency": "consequatur"
+        "reservation_code": "architecto",
+        "currency": "architecto"
     }
 };
 
@@ -35008,10 +34532,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-pricing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -35030,10 +34554,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.reservation_code"                data-endpoint="POSTapi-kiu-pricing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Codigo PNR de la reserva en Kiu. Ejemplo: ABCD12 Example: <code>consequatur</code></p>
+<p>Codigo PNR de la reserva en Kiu. Ejemplo: ABCD12 Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -35042,10 +34566,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.currency"                data-endpoint="POSTapi-kiu-pricing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Codigo de moneda (ej. USD). Ejemplo: USD Example: <code>consequatur</code></p>
+<p>Codigo de moneda (ej. USD). Ejemplo: USD Example: <code>architecto</code></p>
                     </div>
                                     </details>
         </div>
@@ -35070,12 +34594,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"context\": {
         \"passengers\": [
             []
         ],
-        \"contact_email\": \"qkunze@example.com\"
+        \"contact_email\": \"gbailey@example.net\"
     }
 }"
 </code></pre></div>
@@ -35093,12 +34617,12 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "context": {
         "passengers": [
             []
         ],
-        "contact_email": "qkunze@example.com"
+        "contact_email": "gbailey@example.net"
     }
 };
 
@@ -35203,10 +34727,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-booking"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -35239,10 +34763,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.contact_email"                data-endpoint="POSTapi-kiu-booking"
-               value="qkunze@example.com"
+               value="gbailey@example.net"
                data-component="body">
     <br>
-<p>Correo electronico de contacto para la reserva. Example: <code>qkunze@example.com</code></p>
+<p>Correo electronico de contacto para la reserva. Example: <code>gbailey@example.net</code></p>
                     </div>
                                     </details>
         </div>
@@ -35267,10 +34791,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"context\": {
-        \"reservation_code\": \"consequatur\",
-        \"payment_reference\": \"consequatur\"
+        \"reservation_code\": \"architecto\",
+        \"payment_reference\": \"architecto\"
     }
 }"
 </code></pre></div>
@@ -35288,10 +34812,10 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "context": {
-        "reservation_code": "consequatur",
-        "payment_reference": "consequatur"
+        "reservation_code": "architecto",
+        "payment_reference": "architecto"
     }
 };
 
@@ -35396,10 +34920,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-ticketing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -35418,10 +34942,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.reservation_code"                data-endpoint="POSTapi-kiu-ticketing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El PNR a ticketear. Ejemplo: ABCD12 Example: <code>consequatur</code></p>
+<p>El PNR a ticketear. Ejemplo: ABCD12 Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>payment_reference</code></b>&nbsp;&nbsp;
@@ -35430,10 +34954,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.payment_reference"                data-endpoint="POSTapi-kiu-ticketing"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El voucher o referencia de pago. Ejemplo: VOUCHER-999 Example: <code>consequatur</code></p>
+<p>El voucher o referencia de pago. Ejemplo: VOUCHER-999 Example: <code>architecto</code></p>
                     </div>
                                     </details>
         </div>
@@ -35458,11 +34982,11 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"payload\": \"consequatur\",
+    \"payload\": \"architecto\",
     \"context\": {
-        \"action\": \"consequatur\",
-        \"reservation_code\": \"consequatur\",
-        \"ticket_number\": \"consequatur\"
+        \"action\": \"architecto\",
+        \"reservation_code\": \"architecto\",
+        \"ticket_number\": \"architecto\"
     }
 }"
 </code></pre></div>
@@ -35480,11 +35004,11 @@ const headers = {
 };
 
 let body = {
-    "payload": "consequatur",
+    "payload": "architecto",
     "context": {
-        "action": "consequatur",
-        "reservation_code": "consequatur",
-        "ticket_number": "consequatur"
+        "action": "architecto",
+        "reservation_code": "architecto",
+        "ticket_number": "architecto"
     }
 };
 
@@ -35589,10 +35113,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="payload"                data-endpoint="POSTapi-kiu-post-sale"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>El payload XML SOAP de la solicitud. Example: <code>consequatur</code></p>
+<p>El payload XML SOAP de la solicitud. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -35611,10 +35135,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.action"                data-endpoint="POSTapi-kiu-post-sale"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Accion post-venta (void, refund, cancel, change, reissue). Ejemplo: void Example: <code>consequatur</code></p>
+<p>Accion post-venta (void, refund, cancel, change, reissue). Ejemplo: void Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>reservation_code</code></b>&nbsp;&nbsp;
@@ -35623,10 +35147,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.reservation_code"                data-endpoint="POSTapi-kiu-post-sale"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Codigo PNR de la reserva. Example: <code>consequatur</code></p>
+<p>Codigo PNR de la reserva. Example: <code>architecto</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>ticket_number</code></b>&nbsp;&nbsp;
@@ -35635,10 +35159,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="context.ticket_number"                data-endpoint="POSTapi-kiu-post-sale"
-               value="consequatur"
+               value="architecto"
                data-component="body">
     <br>
-<p>Numero del boleto emitido. Example: <code>consequatur</code></p>
+<p>Numero del boleto emitido. Example: <code>architecto</code></p>
                     </div>
                                     </details>
         </div>

@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\OrdenCompra;
 use App\Models\Cotizacion;
 use App\Models\Atencion;
+use App\Models\EstadoCotizacion;
 use App\Services\EstadoFaseService;
 use App\Events\OrdenCompraGuardado;
 
@@ -22,11 +23,20 @@ class OrdenCompraObserver
     }
 
     /**
-     * Cuando se elimina una OC, sincronizamos el padre para que la Atención
-     * retroceda de fase si corresponde.
+     * Cuando se elimina una OC, la cotización que la originó ya no es válida
+     * (se "quemó"). La marcamos como rechazada automáticamente.
+     * El usuario deberá crear una nueva cotización desde cero.
      */
     public function deleted(OrdenCompra $ordenCompra): void
     {
+        // Marcar la cotización origen como rechazada — ya no sirve
+        if ($cotizacion = Cotizacion::find($ordenCompra->id_cotizacion)) {
+            $idRechazada = EstadoCotizacion::where('slug', 'rechazada')->value('id');
+            if ($idRechazada && (int) $cotizacion->id_estado_cotizacion !== $idRechazada) {
+                $cotizacion->updateQuietly(['id_estado_cotizacion' => $idRechazada]);
+            }
+        }
+
         $this->sincronizarPadre($ordenCompra);
     }
 

@@ -47,7 +47,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -82,7 +82,7 @@ endpoints:
         name: name
         description: 'Nombre único del rol. Ejemplo: Supervisor'
         required: true
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -93,7 +93,7 @@ endpoints:
         name: guard_name
         description: "Nombre del guard de Laravel. Por defecto 'web'. Ejemplo: web"
         required: false
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,24 +105,24 @@ endpoints:
         description: 'Lista de nombres de permisos a asignar. Ejemplo: ["view:usuarios", "edit:usuarios"]'
         required: false
         example:
-          - consequatur
+          - architecto
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: consequatur
-      guard_name: consequatur
+      name: architecto
+      guard_name: architecto
       permissions:
-        - consequatur
+        - architecto
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -180,7 +180,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -228,7 +228,7 @@ endpoints:
         name: name
         description: 'Nombre único del rol. Ejemplo: Gerente'
         required: false
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -240,23 +240,23 @@ endpoints:
         description: 'Lista de nombres de permisos (reemplazará los anteriores). Ejemplo: ["view:atenciones"]'
         required: false
         example:
-          - consequatur
+          - architecto
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: consequatur
+      name: architecto
       permissions:
-        - consequatur
+        - architecto
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -305,7 +305,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -351,7 +351,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -386,7 +386,7 @@ endpoints:
         name: name
         description: 'Nombre único del permiso. Ejemplo: view:reportes_financieros'
         required: true
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -397,22 +397,22 @@ endpoints:
         name: guard_name
         description: "Nombre del guard de Laravel. Por defecto 'web'."
         required: false
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: consequatur
-      guard_name: consequatur
+      name: architecto
+      guard_name: architecto
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -470,7 +470,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -518,21 +518,21 @@ endpoints:
         name: name
         description: 'Nuevo nombre único del permiso.'
         required: true
-        example: consequatur
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: consequatur
+      name: architecto
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null
@@ -581,7 +581,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|uSU9BoowK2jikj8x709GHSfA46dLMmj9hiBn3zg12771ad8c'
+      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
     controller: null
     method: null
     route: null

@@ -6,10 +6,14 @@ use App\Services\AuditLogger;
 use App\Services\LogroPersonalLogger;
 use App\Models\Servicio;
 use App\Models\PagoOrdenCompra;
+use App\Models\Pago;
+use App\Models\PagoProveedor;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Observers\ServicioObserver;
 use App\Observers\PagoOrdenCompraObserver;
+use App\Observers\PagoObserver;
+use App\Observers\PagoProveedorObserver;
 use App\Models\PagoProveedorCuenta;
 use App\Observers\PagoProveedorCuentaObserver;
 use App\Observers\OrdenCompraObserver;
@@ -18,8 +22,6 @@ use App\Observers\CotizacionObserver;
 use App\Events\OrdenCompraGuardado;
 use App\Events\OrdenCompraAprobada;
 use App\Events\PagoOrdenCompraGuardado;
-use App\Events\PagoProveedorCreado;
-use App\Events\PagoProveedorEliminado;
 use App\Events\CotizacionGuardado;
 use App\Events\AtencionEstatusActualizado;
 use App\Events\CotizacionEstatusActualizado;
@@ -59,6 +61,8 @@ class AppServiceProvider extends ServiceProvider
         PagoProveedorCuenta::observe(PagoProveedorCuentaObserver::class);
         OrdenCompra::observe(OrdenCompraObserver::class);
         Cotizacion::observe(CotizacionObserver::class);
+        Pago::observe(PagoObserver::class);
+        PagoProveedor::observe(PagoProveedorObserver::class);
 
         Event::listen(OrdenCompraGuardado::class, SincronizarPadreOrdenCompraListener::class);
         Event::listen(OrdenCompraGuardado::class, SincronizarEstadoFinancieroListener::class);
@@ -67,10 +71,6 @@ class AppServiceProvider extends ServiceProvider
         
         // Pagos de Clientes (Ingresos)
         Event::listen(PagoOrdenCompraGuardado::class, SincronizarEstadoFinancieroListener::class);
-        
-        // Pagos a Proveedores (Egresos)
-        Event::listen(PagoProveedorCreado::class, SincronizarEstadoFinancieroListener::class);
-        Event::listen(PagoProveedorEliminado::class, SincronizarEstadoFinancieroListener::class);
 
         Event::listen(CotizacionGuardado::class, SincronizarFaseAtencionListener::class);
 

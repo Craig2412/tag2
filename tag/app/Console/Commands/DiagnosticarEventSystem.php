@@ -8,8 +8,6 @@ use App\Events\CotizacionEstatusActualizado;
 use App\Events\CotizacionGuardado;
 use App\Events\OrdenCompraAprobada;
 use App\Events\OrdenCompraGuardado;
-use App\Events\PagoProveedorCreado;
-use App\Events\PagoProveedorEliminado;
 use App\Events\PagoOrdenCompraGuardado;
 use App\Jobs\PersistirAuditLog;
 use App\Jobs\PersistirLogroPersonal;
@@ -87,8 +85,6 @@ class DiagnosticarEventSystem extends Command
             OrdenCompraGuardado::class      => [SincronizarPadreOrdenCompraListener::class, SincronizarEstadoFinancieroListener::class],
             OrdenCompraAprobada::class      => [GenerarCuentasPorPagarListener::class],
             PagoOrdenCompraGuardado::class  => [SincronizarEstadoFinancieroListener::class],
-            PagoProveedorCreado::class      => [SincronizarEstadoFinancieroListener::class],
-            PagoProveedorEliminado::class   => [SincronizarEstadoFinancieroListener::class],
             CotizacionGuardado::class       => [SincronizarFaseAtencionListener::class],
             AtencionEstatusActualizado::class => [RegistrarHistorialEstatusAtencionListener::class],
             CotizacionEstatusActualizado::class => [RegistrarHistorialEstatusCotizacionListener::class],

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cotizacion;
-use App\Models\Estatus;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
 use App\Http\Resources\CotizacionResource;

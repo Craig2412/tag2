@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Personal;
-use App\Models\Estatus;
 use App\Services\PersonalService;
 use App\Http\Resources\PersonalResource;
 use Illuminate\Http\Request;

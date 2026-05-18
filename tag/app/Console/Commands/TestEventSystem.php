@@ -7,8 +7,6 @@ use App\Events\CotizacionEstatusActualizado;
 use App\Events\CotizacionGuardado;
 use App\Events\OrdenCompraAprobada;
 use App\Events\OrdenCompraGuardado;
-use App\Events\PagoProveedorCreado;
-use App\Events\PagoProveedorEliminado;
 use App\Jobs\PersistirAuditLog;
 use App\Jobs\PersistirLogroPersonal;
 use App\Models\AtencionHistorial;

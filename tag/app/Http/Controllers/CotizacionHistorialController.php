@@ -31,8 +31,8 @@ class CotizacionHistorialController extends Controller
     {
         $data = $request->validate([
             'cotizacion_id' => 'required|exists:cotizaciones,id',
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_cotizaciones,id',
+            'id_estado_nuevo' => 'required|exists:estados_cotizaciones,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
@@ -43,8 +43,8 @@ class CotizacionHistorialController extends Controller
     {
         $historial = CotizacionHistorial::findOrFail($id);
         $data = $request->validate([
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_cotizaciones,id',
+            'id_estado_nuevo' => 'required|exists:estados_cotizaciones,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);

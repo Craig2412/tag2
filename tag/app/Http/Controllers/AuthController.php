@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Events\PermissionsUpdated;
-use App\Models\Estatus;
 use App\Models\Usuario;
 use App\Models\Cliente;
 use App\Models\Personal;
@@ -47,7 +46,6 @@ class AuthController extends Controller
 
         return DB::transaction(function () use ($data, $request) {
             $userRole = Role::where('name', 'user')->first();
-            $estatusActivo = Estatus::where('estatus', 'activo')->first();
             $tipoContribuyenteNormal = TipoContribuyente::firstOrCreate(
                 ['tipo_contribuyente' => 'Normal'],
                 ['porcentaje_iva' => 16]
@@ -74,7 +72,6 @@ class AuthController extends Controller
                 'telefono' => $data['telefono'] ?? null,
                 'correo_contacto' => $data['correo_contacto'] ?? $data['correo'], // Default al correo de login si no hay
                 'id_tipo_contribuyente' => $data['id_tipo_contribuyente'] ?? $tipoContribuyenteNormal->id,
-                'id_estatus' => $estatusActivo?->id,
             ]);
 
             $token = $usuario->createToken('api-token', $this->abilitiesFor($usuario))->plainTextToken;
@@ -116,7 +113,6 @@ class AuthController extends Controller
 
         return DB::transaction(function () use ($data) {
             $personalRole = Role::where('name', 'personal')->first();
-            $estatusActivo = Estatus::where('estatus', 'activo')->first();
 
             // 1. Crear Usuario (Auth)
             $usuario = Usuario::create([
@@ -139,7 +135,6 @@ class AuthController extends Controller
                 'telefono' => $data['telefono'] ?? null,
                 'correo_institucional' => $data['correo_institucional'] ?? $data['correo'],
                 'porcentaje_comision' => $data['porcentaje_comision'] ?? 0,
-                'id_estatus' => $estatusActivo?->id,
             ]);
 
             $usuario->load(['roles', 'permissions']);

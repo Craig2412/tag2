@@ -19,6 +19,7 @@ class EstadoFaseService
      * Evalúa las relaciones de la Atención y le asigna la fase comercial correcta
      * (atencion, cotizada, orden_compra) basada en el catálogo dinámico,
      * y si llega a orden_compra, la cierra como ganada.
+     * Si todas las cotizaciones están rechazadas, la cierra como perdida.
      */
     public static function sincronizarFaseAtencion(Atencion $atencion): void
     {
@@ -58,7 +59,7 @@ class EstadoFaseService
             event(new AtencionEtapaCambiada($atencion, $etapaAnterior, $etapa->id));
         }
 
-        // 4. Si la etapa es orden_compra, el estado de la atención debe ser "cerrada_ganada"
+        // 4. Si la etapa es orden_compra, la atención se cierra como ganada
         if ($slugFase === 'orden_compra') {
             $estadoCerradaGanada = EstadoAtencion::where('slug', 'cerrada_ganada')->first();
             if ($estadoCerradaGanada && $atencion->id_estado_atencion !== $estadoCerradaGanada->id) {
@@ -68,8 +69,40 @@ class EstadoFaseService
                 $atencion->id_estado_atencion = $estadoCerradaGanada->id;
                 $huboCambio = true;
 
-                // Si hay un evento para el estado (ej. AtencionEstatusActualizado), podríamos dispararlo aquí
                 event(new AtencionEstatusActualizado($atencion, $estadoAnterior, $estadoCerradaGanada->id, 'Cerrada ganada automáticamente por Orden de Compra'));
+            }
+        }
+        // 5. Si la etapa es cotizada (tiene cotizaciones pero sin OC), evaluar cierre por rechazo total
+        elseif ($slugFase === 'cotizada') {
+            $idRechazada = \App\Models\EstadoCotizacion::where('slug', 'rechazada')->value('id');
+            
+            $todasRechazadas = $idRechazada
+                && $atencion->cotizaciones()->where('id_estado_cotizacion', '!=', $idRechazada)->doesntExist();
+
+            if ($todasRechazadas) {
+                // Todas las cotizaciones rechazadas → cerrar como perdida
+                $estadoCerradaPerdida = EstadoAtencion::where('slug', 'cerrada_perdida')->first();
+                if ($estadoCerradaPerdida && $atencion->id_estado_atencion !== $estadoCerradaPerdida->id) {
+                    Log::info("Cerrando perdida la Atencion #{$atencion->id} porque todas sus cotizaciones fueron rechazadas");
+
+                    $estadoAnterior = $atencion->id_estado_atencion;
+                    $atencion->id_estado_atencion = $estadoCerradaPerdida->id;
+                    $huboCambio = true;
+
+                    event(new AtencionEstatusActualizado($atencion, $estadoAnterior, $estadoCerradaPerdida->id, 'Cerrada perdida automáticamente: todas las cotizaciones rechazadas'));
+                }
+            } else {
+                // Hay al menos una cotización no rechazada → si estaba cerrada perdida, reabrir
+                $estadoAbierta = EstadoAtencion::where('slug', 'abierta')->first();
+                if ($estadoAbierta && $atencion->id_estado_atencion === EstadoAtencion::where('slug', 'cerrada_perdida')->value('id')) {
+                    Log::info("Reabriendo Atencion #{$atencion->id} porque tiene cotizaciones activas nuevamente");
+
+                    $estadoAnterior = $atencion->id_estado_atencion;
+                    $atencion->id_estado_atencion = $estadoAbierta->id;
+                    $huboCambio = true;
+
+                    event(new AtencionEstatusActualizado($atencion, $estadoAnterior, $estadoAbierta->id, 'Reabierta automáticamente: nueva cotización activa'));
+                }
             }
         }
 
