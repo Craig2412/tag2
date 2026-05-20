@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoCotizacion;
 use App\Http\Resources\TipoCotizacionResource;
+use App\Models\TipoCotizacion;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,7 +22,7 @@ class TipoCotizacionController extends Controller
 
     /**
      * Crear un nuevo tipo de cotización
-     * 
+     *
      * @bodyParam tipo_cotizacion string required Nombre del tipo de cotización. Ejemplo: Nacional
      */
     public function store(Request $request)
@@ -50,7 +50,7 @@ class TipoCotizacionController extends Controller
 
     /**
      * Actualizar un tipo de cotización existente
-     * 
+     *
      * @bodyParam tipo_cotizacion string required Nombre del tipo de cotización.
      */
     public function update(Request $request, TipoCotizacion $tipoCotizacion)

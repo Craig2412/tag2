@@ -9,16 +9,15 @@ use App\Events\OrdenCompraAprobada;
 use App\Events\OrdenCompraGuardado;
 use App\Jobs\PersistirAuditLog;
 use App\Jobs\PersistirLogroPersonal;
+use App\Models\Atencion;
 use App\Models\AtencionHistorial;
 use App\Models\AuditLog;
-use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\CotizacionHistorial;
 use App\Models\CuentaPorPagar;
 use App\Models\EstadoFinanciero;
 use App\Models\EtapaComercial;
 use App\Models\LogroPersonal;
-use App\Models\Meta;
 use App\Models\MetaPersonal;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
@@ -27,12 +26,16 @@ use Illuminate\Support\Facades\DB;
 
 class TestEventSystem extends Command
 {
-    protected $signature   = 'app:test-eventos {--no-rollback : Mantener los cambios en BD (solo para desarrollo)}';
+    protected $signature = 'app:test-eventos {--no-rollback : Mantener los cambios en BD (solo para desarrollo)}';
+
     protected $description = 'Prueba de integración real: dispara eventos, procesa jobs y verifica cambios en la BD.';
 
-    private int $passed   = 0;
-    private int $failed   = 0;
-    private int $skipped  = 0;
+    private int $passed = 0;
+
+    private int $failed = 0;
+
+    private int $skipped = 0;
+
     private array $errors = [];
 
     public function handle(): int
@@ -55,15 +58,15 @@ class TestEventSystem extends Command
         $snapAntes = $this->tomarSnapshot();
 
         try {
-            $this->runSection('JOB: PersistirAuditLog',        fn() => $this->testPersistirAuditLog());
-            $this->runSection('JOB: PersistirLogroPersonal',   fn() => $this->testPersistirLogroPersonal());
-            $this->runSection('OBSERVER: ServicioObserver',    fn() => $this->testServicioObserver());
-            $this->runSection('LISTENER: RegistrarHistorialEstatusAtencion', fn() => $this->testHistorialAtencion());
-            $this->runSection('LISTENER: RegistrarHistorialEstatusCotizacion', fn() => $this->testHistorialCotizacion());
-            $this->runSection('LISTENER: SincronizarFaseAtencion', fn() => $this->testSincronizarFaseAtencion());
-            $this->runSection('LISTENER: SincronizarEstadoFinanciero', fn() => $this->testSincronizarEstadoFinanciero());
-            $this->runSection('LISTENER: GenerarCuentasPorPagar', fn() => $this->testGenerarCuentasPorPagar());
-            $this->runSection('AUDIT: eloquent.created / updated / deleted', fn() => $this->testAuditLogger());
+            $this->runSection('JOB: PersistirAuditLog', fn () => $this->testPersistirAuditLog());
+            $this->runSection('JOB: PersistirLogroPersonal', fn () => $this->testPersistirLogroPersonal());
+            $this->runSection('OBSERVER: ServicioObserver', fn () => $this->testServicioObserver());
+            $this->runSection('LISTENER: RegistrarHistorialEstatusAtencion', fn () => $this->testHistorialAtencion());
+            $this->runSection('LISTENER: RegistrarHistorialEstatusCotizacion', fn () => $this->testHistorialCotizacion());
+            $this->runSection('LISTENER: SincronizarFaseAtencion', fn () => $this->testSincronizarFaseAtencion());
+            $this->runSection('LISTENER: SincronizarEstadoFinanciero', fn () => $this->testSincronizarEstadoFinanciero());
+            $this->runSection('LISTENER: GenerarCuentasPorPagar', fn () => $this->testGenerarCuentasPorPagar());
+            $this->runSection('AUDIT: eloquent.created / updated / deleted', fn () => $this->testAuditLogger());
         } finally {
             $this->reportarCambiosBD($snapAntes);
 
@@ -96,11 +99,11 @@ class TestEventSystem extends Command
         $before = AuditLog::count();
 
         PersistirAuditLog::dispatchSync([
-            'action'     => 'TEST_INTEGRATION',
+            'action' => 'TEST_INTEGRATION',
             'table_name' => 'test',
-            'record_id'  => 0,
-            'success'    => true,
-            'message'    => 'Prueba automática app:test-eventos',
+            'record_id' => 0,
+            'success' => true,
+            'message' => 'Prueba automática app:test-eventos',
         ]);
 
         $after = AuditLog::count();
@@ -128,10 +131,10 @@ class TestEventSystem extends Command
 
         // Disparamos el job manualmente con datos de prueba
         PersistirLogroPersonal::dispatch([
-            'tipo_entidad'    => 'atencion',
-            'id_entidad'      => 1,
+            'tipo_entidad' => 'atencion',
+            'id_entidad' => 1,
             'estatus_anterior' => 'por_aprobar',
-            'estatus_nuevo'   => 'aprobado',
+            'estatus_nuevo' => 'aprobado',
         ], 1); // Forzamos usuario ID 1
 
         $after = LogroPersonal::count();
@@ -148,18 +151,19 @@ class TestEventSystem extends Command
     {
         $servicio = Servicio::first();
 
-        if (!$servicio) {
+        if (! $servicio) {
             $this->skip('ServicioObserver — no hay servicios en BD');
+
             return;
         }
 
         // Valores conocidos para poder verificar el cálculo
-        $gravable  = 100.00;
-        $noSujeto  = 20.00;
-        $ivaPct    = 13.00;
-        $esperado  = $gravable + ($gravable * $ivaPct / 100) + $noSujeto; // 133.00
+        $gravable = 100.00;
+        $noSujeto = 20.00;
+        $ivaPct = 13.00;
+        $esperado = $gravable + ($gravable * $ivaPct / 100) + $noSujeto; // 133.00
 
-        $servicio->monto_gravable  = $gravable;
+        $servicio->monto_gravable = $gravable;
         $servicio->monto_no_sujeto = $noSujeto;
         $servicio->iva_establecido = $ivaPct;
         $servicio->save(); // Dispara ServicioObserver@saving
@@ -180,19 +184,20 @@ class TestEventSystem extends Command
     {
         $atencion = Atencion::first();
 
-        if (!$atencion) {
+        if (! $atencion) {
             $this->skip('HistorialAtencion — no hay atenciones en BD');
+
             return;
         }
 
         $before = AtencionHistorial::where('atencion_id', $atencion->id)->count();
 
         event(new AtencionEstatusActualizado(
-            atencion:        $atencion,
+            atencion: $atencion,
             estatusAnterior: 1,
-            estatusNuevo:    2,
-            comentario:      'Prueba automática app:test-eventos',
-            usuarioId:       1,
+            estatusNuevo: 2,
+            comentario: 'Prueba automática app:test-eventos',
+            usuarioId: 1,
         ));
 
         $after = AtencionHistorial::where('atencion_id', $atencion->id)->count();
@@ -218,19 +223,20 @@ class TestEventSystem extends Command
     {
         $cotizacion = Cotizacion::first();
 
-        if (!$cotizacion) {
+        if (! $cotizacion) {
             $this->skip('HistorialCotizacion — no hay cotizaciones en BD');
+
             return;
         }
 
         $before = CotizacionHistorial::where('cotizacion_id', $cotizacion->id)->count();
 
         event(new CotizacionEstatusActualizado(
-            cotizacion:      $cotizacion,
+            cotizacion: $cotizacion,
             estatusAnterior: 1,
-            estatusNuevo:    3,
-            comentario:      'Prueba automática app:test-eventos',
-            usuarioId:       1,
+            estatusNuevo: 3,
+            comentario: 'Prueba automática app:test-eventos',
+            usuarioId: 1,
         ));
 
         $after = CotizacionHistorial::where('cotizacion_id', $cotizacion->id)->count();
@@ -249,13 +255,14 @@ class TestEventSystem extends Command
     {
         $cotizacion = Cotizacion::with('atencion')->first();
 
-        if (!$cotizacion || !$cotizacion->atencion) {
+        if (! $cotizacion || ! $cotizacion->atencion) {
             $this->skip('SincronizarFaseAtencion — no hay cotizaciones con atención en BD');
+
             return;
         }
 
-        $atencion      = $cotizacion->atencion;
-        $faseAnterior  = $atencion->id_etapa_comercial;
+        $atencion = $cotizacion->atencion;
+        $faseAnterior = $atencion->id_etapa_comercial;
 
         // El listener llama a EstadoFaseService::sincronizarFaseAtencion()
         event(new CotizacionGuardado($cotizacion));
@@ -284,15 +291,16 @@ class TestEventSystem extends Command
     {
         $orden = OrdenCompra::first();
 
-        if (!$orden) {
+        if (! $orden) {
             $this->skip('SincronizarEstadoFinanciero — no hay órdenes de compra en BD');
+
             return;
         }
 
         $estadoAntes = $orden->id_estado_financiero;
 
         // Llamamos handle() directo para evitar __invoke() en listeners ShouldQueue
-        (new \App\Listeners\SincronizarEstadoFinancieroListener())->handle(new OrdenCompraGuardado($orden));
+        (new \App\Listeners\SincronizarEstadoFinancieroListener)->handle(new OrdenCompraGuardado($orden));
 
         $orden->refresh();
 
@@ -314,19 +322,20 @@ class TestEventSystem extends Command
             ->whereDoesntHave('cuentasPorPagar')
             ->first();
 
-        if (!$orden) {
+        if (! $orden) {
             $orden = OrdenCompra::whereHas('cotizacion.servicios')->first();
         }
 
-        if (!$orden) {
+        if (! $orden) {
             $this->skip('GenerarCuentasPorPagar — no hay órdenes con cotización+servicios en BD');
+
             return;
         }
 
         $cuentasAntes = CuentaPorPagar::where('id_orden_compra', $orden->id)->count();
 
         // Llamamos handle() directo para evitar __invoke() en listeners ShouldQueue
-        (new \App\Listeners\GenerarCuentasPorPagarListener())->handle(new OrdenCompraAprobada($orden));
+        (new \App\Listeners\GenerarCuentasPorPagarListener)->handle(new OrdenCompraAprobada($orden));
 
         $cuentasDespues = CuentaPorPagar::where('id_orden_compra', $orden->id)->count();
 
@@ -345,8 +354,9 @@ class TestEventSystem extends Command
         // Usamos Atencion como modelo de prueba — está en la whitelist de AuditLogger
         $atencion = Atencion::first();
 
-        if (!$atencion) {
+        if (! $atencion) {
             $this->skip('AuditLogger — no hay atenciones en BD para probar');
+
             return;
         }
 
@@ -358,7 +368,7 @@ class TestEventSystem extends Command
             ->count();
 
         // Hacemos un update que genere cambio real
-        $valorActual  = $atencion->getAttributes()['updated_at'] ?? now();
+        $valorActual = $atencion->getAttributes()['updated_at'] ?? now();
         $atencion->touch(); // actualiza timestamps → dispara eloquent.updated
 
         $auditDespues = AuditLog::where('table_name', $atencion->getTable())
@@ -394,8 +404,8 @@ class TestEventSystem extends Command
         try {
             $fn();
         } catch (\Throwable $e) {
-            $this->checkFail("EXCEPCIÓN NO CONTROLADA: " . $e->getMessage());
-            $this->errors[] = $title . ': ' . $e->getMessage();
+            $this->checkFail('EXCEPCIÓN NO CONTROLADA: '.$e->getMessage());
+            $this->errors[] = $title.': '.$e->getMessage();
         }
     }
 
@@ -459,11 +469,11 @@ class TestEventSystem extends Command
     private function tomarSnapshot(): array
     {
         return [
-            'audit_logs'          => AuditLog::count(),
-            'logros_personal'     => LogroPersonal::count(),
-            'atencion_historial'  => DB::table('atencion_historial')->count(),
-            'cotizacion_historial'=> DB::table('cotizacion_historial')->count(),
-            'cuentas_por_pagar'   => DB::table('cuentas_por_pagar')->count(),
+            'audit_logs' => AuditLog::count(),
+            'logros_personal' => LogroPersonal::count(),
+            'atencion_historial' => DB::table('atencion_historial')->count(),
+            'cotizacion_historial' => DB::table('cotizacion_historial')->count(),
+            'cuentas_por_pagar' => DB::table('cuentas_por_pagar')->count(),
         ];
     }
 
@@ -477,7 +487,7 @@ class TestEventSystem extends Command
 
         foreach ($antes as $tabla => $countAntes) {
             $countDespues = $despues[$tabla];
-            $diff         = $countDespues - $countAntes;
+            $diff = $countDespues - $countAntes;
 
             if ($diff > 0) {
                 $this->line("    <fg=green>+{$diff}</> filas creadas en <fg=white>{$tabla}</> ({$countAntes} → {$countDespues})");
@@ -488,6 +498,7 @@ class TestEventSystem extends Command
             }
         }
     }
+
     /**
      * Muestra el progreso_actual de todas las MetaPersonal registradas en BD.
      * Sirve para verificar visualmente que el cálculo de metas funciona con los logros.
@@ -502,13 +513,14 @@ class TestEventSystem extends Command
 
         $metasPersonal = MetaPersonal::with([
             'personal',
-            'meta' => fn($q) => $q->withTrashed(),
-            'meta.temporalidad' => fn($q) => $q->withTrashed(),
+            'meta' => fn ($q) => $q->withTrashed(),
+            'meta.temporalidad' => fn ($q) => $q->withTrashed(),
         ])->get();
 
         if ($metasPersonal->isEmpty()) {
-            $this->line('  <fg=yellow>⊘ No hay metas asignadas en BD. Corre los seeders.</>') ;
+            $this->line('  <fg=yellow>⊘ No hay metas asignadas en BD. Corre los seeders.</>');
             $this->newLine();
+
             return;
         }
 
@@ -520,31 +532,31 @@ class TestEventSystem extends Command
             $this->line("  <fg=cyan;options=bold>👤 {$nombre}</>");
 
             foreach ($metas as $mp) {
-                $meta         = $mp->meta;
+                $meta = $mp->meta;
                 $temporalidad = $meta?->temporalidad?->temporalidad ?? '?';
-                $objetivo     = $meta?->valor_objetivo ?? 0;
-                $progreso     = $mp->progreso_actual;
-                $esMon        = $meta?->es_monetario;
-                $slug         = $meta?->estatus_objetivo ?? '?';
-                $tipo         = $meta?->tipo_entidad ?? '?';
+                $objetivo = $meta?->valor_objetivo ?? 0;
+                $progreso = $mp->progreso_actual;
+                $esMon = $meta?->es_monetario;
+                $slug = $meta?->estatus_objetivo ?? '?';
+                $tipo = $meta?->tipo_entidad ?? '?';
 
                 // Porcentaje de avance
                 $pct = $objetivo > 0 ? round(($progreso / $objetivo) * 100, 1) : 0;
 
                 // Barra visual de progreso (20 caracteres)
-                $llenos   = (int) min(20, round($pct / 5));
-                $vacios   = 20 - $llenos;
-                $barra    = str_repeat('█', $llenos) . str_repeat('░', $vacios);
+                $llenos = (int) min(20, round($pct / 5));
+                $vacios = 20 - $llenos;
+                $barra = str_repeat('█', $llenos).str_repeat('░', $vacios);
 
                 // Color según avance
                 $color = match (true) {
                     $pct >= 100 => 'green',
-                    $pct >= 50  => 'yellow',
-                    default     => 'red',
+                    $pct >= 50 => 'yellow',
+                    default => 'red',
                 };
 
                 $valorFmt = $esMon
-                    ? '$' . number_format($progreso, 2) . ' / $' . number_format($objetivo, 2)
+                    ? '$'.number_format($progreso, 2).' / $'.number_format($objetivo, 2)
                     : "{$progreso} / {$objetivo}";
 
                 $this->line("    <fg=white>{$meta?->nombre}</>");
@@ -555,22 +567,22 @@ class TestEventSystem extends Command
 
                 foreach ($historico as $h) {
                     $periodo = str_pad($h['periodo'], 12);
-                    $hProg   = $h['progreso'];
-                    $hObj    = $h['objetivo'];
-                    
+                    $hProg = $h['progreso'];
+                    $hObj = $h['objetivo'];
+
                     $pct = $hObj > 0 ? round(($hProg / $hObj) * 100, 1) : 0;
                     $llenos = (int) min(20, round($pct / 5));
                     $vacios = 20 - $llenos;
-                    $barra = str_repeat('█', $llenos) . str_repeat('░', $vacios);
+                    $barra = str_repeat('█', $llenos).str_repeat('░', $vacios);
 
                     $color = match (true) {
                         $pct >= 100 => 'green',
-                        $pct >= 50  => 'yellow',
-                        default     => 'red',
+                        $pct >= 50 => 'yellow',
+                        default => 'red',
                     };
 
                     $valorFmt = $esMon
-                        ? '$' . number_format($hProg, 2) . ' / $' . number_format($hObj, 2)
+                        ? '$'.number_format($hProg, 2).' / $'.number_format($hObj, 2)
                         : "{$hProg} / {$hObj}";
 
                     // Marca el periodo actual

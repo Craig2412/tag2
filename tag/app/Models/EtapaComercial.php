@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class EtapaComercial extends Model
 {
     use SoftDeletes;
+
     protected $table = 'etapas_comerciales';
 
     protected $fillable = [

@@ -2,10 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\Cotizacion;
-use App\Models\Atencion;
-use App\Services\EstadoFaseService;
 use App\Events\CotizacionGuardado;
+use App\Models\Cotizacion;
 
 class CotizacionObserver
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PagoOrdenCompra;
 use App\Http\Resources\PagoOrdenCompraResource;
+use App\Models\PagoOrdenCompra;
 use Illuminate\Http\Request;
 
 class PagoOrdenCompraController extends Controller
@@ -27,9 +27,9 @@ class PagoOrdenCompraController extends Controller
             'id_pago' => 'required|exists:pagos,id',
             'id_orden_compra' => 'required|exists:ordenes_compra,id',
             'monto_asignado' => 'required|numeric|min:0',
-            'monto_pagado' => 'nullable|numeric|min:0',
         ]);
         $relacion = PagoOrdenCompra::create($data);
+
         return new PagoOrdenCompraResource($relacion);
     }
 
@@ -38,9 +38,9 @@ class PagoOrdenCompraController extends Controller
     {
         $data = $request->validate([
             'monto_asignado' => 'sometimes|numeric|min:0',
-            'monto_pagado' => 'nullable|numeric|min:0',
         ]);
         $pagoOrdenCompra->update($data);
+
         return new PagoOrdenCompraResource($pagoOrdenCompra);
     }
 
@@ -48,6 +48,7 @@ class PagoOrdenCompraController extends Controller
     public function destroy(PagoOrdenCompra $pagoOrdenCompra)
     {
         $pagoOrdenCompra->delete();
+
         return response()->json(['message' => 'Eliminado']);
     }
 }

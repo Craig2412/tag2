@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MetaPersonalResource;
 use App\Models\MetaPersonal;
 use App\Models\Personal;
-use App\Http\Resources\MetaPersonalResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -19,9 +19,9 @@ class MetaPersonalController extends Controller
     {
         // Lista las metas personales y las devuelve en JSON.
         return MetaPersonalResource::collection(MetaPersonal::with([
-            'meta' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'temporalidad' => fn($q) => $q->withTrashed(),
+            'meta' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'temporalidad' => fn ($q) => $q->withTrashed(),
         ])->orderBy('id')->get());
     }
 
@@ -49,16 +49,16 @@ class MetaPersonalController extends Controller
 
         $personal = Personal::find($data['id_personal']);
 
-        if (!$personal || !$personal->usuario->hasRole('personal')) {
+        if (! $personal || ! $personal->usuario->hasRole('personal')) {
             return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
         }
 
         $item = MetaPersonal::create($data);
 
         return new MetaPersonalResource($item->load([
-            'meta' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'temporalidad' => fn($q) => $q->withTrashed(),
+            'meta' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -71,9 +71,9 @@ class MetaPersonalController extends Controller
     {
         // Muestra una meta personal por id.
         return new MetaPersonalResource($metaPersonal->load([
-            'meta' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'temporalidad' => fn($q) => $q->withTrashed(),
+            'meta' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -101,7 +101,7 @@ class MetaPersonalController extends Controller
 
         if (isset($data['id_personal'])) {
             $personal = Personal::find($data['id_personal']);
-            if (!$personal || !$personal->usuario->hasRole('personal')) {
+            if (! $personal || ! $personal->usuario->hasRole('personal')) {
                 return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
             }
         }
@@ -109,9 +109,9 @@ class MetaPersonalController extends Controller
         $metaPersonal->update($data);
 
         return new MetaPersonalResource($metaPersonal->load([
-            'meta' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'temporalidad' => fn($q) => $q->withTrashed(),
+            'meta' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 

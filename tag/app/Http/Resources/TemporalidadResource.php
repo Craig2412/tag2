@@ -10,9 +10,9 @@ class TemporalidadResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'            => $this->id,
-            'temporalidad'  => $this->temporalidad,
-            'slug'          => $this->slug,
+            'id' => $this->id,
+            'temporalidad' => $this->temporalidad,
+            'slug' => $this->slug,
             'carbon_method' => $this->carbon_method,
         ];
     }

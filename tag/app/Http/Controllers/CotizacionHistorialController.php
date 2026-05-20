@@ -10,20 +10,20 @@ class CotizacionHistorialController extends Controller
     public function index()
     {
         return CotizacionHistorial::with([
-            'usuario' => fn($q) => $q->withTrashed(),
-            'cotizacion' => fn($q) => $q->withTrashed(),
-            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
-            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'cotizacion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
         ])->get();
     }
 
     public function show($id)
     {
         return CotizacionHistorial::with([
-            'usuario' => fn($q) => $q->withTrashed(),
-            'cotizacion' => fn($q) => $q->withTrashed(),
-            'estatusAnteriorObj' => fn($q) => $q->withTrashed(),
-            'estatusNuevoObj' => fn($q) => $q->withTrashed()
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'cotizacion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
         ])->findOrFail($id);
     }
 
@@ -36,6 +36,7 @@ class CotizacionHistorialController extends Controller
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
+
         return CotizacionHistorial::create($data);
     }
 
@@ -49,6 +50,7 @@ class CotizacionHistorialController extends Controller
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);
+
         return $historial;
     }
 
@@ -56,6 +58,7 @@ class CotizacionHistorialController extends Controller
     {
         $historial = CotizacionHistorial::findOrFail($id);
         $historial->delete();
+
         return response()->json(['message' => 'Deleted']);
     }
 }

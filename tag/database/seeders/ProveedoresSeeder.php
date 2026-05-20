@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Estatus;
 use App\Models\Proveedor;
 use App\Models\TipoProveedor;
 use Illuminate\Database\Seeder;

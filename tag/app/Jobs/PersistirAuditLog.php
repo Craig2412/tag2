@@ -43,7 +43,7 @@ class PersistirAuditLog implements ShouldQueue
     {
         \Illuminate\Support\Facades\Log::error('AuditLog job failed', [
             'payload' => $this->payload,
-            'error'   => $e->getMessage(),
+            'error' => $e->getMessage(),
         ]);
     }
 }

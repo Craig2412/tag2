@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Cotizacion;
-use App\Models\Estatus;
+use App\Models\Proveedor;
 use App\Models\Servicio;
 use App\Models\TasaCambio;
 use App\Models\TipoServicio;
-use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
 
 class ServiciosSeeder extends Seeder
@@ -19,7 +18,7 @@ class ServiciosSeeder extends Seeder
         $cotizacion = Cotizacion::first();
         $proveedor = Proveedor::first();
 
-        if (!$tipoServicio || !$tasaCambio || !$cotizacion || !$proveedor) {
+        if (! $tipoServicio || ! $tasaCambio || ! $cotizacion || ! $proveedor) {
             return;
         }
 

@@ -15,7 +15,7 @@ class LogroPersonalLogger
 
     public static function captureBeforeUpdate(Model $model): void
     {
-        if (!self::isTrackable($model)) {
+        if (! self::isTrackable($model)) {
             return;
         }
 
@@ -25,7 +25,7 @@ class LogroPersonalLogger
 
     public static function logStatusChange(Model $model): void
     {
-        if (!self::isTrackable($model)) {
+        if (! self::isTrackable($model)) {
             return;
         }
 
@@ -55,15 +55,15 @@ class LogroPersonalLogger
             ->latest('id')
             ->value('created_at');
 
-        $inicio   = $ultimoLogro ?? ($model->getRawOriginal('created_at') ?? now());
+        $inicio = $ultimoLogro ?? ($model->getRawOriginal('created_at') ?? now());
         $duracion = max(0, now()->diffInSeconds($inicio));
 
         PersistirLogroPersonal::dispatch([
-            'id_personal'                  => $idPersonal,
-            'tipo_entidad'                 => $tipoEntidad,
-            'id_entidad'                   => $model->getKey(),
-            'estatus_anterior'             => $before,
-            'estatus_nuevo'                => $after,
+            'id_personal' => $idPersonal,
+            'tipo_entidad' => $tipoEntidad,
+            'id_entidad' => $model->getKey(),
+            'estatus_anterior' => $before,
+            'estatus_nuevo' => $after,
             'tiempo_transcurrido_segundos' => $duracion,
         ], auth()->id());
     }
@@ -78,9 +78,9 @@ class LogroPersonalLogger
     private static function resolveTipoEntidad(Model $model): string
     {
         return match (true) {
-            $model instanceof Atencion   => 'atencion',
+            $model instanceof Atencion => 'atencion',
             $model instanceof Cotizacion => 'cotizacion',
-            default                      => 'orden_compra',
+            default => 'orden_compra',
         };
     }
 
@@ -94,6 +94,7 @@ class LogroPersonalLogger
             $id = $useOriginal
                 ? $model->getRawOriginal('id_estado_atencion')
                 : $model->getAttribute('id_estado_atencion');
+
             return \App\Models\EstadoAtencion::find($id)?->slug;
         }
 
@@ -101,6 +102,7 @@ class LogroPersonalLogger
             $id = $useOriginal
                 ? $model->getRawOriginal('id_estado_cotizacion')
                 : $model->getAttribute('id_estado_cotizacion');
+
             return \App\Models\EstadoCotizacion::find($id)?->slug;
         }
 
@@ -108,6 +110,7 @@ class LogroPersonalLogger
             $id = $useOriginal
                 ? $model->getRawOriginal('id_estado_orden_compra')
                 : $model->getAttribute('id_estado_orden_compra');
+
             return \App\Models\EstadoOrdenCompra::find($id)?->slug;
         }
 
@@ -127,6 +130,7 @@ class LogroPersonalLogger
         if ($model instanceof Cotizacion) {
             // Precarga la relación si aún no fue cargada en el request
             $model->loadMissing('atencion');
+
             return $model->atencion?->id_personal
                 ? (int) $model->atencion->id_personal
                 : null;
@@ -135,6 +139,7 @@ class LogroPersonalLogger
         if ($model instanceof OrdenCompra) {
             // Precarga la cadena completa si no está en memoria
             $model->loadMissing('cotizacion.atencion');
+
             return $model->cotizacion?->atencion?->id_personal
                 ? (int) $model->cotizacion->atencion->id_personal
                 : null;

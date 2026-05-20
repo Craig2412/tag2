@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OrdenCompraHistorial extends Model
 {
     use HasFactory;
+
     protected $table = 'orden_compra_historial';
+
     protected $fillable = [
         'orden_compra_id',
         'id_estado_anterior',

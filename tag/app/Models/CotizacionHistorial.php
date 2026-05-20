@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CotizacionHistorial extends Model
 {
     use HasFactory;
+
     protected $table = 'cotizacion_historial';
+
     protected $fillable = [
         'cotizacion_id',
         'id_estado_anterior',

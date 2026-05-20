@@ -21,8 +21,8 @@ class PersistirLogroPersonal implements ShouldQueue
     public int $tries = 3;
 
     /**
-     * @param array $payload Datos del logro
-     * @param int|null $usuarioId ID del usuario que disparó la acción (opcional para resolución de personal)
+     * @param  array  $payload  Datos del logro
+     * @param  int|null  $usuarioId  ID del usuario que disparó la acción (opcional para resolución de personal)
      */
     public function __construct(
         public readonly array $payload,
@@ -50,7 +50,8 @@ class PersistirLogroPersonal implements ShouldQueue
 
         // Si después de intentar resolverlo sigue vacío, no podemos persistir
         if (empty($data['id_personal'])) {
-            Log::warning("No se pudo persistir logro personal: id_personal no resuelto.", ['payload' => $this->payload]);
+            Log::warning('No se pudo persistir logro personal: id_personal no resuelto.', ['payload' => $this->payload]);
+
             return;
         }
 
@@ -61,7 +62,7 @@ class PersistirLogroPersonal implements ShouldQueue
     {
         Log::error('LogroPersonal job failed', [
             'payload' => $this->payload,
-            'error'   => $e->getMessage(),
+            'error' => $e->getMessage(),
         ]);
     }
 }

@@ -2,30 +2,25 @@
 
 namespace App\Observers;
 
+use App\Events\PagoOrdenCompraGuardado;
 use App\Models\PagoOrdenCompra;
-use App\Models\OrdenCompra;
-use App\Services\EstadoFaseService;
 
 class PagoOrdenCompraObserver
 {
     /**
-     * Handle the PagoOrdenCompra "saved" event.
-     * Triggers when a new payment link is created or updated.
+     * Dispara el evento PagoOrdenCompraGuardado.
+     * SincronizarEstadoFinancieroListener se encarga de llamar al servicio.
      */
     public function saved(PagoOrdenCompra $pagoOrden): void
     {
-        if ($orden = OrdenCompra::find($pagoOrden->id_orden_compra)) {
-            EstadoFaseService::sincronizarEstadoFinanciero($orden);
-        }
+        event(new PagoOrdenCompraGuardado($pagoOrden));
     }
 
     /**
-     * Handle the PagoOrdenCompra "deleted" event.
+     * Dispara el evento PagoOrdenCompraGuardado al eliminar.
      */
     public function deleted(PagoOrdenCompra $pagoOrden): void
     {
-        if ($orden = OrdenCompra::find($pagoOrden->id_orden_compra)) {
-            EstadoFaseService::sincronizarEstadoFinanciero($orden);
-        }
+        event(new PagoOrdenCompraGuardado($pagoOrden));
     }
 }

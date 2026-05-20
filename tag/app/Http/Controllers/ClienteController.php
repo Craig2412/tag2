@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ClienteResource;
 use App\Models\Cliente;
 use App\Models\Estatus;
 use App\Services\ClienteService;
-use App\Http\Resources\ClienteResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -23,12 +23,13 @@ class ClienteController extends Controller
         if ($request->has('include')) {
             $allowed = ['usuario', 'tipoContribuyente'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'tipoContribuyente' || $include === 'usuario') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -69,18 +70,17 @@ class ClienteController extends Controller
             'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
-
-
         try {
             $item = $service->createCliente($data);
+
             return (new ClienteResource($item->load([
-                'usuario' => fn($q) => $q->withTrashed(), 
-                'tipoContribuyente' => fn($q) => $q->withTrashed()
+                'usuario' => fn ($q) => $q->withTrashed(),
+                'tipoContribuyente' => fn ($q) => $q->withTrashed(),
             ])))
                 ->response()
                 ->setStatusCode(201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al crear cliente: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al crear cliente: '.$e->getMessage()], 500);
         }
     }
 
@@ -90,8 +90,8 @@ class ClienteController extends Controller
     public function show(Cliente $cliente)
     {
         return new ClienteResource($cliente->load([
-            'usuario' => fn($q) => $q->withTrashed(), 
-            'tipoContribuyente' => fn($q) => $q->withTrashed()
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -121,12 +121,12 @@ class ClienteController extends Controller
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
             'usuario.nombre_usuario' => [
-                'sometimes', 'string', 'max:255', 
-                $cliente->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($cliente->usuario_id) : ''
+                'sometimes', 'string', 'max:255',
+                $cliente->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($cliente->usuario_id) : '',
             ],
             'usuario.correo' => [
-                'sometimes', 'email', 
-                $cliente->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($cliente->usuario_id) : ''
+                'sometimes', 'email',
+                $cliente->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($cliente->usuario_id) : '',
             ],
             'usuario.clave' => ['sometimes', 'nullable', 'string', 'min:8'],
             'usuario.esta_activo' => ['sometimes', 'boolean'],
@@ -136,12 +136,13 @@ class ClienteController extends Controller
 
         try {
             $updatedCliente = $service->updateCliente($cliente, $data);
+
             return new ClienteResource($updatedCliente->load([
-                'usuario' => fn($q) => $q->withTrashed(), 
-                'tipoContribuyente' => fn($q) => $q->withTrashed()
+                'usuario' => fn ($q) => $q->withTrashed(),
+                'tipoContribuyente' => fn ($q) => $q->withTrashed(),
             ]));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al actualizar cliente: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al actualizar cliente: '.$e->getMessage()], 500);
         }
     }
 
@@ -151,6 +152,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

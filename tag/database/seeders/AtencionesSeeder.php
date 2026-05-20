@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Atencion;
+use App\Models\Cliente;
 use App\Models\EstadoAtencion;
 use App\Models\Origen;
-use App\Models\Cliente;
 use App\Models\Personal;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +17,7 @@ class AtencionesSeeder extends Seeder
         $personal = Personal::first();
         $origen = Origen::first();
 
-        if (!$cliente || !$personal || !$origen) {
+        if (! $cliente || ! $personal || ! $origen) {
             return;
         }
 

@@ -51,14 +51,14 @@
 | **Motivo** | Evento huérfano. La reversión de saldos la hace `PagoProveedorObserver::deleting()`. |
 | **Resultado esperado** | 1 evento y 1 dispatch menos. Cero impacto funcional. |
 
-### F0.4 · Eliminar evento `AtencionEtapaCambiada`
+### F0.4 · ~~Eliminar evento `AtencionEtapaCambiada`~~ ❌ CANCELADA
 
 | Campo | Valor |
 |-------|-------|
-| **Archivo a eliminar** | `app/Events/AtencionEtapaCambiada.php` |
-| **Archivo a modificar** | `app/Services/EstadoFaseService.php` (línea 59: quitar `event(new AtencionEtapaCambiada(...))`) |
-| **Motivo** | Evento huérfano. El cambio de etapa comercial no se persiste en ningún historial. |
-| **Resultado esperado** | 1 evento y 1 dispatch menos. Si en el futuro se necesita historial de etapas, se implementará como listener de `AtencionEstatusActualizado`. |
+| **Estado** | **CANCELADA** — 20 de mayo de 2026 |
+| **Motivo de cancelación** | `AtencionEtapaCambiada` **NO es huérfano**. `RegistrarHistorialAtencionListener` lo escucha vía auto-discovery y persiste el cambio de etapa en `atencion_historial`. El análisis original fue erróneo. |
+| **Archivos implicados** | `app/Events/AtencionEtapaCambiada.php` (NO eliminar), `app/Services/EstadoFaseService.php:59` (NO modificar), `app/Listeners/RegistrarHistorialAtencionListener.php` (conservar) |
+| **Resultado** | El historial de etapas comerciales se sigue registrando correctamente. No se toca. |
 
 ### F0.5 · Unificar emisión de `CotizacionGuardado`
 
@@ -69,14 +69,15 @@
 | **Motivo** | El evento se disparaba 2 veces: por `$dispatchesEvents` del modelo y por el Observer. |
 | **Resultado esperado** | `CotizacionGuardado` se dispara 1 vez. `SincronizarFaseAtencionListener` y `SincronizarEstadoFinancieroListener` se ejecutan 1 vez. |
 
-### F0.6 · Unificar emisión de `PagoOrdenCompraGuardado`
+### F0.6 · Unificar camino de `PagoOrdenCompraGuardado`
 
 | Campo | Valor |
 |-------|-------|
 | **Archivo a modificar** | `app/Models/PagoOrdenCompra.php` (líneas 20-23: eliminar `$dispatchesEvents`) |
-| **Se mantiene** | `app/Observers/PagoOrdenCompraObserver.php` (única fuente de `PagoOrdenCompraGuardado`) |
-| **Motivo** | Ídem F0.5. |
-| **Resultado esperado** | `PagoOrdenCompraGuardado` se dispara 1 vez. `SincronizarEstadoFinancieroListener` se ejecuta 1 vez. |
+| **Archivo a modificar** | `app/Observers/PagoOrdenCompraObserver.php` (línea 17-19: eliminar llamada directa a `EstadoFaseService::sincronizarEstadoFinanciero()` — el listener `SincronizarEstadoFinancieroListener` ya lo hace al escuchar el evento) |
+| **Motivo** | **[CORREGIDO 20-may-2026]:** El Observer NO dispara el evento 2 veces (solo el modelo lo hace vía `$dispatchesEvents`). Pero el Observer llama a `EstadoFaseService::sincronizarEstadoFinanciero()` **directamente**, y el listener también lo llama al escuchar `PagoOrdenCompraGuardado`. Resultado: `sincronizarEstadoFinanciero()` se ejecuta 2 veces. Hay que unificar en UN solo camino. |
+| **Se mantiene** | `app/Listeners/SincronizarEstadoFinancieroListener.php` como ÚNICO punto que llama a `EstadoFaseService::sincronizarEstadoFinanciero()` para órdenes. El Observer solo debe disparar el evento. |
+| **Resultado esperado** | `EstadoFaseService::sincronizarEstadoFinanciero()` se ejecuta 1 vez. |
 
 ### F0.7 · Mover registro de listeners a `EventServiceProvider`
 
@@ -125,13 +126,13 @@
 | **Cambio** | `APP_DEBUG=false` en `.env`. Crear `.env.example` con `APP_DEBUG=true` para desarrollo. |
 | **Resultado esperado** | Si se despliega sin cambiar el `.env`, no expone stack traces. |
 
-### F1.4 · Crear `.env.example` completo
+### F1.4 · Completar `.env.example`
 
 | Campo | Valor |
 |-------|-------|
-| **Archivo a crear** | `.env.example` |
-| **Contenido** | Todas las claves del `.env` real con valores dummy (sin secretos reales). |
-| **Resultado esperado** | `composer setup` funciona. Nuevos desarrolladores saben qué variables necesitan. |
+| **Archivo a modificar** | `.env.example` (YA EXISTE, pero está incompleto) |
+| **Contenido** | Agregar claves faltantes: `REDIS_HOST`, `REDIS_CLIENT`, `REDIS_PORT`, `DB_CONNECTION=mysql` (actualmente dice `sqlite`), y demás variables del `.env` real con valores dummy. |
+| **Resultado esperado** | `composer setup` funciona correctamente. Nuevos desarrolladores tienen todas las variables necesarias para replicar el entorno. **[CORREGIDO 20-may-2026: el archivo ya existe, no hay que crearlo sino completarlo]** |
 
 ### F1.5 · `SESSION_ENCRYPT=true`
 
@@ -155,13 +156,13 @@
 | **Cambio** | Reemplazar `'id_estado_financiero' => 1` y `'id_estado_financiero_egreso' => 1` por consulta dinámica `EstadoFinanciero::where('slug', 'pendiente')->firstOrFail()->id` |
 | **Resultado esperado** | La OC se crea con el estado "pendiente" correcto sin importar el orden de IDs en el catálogo. |
 
-### F2.2 · Corregir rol `cliente` inexistente
+### F2.2 · ~~Corregir rol `cliente` inexistente~~ ❌ CANCELADA
 
 | Campo | Valor |
 |-------|-------|
-| **Archivo a modificar** | `app/Services/ClienteService.php` |
-| **Cambio** | `$usuario->assignRole('cliente')` → `$usuario->assignRole('user')` |
-| **Resultado esperado** | El registro de cliente no lanza excepción de Spatie. |
+| **Estado** | **CANCELADA** — 20 de mayo de 2026 |
+| **Motivo de cancelación** | El rol `cliente` **SÍ existe**. Se crea en `RoleSeeder.php:156` mediante `Role::findOrCreate('cliente', 'web')`. La asignación `assignRole('cliente')` en `ClienteService.php:23` es semánticamente correcta. El análisis original asumió erróneamente que el rol no existía. |
+| **Acción real** | Verificar que los seeders se ejecuten como parte del setup del proyecto. Si `php artisan db:seed` se ha ejecutado, el rol existe y la asignación funciona. No cambiar a `'user'`. |
 
 ### F2.3 · Limpiar campos fantasma en `TestMasterCommercialCycle`
 
@@ -426,3 +427,18 @@
 3. **F3 y F4 son las de mayor riesgo.** Tocar el core de eventos puede romper el flujo maestro. Se necesita testing manual exhaustivo después de cada una.
 4. **F7.3 (renombrar tablas) es opcional.** Si el sistema ya tiene datos en producción, requiere migración con downtime. Se puede posponer para v2.
 5. **Los nombres de clases, métodos y archivos en este documento son los NOMBRES FINALES.** No son placeholders. Si se implementa, se usan exactamente estos nombres.
+
+---
+
+# 📝 CORRECCIONES APLICADAS (20 de mayo de 2026)
+
+Tras verificación exhaustiva del código fuente real, se detectaron y corrigieron los siguientes errores en los documentos originales:
+
+| # | Error en documento original | Corrección aplicada | Impacto en el plan |
+|---|---------------------------|---------------------|-------------------|
+| 1 | **F0.4** — `AtencionEtapaCambiada` reportado como huérfano | **CANCELADA.** `RegistrarHistorialAtencionListener` SÍ lo escucha y persiste en `atencion_historial`. | No eliminar el evento ni su dispatch. |
+| 2 | **F2.2 / B4** — Rol `cliente` reportado como inexistente | **CANCELADA.** El rol SÍ existe en `RoleSeeder.php:156` (`findOrCreate('cliente', 'web')`). | No cambiar `assignRole('cliente')` → `assignRole('user')`. |
+| 3 | **F1.4 / P5** — `.env.example` reportado como no existente | **CORREGIDO.** El archivo SÍ existe pero está incompleto. | Completar en vez de crear. |
+| 4 | **B2** — `PagoOrdenCompraGuardado` reportado como "disparado 2 veces" | **CORREGIDO.** No se dispara 2 veces; el Observer llama al servicio directamente + el listener también. | Mecanismo de unificación ajustado (ver F0.6). |
+| 5 | **RF1** — "Tres eventos huérfanos" en ANALISIS_REFACTORIZACION_EVENTOS.md | **CORREGIDO.** Son 2 eventos huérfanos, no 3. `AtencionEtapaCambiada` tiene listener. | Solo eliminar `PagoProveedorCreado` y `PagoProveedorEliminado`. |
+| 6 | **RF3** — `AtencionEtapaCambiada` listado como "nadie lo escucha" | **CORREGIDO.** Sí es escuchado por `RegistrarHistorialAtencionListener`. | El servicio sí tiene razón para dispararlo. |

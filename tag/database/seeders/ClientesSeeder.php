@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Usuario;
 use App\Models\Cliente;
-use App\Models\Estatus;
 use App\Models\TipoContribuyente;
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
 
 class ClientesSeeder extends Seeder
@@ -37,8 +36,8 @@ class ClientesSeeder extends Seeder
                 [
                     'nombre' => $usuario->nombre_usuario,
                     'apellido' => 'General',
-                    'cedula' => 'V-' . rand(10000000, 30000000),
-                    'telefono' => '+58 424 ' . rand(1000000, 9999999),
+                    'cedula' => 'V-'.rand(10000000, 30000000),
+                    'telefono' => '+58 424 '.rand(1000000, 9999999),
                     'id_tipo_contribuyente' => $tipoContribuyente ? $tipoContribuyente->id : null,
                 ]
             );

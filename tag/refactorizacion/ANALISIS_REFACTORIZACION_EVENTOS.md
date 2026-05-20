@@ -13,7 +13,7 @@
 |--------|-----------------|------------------|
 | `CotizacionGuardado` | `CotizacionObserver::saved/deleted` + `Model::$dispatchesEvents` ⚠️ | `SincronizarFaseAtencionListener` + `RegistrarHistorialCotizacionListener` (💀 obsoleto) |
 | `AtencionEstatusActualizado` | `AtencionController` (2x) + `EstadoFaseService` (3x) | `RegistrarHistorialEstatusAtencionListener` (auto-discovered) |
-| `AtencionEtapaCambiada` | `EstadoFaseService` (1x) | 🔇 **NADIE** — ¡evento huérfano! |
+| `AtencionEtapaCambiada` | `EstadoFaseService` (1x) | `RegistrarHistorialAtencionListener` (auto-discovered) — persiste en `atencion_historial` |
 | `CotizacionEstatusActualizado` | `CotizacionController` (2x) + `GenerarOrdenDesdeCotizacionListener` (1x) | `RegistrarHistorialEstatusCotizacionListener` + `GenerarOrdenDesdeCotizacionListener` (auto-discovered) |
 | `OrdenCompraGuardado` | `OrdenCompraObserver::saved` | `SincronizarPadreOrdenCompraListener` + `SincronizarEstadoFinancieroListener` |
 | `OrdenCompraAprobada` | `GenerarOrdenDesdeCotizacionListener` | `GenerarCuentasPorPagarListener` |
@@ -26,15 +26,16 @@
 
 ## 🔴 HALLAZGOS GRAVES DE ARQUITECTURA (no cubiertos en informe técnico)
 
-### RF1 · Tres eventos huérfanos — disparados pero nunca escuchados
+### RF1 · Dos eventos huérfanos — disparados pero nunca escuchados
+
+> **[CORREGIDO 20-may-2026]:** `AtencionEtapaCambiada` **NO es huérfano**. `RegistrarHistorialAtencionListener` lo escucha vía auto-discovery y persiste el cambio de etapa en `atencion_historial`. Fue un error del análisis original. Los eventos verdaderamente huérfanos son solo 2:
 
 | Evento | Veces disparado | Consecuencia |
 |--------|----------------|-------------|
-| `AtencionEtapaCambiada` | 1 (en `EstadoFaseService:59`) | El cambio de etapa comercial no se registra en ningún historial |
 | `PagoProveedorCreado` | 1 (en `PagoProveedorController:83`) | Se dispara pero la amortización de CxP la hace el `PagoProveedorCuentaObserver`, no un listener de este evento |
 | `PagoProveedorEliminado` | 1 (en `PagoProveedorController:147`) | Se dispara pero la reversión la hace `PagoProveedorObserver::deleting()`, no un listener de este evento |
 
-**Problema real:** Estos eventos se crearon con la intención de que listeners reaccionaran, pero la lógica se movió a Observers. Los eventos quedaron como ruido — se siguen disparando, consumiendo memoria y serializando modelos para nada.
+**Problema real:** Estos 2 eventos se crearon con la intención de que listeners reaccionaran, pero la lógica se movió a Observers. Los eventos quedaron como ruido — se siguen disparando, consumiendo memoria y serializando modelos para nada.
 
 ---
 
@@ -51,8 +52,8 @@
 
 - **Archivo:** `app/Services/EstadoFaseService.php`
 - **Líneas:** 59, 72, 92, 104
-- **Problema:** `EstadoFaseService` es una capa de lógica de negocio. Dispara 4 eventos de dominio:
-  - `AtencionEtapaCambiada` → nadie lo escucha
+- **Problema:** `EstadoFaseService` es una capa de lógica de negocio. Dispara eventos de dominio:
+  - `AtencionEtapaCambiada` → escuchado por `RegistrarHistorialAtencionListener` (registro de historial de etapas)
   - `AtencionEstatusActualizado` → 3 veces desde el servicio
 - **Por qué es malo:** Si un listener de `AtencionEstatusActualizado` falla, el error se origina "dentro" de `EstadoFaseService`, no en el controller. Hace el debugging muy difícil. Además, `EstadoFaseService` se llama desde listeners que a su vez fueron disparados por eventos — se crean cadenas de eventos imposibles de rastrear.
 - **Acción:** El servicio debe devolver información (qué cambió), y el controller o un job dedicado debe disparar los eventos.
@@ -180,7 +181,7 @@ Job → actualiza estados → dispatch siguiente Job si es necesario
 
 1. **Eliminar `RegistrarHistorialCotizacionListener.php`** — es dead code
 2. **Eliminar `PagoProveedorCreado` y `PagoProveedorEliminado`** — son huérfanos. La lógica ya está en Observers
-3. **Eliminar `AtencionEtapaCambiada`** — es huérfano. Si se necesita historial de etapas, que lo haga un listener de `AtencionEstatusActualizado`
+3. **NO eliminar `AtencionEtapaCambiada`** — NO es huérfano. `RegistrarHistorialAtencionListener` lo escucha y persiste en `atencion_historial`. [CORREGIDO 20-may-2026]
 4. **Quitar `$dispatchesEvents` de `Cotizacion` y `PagoOrdenCompra`** — unificar en Observer
 5. **Mover TODOS los listeners a registro explícito en `EventServiceProvider`** nuevo — eliminar auto-discovery
 
@@ -227,7 +228,7 @@ Job → actualiza estados → dispatch siguiente Job si es necesario
 | Métrica | Actual | Propuesto |
 |---------|--------|-----------|
 | Eventos disparados por request | 8-14 | 3-5 |
-| Listeners registrados | 10 (1 obsoleto, 3 huérfanos) | 6 (todos con propósito claro) |
+| Listeners registrados | 10 (1 obsoleto, 2 huérfanos) | 7 (todos con propósito claro) |
 | `saveQuietly` en código | 5 | 0 |
 | Queries de catálogo por request | 8-15 (por duplicación) | 3-5 (cache) |
 | Servicios con múltiples responsabilidades | 1 (EstadoFaseService) | 3 (separados por dominio) |

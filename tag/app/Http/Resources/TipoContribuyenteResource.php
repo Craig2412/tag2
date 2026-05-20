@@ -10,9 +10,9 @@ class TipoContribuyenteResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'                 => $this->id,
+            'id' => $this->id,
             'tipo_contribuyente' => $this->tipo_contribuyente,
-            'porcentaje_iva'     => (float) $this->porcentaje_iva,
+            'porcentaje_iva' => (float) $this->porcentaje_iva,
         ];
     }
 }

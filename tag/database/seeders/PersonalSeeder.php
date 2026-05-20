@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Usuario;
 use App\Models\Personal;
-use App\Models\Estatus;
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
 
 class PersonalSeeder extends Seeder
@@ -22,9 +21,9 @@ class PersonalSeeder extends Seeder
                 [
                     'nombre' => $usuario->nombre_usuario,
                     'apellido' => 'Comercial',
-                    'cedula' => 'V-' . rand(10000000, 30000000),
-                    'telefono' => '+58 412 ' . rand(1000000, 9999999),
-                    'correo_institucional' => strtolower($usuario->nombre_usuario) . '@tag.com',
+                    'cedula' => 'V-'.rand(10000000, 30000000),
+                    'telefono' => '+58 412 '.rand(1000000, 9999999),
+                    'correo_institucional' => strtolower($usuario->nombre_usuario).'@tag.com',
                     'porcentaje_comision' => 5.00,
                 ]
             );

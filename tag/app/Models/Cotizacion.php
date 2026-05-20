@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Events\CotizacionGuardado;
 
 class Cotizacion extends Model
 {
@@ -29,11 +28,6 @@ class Cotizacion extends Model
 
     protected $casts = [
         'fecha_vencimiento' => 'date',
-    ];
-
-    protected $dispatchesEvents = [
-        'saved'   => CotizacionGuardado::class,
-        'deleted' => CotizacionGuardado::class,
     ];
 
     // Expone campos calculados en el JSON automáticamente
@@ -78,7 +72,7 @@ class Cotizacion extends Model
     // Indica si la proforma ya expiró. Calculado en servidor, nunca persistido.
     public function getEstaVencidaAttribute(): bool
     {
-        if (!$this->fecha_vencimiento) {
+        if (! $this->fecha_vencimiento) {
             return false;
         }
 

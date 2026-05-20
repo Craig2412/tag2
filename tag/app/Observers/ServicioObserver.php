@@ -15,7 +15,7 @@ class ServicioObserver
         $gravable = (float) $servicio->monto_gravable;
         $noSujeto = (float) $servicio->monto_no_sujeto;
         $ivaPorcentaje = (float) $servicio->iva_establecido;
-        
+
         $montoIva = $gravable * ($ivaPorcentaje / 100);
 
         // El Total real es siempre base_imponible + impuestos

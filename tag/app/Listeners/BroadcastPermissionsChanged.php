@@ -4,9 +4,8 @@ namespace App\Listeners;
 
 use App\Events\PermissionsUpdated;
 use App\Models\Usuario;
-use Spatie\Permission\Models\Role;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Log;
+use Spatie\Permission\Models\Role;
 
 /**
  * Listens for Spatie Permission events and broadcasts a notification
@@ -16,7 +15,8 @@ class BroadcastPermissionsChanged implements ShouldQueue
 {
     /**
      * Handle the event.
-     * @param mixed $event - Spatie permission event (RoleAttached, PermissionAttached, etc.)
+     *
+     * @param  mixed  $event  - Spatie permission event (RoleAttached, PermissionAttached, etc.)
      */
     public function handle($event): void
     {
@@ -25,7 +25,7 @@ class BroadcastPermissionsChanged implements ShouldQueue
         // Caso 1: El cambio fue directo en un Usuario
         if ($model instanceof Usuario) {
             broadcast(new PermissionsUpdated($model->id));
-        } 
+        }
         // Caso 2: El cambio fue en un Rol (sincronización de permisos del rol)
         elseif ($model instanceof Role) {
             // Notificamos a todos los usuarios que tienen este rol asignado

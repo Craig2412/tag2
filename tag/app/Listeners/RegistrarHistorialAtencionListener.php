@@ -3,8 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\AtencionEtapaCambiada;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RegistrarHistorialAtencionListener
 {

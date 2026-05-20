@@ -2,9 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\PagoProveedorCuenta;
-use App\Services\EstadoFaseService;
 use App\Models\EstadoFinanciero;
+use App\Models\PagoProveedorCuenta;
+use App\Services\OrdenStateService;
 
 class PagoProveedorCuentaObserver
 {
@@ -17,7 +17,7 @@ class PagoProveedorCuentaObserver
         if ($cuenta) {
             // 1. Restar el monto asignado del saldo pendiente
             $cuenta->saldo_pendiente -= $pagoCuenta->monto_asignado;
-            
+
             // Lógica de estados financieros
             $slugEstado = 'parcial';
             if ($cuenta->saldo_pendiente <= 0) {
@@ -35,7 +35,7 @@ class PagoProveedorCuentaObserver
 
             // 3. Sincronizar el estado de egreso de la Orden de Compra
             if ($cuenta->ordenCompra) {
-                EstadoFaseService::sincronizarEstadoEgreso($cuenta->ordenCompra);
+                OrdenStateService::sincronizarEgreso($cuenta->ordenCompra);
             }
         }
     }
@@ -66,7 +66,7 @@ class PagoProveedorCuentaObserver
             $cuenta->save();
 
             if ($cuenta->ordenCompra) {
-                EstadoFaseService::sincronizarEstadoEgreso($cuenta->ordenCompra);
+                OrdenStateService::sincronizarEgreso($cuenta->ordenCompra);
             }
         }
     }

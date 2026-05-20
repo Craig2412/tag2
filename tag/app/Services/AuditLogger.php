@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class AuditLogger
 {
     private static array $beforeUpdate = [];
+
     private static array $beforeDelete = [];
 
     private static array $sensitiveKeys = [
@@ -34,7 +35,7 @@ class AuditLogger
 
     public static function logModelCreated(Model $model): void
     {
-        if (!self::shouldAuditModel($model)) {
+        if (! self::shouldAuditModel($model)) {
             return;
         }
 
@@ -50,7 +51,7 @@ class AuditLogger
 
     public static function logModelUpdated(Model $model): void
     {
-        if (!self::shouldAuditModel($model)) {
+        if (! self::shouldAuditModel($model)) {
             return;
         }
 
@@ -85,7 +86,7 @@ class AuditLogger
 
     public static function logModelDeleted(Model $model): void
     {
-        if (!self::shouldAuditModel($model)) {
+        if (! self::shouldAuditModel($model)) {
             return;
         }
 
@@ -111,25 +112,24 @@ class AuditLogger
         ?string $message = null,
         array $afterData = [],
         ?int $statusCode = null
-    ): void
-    {
+    ): void {
         // Auth events son siempre síncronos: se deben persistir en el mismo request
         // (login fallido, token inválido, etc. deben quedar registrados inmediatamente)
         self::write([
-            'usuario_id'  => $usuario?->id,
-            'user_role'   => $usuario?->roles()->pluck('name')->implode(',') ?: null,
-            'action'      => $action,
-            'table_name'  => 'usuarios',
-            'record_id'   => $usuario?->id,
+            'usuario_id' => $usuario?->id,
+            'user_role' => $usuario?->roles()->pluck('name')->implode(',') ?: null,
+            'action' => $action,
+            'table_name' => 'usuarios',
+            'record_id' => $usuario?->id,
             'before_data' => null,
-            'after_data'  => self::sanitizeArray($afterData),
-            'ip_address'  => $request->ip(),
-            'user_agent'  => $request->userAgent(),
-            'route'       => $request->path(),
+            'after_data' => self::sanitizeArray($afterData),
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+            'route' => $request->path(),
             'http_method' => $request->method(),
             'status_code' => $statusCode,
-            'success'     => $success,
-            'message'     => $message,
+            'success' => $success,
+            'message' => $message,
         ], async: false);
     }
 
@@ -151,6 +151,7 @@ class AuditLogger
         foreach ($data as $key => $value) {
             if (in_array((string) $key, self::$sensitiveKeys, true)) {
                 $data[$key] = '[CHANGED]';
+
                 continue;
             }
 
@@ -165,22 +166,22 @@ class AuditLogger
     private static function write(array $data, bool $async = true): void
     {
         $request = request();
-        $actor   = Auth::user();
+        $actor = Auth::user();
 
         $payload = array_merge([
-            'usuario_id'  => $actor?->id,
-            'user_role'   => $actor?->roles()->pluck('name')->implode(',') ?: null,
-            'table_name'  => null,
-            'record_id'   => null,
+            'usuario_id' => $actor?->id,
+            'user_role' => $actor?->roles()->pluck('name')->implode(',') ?: null,
+            'table_name' => null,
+            'record_id' => null,
             'before_data' => null,
-            'after_data'  => null,
-            'ip_address'  => $request?->ip(),
-            'user_agent'  => $request?->userAgent(),
-            'route'       => $request?->path(),
+            'after_data' => null,
+            'ip_address' => $request?->ip(),
+            'user_agent' => $request?->userAgent(),
+            'route' => $request?->path(),
             'http_method' => $request?->method(),
             'status_code' => null,
-            'success'     => true,
-            'message'     => null,
+            'success' => true,
+            'message' => null,
         ], $data);
 
         if ($async) {

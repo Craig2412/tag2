@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MetodoPago;
 use App\Http\Resources\EntidadBancariaResource;
 use App\Http\Resources\MetodoPagoResource;
+use App\Models\MetodoPago;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,7 +22,7 @@ class MetodoPagoController extends Controller
         if ($request->has('include')) {
             $allowed = ['entidadesBancarias'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with($includes);
             }
         }
@@ -32,7 +32,7 @@ class MetodoPagoController extends Controller
 
     /**
      * Crear un nuevo método de pago
-     * 
+     *
      * @bodyParam metodo_pago string required Nombre del método de pago. Ejemplo: Efectivo - Divisas
      */
     public function store(Request $request)
@@ -64,7 +64,7 @@ class MetodoPagoController extends Controller
 
     /**
      * Actualizar un método de pago
-     * 
+     *
      * @bodyParam metodo_pago string required Nombre del método de pago. Ejemplo: Transferencia Zelle
      * @bodyParam entidades_bancarias int[] Lista de IDs de entidades bancarias asociadas. Example: [1, 2]
      */
@@ -101,6 +101,7 @@ class MetodoPagoController extends Controller
 
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
+
     /**
      * Obtener entidades bancarias de un método de pago
      *

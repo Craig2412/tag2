@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('id_cuenta_por_pagar')->constrained('cuentas_por_pagar');
             $table->decimal('monto_asignado', 12, 2);
             $table->timestamps();
-            
+
             // Constraint único para evitar duplicar asignaciones del mismo pago a la misma CxP
             $table->unique(['id_pago_proveedor', 'id_cuenta_por_pagar'], 'pago_cuenta_unique');
         });

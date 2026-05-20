@@ -24,5 +24,6 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // Formato de error estándar para API: { success, message, errors }
+        $exceptions->shouldRenderJsonWhen(fn () => true);
     })->create();

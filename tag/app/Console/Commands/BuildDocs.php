@@ -32,7 +32,7 @@ class BuildDocs extends Command
         // 0. Limpiar cachés iniciales
         $this->warn('--- Paso 0: Limpiando todas las cachés ---');
         $this->call('config:clear');
-        
+
         try {
             $this->call('cache:clear');
         } catch (\Exception $e) {
@@ -52,8 +52,9 @@ class BuildDocs extends Command
         $this->warn('--- Paso 2: Generando Token de API para Administrador ---');
         $admin = Usuario::role('admin')->first();
 
-        if (!$admin) {
+        if (! $admin) {
             $this->error('❌ No se encontró un usuario con el rol [admin].');
+
             return 1;
         }
 
@@ -63,28 +64,28 @@ class BuildDocs extends Command
 
         // 3. Gestionar secretos en .env
         $this->warn('--- Paso 3: Sincronizando variables en .env ---');
-        
+
         // Actualizar token de Scribe (siempre se refresca)
         $this->updateEnvFile('SCRIBE_AUTH_TOKEN', $token);
 
         // Gestionar secreto interno para Next.js (Solo si no existe)
-        if (!env('INTERNAL_CONTRACT_SECRET')) {
+        if (! env('INTERNAL_CONTRACT_SECRET')) {
             $secret = \Illuminate\Support\Str::random(40);
             $this->updateEnvFile('INTERNAL_CONTRACT_SECRET', $secret);
-            $this->info("✅ Nuevo secreto interno generado para Next.js.");
+            $this->info('✅ Nuevo secreto interno generado para Next.js.');
         }
 
         // 4. Inyectar en la memoria actual para la ejecución de Scribe
         config([
             'scribe.auth.use_value' => $token,
         ]);
-        
+
         // 5. Generar Scribe
         $this->warn('--- Paso 4: Regenerando documentación con Scribe ---');
         $this->call('scribe:generate', ['--force' => true]);
 
         $this->info('✨ ¡Proceso completado! El token ha sido actualizado y el contrato está securizado.');
-        
+
         return 0;
     }
 
@@ -95,8 +96,9 @@ class BuildDocs extends Command
     {
         $path = base_path('.env');
 
-        if (!File::exists($path)) {
+        if (! File::exists($path)) {
             $this->error('❌ No se encontró el archivo .env');
+
             return;
         }
 

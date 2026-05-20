@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrdenCompra;
-use App\Models\EstadoOrdenCompra;
-use App\Models\OrdenCompraHistorial;
 use App\Http\Resources\OrdenCompraResource;
+use App\Models\OrdenCompra;
+use App\Models\OrdenCompraHistorial;
 use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
@@ -67,15 +66,19 @@ class OrdenCompraController extends Controller
         // Registrar en historial si cambió el estado operativo
         if (isset($data['id_estado_orden_compra']) && $data['id_estado_orden_compra'] != $estadoAnteriorId) {
             OrdenCompraHistorial::create([
-                'orden_compra_id'  => $ordenCompra->id,
+                'orden_compra_id' => $ordenCompra->id,
                 'id_estado_anterior' => $estadoAnteriorId,
-                'id_estado_nuevo'    => $data['id_estado_orden_compra'],
-                'usuario_id'         => auth()->id(),
-                'comentario'         => 'Cambio de estado desde API',
+                'id_estado_nuevo' => $data['id_estado_orden_compra'],
+                'usuario_id' => auth()->id(),
+                'comentario' => 'Cambio de estado desde API',
             ]);
         }
 
-        return new OrdenCompraResource($ordenCompra->fresh());
+        return new OrdenCompraResource($ordenCompra->fresh()->load([
+            'cotizacion.tasaCambio',
+            'estadoFinanciero',
+            'estadoOrdenCompra',
+        ]));
     }
 
     /**

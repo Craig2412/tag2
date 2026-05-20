@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\TasaCambio;
 use App\Models\Tasa;
+use App\Models\TasaCambio;
 use Illuminate\Database\Seeder;
 
 class TasasCambioSeeder extends Seeder

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CotizacionEstatusActualizado;
+use App\Http\Resources\CotizacionResource;
 use App\Models\Cotizacion;
+use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
-use App\Http\Resources\CotizacionResource;
-use App\Models\EstadoCotizacion;
-use App\Events\CotizacionEstatusActualizado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -32,7 +32,7 @@ class CotizacionController extends Controller
         if ($request->has('include')) {
             $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with($includes);
             }
         }
@@ -107,13 +107,13 @@ class CotizacionController extends Controller
             ));
 
             return new CotizacionResource($item->load([
-                'atencion' => fn($q) => $q->withTrashed(),
-                'atencion.cliente' => fn($q) => $q->withTrashed(),
-                'atencion.personal' => fn($q) => $q->withTrashed(),
-                'tipoCotizacion' => fn($q) => $q->withTrashed(),
+                'atencion' => fn ($q) => $q->withTrashed(),
+                'atencion.cliente' => fn ($q) => $q->withTrashed(),
+                'atencion.personal' => fn ($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn ($q) => $q->withTrashed(),
                 'tasaCambio',
                 'estadoCotizacion',
-                'servicios'
+                'servicios',
             ]));
         });
     }
@@ -123,7 +123,7 @@ class CotizacionController extends Controller
      */
     public function show(Cotizacion $cotizacion)
     {
-        return new CotizacionResource($cotizacion->load(['ordenCompra', 'tasaCambio']));
+        return new CotizacionResource($cotizacion->load(['ordenCompra', 'tasaCambio', 'estadoCotizacion', 'tipoCotizacion']));
     }
 
     /**
@@ -163,14 +163,14 @@ class CotizacionController extends Controller
             'servicios.*.id' => ['sometimes', 'exists:servicios,id'],
             'servicios.*.id_tipo_servicio' => ['required_with:servicios', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
             'servicios.*.id_proveedor' => ['required_with:servicios', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
-            'servicios.*.costo' => ['required_with:servicios', 'numeric' , 'min:0'],
+            'servicios.*.costo' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_gravable' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_no_sujeto' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.id_tasa_cambio' => ['required_with:servicios', 'exists:tasas_cambio,id'],
         ]);
 
         $idPendiente = EstadoCotizacion::where('slug', 'pendiente')->firstOrFail()->id;
-        $idAprobada  = EstadoCotizacion::where('slug', 'aprobada')->firstOrFail()->id;
+        $idAprobada = EstadoCotizacion::where('slug', 'aprobada')->firstOrFail()->id;
 
         return DB::transaction(function () use ($data, $cotizacion, $idAprobada, $idPendiente) {
             $estatusActual = (int) $cotizacion->getRawOriginal('id_estado_cotizacion');
@@ -214,20 +214,19 @@ class CotizacionController extends Controller
             // --- MÁQUINA DE ESTADOS / DISPARADOR DE ORDEN COMPRA ---
             // IMPORTANTE: Lo desactivamos aquí en el controlador porque ahora lo hace un Listener especializado.
 
-
             // Siempre recalcular si hubo cambios de servicios u OC existe
             $ordenCompra = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
             $ordenCompra?->recalcularMontoTotal();
 
             return new CotizacionResource($cotizacion->fresh()->load([
-                'atencion' => fn($q) => $q->withTrashed(),
-                'atencion.cliente' => fn($q) => $q->withTrashed(),
-                'atencion.personal' => fn($q) => $q->withTrashed(),
-                'tipoCotizacion' => fn($q) => $q->withTrashed(),
+                'atencion' => fn ($q) => $q->withTrashed(),
+                'atencion.cliente' => fn ($q) => $q->withTrashed(),
+                'atencion.personal' => fn ($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn ($q) => $q->withTrashed(),
                 'tasaCambio',
                 'estadoCotizacion',
                 'ordenCompra',
-                'servicios'
+                'servicios',
             ]));
         });
     }
@@ -238,6 +237,7 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         $cotizacion->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

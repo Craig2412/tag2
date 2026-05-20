@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proveedor;
 use App\Http\Resources\ProveedorResource;
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -21,12 +21,13 @@ class ProveedorController extends Controller
         if ($request->has('include')) {
             $allowed = ['tipoProveedor', 'tipoContribuyente', 'tiposServicio', 'cuentas'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'tipoProveedor' || $include === 'tipoContribuyente') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -86,10 +87,10 @@ class ProveedorController extends Controller
         }
 
         return new ProveedorResource($proveedor->load([
-            'tipoProveedor' => fn($q) => $q->withTrashed(),
-            'tipoContribuyente' => fn($q) => $q->withTrashed(),
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
             'tiposServicio',
-            'cuentas'
+            'cuentas',
         ]));
     }
 
@@ -101,10 +102,10 @@ class ProveedorController extends Controller
     public function show(Proveedor $proveedor)
     {
         return new ProveedorResource($proveedor->load([
-            'tipoProveedor' => fn($q) => $q->withTrashed(),
-            'tipoContribuyente' => fn($q) => $q->withTrashed(),
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
             'tiposServicio',
-            'cuentas'
+            'cuentas',
         ]));
     }
 
@@ -186,10 +187,10 @@ class ProveedorController extends Controller
         }
 
         return new ProveedorResource($proveedor->load([
-            'tipoProveedor' => fn($q) => $q->withTrashed(),
-            'tipoContribuyente' => fn($q) => $q->withTrashed(),
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
             'tiposServicio',
-            'cuentas'
+            'cuentas',
         ]));
     }
 

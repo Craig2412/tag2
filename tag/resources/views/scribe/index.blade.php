@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "http://localhost";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -133,7 +133,7 @@
                                 <a href="#endpoints-GETapi-metricas-personal--idPersonal-">Obtener métricas por personal</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-metricas-generales">
-                                <a href="#endpoints-GETapi-metricas-generales">GET api/metricas/generales</a>
+                                <a href="#endpoints-GETapi-metricas-generales">Métricas generales (todos los usuarios)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-entidades-bancarias">
                                 <a href="#endpoints-GETapi-entidades-bancarias">Listar todas las entidades bancarias</a>
@@ -336,6 +336,51 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-atenciones--atencion_id-">
                                 <a href="#endpoints-DELETEapi-atenciones--atencion_id-">Eliminar una atención</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-atencion-historial">
+                                <a href="#endpoints-GETapi-atencion-historial">GET api/atencion-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-atencion-historial">
+                                <a href="#endpoints-POSTapi-atencion-historial">POST api/atencion-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-atencion-historial--atencionHistorial-">
+                                <a href="#endpoints-GETapi-atencion-historial--atencionHistorial-">GET api/atencion-historial/{atencionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-atencion-historial--atencionHistorial-">
+                                <a href="#endpoints-PUTapi-atencion-historial--atencionHistorial-">PUT api/atencion-historial/{atencionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-atencion-historial--atencionHistorial-">
+                                <a href="#endpoints-DELETEapi-atencion-historial--atencionHistorial-">DELETE api/atencion-historial/{atencionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-atenciones">
+                                <a href="#endpoints-GETapi-estados-atenciones">Listar todos los estados de atención</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-estados-atenciones">
+                                <a href="#endpoints-POSTapi-estados-atenciones">Crear un nuevo estado de atención</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-atenciones--estadoAtencion_id-">
+                                <a href="#endpoints-GETapi-estados-atenciones--estadoAtencion_id-">Obtener un estado de atención específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-estados-atenciones--estadoAtencion_id-">
+                                <a href="#endpoints-PUTapi-estados-atenciones--estadoAtencion_id-">Actualizar un estado de atención</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-estados-atenciones--estadoAtencion_id-">
+                                <a href="#endpoints-DELETEapi-estados-atenciones--estadoAtencion_id-">Eliminar un estado de atención</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-etapas-comerciales">
+                                <a href="#endpoints-GETapi-etapas-comerciales">Listar todas las etapas comerciales</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-etapas-comerciales">
+                                <a href="#endpoints-POSTapi-etapas-comerciales">Crear una nueva etapa comercial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-etapas-comerciales--etapaComercial_id-">
+                                <a href="#endpoints-GETapi-etapas-comerciales--etapaComercial_id-">Obtener una etapa comercial específica</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-etapas-comerciales--etapaComercial_id-">
+                                <a href="#endpoints-PUTapi-etapas-comerciales--etapaComercial_id-">Actualizar una etapa comercial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-etapas-comerciales--etapaComercial_id-">
+                                <a href="#endpoints-DELETEapi-etapas-comerciales--etapaComercial_id-">Eliminar una etapa comercial (soft delete)</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-cotizaciones">
                                 <a href="#endpoints-GETapi-cotizaciones">Listar todas las cotizaciones</a>
                             </li>
@@ -350,6 +395,36 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-cotizaciones--cotizacion_id-">
                                 <a href="#endpoints-DELETEapi-cotizaciones--cotizacion_id-">Eliminar una cotización</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-cotizacion-historial">
+                                <a href="#endpoints-GETapi-cotizacion-historial">GET api/cotizacion-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-cotizacion-historial">
+                                <a href="#endpoints-POSTapi-cotizacion-historial">POST api/cotizacion-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-cotizacion-historial--cotizacionHistorial-">
+                                <a href="#endpoints-GETapi-cotizacion-historial--cotizacionHistorial-">GET api/cotizacion-historial/{cotizacionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-cotizacion-historial--cotizacionHistorial-">
+                                <a href="#endpoints-PUTapi-cotizacion-historial--cotizacionHistorial-">PUT api/cotizacion-historial/{cotizacionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-cotizacion-historial--cotizacionHistorial-">
+                                <a href="#endpoints-DELETEapi-cotizacion-historial--cotizacionHistorial-">DELETE api/cotizacion-historial/{cotizacionHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-cotizaciones">
+                                <a href="#endpoints-GETapi-estados-cotizaciones">Listar todos los estados de cotización</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-estados-cotizaciones">
+                                <a href="#endpoints-POSTapi-estados-cotizaciones">Crear un nuevo estado de cotización</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-cotizaciones--estadoCotizacion_id-">
+                                <a href="#endpoints-GETapi-estados-cotizaciones--estadoCotizacion_id-">Obtener un estado de cotización específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-estados-cotizaciones--estadoCotizacion_id-">
+                                <a href="#endpoints-PUTapi-estados-cotizaciones--estadoCotizacion_id-">Actualizar un estado de cotización</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">
+                                <a href="#endpoints-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">Eliminar un estado de cotización</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-tipos-cotizaciones">
                                 <a href="#endpoints-GETapi-tipos-cotizaciones">Listar todos los tipos de cotización</a>
@@ -395,6 +470,51 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-ordenes-compra--ordenCompra_id-">
                                 <a href="#endpoints-DELETEapi-ordenes-compra--ordenCompra_id-">Eliminar una orden de compra</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-orden-compra-historial">
+                                <a href="#endpoints-GETapi-orden-compra-historial">GET api/orden-compra-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-orden-compra-historial">
+                                <a href="#endpoints-POSTapi-orden-compra-historial">POST api/orden-compra-historial</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-orden-compra-historial--ordenCompraHistorial-">
+                                <a href="#endpoints-GETapi-orden-compra-historial--ordenCompraHistorial-">GET api/orden-compra-historial/{ordenCompraHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-orden-compra-historial--ordenCompraHistorial-">
+                                <a href="#endpoints-PUTapi-orden-compra-historial--ordenCompraHistorial-">PUT api/orden-compra-historial/{ordenCompraHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-orden-compra-historial--ordenCompraHistorial-">
+                                <a href="#endpoints-DELETEapi-orden-compra-historial--ordenCompraHistorial-">DELETE api/orden-compra-historial/{ordenCompraHistorial}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-ordenes-compra">
+                                <a href="#endpoints-GETapi-estados-ordenes-compra">Listar todos los estados de orden de compra</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-estados-ordenes-compra">
+                                <a href="#endpoints-POSTapi-estados-ordenes-compra">Crear un nuevo estado de orden de compra</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+                                <a href="#endpoints-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">Obtener un estado de orden de compra específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+                                <a href="#endpoints-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">Actualizar un estado de orden de compra</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+                                <a href="#endpoints-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">Eliminar un estado de orden de compra</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-financieros">
+                                <a href="#endpoints-GETapi-estados-financieros">Listar todos los estados financieros</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-estados-financieros">
+                                <a href="#endpoints-POSTapi-estados-financieros">Crear un nuevo estado financiero</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-estados-financieros--estadoFinanciero_id-">
+                                <a href="#endpoints-GETapi-estados-financieros--estadoFinanciero_id-">Obtener un estado financiero específico</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-estados-financieros--estadoFinanciero_id-">
+                                <a href="#endpoints-PUTapi-estados-financieros--estadoFinanciero_id-">Actualizar un estado financiero</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-estados-financieros--estadoFinanciero_id-">
+                                <a href="#endpoints-DELETEapi-estados-financieros--estadoFinanciero_id-">Eliminar un estado financiero (soft delete)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-pagos">
                                 <a href="#endpoints-GETapi-pagos">Listar todos los pagos de clientes</a>
@@ -637,7 +757,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 17, 2026</li>
+        <li>Last updated: May 20, 2026</li>
     </ul>
 </div>
 
@@ -647,7 +767,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
         <h1 id="introduccion">Introducción</h1>
 <p>API REST del sistema de gestión de agencia de viajes TAG.</p>
 <aside>
-    <strong>URL Base</strong>: <code>http://localhost:8000</code>
+    <strong>URL Base</strong>: <code>http://localhost</code>
 </aside>
 <pre><code>Esta documentación tiene como objetivo proporcionar toda la información necesaria para trabajar con nuestra API.
 
@@ -677,7 +797,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/roles" \
+    --get "http://localhost/api/roles" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -685,7 +805,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles"
+    "http://localhost/api/roles"
 );
 
 const headers = {
@@ -712,6 +832,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -1361,7 +1483,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/roles" \
+    "http://localhost/api/roles" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1377,7 +1499,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles"
+    "http://localhost/api/roles"
 );
 
 const headers = {
@@ -1542,7 +1664,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/roles/1" \
+    --get "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1550,7 +1672,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -1577,6 +1699,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -2222,7 +2346,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/roles/1" \
+    "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2237,7 +2361,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -2406,7 +2530,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/roles/1" \
+    "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2414,7 +2538,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -2545,7 +2669,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/permisos" \
+    --get "http://localhost/api/permisos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2553,7 +2677,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos"
+    "http://localhost/api/permisos"
 );
 
 const headers = {
@@ -2580,6 +2704,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -3208,7 +3334,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/permisos" \
+    "http://localhost/api/permisos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3221,7 +3347,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos"
+    "http://localhost/api/permisos"
 );
 
 const headers = {
@@ -3369,7 +3495,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/permisos/1" \
+    --get "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3377,7 +3503,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3404,6 +3530,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -3527,7 +3655,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/permisos/1" \
+    "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3539,7 +3667,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3691,7 +3819,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/permisos/1" \
+    "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3699,7 +3827,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3833,7 +3961,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register" \
+    "http://localhost/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -3852,7 +3980,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register"
+    "http://localhost/api/register"
 );
 
 const headers = {
@@ -4077,7 +4205,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login" \
+    "http://localhost/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4090,7 +4218,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login"
+    "http://localhost/api/login"
 );
 
 const headers = {
@@ -4237,7 +4365,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/admin" \
+    "http://localhost/api/login/admin" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4250,7 +4378,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/admin"
+    "http://localhost/api/login/admin"
 );
 
 const headers = {
@@ -4397,7 +4525,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/user" \
+    "http://localhost/api/login/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4410,7 +4538,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/user"
+    "http://localhost/api/login/user"
 );
 
 const headers = {
@@ -4558,7 +4686,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/status" \
+    --get "http://localhost/api/status" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4566,7 +4694,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/status"
+    "http://localhost/api/status"
 );
 
 const headers = {
@@ -4700,7 +4828,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/contrato" \
+    --get "http://localhost/api/v1/contrato" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4708,7 +4836,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/contrato"
+    "http://localhost/api/v1/contrato"
 );
 
 const headers = {
@@ -4842,7 +4970,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/me" \
+    --get "http://localhost/api/me" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4850,7 +4978,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/me"
+    "http://localhost/api/me"
 );
 
 const headers = {
@@ -4877,6 +5005,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -4887,8 +5017,8 @@ access-control-allow-origin: *
         &quot;correo&quot;: &quot;admin@example.com&quot;,
         &quot;correo_verificado_en&quot;: null,
         &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
         &quot;deleted_at&quot;: null,
         &quot;all_permissions&quot;: [
             &quot;view:usuarios&quot;,
@@ -5030,8 +5160,8 @@ access-control-allow-origin: *
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;admin&quot;,
                 &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
                     &quot;model_id&quot;: 1,
@@ -5042,8 +5172,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 1,
                         &quot;name&quot;: &quot;view:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 1
@@ -5053,8 +5183,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 2,
                         &quot;name&quot;: &quot;create:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 2
@@ -5064,8 +5194,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;edit:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 3
@@ -5075,8 +5205,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 4,
                         &quot;name&quot;: &quot;delete:usuarios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 4
@@ -5086,8 +5216,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 5,
                         &quot;name&quot;: &quot;view:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 5
@@ -5097,8 +5227,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 6,
                         &quot;name&quot;: &quot;create:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 6
@@ -5108,8 +5238,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 7,
                         &quot;name&quot;: &quot;edit:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 7
@@ -5119,8 +5249,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 8,
                         &quot;name&quot;: &quot;delete:personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 8
@@ -5130,8 +5260,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 9,
                         &quot;name&quot;: &quot;view:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 9
@@ -5141,8 +5271,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 10,
                         &quot;name&quot;: &quot;create:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 10
@@ -5152,8 +5282,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 11,
                         &quot;name&quot;: &quot;edit:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 11
@@ -5163,8 +5293,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 12,
                         &quot;name&quot;: &quot;delete:clientes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 12
@@ -5174,8 +5304,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 13,
                         &quot;name&quot;: &quot;view:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 13
@@ -5185,8 +5315,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 14,
                         &quot;name&quot;: &quot;create:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 14
@@ -5196,8 +5326,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 15,
                         &quot;name&quot;: &quot;edit:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 15
@@ -5207,8 +5337,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 16,
                         &quot;name&quot;: &quot;delete:tipos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 16
@@ -5218,8 +5348,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 17,
                         &quot;name&quot;: &quot;view:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 17
@@ -5229,8 +5359,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 18,
                         &quot;name&quot;: &quot;create:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 18
@@ -5240,8 +5370,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 19,
                         &quot;name&quot;: &quot;edit:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 19
@@ -5251,8 +5381,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 20,
                         &quot;name&quot;: &quot;delete:proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 20
@@ -5262,8 +5392,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 21,
                         &quot;name&quot;: &quot;view:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 21
@@ -5273,8 +5403,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 22,
                         &quot;name&quot;: &quot;create:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 22
@@ -5284,8 +5414,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 23,
                         &quot;name&quot;: &quot;edit:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 23
@@ -5295,8 +5425,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 24,
                         &quot;name&quot;: &quot;delete:tipo_servicio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 24
@@ -5306,8 +5436,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 25,
                         &quot;name&quot;: &quot;view:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 25
@@ -5317,8 +5447,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 26,
                         &quot;name&quot;: &quot;create:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 26
@@ -5328,8 +5458,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 27,
                         &quot;name&quot;: &quot;edit:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 27
@@ -5339,8 +5469,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 28,
                         &quot;name&quot;: &quot;delete:tasas_cambio&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 28
@@ -5350,8 +5480,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 29,
                         &quot;name&quot;: &quot;view:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 29
@@ -5361,8 +5491,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 30,
                         &quot;name&quot;: &quot;create:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 30
@@ -5372,8 +5502,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 31,
                         &quot;name&quot;: &quot;edit:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 31
@@ -5383,8 +5513,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 32,
                         &quot;name&quot;: &quot;delete:servicios&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 32
@@ -5394,8 +5524,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 33,
                         &quot;name&quot;: &quot;view:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 33
@@ -5405,8 +5535,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 34,
                         &quot;name&quot;: &quot;create:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 34
@@ -5416,8 +5546,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 35,
                         &quot;name&quot;: &quot;edit:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 35
@@ -5427,8 +5557,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 36,
                         &quot;name&quot;: &quot;delete:origenes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 36
@@ -5438,8 +5568,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 37,
                         &quot;name&quot;: &quot;view:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 37
@@ -5449,8 +5579,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 38,
                         &quot;name&quot;: &quot;create:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 38
@@ -5460,8 +5590,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 39,
                         &quot;name&quot;: &quot;edit:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 39
@@ -5471,8 +5601,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 40,
                         &quot;name&quot;: &quot;delete:atenciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 40
@@ -5482,8 +5612,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 41,
                         &quot;name&quot;: &quot;view:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 41
@@ -5493,8 +5623,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 42,
                         &quot;name&quot;: &quot;create:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 42
@@ -5504,8 +5634,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 43,
                         &quot;name&quot;: &quot;edit:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 43
@@ -5515,8 +5645,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 44,
                         &quot;name&quot;: &quot;delete:atenciones_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 44
@@ -5526,8 +5656,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 45,
                         &quot;name&quot;: &quot;view:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 45
@@ -5537,8 +5667,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 46,
                         &quot;name&quot;: &quot;create:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 46
@@ -5548,8 +5678,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 47,
                         &quot;name&quot;: &quot;edit:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 47
@@ -5559,8 +5689,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 48,
                         &quot;name&quot;: &quot;delete:cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 48
@@ -5570,8 +5700,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 49,
                         &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 49
@@ -5581,8 +5711,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 50,
                         &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 50
@@ -5592,8 +5722,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 51,
                         &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 51
@@ -5603,8 +5733,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 52,
                         &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 52
@@ -5614,8 +5744,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 53,
                         &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 53
@@ -5625,8 +5755,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 54,
                         &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 54
@@ -5636,8 +5766,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 55,
                         &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 55
@@ -5647,8 +5777,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 56,
                         &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 56
@@ -5658,8 +5788,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 57,
                         &quot;name&quot;: &quot;view:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 57
@@ -5669,8 +5799,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 58,
                         &quot;name&quot;: &quot;create:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 58
@@ -5680,8 +5810,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 59,
                         &quot;name&quot;: &quot;edit:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 59
@@ -5691,8 +5821,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 60,
                         &quot;name&quot;: &quot;delete:metodos_pago&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 60
@@ -5702,8 +5832,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 61,
                         &quot;name&quot;: &quot;view:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 61
@@ -5713,8 +5843,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 62,
                         &quot;name&quot;: &quot;create:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 62
@@ -5724,8 +5854,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 63,
                         &quot;name&quot;: &quot;edit:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 63
@@ -5735,8 +5865,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 64,
                         &quot;name&quot;: &quot;delete:pagos&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 64
@@ -5746,8 +5876,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 65,
                         &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 65
@@ -5757,8 +5887,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 66,
                         &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 66
@@ -5768,8 +5898,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 67,
                         &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 67
@@ -5779,8 +5909,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 68,
                         &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 68
@@ -5790,8 +5920,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 69,
                         &quot;name&quot;: &quot;view:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 69
@@ -5801,8 +5931,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 70,
                         &quot;name&quot;: &quot;create:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 70
@@ -5812,8 +5942,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 71,
                         &quot;name&quot;: &quot;edit:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 71
@@ -5823,8 +5953,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 72,
                         &quot;name&quot;: &quot;delete:empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 72
@@ -5834,8 +5964,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 73,
                         &quot;name&quot;: &quot;view:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 73
@@ -5845,8 +5975,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 74,
                         &quot;name&quot;: &quot;create:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 74
@@ -5856,8 +5986,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 75,
                         &quot;name&quot;: &quot;edit:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 75
@@ -5867,8 +5997,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 76,
                         &quot;name&quot;: &quot;delete:personal_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 76
@@ -5878,8 +6008,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 77,
                         &quot;name&quot;: &quot;view:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 77
@@ -5889,8 +6019,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 78,
                         &quot;name&quot;: &quot;create:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 78
@@ -5900,8 +6030,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 79,
                         &quot;name&quot;: &quot;edit:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 79
@@ -5911,8 +6041,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 80,
                         &quot;name&quot;: &quot;delete:pagos_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 80
@@ -5922,8 +6052,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 81,
                         &quot;name&quot;: &quot;view:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 81
@@ -5933,8 +6063,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 82,
                         &quot;name&quot;: &quot;create:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 82
@@ -5944,8 +6074,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 83,
                         &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 83
@@ -5955,8 +6085,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 84,
                         &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 84
@@ -5966,8 +6096,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 85,
                         &quot;name&quot;: &quot;view:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 85
@@ -5977,8 +6107,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 86,
                         &quot;name&quot;: &quot;create:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 86
@@ -5988,8 +6118,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 87,
                         &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 87
@@ -5999,8 +6129,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 88,
                         &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 88
@@ -6010,8 +6140,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 89,
                         &quot;name&quot;: &quot;view:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 89
@@ -6021,8 +6151,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 90,
                         &quot;name&quot;: &quot;create:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 90
@@ -6032,8 +6162,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 91,
                         &quot;name&quot;: &quot;edit:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 91
@@ -6043,8 +6173,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 92,
                         &quot;name&quot;: &quot;delete:temporalidades&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 92
@@ -6054,8 +6184,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 93,
                         &quot;name&quot;: &quot;view:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 93
@@ -6065,8 +6195,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 94,
                         &quot;name&quot;: &quot;create:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 94
@@ -6076,8 +6206,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 95,
                         &quot;name&quot;: &quot;edit:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 95
@@ -6087,8 +6217,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 96,
                         &quot;name&quot;: &quot;delete:entidades_bancarias&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 96
@@ -6098,8 +6228,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 97,
                         &quot;name&quot;: &quot;view:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:57.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 97
@@ -6109,8 +6239,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 98,
                         &quot;name&quot;: &quot;create:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 98
@@ -6120,8 +6250,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 99,
                         &quot;name&quot;: &quot;edit:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 99
@@ -6131,8 +6261,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 100,
                         &quot;name&quot;: &quot;delete:metas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 100
@@ -6142,8 +6272,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 101,
                         &quot;name&quot;: &quot;view:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 101
@@ -6153,8 +6283,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 102,
                         &quot;name&quot;: &quot;create:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 102
@@ -6164,8 +6294,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 103,
                         &quot;name&quot;: &quot;edit:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 103
@@ -6175,8 +6305,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 104,
                         &quot;name&quot;: &quot;delete:metas_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 104
@@ -6186,8 +6316,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 105,
                         &quot;name&quot;: &quot;view:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 105
@@ -6197,8 +6327,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 106,
                         &quot;name&quot;: &quot;create:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 106
@@ -6208,8 +6338,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 107,
                         &quot;name&quot;: &quot;edit:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:19.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 107
@@ -6219,8 +6349,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 108,
                         &quot;name&quot;: &quot;delete:ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 108
@@ -6230,8 +6360,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 109,
                         &quot;name&quot;: &quot;view:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 109
@@ -6241,8 +6371,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 110,
                         &quot;name&quot;: &quot;create:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 110
@@ -6252,8 +6382,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 111,
                         &quot;name&quot;: &quot;edit:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 111
@@ -6263,8 +6393,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 112,
                         &quot;name&quot;: &quot;delete:tasas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 112
@@ -6274,8 +6404,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 113,
                         &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 113
@@ -6285,8 +6415,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 114,
                         &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 114
@@ -6296,8 +6426,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 115,
                         &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 115
@@ -6307,8 +6437,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 116,
                         &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 116
@@ -6318,8 +6448,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 117,
                         &quot;name&quot;: &quot;view:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 117
@@ -6329,8 +6459,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 118,
                         &quot;name&quot;: &quot;create:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 118
@@ -6340,8 +6470,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 119,
                         &quot;name&quot;: &quot;edit:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 119
@@ -6351,8 +6481,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 120,
                         &quot;name&quot;: &quot;delete:clientes_empresas&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 120
@@ -6362,8 +6492,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 121,
                         &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 121
@@ -6373,8 +6503,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 122,
                         &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 122
@@ -6384,8 +6514,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 123,
                         &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 123
@@ -6395,8 +6525,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 124,
                         &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 124
@@ -6406,8 +6536,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 125,
                         &quot;name&quot;: &quot;view:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 125
@@ -6417,8 +6547,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 126,
                         &quot;name&quot;: &quot;create:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 126
@@ -6428,8 +6558,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 127,
                         &quot;name&quot;: &quot;edit:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 127
@@ -6439,8 +6569,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 128,
                         &quot;name&quot;: &quot;delete:estatus&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 128
@@ -6450,8 +6580,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 129,
                         &quot;name&quot;: &quot;view:logros_personal&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 129
@@ -6461,8 +6591,8 @@ access-control-allow-origin: *
                         &quot;id&quot;: 130,
                         &quot;name&quot;: &quot;view:audit_logs&quot;,
                         &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-17T04:38:58.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2026-05-20T12:06:20.000000Z&quot;,
                         &quot;pivot&quot;: {
                             &quot;role_id&quot;: 1,
                             &quot;permission_id&quot;: 130
@@ -6575,7 +6705,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/personal/16" \
+    --get "http://localhost/api/metricas/personal/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6583,7 +6713,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/personal/16"
+    "http://localhost/api/metricas/personal/16"
 );
 
 const headers = {
@@ -6610,6 +6740,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -6722,7 +6854,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-metricas-generales">GET api/metricas/generales</h2>
+                    <h2 id="endpoints-GETapi-metricas-generales">Métricas generales (todos los usuarios)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6736,7 +6868,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/generales" \
+    --get "http://localhost/api/metricas/generales" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6744,7 +6876,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/generales"
+    "http://localhost/api/metricas/generales"
 );
 
 const headers = {
@@ -6771,6 +6903,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -6884,7 +7018,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias" \
+    --get "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6892,7 +7026,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -6919,6 +7053,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -7043,7 +7179,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/entidades-bancarias" \
+    "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7060,7 +7196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -7226,7 +7362,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias/1" \
+    --get "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7234,7 +7370,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7261,6 +7397,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -7394,7 +7532,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7410,7 +7548,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7580,7 +7718,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7588,7 +7726,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7719,7 +7857,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/logout" \
+    "http://localhost/api/logout" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7727,7 +7865,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logout"
+    "http://localhost/api/logout"
 );
 
 const headers = {
@@ -7844,7 +7982,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register/personal" \
+    "http://localhost/api/register/personal" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -7863,7 +8001,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register/personal"
+    "http://localhost/api/register/personal"
 );
 
 const headers = {
@@ -8089,7 +8227,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus" \
+    --get "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8097,7 +8235,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -8124,6 +8262,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -8287,7 +8427,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estatus" \
+    "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8299,7 +8439,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -8434,7 +8574,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus/1" \
+    --get "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8442,7 +8582,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -8469,6 +8609,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -8593,7 +8735,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8605,7 +8747,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -8757,7 +8899,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8765,7 +8907,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -8896,7 +9038,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema" \
+    --get "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8904,7 +9046,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -8931,6 +9073,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -8939,8 +9083,8 @@ access-control-allow-origin: *
         {
             &quot;id&quot;: 1,
             &quot;dias_vencimiento&quot;: 30,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -9045,7 +9189,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/configuraciones-sistema" \
+    "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9057,7 +9201,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -9192,7 +9336,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema/1" \
+    --get "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9200,7 +9344,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9227,6 +9371,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -9234,8 +9380,8 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9352,7 +9498,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9364,7 +9510,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9516,7 +9662,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9524,7 +9670,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9655,7 +9801,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores" \
+    --get "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9663,7 +9809,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -9690,6 +9836,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -9702,8 +9850,8 @@ access-control-allow-origin: *
             &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
             &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
             &quot;moneda&quot;: &quot;VES&quot;,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -9808,7 +9956,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cuentas-proveedores" \
+    "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9824,7 +9972,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -10011,7 +10159,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores/1" \
+    --get "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10019,7 +10167,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10046,6 +10194,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -10057,8 +10207,8 @@ access-control-allow-origin: *
         &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -10175,7 +10325,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10191,7 +10341,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10395,7 +10545,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10403,7 +10553,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10534,7 +10684,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-por-pagar" \
+    --get "http://localhost/api/cuentas-por-pagar" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10542,7 +10692,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar"
+    "http://localhost/api/cuentas-por-pagar"
 );
 
 const headers = {
@@ -10569,6 +10719,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -10676,7 +10828,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cuentas-por-pagar" \
+    "http://localhost/api/cuentas-por-pagar" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10691,7 +10843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar"
+    "http://localhost/api/cuentas-por-pagar"
 );
 
 const headers = {
@@ -10877,7 +11029,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-por-pagar/16" \
+    --get "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10885,7 +11037,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -10912,6 +11064,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -11032,7 +11186,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-por-pagar/16" \
+    "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11045,7 +11199,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11246,7 +11400,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-por-pagar/16" \
+    "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11254,7 +11408,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11385,7 +11539,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes" \
+    --get "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11393,7 +11547,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -11420,6 +11574,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -11543,7 +11699,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-contribuyentes" \
+    "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11556,7 +11712,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -11704,7 +11860,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes/1" \
+    --get "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11712,7 +11868,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -11739,6 +11895,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -11863,7 +12021,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11876,7 +12034,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -12041,7 +12199,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12049,7 +12207,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -12180,7 +12338,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
+    --get "http://localhost/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12188,7 +12346,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const params = {
@@ -12221,6 +12379,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -12231,12 +12391,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 4,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-26685994&quot;,
-            &quot;telefono&quot;: &quot;+58 424 7498324&quot;,
+            &quot;cedula&quot;: &quot;V-25638251&quot;,
+            &quot;telefono&quot;: &quot;+58 424 7775414&quot;,
             &quot;correo_contacto&quot;: null,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -12354,7 +12514,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes" \
+    "http://localhost/api/clientes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12379,7 +12539,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const headers = {
@@ -12695,7 +12855,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes/1" \
+    --get "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12703,7 +12863,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -12730,6 +12890,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -12739,8 +12901,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 4,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-26685994&quot;,
-        &quot;telefono&quot;: &quot;+58 424 7498324&quot;,
+        &quot;cedula&quot;: &quot;V-25638251&quot;,
+        &quot;telefono&quot;: &quot;+58 424 7775414&quot;,
         &quot;correo_contacto&quot;: null,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;tipo_contribuyente&quot;: {
@@ -12757,11 +12919,11 @@ access-control-allow-origin: *
                 &quot;cliente&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -12878,7 +13040,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12903,7 +13065,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -13236,7 +13398,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13244,7 +13406,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -13375,7 +13537,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal?include=usuario.+Values%3A+usuario" \
+    --get "http://localhost/api/personal?include=usuario.+Values%3A+usuario" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13383,7 +13545,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const params = {
@@ -13416,6 +13578,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -13426,12 +13590,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-26089189&quot;,
-            &quot;telefono&quot;: &quot;+58 412 5156340&quot;,
+            &quot;cedula&quot;: &quot;V-12242519&quot;,
+            &quot;telefono&quot;: &quot;+58 412 8833978&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -13549,7 +13713,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal" \
+    "http://localhost/api/personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -13574,7 +13738,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const headers = {
@@ -13890,7 +14054,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal/1" \
+    --get "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13898,7 +14062,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -13925,6 +14089,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -13934,8 +14100,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-26089189&quot;,
-        &quot;telefono&quot;: &quot;+58 412 5156340&quot;,
+        &quot;cedula&quot;: &quot;V-12242519&quot;,
+        &quot;telefono&quot;: &quot;+58 412 8833978&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: 5,
         &quot;usuario&quot;: {
@@ -13947,11 +14113,11 @@ access-control-allow-origin: *
                 &quot;personal&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -14068,7 +14234,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14084,7 +14250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
         \"nombre_usuario\": \"y\",
         \"correo\": \"justina.gaylord@example.org\",
         \"clave\": \"ikhwaykcmyuwpwlvqwrsitcpsc\",
-        \"esta_activo\": false
+        \"esta_activo\": true
     },
     \"id_estatus\": 16
 }"
@@ -14093,7 +14259,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -14114,7 +14280,7 @@ let body = {
         "nombre_usuario": "y",
         "correo": "justina.gaylord@example.org",
         "clave": "ikhwaykcmyuwpwlvqwrsitcpsc",
-        "esta_activo": false
+        "esta_activo": true
     },
     "id_estatus": 16
 };
@@ -14380,7 +14546,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -14426,7 +14592,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14434,7 +14600,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -14565,7 +14731,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas" \
+    --get "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14573,7 +14739,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -14600,6 +14766,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -14614,8 +14782,8 @@ access-control-allow-origin: *
             &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
             &quot;direccion&quot;: &quot;Direccion demo&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -14720,7 +14888,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/empresas" \
+    "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14738,7 +14906,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -14951,7 +15119,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas/1" \
+    --get "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14959,7 +15127,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -14986,6 +15154,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -15004,8 +15174,8 @@ access-control-allow-origin: *
             &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
             &quot;porcentaje_iva&quot;: 16
         },
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -15122,7 +15292,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15140,7 +15310,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -15370,7 +15540,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15378,7 +15548,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -15509,7 +15679,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas" \
+    --get "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15517,7 +15687,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -15544,6 +15714,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -15651,7 +15823,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes-empresas" \
+    "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15664,7 +15836,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -15812,7 +15984,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas/16" \
+    --get "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15820,7 +15992,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -15847,6 +16019,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -15967,7 +16141,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes-empresas/16" \
+    "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15980,7 +16154,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16145,7 +16319,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes-empresas/16" \
+    "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16153,7 +16327,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16284,7 +16458,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas" \
+    --get "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16292,7 +16466,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -16319,6 +16493,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -16328,8 +16504,8 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_personal&quot;: 1,
             &quot;id_empresa&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -16434,7 +16610,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal-empresas" \
+    "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16447,7 +16623,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -16595,7 +16771,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas/1" \
+    --get "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16603,7 +16779,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -16630,6 +16806,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -16638,8 +16816,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -16756,7 +16934,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16769,7 +16947,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -16934,7 +17112,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16942,7 +17120,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -17073,7 +17251,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes" \
+    --get "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17081,7 +17259,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -17108,6 +17286,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -17236,7 +17416,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/origenes" \
+    "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17248,7 +17428,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -17383,7 +17563,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes/1" \
+    --get "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17391,7 +17571,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -17418,6 +17598,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -17541,7 +17723,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17553,7 +17735,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -17705,7 +17887,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17713,7 +17895,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -17844,7 +18026,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones" \
+    --get "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17852,7 +18034,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -17879,6 +18061,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -17986,7 +18170,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/atenciones" \
+    "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18001,7 +18185,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -18175,7 +18359,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones/16" \
+    --get "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18183,7 +18367,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18210,6 +18394,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -18330,7 +18516,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/atenciones/16" \
+    "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18340,14 +18526,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"id_origen_atencion\": 16,
     \"asunto\": \"architecto\",
     \"notas_adicionales\": \"architecto\",
-    \"estatus\": 16
+    \"id_estado_atencion\": 16,
+    \"id_etapa_comercial\": 16
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18362,7 +18549,8 @@ let body = {
     "id_origen_atencion": 16,
     "asunto": "architecto",
     "notas_adicionales": "architecto",
-    "estatus": 16
+    "id_estado_atencion": 16,
+    "id_etapa_comercial": 16
 };
 
 fetch(url, {
@@ -18538,27 +18726,27 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_atencion</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id_estado_atencion"                data-endpoint="PUTapi-atenciones--atencion_id-"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the estados_atenciones table.</p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="PUTapi-atenciones--atencion_id-"
+               step="any"               name="id_estado_atencion"                data-endpoint="PUTapi-atenciones--atencion_id-"
                value="16"
                data-component="body">
     <br>
-<p>ID del estatus de la atención. Ejemplo: 1 Example: <code>16</code></p>
+<p>ID del estado de la atención (catálogo estados-atenciones). Ejemplo: 1 Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_etapa_comercial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id_etapa_comercial"                data-endpoint="PUTapi-atenciones--atencion_id-"
+               value="16"
+               data-component="body">
+    <br>
+<p>ID de la etapa comercial (catálogo etapas-comerciales). Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -18576,7 +18764,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/atenciones/16" \
+    "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18584,7 +18772,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18701,6 +18889,2551 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
+                    <h2 id="endpoints-GETapi-atencion-historial">GET api/atencion-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-atencion-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/atencion-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/atencion-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-atencion-historial">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-atencion-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-atencion-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-atencion-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-atencion-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-atencion-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-atencion-historial" data-method="GET"
+      data-path="api/atencion-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-atencion-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-atencion-historial"
+                    onclick="tryItOut('GETapi-atencion-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-atencion-historial"
+                    onclick="cancelTryOut('GETapi-atencion-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-atencion-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/atencion-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-atencion-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-atencion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-atencion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-atencion-historial">POST api/atencion-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-atencion-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/atencion-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"atencion_id\": \"architecto\",
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/atencion-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "atencion_id": "architecto",
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-atencion-historial">
+</span>
+<span id="execution-results-POSTapi-atencion-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-atencion-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-atencion-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-atencion-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-atencion-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-atencion-historial" data-method="POST"
+      data-path="api/atencion-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-atencion-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-atencion-historial"
+                    onclick="tryItOut('POSTapi-atencion-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-atencion-historial"
+                    onclick="cancelTryOut('POSTapi-atencion-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-atencion-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/atencion-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-atencion-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-atencion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-atencion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>atencion_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="atencion_id"                data-endpoint="POSTapi-atencion-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the atenciones table. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="POSTapi-atencion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_atenciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="POSTapi-atencion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_atenciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_etapa_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_etapa_anterior"                data-endpoint="POSTapi-atencion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the etapas_comerciales table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_etapa_nueva</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_etapa_nueva"                data-endpoint="POSTapi-atencion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the etapas_comerciales table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="POSTapi-atencion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="POSTapi-atencion-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-atencion-historial--atencionHistorial-">GET api/atencion-historial/{atencionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-atencion-historial--atencionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/atencion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/atencion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-atencion-historial--atencionHistorial-">
+            <blockquote>
+            <p>Ejemplo de respuesta (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\AtencionHistorial] 16&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-atencion-historial--atencionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-atencion-historial--atencionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-atencion-historial--atencionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-atencion-historial--atencionHistorial-" data-method="GET"
+      data-path="api/atencion-historial/{atencionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-atencion-historial--atencionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-atencion-historial--atencionHistorial-"
+                    onclick="tryItOut('GETapi-atencion-historial--atencionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-atencion-historial--atencionHistorial-"
+                    onclick="cancelTryOut('GETapi-atencion-historial--atencionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-atencion-historial--atencionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/atencion-historial/{atencionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-atencion-historial--atencionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>atencionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="atencionHistorial"                data-endpoint="GETapi-atencion-historial--atencionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-atencion-historial--atencionHistorial-">PUT api/atencion-historial/{atencionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-atencion-historial--atencionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/atencion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/atencion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-atencion-historial--atencionHistorial-">
+</span>
+<span id="execution-results-PUTapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-atencion-historial--atencionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-atencion-historial--atencionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-atencion-historial--atencionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-atencion-historial--atencionHistorial-" data-method="PUT"
+      data-path="api/atencion-historial/{atencionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-atencion-historial--atencionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-atencion-historial--atencionHistorial-"
+                    onclick="tryItOut('PUTapi-atencion-historial--atencionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-atencion-historial--atencionHistorial-"
+                    onclick="cancelTryOut('PUTapi-atencion-historial--atencionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-atencion-historial--atencionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/atencion-historial/{atencionHistorial}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/atencion-historial/{atencionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>atencionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="atencionHistorial"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_atenciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_atenciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_etapa_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_etapa_anterior"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the etapas_comerciales table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_etapa_nueva</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_etapa_nueva"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the etapas_comerciales table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="PUTapi-atencion-historial--atencionHistorial-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-atencion-historial--atencionHistorial-">DELETE api/atencion-historial/{atencionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-atencion-historial--atencionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/atencion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/atencion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-atencion-historial--atencionHistorial-">
+</span>
+<span id="execution-results-DELETEapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-atencion-historial--atencionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-atencion-historial--atencionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-atencion-historial--atencionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-atencion-historial--atencionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-atencion-historial--atencionHistorial-" data-method="DELETE"
+      data-path="api/atencion-historial/{atencionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-atencion-historial--atencionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-atencion-historial--atencionHistorial-"
+                    onclick="tryItOut('DELETEapi-atencion-historial--atencionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-atencion-historial--atencionHistorial-"
+                    onclick="cancelTryOut('DELETEapi-atencion-historial--atencionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-atencion-historial--atencionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/atencion-historial/{atencionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-atencion-historial--atencionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-atencion-historial--atencionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>atencionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="atencionHistorial"                data-endpoint="DELETEapi-atencion-historial--atencionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-estados-atenciones">Listar todos los estados de atención</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Devuelve el catálogo de estados de atención (abierta, cerrada_ganada, cerrada_perdida).</p>
+
+<span id="example-requests-GETapi-estados-atenciones">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-atenciones" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-atenciones"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-atenciones">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;abierta&quot;,
+            &quot;nombre&quot;: &quot;Abierta&quot;,
+            &quot;color&quot;: &quot;#10B981&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;slug&quot;: &quot;cerrada_ganada&quot;,
+            &quot;nombre&quot;: &quot;Cerrada Ganada&quot;,
+            &quot;color&quot;: &quot;#3B82F6&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;cerrada_perdida&quot;,
+            &quot;nombre&quot;: &quot;Cerrada Perdida&quot;,
+            &quot;color&quot;: &quot;#EF4444&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-atenciones" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-atenciones"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-atenciones"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-atenciones" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-atenciones">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-atenciones" data-method="GET"
+      data-path="api/estados-atenciones"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-atenciones', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-atenciones"
+                    onclick="tryItOut('GETapi-estados-atenciones');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-atenciones"
+                    onclick="cancelTryOut('GETapi-estados-atenciones');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-atenciones"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-atenciones</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-atenciones"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-estados-atenciones">Crear un nuevo estado de atención</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-estados-atenciones">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/estados-atenciones" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"architecto\",
+    \"nombre\": \"architecto\",
+    \"color\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-atenciones"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "architecto",
+    "nombre": "architecto",
+    "color": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-estados-atenciones">
+</span>
+<span id="execution-results-POSTapi-estados-atenciones" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-estados-atenciones"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-estados-atenciones"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-estados-atenciones" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-estados-atenciones">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-estados-atenciones" data-method="POST"
+      data-path="api/estados-atenciones"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-estados-atenciones', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-estados-atenciones"
+                    onclick="tryItOut('POSTapi-estados-atenciones');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-estados-atenciones"
+                    onclick="cancelTryOut('POSTapi-estados-atenciones');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-estados-atenciones"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/estados-atenciones</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-estados-atenciones"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-estados-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-estados-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-estados-atenciones"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug único. Ejemplo: en_proceso Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-estados-atenciones"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Nombre descriptivo. Ejemplo: En Proceso Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-estados-atenciones"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Código de color hexadecimal. Ejemplo: #F59E0B Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-estados-atenciones--estadoAtencion_id-">Obtener un estado de atención específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-atenciones--estadoAtencion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-atenciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-atenciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-atenciones--estadoAtencion_id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;slug&quot;: &quot;abierta&quot;,
+        &quot;nombre&quot;: &quot;Abierta&quot;,
+        &quot;color&quot;: &quot;#10B981&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-atenciones--estadoAtencion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-atenciones--estadoAtencion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-atenciones--estadoAtencion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-atenciones--estadoAtencion_id-" data-method="GET"
+      data-path="api/estados-atenciones/{estadoAtencion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-atenciones--estadoAtencion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="tryItOut('GETapi-estados-atenciones--estadoAtencion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="cancelTryOut('GETapi-estados-atenciones--estadoAtencion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-atenciones--estadoAtencion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-atenciones/{estadoAtencion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-atenciones--estadoAtencion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoAtencion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoAtencion_id"                data-endpoint="GETapi-estados-atenciones--estadoAtencion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoAtencion. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-estados-atenciones--estadoAtencion_id-">Actualizar un estado de atención</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-estados-atenciones--estadoAtencion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/estados-atenciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"architecto\",
+    \"nombre\": \"architecto\",
+    \"color\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-atenciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "architecto",
+    "nombre": "architecto",
+    "color": "architecto"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-estados-atenciones--estadoAtencion_id-">
+</span>
+<span id="execution-results-PUTapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-estados-atenciones--estadoAtencion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-estados-atenciones--estadoAtencion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-estados-atenciones--estadoAtencion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-estados-atenciones--estadoAtencion_id-" data-method="PUT"
+      data-path="api/estados-atenciones/{estadoAtencion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-estados-atenciones--estadoAtencion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="tryItOut('PUTapi-estados-atenciones--estadoAtencion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="cancelTryOut('PUTapi-estados-atenciones--estadoAtencion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-estados-atenciones--estadoAtencion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/estados-atenciones/{estadoAtencion_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/estados-atenciones/{estadoAtencion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoAtencion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoAtencion_id"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoAtencion. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug único. Ejemplo: en_proceso Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Nombre descriptivo. Ejemplo: En Proceso Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-estados-atenciones--estadoAtencion_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Código de color hexadecimal. Ejemplo: #F59E0B Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-estados-atenciones--estadoAtencion_id-">Eliminar un estado de atención</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-estados-atenciones--estadoAtencion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/estados-atenciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-atenciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-estados-atenciones--estadoAtencion_id-">
+</span>
+<span id="execution-results-DELETEapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-estados-atenciones--estadoAtencion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-estados-atenciones--estadoAtencion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-estados-atenciones--estadoAtencion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-estados-atenciones--estadoAtencion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-estados-atenciones--estadoAtencion_id-" data-method="DELETE"
+      data-path="api/estados-atenciones/{estadoAtencion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-estados-atenciones--estadoAtencion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="tryItOut('DELETEapi-estados-atenciones--estadoAtencion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-estados-atenciones--estadoAtencion_id-"
+                    onclick="cancelTryOut('DELETEapi-estados-atenciones--estadoAtencion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-estados-atenciones--estadoAtencion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/estados-atenciones/{estadoAtencion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-estados-atenciones--estadoAtencion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-estados-atenciones--estadoAtencion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoAtencion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoAtencion_id"                data-endpoint="DELETEapi-estados-atenciones--estadoAtencion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoAtencion. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-etapas-comerciales">Listar todas las etapas comerciales</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Devuelve el catálogo de etapas comerciales (atención, cotizada, orden_compra).</p>
+
+<span id="example-requests-GETapi-etapas-comerciales">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/etapas-comerciales" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/etapas-comerciales"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-etapas-comerciales">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;atencion&quot;,
+            &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
+            &quot;color&quot;: &quot;#3b82f6&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;slug&quot;: &quot;cotizada&quot;,
+            &quot;label&quot;: &quot;Cotizada&quot;,
+            &quot;color&quot;: &quot;#f59e0b&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;orden_compra&quot;,
+            &quot;label&quot;: &quot;Orden de Compra&quot;,
+            &quot;color&quot;: &quot;#10b981&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-etapas-comerciales" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-etapas-comerciales"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-etapas-comerciales"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-etapas-comerciales" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-etapas-comerciales">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-etapas-comerciales" data-method="GET"
+      data-path="api/etapas-comerciales"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-etapas-comerciales', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-etapas-comerciales"
+                    onclick="tryItOut('GETapi-etapas-comerciales');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-etapas-comerciales"
+                    onclick="cancelTryOut('GETapi-etapas-comerciales');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-etapas-comerciales"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/etapas-comerciales</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-etapas-comerciales"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-etapas-comerciales"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-etapas-comerciales"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-etapas-comerciales">Crear una nueva etapa comercial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-etapas-comerciales">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/etapas-comerciales" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"architecto\",
+    \"label\": \"architecto\",
+    \"color\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/etapas-comerciales"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "architecto",
+    "label": "architecto",
+    "color": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-etapas-comerciales">
+</span>
+<span id="execution-results-POSTapi-etapas-comerciales" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-etapas-comerciales"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-etapas-comerciales"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-etapas-comerciales" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-etapas-comerciales">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-etapas-comerciales" data-method="POST"
+      data-path="api/etapas-comerciales"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-etapas-comerciales', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-etapas-comerciales"
+                    onclick="tryItOut('POSTapi-etapas-comerciales');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-etapas-comerciales"
+                    onclick="cancelTryOut('POSTapi-etapas-comerciales');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-etapas-comerciales"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/etapas-comerciales</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-etapas-comerciales"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-etapas-comerciales"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-etapas-comerciales"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-etapas-comerciales"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug único. Ejemplo: facturada Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>label</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="label"                data-endpoint="POSTapi-etapas-comerciales"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Etiqueta descriptiva. Ejemplo: Facturada Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-etapas-comerciales"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Código de color hexadecimal. Ejemplo: #8B5CF6 Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-etapas-comerciales--etapaComercial_id-">Obtener una etapa comercial específica</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-etapas-comerciales--etapaComercial_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/etapas-comerciales/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/etapas-comerciales/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-etapas-comerciales--etapaComercial_id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;slug&quot;: &quot;atencion&quot;,
+        &quot;label&quot;: &quot;En Atenci&oacute;n&quot;,
+        &quot;color&quot;: &quot;#3b82f6&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-etapas-comerciales--etapaComercial_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-etapas-comerciales--etapaComercial_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-etapas-comerciales--etapaComercial_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-etapas-comerciales--etapaComercial_id-" data-method="GET"
+      data-path="api/etapas-comerciales/{etapaComercial_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-etapas-comerciales--etapaComercial_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="tryItOut('GETapi-etapas-comerciales--etapaComercial_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="cancelTryOut('GETapi-etapas-comerciales--etapaComercial_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-etapas-comerciales--etapaComercial_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/etapas-comerciales/{etapaComercial_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-etapas-comerciales--etapaComercial_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>etapaComercial_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="etapaComercial_id"                data-endpoint="GETapi-etapas-comerciales--etapaComercial_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the etapaComercial. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-etapas-comerciales--etapaComercial_id-">Actualizar una etapa comercial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-etapas-comerciales--etapaComercial_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/etapas-comerciales/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"architecto\",
+    \"label\": \"architecto\",
+    \"color\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/etapas-comerciales/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "architecto",
+    "label": "architecto",
+    "color": "architecto"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-etapas-comerciales--etapaComercial_id-">
+</span>
+<span id="execution-results-PUTapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-etapas-comerciales--etapaComercial_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-etapas-comerciales--etapaComercial_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-etapas-comerciales--etapaComercial_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-etapas-comerciales--etapaComercial_id-" data-method="PUT"
+      data-path="api/etapas-comerciales/{etapaComercial_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-etapas-comerciales--etapaComercial_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="tryItOut('PUTapi-etapas-comerciales--etapaComercial_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="cancelTryOut('PUTapi-etapas-comerciales--etapaComercial_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-etapas-comerciales--etapaComercial_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/etapas-comerciales/{etapaComercial_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/etapas-comerciales/{etapaComercial_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>etapaComercial_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="etapaComercial_id"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the etapaComercial. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Slug único. Ejemplo: facturada Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>label</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="label"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Etiqueta descriptiva. Ejemplo: Facturada Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-etapas-comerciales--etapaComercial_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Código de color hexadecimal. Ejemplo: #8B5CF6 Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-etapas-comerciales--etapaComercial_id-">Eliminar una etapa comercial (soft delete)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-etapas-comerciales--etapaComercial_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/etapas-comerciales/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/etapas-comerciales/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-etapas-comerciales--etapaComercial_id-">
+</span>
+<span id="execution-results-DELETEapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-etapas-comerciales--etapaComercial_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-etapas-comerciales--etapaComercial_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-etapas-comerciales--etapaComercial_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-etapas-comerciales--etapaComercial_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-etapas-comerciales--etapaComercial_id-" data-method="DELETE"
+      data-path="api/etapas-comerciales/{etapaComercial_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-etapas-comerciales--etapaComercial_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="tryItOut('DELETEapi-etapas-comerciales--etapaComercial_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-etapas-comerciales--etapaComercial_id-"
+                    onclick="cancelTryOut('DELETEapi-etapas-comerciales--etapaComercial_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-etapas-comerciales--etapaComercial_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/etapas-comerciales/{etapaComercial_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-etapas-comerciales--etapaComercial_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-etapas-comerciales--etapaComercial_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>etapaComercial_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="etapaComercial_id"                data-endpoint="DELETEapi-etapas-comerciales--etapaComercial_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the etapaComercial. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-GETapi-cotizaciones">Listar todas las cotizaciones</h2>
 
 <p>
@@ -18715,7 +21448,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones" \
+    --get "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18723,7 +21456,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -18750,6 +21483,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -18857,7 +21592,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cotizaciones" \
+    "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18887,7 +21622,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -19220,7 +21955,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones/16" \
+    --get "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19228,7 +21963,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -19255,6 +21990,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -19375,7 +22112,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cotizaciones/16" \
+    "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19405,7 +22142,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -19755,7 +22492,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cotizaciones/16" \
+    "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19763,7 +22500,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -19880,6 +22617,1676 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
+                    <h2 id="endpoints-GETapi-cotizacion-historial">GET api/cotizacion-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-cotizacion-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/cotizacion-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cotizacion-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-cotizacion-historial">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-cotizacion-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-cotizacion-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-cotizacion-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-cotizacion-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-cotizacion-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-cotizacion-historial" data-method="GET"
+      data-path="api/cotizacion-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-cotizacion-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-cotizacion-historial"
+                    onclick="tryItOut('GETapi-cotizacion-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-cotizacion-historial"
+                    onclick="cancelTryOut('GETapi-cotizacion-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-cotizacion-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/cotizacion-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-cotizacion-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-cotizacion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-cotizacion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-cotizacion-historial">POST api/cotizacion-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-cotizacion-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/cotizacion-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"cotizacion_id\": \"architecto\",
+    \"id_estado_nuevo\": \"architecto\",
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cotizacion-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cotizacion_id": "architecto",
+    "id_estado_nuevo": "architecto",
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-cotizacion-historial">
+</span>
+<span id="execution-results-POSTapi-cotizacion-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-cotizacion-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-cotizacion-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-cotizacion-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-cotizacion-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-cotizacion-historial" data-method="POST"
+      data-path="api/cotizacion-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-cotizacion-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-cotizacion-historial"
+                    onclick="tryItOut('POSTapi-cotizacion-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-cotizacion-historial"
+                    onclick="cancelTryOut('POSTapi-cotizacion-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-cotizacion-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/cotizacion-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-cotizacion-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-cotizacion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-cotizacion-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cotizacion_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cotizacion_id"                data-endpoint="POSTapi-cotizacion-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the cotizaciones table. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="POSTapi-cotizacion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_cotizaciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="POSTapi-cotizacion-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_cotizaciones table. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="POSTapi-cotizacion-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="POSTapi-cotizacion-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-cotizacion-historial--cotizacionHistorial-">GET api/cotizacion-historial/{cotizacionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-cotizacion-historial--cotizacionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/cotizacion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cotizacion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-cotizacion-historial--cotizacionHistorial-">
+            <blockquote>
+            <p>Ejemplo de respuesta (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\CotizacionHistorial] 16&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-cotizacion-historial--cotizacionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-cotizacion-historial--cotizacionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-cotizacion-historial--cotizacionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-cotizacion-historial--cotizacionHistorial-" data-method="GET"
+      data-path="api/cotizacion-historial/{cotizacionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-cotizacion-historial--cotizacionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="tryItOut('GETapi-cotizacion-historial--cotizacionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="cancelTryOut('GETapi-cotizacion-historial--cotizacionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-cotizacion-historial--cotizacionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/cotizacion-historial/{cotizacionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-cotizacion-historial--cotizacionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>cotizacionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="cotizacionHistorial"                data-endpoint="GETapi-cotizacion-historial--cotizacionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-cotizacion-historial--cotizacionHistorial-">PUT api/cotizacion-historial/{cotizacionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-cotizacion-historial--cotizacionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/cotizacion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id_estado_nuevo\": \"architecto\",
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cotizacion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id_estado_nuevo": "architecto",
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-cotizacion-historial--cotizacionHistorial-">
+</span>
+<span id="execution-results-PUTapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-cotizacion-historial--cotizacionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-cotizacion-historial--cotizacionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-cotizacion-historial--cotizacionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-cotizacion-historial--cotizacionHistorial-" data-method="PUT"
+      data-path="api/cotizacion-historial/{cotizacionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-cotizacion-historial--cotizacionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="tryItOut('PUTapi-cotizacion-historial--cotizacionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="cancelTryOut('PUTapi-cotizacion-historial--cotizacionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-cotizacion-historial--cotizacionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/cotizacion-historial/{cotizacionHistorial}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/cotizacion-historial/{cotizacionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>cotizacionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="cotizacionHistorial"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_cotizaciones table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_cotizaciones table. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="PUTapi-cotizacion-historial--cotizacionHistorial-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-cotizacion-historial--cotizacionHistorial-">DELETE api/cotizacion-historial/{cotizacionHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-cotizacion-historial--cotizacionHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/cotizacion-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cotizacion-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-cotizacion-historial--cotizacionHistorial-">
+</span>
+<span id="execution-results-DELETEapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-cotizacion-historial--cotizacionHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-cotizacion-historial--cotizacionHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-cotizacion-historial--cotizacionHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-cotizacion-historial--cotizacionHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-cotizacion-historial--cotizacionHistorial-" data-method="DELETE"
+      data-path="api/cotizacion-historial/{cotizacionHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-cotizacion-historial--cotizacionHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="tryItOut('DELETEapi-cotizacion-historial--cotizacionHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-cotizacion-historial--cotizacionHistorial-"
+                    onclick="cancelTryOut('DELETEapi-cotizacion-historial--cotizacionHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-cotizacion-historial--cotizacionHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/cotizacion-historial/{cotizacionHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-cotizacion-historial--cotizacionHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-cotizacion-historial--cotizacionHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>cotizacionHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="cotizacionHistorial"                data-endpoint="DELETEapi-cotizacion-historial--cotizacionHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-estados-cotizaciones">Listar todos los estados de cotización</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-cotizaciones">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-cotizaciones" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-cotizaciones"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-cotizaciones">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;pendiente&quot;,
+            &quot;nombre&quot;: &quot;Pendiente&quot;,
+            &quot;color&quot;: &quot;#F59E0B&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;slug&quot;: &quot;aprobada&quot;,
+            &quot;nombre&quot;: &quot;Aprobada&quot;,
+            &quot;color&quot;: &quot;#10B981&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;rechazada&quot;,
+            &quot;nombre&quot;: &quot;Rechazada&quot;,
+            &quot;color&quot;: &quot;#EF4444&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-cotizaciones" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-cotizaciones"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-cotizaciones"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-cotizaciones" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-cotizaciones">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-cotizaciones" data-method="GET"
+      data-path="api/estados-cotizaciones"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-cotizaciones', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-cotizaciones"
+                    onclick="tryItOut('GETapi-estados-cotizaciones');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-cotizaciones"
+                    onclick="cancelTryOut('GETapi-estados-cotizaciones');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-cotizaciones"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-cotizaciones</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-cotizaciones"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-cotizaciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-cotizaciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-estados-cotizaciones">Crear un nuevo estado de cotización</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-estados-cotizaciones">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/estados-cotizaciones" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"nombre\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-cotizaciones"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "nombre": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-estados-cotizaciones">
+</span>
+<span id="execution-results-POSTapi-estados-cotizaciones" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-estados-cotizaciones"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-estados-cotizaciones"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-estados-cotizaciones" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-estados-cotizaciones">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-estados-cotizaciones" data-method="POST"
+      data-path="api/estados-cotizaciones"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-estados-cotizaciones', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-estados-cotizaciones"
+                    onclick="tryItOut('POSTapi-estados-cotizaciones');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-estados-cotizaciones"
+                    onclick="cancelTryOut('POSTapi-estados-cotizaciones');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-estados-cotizaciones"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/estados-cotizaciones</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-estados-cotizaciones"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-estados-cotizaciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-estados-cotizaciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-estados-cotizaciones"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-estados-cotizaciones"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-estados-cotizaciones"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-estados-cotizaciones--estadoCotizacion_id-">Obtener un estado de cotización específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-cotizaciones--estadoCotizacion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-cotizaciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-cotizaciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-cotizaciones--estadoCotizacion_id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;slug&quot;: &quot;pendiente&quot;,
+        &quot;nombre&quot;: &quot;Pendiente&quot;,
+        &quot;color&quot;: &quot;#F59E0B&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-cotizaciones--estadoCotizacion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-cotizaciones--estadoCotizacion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-cotizaciones--estadoCotizacion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-cotizaciones--estadoCotizacion_id-" data-method="GET"
+      data-path="api/estados-cotizaciones/{estadoCotizacion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-cotizaciones--estadoCotizacion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="tryItOut('GETapi-estados-cotizaciones--estadoCotizacion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="cancelTryOut('GETapi-estados-cotizaciones--estadoCotizacion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-cotizaciones--estadoCotizacion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-cotizaciones/{estadoCotizacion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoCotizacion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoCotizacion_id"                data-endpoint="GETapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoCotizacion. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-estados-cotizaciones--estadoCotizacion_id-">Actualizar un estado de cotización</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-estados-cotizaciones--estadoCotizacion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/estados-cotizaciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"nombre\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-cotizaciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "nombre": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-estados-cotizaciones--estadoCotizacion_id-">
+</span>
+<span id="execution-results-PUTapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-estados-cotizaciones--estadoCotizacion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-estados-cotizaciones--estadoCotizacion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-estados-cotizaciones--estadoCotizacion_id-" data-method="PUT"
+      data-path="api/estados-cotizaciones/{estadoCotizacion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-estados-cotizaciones--estadoCotizacion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="tryItOut('PUTapi-estados-cotizaciones--estadoCotizacion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="cancelTryOut('PUTapi-estados-cotizaciones--estadoCotizacion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/estados-cotizaciones/{estadoCotizacion_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/estados-cotizaciones/{estadoCotizacion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoCotizacion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoCotizacion_id"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoCotizacion. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">Eliminar un estado de cotización</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/estados-cotizaciones/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-cotizaciones/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">
+</span>
+<span id="execution-results-DELETEapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-estados-cotizaciones--estadoCotizacion_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-estados-cotizaciones--estadoCotizacion_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-estados-cotizaciones--estadoCotizacion_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-estados-cotizaciones--estadoCotizacion_id-" data-method="DELETE"
+      data-path="api/estados-cotizaciones/{estadoCotizacion_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-estados-cotizaciones--estadoCotizacion_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="tryItOut('DELETEapi-estados-cotizaciones--estadoCotizacion_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+                    onclick="cancelTryOut('DELETEapi-estados-cotizaciones--estadoCotizacion_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/estados-cotizaciones/{estadoCotizacion_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoCotizacion_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoCotizacion_id"                data-endpoint="DELETEapi-estados-cotizaciones--estadoCotizacion_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoCotizacion. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-GETapi-tipos-cotizaciones">Listar todos los tipos de cotización</h2>
 
 <p>
@@ -19894,7 +24301,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones" \
+    --get "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19902,7 +24309,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -19929,6 +24336,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -20045,7 +24454,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-cotizaciones" \
+    "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20057,7 +24466,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -20192,7 +24601,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones/1" \
+    --get "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20200,7 +24609,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -20227,6 +24636,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -20350,7 +24761,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20362,7 +24773,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -20514,7 +24925,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20522,7 +24933,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -20653,7 +25064,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago" \
+    --get "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20661,7 +25072,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -20688,6 +25099,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -20808,7 +25221,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metodos-pago" \
+    "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20820,7 +25233,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -20969,7 +25382,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago/1" \
+    --get "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20977,7 +25390,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -21004,6 +25417,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -21128,7 +25543,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21144,7 +25559,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -21314,7 +25729,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21322,7 +25737,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -21454,7 +25869,7 @@ Si el arreglo está vacío, el método no requiere entidad bancaria (ej. Efectiv
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago/1/entidades-bancarias" \
+    --get "http://localhost/api/metodos-pago/1/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21462,7 +25877,7 @@ Si el arreglo está vacío, el método no requiere entidad bancaria (ej. Efectiv
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1/entidades-bancarias"
+    "http://localhost/api/metodos-pago/1/entidades-bancarias"
 );
 
 const headers = {
@@ -21489,6 +25904,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -21609,7 +26026,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra" \
+    --get "http://localhost/api/ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21617,7 +26034,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra"
+    "http://localhost/api/ordenes-compra"
 );
 
 const headers = {
@@ -21644,6 +26061,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -21751,7 +26170,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra/16" \
+    --get "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21759,7 +26178,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -21786,6 +26205,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -21906,7 +26327,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/ordenes-compra/16" \
+    "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21918,7 +26339,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -22070,7 +26491,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/ordenes-compra/16" \
+    "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22078,7 +26499,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -22195,6 +26616,2509 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                     </form>
 
+                    <h2 id="endpoints-GETapi-orden-compra-historial">GET api/orden-compra-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-orden-compra-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/orden-compra-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orden-compra-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-orden-compra-historial">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orden-compra-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-orden-compra-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orden-compra-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-orden-compra-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orden-compra-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-orden-compra-historial" data-method="GET"
+      data-path="api/orden-compra-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orden-compra-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orden-compra-historial"
+                    onclick="tryItOut('GETapi-orden-compra-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orden-compra-historial"
+                    onclick="cancelTryOut('GETapi-orden-compra-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orden-compra-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orden-compra-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-orden-compra-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-orden-compra-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-orden-compra-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-orden-compra-historial">POST api/orden-compra-historial</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-orden-compra-historial">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/orden-compra-historial" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"orden_compra_id\": \"architecto\",
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orden-compra-historial"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "orden_compra_id": "architecto",
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-orden-compra-historial">
+</span>
+<span id="execution-results-POSTapi-orden-compra-historial" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-orden-compra-historial"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-orden-compra-historial"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-orden-compra-historial" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-orden-compra-historial">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-orden-compra-historial" data-method="POST"
+      data-path="api/orden-compra-historial"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-orden-compra-historial', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-orden-compra-historial"
+                    onclick="tryItOut('POSTapi-orden-compra-historial');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-orden-compra-historial"
+                    onclick="cancelTryOut('POSTapi-orden-compra-historial');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-orden-compra-historial"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/orden-compra-historial</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-orden-compra-historial"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-orden-compra-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-orden-compra-historial"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>orden_compra_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="orden_compra_id"                data-endpoint="POSTapi-orden-compra-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the ordenes_compra table. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="POSTapi-orden-compra-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_ordenes_compra table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="POSTapi-orden-compra-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_ordenes_compra table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="POSTapi-orden-compra-historial"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="POSTapi-orden-compra-historial"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-orden-compra-historial--ordenCompraHistorial-">GET api/orden-compra-historial/{ordenCompraHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-orden-compra-historial--ordenCompraHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/orden-compra-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orden-compra-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-orden-compra-historial--ordenCompraHistorial-">
+            <blockquote>
+            <p>Ejemplo de respuesta (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\OrdenCompraHistorial] 16&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-orden-compra-historial--ordenCompraHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orden-compra-historial--ordenCompraHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orden-compra-historial--ordenCompraHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-orden-compra-historial--ordenCompraHistorial-" data-method="GET"
+      data-path="api/orden-compra-historial/{ordenCompraHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orden-compra-historial--ordenCompraHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="tryItOut('GETapi-orden-compra-historial--ordenCompraHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="cancelTryOut('GETapi-orden-compra-historial--ordenCompraHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orden-compra-historial--ordenCompraHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orden-compra-historial/{ordenCompraHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-orden-compra-historial--ordenCompraHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ordenCompraHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ordenCompraHistorial"                data-endpoint="GETapi-orden-compra-historial--ordenCompraHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-orden-compra-historial--ordenCompraHistorial-">PUT api/orden-compra-historial/{ordenCompraHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-orden-compra-historial--ordenCompraHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/orden-compra-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"comentario\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orden-compra-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "comentario": "architecto"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-orden-compra-historial--ordenCompraHistorial-">
+</span>
+<span id="execution-results-PUTapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-orden-compra-historial--ordenCompraHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-orden-compra-historial--ordenCompraHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-orden-compra-historial--ordenCompraHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-orden-compra-historial--ordenCompraHistorial-" data-method="PUT"
+      data-path="api/orden-compra-historial/{ordenCompraHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-orden-compra-historial--ordenCompraHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="tryItOut('PUTapi-orden-compra-historial--ordenCompraHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="cancelTryOut('PUTapi-orden-compra-historial--ordenCompraHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-orden-compra-historial--ordenCompraHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/orden-compra-historial/{ordenCompraHistorial}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/orden-compra-historial/{ordenCompraHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ordenCompraHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ordenCompraHistorial"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_anterior</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_anterior"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_ordenes_compra table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_estado_nuevo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_estado_nuevo"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the estados_ordenes_compra table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the usuarios table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comentario</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comentario"                data-endpoint="PUTapi-orden-compra-historial--ordenCompraHistorial-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-orden-compra-historial--ordenCompraHistorial-">DELETE api/orden-compra-historial/{ordenCompraHistorial}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-orden-compra-historial--ordenCompraHistorial-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/orden-compra-historial/16" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orden-compra-historial/16"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-orden-compra-historial--ordenCompraHistorial-">
+</span>
+<span id="execution-results-DELETEapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-orden-compra-historial--ordenCompraHistorial-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-orden-compra-historial--ordenCompraHistorial-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-orden-compra-historial--ordenCompraHistorial-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-orden-compra-historial--ordenCompraHistorial-" data-method="DELETE"
+      data-path="api/orden-compra-historial/{ordenCompraHistorial}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-orden-compra-historial--ordenCompraHistorial-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="tryItOut('DELETEapi-orden-compra-historial--ordenCompraHistorial-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+                    onclick="cancelTryOut('DELETEapi-orden-compra-historial--ordenCompraHistorial-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/orden-compra-historial/{ordenCompraHistorial}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ordenCompraHistorial</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ordenCompraHistorial"                data-endpoint="DELETEapi-orden-compra-historial--ordenCompraHistorial-"
+               value="16"
+               data-component="url">
+    <br>
+<p>Example: <code>16</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-estados-ordenes-compra">Listar todos los estados de orden de compra</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-ordenes-compra">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-ordenes-compra" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-ordenes-compra"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-ordenes-compra">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;pendiente&quot;,
+            &quot;nombre&quot;: &quot;Pendiente&quot;,
+            &quot;color&quot;: &quot;#F59E0B&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;slug&quot;: &quot;en_proceso&quot;,
+            &quot;nombre&quot;: &quot;En Proceso&quot;,
+            &quot;color&quot;: &quot;#3B82F6&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;completada&quot;,
+            &quot;nombre&quot;: &quot;Completada&quot;,
+            &quot;color&quot;: &quot;#10B981&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;slug&quot;: &quot;anulada&quot;,
+            &quot;nombre&quot;: &quot;Anulada&quot;,
+            &quot;color&quot;: &quot;#EF4444&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-ordenes-compra" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-ordenes-compra"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-ordenes-compra"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-ordenes-compra" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-ordenes-compra">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-ordenes-compra" data-method="GET"
+      data-path="api/estados-ordenes-compra"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-ordenes-compra', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-ordenes-compra"
+                    onclick="tryItOut('GETapi-estados-ordenes-compra');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-ordenes-compra"
+                    onclick="cancelTryOut('GETapi-estados-ordenes-compra');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-ordenes-compra"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-ordenes-compra</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-ordenes-compra"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-ordenes-compra"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-ordenes-compra"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-estados-ordenes-compra">Crear un nuevo estado de orden de compra</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-estados-ordenes-compra">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/estados-ordenes-compra" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"nombre\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-ordenes-compra"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "nombre": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-estados-ordenes-compra">
+</span>
+<span id="execution-results-POSTapi-estados-ordenes-compra" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-estados-ordenes-compra"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-estados-ordenes-compra"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-estados-ordenes-compra" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-estados-ordenes-compra">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-estados-ordenes-compra" data-method="POST"
+      data-path="api/estados-ordenes-compra"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-estados-ordenes-compra', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-estados-ordenes-compra"
+                    onclick="tryItOut('POSTapi-estados-ordenes-compra');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-estados-ordenes-compra"
+                    onclick="cancelTryOut('POSTapi-estados-ordenes-compra');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-estados-ordenes-compra"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/estados-ordenes-compra</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-estados-ordenes-compra"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-estados-ordenes-compra"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-estados-ordenes-compra"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-estados-ordenes-compra"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="POSTapi-estados-ordenes-compra"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-estados-ordenes-compra"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">Obtener un estado de orden de compra específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-ordenes-compra/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-ordenes-compra/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;slug&quot;: &quot;pendiente&quot;,
+        &quot;nombre&quot;: &quot;Pendiente&quot;,
+        &quot;color&quot;: &quot;#F59E0B&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-" data-method="GET"
+      data-path="api/estados-ordenes-compra/{estadoOrdenCompra_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-ordenes-compra--estadoOrdenCompra_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="tryItOut('GETapi-estados-ordenes-compra--estadoOrdenCompra_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="cancelTryOut('GETapi-estados-ordenes-compra--estadoOrdenCompra_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-ordenes-compra/{estadoOrdenCompra_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoOrdenCompra_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoOrdenCompra_id"                data-endpoint="GETapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoOrdenCompra. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">Actualizar un estado de orden de compra</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/estados-ordenes-compra/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"nombre\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-ordenes-compra/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "nombre": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+</span>
+<span id="execution-results-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-" data-method="PUT"
+      data-path="api/estados-ordenes-compra/{estadoOrdenCompra_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="tryItOut('PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="cancelTryOut('PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/estados-ordenes-compra/{estadoOrdenCompra_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/estados-ordenes-compra/{estadoOrdenCompra_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoOrdenCompra_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoOrdenCompra_id"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoOrdenCompra. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nombre</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="nombre"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">Eliminar un estado de orden de compra</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/estados-ordenes-compra/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-ordenes-compra/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+</span>
+<span id="execution-results-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-" data-method="DELETE"
+      data-path="api/estados-ordenes-compra/{estadoOrdenCompra_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="tryItOut('DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    onclick="cancelTryOut('DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/estados-ordenes-compra/{estadoOrdenCompra_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoOrdenCompra_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoOrdenCompra_id"                data-endpoint="DELETEapi-estados-ordenes-compra--estadoOrdenCompra_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoOrdenCompra. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-estados-financieros">Listar todos los estados financieros</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-financieros">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-financieros" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-financieros"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-financieros">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;slug&quot;: &quot;pendiente&quot;,
+            &quot;label&quot;: &quot;Pendiente&quot;,
+            &quot;color&quot;: &quot;#ef4444&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;slug&quot;: &quot;parcial&quot;,
+            &quot;label&quot;: &quot;Pagado Parcialmente&quot;,
+            &quot;color&quot;: &quot;#f59e0b&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;slug&quot;: &quot;pagado&quot;,
+            &quot;label&quot;: &quot;Pagado&quot;,
+            &quot;color&quot;: &quot;#10b981&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-financieros" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-financieros"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-financieros"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-financieros" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-financieros">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-financieros" data-method="GET"
+      data-path="api/estados-financieros"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-financieros', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-financieros"
+                    onclick="tryItOut('GETapi-estados-financieros');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-financieros"
+                    onclick="cancelTryOut('GETapi-estados-financieros');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-financieros"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-financieros</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-financieros"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-financieros"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-financieros"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-POSTapi-estados-financieros">Crear un nuevo estado financiero</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-estados-financieros">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/estados-financieros" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"label\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-financieros"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "label": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-estados-financieros">
+</span>
+<span id="execution-results-POSTapi-estados-financieros" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-POSTapi-estados-financieros"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-estados-financieros"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-estados-financieros" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-estados-financieros">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-POSTapi-estados-financieros" data-method="POST"
+      data-path="api/estados-financieros"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-estados-financieros', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-estados-financieros"
+                    onclick="tryItOut('POSTapi-estados-financieros');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-estados-financieros"
+                    onclick="cancelTryOut('POSTapi-estados-financieros');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-estados-financieros"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/estados-financieros</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-estados-financieros"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-estados-financieros"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-estados-financieros"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-estados-financieros"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>label</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="label"                data-endpoint="POSTapi-estados-financieros"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="POSTapi-estados-financieros"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-estados-financieros--estadoFinanciero_id-">Obtener un estado financiero específico</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-estados-financieros--estadoFinanciero_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/estados-financieros/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-financieros/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-estados-financieros--estadoFinanciero_id-">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;slug&quot;: &quot;pendiente&quot;,
+        &quot;label&quot;: &quot;Pendiente&quot;,
+        &quot;color&quot;: &quot;#ef4444&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-estados-financieros--estadoFinanciero_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-estados-financieros--estadoFinanciero_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-estados-financieros--estadoFinanciero_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-estados-financieros--estadoFinanciero_id-" data-method="GET"
+      data-path="api/estados-financieros/{estadoFinanciero_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-estados-financieros--estadoFinanciero_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="tryItOut('GETapi-estados-financieros--estadoFinanciero_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="cancelTryOut('GETapi-estados-financieros--estadoFinanciero_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-estados-financieros--estadoFinanciero_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/estados-financieros/{estadoFinanciero_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-estados-financieros--estadoFinanciero_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoFinanciero_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoFinanciero_id"                data-endpoint="GETapi-estados-financieros--estadoFinanciero_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoFinanciero. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-PUTapi-estados-financieros--estadoFinanciero_id-">Actualizar un estado financiero</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-estados-financieros--estadoFinanciero_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/estados-financieros/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"slug\": \"b\",
+    \"label\": \"n\",
+    \"color\": \"gzmiyvdljnikhway\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-financieros/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "slug": "b",
+    "label": "n",
+    "color": "gzmiyvdljnikhway"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-estados-financieros--estadoFinanciero_id-">
+</span>
+<span id="execution-results-PUTapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-PUTapi-estados-financieros--estadoFinanciero_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-estados-financieros--estadoFinanciero_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-estados-financieros--estadoFinanciero_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-PUTapi-estados-financieros--estadoFinanciero_id-" data-method="PUT"
+      data-path="api/estados-financieros/{estadoFinanciero_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-estados-financieros--estadoFinanciero_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="tryItOut('PUTapi-estados-financieros--estadoFinanciero_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="cancelTryOut('PUTapi-estados-financieros--estadoFinanciero_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-estados-financieros--estadoFinanciero_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/estados-financieros/{estadoFinanciero_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/estados-financieros/{estadoFinanciero_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoFinanciero_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoFinanciero_id"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoFinanciero. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Parámetros del cuerpo</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="b"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>label</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="label"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="n"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="color"                data-endpoint="PUTapi-estados-financieros--estadoFinanciero_id-"
+               value="gzmiyvdljnikhway"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>gzmiyvdljnikhway</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-estados-financieros--estadoFinanciero_id-">Eliminar un estado financiero (soft delete)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-estados-financieros--estadoFinanciero_id-">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/estados-financieros/1" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/estados-financieros/1"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-estados-financieros--estadoFinanciero_id-">
+</span>
+<span id="execution-results-DELETEapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-DELETEapi-estados-financieros--estadoFinanciero_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-estados-financieros--estadoFinanciero_id-"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-estados-financieros--estadoFinanciero_id-" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-estados-financieros--estadoFinanciero_id-">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-DELETEapi-estados-financieros--estadoFinanciero_id-" data-method="DELETE"
+      data-path="api/estados-financieros/{estadoFinanciero_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-estados-financieros--estadoFinanciero_id-', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="tryItOut('DELETEapi-estados-financieros--estadoFinanciero_id-');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-estados-financieros--estadoFinanciero_id-"
+                    onclick="cancelTryOut('DELETEapi-estados-financieros--estadoFinanciero_id-');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-estados-financieros--estadoFinanciero_id-"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/estados-financieros/{estadoFinanciero_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-estados-financieros--estadoFinanciero_id-"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-estados-financieros--estadoFinanciero_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Parámetros de URL</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>estadoFinanciero_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="estadoFinanciero_id"                data-endpoint="DELETEapi-estados-financieros--estadoFinanciero_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the estadoFinanciero. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-GETapi-pagos">Listar todos los pagos de clientes</h2>
 
 <p>
@@ -22209,7 +29133,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos" \
+    --get "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22217,7 +29141,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
@@ -22244,6 +29168,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -22351,7 +29277,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos" \
+    "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
@@ -22363,13 +29289,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --form "id_entidad_bancaria=16"\
     --form "ordenes_compra[][id_orden_compra]=16"\
     --form "ordenes_compra[][monto_asignado]=4326.41688"\
-    --form "estatus=16"\
-    --form "comprobante_pdf=@/tmp/phpmvU0uB" </code></pre></div>
+    --form "id_estado_conciliacion=16"\
+    --form "comprobante_pdf=@/tmp/phpS8iXOH" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
@@ -22387,7 +29313,7 @@ body.append('id_tasa_cambio', '16');
 body.append('id_entidad_bancaria', '16');
 body.append('ordenes_compra[][id_orden_compra]', '16');
 body.append('ordenes_compra[][monto_asignado]', '4326.41688');
-body.append('estatus', '16');
+body.append('id_estado_conciliacion', '16');
 body.append('comprobante_pdf', document.querySelector('input[name="comprobante_pdf"]').files[0]);
 
 fetch(url, {
@@ -22602,19 +29528,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpmvU0uB</code></p>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpS8iXOH</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>id_estado_conciliacion</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="POSTapi-pagos"
+               step="any"               name="id_estado_conciliacion"                data-endpoint="POSTapi-pagos"
                value="16"
                data-component="body">
     <br>
-<p>ID del estatus del pago. Ejemplo: 1 Example: <code>16</code></p>
+<p>ID del estado de conciliación del pago. Ejemplo: 1 Example: <code>16</code></p>
         </div>
         </form>
 
@@ -22632,7 +29558,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos/16" \
+    --get "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22640,7 +29566,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -22667,6 +29593,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -22787,7 +29715,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos/16" \
+    "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -22798,20 +29726,20 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"nro_comprobante\": \"architecto\",
     \"id_tasa_cambio\": 16,
     \"id_entidad_bancaria\": 16,
+    \"id_estado_conciliacion\": 16,
     \"ordenes_compra\": [
         {
             \"id_orden_compra\": 16,
             \"monto_asignado\": 4326.41688
         }
-    ],
-    \"estatus\": 16
+    ]
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -22827,13 +29755,13 @@ let body = {
     "nro_comprobante": "architecto",
     "id_tasa_cambio": 16,
     "id_entidad_bancaria": 16,
+    "id_estado_conciliacion": 16,
     "ordenes_compra": [
         {
             "id_orden_compra": 16,
             "monto_asignado": 4326.41688
         }
-    ],
-    "estatus": 16
+    ]
 };
 
 fetch(url, {
@@ -23021,15 +29949,15 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_conciliacion</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id_estado_conciliacion"                data-endpoint="PUTapi-pagos--id-"
-               value=""
+                <input type="number" style="display: none"
+               step="any"               name="id_estado_conciliacion"                data-endpoint="PUTapi-pagos--id-"
+               value="16"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the estados_conciliacion table.</p>
+<p>ID del estado de conciliación. Ejemplo: 1 Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -23067,18 +29995,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                     </div>
                                     </details>
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>estatus</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="estatus"                data-endpoint="PUTapi-pagos--id-"
-               value="16"
-               data-component="body">
-    <br>
-<p>ID del estatus. Ejemplo: 1 Example: <code>16</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-DELETEapi-pagos--id-">Eliminar un pago</h2>
@@ -23101,7 +30017,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos/16" \
+    "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23109,7 +30025,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -23240,7 +30156,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra" \
+    --get "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23248,7 +30164,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -23275,6 +30191,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -23382,22 +30300,21 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-ordenes-compra" \
+    "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_pago\": \"architecto\",
     \"id_orden_compra\": \"architecto\",
-    \"monto_asignado\": 39,
-    \"monto_pagado\": 84
+    \"monto_asignado\": 39
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -23409,8 +30326,7 @@ const headers = {
 let body = {
     "id_pago": "architecto",
     "id_orden_compra": "architecto",
-    "monto_asignado": 39,
-    "monto_pagado": 84
+    "monto_asignado": 39
 };
 
 fetch(url, {
@@ -23543,18 +30459,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Must be at least 0. Example: <code>39</code></p>
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>monto_pagado</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="monto_pagado"                data-endpoint="POSTapi-pagos-ordenes-compra"
-               value="84"
-               data-component="body">
-    <br>
-<p>Must be at least 0. Example: <code>84</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-GETapi-pagos-ordenes-compra--pagoOrdenCompra_id-">GET api/pagos-ordenes-compra/{pagoOrdenCompra_id}</h2>
@@ -23571,7 +30475,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    --get "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23579,7 +30483,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -23606,6 +30510,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -23726,20 +30632,19 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"monto_asignado\": 27,
-    \"monto_pagado\": 39
+    \"monto_asignado\": 27
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -23749,8 +30654,7 @@ const headers = {
 };
 
 let body = {
-    "monto_asignado": 27,
-    "monto_pagado": 39
+    "monto_asignado": 27
 };
 
 fetch(url, {
@@ -23876,18 +30780,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     <br>
 <p>Must be at least 0. Example: <code>27</code></p>
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>monto_pagado</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="monto_pagado"                data-endpoint="PUTapi-pagos-ordenes-compra--pagoOrdenCompra_id-"
-               value="39"
-               data-component="body">
-    <br>
-<p>Must be at least 0. Example: <code>39</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-DELETEapi-pagos-ordenes-compra--pagoOrdenCompra_id-">DELETE api/pagos-ordenes-compra/{pagoOrdenCompra_id}</h2>
@@ -23904,7 +30796,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23912,7 +30804,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -24043,7 +30935,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores" \
+    --get "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24051,7 +30943,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -24078,6 +30970,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -24089,7 +30983,7 @@ access-control-allow-origin: *
             &quot;monto_total&quot;: 1500,
             &quot;id_tasa_cambio&quot;: null,
             &quot;referencia&quot;: &quot;PP-0001&quot;,
-            &quot;fecha_pago&quot;: &quot;2026-05-17&quot;,
+            &quot;fecha_pago&quot;: &quot;2026-05-20&quot;,
             &quot;id_metodo_pago&quot;: 1,
             &quot;comprobante&quot;: null,
             &quot;proveedor&quot;: {
@@ -24102,8 +30996,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
             },
             &quot;tasa_cambio&quot;: null,
             &quot;metodo_pago&quot;: {
@@ -24111,8 +31005,8 @@ access-control-allow-origin: *
                 &quot;metodo_pago&quot;: &quot;efectivo&quot;
             },
             &quot;cuentas_saldadas&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -24217,7 +31111,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-proveedores" \
+    "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24225,7 +31119,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"id_proveedor\": \"architecto\",
     \"monto_total\": 39,
     \"referencia\": \"g\",
-    \"fecha_pago\": \"2026-05-17T04:39:00\",
+    \"fecha_pago\": \"2026-05-20T12:11:33\",
     \"id_metodo_pago\": \"architecto\",
     \"comprobante\": \"architecto\",
     \"cuentas\": [
@@ -24240,7 +31134,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -24253,7 +31147,7 @@ let body = {
     "id_proveedor": "architecto",
     "monto_total": 39,
     "referencia": "g",
-    "fecha_pago": "2026-05-17T04:39:00",
+    "fecha_pago": "2026-05-20T12:11:33",
     "id_metodo_pago": "architecto",
     "comprobante": "architecto",
     "cuentas": [
@@ -24413,10 +31307,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos-proveedores"
-               value="2026-05-17T04:39:00"
+               value="2026-05-20T12:11:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-17T04:39:00</code></p>
+<p>Must be a valid date. Example: <code>2026-05-20T12:11:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -24494,7 +31388,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores/1" \
+    --get "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24502,7 +31396,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -24529,6 +31423,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -24539,7 +31435,7 @@ access-control-allow-origin: *
         &quot;monto_total&quot;: 1500,
         &quot;id_tasa_cambio&quot;: null,
         &quot;referencia&quot;: &quot;PP-0001&quot;,
-        &quot;fecha_pago&quot;: &quot;2026-05-17&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-05-20&quot;,
         &quot;id_metodo_pago&quot;: 1,
         &quot;comprobante&quot;: null,
         &quot;proveedor&quot;: {
@@ -24552,8 +31448,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         },
         &quot;tasa_cambio&quot;: null,
         &quot;metodo_pago&quot;: {
@@ -24561,8 +31457,8 @@ access-control-allow-origin: *
             &quot;metodo_pago&quot;: &quot;efectivo&quot;
         },
         &quot;cuentas_saldadas&quot;: [],
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -24679,14 +31575,14 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"monto_total\": 27,
     \"referencia\": \"n\",
-    \"fecha_pago\": \"2026-05-17T04:39:00\",
+    \"fecha_pago\": \"2026-05-20T12:11:33\",
     \"comprobante\": \"architecto\"
 }"
 </code></pre></div>
@@ -24694,7 +31590,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -24706,7 +31602,7 @@ const headers = {
 let body = {
     "monto_total": 27,
     "referencia": "n",
-    "fecha_pago": "2026-05-17T04:39:00",
+    "fecha_pago": "2026-05-20T12:11:33",
     "comprobante": "architecto"
 };
 
@@ -24876,10 +31772,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="2026-05-17T04:39:00"
+               value="2026-05-20T12:11:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-17T04:39:00</code></p>
+<p>Must be a valid date. Example: <code>2026-05-20T12:11:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -24921,7 +31817,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24929,7 +31825,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -25060,7 +31956,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores" \
+    --get "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25068,7 +31964,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -25095,6 +31991,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -25215,7 +32113,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-proveedores" \
+    "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25227,7 +32125,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -25362,7 +32260,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores/1" \
+    --get "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25370,7 +32268,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -25397,6 +32295,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -25520,7 +32420,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25532,7 +32432,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -25684,7 +32584,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25692,7 +32592,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -25823,7 +32723,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores" \
+    --get "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25831,7 +32731,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -25858,6 +32758,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -25873,8 +32775,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -25979,7 +32881,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/proveedores" \
+    "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26011,7 +32913,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -26336,7 +33238,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores/1" \
+    --get "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26344,7 +33246,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -26371,6 +33273,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -26415,12 +33319,12 @@ access-control-allow-origin: *
                 &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
                 &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
                 &quot;moneda&quot;: &quot;VES&quot;,
-                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
     }
 }</code>
  </pre>
@@ -26537,7 +33441,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26569,7 +33473,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -26923,7 +33827,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26931,7 +33835,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -27062,7 +33966,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio" \
+    --get "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27070,7 +33974,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -27097,6 +34001,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -27117,8 +34023,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
                 }
             ]
         },
@@ -27137,8 +34043,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
                 }
             ]
         },
@@ -27157,8 +34063,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
                 }
             ]
         },
@@ -27277,7 +34183,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipo-servicio" \
+    "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27294,7 +34200,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -27460,7 +34366,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio/1" \
+    --get "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27468,7 +34374,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -27495,6 +34401,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -27514,8 +34422,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
             }
         ]
     }
@@ -27634,7 +34542,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27651,7 +34559,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -27835,7 +34743,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27843,7 +34751,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -27974,7 +34882,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas" \
+    --get "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27982,7 +34890,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -28009,6 +34917,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -28147,7 +35057,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas" \
+    "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28161,7 +35071,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -28322,7 +35232,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas/1" \
+    --get "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28330,7 +35240,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -28357,6 +35267,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -28482,7 +35394,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28496,7 +35408,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -28674,7 +35586,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28682,7 +35594,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -28813,7 +35725,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio" \
+    --get "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28821,7 +35733,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -28848,6 +35760,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -28857,7 +35771,7 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-17&quot;
+            &quot;fecha&quot;: &quot;2026-05-20&quot;
         }
     ]
 }</code>
@@ -28962,7 +35876,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas-cambio" \
+    "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28976,7 +35890,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -29137,7 +36051,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio/1" \
+    --get "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29145,7 +36059,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -29172,6 +36086,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -29180,7 +36096,7 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: 36.5,
-        &quot;fecha&quot;: &quot;2026-05-17&quot;,
+        &quot;fecha&quot;: &quot;2026-05-20&quot;,
         &quot;moneda&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
@@ -29303,7 +36219,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -29317,7 +36233,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -29495,7 +36411,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29503,7 +36419,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -29634,7 +36550,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios" \
+    --get "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29642,7 +36558,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -29669,6 +36585,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -29776,7 +36694,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/servicios" \
+    "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -29796,7 +36714,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -30035,7 +36953,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios/16" \
+    --get "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30043,7 +36961,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -30070,6 +36988,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -30190,7 +37110,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/servicios/16" \
+    "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -30206,7 +37126,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -30459,7 +37379,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/servicios/16" \
+    "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30467,7 +37387,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -30598,7 +37518,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades" \
+    --get "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30606,7 +37526,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -30633,6 +37553,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -30765,7 +37687,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/temporalidades" \
+    "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -30778,7 +37700,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -30926,7 +37848,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades/1" \
+    --get "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30934,7 +37856,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -30961,6 +37883,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -31086,7 +38010,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -31099,7 +38023,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -31264,7 +38188,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31272,7 +38196,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -31403,7 +38327,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas" \
+    --get "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31411,7 +38335,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -31438,6 +38362,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -31457,8 +38383,8 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;mensual&quot;,
                 &quot;carbon_method&quot;: &quot;startOfMonth&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -31474,8 +38400,8 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;semanal&quot;,
                 &quot;carbon_method&quot;: &quot;startOfWeek&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-17T04:38:59.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-20T12:06:21.000000Z&quot;
         }
     ]
 }</code>
@@ -31580,7 +38506,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas" \
+    "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -31597,7 +38523,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -31807,7 +38733,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas/1" \
+    --get "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31815,7 +38741,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -31842,6 +38768,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -31973,7 +38901,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -31990,7 +38918,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -32217,7 +39145,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32225,7 +39153,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -32356,7 +39284,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal" \
+    --get "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32364,7 +39292,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -32391,6 +39319,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -32498,7 +39428,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas-personal" \
+    "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -32514,7 +39444,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -32701,7 +39631,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal/1" \
+    --get "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32709,7 +39639,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -32736,6 +39666,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -32856,7 +39788,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -32872,7 +39804,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -33076,7 +40008,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33084,7 +40016,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -33215,13 +40147,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/logros-personal?id_personal=16&amp;tipo_entidad=architecto&amp;id_entidad=16&amp;per_page=16" \
+    --get "http://localhost/api/logros-personal?id_personal=16&amp;tipo_entidad=architecto&amp;id_entidad=16&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_personal\": 16,
-    \"tipo_entidad\": \"atencion\",
+    \"tipo_entidad\": \"cotizacion\",
     \"id_entidad\": 22,
     \"per_page\": 7
 }"
@@ -33230,7 +40162,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logros-personal"
+    "http://localhost/api/logros-personal"
 );
 
 const params = {
@@ -33250,7 +40182,7 @@ const headers = {
 
 let body = {
     "id_personal": 16,
-    "tipo_entidad": "atencion",
+    "tipo_entidad": "cotizacion",
     "id_entidad": 22,
     "per_page": 7
 };
@@ -33273,6 +40205,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -33438,10 +40372,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="atencion"
+               value="cotizacion"
                data-component="body">
     <br>
-<p>Example: <code>atencion</code></p>
+<p>Example: <code>cotizacion</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>atencion</code></li> <li><code>cotizacion</code></li> <li><code>orden_compra</code></li></ul>
         </div>
@@ -33485,7 +40419,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;modo=architecto" \
+    --get "http://localhost/api/audit-logs/export/csv?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;modo=architecto" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33493,7 +40427,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs/export/csv"
+    "http://localhost/api/audit-logs/export/csv"
 );
 
 const params = {
@@ -33532,6 +40466,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -33738,7 +40674,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;per_page=16" \
+    --get "http://localhost/api/audit-logs?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33746,7 +40682,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs"
+    "http://localhost/api/audit-logs"
 );
 
 const params = {
@@ -33785,6 +40721,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -33988,7 +40926,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/session" \
+    "http://localhost/api/kiu/session" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34004,7 +40942,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/session"
+    "http://localhost/api/kiu/session"
 );
 
 const headers = {
@@ -34179,7 +41117,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/availability" \
+    "http://localhost/api/kiu/availability" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34197,7 +41135,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/availability"
+    "http://localhost/api/kiu/availability"
 );
 
 const headers = {
@@ -34398,7 +41336,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/pricing" \
+    "http://localhost/api/kiu/pricing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34414,7 +41352,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/pricing"
+    "http://localhost/api/kiu/pricing"
 );
 
 const headers = {
@@ -34589,7 +41527,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/booking" \
+    "http://localhost/api/kiu/booking" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34607,7 +41545,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/booking"
+    "http://localhost/api/kiu/booking"
 );
 
 const headers = {
@@ -34786,7 +41724,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/ticketing" \
+    "http://localhost/api/kiu/ticketing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34802,7 +41740,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/ticketing"
+    "http://localhost/api/kiu/ticketing"
 );
 
 const headers = {
@@ -34977,7 +41915,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/post-sale" \
+    "http://localhost/api/kiu/post-sale" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34994,7 +41932,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/post-sale"
+    "http://localhost/api/kiu/post-sale"
 );
 
 const headers = {
@@ -35182,7 +42120,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/admin-only" \
+    --get "http://localhost/api/admin-only" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -35190,7 +42128,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/admin-only"
+    "http://localhost/api/admin-only"
 );
 
 const headers = {
@@ -35217,6 +42155,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -35324,7 +42264,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/broadcasting/auth" \
+    --get "http://localhost/api/broadcasting/auth" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -35332,7 +42272,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/broadcasting/auth"
+    "http://localhost/api/broadcasting/auth"
 );
 
 const headers = {
@@ -35478,7 +42418,7 @@ canal privado específico.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/broadcasting/auth" \
+    "http://localhost/api/broadcasting/auth" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -35491,7 +42431,7 @@ canal privado específico.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/broadcasting/auth"
+    "http://localhost/api/broadcasting/auth"
 );
 
 const headers = {

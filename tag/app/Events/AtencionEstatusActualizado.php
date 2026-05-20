@@ -3,10 +3,10 @@
 namespace App\Events;
 
 use App\Models\Atencion;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class AtencionEstatusActualizado
 {

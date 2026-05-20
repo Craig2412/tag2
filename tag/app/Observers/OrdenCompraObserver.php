@@ -2,20 +2,20 @@
 
 namespace App\Observers;
 
-use App\Models\OrdenCompra;
-use App\Models\Cotizacion;
-use App\Models\Atencion;
-use App\Models\EstadoCotizacion;
-use App\Services\EstadoFaseService;
+use App\Events\AtencionEstatusActualizado;
+use App\Events\AtencionEtapaCambiada;
 use App\Events\OrdenCompraGuardado;
+use App\Models\Atencion;
+use App\Models\Cotizacion;
+use App\Models\EstadoCotizacion;
+use App\Models\OrdenCompra;
+use App\Services\AtencionStateService;
 
 class OrdenCompraObserver
 {
     /**
      * Emite el evento genérico de guardado para que los listeners
      * (SincronizarPadre, SincronizarEstadoFinanciero) reaccionen.
-     * La lógica de "¿está aprobada?" ya no vive aquí:
-     * GenerarOrdenDesdeCotizacionListener dispara OrdenCompraAprobada directamente.
      */
     public function saved(OrdenCompra $ordenCompra): void
     {
@@ -23,17 +23,15 @@ class OrdenCompraObserver
     }
 
     /**
-     * Cuando se elimina una OC, la cotización que la originó ya no es válida
-     * (se "quemó"). La marcamos como rechazada automáticamente.
-     * El usuario deberá crear una nueva cotización desde cero.
+     * Cuando se elimina una OC, la cotización que la originó ya no es válida.
      */
     public function deleted(OrdenCompra $ordenCompra): void
     {
-        // Marcar la cotización origen como rechazada — ya no sirve
+        // Marcar la cotización origen como rechazada
         if ($cotizacion = Cotizacion::find($ordenCompra->id_cotizacion)) {
             $idRechazada = EstadoCotizacion::where('slug', 'rechazada')->value('id');
             if ($idRechazada && (int) $cotizacion->id_estado_cotizacion !== $idRechazada) {
-                $cotizacion->updateQuietly(['id_estado_cotizacion' => $idRechazada]);
+                $cotizacion->update(['id_estado_cotizacion' => $idRechazada]);
             }
         }
 
@@ -44,7 +42,15 @@ class OrdenCompraObserver
     {
         if ($cotizacion = Cotizacion::find($ordenCompra->id_cotizacion)) {
             if ($atencion = Atencion::find($cotizacion->id_atencion)) {
-                EstadoFaseService::sincronizarFaseAtencion($atencion);
+                $result = AtencionStateService::sincronizarFase($atencion);
+
+                // Disparar eventos basados en el DTO retornado por el servicio
+                if ($result->etapa->huboCambio) {
+                    event(new AtencionEtapaCambiada($atencion, $result->etapa->anterior, $result->etapa->nuevo));
+                }
+                if ($result->estatus->huboCambio) {
+                    event(new AtencionEstatusActualizado($atencion, $result->estatus->anterior, $result->estatus->nuevo, $result->estatus->comentario));
+                }
             }
         }
     }

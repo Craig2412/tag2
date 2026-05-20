@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empresa;
 use App\Http\Resources\EmpresaResource;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -21,12 +21,13 @@ class EmpresaController extends Controller
         if ($request->has('include')) {
             $allowed = ['tipoContribuyente'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'tipoContribuyente') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -61,7 +62,7 @@ class EmpresaController extends Controller
         ]);
 
         $item = Empresa::create($data);
-        $item->load(['tipoContribuyente' => fn($q) => $q->withTrashed()]);
+        $item->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]);
 
         return new EmpresaResource($item);
     }
@@ -74,7 +75,7 @@ class EmpresaController extends Controller
     public function show(Empresa $empresa)
     {
         // Muestra una empresa por id.
-        return new EmpresaResource($empresa->load(['tipoContribuyente' => fn($q) => $q->withTrashed()]));
+        return new EmpresaResource($empresa->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]));
     }
 
     /**
@@ -110,7 +111,7 @@ class EmpresaController extends Controller
         ]);
 
         $empresa->update($data);
-        $empresa->load(['tipoContribuyente' => fn($q) => $q->withTrashed()]);
+        $empresa->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]);
 
         return new EmpresaResource($empresa);
     }

@@ -2,13 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Estatus;
+use App\Models\EstadoConciliacion;
 use App\Models\MetodoPago;
 use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
 use App\Models\TasaCambio;
-use App\Models\EstadoConciliacion;
 use Illuminate\Database\Seeder;
 
 class PagosSeeder extends Seeder
@@ -22,7 +21,7 @@ class PagosSeeder extends Seeder
         $tasa = TasaCambio::first();
         $entidades = \App\Models\EntidadBancaria::all();
 
-        if ($ordenesCompra->count() < 1 || !$metodo || !$tasa || $entidades->count() < 1) {
+        if ($ordenesCompra->count() < 1 || ! $metodo || ! $tasa || $entidades->count() < 1) {
             return;
         }
 
@@ -40,7 +39,7 @@ class PagosSeeder extends Seeder
             // Asignar entidad bancaria de forma alterna para ejemplo
             $entidadBancaria = $entidades[($contador - 1) % $entidades->count()];
 
-            $nroComprobante = 'COMP-' . str_pad($contador, 4, '0', STR_PAD_LEFT);
+            $nroComprobante = 'COMP-'.str_pad($contador, 4, '0', STR_PAD_LEFT);
             $pago = Pago::firstOrCreate(
                 [
                     'nro_comprobante' => $nroComprobante,

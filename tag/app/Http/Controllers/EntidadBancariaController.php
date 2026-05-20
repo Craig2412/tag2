@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EntidadBancaria;
 use App\Http\Resources\EntidadBancariaResource;
-use App\Http\Resources\MetodoPagoResource;
+use App\Models\EntidadBancaria;
 use Illuminate\Http\Request;
 
 class EntidadBancariaController extends Controller
@@ -21,7 +20,7 @@ class EntidadBancariaController extends Controller
         if ($request->has('include')) {
             $allowed = ['metodosPago', 'estatus_relation'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with($includes);
             }
         }
@@ -88,6 +87,7 @@ class EntidadBancariaController extends Controller
     public function destroy(EntidadBancaria $entidadBancaria)
     {
         $entidadBancaria->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

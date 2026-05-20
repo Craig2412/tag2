@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CuentaPorPagar;
 use App\Http\Resources\CuentaPorPagarResource;
+use App\Models\CuentaPorPagar;
 use Illuminate\Http\Request;
 
 class CuentaPorPagarController extends Controller
@@ -43,6 +43,7 @@ class CuentaPorPagarController extends Controller
     public function show(CuentaPorPagar $cuentaPorPagar)
     {
         $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos']);
+
         return new CuentaPorPagarResource($cuentaPorPagar);
     }
 
@@ -71,6 +72,7 @@ class CuentaPorPagarController extends Controller
     public function destroy(CuentaPorPagar $cuentaPorPagar)
     {
         $cuentaPorPagar->delete();
+
         return response()->json(['data' => ['message' => 'Cuenta por pagar eliminada correctamente']]);
     }
 }

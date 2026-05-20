@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ClienteEmpresa;
-use App\Models\Cliente;
 use App\Http\Resources\ClienteEmpresaResource;
+use App\Models\Cliente;
+use App\Models\ClienteEmpresa;
 use Illuminate\Http\Request;
 
 class ClientesEmpresaController extends Controller
@@ -33,7 +33,7 @@ class ClientesEmpresaController extends Controller
         if ($request->has('include')) {
             $allowed = ['cliente', 'empresa'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with($includes);
             }
         }
@@ -51,7 +51,7 @@ class ClientesEmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->has('id_empresa') && !$request->has('id_empresas')) {
+        if ($request->has('id_empresa') && ! $request->has('id_empresas')) {
             $request->merge(['id_empresas' => $request->id_empresa]);
         }
 
@@ -63,7 +63,7 @@ class ClientesEmpresaController extends Controller
 
         $cliente = Cliente::find($data['id_cliente']);
 
-        if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+        if (! $cliente || ! $cliente->usuario->hasRole('cliente')) {
             return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
         }
 
@@ -93,7 +93,7 @@ class ClientesEmpresaController extends Controller
      */
     public function update(Request $request, ClienteEmpresa $clientesEmpresa)
     {
-        if ($request->has('id_empresa') && !$request->has('id_empresas')) {
+        if ($request->has('id_empresa') && ! $request->has('id_empresas')) {
             $request->merge(['id_empresas' => $request->id_empresa]);
         }
 
@@ -105,7 +105,7 @@ class ClientesEmpresaController extends Controller
 
         if (isset($data['id_cliente'])) {
             $cliente = Cliente::find($data['id_cliente']);
-            if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+            if (! $cliente || ! $cliente->usuario->hasRole('cliente')) {
                 return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
             }
         }

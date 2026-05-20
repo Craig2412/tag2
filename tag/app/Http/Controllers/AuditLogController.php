@@ -49,7 +49,7 @@ class AuditLogController extends Controller
         $logs = $this->applyFilters($data)->get();
         $modo = $data['modo'] ?? 'completo';
 
-        $filename = 'audit-logs-' . $modo . '-' . now()->format('Ymd-His') . '.csv';
+        $filename = 'audit-logs-'.$modo.'-'.now()->format('Ymd-His').'.csv';
 
         return response()->streamDownload(function () use ($logs, $modo): void {
             $output = fopen('php://output', 'w');

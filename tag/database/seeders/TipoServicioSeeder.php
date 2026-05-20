@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Proveedor;
 use App\Models\TipoServicio;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +14,7 @@ class TipoServicioSeeder extends Seeder
             'Traslado',
             'Vuelo',
             'Alimentación',
-            'Consultoría'
+            'Consultoría',
         ];
 
         foreach ($tipos as $tipo) {

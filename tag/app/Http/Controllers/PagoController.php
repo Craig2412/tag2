@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estatus;
+use App\Http\Resources\PagoResource;
+use App\Models\EstadoConciliacion;
 use App\Models\MetodoPago;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
-use App\Models\EstadoConciliacion;
-use App\Http\Resources\PagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -27,12 +26,13 @@ class PagoController extends Controller
         if ($request->has('include')) {
             $allowed = ['metodoPago', 'entidadBancaria', 'tasaCambio', 'estadoConciliacion', 'ordenesCompra'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'entidadBancaria' || $include === 'metodoPago') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -51,7 +51,7 @@ class PagoController extends Controller
      * @bodyParam nro_comprobante string required Número de referencia o comprobante. Ejemplo: REF-998877
      * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
      * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Requerido si el método de pago es bancario. Null si es Efectivo. Ejemplo: 1
-     * @bodyParam estatus int required ID del estatus del pago. Ejemplo: 1
+     * @bodyParam id_estado_conciliacion int ID del estado de conciliación del pago. Ejemplo: 1
      * @bodyParam ordenes_compra object[] required Distribución en órdenes de compra.
      * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
      * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado a esta orden. Ejemplo: 500.00
@@ -76,7 +76,7 @@ class PagoController extends Controller
         if ($metodoPago->entidadesBancarias->isNotEmpty() && empty($data['id_entidad_bancaria'])) {
             return response()->json([
                 'message' => 'El método de pago seleccionado requiere una entidad bancaria.',
-                'errors' => ['id_entidad_bancaria' => ['Debe seleccionar una entidad bancaria para este método de pago.']]
+                'errors' => ['id_entidad_bancaria' => ['Debe seleccionar una entidad bancaria para este método de pago.']],
             ], 422);
         }
         // Si el método no tiene bancos (ej. Efectivo), forzamos null sin importar lo que llegue
@@ -92,10 +92,10 @@ class PagoController extends Controller
             if ($file->getMimeType() !== 'application/pdf') {
                 return response()->json(['message' => 'El archivo debe ser un PDF válido'], 422);
             }
-            $nombreSeguro = \Str::random(40) . '.pdf';
+            $nombreSeguro = \Str::random(40).'.pdf';
             $rutaComprobante = $file->storeAs('public/comprobantes_pagos', $nombreSeguro);
-            // Guardar solo la ruta relativa para exponerla luego
-            $rutaComprobante = str_replace('public/', 'storage/', $rutaComprobante);
+            // Generar URL pública usando el helper de Laravel
+            $rutaComprobante = \Illuminate\Support\Facades\Storage::url($rutaComprobante);
         }
 
         $sumaAsignada = collect($data['ordenes_compra'])->sum('monto_asignado');
@@ -116,7 +116,7 @@ class PagoController extends Controller
             if ($rutaComprobante) {
                 $data['comprobante_pdf'] = $rutaComprobante;
             }
-            
+
             // Forzar el estado inicial a "por conciliar"
             $estadoInicial = EstadoConciliacion::where('slug', 'por_conciliar')->first();
             $data['id_estado_conciliacion'] = $estadoInicial ? $estadoInicial->id : 1;
@@ -130,6 +130,7 @@ class PagoController extends Controller
                     'monto_asignado' => $detalle['monto_asignado'],
                 ]);
             }
+
             return $pago;
         });
 
@@ -153,7 +154,7 @@ class PagoController extends Controller
      * @bodyParam nro_comprobante string Número de comprobante. Ejemplo: REF-998877
      * @bodyParam id_tasa_cambio int ID de la tasa de cambio. Ejemplo: 1
      * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Ejemplo: 1
-     * @bodyParam estatus int ID del estatus. Ejemplo: 1
+     * @bodyParam id_estado_conciliacion int ID del estado de conciliación. Ejemplo: 1
      * @bodyParam ordenes_compra object[] Distribución en órdenes de compra.
      * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
      * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado. Ejemplo: 500.00
@@ -194,13 +195,13 @@ class PagoController extends Controller
             $updateData = $data;
             unset($updateData['ordenes_compra']);
 
-            if (!empty($updateData)) {
+            if (! empty($updateData)) {
                 $pago->update($updateData);
             }
 
             if ($ordenesCompra) {
                 // Al eliminar los pivotes viejos, el Observer recalcula la orden en tiempo real
-                PagoOrdenCompra::where('id_pago', $pago->id)->delete(); 
+                PagoOrdenCompra::where('id_pago', $pago->id)->delete();
 
                 foreach ($ordenesCompra as $detalle) {
                     // Al crear los nuevos, vuelve a recalcular y estabiliza el estado_financiero

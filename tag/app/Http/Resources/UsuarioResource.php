@@ -15,14 +15,14 @@ class UsuarioResource extends JsonResource
         $puedeVerCredenciales = $request->user()?->can('view:usuarios');
 
         return [
-            'id'             => $this->id,
+            'id' => $this->id,
             'nombre_usuario' => $this->nombre_usuario,
-            'correo'         => $this->correo,
-            'esta_activo'    => $this->esta_activo,
-            'roles'          => $this->when($puedeVerCredenciales, $this->role_names),
-            'permisos'       => $this->when($puedeVerCredenciales, $this->all_permissions),
-            'created_at'     => $this->created_at,
-            'updated_at'     => $this->updated_at,
+            'correo' => $this->correo,
+            'esta_activo' => $this->esta_activo,
+            'roles' => $this->when($puedeVerCredenciales, $this->role_names),
+            'permisos' => $this->when($puedeVerCredenciales, $this->all_permissions),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

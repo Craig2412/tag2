@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class AtencionHistorial extends Model
 {
     use HasFactory;
+
     protected $table = 'atencion_historial';
+
     protected $fillable = [
         'atencion_id',
         'id_estado_anterior',

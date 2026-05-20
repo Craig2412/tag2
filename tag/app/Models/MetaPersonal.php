@@ -28,9 +28,9 @@ class MetaPersonal extends Model
     ];
 
     protected $casts = [
-        'monto'        => 'float',
+        'monto' => 'float',
         'fecha_inicio' => 'date',
-        'fecha_fin'    => 'date',
+        'fecha_fin' => 'date',
         'es_recurrente' => 'boolean',
     ];
 
@@ -40,10 +40,14 @@ class MetaPersonal extends Model
     public function getProgresoActualAttribute()
     {
         $meta = $this->meta()->withTrashed()->first();
-        if (!$meta) return 0;
+        if (! $meta) {
+            return 0;
+        }
 
         $temporalidad = $meta->temporalidad()->withTrashed()->first();
-        if (!$temporalidad) return 0;
+        if (! $temporalidad) {
+            return 0;
+        }
 
         $metodoInicio = $temporalidad->carbon_method; // ej: startOfWeek
         $metodoFin = str_replace('start', 'end', $metodoInicio); // ej: endOfWeek
@@ -70,10 +74,14 @@ class MetaPersonal extends Model
     public function getProgresoHistoricoAttribute(int $periodos = 6): array
     {
         $meta = $this->meta()->withTrashed()->first();
-        if (!$meta) return [];
+        if (! $meta) {
+            return [];
+        }
 
         $temporalidad = $meta->temporalidad()->withTrashed()->first();
-        if (!$temporalidad) return [];
+        if (! $temporalidad) {
+            return [];
+        }
 
         $metodoInicio = $temporalidad->carbon_method; // ej: startOfWeek
         $metodoFin = str_replace('start', 'end', $metodoInicio); // ej: endOfWeek
@@ -82,11 +90,11 @@ class MetaPersonal extends Model
 
         // Para temporalidades, restamos la unidad adecuada
         $metodoSub = match (strtolower($temporalidad->slug)) {
-            'diario'   => 'subDays',
-            'semanal'  => 'subWeeks',
-            'mensual'  => 'subMonths',
-            'anual'    => 'subYears',
-            default    => 'subMonths',
+            'diario' => 'subDays',
+            'semanal' => 'subWeeks',
+            'mensual' => 'subMonths',
+            'anual' => 'subYears',
+            default => 'subMonths',
         };
 
         for ($i = 0; $i < $periodos; $i++) {
@@ -105,15 +113,15 @@ class MetaPersonal extends Model
 
             // Formato de periodo según temporalidad
             $label = match (strtolower($temporalidad->slug)) {
-                'diario'   => $inicio->format('d M'),
-                'semanal'  => 'Semana ' . $inicio->format('W Y'),
-                'mensual'  => $inicio->translatedFormat('M Y'),
-                'anual'    => $inicio->format('Y'),
-                default    => $inicio->format('d/m/Y'),
+                'diario' => $inicio->format('d M'),
+                'semanal' => 'Semana '.$inicio->format('W Y'),
+                'mensual' => $inicio->translatedFormat('M Y'),
+                'anual' => $inicio->format('Y'),
+                default => $inicio->format('d/m/Y'),
             };
 
             $resultado[] = [
-                'periodo'  => ucfirst($label),
+                'periodo' => ucfirst($label),
                 'progreso' => $progreso,
                 'objetivo' => $meta->valor_objetivo,
             ];
@@ -127,14 +135,16 @@ class MetaPersonal extends Model
         // Esta lógica dependerá de cómo se llame la columna de dinero en cada entidad
         // Por ahora sumamos 'monto_total' que es común en OC y Cotizaciones
         $IdsEntidades = $query->pluck('id_entidad');
-        
-        $tabla = match($meta->tipo_entidad) {
+
+        $tabla = match ($meta->tipo_entidad) {
             'orden_compra' => 'ordenes_compra',
             'cotizacion' => 'cotizaciones',
             default => null
         };
 
-        if (!$tabla) return 0;
+        if (! $tabla) {
+            return 0;
+        }
 
         return \DB::table($tabla)
             ->whereIn('id', $IdsEntidades)

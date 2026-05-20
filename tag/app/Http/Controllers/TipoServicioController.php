@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoServicio;
 use App\Http\Resources\TipoServicioResource;
+use App\Models\TipoServicio;
 use Illuminate\Http\Request;
 
 class TipoServicioController extends Controller
@@ -23,7 +23,7 @@ class TipoServicioController extends Controller
 
     /**
      * Crear un nuevo tipo de servicio
-     * 
+     *
      * @bodyParam tipo_servicio string required Nombre descriptivo del tipo de servicio. Ejemplo: Emisión de Boletos
      * @bodyParam iva_defecto number optional Porcentaje de IVA por defecto para este tipo de servicio.
      * @bodyParam proveedores int[] Lista de IDs de proveedores que ofrecen este servicio. Example: [1, 2]
@@ -56,7 +56,7 @@ class TipoServicioController extends Controller
 
     /**
      * Actualizar un tipo de servicio existente
-     * 
+     *
      * @bodyParam tipo_servicio string Nombre del tipo de servicio.
      * @bodyParam iva_defecto number Porcentaje de IVA por defecto.
      * @bodyParam proveedores int[] Lista de IDs de proveedores que ofrecen este servicio. Example: [1, 2]
@@ -86,6 +86,7 @@ class TipoServicioController extends Controller
     public function destroy(TipoServicio $tipoServicio)
     {
         $tipoServicio->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

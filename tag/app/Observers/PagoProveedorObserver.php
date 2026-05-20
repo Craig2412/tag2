@@ -2,11 +2,11 @@
 
 namespace App\Observers;
 
+use App\Models\CuentaPorPagar;
+use App\Models\EstadoFinanciero;
+use App\Models\OrdenCompra;
 use App\Models\PagoProveedor;
 use App\Models\PagoProveedorCuenta;
-use App\Models\CuentaPorPagar;
-use App\Models\OrdenCompra;
-use App\Models\EstadoFinanciero;
 use App\Services\EstadoFaseService;
 
 /**

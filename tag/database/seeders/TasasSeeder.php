@@ -21,7 +21,7 @@ class TasasSeeder extends Seeder
                 ['codigo' => $item['codigo']],
                 [
                     'nombre' => $item['nombre'],
-                    'simbolo' => $item['simbolo']
+                    'simbolo' => $item['simbolo'],
                 ]
             );
         }

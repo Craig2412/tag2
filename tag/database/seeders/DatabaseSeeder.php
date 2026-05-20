@@ -48,5 +48,8 @@ class DatabaseSeeder extends Seeder
             PagosProveedoresSeeder::class,
             LogrosPersonalSeeder::class,
         ]);
+
+        // Invalidar caché de catálogos para que se refresquen con los nuevos datos
+        \Illuminate\Support\Facades\Cache::flush();
     }
 }

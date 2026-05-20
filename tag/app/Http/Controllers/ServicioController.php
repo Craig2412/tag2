@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Servicio;
-use App\Models\OrdenCompra;
 use App\Http\Resources\ServicioResource;
+use App\Models\OrdenCompra;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -32,12 +32,13 @@ class ServicioController extends Controller
         if ($request->has('include')) {
             $allowed = ['tipoServicio', 'proveedor', 'tasaCambio'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'proveedor' || $include === 'tipoServicio') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -47,7 +48,7 @@ class ServicioController extends Controller
 
     /**
      * Crear un nuevo servicio
-     * 
+     *
      * @bodyParam id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
      * @bodyParam id_proveedor int required ID del proveedor del servicio. Ejemplo: 1
      * @bodyParam descripcion string optional Detalles de qué incluye el servicio.
@@ -71,7 +72,7 @@ class ServicioController extends Controller
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
         ]);
 
-        // La totalización (Base Imponible + Impuestos) es calculada en tiempo real 
+        // La totalización (Base Imponible + Impuestos) es calculada en tiempo real
         // e interceptada por App\Observers\ServicioObserver antes de tocar DB.
         $servicio = Servicio::create($data);
 

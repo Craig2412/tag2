@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Estatus;
 use App\Models\MetodoPago;
 use App\Models\PagoProveedor;
-use App\Models\Servicio;
 use Illuminate\Database\Seeder;
 
 class PagosProveedoresSeeder extends Seeder
@@ -15,7 +13,7 @@ class PagosProveedoresSeeder extends Seeder
         $proveedor = \App\Models\Proveedor::first();
         $metodoPago = MetodoPago::first();
 
-        if (!$proveedor || !$metodoPago) {
+        if (! $proveedor || ! $metodoPago) {
             return;
         }
 

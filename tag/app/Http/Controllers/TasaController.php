@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tasa;
 use App\Http\Resources\TasaResource;
+use App\Models\Tasa;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -27,8 +27,8 @@ class TasaController extends Controller
     {
         // Crea una tasa con datos validados y la devuelve.
         $data = $request->validate([
-            'codigo'  => ['required', 'string', 'max:50', 'unique:tasas,codigo'],
-            'nombre'  => ['required', 'string', 'max:255'],
+            'codigo' => ['required', 'string', 'max:50', 'unique:tasas,codigo'],
+            'nombre' => ['required', 'string', 'max:255'],
             'simbolo' => ['required', 'string', 'max:10'],
         ]);
 
@@ -59,7 +59,7 @@ class TasaController extends Controller
                 'max:50',
                 Rule::unique('tasas', 'codigo')->ignore($tasa->id),
             ],
-            'nombre'  => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:255'],
             'simbolo' => ['required', 'string', 'max:10'],
         ]);
 

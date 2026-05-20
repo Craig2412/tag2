@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Cotizacion;
 use App\Models\EstadoCotizacion;
-use App\Models\EstadoOrdenCompra;
 use App\Models\EstadoFinanciero;
+use App\Models\EstadoOrdenCompra;
 use App\Models\OrdenCompra;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class OrdenesComprasSeeder extends Seeder
     {
         $cotizacion = Cotizacion::orderBy('id')->first();
 
-        if (!$cotizacion) {
+        if (! $cotizacion) {
             return;
         }
 

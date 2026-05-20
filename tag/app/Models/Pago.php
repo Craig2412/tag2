@@ -23,6 +23,7 @@ class Pago extends Model
         'id_entidad_bancaria',
         'id_estado_conciliacion',
     ];
+
     // Devuelve la entidad bancaria asociada.
     public function entidadBancaria(): BelongsTo
     {

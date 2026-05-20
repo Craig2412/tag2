@@ -17,13 +17,14 @@ class CotizacionesSeeder extends Seeder
         $tasaCambio = TasaCambio::first();
         $tipo = TipoCotizacion::where('tipo_cotizacion', 'personal')->first();
 
-        if (!$atencion || !$tasaCambio || !$tipo) {
+        if (! $atencion || ! $tasaCambio || ! $tipo) {
             return;
         }
 
         $estadoPendiente = EstadoCotizacion::where('slug', 'pendiente')->first();
-        if (!$estadoPendiente) {
+        if (! $estadoPendiente) {
             $this->command->error('No se encontró el estado_cotizacion "pendiente".');
+
             return;
         }
 

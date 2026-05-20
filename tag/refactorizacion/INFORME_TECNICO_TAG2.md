@@ -92,11 +92,11 @@
 - **Problema:** `CotizacionGuardado` se dispara DOS VECES por cada `save()`: una por `$dispatchesEvents` del modelo y otra por el Observer `saved()`. Cada listener se ejecuta duplicado.
 - **Acción:** Eliminar `$dispatchesEvents` del modelo y dejar solo el Observer.
 
-### B2 · Doble emisión de eventos en `PagoOrdenCompra`
+### B2 · Doble trabajo en `PagoOrdenCompra` (evento + Observer directo)
 - **Archivos:** `app/Models/PagoOrdenCompra.php:20` + `app/Observers/PagoOrdenCompraObserver.php`
 - **Impacto:** 🔴 Crítico
-- **Problema:** `PagoOrdenCompraGuardado` se dispara dos veces. `SincronizarEstadoFinancieroListener` corre duplicado.
-- **Acción:** Eliminar `$dispatchesEvents` del modelo y dejar solo el Observer.
+- **Problema:** `PagoOrdenCompraObserver::saved()` llama a `EstadoFaseService::sincronizarEstadoFinanciero()` **directamente**. Además, el modelo dispara `PagoOrdenCompraGuardado` vía `$dispatchesEvents`, que `SincronizarEstadoFinancieroListener` escucha y también llama a `EstadoFaseService::sincronizarEstadoFinanciero()`. Resultado: el mismo método del servicio se ejecuta 2 veces por cada save. **[CORREGIDO 20-may-2026: el evento NO se dispara 2 veces — se dispara 1 vez, pero el Observer llama al servicio directamente + el listener también]**
+- **Acción:** Eliminar `$dispatchesEvents` del modelo OR quitar la llamada directa del Observer, unificando en un solo camino.
 
 ### B3 · IDs de estado financiero hardcodeados (`= 1`)
 - **Archivo:** `app/Listeners/GenerarOrdenDesdeCotizacionListener.php:48-49`
@@ -104,11 +104,11 @@
 - **Problema:** `'id_estado_financiero' => 1` y `'id_estado_financiero_egreso' => 1` asumen que el ID 1 es "pendiente". Si el catálogo cambia de orden, asigna un estado incorrecto.
 - **Acción:** Consultar `EstadoFinanciero::where('slug', 'pendiente')->firstOrFail()->id` como ya se hace en otros listeners.
 
-### B4 · Rol `cliente` inexistente en `ClienteService`
+### B4 · Rol `cliente` en `ClienteService` — requiere seeders ejecutados
 - **Archivo:** `app/Services/ClienteService.php:23`
-- **Impacto:** 🟠 Alto
-- **Problema:** `$usuario->assignRole('cliente')` revienta porque el rol `cliente` no existe en ninguna migración/seeder. Los roles reales son `admin`, `user`, `personal`.
-- **Acción:** Cambiar a `assignRole('user')`.
+- **Impacto:** 🟡 Medio
+- **Problema:** `$usuario->assignRole('cliente')` fallará si los seeders NO se han ejecutado, porque el rol `cliente` se crea en `RoleSeeder::findOrCreate('cliente', 'web')`. Si los seeders SÍ se ejecutaron, el rol existe y la asignación funciona correctamente.
+- **Acción:** Verificar que los seeders se ejecuten en setup. NO cambiar `assignRole('cliente')` → `assignRole('user')` porque `cliente` es el rol semánticamente correcto. **[CORREGIDO 20-may-2026: verificación de código confirmó que el rol SÍ existe en RoleSeeder.php:156]**
 
 ### B5 · Campo `referencia` fantasma en comando de prueba
 - **Archivo:** `app/Console/Commands/TestMasterCommercialCycle.php:47`
@@ -326,11 +326,11 @@
 - **Problema:** MySQL no soporta FKs con soft deletes. La integridad depende 100% de los Observers. Si un observer falla o no se registra, los datos se corrompen.
 - **Acción:** Agregar tests de integración que validen cascadas de soft-delete.
 
-### P5 · Sin `.env.example` completo — solo el `.env` real
-- **Archivo:** Raíz del proyecto
+### P5 · `.env.example` incompleto
+- **Archivo:** Raíz del proyecto — `.env.example`
 - **Impacto:** 🟢 Bajo
-- **Problema:** `composer.json` referencia `.env.example` en el script `setup` pero no se incluye en el repo. Nuevos desarrolladores no saben qué variables necesitan.
-- **Acción:** Crear `.env.example` con todas las claves y valores dummy.
+- **Problema:** El archivo `.env.example` SÍ existe, pero está incompleto: usa `DB_CONNECTION=sqlite` en vez de `mysql`, le faltan claves como `REDIS_HOST`, `REDIS_CLIENT`, `REDIS_PORT`. Nuevos desarrolladores no tienen todas las variables necesarias para replicar el entorno.
+- **Acción:** Completar `.env.example` con TODAS las claves del `.env` real (valores dummy, sin secretos). **[CORREGIDO 20-may-2026: verificación de código confirmó que el archivo SÍ existe pero está incompleto]**
 
 ---
 
@@ -418,7 +418,7 @@
 ## Fase 1: Estabilización (1-2 horas)
 1. B1, B2 — Eliminar doble emisión de eventos
 2. B3 — Quitar IDs hardcodeados
-3. B4 — Corregir rol `cliente` fantasma
+3. ~~B4 — Corregir rol `cliente` fantasma~~ ❌ **CANCELADO** (20-may-2026: el rol SÍ existe en `RoleSeeder`) — En su lugar: Verificar que seeders se ejecuten en setup.
 4. S4 — Agregar rate limiting a auth
 5. S5 — Configurar expiración de tokens
 6. B5, B6 — Limpiar campos fantasma en comandos

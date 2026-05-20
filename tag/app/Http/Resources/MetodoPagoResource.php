@@ -10,8 +10,8 @@ class MetodoPagoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'                 => $this->id,
-            'metodo_pago'        => $this->metodo_pago,
+            'id' => $this->id,
+            'metodo_pago' => $this->metodo_pago,
 
             // Relaciones
             'entidades_bancarias' => EntidadBancariaResource::collection($this->whenLoaded('entidadesBancarias')),

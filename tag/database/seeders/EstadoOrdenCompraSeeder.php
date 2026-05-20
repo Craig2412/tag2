@@ -18,7 +18,7 @@ class EstadoOrdenCompraSeeder extends Seeder
 
         foreach ($estados as $estado) {
             EstadoOrdenCompra::firstOrCreate(
-                ['slug'   => $estado['slug']],
+                ['slug' => $estado['slug']],
                 ['nombre' => $estado['nombre'], 'color' => $estado['color']]
             );
         }

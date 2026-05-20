@@ -39,13 +39,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -120,7 +122,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -172,13 +174,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -254,7 +258,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -303,7 +307,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -343,13 +347,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -410,7 +416,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -462,13 +468,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -530,7 +538,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null
@@ -579,7 +587,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|227VSpFhmgGyMvibdNVUd4qnSDoONxNqEft5zbym66cdf398'
+      - 'Bearer 1|fhDsA18OzDok3MrQFom9PDrTEPGsAI5MIeZxOdHd0f785a20'
     controller: null
     method: null
     route: null

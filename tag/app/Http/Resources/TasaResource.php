@@ -10,9 +10,9 @@ class TasaResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'      => $this->id,
-            'codigo'  => $this->codigo,
-            'nombre'  => $this->nombre,
+            'id' => $this->id,
+            'codigo' => $this->codigo,
+            'nombre' => $this->nombre,
             'simbolo' => $this->simbolo,
         ];
     }

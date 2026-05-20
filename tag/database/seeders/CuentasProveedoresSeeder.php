@@ -12,7 +12,7 @@ class CuentasProveedoresSeeder extends Seeder
     {
         $proveedor = Proveedor::first();
 
-        if (!$proveedor) {
+        if (! $proveedor) {
             return;
         }
 

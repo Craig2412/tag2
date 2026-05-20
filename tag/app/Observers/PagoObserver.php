@@ -2,9 +2,9 @@
 
 namespace App\Observers;
 
+use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
-use App\Models\OrdenCompra;
 use App\Services\EstadoFaseService;
 
 /**

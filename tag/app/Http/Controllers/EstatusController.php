@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estatus;
 use App\Http\Resources\EstatusResource;
+use App\Models\Estatus;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 

@@ -19,9 +19,9 @@ class ClienteService
             if (isset($data['usuario']) && empty($data['usuario_id'])) {
                 $usuarioData = $data['usuario'];
                 $usuarioData['clave'] = Hash::make($usuarioData['clave']);
-                
+
                 $usuario = Usuario::create($usuarioData);
-                
+
                 if (isset($usuarioData['roles'])) {
                     $usuario->syncRoles($usuarioData['roles']);
                 } else {
@@ -49,11 +49,11 @@ class ClienteService
             if (isset($data['usuario']) && $cliente->usuario_id) {
                 $usuario = $cliente->usuario;
                 $usuarioData = collect($data['usuario'])->except(['roles', 'clave'])->toArray();
-                
-                if (!empty($data['usuario']['clave'])) {
+
+                if (! empty($data['usuario']['clave'])) {
                     $usuarioData['clave'] = Hash::make($data['usuario']['clave']);
                 }
-                
+
                 $usuario->update($usuarioData);
 
                 if (isset($data['usuario']['roles'])) {

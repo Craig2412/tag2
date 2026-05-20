@@ -11,11 +11,11 @@ class RegistrarHistorialEstatusAtencionListener implements ShouldQueue
     public function handle(AtencionEstatusActualizado $event): void
     {
         AtencionHistorial::create([
-            'atencion_id'     => $event->atencion->id,
+            'atencion_id' => $event->atencion->id,
             'id_estado_anterior' => $event->estatusAnterior,
-            'id_estado_nuevo'   => $event->estatusNuevo,
-            'usuario_id'      => $event->usuarioId,
-            'comentario'      => $event->comentario,
+            'id_estado_nuevo' => $event->estatusNuevo,
+            'usuario_id' => $event->usuarioId,
+            'comentario' => $event->comentario,
         ]);
     }
 }

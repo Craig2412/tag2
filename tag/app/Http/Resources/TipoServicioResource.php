@@ -10,12 +10,12 @@ class TipoServicioResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'           => $this->id,
+            'id' => $this->id,
             'tipo_servicio' => $this->tipo_servicio,
-            'iva_defecto'  => (float) $this->iva_defecto,
+            'iva_defecto' => (float) $this->iva_defecto,
 
             // Relaciones
-            'proveedores'  => ProveedorResource::collection($this->whenLoaded('proveedores')),
+            'proveedores' => ProveedorResource::collection($this->whenLoaded('proveedores')),
         ];
     }
 }

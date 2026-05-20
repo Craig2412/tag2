@@ -4,9 +4,9 @@ namespace App\Services;
 
 use App\Models\Personal;
 use App\Models\Usuario;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Exception;
 
 class PersonalService
 {
@@ -20,9 +20,9 @@ class PersonalService
             if (isset($data['usuario']) && empty($data['usuario_id'])) {
                 $usuarioData = $data['usuario'];
                 $usuarioData['clave'] = Hash::make($usuarioData['clave']);
-                
+
                 $usuario = Usuario::create($usuarioData);
-                
+
                 if (isset($usuarioData['roles'])) {
                     $usuario->syncRoles($usuarioData['roles']);
                 } else {
@@ -34,7 +34,7 @@ class PersonalService
 
             // Validar que exista un usuario_id final
             if (empty($data['usuario_id'])) {
-                throw new Exception("Se requiere un usuario_id o los datos para crear un usuario nuevo.");
+                throw new Exception('Se requiere un usuario_id o los datos para crear un usuario nuevo.');
             }
 
             // 2. Crear el personal
@@ -55,11 +55,11 @@ class PersonalService
             if (isset($data['usuario']) && $personal->usuario_id) {
                 $usuario = $personal->usuario;
                 $usuarioData = collect($data['usuario'])->except(['roles', 'clave'])->toArray();
-                
-                if (!empty($data['usuario']['clave'])) {
+
+                if (! empty($data['usuario']['clave'])) {
                     $usuarioData['clave'] = Hash::make($data['usuario']['clave']);
                 }
-                
+
                 $usuario->update($usuarioData);
 
                 if (isset($data['usuario']['roles'])) {

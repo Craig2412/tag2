@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CuentaProveedor;
 use App\Http\Resources\CuentaProveedorResource;
+use App\Models\CuentaProveedor;
 use Illuminate\Http\Request;
 
 class CuentaProveedorController extends Controller

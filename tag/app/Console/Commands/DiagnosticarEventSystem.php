@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Events\AtencionEstatusActualizado;
-use App\Events\AtencionEtapaCambiada;
 use App\Events\CotizacionEstatusActualizado;
 use App\Events\CotizacionGuardado;
 use App\Events\OrdenCompraAprobada;
@@ -11,19 +10,15 @@ use App\Events\OrdenCompraGuardado;
 use App\Events\PagoOrdenCompraGuardado;
 use App\Jobs\PersistirAuditLog;
 use App\Jobs\PersistirLogroPersonal;
-
 use App\Listeners\BroadcastPermissionsChanged;
 use App\Listeners\GenerarCuentasPorPagarListener;
 use App\Listeners\RegistrarHistorialEstatusAtencionListener;
 use App\Listeners\RegistrarHistorialEstatusCotizacionListener;
-
 use App\Listeners\SincronizarEstadoFinancieroListener;
 use App\Listeners\SincronizarFaseAtencionListener;
 use App\Listeners\SincronizarPadreOrdenCompraListener;
 use App\Models\Atencion;
-use App\Models\AuditLog;
 use App\Models\Cotizacion;
-use App\Models\LogroPersonal;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
 use App\Observers\CotizacionObserver;
@@ -39,11 +34,14 @@ use Illuminate\Support\Facades\Queue;
 
 class DiagnosticarEventSystem extends Command
 {
-    protected $signature   = 'app:diagnosticar-eventos {--queue : Verificar también jobs despachados a la cola}';
+    protected $signature = 'app:diagnosticar-eventos {--queue : Verificar también jobs despachados a la cola}';
+
     protected $description = 'Diagnóstico completo de Events, Listeners, Jobs y Observers del sistema.';
 
     private int $passed = 0;
+
     private int $failed = 0;
+
     private int $warnings = 0;
 
     public function handle(): int
@@ -54,15 +52,15 @@ class DiagnosticarEventSystem extends Command
         $this->line('╚══════════════════════════════════════════════════════╝');
         $this->newLine();
 
-        $this->checkSection('REGISTROS DE EVENTOS (AppServiceProvider)', fn() => $this->checkEventRegistrations());
-        $this->checkSection('LISTENERS → ShouldQueue',                   fn() => $this->checkListenersShouldQueue());
-        $this->checkSection('JOBS',                                       fn() => $this->checkJobs());
-        $this->checkSection('OBSERVERS',                                  fn() => $this->checkObservers());
-        $this->checkSection('SERVICIOS (AuditLogger / LogroPersonalLogger)', fn() => $this->checkServices());
-        $this->checkSection('DATOS DE PRUEBA EN BD',                     fn() => $this->checkTestData());
+        $this->checkSection('REGISTROS DE EVENTOS (AppServiceProvider)', fn () => $this->checkEventRegistrations());
+        $this->checkSection('LISTENERS → ShouldQueue', fn () => $this->checkListenersShouldQueue());
+        $this->checkSection('JOBS', fn () => $this->checkJobs());
+        $this->checkSection('OBSERVERS', fn () => $this->checkObservers());
+        $this->checkSection('SERVICIOS (AuditLogger / LogroPersonalLogger)', fn () => $this->checkServices());
+        $this->checkSection('DATOS DE PRUEBA EN BD', fn () => $this->checkTestData());
 
         if ($this->option('queue')) {
-            $this->checkSection('COLA (dispatch real)',                   fn() => $this->checkQueueDispatch());
+            $this->checkSection('COLA (dispatch real)', fn () => $this->checkQueueDispatch());
         }
 
         $this->printSummary();
@@ -82,20 +80,20 @@ class DiagnosticarEventSystem extends Command
         $source = file_get_contents($providerPath);
 
         $map = [
-            OrdenCompraGuardado::class      => [SincronizarPadreOrdenCompraListener::class, SincronizarEstadoFinancieroListener::class],
-            OrdenCompraAprobada::class      => [GenerarCuentasPorPagarListener::class],
-            PagoOrdenCompraGuardado::class  => [SincronizarEstadoFinancieroListener::class],
-            CotizacionGuardado::class       => [SincronizarFaseAtencionListener::class],
+            OrdenCompraGuardado::class => [SincronizarPadreOrdenCompraListener::class, SincronizarEstadoFinancieroListener::class],
+            OrdenCompraAprobada::class => [GenerarCuentasPorPagarListener::class],
+            PagoOrdenCompraGuardado::class => [SincronizarEstadoFinancieroListener::class],
+            CotizacionGuardado::class => [SincronizarFaseAtencionListener::class],
             AtencionEstatusActualizado::class => [RegistrarHistorialEstatusAtencionListener::class],
             CotizacionEstatusActualizado::class => [RegistrarHistorialEstatusCotizacionListener::class],
         ];
 
         foreach ($map as $event => $expectedListeners) {
-            $eventName    = class_basename($event);
-            $eventInFile  = str_contains($source, $eventName);
+            $eventName = class_basename($event);
+            $eventInFile = str_contains($source, $eventName);
 
             foreach ($expectedListeners as $listener) {
-                $listenerName   = class_basename($listener);
+                $listenerName = class_basename($listener);
                 $listenerInFile = str_contains($source, $listenerName);
 
                 if ($eventInFile && $listenerInFile) {
@@ -141,9 +139,9 @@ class DiagnosticarEventSystem extends Command
         ];
 
         foreach ($listeners as $listener) {
-            $instance    = new $listener();
-            $implements  = $instance instanceof ShouldQueue;
-            $name        = class_basename($listener);
+            $instance = new $listener;
+            $implements = $instance instanceof ShouldQueue;
+            $name = class_basename($listener);
 
             if ($implements) {
                 $this->checkPass("{$name} implements ShouldQueue");
@@ -156,7 +154,7 @@ class DiagnosticarEventSystem extends Command
     private function checkJobs(): void
     {
         $jobs = [
-            PersistirAuditLog::class    => ['payload' => ['action' => 'TEST', 'table_name' => 'test', 'success' => true]],
+            PersistirAuditLog::class => ['payload' => ['action' => 'TEST', 'table_name' => 'test', 'success' => true]],
             PersistirLogroPersonal::class => ['payload' => ['id_personal' => 1, 'tipo_entidad' => 'test', 'id_entidad' => 1, 'id_estatus_anterior' => 1, 'id_estatus_nuevo' => 2, 'tiempo_transcurrido_segundos' => 0]],
         ];
 
@@ -165,10 +163,10 @@ class DiagnosticarEventSystem extends Command
             try {
                 $instance = new $jobClass($args['payload']);
                 $isQueued = $instance instanceof ShouldQueue;
-                $queue    = method_exists($instance, 'queue') ? $instance->queue : ($instance->queue ?? 'default');
+                $queue = method_exists($instance, 'queue') ? $instance->queue : ($instance->queue ?? 'default');
 
                 if ($isQueued) {
-                    $this->checkPass("{$name} → ShouldQueue ✓ | cola: " . ($instance->queue ?? 'default'));
+                    $this->checkPass("{$name} → ShouldQueue ✓ | cola: ".($instance->queue ?? 'default'));
                 } else {
                     $this->checkFail("{$name} → NO implementa ShouldQueue");
                 }
@@ -187,7 +185,7 @@ class DiagnosticarEventSystem extends Command
                     $this->checkWarn("{$name} → sin método failed() — errores no serán logueados");
                 }
             } catch (\Throwable $e) {
-                $this->checkFail("{$name} → ERROR al instanciar: " . $e->getMessage());
+                $this->checkFail("{$name} → ERROR al instanciar: ".$e->getMessage());
             }
         }
     }
@@ -204,16 +202,16 @@ class DiagnosticarEventSystem extends Command
             foreach ($hooks as $hook) {
                 try {
                     $observers = $model::getEventDispatcher()?->getListeners("eloquent.{$hook}: {$model}");
-                    $found     = collect($observers ?? [])->contains(
-                        fn($l) => is_array($l) && isset($l[0]) && $l[0] instanceof $observer
+                    $found = collect($observers ?? [])->contains(
+                        fn ($l) => is_array($l) && isset($l[0]) && $l[0] instanceof $observer
                     );
 
-                    $label = class_basename($model) . '@' . $hook . ' → ' . class_basename($observer);
+                    $label = class_basename($model).'@'.$hook.' → '.class_basename($observer);
 
                     // Los observers de Eloquent están registrados diferente — verificamos por reflexión
                     $this->checkObserverMethod($model, $observer, $hook);
                 } catch (\Throwable $e) {
-                    $this->checkFail(class_basename($model) . '@' . $hook . ' → ERROR: ' . $e->getMessage());
+                    $this->checkFail(class_basename($model).'@'.$hook.' → ERROR: '.$e->getMessage());
                 }
             }
         }
@@ -229,7 +227,7 @@ class DiagnosticarEventSystem extends Command
 
     private function checkObserverMethod(string $model, string $observer, string $hook): void
     {
-        $label = class_basename($model) . '@' . $hook . ' → ' . class_basename($observer);
+        $label = class_basename($model).'@'.$hook.' → '.class_basename($observer);
         if (method_exists($observer, $hook)) {
             $this->checkPass("{$label} → método existe");
         } else {
@@ -241,7 +239,7 @@ class DiagnosticarEventSystem extends Command
     {
         // AuditLogger: debe despachar Job para CRUD y ser síncrono para Auth
         $reflection = new \ReflectionMethod(AuditLogger::class, 'write');
-        $params     = collect($reflection->getParameters())->map->getName()->toArray();
+        $params = collect($reflection->getParameters())->map->getName()->toArray();
         if (in_array('async', $params)) {
             $this->checkPass('AuditLogger::write() tiene parámetro $async (soporta sync/async)');
         } else {
@@ -277,10 +275,10 @@ class DiagnosticarEventSystem extends Command
     private function checkTestData(): void
     {
         $checks = [
-            Atencion::class    => 'Atenciones',
-            Cotizacion::class  => 'Cotizaciones',
+            Atencion::class => 'Atenciones',
+            Cotizacion::class => 'Cotizaciones',
             OrdenCompra::class => 'Órdenes de compra',
-            Servicio::class    => 'Servicios',
+            Servicio::class => 'Servicios',
         ];
 
         foreach ($checks as $model => $label) {
@@ -292,7 +290,7 @@ class DiagnosticarEventSystem extends Command
                     $this->checkWarn("{$label}: 0 registros — algunos listeners no podrán probarse en Tinker");
                 }
             } catch (\Throwable $e) {
-                $this->checkFail("{$label}: ERROR al consultar — " . $e->getMessage());
+                $this->checkFail("{$label}: ERROR al consultar — ".$e->getMessage());
             }
         }
 
@@ -325,7 +323,7 @@ class DiagnosticarEventSystem extends Command
 
         // Despachar job de auditoría
         PersistirAuditLog::dispatch(['action' => 'DIAGNOSTIC_TEST', 'table_name' => 'test', 'success' => true]);
-        Queue::assertPushed(PersistirAuditLog::class, fn($job) => $job->payload['action'] === 'DIAGNOSTIC_TEST');
+        Queue::assertPushed(PersistirAuditLog::class, fn ($job) => $job->payload['action'] === 'DIAGNOSTIC_TEST');
         $this->checkPass('PersistirAuditLog::dispatch() → job encolado correctamente');
 
         // Despachar job de logro

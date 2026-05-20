@@ -52,11 +52,11 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac\" \"php artisan serve\" \"php artisan queue:listen --queue=default,logs --tries=1 --timeout=0\" \"php artisan reverb:start\" --names=server,queue,reverb --kill-others"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac\" \"php artisan serve\" \"php artisan queue:work --queue=default,logs --tries=3 --backoff=5\" \"php artisan reverb:start\" --names=server,queue,reverb --kill-others"
         ],
         "_dev-con-pail-unix": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac,#fb7185\" \"php artisan serve\" \"php artisan queue:listen --queue=default,logs --tries=1 --timeout=0\" \"php artisan reverb:start\" \"php artisan pail --timeout=0\" --names=server,queue,reverb,logs --kill-others"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#86efac,#fb7185\" \"php artisan serve\" \"php artisan queue:work --queue=default,logs --tries=3 --backoff=5\" \"php artisan reverb:start\" \"php artisan pail --timeout=0\" --names=server,queue,reverb,logs --kill-others"
         ],
         "test": [
             "@php artisan config:clear --ansi",

@@ -23,7 +23,6 @@ class Meta extends Model
         'id_temporalidad',
     ];
 
-
     public function temporalidad(): BelongsTo
     {
         return $this->belongsTo(Temporalidad::class, 'id_temporalidad');

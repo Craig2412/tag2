@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Atencion;
-use App\Models\ClienteEmpresa;
-use App\Models\Estatus;
-use App\Models\PersonalEmpresa;
-use App\Models\Cliente;
-use App\Models\Personal;
-use App\Models\EstadoAtencion;
-use App\Http\Resources\AtencionResource;
 use App\Events\AtencionEstatusActualizado;
+use App\Http\Resources\AtencionResource;
+use App\Models\Atencion;
+use App\Models\Cliente;
+use App\Models\ClienteEmpresa;
+use App\Models\EstadoAtencion;
+use App\Models\Estatus;
+use App\Models\Personal;
+use App\Models\PersonalEmpresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -28,12 +28,12 @@ class AtencionController extends Controller
 
         // Relaciones por defecto
         $query->with([
-            'cliente' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'origen' => fn($q) => $q->withTrashed(),
+            'cliente' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'origen' => fn ($q) => $q->withTrashed(),
             'estadoAtencion',
-            'etapaComercial' => fn($q) => $q->withTrashed(),
-            'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
+            'etapaComercial' => fn ($q) => $q->withTrashed(),
+            'cotizaciones' => fn ($q) => $q->orderByDesc('id')->limit(1),
             'cotizaciones.ordenCompra',
         ]);
 
@@ -41,7 +41,7 @@ class AtencionController extends Controller
         if ($request->has('include')) {
             $allowed = ['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial', 'cotizaciones'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with($includes);
             }
         }
@@ -73,17 +73,23 @@ class AtencionController extends Controller
         $cliente = Cliente::find($data['id_cliente']);
 
         $personalId = $this->resolverPersonalAsignado($cliente->id);
-        if (!$personalId) {
+        if (! $personalId) {
             return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
         }
 
         $estado = EstadoAtencion::where('slug', 'abierta')->first();
-        if (!$estado) {
+        if (! $estado) {
             return response()->json(['message' => 'Estado "abierta" no configurado en el catálogo'], 500);
         }
 
         $data['id_personal'] = $personalId;
         $data['id_estado_atencion'] = $estado->id;
+
+        // Asignar etapa comercial por defecto ("atencion")
+        $etapaDefault = \App\Models\EtapaComercial::where('slug', 'atencion')->first();
+        if ($etapaDefault) {
+            $data['id_etapa_comercial'] = $etapaDefault->id;
+        }
 
         $item = Atencion::create($data);
 
@@ -95,7 +101,7 @@ class AtencionController extends Controller
             comentario: 'Atención creada',
         ));
 
-        return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'etapaComercial']));
+        return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']));
     }
 
     /**
@@ -105,12 +111,12 @@ class AtencionController extends Controller
     {
         // Igual que index(): eager load para evitar queries adicionales
         $atencion->load([
-            'cliente' => fn($q) => $q->withTrashed(),
-            'personal' => fn($q) => $q->withTrashed(),
-            'origen' => fn($q) => $q->withTrashed(),
+            'cliente' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'origen' => fn ($q) => $q->withTrashed(),
             'estadoAtencion',
-            'etapaComercial' => fn($q) => $q->withTrashed(),
-            'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
+            'etapaComercial' => fn ($q) => $q->withTrashed(),
+            'cotizaciones' => fn ($q) => $q->orderByDesc('id')->limit(1),
             'cotizaciones.ordenCompra',
         ]);
 
@@ -125,7 +131,8 @@ class AtencionController extends Controller
      * @bodyParam id_origen_atencion int ID del origen de la atención. Ejemplo: 1
      * @bodyParam asunto string Asunto o motivo de la atención. Ejemplo: Cambio de itinerario
      * @bodyParam notas_adicionales string Notas adicionales. Ejemplo: Se requiere respuesta urgente
-     * @bodyParam estatus int ID del estatus de la atención. Ejemplo: 1
+     * @bodyParam id_estado_atencion int ID del estado de la atención (catálogo estados-atenciones). Ejemplo: 1
+     * @bodyParam id_etapa_comercial int ID de la etapa comercial (catálogo etapas-comerciales). Ejemplo: 1
      */
     public function update(Request $request, Atencion $atencion)
     {
@@ -136,10 +143,11 @@ class AtencionController extends Controller
             'asunto' => ['sometimes', 'required', 'string', 'max:255'],
             'notas_adicionales' => ['sometimes', 'nullable', 'string'],
             'id_estado_atencion' => ['sometimes', 'required', 'exists:estados_atenciones,id'],
+            'id_etapa_comercial' => ['sometimes', 'required', 'exists:etapas_comerciales,id'],
         ]);
 
         $estatusAnterior = $atencion->id_estado_atencion;
-        
+
         $atencion->update($data);
         $atencion->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']);
 
@@ -162,6 +170,7 @@ class AtencionController extends Controller
     public function destroy(Atencion $atencion)
     {
         $atencion->delete();
+
         return response()->json(['data' => ['message' => 'Eliminada correctamente']]);
     }
 
@@ -207,6 +216,7 @@ class AtencionController extends Controller
             if ($minimo === null || $total < $minimo) {
                 $minimo = $total;
                 $candidatos = [$personalId];
+
                 continue;
             }
 

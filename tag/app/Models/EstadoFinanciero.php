@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class EstadoFinanciero extends Model
 {
     use SoftDeletes;
+
     protected $table = 'estados_financieros';
 
     protected $fillable = [

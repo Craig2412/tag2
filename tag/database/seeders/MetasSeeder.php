@@ -12,21 +12,21 @@ class MetasSeeder extends Seeder
     {
         $metasData = [
             [
-                'nombre'           => 'Cierre de Atenciones Mensual',
-                'tipo_entidad'     => 'atencion',
+                'nombre' => 'Cierre de Atenciones Mensual',
+                'tipo_entidad' => 'atencion',
                 'estatus_objetivo' => 'aprobado',
-                'es_monetario'     => false,
-                'valor_objetivo'   => 50,
-                'temporalidad'     => 'Mensual'
+                'es_monetario' => false,
+                'valor_objetivo' => 50,
+                'temporalidad' => 'Mensual',
             ],
             [
-                'nombre'           => 'Recaudación por Ventas Semanal',
-                'tipo_entidad'     => 'orden_compra',
+                'nombre' => 'Recaudación por Ventas Semanal',
+                'tipo_entidad' => 'orden_compra',
                 'estatus_objetivo' => 'pagado',
-                'es_monetario'     => true,
-                'valor_objetivo'   => 2500,
-                'temporalidad'     => 'Semanal'
-            ]
+                'es_monetario' => true,
+                'valor_objetivo' => 2500,
+                'temporalidad' => 'Semanal',
+            ],
         ];
 
         foreach ($metasData as $data) {
@@ -35,11 +35,11 @@ class MetasSeeder extends Seeder
                 Meta::firstOrCreate(
                     ['nombre' => $data['nombre']],
                     [
-                        'tipo_entidad'     => $data['tipo_entidad'],
-                        'estatus_objetivo'  => $data['estatus_objetivo'],
-                        'es_monetario'     => $data['es_monetario'],
-                        'valor_objetivo'   => $data['valor_objetivo'],
-                        'id_temporalidad'  => $temporalidad->id,
+                        'tipo_entidad' => $data['tipo_entidad'],
+                        'estatus_objetivo' => $data['estatus_objetivo'],
+                        'es_monetario' => $data['es_monetario'],
+                        'valor_objetivo' => $data['valor_objetivo'],
+                        'id_temporalidad' => $temporalidad->id,
                     ]
                 );
             }

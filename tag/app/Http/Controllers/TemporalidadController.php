@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Temporalidad;
 use App\Http\Resources\TemporalidadResource;
+use App\Models\Temporalidad;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Str;
 
 class TemporalidadController extends Controller
 {
@@ -24,7 +23,7 @@ class TemporalidadController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'temporalidad'  => ['required', 'string', 'max:255', 'unique:temporalidades,temporalidad'],
+            'temporalidad' => ['required', 'string', 'max:255', 'unique:temporalidades,temporalidad'],
             'carbon_method' => ['required', 'string', 'max:255'],
         ]);
 
@@ -71,6 +70,7 @@ class TemporalidadController extends Controller
     public function destroy(Temporalidad $temporalidad)
     {
         $temporalidad->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

@@ -23,15 +23,15 @@ class MetasPersonalSeeder extends Seeder
 
             MetaPersonal::firstOrCreate(
                 [
-                    'id_meta'     => $meta->id,
+                    'id_meta' => $meta->id,
                     'id_personal' => $idPersonal,
                 ],
                 [
-                    'monto'           => $meta->valor_objetivo,
+                    'monto' => $meta->valor_objetivo,
                     'id_temporalidad' => $meta->id_temporalidad,
-                    'fecha_inicio'    => now()->startOfMonth(),
-                    'fecha_fin'       => now()->endOfMonth(),
-                    'es_recurrente'   => true,
+                    'fecha_inicio' => now()->startOfMonth(),
+                    'fecha_fin' => now()->endOfMonth(),
+                    'es_recurrente' => true,
                 ]
             );
         }

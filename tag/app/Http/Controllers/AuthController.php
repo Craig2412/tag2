@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Events\PermissionsUpdated;
-use App\Models\Usuario;
 use App\Models\Cliente;
 use App\Models\Personal;
 use App\Models\TipoContribuyente;
+use App\Models\Usuario;
 use App\Services\AuditLogger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -22,6 +22,7 @@ class AuthController extends Controller
      * Crea un usuario con rol cliente y su respectivo perfil.
      *
      * @unauthenticated
+     *
      * @bodyParam nombre string required Nombre del usuario. Ejemplo: Juan
      * @bodyParam apellido string required Apellido del usuario. Ejemplo: Pérez
      * @bodyParam correo string required Correo electrónico para login. Ejemplo: juan@perez.com
@@ -44,7 +45,7 @@ class AuthController extends Controller
             'clave' => ['required', 'string', Password::min(8)],
         ]);
 
-        return DB::transaction(function () use ($data, $request) {
+        return DB::transaction(function () use ($data) {
             $userRole = Role::where('name', 'user')->first();
             $tipoContribuyenteNormal = TipoContribuyente::firstOrCreate(
                 ['tipo_contribuyente' => 'Normal'],
@@ -53,7 +54,7 @@ class AuthController extends Controller
 
             // 1. Crear Usuario (Auth)
             $usuario = Usuario::create([
-                'nombre_usuario' => $data['nombre'] . ' ' . $data['apellido'],
+                'nombre_usuario' => $data['nombre'].' '.$data['apellido'],
                 'correo' => $data['correo'],
                 'clave' => Hash::make($data['clave']),
                 'esta_activo' => true,
@@ -91,6 +92,7 @@ class AuthController extends Controller
      * Crea un usuario con rol personal (agente interno) y su respectivo perfil.
      *
      * @unauthenticated
+     *
      * @bodyParam nombre string required Nombre. Ejemplo: Pedro
      * @bodyParam apellido string required Apellido. Ejemplo: Gómez
      * @bodyParam correo string required Correo electrónico para login. Ejemplo: pedro@gomez.com
@@ -116,7 +118,7 @@ class AuthController extends Controller
 
             // 1. Crear Usuario (Auth)
             $usuario = Usuario::create([
-                'nombre_usuario' => $data['nombre'] . ' ' . $data['apellido'],
+                'nombre_usuario' => $data['nombre'].' '.$data['apellido'],
                 'correo' => $data['correo'],
                 'clave' => Hash::make($data['clave']),
                 'esta_activo' => true,
@@ -152,6 +154,7 @@ class AuthController extends Controller
      * Autentica al usuario y devuelve su token de acceso.
      *
      * @unauthenticated
+     *
      * @bodyParam correo string required Correo electrónico del usuario. Ejemplo: admin@example.com
      * @bodyParam clave string required Contraseña del usuario. Ejemplo: password
      */
@@ -166,6 +169,7 @@ class AuthController extends Controller
      * Autentica al usuario verificando que posea el rol admin.
      *
      * @unauthenticated
+     *
      * @bodyParam correo string required Correo electrónico. Ejemplo: admin@example.com
      * @bodyParam clave string required Contraseña. Ejemplo: password
      */
@@ -180,6 +184,7 @@ class AuthController extends Controller
      * Autentica al usuario verificando que posea el rol user.
      *
      * @unauthenticated
+     *
      * @bodyParam correo string required Correo electrónico. Ejemplo: user@example.com
      * @bodyParam clave string required Contraseña. Ejemplo: password
      */
@@ -210,14 +215,13 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         $usuario = $request->user()->load(['roles', 'permissions']);
+
         return response()->json(['usuario' => $usuario]);
     }
 
     /**
      * Manually trigger a PermissionsUpdated broadcast for a user.
      * Useful for testing and for admin interfaces that change roles.
-     *
-     * @param int $userId
      */
     public static function broadcastPermissionsChanged(int $userId): void
     {
@@ -238,7 +242,7 @@ class AuthController extends Controller
 
         $usuario = Usuario::where('correo', $data['correo'])->first();
 
-        if (!$usuario || !Hash::check($data['clave'], $usuario->clave)) {
+        if (! $usuario || ! Hash::check($data['clave'], $usuario->clave)) {
             AuditLogger::logAuthEvent(
                 'LOGIN',
                 $request,
@@ -252,7 +256,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Credenciales inválidas'], 401);
         }
 
-        if ($requiredRole && !$usuario->hasRole($requiredRole)) {
+        if ($requiredRole && ! $usuario->hasRole($requiredRole)) {
             AuditLogger::logAuthEvent(
                 'LOGIN',
                 $request,

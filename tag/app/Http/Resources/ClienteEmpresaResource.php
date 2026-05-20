@@ -10,13 +10,13 @@ class ClienteEmpresaResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'          => $this->id,
-            'id_cliente'  => $this->id_cliente,
+            'id' => $this->id,
+            'id_cliente' => $this->id_cliente,
             'id_empresas' => $this->id_empresas,
 
             // Relaciones
-            'cliente'     => new ClienteResource($this->whenLoaded('cliente')),
-            'empresa'     => new EmpresaResource($this->whenLoaded('empresa')),
+            'cliente' => new ClienteResource($this->whenLoaded('cliente')),
+            'empresa' => new EmpresaResource($this->whenLoaded('empresa')),
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

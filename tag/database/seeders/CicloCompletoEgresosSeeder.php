@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\OrdenCompra;
 use App\Models\CuentaPorPagar;
+use App\Models\EstadoFinanciero;
+use App\Models\OrdenCompra;
 use App\Models\PagoProveedor;
 use App\Models\PagoProveedorCuenta;
 use App\Models\Proveedor;
-use App\Models\EstadoFinanciero;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -24,21 +24,21 @@ class CicloCompletoEgresosSeeder extends Seeder
             // 2. Crear una Cuenta por Pagar (Deuda) de $500
             $cxp = CuentaPorPagar::create([
                 'id_orden_compra' => $orden->id,
-                'id_proveedor'    => $proveedor->id,
-                'monto_total'     => 500.00,
+                'id_proveedor' => $proveedor->id,
+                'monto_total' => 500.00,
                 'saldo_pendiente' => 500.00,
                 'id_estado_financiero' => $estadoPendiente->id,
             ]);
 
             dump(">>> CxP Creada: #{$cxp->id} con saldo de $500.00");
-            dump(">>> Estado Egreso OC inicial: " . ($orden->fresh()->id_estado_financiero_egreso ?? 'N/A'));
+            dump('>>> Estado Egreso OC inicial: '.($orden->fresh()->id_estado_financiero_egreso ?? 'N/A'));
 
             // 3. Crear un Pago al Proveedor de $1,000 (Pago global)
             $pago = PagoProveedor::create([
-                'id_proveedor'   => $proveedor->id,
-                'monto_total'    => 1000.00,
-                'referencia'     => 'REF-' . time(),
-                'fecha_pago'     => now(),
+                'id_proveedor' => $proveedor->id,
+                'monto_total' => 1000.00,
+                'referencia' => 'REF-'.time(),
+                'fecha_pago' => now(),
                 'id_metodo_pago' => 1,
             ]);
 
@@ -46,23 +46,23 @@ class CicloCompletoEgresosSeeder extends Seeder
 
             // 4. ASIGNAR EL PAGO A LA DEUDA (Aquí se dispara el Observer)
             PagoProveedorCuenta::create([
-                'id_pago_proveedor'   => $pago->id,
+                'id_pago_proveedor' => $pago->id,
                 'id_cuenta_por_pagar' => $cxp->id,
-                'monto_asignado'      => 500.00,
+                'monto_asignado' => 500.00,
             ]);
 
             // 5. Verificar resultados
             $cxp->refresh();
             $orden->refresh();
 
-            dump(">>> RESULTADO:");
+            dump('>>> RESULTADO:');
             dump(">>> Nuevo Saldo Pendiente CxP: {$cxp->saldo_pendiente}");
-            dump(">>> Nuevo Estado Egreso OC: " . ($orden->id_estado_financiero_egreso ?? 'N/A'));
-            
+            dump('>>> Nuevo Estado Egreso OC: '.($orden->id_estado_financiero_egreso ?? 'N/A'));
+
             if ($cxp->saldo_pendiente == 0) {
-                dump("✅ ÉXITO: El ciclo se completó y la deuda se saldó automáticamente.");
+                dump('✅ ÉXITO: El ciclo se completó y la deuda se saldó automáticamente.');
             } else {
-                dump("❌ ERROR: El saldo no bajó a cero.");
+                dump('❌ ERROR: El saldo no bajó a cero.');
             }
         });
     }

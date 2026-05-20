@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PersonalResource;
 use App\Models\Personal;
 use App\Services\PersonalService;
-use App\Http\Resources\PersonalResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,12 +22,13 @@ class PersonalController extends Controller
         if ($request->has('include')) {
             $allowed = ['usuario'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
+            if (! empty($includes)) {
                 $query->with(collect($includes)->mapWithKeys(function ($include) {
                     if ($include === 'usuario') {
-                        return [$include => fn($q) => $q->withTrashed()];
+                        return [$include => fn ($q) => $q->withTrashed()];
                     }
-                    return [$include => fn($q) => $q];
+
+                    return [$include => fn ($q) => $q];
                 })->toArray());
             }
         }
@@ -68,17 +69,16 @@ class PersonalController extends Controller
             'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
-
-
         try {
             $item = $service->createPersonal($data);
+
             return (new PersonalResource($item->load([
-                'usuario' => fn($q) => $q->withTrashed()
+                'usuario' => fn ($q) => $q->withTrashed(),
             ])))
                 ->response()
                 ->setStatusCode(201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al crear personal: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al crear personal: '.$e->getMessage()], 500);
         }
     }
 
@@ -88,7 +88,7 @@ class PersonalController extends Controller
     public function show(Personal $personal)
     {
         return new PersonalResource($personal->load([
-            'usuario' => fn($q) => $q->withTrashed()
+            'usuario' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -118,12 +118,12 @@ class PersonalController extends Controller
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
             'usuario.nombre_usuario' => [
-                'sometimes', 'string', 'max:255', 
-                $personal->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($personal->usuario_id) : ''
+                'sometimes', 'string', 'max:255',
+                $personal->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($personal->usuario_id) : '',
             ],
             'usuario.correo' => [
-                'sometimes', 'email', 
-                $personal->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($personal->usuario_id) : ''
+                'sometimes', 'email',
+                $personal->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($personal->usuario_id) : '',
             ],
             'usuario.clave' => ['sometimes', 'nullable', 'string', 'min:8'],
             'usuario.esta_activo' => ['sometimes', 'boolean'],
@@ -133,11 +133,12 @@ class PersonalController extends Controller
 
         try {
             $updatedPersonal = $service->updatePersonal($personal, $data);
+
             return new PersonalResource($updatedPersonal->load([
-                'usuario' => fn($q) => $q->withTrashed()
+                'usuario' => fn ($q) => $q->withTrashed(),
             ]));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al actualizar personal: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al actualizar personal: '.$e->getMessage()], 500);
         }
     }
 
@@ -147,6 +148,7 @@ class PersonalController extends Controller
     public function destroy(Personal $personal)
     {
         $personal->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Models\Atencion;
 use App\Models\OrdenCompra;
 use App\Services\EstadoFaseService;
+use Illuminate\Console\Command;
 
 class SyncEstadosCatalogos extends Command
 {
@@ -35,14 +35,14 @@ class SyncEstadosCatalogos extends Command
             EstadoFaseService::sincronizarFaseAtencion($atencion);
         });
         $this->newLine();
-        $this->info('Atenciones sincronizadas: ' . $atenciones->count());
+        $this->info('Atenciones sincronizadas: '.$atenciones->count());
 
         $ordenes = OrdenCompra::all();
         $this->withProgressBar($ordenes, function ($orden) {
             EstadoFaseService::sincronizarEstadoFinanciero($orden);
         });
         $this->newLine();
-        $this->info('Órdenes de compra sincronizadas: ' . $ordenes->count());
+        $this->info('Órdenes de compra sincronizadas: '.$ordenes->count());
 
         $this->info('Sincronización completada exitosamente.');
     }

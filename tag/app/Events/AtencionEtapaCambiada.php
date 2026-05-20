@@ -12,7 +12,9 @@ class AtencionEtapaCambiada
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public Atencion $atencion;
+
     public ?int $etapaAnterior;
+
     public int $etapaNueva;
 
     public function __construct(Atencion $atencion, ?int $etapaAnterior, int $etapaNueva)

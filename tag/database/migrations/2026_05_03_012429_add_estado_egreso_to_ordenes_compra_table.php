@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('ordenes_compra', function (Blueprint $table) {
             $table->foreignId('id_estado_financiero_egreso')->nullable()
-                  ->after('id_estado_financiero')
-                  ->constrained('estados_financieros');
+                ->after('id_estado_financiero')
+                ->constrained('estados_financieros');
         });
     }
 
