@@ -48,13 +48,28 @@ class AtencionBroadcast implements ShouldBroadcastNow
     }
 
     /**
-     * Canal privado. Solo usuarios con view:atenciones pueden suscribirse.
+     * Doble canal:
+     * - private-atenciones: para usuarios con view:atenciones (admin, equipo)
+     * - private-user.{id}: para el personal asignado (recibe sus propias atenciones)
      */
     public function broadcastOn(): array
     {
-        return [
+        $channels = [
             new PrivateChannel('atenciones'),
         ];
+
+        // Notificar también al personal asignado por su canal privado de usuario
+        if ($this->atencion->id_personal) {
+            // Precargar la relación personal si no está cargada
+            if (! $this->atencion->relationLoaded('personal')) {
+                $this->atencion->load('personal');
+            }
+            if ($this->atencion->personal && $this->atencion->personal->usuario_id) {
+                $channels[] = new PrivateChannel("user.{$this->atencion->personal->usuario_id}");
+            }
+        }
+
+        return $channels;
     }
 
     /**
