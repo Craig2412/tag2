@@ -17,6 +17,11 @@ use Illuminate\Validation\Rule;
 
 class AtencionController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Atencion::class, 'atencion');
+    }
+
     /**
      * Listar todas las atenciones
      *

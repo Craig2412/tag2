@@ -14,6 +14,11 @@ use Illuminate\Validation\Rule;
 
 class CotizacionController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Cotizacion::class, 'cotizacion');
+    }
+
     /**
      * Listar todas las cotizaciones
      *
@@ -30,7 +35,7 @@ class CotizacionController extends Controller
 
         // Soporte para relaciones
         if ($request->has('include')) {
-            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra'];
+            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra', 'estadoCotizacion'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
             if (! empty($includes)) {
                 $query->with($includes);
@@ -217,6 +222,7 @@ class CotizacionController extends Controller
             // Siempre recalcular si hubo cambios de servicios u OC existe
             $ordenCompra = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
             $ordenCompra?->recalcularMontoTotal();
+            $ordenCompra?->sincronizarCuentasPorPagar();
 
             return new CotizacionResource($cotizacion->fresh()->load([
                 'atencion' => fn ($q) => $q->withTrashed(),

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Models\Pago;
@@ -9,6 +10,7 @@ use App\Models\PagoOrdenCompra;
 use App\Models\PagoProveedor;
 use App\Models\PagoProveedorCuenta;
 use App\Models\Servicio;
+use App\Observers\AtencionObserver;
 use App\Observers\CotizacionObserver;
 use App\Observers\OrdenCompraObserver;
 use App\Observers\PagoObserver;
@@ -38,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // ── Observers ──────────────────────────────────────────────
+        Atencion::observe(AtencionObserver::class);
         Servicio::observe(ServicioObserver::class);
         PagoOrdenCompra::observe(PagoOrdenCompraObserver::class);
         PagoProveedorCuenta::observe(PagoProveedorCuentaObserver::class);

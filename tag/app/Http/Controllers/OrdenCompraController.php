@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(OrdenCompra::class, 'ordenCompra');
+    }
+
     /**
      * Listar todas las órdenes de compra
      *

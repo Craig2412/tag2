@@ -264,4 +264,246 @@ class EdgeCasesTest extends TestCase
         $idParcial = \App\Models\EstadoFinanciero::where('slug', 'parcial')->value('id');
         $this->assertEquals($idParcial, $cxp->id_estado_financiero, 'CxP debe estar en estado parcial');
     }
+
+    /**
+     * Al agregar un servicio después de creada la OC, se debe generar una nueva CxP
+     * para ese proveedor.
+     */
+    public function test_agregar_servicio_genera_nueva_cxp(): void
+    {
+        // ── Crear ciclo hasta OC ─────────────────────────────────
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Agregar Servicio → CxP',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        // Un solo servicio inicial
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 200.00,
+            'monto_gravable' => 200.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 200.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $this->assertNotNull($orden);
+
+        // Debe existir 1 CxP
+        $this->assertEquals(1, CuentaPorPagar::where('id_orden_compra', $orden->id)->count());
+
+        // ── Agregar un segundo servicio (mismo proveedor) ───────
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 300.00,
+            'monto_gravable' => 300.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 300.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        // ── Sincronizar (simula lo que hace el controller) ──────
+        $orden->sincronizarCuentasPorPagar();
+
+        // Sigue habiendo 1 CxP (mismo proveedor), pero monto actualizado
+        $this->assertEquals(1, CuentaPorPagar::where('id_orden_compra', $orden->id)->count());
+        $cxp = CuentaPorPagar::where('id_orden_compra', $orden->id)->first();
+        $this->assertEquals(500.00, (float) $cxp->monto_total, 'Monto CxP debe sumar ambos servicios');
+    }
+
+    /**
+     * Al modificar el costo de un servicio, la CxP debe reflejar el nuevo monto.
+     */
+    public function test_modificar_costo_servicio_actualiza_cxp(): void
+    {
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Modificar Costo → CxP',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        $servicio = Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 400.00,
+            'monto_gravable' => 400.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 400.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $cxp = CuentaPorPagar::where('id_orden_compra', $orden->id)->first();
+        $this->assertEquals(400.00, (float) $cxp->monto_total);
+
+        // ── Modificar costo del servicio ────────────────────────
+        $servicio->update(['costo' => 700.00]);
+
+        // ── Sincronizar ─────────────────────────────────────────
+        $orden->sincronizarCuentasPorPagar();
+
+        $cxp->refresh();
+        $this->assertEquals(700.00, (float) $cxp->monto_total, 'CxP debe reflejar nuevo costo');
+        $this->assertEquals(700.00, (float) $cxp->saldo_pendiente, 'Saldo pendiente debe actualizarse');
+    }
+
+    /**
+     * Al eliminar el único servicio de un proveedor, su CxP debe eliminarse.
+     */
+    public function test_eliminar_servicio_elimina_cxp(): void
+    {
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Eliminar Servicio → CxP',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        $servicio = Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 150.00,
+            'monto_gravable' => 150.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 150.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $this->assertEquals(1, CuentaPorPagar::where('id_orden_compra', $orden->id)->count());
+
+        // ── Eliminar el servicio ────────────────────────────────
+        $servicio->delete();
+
+        // ── Sincronizar ─────────────────────────────────────────
+        $orden->sincronizarCuentasPorPagar();
+
+        // La CxP debe haberse eliminado (soft-delete)
+        $this->assertEquals(0, CuentaPorPagar::where('id_orden_compra', $orden->id)->count(),
+            'CxP debe eliminarse al no quedar servicios del proveedor');
+    }
+
+    /**
+     * Si un proveedor tiene múltiples servicios y se elimina uno, la CxP
+     * se actualiza pero NO se elimina.
+     */
+    public function test_eliminar_un_servicio_no_elimina_cxp_si_quedan_otros(): void
+    {
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Parcial Eliminar',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        // Dos servicios del mismo proveedor
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 100.00,
+            'monto_gravable' => 100.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 100.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        $servicio2 = Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 200.00,
+            'monto_gravable' => 200.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 200.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $cxp = CuentaPorPagar::where('id_orden_compra', $orden->id)->first();
+        $this->assertEquals(300.00, (float) $cxp->monto_total);
+
+        // ── Eliminar solo UNO de los servicios ──────────────────
+        $servicio2->delete();
+
+        // ── Sincronizar ─────────────────────────────────────────
+        $orden->sincronizarCuentasPorPagar();
+
+        // La CxP NO debe eliminarse (aún hay 1 servicio activo)
+        $this->assertEquals(1, CuentaPorPagar::where('id_orden_compra', $orden->id)->count(),
+            'CxP no debe eliminarse si aún quedan servicios');
+
+        $cxp->refresh();
+        $this->assertEquals(100.00, (float) $cxp->monto_total, 'Monto debe reflejar solo el servicio restante');
+    }
 }

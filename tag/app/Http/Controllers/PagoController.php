@@ -13,6 +13,11 @@ use Illuminate\Validation\Rule;
 
 class PagoController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Pago::class, 'pago');
+    }
+
     /**
      * Listar todos los pagos de clientes
      *

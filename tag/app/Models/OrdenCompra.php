@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\CuentaPorPagar;
+use App\Models\EstadoFinanciero;
+use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrdenCompra extends Model
 {
@@ -79,6 +83,79 @@ class OrdenCompra extends Model
         }
 
         $this->forceFill(['monto_total' => $montoTotal])->save();
+    }
+
+    /**
+     * Sincroniza las Cuentas por Pagar con los servicios actuales de la cotización.
+     * Crea, actualiza o elimina CxP según los proveedores presentes en los servicios.
+     */
+    public function sincronizarCuentasPorPagar(): void
+    {
+        $servicios = Servicio::where('id_cotizacion', $this->id_cotizacion)->get();
+        $porProveedor = $servicios->groupBy('id_proveedor');
+
+        $estadoPendienteId = EstadoFinanciero::where('slug', 'pendiente')->value('id') ?: 1;
+
+        $proveedoresConServicios = $porProveedor->keys()->toArray();
+
+        foreach ($porProveedor as $idProveedor => $servs) {
+            $montoTotal = $servs->sum('costo');
+
+            $cuenta = CuentaPorPagar::where('id_orden_compra', $this->id)
+                ->where('id_proveedor', $idProveedor)
+                ->first();
+
+            if ($cuenta) {
+                // Preservar lo ya pagado: saldo = max(0, nuevo_monto - total_pagado)
+                $totalPagado = (float) $cuenta->pagos()->sum('monto_asignado');
+                $nuevoSaldo = max(0, $montoTotal - $totalPagado);
+
+                $cuenta->update([
+                    'monto_total' => $montoTotal,
+                    'saldo_pendiente' => $nuevoSaldo,
+                ]);
+
+                $this->actualizarEstadoFinancieroCuenta($cuenta);
+            } else {
+                $cuenta = CuentaPorPagar::create([
+                    'id_orden_compra' => $this->id,
+                    'id_proveedor' => $idProveedor,
+                    'monto_total' => $montoTotal,
+                    'saldo_pendiente' => $montoTotal,
+                    'id_estado_financiero' => $estadoPendienteId,
+                ]);
+            }
+        }
+
+        // Soft-delete de CxP cuyos proveedores ya no tienen servicios en la cotización
+        $eliminadas = CuentaPorPagar::where('id_orden_compra', $this->id)
+            ->whereNotIn('id_proveedor', $proveedoresConServicios)
+            ->delete();
+
+        if ($eliminadas > 0) {
+            Log::info("{$eliminadas} Cuenta(s) por Pagar eliminada(s) por falta de servicios en OC #{$this->id}");
+        }
+
+        // Sincronizar estado de egreso de la OC
+        \App\Services\OrdenStateService::sincronizarEgreso($this);
+    }
+
+    /**
+     * Recalcula el estado financiero de una Cuenta por Pagar según su saldo pendiente.
+     */
+    private function actualizarEstadoFinancieroCuenta(CuentaPorPagar $cuenta): void
+    {
+        $slugEstado = 'parcial';
+        if ($cuenta->saldo_pendiente <= 0) {
+            $slugEstado = 'pagado';
+        } elseif ($cuenta->saldo_pendiente >= $cuenta->monto_total) {
+            $slugEstado = 'pendiente';
+        }
+
+        $estado = EstadoFinanciero::where('slug', $slugEstado)->first();
+        if ($estado && $cuenta->id_estado_financiero !== $estado->id) {
+            $cuenta->update(['id_estado_financiero' => $estado->id]);
+        }
     }
 
     // Suma todos los abonos activos asignados a esta orden.
