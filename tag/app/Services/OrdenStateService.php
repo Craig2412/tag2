@@ -97,6 +97,13 @@ class OrdenStateService
      */
     private static function sincronizarOperativo(OrdenCompra $orden): CambioEstado
     {
+        // Si la OC está anulada, no recalcular — la anulación es un estado terminal
+        $idAnulada = Cache::remember('catalog.estado_orden_compra.anulada_id', 86400,
+            fn () => EstadoOrdenCompra::where('slug', 'anulada')->value('id'));
+        if ($idAnulada && (int) $orden->id_estado_orden_compra === (int) $idAnulada) {
+            return CambioEstado::sinCambio();
+        }
+
         $idPagado = Cache::remember('catalog.estado_financiero.pagado_id', 86400,
             fn () => EstadoFinanciero::where('slug', 'pagado')->value('id'));
         $idParcial = Cache::remember('catalog.estado_financiero.parcial_id', 86400,

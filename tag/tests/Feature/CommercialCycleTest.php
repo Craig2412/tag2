@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\CuentaPorPagar;
+use App\Models\EstadoOrdenCompra;
 use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
@@ -292,5 +293,310 @@ class CommercialCycleTest extends TestCase
 
         // Debe estar cerrada_perdida porque todas las cotizaciones fueron rechazadas
         $this->assertEquals(3, $atencion->id_estado_atencion, 'Atención debe estar cerrada_perdida');
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    //  ANULACIÓN POR RECHAZO DE COTIZACIÓN (nuevo flujo)
+    // ─────────────────────────────────────────────────────────────
+
+    /**
+     * Al rechazar una cotización que tiene OC aprobada, la OC debe
+     * transicionar a estado "anulada" (NO soft-delete).
+     */
+    public function test_rechazar_cotizacion_anula_orden_compra(): void
+    {
+        // ── Crear ciclo completo hasta OC + CxP ──────────────────
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Anulación por Rechazo',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2, // aprobada
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 500.00,
+            'monto_gravable' => 500.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 500.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        // Disparar aprobación → genera OC + CxP
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $this->assertNotNull($orden, 'OC debió generarse');
+        $this->assertNotNull($orden->cuentasPorPagar()->first(), 'CxP debió generarse');
+
+        $idAnulada = EstadoOrdenCompra::where('slug', 'anulada')->value('id');
+        $this->assertNotNull($idAnulada, 'El estado "anulada" debe existir en el catálogo');
+
+        // ── Rechazar cotización → debe anular OC ─────────────────
+        $cotizacion->update(['id_estado_cotizacion' => 3]); // rechazada
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 2, 3));
+
+        $orden->refresh();
+
+        // La OC NO debe tener soft-delete
+        $this->assertNull($orden->deleted_at, 'OC NO debe tener soft-delete');
+
+        // La OC debe estar en estado "anulada"
+        $this->assertEquals($idAnulada, (int) $orden->id_estado_orden_compra, 'OC debe estar anulada');
+    }
+
+    /**
+     * Al rechazar una cotización con OC, la atención debe transicionar
+     * a "cerrada_perdida" (porque la OC anulada no cuenta como válida).
+     */
+    public function test_rechazar_cotizacion_con_oc_cierra_atencion_perdida(): void
+    {
+        // ── Crear ciclo completo hasta OC + CxP ──────────────────
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Cierre Perdida por Rechazo con OC',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2, // aprobada
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 500.00,
+            'monto_gravable' => 500.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 500.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        // Aprobar → genera OC + CxP
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $this->assertNotNull($orden, 'OC debió generarse');
+
+        // La atención debió pasar a cerrada_ganada al aprobar
+        $atencion->refresh();
+        $this->assertEquals(2, (int) $atencion->id_estado_atencion, 'Atención debe estar cerrada_ganada tras aprobar');
+
+        // ── Rechazar cotización → debe cerrar como perdida ───────
+        $cotizacion->update(['id_estado_cotizacion' => 3]); // rechazada
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 2, 3));
+
+        $atencion->refresh();
+        $orden->refresh();
+
+        // OC debe estar anulada
+        $idAnulada = EstadoOrdenCompra::where('slug', 'anulada')->value('id');
+        $this->assertEquals($idAnulada, (int) $orden->id_estado_orden_compra, 'OC debe estar anulada');
+
+        // Atención debe estar cerrada_perdida (la OC anulada no cuenta como válida)
+        $this->assertEquals(3, (int) $atencion->id_estado_atencion, 'Atención debe estar cerrada_perdida');
+    }
+
+    /**
+     * Al rechazar una cotización con OC, las CxP deben ser soft-delete
+     * y sus pivotes de pago a proveedor eliminados (hard delete).
+     */
+    public function test_rechazar_cotizacion_limpia_cuentas_por_pagar(): void
+    {
+        // ── Crear ciclo completo hasta OC + CxP con pago parcial ─
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Limpieza CxP por Rechazo',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 800.00,
+            'monto_gravable' => 800.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 800.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $cxp = CuentaPorPagar::where('id_orden_compra', $orden->id)->first();
+        $this->assertNotNull($cxp, 'CxP debió generarse');
+
+        // Crear pago parcial a proveedor
+        $pagoProv = PagoProveedor::create([
+            'id_proveedor' => $this->idProveedor,
+            'id_metodo_pago' => 1,
+            'monto_total' => 300.00,
+            'fecha_pago' => now(),
+            'referencia' => 'RECHAZO-001',
+            'id_tasa_cambio' => 1,
+        ]);
+
+        PagoProveedorCuenta::create([
+            'id_pago_proveedor' => $pagoProv->id,
+            'id_cuenta_por_pagar' => $cxp->id,
+            'monto_asignado' => 300.00,
+        ]);
+
+        $cxp->refresh();
+        $this->assertLessThan(800.00, (float) $cxp->saldo_pendiente, 'Saldo debe reflejar pago parcial');
+
+        // ── Rechazar cotización ──────────────────────────────────
+        $cotizacion->update(['id_estado_cotizacion' => 3]);
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 2, 3));
+
+        // ── Verificar CxP soft-delete ────────────────────────────
+        $cxpTrashed = CuentaPorPagar::withTrashed()->find($cxp->id);
+        $this->assertNotNull($cxpTrashed->deleted_at, 'CxP debe tener soft-delete');
+
+        // ── Verificar pivote eliminado (hard delete) ─────────────
+        $pivoteExiste = PagoProveedorCuenta::where('id_cuenta_por_pagar', $cxp->id)->exists();
+        $this->assertFalse($pivoteExiste, 'Pivote de pago proveedor debe ser eliminado');
+
+        // ── Verificar que el saldo fue revertido antes del soft-delete ──
+        $this->assertEquals(800.00, (float) $cxpTrashed->saldo_pendiente, 'Saldo debe revertirse al monto total');
+    }
+
+    /**
+     * Rechazar una cotización sin OC no debe lanzar errores.
+     */
+    public function test_rechazar_cotizacion_sin_oc_no_falla(): void
+    {
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Rechazo Sin OC',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 1, // pendiente (nunca aprobada, sin OC)
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        // No debe lanzar excepción
+        $cotizacion->update(['id_estado_cotizacion' => 3]);
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 3));
+
+        $cotizacion->refresh();
+        $this->assertEquals(3, (int) $cotizacion->id_estado_cotizacion, 'Cotización debe estar rechazada');
+
+        // No debe existir OC
+        $this->assertNull(OrdenCompra::where('id_cotizacion', $cotizacion->id)->first());
+    }
+
+    /**
+     * sincronizarCuentasPorPagar() no debe recrear CxP en una OC anulada.
+     */
+    public function test_sincronizar_cxp_no_recrea_en_oc_anulada(): void
+    {
+        // ── Crear ciclo completo y luego anular ──────────────────
+        $atencion = Atencion::create([
+            'id_cliente' => $this->idCliente,
+            'id_personal' => $this->idPersonal,
+            'id_origen_atencion' => 1,
+            'asunto' => 'Test Guardia Sincronizar',
+            'id_estado_atencion' => 1,
+            'id_etapa_comercial' => 1,
+        ]);
+
+        $cotizacion = Cotizacion::create([
+            'id_atencion' => $atencion->id,
+            'id_tipo_cotizacion' => 1,
+            'id_estado_cotizacion' => 2,
+            'cant_adultos' => 1,
+            'cant_menores' => 0,
+            'cant_viejos' => 0,
+            'id_tasa_cambio' => 1,
+            'fecha_vencimiento' => now()->addDays(7),
+        ]);
+
+        Servicio::create([
+            'id_cotizacion' => $cotizacion->id,
+            'id_tipo_servicio' => 1,
+            'id_proveedor' => $this->idProveedor,
+            'costo' => 200.00,
+            'monto_gravable' => 200.00,
+            'monto_no_sujeto' => 0,
+            'total_servicio' => 200.00,
+            'id_tasa_cambio' => 1,
+        ]);
+
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 1, 2));
+
+        $orden = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
+        $this->assertNotNull($orden, 'OC debió generarse');
+
+        // ── Anular la OC ─────────────────────────────────────────
+        $cotizacion->update(['id_estado_cotizacion' => 3]);
+        event(new \App\Events\CotizacionEstatusActualizado($cotizacion, 2, 3));
+
+        $orden->refresh();
+        $this->assertNotNull($orden->estadoOrdenCompra);
+        $this->assertEquals('anulada', $orden->estadoOrdenCompra->slug, 'OC debe estar anulada');
+
+        // Contar CxP (soft-delete no cuenta en consultas normales)
+        $cxpActivas = CuentaPorPagar::where('id_orden_compra', $orden->id)->count();
+        $this->assertEquals(0, $cxpActivas, 'No deben existir CxP activas');
+
+        // ── Llamar a sincronizarCuentasPorPagar ──────────────────
+        $orden->sincronizarCuentasPorPagar();
+
+        // La guardia debe impedir que se recree nada
+        $cxpDespues = CuentaPorPagar::where('id_orden_compra', $orden->id)->count();
+        $this->assertEquals(0, $cxpDespues, 'sincronizarCuentasPorPagar NO debe recrear CxP en OC anulada');
     }
 }

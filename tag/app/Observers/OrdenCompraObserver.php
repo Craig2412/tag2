@@ -9,7 +9,6 @@ use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
-use App\Models\PagoProveedorCuenta;
 use App\Services\AtencionStateService;
 use App\Services\OrdenStateService;
 
@@ -31,24 +30,7 @@ class OrdenCompraObserver
     public function deleted(OrdenCompra $ordenCompra): void
     {
         // 1. Limpiar cuentas por pagar y sus pivotes de pago a proveedores
-        $cuentas = $ordenCompra->cuentasPorPagar()->get();
-
-        foreach ($cuentas as $cuenta) {
-            // Revertir el saldo pendiente con los pagos ya asignados
-            $totalAsignado = PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)
-                ->sum('monto_asignado');
-
-            if ($totalAsignado > 0) {
-                $cuenta->saldo_pendiente += $totalAsignado;
-                $cuenta->save();
-            }
-
-            // Borrar los pivotes (hard delete vía query builder, sin disparar observers)
-            PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)->delete();
-
-            // Soft-delete de la cuenta por pagar
-            $cuenta->delete();
-        }
+        $ordenCompra->limpiarCuentasPorPagar();
 
         // Si es borrado en cascada (cotización padre ya en trash), no ejecutar pasos 2-4
         $cotizacion = Cotizacion::withTrashed()->find($ordenCompra->id_cotizacion);

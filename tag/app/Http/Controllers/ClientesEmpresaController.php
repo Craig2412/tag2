@@ -63,9 +63,9 @@ class ClientesEmpresaController extends Controller
 
         $cliente = Cliente::find($data['id_cliente']);
 
-        if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
+        /* if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
             return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
-        }
+        } */
 
         $item = ClienteEmpresa::create($data);
 

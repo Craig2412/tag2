@@ -3,7 +3,7 @@
 API REST del sistema de gestión de agencia de viajes TAG.
 
 <aside>
-    <strong>URL Base</strong>: <code>http://localhost</code>
+    <strong>URL Base</strong>: <code>http://localhost:8000</code>
 </aside>
 
     Esta documentación tiene como objetivo proporcionar toda la información necesaria para trabajar con nuestra API.

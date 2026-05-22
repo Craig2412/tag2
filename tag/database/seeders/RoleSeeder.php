@@ -112,6 +112,8 @@ class RoleSeeder extends Seeder
             // ── Logros Personal (solo view) ──
             'view:logros_personal',
             'view:logros_personal:todas',
+            // ── WorkFlow ──
+            'view:espacio_trabajo',
             // ── Audit Logs (solo admin, no requiere :todas) ──
             'view:audit_logs',
         ];

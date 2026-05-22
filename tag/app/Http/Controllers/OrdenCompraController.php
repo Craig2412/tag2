@@ -17,14 +17,16 @@ class OrdenCompraController extends Controller
     /**
      * Listar todas las órdenes de compra
      *
-     * Devuelve todas las órdenes con su cotización, tasa de cambio y estado operativo.
+     * Devuelve todas las órdenes con su cotización, tasa de cambio, estado operativo y financiero.
      */
     public function index()
     {
         return OrdenCompraResource::collection(
             OrdenCompra::with([
                 'cotizacion.tasaCambio',
+                'cotizacion.atencion',
                 'estadoFinanciero',
+                'estadoFinancieroEgreso',
                 'estadoOrdenCompra',
             ])->orderBy('id')->get()
         );
@@ -33,18 +35,25 @@ class OrdenCompraController extends Controller
     /**
      * Obtener una orden de compra específica
      *
-     * Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos y estados.
+     * Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos,
+     * estados operativos y financieros, y cuentas por pagar.
      */
     public function show(OrdenCompra $ordenCompra)
     {
         $ordenCompra->recalcularMontoTotal();
 
         $ordenCompra->load([
-            'cotizacion.servicios',
+            'cotizacion.servicios.proveedor',
+            'cotizacion.servicios.tipoServicio',
+            'cotizacion.atencion',
             'cotizacion.tasaCambio',
-            'pagos',
+            'pagos.pago.metodoPago',
+            'pagos.pago.entidadBancaria',
             'estadoFinanciero',
+            'estadoFinancieroEgreso',
             'estadoOrdenCompra',
+            'cuentasPorPagar.proveedor',
+            'cuentasPorPagar.estadoFinanciero',
         ]);
 
         return new OrdenCompraResource($ordenCompra);
@@ -81,7 +90,9 @@ class OrdenCompraController extends Controller
 
         return new OrdenCompraResource($ordenCompra->fresh()->load([
             'cotizacion.tasaCambio',
+            'cotizacion.atencion',
             'estadoFinanciero',
+            'estadoFinancieroEgreso',
             'estadoOrdenCompra',
         ]));
     }

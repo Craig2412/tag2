@@ -50,7 +50,14 @@ class AtencionController extends Controller
             if (in_array('cotizaciones', $includes)) {
                 $query->with([
                     'cotizaciones' => fn ($q) => $q->orderByDesc('id'),
-                    'cotizaciones.ordenCompra',
+                    'cotizaciones.tasaCambio',
+                    'cotizaciones.tipoCotizacion',
+                    'cotizaciones.estadoCotizacion',
+                    'cotizaciones.servicios.tipoServicio',
+                    'cotizaciones.servicios.proveedor',
+                    'cotizaciones.ordenCompra.estadoOrdenCompra',
+                    'cotizaciones.ordenCompra.estadoFinanciero',
+                    'cotizaciones.ordenCompra.estadoFinancieroEgreso',
                 ]);
             }
         }
@@ -126,7 +133,9 @@ class AtencionController extends Controller
             'estadoAtencion',
             'etapaComercial' => fn ($q) => $q->withTrashed(),
             'cotizaciones' => fn ($q) => $q->orderByDesc('id')->limit(1),
-            'cotizaciones.ordenCompra',
+            'cotizaciones.ordenCompra.estadoOrdenCompra',
+            'cotizaciones.ordenCompra.estadoFinanciero',
+            'cotizaciones.ordenCompra.estadoFinancieroEgreso',
         ]);
 
         return new AtencionResource($atencion);

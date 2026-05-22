@@ -337,7 +337,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -381,7 +381,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -431,15 +431,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -477,15 +477,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -523,15 +523,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -606,7 +606,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -656,15 +656,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -740,7 +740,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -787,7 +787,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -822,7 +822,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -988,15 +988,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1043,7 +1043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1093,15 +1093,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1161,7 +1161,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1208,7 +1208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1242,19 +1242,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1301,7 +1301,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1347,19 +1347,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1419,7 +1419,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1466,7 +1466,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1500,19 +1500,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1607,7 +1607,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1653,19 +1653,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1773,7 +1773,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1820,7 +1820,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1858,15 +1858,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -1960,7 +1960,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2013,15 +2013,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2126,7 +2126,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2173,7 +2173,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2211,15 +2211,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2278,7 +2278,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2328,15 +2328,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2408,7 +2408,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2455,7 +2455,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2501,19 +2501,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26266053","telefono":"+58 424 9332069","correo_contacto":null,"id_tipo_contribuyente":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26901714","telefono":"+58 424 5335507","correo_contacto":null,"id_tipo_contribuyente":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2667,7 +2667,7 @@ endpoints:
         name: usuario.esta_activo
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2707,7 +2707,7 @@ endpoints:
         nombre_usuario: i
         correo: okon.justina@example.com
         clave: nikhwaykcmyuwpwlvqwrsitcps
-        esta_activo: true
+        esta_activo: false
       id_estatus: 16
     fileParameters: []
     responses: []
@@ -2715,7 +2715,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2761,19 +2761,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26266053","telefono":"+58 424 9332069","correo_contacto":null,"id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","esta_activo":1,"roles":["cliente"],"permisos":[],"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"},"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26901714","telefono":"+58 424 5335507","correo_contacto":null,"id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","esta_activo":1,"roles":["cliente"],"permisos":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -2940,7 +2940,7 @@ endpoints:
         name: usuario.esta_activo
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2980,7 +2980,7 @@ endpoints:
         nombre_usuario: i
         correo: okon.justina@example.com
         clave: nikhwaykcmyuwpwlvqwrsitcps
-        esta_activo: false
+        esta_activo: true
       id_estatus: 16
     fileParameters: []
     responses: []
@@ -2988,7 +2988,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3035,7 +3035,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3081,19 +3081,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-19105104","telefono":"+58 412 3604965","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-20356673","telefono":"+58 412 3622381","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3247,7 +3247,7 @@ endpoints:
         name: usuario.esta_activo
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -3287,7 +3287,7 @@ endpoints:
         nombre_usuario: 'y'
         correo: justina.gaylord@example.org
         clave: ikhwaykcmyuwpwlvqwrsitcpsc
-        esta_activo: true
+        esta_activo: false
       id_estatus: 16
     fileParameters: []
     responses: []
@@ -3295,7 +3295,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3341,19 +3341,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-19105104","telefono":"+58 412 3604965","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","esta_activo":1,"roles":["personal"],"permisos":[],"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"},"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-20356673","telefono":"+58 412 3622381","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","esta_activo":1,"roles":["personal"],"permisos":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3520,7 +3520,7 @@ endpoints:
         name: usuario.esta_activo
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -3560,7 +3560,7 @@ endpoints:
         nombre_usuario: 'y'
         correo: justina.gaylord@example.org
         clave: ikhwaykcmyuwpwlvqwrsitcpsc
-        esta_activo: true
+        esta_activo: false
       id_estatus: 16
     fileParameters: []
     responses: []
@@ -3568,7 +3568,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3615,7 +3615,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3649,19 +3649,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3780,7 +3780,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3826,19 +3826,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -3970,7 +3970,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4017,7 +4017,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4055,15 +4055,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4122,7 +4122,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4175,15 +4175,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4255,7 +4255,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4302,7 +4302,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4336,19 +4336,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4407,7 +4407,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4453,19 +4453,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4537,7 +4537,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4584,7 +4584,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4622,15 +4622,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4677,7 +4677,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4727,15 +4727,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4795,7 +4795,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4842,7 +4842,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4867,8 +4867,20 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      include:
+        custom: []
+        name: include
+        description: 'Relaciones a incluir.'
+        required: false
+        example: 'cotizaciones. Values: cotizaciones'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      include: 'cotizaciones. Values: cotizaciones'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -4880,15 +4892,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -4971,7 +4983,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5024,15 +5036,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5164,7 +5176,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5211,7 +5223,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5249,15 +5261,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5371,7 +5383,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5424,15 +5436,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5547,7 +5559,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5594,7 +5606,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5632,15 +5644,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5711,7 +5723,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5761,15 +5773,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5853,7 +5865,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5900,7 +5912,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -5938,15 +5950,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6017,7 +6029,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6067,15 +6079,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6159,7 +6171,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6206,7 +6218,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6244,15 +6256,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6481,7 +6493,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6534,15 +6546,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6784,7 +6796,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6831,7 +6843,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6869,15 +6881,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -6970,7 +6982,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7023,15 +7035,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7125,7 +7137,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7172,7 +7184,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7210,15 +7222,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7289,7 +7301,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7339,15 +7351,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7431,7 +7443,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7478,7 +7490,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7516,15 +7528,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7571,7 +7583,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7621,15 +7633,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7689,7 +7701,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7736,7 +7748,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7774,15 +7786,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7840,7 +7852,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7890,15 +7902,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -7974,7 +7986,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8021,7 +8033,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8073,15 +8085,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8097,7 +8109,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Listar todas las órdenes de compra'
-      description: 'Devuelve todas las órdenes con su cotización, tasa de cambio y estado operativo.'
+      description: 'Devuelve todas las órdenes con su cotización, tasa de cambio, estado operativo y financiero.'
       authenticated: true
       deprecated: false
     headers:
@@ -8119,15 +8131,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8143,7 +8155,9 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Obtener una orden de compra específica'
-      description: 'Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos y estados.'
+      description: |-
+        Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos,
+        estados operativos y financieros, y cuentas por pagar.
       authenticated: true
       deprecated: false
     headers:
@@ -8180,15 +8194,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8248,7 +8262,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8295,7 +8309,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8333,15 +8347,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8433,7 +8447,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8486,15 +8500,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8587,7 +8601,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8634,7 +8648,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8672,15 +8686,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8751,7 +8765,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8801,15 +8815,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8893,7 +8907,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8940,7 +8954,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -8978,15 +8992,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9057,7 +9071,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9107,15 +9121,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9199,7 +9213,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9246,7 +9260,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9284,15 +9298,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9461,7 +9475,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9514,15 +9528,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9692,7 +9706,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9744,7 +9758,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9782,15 +9796,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9861,7 +9875,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9914,15 +9928,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -9982,7 +9996,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10029,7 +10043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10063,19 +10077,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10152,7 +10166,7 @@ endpoints:
         name: fecha_pago
         description: 'Must be a valid date.'
         required: true
-        example: '2026-05-22T09:59:49'
+        example: '2026-05-22T15:45:21'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -10217,7 +10231,7 @@ endpoints:
       id_proveedor: architecto
       monto_total: 39
       referencia: g
-      fecha_pago: '2026-05-22T09:59:49'
+      fecha_pago: '2026-05-22T15:45:21'
       id_metodo_pago: architecto
       comprobante: architecto
       cuentas:
@@ -10230,7 +10244,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10276,19 +10290,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10378,7 +10392,7 @@ endpoints:
         name: fecha_pago
         description: 'Must be a valid date.'
         required: false
-        example: '2026-05-22T09:59:50'
+        example: '2026-05-22T15:45:21'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -10409,7 +10423,7 @@ endpoints:
     cleanBodyParameters:
       monto_total: 27
       referencia: 'n'
-      fecha_pago: '2026-05-22T09:59:50'
+      fecha_pago: '2026-05-22T15:45:21'
       comprobante: architecto
     fileParameters: []
     responses: []
@@ -10417,7 +10431,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10464,7 +10478,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10502,15 +10516,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10557,7 +10571,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10607,15 +10621,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10675,7 +10689,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10722,7 +10736,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10756,19 +10770,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -10989,7 +11003,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11035,19 +11049,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"tipo_contribuyente":null,"tipo_proveedor_info":{"id":1,"tipo_proveedor":"servicios profesionales"},"tipos_servicio":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16}],"cuentas":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}],"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}}'
+        content: '{"data":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"tipo_contribuyente":null,"tipo_proveedor_info":{"id":1,"tipo_proveedor":"servicios profesionales"},"tipos_servicio":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16}],"cuentas":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11291,7 +11305,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11338,7 +11352,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11372,19 +11386,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]},{"id":4,"tipo_servicio":"Alimentaci\u00f3n","iva_defecto":16,"proveedores":[]},{"id":5,"tipo_servicio":"Consultor\u00eda","iva_defecto":16,"proveedores":[]}]}'
+        content: '{"data":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":4,"tipo_servicio":"Alimentaci\u00f3n","iva_defecto":16,"proveedores":[]},{"id":5,"tipo_servicio":"Consultor\u00eda","iva_defecto":16,"proveedores":[]}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11459,7 +11473,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11505,19 +11519,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}}'
+        content: '{"data":{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11605,7 +11619,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11654,7 +11668,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11692,15 +11706,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11771,7 +11785,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11821,15 +11835,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11913,7 +11927,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11960,7 +11974,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -11998,15 +12012,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12077,7 +12091,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12127,15 +12141,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12219,7 +12233,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12266,7 +12280,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12304,15 +12318,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12455,7 +12469,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12508,15 +12522,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12668,7 +12682,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12717,7 +12731,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12755,15 +12769,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12822,7 +12836,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12872,15 +12886,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12952,7 +12966,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -12999,7 +13013,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13033,19 +13047,19 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"nombre":"Cierre de Atenciones Mensual","tipo_entidad":"atencion","estatus_objetivo":"aprobado","es_monetario":false,"valor_objetivo":50,"id_temporalidad":3,"temporalidad":{"id":3,"temporalidad":"Mensual","slug":"mensual","carbon_method":"startOfMonth"},"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"},{"id":2,"nombre":"Recaudaci\u00f3n por Ventas Semanal","tipo_entidad":"orden_compra","estatus_objetivo":"pagado","es_monetario":true,"valor_objetivo":2500,"id_temporalidad":2,"temporalidad":{"id":2,"temporalidad":"Semanal","slug":"semanal","carbon_method":"startOfWeek"},"created_at":"2026-05-22T09:59:41.000000Z","updated_at":"2026-05-22T09:59:41.000000Z"}]}'
+        content: '{"data":[{"id":1,"nombre":"Cierre de Atenciones Mensual","tipo_entidad":"atencion","estatus_objetivo":"aprobado","es_monetario":false,"valor_objetivo":50,"id_temporalidad":3,"temporalidad":{"id":3,"temporalidad":"Mensual","slug":"mensual","carbon_method":"startOfMonth"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},{"id":2,"nombre":"Recaudaci\u00f3n por Ventas Semanal","tipo_entidad":"orden_compra","estatus_objetivo":"pagado","es_monetario":true,"valor_objetivo":2500,"id_temporalidad":2,"temporalidad":{"id":2,"temporalidad":"Semanal","slug":"semanal","carbon_method":"startOfWeek"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13152,7 +13166,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13202,15 +13216,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13330,7 +13344,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13377,7 +13391,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13418,15 +13432,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13521,7 +13535,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13574,15 +13588,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13690,7 +13704,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13737,7 +13751,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -13874,15 +13888,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14004,15 +14018,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14134,15 +14148,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14225,7 +14239,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14332,7 +14346,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14415,7 +14429,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14500,7 +14514,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14583,7 +14597,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14678,7 +14692,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14716,15 +14730,15 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-limit: '120'
+          x-ratelimit-remaining: '119'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null
@@ -14772,7 +14786,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|arQZ7tdqWyY8emkz6LtPSSDkFRWCbonuokG5uhtO19fa49d1'
+      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
     controller: null
     method: null
     route: null

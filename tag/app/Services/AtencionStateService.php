@@ -27,8 +27,15 @@ class AtencionStateService
     public static function sincronizarFase(Atencion $atencion): object
     {
         $tieneCotizaciones = $atencion->cotizaciones()->exists();
+
+        // Excluir OC anuladas: una OC anulada no cuenta como "tener orden de compra"
+        $idAnulada = Cache::remember('catalog.estado_orden_compra.anulada_id', 86400,
+            fn () => \App\Models\EstadoOrdenCompra::where('slug', 'anulada')->value('id'));
+
         $tieneOrdenes = $tieneCotizaciones
-            && OrdenCompra::whereIn('id_cotizacion', $atencion->cotizaciones()->pluck('id'))->exists();
+            && OrdenCompra::whereIn('id_cotizacion', $atencion->cotizaciones()->pluck('id'))
+                ->when($idAnulada, fn ($q) => $q->where('id_estado_orden_compra', '!=', $idAnulada))
+                ->exists();
 
         $slugFase = $tieneOrdenes ? 'orden_compra' : ($tieneCotizaciones ? 'cotizada' : 'atencion');
 

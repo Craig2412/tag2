@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\CuentaPorPagar;
 use App\Models\EstadoFinanciero;
+use App\Models\PagoProveedorCuenta;
 use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -91,6 +92,11 @@ class OrdenCompra extends Model
      */
     public function sincronizarCuentasPorPagar(): void
     {
+        // Si la OC está anulada, no sincronizar CxP (ya fueron limpiadas)
+        if ($this->estadoOrdenCompra && $this->estadoOrdenCompra->slug === 'anulada') {
+            return;
+        }
+
         $servicios = Servicio::where('id_cotizacion', $this->id_cotizacion)->get();
         $porProveedor = $servicios->groupBy('id_proveedor');
 
@@ -156,6 +162,40 @@ class OrdenCompra extends Model
         if ($estado && $cuenta->id_estado_financiero !== $estado->id) {
             $cuenta->update(['id_estado_financiero' => $estado->id]);
         }
+    }
+
+    /**
+     * Revierte los pagos asignados, borra los pivotes y da soft-delete
+     * a todas las Cuentas por Pagar de esta Orden de Compra.
+     *
+     * Usado tanto por el Observer (delete) como por el Listener (anulación).
+     *
+     * @return int Número de CxP eliminadas.
+     */
+    public function limpiarCuentasPorPagar(): int
+    {
+        $cuentas = $this->cuentasPorPagar()->get();
+        $contador = 0;
+
+        foreach ($cuentas as $cuenta) {
+            // Revertir el saldo pendiente con los pagos ya asignados
+            $totalAsignado = PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)
+                ->sum('monto_asignado');
+
+            if ($totalAsignado > 0) {
+                $cuenta->saldo_pendiente += $totalAsignado;
+                $cuenta->save();
+            }
+
+            // Borrar los pivotes (hard delete vía query builder, sin disparar observers)
+            PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)->delete();
+
+            // Soft-delete de la cuenta por pagar
+            $cuenta->delete();
+            $contador++;
+        }
+
+        return $contador;
     }
 
     // Suma todos los abonos activos asignados a esta orden.
