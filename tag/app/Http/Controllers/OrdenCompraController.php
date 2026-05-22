@@ -2,139 +2,105 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cotizacion;
-use App\Models\Estatus;
-use App\Models\OrdenCompra;
 use App\Http\Resources\OrdenCompraResource;
+use App\Models\OrdenCompra;
+use App\Models\OrdenCompraHistorial;
 use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
 {
-    /**
-     * Listar todas las órdenes de compra
-     *
-     * Devuelve todas las órdenes de compra con su cotización y tasa de cambio asociadas.
-     */
-    public function index()
+    public function __construct()
     {
-        return OrdenCompraResource::collection(OrdenCompra::with(['cotizacion.tasaCambio', 'estadoFinanciero'])->orderBy('id')->get());
+        $this->authorizeResource(OrdenCompra::class, 'ordenCompra');
     }
 
     /**
-     * Crear una nueva orden de compra
+     * Listar todas las órdenes de compra
      *
-     * Genera una orden de compra a partir de una cotización confirmada. Solo se permite una orden por cotización.
-     *
-     * @bodyParam id_cotizacion int required ID de la cotización confirmada. Ejemplo: 1
-     * @bodyParam estatus int ID del estatus de la orden (por defecto: pendiente de pago). Ejemplo: 1
+     * Devuelve todas las órdenes con su cotización, tasa de cambio, estado operativo y financiero.
      */
-    public function store(Request $request)
+    public function index()
     {
-        $data = $request->validate([
-            'id_cotizacion' => ['required', 'exists:cotizaciones,id'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
-        ]);
-
-        if (OrdenCompra::where('id_cotizacion', $data['id_cotizacion'])->exists()) {
-            return response()->json(['message' => 'La cotizacion ya tiene una orden de compra'], 422);
-        }
-
-        $cotizacion = Cotizacion::find($data['id_cotizacion']);
-        $estatusConfirmado = Estatus::firstOrCreate(['estatus' => 'confirmado']);
-
-        if (!$cotizacion || $cotizacion->estatus !== $estatusConfirmado->id) {
-            return response()->json(['message' => 'Solo se puede crear orden para cotizaciones confirmadas'], 422);
-        }
-
-        $estatusPendiente = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
-        $estatusPagado = Estatus::firstOrCreate(['estatus' => 'pagado']);
-
-        if (isset($data['estatus']) && !in_array($data['estatus'], [$estatusPendiente->id, $estatusPagado->id], true)) {
-            return response()->json(['message' => 'La orden solo admite estatus pendiente de pago o pagado'], 422);
-        }
-
-        $data['estatus'] = $data['estatus'] ?? $estatusPendiente->id;
-        $data['monto_total'] = 0;
-
-        $item = OrdenCompra::create($data);
-        $item->recalcularMontoTotal();
-
-        return new OrdenCompraResource($item->fresh());
+        return OrdenCompraResource::collection(
+            OrdenCompra::with([
+                'cotizacion.tasaCambio',
+                'cotizacion.atencion',
+                'estadoFinanciero',
+                'estadoFinancieroEgreso',
+                'estadoOrdenCompra',
+            ])->orderBy('id')->get()
+        );
     }
 
     /**
      * Obtener una orden de compra específica
      *
-     * Devuelve los detalles de una orden de compra, incluyendo servicios, tasa de cambio y pagos asociados.
+     * Devuelve detalles completos incluyendo servicios, tasa de cambio, pagos,
+     * estados operativos y financieros, y cuentas por pagar.
      */
     public function show(OrdenCompra $ordenCompra)
     {
         $ordenCompra->recalcularMontoTotal();
 
         $ordenCompra->load([
-            'cotizacion.servicios',
+            'cotizacion.servicios.proveedor',
+            'cotizacion.servicios.tipoServicio',
+            'cotizacion.atencion',
             'cotizacion.tasaCambio',
-            'pagos',
+            'pagos.pago.metodoPago',
+            'pagos.pago.entidadBancaria',
             'estadoFinanciero',
+            'estadoFinancieroEgreso',
+            'estadoOrdenCompra',
+            'cuentasPorPagar.proveedor',
+            'cuentasPorPagar.estadoFinanciero',
         ]);
 
-        $data = $ordenCompra->toArray();
-        $data['servicios'] = $ordenCompra->cotizacion?->servicios ?? [];
-
-        // Calcular el saldo pendiente
-        $montoPagado = collect($ordenCompra->pagos)->sum(function ($pago) {
-            // Si existe el campo monto_pagado, usarlo; si no, usar monto_asignado
-            return isset($pago['monto_pagado']) ? $pago['monto_pagado'] : ($pago['monto_asignado'] ?? 0);
-        });
-        $data['saldo_pendiente'] = max(0, $ordenCompra->monto_total - $montoPagado);
-
-        return new OrdenCompraResource((object) $data);
+        return new OrdenCompraResource($ordenCompra);
     }
 
     /**
-     * Actualizar una orden de compra existente
+     * Actualizar el estado operativo de una orden de compra
      *
-     * Modifica la tasa de cambio o el estatus de una orden de compra y recalcula su monto total.
+     * Solo permite transiciones de estado válidas del catálogo estados_ordenes_compra.
      *
-     * @bodyParam estatus int ID del estatus (pendiente de pago / pagado). Ejemplo: 1
+     * @bodyParam id_estado_orden_compra int required ID del estado operativo. Ejemplo: 2
      */
     public function update(Request $request, OrdenCompra $ordenCompra)
     {
         $data = $request->validate([
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_orden_compra' => ['sometimes', 'required', 'exists:estados_ordenes_compra,id'],
         ]);
 
-        if (isset($data['estatus'])) {
-            $estatusPendiente = Estatus::firstOrCreate(['estatus' => 'pendiente de pago']);
-            $estatusPagado = Estatus::firstOrCreate(['estatus' => 'pagado']);
+        $estadoAnteriorId = $ordenCompra->id_estado_orden_compra;
 
-            if (!in_array($data['estatus'], [$estatusPendiente->id, $estatusPagado->id], true)) {
-                return response()->json(['message' => 'La orden solo admite estatus pendiente de pago o pagado'], 422);
-            }
-        }
-
-        $estatusAnterior = $ordenCompra->estatus;
         $ordenCompra->update($data);
         $ordenCompra->recalcularMontoTotal();
 
-        // Si cambió el estatus, registrar en historial
-        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
-            \App\Models\OrdenCompraHistorial::create([
+        // Registrar en historial si cambió el estado operativo
+        if (isset($data['id_estado_orden_compra']) && $data['id_estado_orden_compra'] != $estadoAnteriorId) {
+            OrdenCompraHistorial::create([
                 'orden_compra_id' => $ordenCompra->id,
-                'estatus_anterior' => $estatusAnterior,
-                'estatus_nuevo' => $data['estatus'],
+                'id_estado_anterior' => $estadoAnteriorId,
+                'id_estado_nuevo' => $data['id_estado_orden_compra'],
                 'usuario_id' => auth()->id(),
-                'comentario' => 'Cambio de estatus desde API',
+                'comentario' => 'Cambio de estado desde API',
             ]);
         }
 
-        return new OrdenCompraResource($ordenCompra->fresh());
+        return new OrdenCompraResource($ordenCompra->fresh()->load([
+            'cotizacion.tasaCambio',
+            'cotizacion.atencion',
+            'estadoFinanciero',
+            'estadoFinancieroEgreso',
+            'estadoOrdenCompra',
+        ]));
     }
 
     /**
      * Eliminar una orden de compra
      *
-     * Elimina permanentemente la orden de compra del sistema.
+     * Elimina (soft delete) la orden de compra del sistema.
      */
     public function destroy(OrdenCompra $ordenCompra)
     {

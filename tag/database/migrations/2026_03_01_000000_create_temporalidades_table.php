@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('carbon_method')->comment('Método de Carbon para calcular el inicio del periodo (ej: startOfWeek)');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

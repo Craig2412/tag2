@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Personal;
-use App\Models\Estatus;
-use App\Services\PersonalService;
 use App\Http\Resources\PersonalResource;
+use App\Models\Personal;
+use App\Services\PersonalService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -23,8 +22,14 @@ class PersonalController extends Controller
         if ($request->has('include')) {
             $allowed = ['usuario'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
-                $query->with($includes);
+            if (! empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'usuario') {
+                        return [$include => fn ($q) => $q->withTrashed()];
+                    }
+
+                    return [$include => fn ($q) => $q];
+                })->toArray());
             }
         }
 
@@ -53,7 +58,6 @@ class PersonalController extends Controller
             'telefono' => ['nullable', 'string', 'max:255'],
             'correo_institucional' => ['nullable', 'email', 'max:255'],
             'porcentaje_comision' => ['nullable', 'numeric', 'min:0', 'max:100'],
-            'id_estatus' => ['nullable', 'exists:estatus,id'],
 
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
@@ -65,18 +69,16 @@ class PersonalController extends Controller
             'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
-        if (!isset($data['id_estatus'])) {
-            $estatusActivo = Estatus::where('estatus', 'activo')->first();
-            $data['id_estatus'] = $estatusActivo?->id;
-        }
-
         try {
             $item = $service->createPersonal($data);
-            return (new PersonalResource($item->load(['usuario'])))
+
+            return (new PersonalResource($item->load([
+                'usuario' => fn ($q) => $q->withTrashed(),
+            ])))
                 ->response()
                 ->setStatusCode(201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al crear personal: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al crear personal: '.$e->getMessage()], 500);
         }
     }
 
@@ -85,7 +87,9 @@ class PersonalController extends Controller
      */
     public function show(Personal $personal)
     {
-        return new PersonalResource($personal->load(['usuario']));
+        return new PersonalResource($personal->load([
+            'usuario' => fn ($q) => $q->withTrashed(),
+        ]));
     }
 
     /**
@@ -110,17 +114,16 @@ class PersonalController extends Controller
             'telefono' => ['sometimes', 'nullable', 'string', 'max:255'],
             'correo_institucional' => ['sometimes', 'nullable', 'email', 'max:255'],
             'porcentaje_comision' => ['sometimes', 'nullable', 'numeric', 'min:0', 'max:100'],
-            'id_estatus' => ['sometimes', 'nullable', 'exists:estatus,id'],
 
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
             'usuario.nombre_usuario' => [
-                'sometimes', 'string', 'max:255', 
-                $personal->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($personal->usuario_id) : ''
+                'sometimes', 'string', 'max:255',
+                $personal->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($personal->usuario_id) : '',
             ],
             'usuario.correo' => [
-                'sometimes', 'email', 
-                $personal->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($personal->usuario_id) : ''
+                'sometimes', 'email',
+                $personal->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($personal->usuario_id) : '',
             ],
             'usuario.clave' => ['sometimes', 'nullable', 'string', 'min:8'],
             'usuario.esta_activo' => ['sometimes', 'boolean'],
@@ -130,9 +133,12 @@ class PersonalController extends Controller
 
         try {
             $updatedPersonal = $service->updatePersonal($personal, $data);
-            return new PersonalResource($updatedPersonal->load(['usuario']));
+
+            return new PersonalResource($updatedPersonal->load([
+                'usuario' => fn ($q) => $q->withTrashed(),
+            ]));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al actualizar personal: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al actualizar personal: '.$e->getMessage()], 500);
         }
     }
 
@@ -142,6 +148,7 @@ class PersonalController extends Controller
     public function destroy(Personal $personal)
     {
         $personal->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

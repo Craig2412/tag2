@@ -16,12 +16,6 @@ class PagoOrdenCompra extends Model
         'id_pago',
         'id_orden_compra',
         'monto_asignado',
-        'monto_pagado',
-    ];
-
-    protected $dispatchesEvents = [
-        'saved' => \App\Events\PagoOrdenCompraGuardado::class,
-        'deleted' => \App\Events\PagoOrdenCompraGuardado::class,
     ];
 
     // Devuelve el pago asociado.

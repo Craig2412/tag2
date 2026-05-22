@@ -23,16 +23,11 @@ class Cotizacion extends Model
         'cant_viejos',
         'id_tasa_cambio',
         'fecha_vencimiento',
-        'estatus',
+        'id_estado_cotizacion',
     ];
 
     protected $casts = [
         'fecha_vencimiento' => 'date',
-    ];
-
-    protected $dispatchesEvents = [
-        'saved' => \App\Events\CotizacionGuardado::class,
-        'deleted' => \App\Events\CotizacionGuardado::class,
     ];
 
     // Expone campos calculados en el JSON automáticamente
@@ -56,10 +51,10 @@ class Cotizacion extends Model
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
     }
 
-    // Devuelve el estatus actual de la cotizacion.
-    public function estatus(): BelongsTo
+    // Devuelve el estado operativo de la cotizacion.
+    public function estadoCotizacion(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoCotizacion::class, 'id_estado_cotizacion');
     }
 
     // Lista los servicios asociados a la cotizacion.
@@ -77,7 +72,7 @@ class Cotizacion extends Model
     // Indica si la proforma ya expiró. Calculado en servidor, nunca persistido.
     public function getEstaVencidaAttribute(): bool
     {
-        if (!$this->fecha_vencimiento) {
+        if (! $this->fecha_vencimiento) {
             return false;
         }
 

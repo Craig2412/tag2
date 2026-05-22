@@ -24,7 +24,6 @@ class Servicio extends Model
         'total_servicio',
         'iva_establecido',
         'id_tasa_cambio',
-        'estatus',
     ];
 
     protected $casts = [
@@ -53,12 +52,6 @@ class Servicio extends Model
     public function tasaCambio(): BelongsTo
     {
         return $this->belongsTo(TasaCambio::class, 'id_tasa_cambio');
-    }
-
-    // Devuelve el estatus actual del servicio.
-    public function estatus(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'estatus');
     }
 
     // Lista los pagos hechos a proveedores para este servicio.

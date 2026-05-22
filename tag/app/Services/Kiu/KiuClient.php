@@ -3,7 +3,6 @@
 namespace App\Services\Kiu;
 
 use Illuminate\Http\Client\ConnectionException;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use RuntimeException;
@@ -63,7 +62,7 @@ class KiuClient
             (array) ($payload['headers'] ?? [])
         );
 
-        if (!array_key_exists('Content-Type', $headers)) {
+        if (! array_key_exists('Content-Type', $headers)) {
             $headers['Content-Type'] = $contentType;
         }
 
@@ -138,7 +137,7 @@ class KiuClient
         ];
 
         foreach ($pairs as $key => $value) {
-            if (!is_string($value) || $value === '') {
+            if (! is_string($value) || $value === '') {
                 continue;
             }
 
@@ -206,13 +205,13 @@ class KiuClient
 
     private function isMeaningfulXmlPayload(string $xmlPayload): bool
     {
-        if ($xmlPayload === '' || !str_starts_with($xmlPayload, '<')) {
+        if ($xmlPayload === '' || ! str_starts_with($xmlPayload, '<')) {
             return false;
         }
 
         $normalized = preg_replace('/\s+/', '', $xmlPayload) ?? $xmlPayload;
 
-        return !in_array($normalized, ['<KIURequest></KIURequest>', '<KIURequest/>'], true);
+        return ! in_array($normalized, ['<KIURequest></KIURequest>', '<KIURequest/>'], true);
     }
 
     private function buildAvailabilityXml(array $context): string
@@ -275,7 +274,7 @@ class KiuClient
             'origin' => $origin,
             'destination' => $destination,
         ] as $field => $value) {
-            if (!is_string($value) || trim($value) === '') {
+            if (! is_string($value) || trim($value) === '') {
                 throw new RuntimeException("Falta context.{$field} para construir automaticamente el XML de pricing.");
             }
         }
@@ -340,7 +339,7 @@ class KiuClient
     {
         $value = $context[$key] ?? null;
 
-        if (!is_string($value) || trim($value) === '') {
+        if (! is_string($value) || trim($value) === '') {
             throw new RuntimeException("Falta context.{$key} para construir automaticamente el XML de {$operation}.");
         }
 
@@ -415,7 +414,7 @@ class KiuClient
         $pairs = [];
 
         foreach ($attributes as $name => $value) {
-            if (!is_string($value) || $value === '') {
+            if (! is_string($value) || $value === '') {
                 continue;
             }
 
@@ -436,7 +435,7 @@ class KiuClient
             return $payload;
         }
 
-        if (!is_string($payload) || trim($payload) === '') {
+        if (! is_string($payload) || trim($payload) === '') {
             return [];
         }
 
@@ -509,11 +508,13 @@ class KiuClient
 
             if (in_array($normalizedKey, $sensitiveKeys, true)) {
                 $sanitized[$key] = '***';
+
                 continue;
             }
 
             if (is_array($value)) {
                 $sanitized[$key] = $this->sanitizeArray($value);
+
                 continue;
             }
 

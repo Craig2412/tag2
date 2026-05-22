@@ -2,39 +2,27 @@
 
 namespace App\Providers;
 
-use App\Services\AuditLogger;
-use App\Services\LogroPersonalLogger;
-use App\Models\Servicio;
-use App\Models\PagoOrdenCompra;
+use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
+use App\Models\Pago;
+use App\Models\PagoOrdenCompra;
+use App\Models\PagoProveedor;
+use App\Models\PagoProveedorCuenta;
+use App\Models\Servicio;
+use App\Observers\AtencionObserver;
+use App\Observers\CotizacionObserver;
+use App\Observers\OrdenCompraObserver;
+use App\Observers\PagoObserver;
+use App\Observers\PagoOrdenCompraObserver;
+use App\Observers\PagoProveedorCuentaObserver;
+use App\Observers\PagoProveedorObserver;
 use App\Observers\ServicioObserver;
-
-use App\Events\OrdenCompraGuardado;
-use App\Events\OrdenCompraAprobada;
-use App\Events\PagoOrdenCompraGuardado;
-use App\Events\PagoProveedorCreado;
-use App\Events\PagoProveedorEliminado;
-use App\Events\CotizacionGuardado;
-use App\Events\AtencionEstatusActualizado;
-use App\Events\CotizacionEstatusActualizado;
-
-use App\Listeners\SincronizarPadreOrdenCompraListener;
-use App\Listeners\SincronizarEstadoFinancieroListener;
-use App\Listeners\SincronizarFaseAtencionListener;
-use App\Listeners\GenerarCuentasPorPagarListener;
-use App\Listeners\AmortizarCuentaPorPagarListener;
-use App\Listeners\RestaurarSaldoCuentaPorPagarListener;
-use App\Listeners\RegistrarHistorialEstatusAtencionListener;
-use App\Listeners\RegistrarHistorialEstatusCotizacionListener;
+use App\Services\AuditLogger;
+use App\Services\LogroPersonalLogger;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use App\Listeners\BroadcastPermissionsChanged;
-use Spatie\Permission\Events\RoleAttached;
-use Spatie\Permission\Events\RoleDetached;
-use Spatie\Permission\Events\PermissionAttached;
-use Spatie\Permission\Events\PermissionDetached;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,46 +39,29 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // ── Observers ──────────────────────────────────────────────
+        Atencion::observe(AtencionObserver::class);
         Servicio::observe(ServicioObserver::class);
+        PagoOrdenCompra::observe(PagoOrdenCompraObserver::class);
+        PagoProveedorCuenta::observe(PagoProveedorCuentaObserver::class);
+        OrdenCompra::observe(OrdenCompraObserver::class);
+        Cotizacion::observe(CotizacionObserver::class);
+        Pago::observe(PagoObserver::class);
+        PagoProveedor::observe(PagoProveedorObserver::class);
 
-        Event::listen(OrdenCompraGuardado::class, [
-            SincronizarPadreOrdenCompraListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
+        // ── Auditoría y Logros (hooks de infraestructura) ─
+        // Los eventos de dominio se gestionan en EventServiceProvider
 
-        Event::listen(OrdenCompraAprobada::class, GenerarCuentasPorPagarListener::class);
-        
-        // Pagos de Clientes (Ingresos)
-        Event::listen(PagoOrdenCompraGuardado::class, SincronizarEstadoFinancieroListener::class);
-        
-        // Pagos a Proveedores (Egresos)
-        Event::listen(PagoProveedorCreado::class, [
-            AmortizarCuentaPorPagarListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
-        Event::listen(PagoProveedorEliminado::class, [
-            RestaurarSaldoCuentaPorPagarListener::class,
-            SincronizarEstadoFinancieroListener::class,
-        ]);
-
-        Event::listen(CotizacionGuardado::class, SincronizarFaseAtencionListener::class);
-
-        // Historial de cambios de estatus operativo
-        Event::listen(AtencionEstatusActualizado::class, RegistrarHistorialEstatusAtencionListener::class);
-        Event::listen(CotizacionEstatusActualizado::class, RegistrarHistorialEstatusCotizacionListener::class);
-
+        // AuditLogger: todos los modelos
         Event::listen('eloquent.updating: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
-
             if ($model instanceof Model) {
                 AuditLogger::captureBeforeUpdate($model);
-                LogroPersonalLogger::captureBeforeUpdate($model);
             }
         });
 
         Event::listen('eloquent.deleting: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
-
             if ($model instanceof Model) {
                 AuditLogger::captureBeforeDelete($model);
             }
@@ -98,7 +69,6 @@ class AppServiceProvider extends ServiceProvider
 
         Event::listen('eloquent.created: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
-
             if ($model instanceof Model) {
                 AuditLogger::logModelCreated($model);
             }
@@ -106,25 +76,37 @@ class AppServiceProvider extends ServiceProvider
 
         Event::listen('eloquent.updated: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
-
             if ($model instanceof Model) {
                 AuditLogger::logModelUpdated($model);
-                LogroPersonalLogger::logStatusChange($model);
             }
         });
 
         Event::listen('eloquent.deleted: *', function (string $eventName, array $data): void {
             $model = $data[0] ?? null;
-
             if ($model instanceof Model) {
                 AuditLogger::logModelDeleted($model);
             }
         });
 
-        // Register listeners for Spatie Permission events to sync session via WebSockets
-        Event::listen(RoleAttached::class, BroadcastPermissionsChanged::class);
-        Event::listen(RoleDetached::class, BroadcastPermissionsChanged::class);
-        Event::listen(PermissionAttached::class, BroadcastPermissionsChanged::class);
-        Event::listen(PermissionDetached::class, BroadcastPermissionsChanged::class);
+        // LogroPersonalLogger: solo modelos trackeables (Atencion, Cotizacion, OrdenCompra)
+        $trackeables = [
+            \App\Models\Atencion::class,
+            \App\Models\Cotizacion::class,
+            \App\Models\OrdenCompra::class,
+        ];
+
+        foreach ($trackeables as $modelClass) {
+            Event::listen("eloquent.updating: {$modelClass}", function ($model): void {
+                if ($model instanceof Model) {
+                    LogroPersonalLogger::captureBeforeUpdate($model);
+                }
+            });
+
+            Event::listen("eloquent.updated: {$modelClass}", function ($model): void {
+                if ($model instanceof Model) {
+                    LogroPersonalLogger::logStatusChange($model);
+                }
+            });
+        }
     }
 }

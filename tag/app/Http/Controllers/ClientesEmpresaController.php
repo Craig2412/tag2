@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ClienteEmpresa;
-use App\Models\Cliente;
 use App\Http\Resources\ClienteEmpresaResource;
+use App\Models\Cliente;
+use App\Models\ClienteEmpresa;
 use Illuminate\Http\Request;
 
 class ClientesEmpresaController extends Controller
@@ -14,10 +14,31 @@ class ClientesEmpresaController extends Controller
      *
      * Devuelve todas las relaciones registradas entre clientes y empresas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Lista los enlaces cliente-empresa y los devuelve en JSON.
-        return ClienteEmpresaResource::collection(ClienteEmpresa::orderBy('id')->get());
+        $query = ClienteEmpresa::query();
+
+        // Soporte para filtros
+        if ($request->has('id_empresa')) {
+            $query->where('id_empresas', $request->id_empresa);
+        } elseif ($request->has('id_empresas')) {
+            $query->where('id_empresas', $request->id_empresas);
+        }
+
+        if ($request->has('id_cliente')) {
+            $query->where('id_cliente', $request->id_cliente);
+        }
+
+        // Soporte para carga de relaciones
+        if ($request->has('include')) {
+            $allowed = ['cliente', 'empresa'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        return ClienteEmpresaResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -30,6 +51,10 @@ class ClientesEmpresaController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->has('id_empresa') && ! $request->has('id_empresas')) {
+            $request->merge(['id_empresas' => $request->id_empresa]);
+        }
+
         // Crea un enlace entre cliente y empresa validando el rol.
         $data = $request->validate([
             'id_cliente' => ['required', 'exists:clientes,id'],
@@ -38,9 +63,9 @@ class ClientesEmpresaController extends Controller
 
         $cliente = Cliente::find($data['id_cliente']);
 
-        if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+        /* if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
             return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
-        }
+        } */
 
         $item = ClienteEmpresa::create($data);
 
@@ -68,6 +93,10 @@ class ClientesEmpresaController extends Controller
      */
     public function update(Request $request, ClienteEmpresa $clientesEmpresa)
     {
+        if ($request->has('id_empresa') && ! $request->has('id_empresas')) {
+            $request->merge(['id_empresas' => $request->id_empresa]);
+        }
+
         // Actualiza un enlace y valida el rol del cliente si cambia.
         $data = $request->validate([
             'id_cliente' => ['sometimes', 'required', 'exists:clientes,id'],
@@ -76,7 +105,7 @@ class ClientesEmpresaController extends Controller
 
         if (isset($data['id_cliente'])) {
             $cliente = Cliente::find($data['id_cliente']);
-            if (!$cliente || !$cliente->usuario->hasRole('cliente')) {
+            if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
                 return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
             }
         }

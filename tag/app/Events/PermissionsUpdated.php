@@ -20,7 +20,7 @@ class PermissionsUpdated implements ShouldBroadcastNow
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @param int $userId - The ID of the user whose permissions changed.
+     * @param  int  $userId  - The ID of the user whose permissions changed.
      */
     public function __construct(public readonly int $userId)
     {

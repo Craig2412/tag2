@@ -17,22 +17,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('metas_personal', function (Blueprint $table) {
-            // Monto objetivo (nullable para mantener compatibilidad con registros existentes)
-            $table->decimal('monto', 12, 2)->nullable()->after('id_personal')
+            // Monto objetivo
+            $table->decimal('monto', 12, 2)->after('id_personal')
                 ->comment('Monto objetivo de la meta personal');
 
             // FK a temporalidades
             $table->foreignId('id_temporalidad')
-                ->nullable()
                 ->after('monto')
                 ->constrained('temporalidades')
                 ->comment('Temporalidad de la meta (semanal, mensual, anual)');
 
             // Rango de fechas del período
-            $table->date('fecha_inicio')->nullable()->after('id_temporalidad')
+            $table->date('fecha_inicio')->after('id_temporalidad')
                 ->comment('Inicio del período de evaluación');
 
-            $table->date('fecha_fin')->nullable()->after('fecha_inicio')
+            $table->date('fecha_fin')->after('fecha_inicio')
                 ->comment('Fin del período de evaluación');
         });
     }

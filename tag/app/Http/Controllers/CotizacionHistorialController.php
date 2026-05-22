@@ -9,23 +9,34 @@ class CotizacionHistorialController extends Controller
 {
     public function index()
     {
-        return CotizacionHistorial::all();
+        return CotizacionHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'cotizacion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->get();
     }
 
     public function show($id)
     {
-        return CotizacionHistorial::findOrFail($id);
+        return CotizacionHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'cotizacion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             'cotizacion_id' => 'required|exists:cotizaciones,id',
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_cotizaciones,id',
+            'id_estado_nuevo' => 'required|exists:estados_cotizaciones,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
+
         return CotizacionHistorial::create($data);
     }
 
@@ -33,12 +44,13 @@ class CotizacionHistorialController extends Controller
     {
         $historial = CotizacionHistorial::findOrFail($id);
         $data = $request->validate([
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_cotizaciones,id',
+            'id_estado_nuevo' => 'required|exists:estados_cotizaciones,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);
+
         return $historial;
     }
 
@@ -46,6 +58,7 @@ class CotizacionHistorialController extends Controller
     {
         $historial = CotizacionHistorial::findOrFail($id);
         $historial->delete();
+
         return response()->json(['message' => 'Deleted']);
     }
 }

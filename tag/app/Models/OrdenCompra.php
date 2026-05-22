@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\CuentaPorPagar;
+use App\Models\EstadoFinanciero;
+use App\Models\PagoProveedorCuenta;
+use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrdenCompra extends Model
 {
@@ -17,9 +22,9 @@ class OrdenCompra extends Model
 
     protected $fillable = [
         'id_cotizacion',
-        'estatus', // Estatus Operativo
-        'id_estado_financiero', // Relacion catalogo
-        'id_estado_financiero_egreso', // Nuevo: Relación para egresos (proveedores)
+        'id_estado_orden_compra',      // Estado operativo propio catálogo
+        'id_estado_financiero',        // Estado financiero (ingresos cliente)
+        'id_estado_financiero_egreso', // Estado financiero (egresos proveedor)
         'monto_total',
     ];
 
@@ -36,10 +41,10 @@ class OrdenCompra extends Model
         return $this->belongsTo(Cotizacion::class, 'id_cotizacion');
     }
 
-    // Devuelve el estatus actual de la orden.
-    public function estatus(): BelongsTo
+    // Devuelve el estado operativo actual de la orden.
+    public function estadoOrdenCompra(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoOrdenCompra::class, 'id_estado_orden_compra');
     }
 
     // Devuelve el estado financiero actual.
@@ -79,6 +84,118 @@ class OrdenCompra extends Model
         }
 
         $this->forceFill(['monto_total' => $montoTotal])->save();
+    }
+
+    /**
+     * Sincroniza las Cuentas por Pagar con los servicios actuales de la cotización.
+     * Crea, actualiza o elimina CxP según los proveedores presentes en los servicios.
+     */
+    public function sincronizarCuentasPorPagar(): void
+    {
+        // Si la OC está anulada, no sincronizar CxP (ya fueron limpiadas)
+        if ($this->estadoOrdenCompra && $this->estadoOrdenCompra->slug === 'anulada') {
+            return;
+        }
+
+        $servicios = Servicio::where('id_cotizacion', $this->id_cotizacion)->get();
+        $porProveedor = $servicios->groupBy('id_proveedor');
+
+        $estadoPendienteId = EstadoFinanciero::where('slug', 'pendiente')->value('id') ?: 1;
+
+        $proveedoresConServicios = $porProveedor->keys()->toArray();
+
+        foreach ($porProveedor as $idProveedor => $servs) {
+            $montoTotal = $servs->sum('costo');
+
+            $cuenta = CuentaPorPagar::where('id_orden_compra', $this->id)
+                ->where('id_proveedor', $idProveedor)
+                ->first();
+
+            if ($cuenta) {
+                // Preservar lo ya pagado: saldo = max(0, nuevo_monto - total_pagado)
+                $totalPagado = (float) $cuenta->pagos()->sum('monto_asignado');
+                $nuevoSaldo = max(0, $montoTotal - $totalPagado);
+
+                $cuenta->update([
+                    'monto_total' => $montoTotal,
+                    'saldo_pendiente' => $nuevoSaldo,
+                ]);
+
+                $this->actualizarEstadoFinancieroCuenta($cuenta);
+            } else {
+                $cuenta = CuentaPorPagar::create([
+                    'id_orden_compra' => $this->id,
+                    'id_proveedor' => $idProveedor,
+                    'monto_total' => $montoTotal,
+                    'saldo_pendiente' => $montoTotal,
+                    'id_estado_financiero' => $estadoPendienteId,
+                ]);
+            }
+        }
+
+        // Soft-delete de CxP cuyos proveedores ya no tienen servicios en la cotización
+        $eliminadas = CuentaPorPagar::where('id_orden_compra', $this->id)
+            ->whereNotIn('id_proveedor', $proveedoresConServicios)
+            ->delete();
+
+        if ($eliminadas > 0) {
+            Log::info("{$eliminadas} Cuenta(s) por Pagar eliminada(s) por falta de servicios en OC #{$this->id}");
+        }
+
+        // Sincronizar estado de egreso de la OC
+        \App\Services\OrdenStateService::sincronizarEgreso($this);
+    }
+
+    /**
+     * Recalcula el estado financiero de una Cuenta por Pagar según su saldo pendiente.
+     */
+    private function actualizarEstadoFinancieroCuenta(CuentaPorPagar $cuenta): void
+    {
+        $slugEstado = 'parcial';
+        if ($cuenta->saldo_pendiente <= 0) {
+            $slugEstado = 'pagado';
+        } elseif ($cuenta->saldo_pendiente >= $cuenta->monto_total) {
+            $slugEstado = 'pendiente';
+        }
+
+        $estado = EstadoFinanciero::where('slug', $slugEstado)->first();
+        if ($estado && $cuenta->id_estado_financiero !== $estado->id) {
+            $cuenta->update(['id_estado_financiero' => $estado->id]);
+        }
+    }
+
+    /**
+     * Revierte los pagos asignados, borra los pivotes y da soft-delete
+     * a todas las Cuentas por Pagar de esta Orden de Compra.
+     *
+     * Usado tanto por el Observer (delete) como por el Listener (anulación).
+     *
+     * @return int Número de CxP eliminadas.
+     */
+    public function limpiarCuentasPorPagar(): int
+    {
+        $cuentas = $this->cuentasPorPagar()->get();
+        $contador = 0;
+
+        foreach ($cuentas as $cuenta) {
+            // Revertir el saldo pendiente con los pagos ya asignados
+            $totalAsignado = PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)
+                ->sum('monto_asignado');
+
+            if ($totalAsignado > 0) {
+                $cuenta->saldo_pendiente += $totalAsignado;
+                $cuenta->save();
+            }
+
+            // Borrar los pivotes (hard delete vía query builder, sin disparar observers)
+            PagoProveedorCuenta::where('id_cuenta_por_pagar', $cuenta->id)->delete();
+
+            // Soft-delete de la cuenta por pagar
+            $cuenta->delete();
+            $contador++;
+        }
+
+        return $contador;
     }
 
     // Suma todos los abonos activos asignados a esta orden.

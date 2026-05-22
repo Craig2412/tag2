@@ -9,9 +9,7 @@ use RuntimeException;
 
 class KiuController extends Controller
 {
-    public function __construct(private readonly KiuClient $kiuClient)
-    {
-    }
+    public function __construct(private readonly KiuClient $kiuClient) {}
 
     /**
      * Abrir sesion en Kiu

@@ -10,9 +10,9 @@ class EstatusResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'     => $this->id,
+            'id' => $this->id,
             'nombre' => $this->estatus,
-            'color'  => $this->color ?? null,
+            'color' => $this->color ?? null,
         ];
     }
 }

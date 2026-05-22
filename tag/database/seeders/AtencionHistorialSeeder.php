@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\AtencionHistorial;
+use Illuminate\Database\Seeder;
 
 class AtencionHistorialSeeder extends Seeder
 {

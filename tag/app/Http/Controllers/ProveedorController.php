@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proveedor;
 use App\Http\Resources\ProveedorResource;
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -14,14 +14,25 @@ class ProveedorController extends Controller
      *
      * Devuelve todos los proveedores activos del sistema, incluyendo su clasificación y atribución fiscal.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // El Scope SoftDeletes automáticamente filtra los eliminados
-        $proveedores = Proveedor::with(['tipoProveedor', 'tipoContribuyente'])
-            ->orderBy('id')
-            ->get();
+        $query = Proveedor::query();
 
-        return ProveedorResource::collection($proveedores);
+        if ($request->has('include')) {
+            $allowed = ['tipoProveedor', 'tipoContribuyente', 'tiposServicio', 'cuentas'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'tipoProveedor' || $include === 'tipoContribuyente') {
+                        return [$include => fn ($q) => $q->withTrashed()];
+                    }
+
+                    return [$include => fn ($q) => $q];
+                })->toArray());
+            }
+        }
+
+        return ProveedorResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -38,6 +49,12 @@ class ProveedorController extends Controller
      * @bodyParam tipo_proveedor int required ID del tipo de proveedor. Ejemplo: 1
      * @bodyParam id_tipo_contribuyente int required ID de la denominación fiscal/contribuyente. Ejemplo: 1
      * @bodyParam estatus int required ID del estatus. Ejemplo: 1
+     * @bodyParam tipos_servicio int[] Lista de IDs de Tipos de Servicio autorizados. Example: [1, 2]
+     * @bodyParam cuentas object[] Lista de cuentas bancarias asociadas al proveedor.
+     * @bodyParam cuentas[].numero_cuenta string required El número de la cuenta. Example: 01021111222233334444
+     * @bodyParam cuentas[].nombre_banco int required ID de la entidad bancaria. Example: 1
+     * @bodyParam cuentas[].tipo_cuenta string required Tipo de cuenta bancaria. Example: Corriente
+     * @bodyParam cuentas[].moneda string required Moneda de la cuenta. Example: VES
      */
     public function store(Request $request)
     {
@@ -48,14 +65,33 @@ class ProveedorController extends Controller
             'correo_empresa' => ['required', 'email', 'max:255', 'unique:proveedores,correo_empresa'],
             'telefono_empresa' => ['nullable', 'string', 'max:50'],
             'nombre_persona_contacto' => ['required', 'string', 'max:255'],
-            'tipo_proveedor' => ['required', 'exists:tipos_proveedores,id'],
-            'id_tipo_contribuyente' => ['required', 'exists:tipos_contribuyentes,id'],
-            'estatus' => ['required', 'exists:estatus,id'],
+            'tipo_proveedor' => ['required', Rule::exists('tipos_proveedores', 'id')->whereNull('deleted_at')],
+            'id_tipo_contribuyente' => ['required', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
+            'tipos_servicio' => ['nullable', 'array'],
+            'tipos_servicio.*' => [Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'cuentas' => ['nullable', 'array'],
+            'cuentas.*.numero_cuenta' => ['required', 'string', 'max:255'],
+            'cuentas.*.nombre_banco' => ['required', 'string', 'max:255'],
+            'cuentas.*.tipo_cuenta' => ['required', 'string', 'max:255'],
+            'cuentas.*.moneda' => ['required', 'string', 'max:255'],
         ]);
 
         $proveedor = Proveedor::create($data);
 
-        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
+        if (isset($data['tipos_servicio'])) {
+            $proveedor->tiposServicio()->sync($data['tipos_servicio']);
+        }
+
+        if (isset($data['cuentas']) && count($data['cuentas']) > 0) {
+            $proveedor->cuentas()->createMany($data['cuentas']);
+        }
+
+        return new ProveedorResource($proveedor->load([
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+            'tiposServicio',
+            'cuentas',
+        ]));
     }
 
     /**
@@ -65,7 +101,12 @@ class ProveedorController extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
+        return new ProveedorResource($proveedor->load([
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+            'tiposServicio',
+            'cuentas',
+        ]));
     }
 
     /**
@@ -82,6 +123,13 @@ class ProveedorController extends Controller
      * @bodyParam tipo_proveedor int ID del tipo de proveedor.
      * @bodyParam id_tipo_contribuyente int ID de la denominación fiscal/contribuyente.
      * @bodyParam estatus int ID del estatus.
+     * @bodyParam tipos_servicio int[] Lista de IDs de Tipos de Servicio autorizados.
+     * @bodyParam cuentas object[] Lista de cuentas bancarias asociadas al proveedor.
+     * @bodyParam cuentas[].id int Opcional. ID de la cuenta para actualizar una existente.
+     * @bodyParam cuentas[].numero_cuenta string El número de la cuenta.
+     * @bodyParam cuentas[].nombre_banco string Nombre del banco.
+     * @bodyParam cuentas[].tipo_cuenta string Tipo de cuenta bancaria.
+     * @bodyParam cuentas[].moneda string Moneda de la cuenta.
      */
     public function update(Request $request, Proveedor $proveedor)
     {
@@ -104,14 +152,46 @@ class ProveedorController extends Controller
             ],
             'telefono_empresa' => ['sometimes', 'nullable', 'string', 'max:50'],
             'nombre_persona_contacto' => ['sometimes', 'required', 'string', 'max:255'],
-            'tipo_proveedor' => ['sometimes', 'required', 'exists:tipos_proveedores,id'],
-            'id_tipo_contribuyente' => ['sometimes', 'required', 'exists:tipos_contribuyentes,id'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'tipo_proveedor' => ['sometimes', 'required', Rule::exists('tipos_proveedores', 'id')->whereNull('deleted_at')],
+            'id_tipo_contribuyente' => ['sometimes', 'required', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
+            'tipos_servicio' => ['nullable', 'array'],
+            'tipos_servicio.*' => [Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'cuentas' => ['nullable', 'array'],
+            'cuentas.*.id' => ['nullable', 'exists:cuentas_proveedores,id'],
+            'cuentas.*.numero_cuenta' => ['required', 'string', 'max:255'],
+            'cuentas.*.nombre_banco' => ['required', 'string', 'max:255'],
+            'cuentas.*.tipo_cuenta' => ['required', 'string', 'max:255'],
+            'cuentas.*.moneda' => ['required', 'string', 'max:255'],
         ]);
 
         $proveedor->update($data);
 
-        return new ProveedorResource($proveedor->load(['tipoProveedor', 'tipoContribuyente']));
+        if (isset($data['tipos_servicio'])) {
+            $proveedor->tiposServicio()->sync($data['tipos_servicio']);
+        }
+
+        if (isset($data['cuentas'])) {
+            // Eliminar cuentas que no vinieron en la solicitud
+            $cuentasIds = collect($data['cuentas'])->pluck('id')->filter()->toArray();
+            $proveedor->cuentas()->whereNotIn('id', $cuentasIds)->delete();
+
+            foreach ($data['cuentas'] as $cuentaData) {
+                if (isset($cuentaData['id'])) {
+                    // Update existing
+                    $proveedor->cuentas()->where('id', $cuentaData['id'])->update($cuentaData);
+                } else {
+                    // Create new
+                    $proveedor->cuentas()->create($cuentaData);
+                }
+            }
+        }
+
+        return new ProveedorResource($proveedor->load([
+            'tipoProveedor' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+            'tiposServicio',
+            'cuentas',
+        ]));
     }
 
     /**

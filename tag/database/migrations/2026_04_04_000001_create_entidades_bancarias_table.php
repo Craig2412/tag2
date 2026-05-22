@@ -4,13 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('entidades_bancarias', function (Blueprint $table) {
             $table->id();
             $table->string('entidad');
-            $table->foreignId('estatus')->nullable()->constrained('estatus');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

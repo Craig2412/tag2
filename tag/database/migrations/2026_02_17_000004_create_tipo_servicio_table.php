@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('tipo_servicio');
             $table->decimal('iva_defecto', 5, 2)->nullable();
-            $table->foreignId('id_proveedor')->constrained('proveedores');
             $table->timestamps();
             $table->softDeletes();
         });

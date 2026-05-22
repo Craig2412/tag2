@@ -6,6 +6,7 @@ use App\Models\Cotizacion;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class CotizacionEstatusActualizado
 {
@@ -16,5 +17,8 @@ class CotizacionEstatusActualizado
         public readonly ?int $estatusAnterior,
         public readonly int $estatusNuevo,
         public readonly ?string $comentario = 'Cambio de estatus desde API',
-    ) {}
+        public ?int $usuarioId = null,
+    ) {
+        $this->usuarioId = $this->usuarioId ?: Auth::id();
+    }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ClienteResource;
 use App\Models\Cliente;
 use App\Models\Estatus;
 use App\Services\ClienteService;
-use App\Http\Resources\ClienteResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -23,8 +23,14 @@ class ClienteController extends Controller
         if ($request->has('include')) {
             $allowed = ['usuario', 'tipoContribuyente'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (!empty($includes)) {
-                $query->with($includes);
+            if (! empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'tipoContribuyente' || $include === 'usuario') {
+                        return [$include => fn ($q) => $q->withTrashed()];
+                    }
+
+                    return [$include => fn ($q) => $q];
+                })->toArray());
             }
         }
 
@@ -46,14 +52,13 @@ class ClienteController extends Controller
     public function store(Request $request, ClienteService $service)
     {
         $data = $request->validate([
-            'usuario_id' => ['nullable', 'exists:usuarios,id'],
+            'usuario_id' => ['nullable', Rule::exists('usuarios', 'id')->whereNull('deleted_at')],
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
             'cedula' => ['nullable', 'string', 'max:255'],
             'telefono' => ['nullable', 'string', 'max:255'],
             'correo_contacto' => ['nullable', 'email', 'max:255'],
-            'id_tipo_contribuyente' => ['nullable', 'exists:tipos_contribuyentes,id'],
-            'id_estatus' => ['nullable', 'exists:estatus,id'],
+            'id_tipo_contribuyente' => ['nullable', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
 
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
@@ -65,18 +70,17 @@ class ClienteController extends Controller
             'usuario.roles.*' => ['exists:roles,name'],
         ]);
 
-        if (!isset($data['id_estatus'])) {
-            $estatusActivo = Estatus::where('estatus', 'activo')->first();
-            $data['id_estatus'] = $estatusActivo?->id;
-        }
-
         try {
             $item = $service->createCliente($data);
-            return (new ClienteResource($item->load(['usuario', 'tipoContribuyente'])))
+
+            return (new ClienteResource($item->load([
+                'usuario' => fn ($q) => $q->withTrashed(),
+                'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+            ])))
                 ->response()
                 ->setStatusCode(201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al crear cliente: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al crear cliente: '.$e->getMessage()], 500);
         }
     }
 
@@ -85,7 +89,10 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return new ClienteResource($cliente->load(['usuario', 'tipoContribuyente']));
+        return new ClienteResource($cliente->load([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+        ]));
     }
 
     /**
@@ -103,24 +110,23 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente, ClienteService $service)
     {
         $data = $request->validate([
-            'usuario_id' => ['sometimes', 'nullable', 'exists:usuarios,id'],
+            'usuario_id' => ['sometimes', 'nullable', Rule::exists('usuarios', 'id')->whereNull('deleted_at')],
             'nombre' => ['sometimes', 'required', 'string', 'max:255'],
             'apellido' => ['sometimes', 'required', 'string', 'max:255'],
             'cedula' => ['sometimes', 'nullable', 'string', 'max:255'],
             'telefono' => ['sometimes', 'nullable', 'string', 'max:255'],
             'correo_contacto' => ['sometimes', 'nullable', 'email', 'max:255'],
-            'id_tipo_contribuyente' => ['sometimes', 'nullable', 'exists:tipos_contribuyentes,id'],
-            'id_estatus' => ['sometimes', 'nullable', 'exists:estatus,id'],
+            'id_tipo_contribuyente' => ['sometimes', 'nullable', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
 
             // Datos anidados del usuario
             'usuario' => ['sometimes', 'array'],
             'usuario.nombre_usuario' => [
-                'sometimes', 'string', 'max:255', 
-                $cliente->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($cliente->usuario_id) : ''
+                'sometimes', 'string', 'max:255',
+                $cliente->usuario_id ? Rule::unique('usuarios', 'nombre_usuario')->ignore($cliente->usuario_id) : '',
             ],
             'usuario.correo' => [
-                'sometimes', 'email', 
-                $cliente->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($cliente->usuario_id) : ''
+                'sometimes', 'email',
+                $cliente->usuario_id ? Rule::unique('usuarios', 'correo')->ignore($cliente->usuario_id) : '',
             ],
             'usuario.clave' => ['sometimes', 'nullable', 'string', 'min:8'],
             'usuario.esta_activo' => ['sometimes', 'boolean'],
@@ -130,9 +136,13 @@ class ClienteController extends Controller
 
         try {
             $updatedCliente = $service->updateCliente($cliente, $data);
-            return new ClienteResource($updatedCliente->load(['usuario', 'tipoContribuyente']));
+
+            return new ClienteResource($updatedCliente->load([
+                'usuario' => fn ($q) => $q->withTrashed(),
+                'tipoContribuyente' => fn ($q) => $q->withTrashed(),
+            ]));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Error al actualizar cliente: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al actualizar cliente: '.$e->getMessage()], 500);
         }
     }
 
@@ -142,6 +152,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

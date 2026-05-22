@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConfiguracionSistema;
 use App\Http\Resources\ConfiguracionSistemaResource;
+use App\Models\ConfiguracionSistema;
 use Illuminate\Http\Request;
 
 class ConfiguracionSistemaController extends Controller

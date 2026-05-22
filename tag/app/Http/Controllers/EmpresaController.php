@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empresa;
 use App\Http\Resources\EmpresaResource;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -14,10 +14,25 @@ class EmpresaController extends Controller
      *
      * Devuelve el listado completo de empresas registradas en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Lista las empresas y las devuelve en JSON.
-        return EmpresaResource::collection(Empresa::orderBy('id')->get());
+        $query = Empresa::query();
+
+        if ($request->has('include')) {
+            $allowed = ['tipoContribuyente'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'tipoContribuyente') {
+                        return [$include => fn ($q) => $q->withTrashed()];
+                    }
+
+                    return [$include => fn ($q) => $q];
+                })->toArray());
+            }
+        }
+
+        return EmpresaResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -43,11 +58,11 @@ class EmpresaController extends Controller
             'numero_telefono' => ['nullable', 'string', 'max:50'],
             'correo_electronico' => ['nullable', 'email', 'max:255'],
             'direccion' => ['nullable', 'string', 'max:255'],
-            'id_tipo_contribuyente' => ['required', 'exists:tipos_contribuyentes,id'],
+            'id_tipo_contribuyente' => ['required', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
         ]);
 
         $item = Empresa::create($data);
-        $item->load(['tipoContribuyente']);
+        $item->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]);
 
         return new EmpresaResource($item);
     }
@@ -60,7 +75,7 @@ class EmpresaController extends Controller
     public function show(Empresa $empresa)
     {
         // Muestra una empresa por id.
-        return new EmpresaResource($empresa);
+        return new EmpresaResource($empresa->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]));
     }
 
     /**
@@ -92,11 +107,11 @@ class EmpresaController extends Controller
             'numero_telefono' => ['sometimes', 'nullable', 'string', 'max:50'],
             'correo_electronico' => ['sometimes', 'nullable', 'email', 'max:255'],
             'direccion' => ['sometimes', 'nullable', 'string', 'max:255'],
-            'id_tipo_contribuyente' => ['sometimes', 'required', 'exists:tipos_contribuyentes,id'],
+            'id_tipo_contribuyente' => ['sometimes', 'required', Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at')],
         ]);
 
         $empresa->update($data);
-        $empresa->load(['tipoContribuyente']);
+        $empresa->load(['tipoContribuyente' => fn ($q) => $q->withTrashed()]);
 
         return new EmpresaResource($empresa);
     }

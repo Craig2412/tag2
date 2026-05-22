@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('label');
             $table->string('color')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

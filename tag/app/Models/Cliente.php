@@ -19,7 +19,6 @@ class Cliente extends Model
         'telefono',
         'correo_contacto',
         'id_tipo_contribuyente',
-        'id_estatus',
     ];
 
     public function tipoContribuyente(): \Illuminate\Database\Eloquent\Relations\BelongsTo

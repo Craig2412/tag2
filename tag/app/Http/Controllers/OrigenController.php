@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Origen;
 use App\Http\Resources\OrigenResource;
+use App\Models\Origen;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,7 +22,7 @@ class OrigenController extends Controller
 
     /**
      * Crear un nuevo origen
-     * 
+     *
      * @bodyParam red string required Nombre de la red social o canal de origen. Ejemplo: Instagram
      */
     public function store(Request $request)
@@ -50,7 +50,7 @@ class OrigenController extends Controller
 
     /**
      * Actualizar un origen existente
-     * 
+     *
      * @bodyParam red string required Nombre de la red social o canal.
      */
     public function update(Request $request, Origen $origen)

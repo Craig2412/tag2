@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LogroPersonal;
 use App\Http\Resources\LogroPersonalResource;
+use App\Models\LogroPersonal;
 use Illuminate\Http\Request;
 
 class LogroPersonalController extends Controller

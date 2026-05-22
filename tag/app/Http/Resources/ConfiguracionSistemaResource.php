@@ -10,10 +10,10 @@ class ConfiguracionSistemaResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'                => $this->id,
-            'dias_vencimiento'  => $this->dias_vencimiento,
-            'created_at'        => $this->created_at,
-            'updated_at'        => $this->updated_at,
+            'id' => $this->id,
+            'dias_vencimiento' => $this->dias_vencimiento,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

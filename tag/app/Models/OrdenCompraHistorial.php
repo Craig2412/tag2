@@ -9,12 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class OrdenCompraHistorial extends Model
 {
     use HasFactory;
+
     protected $table = 'orden_compra_historial';
+
     protected $fillable = [
         'orden_compra_id',
-        'estatus_anterior',
-        'estatus_nuevo',
+        'id_estado_anterior',
+        'id_estado_nuevo',
         'usuario_id',
+        'comentario',
     ];
 
     public function usuario(): BelongsTo
@@ -27,13 +30,13 @@ class OrdenCompraHistorial extends Model
         return $this->belongsTo(OrdenCompra::class, 'orden_compra_id');
     }
 
-    public function estatusAnteriorObj(): BelongsTo
+    public function estadoAnteriorObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_anterior');
+        return $this->belongsTo(EstadoOrdenCompra::class, 'id_estado_anterior');
     }
 
-    public function estatusNuevoObj(): BelongsTo
+    public function estadoNuevoObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_nuevo');
+        return $this->belongsTo(EstadoOrdenCompra::class, 'id_estado_nuevo');
     }
 }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Atencion;
 use App\Models\Cotizacion;
-use App\Models\Estatus;
+use App\Models\EstadoCotizacion;
 use App\Models\TasaCambio;
 use App\Models\TipoCotizacion;
 use Illuminate\Database\Seeder;
@@ -17,11 +17,16 @@ class CotizacionesSeeder extends Seeder
         $tasaCambio = TasaCambio::first();
         $tipo = TipoCotizacion::where('tipo_cotizacion', 'personal')->first();
 
-        if (!$atencion || !$tasaCambio || !$tipo) {
+        if (! $atencion || ! $tasaCambio || ! $tipo) {
             return;
         }
 
-        $estatus = Estatus::firstOrCreate(['estatus' => 'por confirmar']);
+        $estadoPendiente = EstadoCotizacion::where('slug', 'pendiente')->first();
+        if (! $estadoPendiente) {
+            $this->command->error('No se encontró el estado_cotizacion "pendiente".');
+
+            return;
+        }
 
         Cotizacion::firstOrCreate(
             ['id_atencion' => $atencion->id],
@@ -32,7 +37,7 @@ class CotizacionesSeeder extends Seeder
                 'id_tipo_cotizacion' => $tipo->id,
                 'id_tasa_cambio' => $tasaCambio->id,
                 'fecha_vencimiento' => now()->addDays(15),
-                'estatus' => $estatus->id,
+                'id_estado_cotizacion' => $estadoPendiente->id,
             ]
         );
     }

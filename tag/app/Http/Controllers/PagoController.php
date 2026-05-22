@@ -2,25 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estatus;
-use App\Models\OrdenCompra;
+use App\Http\Resources\PagoResource;
+use App\Models\EstadoConciliacion;
+use App\Models\MetodoPago;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
-use App\Http\Resources\PagoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class PagoController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Pago::class, 'pago');
+    }
+
     /**
      * Listar todos los pagos de clientes
      *
      * Devuelve todos los pagos activos registrados en el sistema.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Pago::orderBy('id')->get();
-        return PagoResource::collection($items);
+        $query = Pago::query();
+
+        // Soporte para relaciones
+        if ($request->has('include')) {
+            $allowed = ['metodoPago', 'entidadBancaria', 'tasaCambio', 'estadoConciliacion', 'ordenesCompra'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                $query->with(collect($includes)->mapWithKeys(function ($include) {
+                    if ($include === 'entidadBancaria' || $include === 'metodoPago') {
+                        return [$include => fn ($q) => $q->withTrashed()];
+                    }
+
+                    return [$include => fn ($q) => $q];
+                })->toArray());
+            }
+        }
+
+        return PagoResource::collection($query->orderBy('id')->get());
     }
 
     /**
@@ -33,8 +55,8 @@ class PagoController extends Controller
      * @bodyParam id_metodo_pago int required ID del método de pago. Ejemplo: 1
      * @bodyParam nro_comprobante string required Número de referencia o comprobante. Ejemplo: REF-998877
      * @bodyParam id_tasa_cambio int required ID de la tasa de cambio aplicada. Ejemplo: 1
-     * @bodyParam id_entidad_bancaria int required ID de la entidad bancaria. Ejemplo: 1
-     * @bodyParam estatus int required ID del estatus del pago. Ejemplo: 1
+     * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Requerido si el método de pago es bancario. Null si es Efectivo. Ejemplo: 1
+     * @bodyParam id_estado_conciliacion int ID del estado de conciliación del pago. Ejemplo: 1
      * @bodyParam ordenes_compra object[] required Distribución en órdenes de compra.
      * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
      * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado a esta orden. Ejemplo: 500.00
@@ -44,16 +66,28 @@ class PagoController extends Controller
         $data = $request->validate([
             'fecha_pago' => ['required', 'date'],
             'monto_total' => ['required', 'numeric', 'min:0.01'],
-            'id_metodo_pago' => ['required', 'exists:metodos_pago,id'],
+            'id_metodo_pago' => ['required', Rule::exists('metodos_pago', 'id')->whereNull('deleted_at')],
             'nro_comprobante' => ['required', 'string', 'max:255'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['required', 'exists:entidades_bancarias,id'],
-            'estatus' => ['required', 'exists:estatus,id'],
+            'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
             'ordenes_compra' => ['required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
-            'comprobante_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:4096'], // 4MB max
+            'comprobante_pdf' => ['nullable', 'file', 'mimes:pdf', 'max:4096'],
         ]);
+
+        // Validación dinámica: si el método de pago tiene entidades bancarias asociadas, la entidad es obligatoria
+        $metodoPago = MetodoPago::with('entidadesBancarias')->find($data['id_metodo_pago']);
+        if ($metodoPago->entidadesBancarias->isNotEmpty() && empty($data['id_entidad_bancaria'])) {
+            return response()->json([
+                'message' => 'El método de pago seleccionado requiere una entidad bancaria.',
+                'errors' => ['id_entidad_bancaria' => ['Debe seleccionar una entidad bancaria para este método de pago.']],
+            ], 422);
+        }
+        // Si el método no tiene bancos (ej. Efectivo), forzamos null sin importar lo que llegue
+        if ($metodoPago->entidadesBancarias->isEmpty()) {
+            $data['id_entidad_bancaria'] = null;
+        }
 
         // Manejo del archivo PDF (opcional)
         $rutaComprobante = null;
@@ -63,10 +97,10 @@ class PagoController extends Controller
             if ($file->getMimeType() !== 'application/pdf') {
                 return response()->json(['message' => 'El archivo debe ser un PDF válido'], 422);
             }
-            $nombreSeguro = \Str::random(40) . '.pdf';
+            $nombreSeguro = \Str::random(40).'.pdf';
             $rutaComprobante = $file->storeAs('public/comprobantes_pagos', $nombreSeguro);
-            // Guardar solo la ruta relativa para exponerla luego
-            $rutaComprobante = str_replace('public/', 'storage/', $rutaComprobante);
+            // Generar URL pública usando el helper de Laravel
+            $rutaComprobante = \Illuminate\Support\Facades\Storage::url($rutaComprobante);
         }
 
         $sumaAsignada = collect($data['ordenes_compra'])->sum('monto_asignado');
@@ -87,6 +121,11 @@ class PagoController extends Controller
             if ($rutaComprobante) {
                 $data['comprobante_pdf'] = $rutaComprobante;
             }
+
+            // Forzar el estado inicial a "por conciliar"
+            $estadoInicial = EstadoConciliacion::where('slug', 'por_conciliar')->first();
+            $data['id_estado_conciliacion'] = $estadoInicial ? $estadoInicial->id : 1;
+
             $pago = Pago::create($data);
             foreach ($ordenesCompra as $detalle) {
                 // Al crear este pivote, el PagoOrdenCompraObserver recalculará el estado_financiero automáticamente.
@@ -96,6 +135,7 @@ class PagoController extends Controller
                     'monto_asignado' => $detalle['monto_asignado'],
                 ]);
             }
+
             return $pago;
         });
 
@@ -119,7 +159,7 @@ class PagoController extends Controller
      * @bodyParam nro_comprobante string Número de comprobante. Ejemplo: REF-998877
      * @bodyParam id_tasa_cambio int ID de la tasa de cambio. Ejemplo: 1
      * @bodyParam id_entidad_bancaria int ID de la entidad bancaria. Ejemplo: 1
-     * @bodyParam estatus int ID del estatus. Ejemplo: 1
+     * @bodyParam id_estado_conciliacion int ID del estado de conciliación. Ejemplo: 1
      * @bodyParam ordenes_compra object[] Distribución en órdenes de compra.
      * @bodyParam ordenes_compra[].id_orden_compra int required ID de la orden de compra. Ejemplo: 1
      * @bodyParam ordenes_compra[].monto_asignado number required Monto asignado. Ejemplo: 500.00
@@ -129,11 +169,11 @@ class PagoController extends Controller
         $data = $request->validate([
             'fecha_pago' => ['sometimes', 'required', 'date'],
             'monto_total' => ['sometimes', 'required', 'numeric', 'min:0.01'],
-            'id_metodo_pago' => ['sometimes', 'required', 'exists:metodos_pago,id'],
+            'id_metodo_pago' => ['sometimes', 'required', Rule::exists('metodos_pago', 'id')->whereNull('deleted_at')],
             'nro_comprobante' => ['sometimes', 'required', 'string', 'max:255'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
-            'id_entidad_bancaria' => ['sometimes', 'required', 'exists:entidades_bancarias,id'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_entidad_bancaria' => ['nullable', Rule::exists('entidades_bancarias', 'id')->whereNull('deleted_at')],
+            'id_estado_conciliacion' => ['sometimes', 'required', 'exists:estados_conciliacion,id'],
             'ordenes_compra' => ['sometimes', 'required', 'array', 'min:1'],
             'ordenes_compra.*.id_orden_compra' => ['required', 'exists:ordenes_compra,id'],
             'ordenes_compra.*.monto_asignado' => ['required', 'numeric', 'min:0.01'],
@@ -160,13 +200,13 @@ class PagoController extends Controller
             $updateData = $data;
             unset($updateData['ordenes_compra']);
 
-            if (!empty($updateData)) {
+            if (! empty($updateData)) {
                 $pago->update($updateData);
             }
 
             if ($ordenesCompra) {
                 // Al eliminar los pivotes viejos, el Observer recalcula la orden en tiempo real
-                PagoOrdenCompra::where('id_pago', $pago->id)->delete(); 
+                PagoOrdenCompra::where('id_pago', $pago->id)->delete();
 
                 foreach ($ordenesCompra as $detalle) {
                     // Al crear los nuevos, vuelve a recalcular y estabiliza el estado_financiero

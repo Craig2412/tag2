@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoProveedor;
 use App\Http\Resources\TipoProveedorResource;
+use App\Models\TipoProveedor;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 

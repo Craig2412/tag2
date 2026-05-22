@@ -47,7 +47,7 @@ return [
     |
     */
 
-    'expiration' => null,
+    'expiration' => 480, // 8 horas — alineado con la duración de sesión de Next.js
 
     /*
     |--------------------------------------------------------------------------

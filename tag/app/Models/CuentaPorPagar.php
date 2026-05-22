@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CuentaPorPagar extends Model
 {
@@ -18,7 +18,7 @@ class CuentaPorPagar extends Model
         'id_proveedor',
         'monto_total',
         'saldo_pendiente',
-        'estatus',
+        'id_estado_financiero',
     ];
 
     public function ordenCompra(): BelongsTo
@@ -31,14 +31,15 @@ class CuentaPorPagar extends Model
         return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 
-    public function estatusCuenta(): BelongsTo
+    public function estadoFinanciero(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus');
+        return $this->belongsTo(EstadoFinanciero::class, 'id_estado_financiero');
     }
 
     public function pagos()
     {
         return $this->belongsToMany(PagoProveedor::class, 'pago_proveedor_cuentas', 'id_cuenta_por_pagar', 'id_pago_proveedor')
+            ->using(PagoProveedorCuenta::class)
             ->withPivot('monto_asignado')
             ->withTimestamps();
     }

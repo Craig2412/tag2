@@ -10,8 +10,8 @@ class TipoCotizacionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'               => $this->id,
-            'tipo_cotizacion'  => $this->tipo_cotizacion,
+            'id' => $this->id,
+            'tipo_cotizacion' => $this->tipo_cotizacion,
         ];
     }
 }

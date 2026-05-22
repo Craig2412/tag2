@@ -19,7 +19,6 @@ class Personal extends Model
         'telefono',
         'correo_institucional',
         'porcentaje_comision',
-        'id_estatus',
     ];
 
     public function logrosPersonal(): \Illuminate\Database\Eloquent\Relations\HasMany

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TasaCambio;
-use App\Models\Tasa;
 use App\Http\Resources\TasaCambioResource;
+use App\Models\Tasa;
+use App\Models\TasaCambio;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class TasaCambioController extends Controller
 {
@@ -15,10 +14,19 @@ class TasaCambioController extends Controller
      *
      * Devuelve el historial de tasas de cambio registradas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasas = TasaCambio::with('monedaCatalogo')
-            ->orderByDesc('fecha')
+        $query = TasaCambio::query();
+
+        if ($request->has('include')) {
+            $allowed = ['monedaCatalogo'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                $query->with($includes);
+            }
+        }
+
+        $tasas = $query->orderByDesc('fecha')
             ->orderBy('id_tasa')
             ->get();
 
@@ -106,6 +114,7 @@ class TasaCambioController extends Controller
     public function destroy(TasaCambio $tasaCambio)
     {
         $tasaCambio->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 
@@ -116,14 +125,14 @@ class TasaCambioController extends Controller
      */
     public function vigentes()
     {
-        $tasasVigentes = Tasa::with(['tasasHistorial' => function($query) {
+        $tasasVigentes = Tasa::with(['tasasHistorial' => function ($query) {
             $query->latest('fecha')->latest('id');
-        }])->get()->map(function($tasa) {
+        }])->get()->map(function ($tasa) {
             return [
                 'moneda' => $tasa->codigo,
                 'nombre' => $tasa->nombre,
                 'simbolo' => $tasa->simbolo,
-                'ultima_tasa' => $tasa->tasasHistorial->first()
+                'ultima_tasa' => $tasa->tasasHistorial->first(),
             ];
         });
 

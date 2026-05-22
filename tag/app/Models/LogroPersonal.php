@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LogroPersonal extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'logros_personal';
 
@@ -16,8 +17,8 @@ class LogroPersonal extends Model
         'id_personal',
         'tipo_entidad',
         'id_entidad',
-        'id_estatus_anterior',
-        'id_estatus_nuevo',
+        'estatus_anterior',
+        'estatus_nuevo',
         'tiempo_transcurrido_segundos',
     ];
 
@@ -29,17 +30,5 @@ class LogroPersonal extends Model
     public function personal(): BelongsTo
     {
         return $this->belongsTo(Personal::class, 'id_personal');
-    }
-
-    // Devuelve el estatus anterior del cambio.
-    public function estatusAnterior(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'id_estatus_anterior');
-    }
-
-    // Devuelve el estatus nuevo del cambio.
-    public function estatusNuevo(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'id_estatus_nuevo');
     }
 }

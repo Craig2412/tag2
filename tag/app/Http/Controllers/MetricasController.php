@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AtencionHistorial;
-use App\Models\CotizacionHistorial;
-use App\Models\OrdenCompraHistorial;
 use App\Models\Atencion;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class MetricasController extends Controller
 {
-    // Métricas por personal
     /**
      * Obtener métricas por personal
      *
@@ -24,109 +20,147 @@ class MetricasController extends Controller
         return $this->calcularMetricas($idPersonal);
     }
 
-    // Métricas generales
+    /** Métricas generales (todos los usuarios) */
     public function generales()
     {
         return $this->calcularMetricas();
     }
 
-    // Lógica central de métricas
-    private function calcularMetricas($idPersonal = null)
+    /**
+     * Lógica central de métricas usando SQL agregadas en vez de cargar todo en memoria.
+     */
+    private function calcularMetricas($idPersonal = null): array
     {
-        // Filtros base
-        $atenciones = Atencion::query();
+        // ── Filtros base ──────────────────────────────────────────
+        $atencionQuery = Atencion::withTrashed();
         if ($idPersonal) {
-            $atenciones->where('id_personal', $idPersonal);
+            $atencionQuery->where('id_personal', $idPersonal);
         }
-        $atenciones = $atenciones->pluck('id');
+        $idsAtenciones = $atencionQuery->pluck('id');
 
-        // 1. Tiempo promedio de cambio de estatus en atenciones
-        $atencionHist = AtencionHistorial::whereIn('atencion_id', $atenciones)
-            ->orderBy('atencion_id')->orderBy('created_at')->get();
-        $promedioCambioAtencion = $this->promedioTiempoEntreCambios($atencionHist, 'atencion_id');
+        if ($idsAtenciones->isEmpty()) {
+            return $this->metricasVacias();
+        }
 
-        // 2. Tiempo promedio de cambio de estatus en cotizaciones
-        $cotizaciones = Cotizacion::whereIn('id_atencion', $atenciones)->pluck('id');
-        $cotizacionHist = CotizacionHistorial::whereIn('cotizacion_id', $cotizaciones)
-            ->orderBy('cotizacion_id')->orderBy('created_at')->get();
-        $promedioCambioCotizacion = $this->promedioTiempoEntreCambios($cotizacionHist, 'cotizacion_id');
+        $idsCotizaciones = Cotizacion::whereIn('id_atencion', $idsAtenciones)->pluck('id');
+        $idsOrdenes = OrdenCompra::whereIn('id_cotizacion', $idsCotizaciones)->pluck('id');
 
-        // 3. Tiempo promedio de cambio de estatus en ordenes de compra
-        $ordenes = OrdenCompra::whereIn('id_cotizacion', $cotizaciones)->pluck('id');
-        $ordenHist = OrdenCompraHistorial::whereIn('orden_compra_id', $ordenes)
-            ->orderBy('orden_compra_id')->orderBy('created_at')->get();
-        $promedioCambioOrden = $this->promedioTiempoEntreCambios($ordenHist, 'orden_compra_id');
+        // ── 1-3. Tiempos promedio entre cambios (SQL con LAG) ─────
+        $promedioCambioAtencion = $this->promedioTiempoEntreCambiosSQL('atencion_historial', 'atencion_id', $idsAtenciones);
+        $promedioCambioCotizacion = $this->promedioTiempoEntreCambiosSQL('cotizacion_historial', 'cotizacion_id', $idsCotizaciones);
+        $promedioCambioOrden = $this->promedioTiempoEntreCambiosSQL('orden_compra_historial', 'orden_compra_id', $idsOrdenes);
 
-        // 4. Promedio de atenciones que terminan en cotización
-        $totalAtenciones = count($atenciones);
-        $atencionesConCotizacion = Cotizacion::whereIn('id_atencion', $atenciones)->distinct('id_atencion')->count('id_atencion');
-        $promedioAtencionCotizacion = $totalAtenciones ? $atencionesConCotizacion / $totalAtenciones : 0;
+        // ── 4-6. Ratios de conversión (COUNT DISTINCT) ────────────
+        $totalAtenciones = $idsAtenciones->count();
+        $atencionesConCotizacion = Cotizacion::whereIn('id_atencion', $idsAtenciones)->distinct('id_atencion')->count('id_atencion');
+        $totalCotizaciones = $idsCotizaciones->count();
+        $cotizacionesConOrden = OrdenCompra::whereIn('id_cotizacion', $idsCotizaciones)->distinct('id_cotizacion')->count('id_cotizacion');
+        $atencionesConOrden = $idsOrdenes->isNotEmpty()
+            ? OrdenCompra::whereIn('id_cotizacion', $idsCotizaciones)
+                ->join('cotizaciones', 'ordenes_compra.id_cotizacion', '=', 'cotizaciones.id')
+                ->whereIn('cotizaciones.id_atencion', $idsAtenciones)
+                ->distinct('cotizaciones.id_atencion')
+                ->count('cotizaciones.id_atencion')
+            : 0;
 
-        // 5. Promedio de atenciones que terminan en orden de compra
-        $atencionesConOrden = OrdenCompra::whereIn('id_cotizacion', $cotizaciones)
-            ->join('cotizaciones', 'ordenes_compra.id_cotizacion', '=', 'cotizaciones.id')
-            ->whereIn('cotizaciones.id_atencion', $atenciones)
-            ->distinct('cotizaciones.id_atencion')->count('cotizaciones.id_atencion');
-        $promedioAtencionOrden = $totalAtenciones ? $atencionesConOrden / $totalAtenciones : 0;
-
-        // 6. Promedio de cotizaciones que pasan a orden de compra
-        $totalCotizaciones = count($cotizaciones);
-        $cotizacionesConOrden = OrdenCompra::whereIn('id_cotizacion', $cotizaciones)->distinct('id_cotizacion')->count('id_cotizacion');
-        $promedioCotizacionOrden = $totalCotizaciones ? $cotizacionesConOrden / $totalCotizaciones : 0;
-
-        // 7. Promedio de tiempo en el cual las ordenes de compra se terminan de pagar
-        $promedioTiempoPagoOrden = $this->promedioTiempoPagoOrden($ordenHist);
+        // ── 7. Tiempo promedio hasta liquidación ──────────────────
+        $promedioTiempoPagoOrden = $this->promedioTiempoPagoOrdenSQL($idsOrdenes);
 
         return [
             'promedio_cambio_estatus_atencion_horas' => $promedioCambioAtencion,
             'promedio_cambio_estatus_cotizacion_horas' => $promedioCambioCotizacion,
             'promedio_cambio_estatus_orden_horas' => $promedioCambioOrden,
-            'promedio_atenciones_con_cotizacion' => $promedioAtencionCotizacion,
-            'promedio_atenciones_con_orden' => $promedioAtencionOrden,
-            'promedio_cotizaciones_con_orden' => $promedioCotizacionOrden,
+            'promedio_atenciones_con_cotizacion' => $totalAtenciones ? round($atencionesConCotizacion / $totalAtenciones, 4) : 0,
+            'promedio_atenciones_con_orden' => $totalAtenciones ? round($atencionesConOrden / $totalAtenciones, 4) : 0,
+            'promedio_cotizaciones_con_orden' => $totalCotizaciones ? round($cotizacionesConOrden / $totalCotizaciones, 4) : 0,
             'promedio_tiempo_pago_orden_horas' => $promedioTiempoPagoOrden,
         ];
     }
 
-    // Calcula el promedio de tiempo entre cambios de estatus
-    private function promedioTiempoEntreCambios($historial, $campoId)
+    /**
+     * Calcula el tiempo promedio entre cambios de estado usando SQL con LAG().
+     * Evita cargar todos los registros en memoria PHP.
+     */
+    private function promedioTiempoEntreCambiosSQL(string $tabla, string $columnaId, $ids): float
     {
-        $tiempos = [];
-        $prev = [];
-        foreach ($historial as $row) {
-            $id = $row[$campoId];
-            if (isset($prev[$id])) {
-                $diff = $row->created_at->diffInSeconds($prev[$id]);
-                $tiempos[] = $diff;
-            }
-            $prev[$id] = $row->created_at;
+        if ($ids instanceof \Illuminate\Support\Collection) {
+            $ids = $ids->toArray();
         }
-        if (count($tiempos) === 0) return 0;
-        return round(array_sum($tiempos) / count($tiempos) / 3600, 2); // en horas
+        if (empty($ids)) {
+            return 0.0;
+        }
+
+        $idsStr = implode(',', array_map('intval', $ids));
+
+        $result = DB::select("
+            SELECT COALESCE(AVG(diff_segundos), 0) / 3600 AS promedio_horas
+            FROM (
+                SELECT
+                    TIMESTAMPDIFF(SECOND,
+                        LAG(created_at) OVER (PARTITION BY {$columnaId} ORDER BY created_at),
+                        created_at
+                    ) AS diff_segundos
+                FROM {$tabla}
+                WHERE {$columnaId} IN ({$idsStr})
+            ) sub
+            WHERE diff_segundos IS NOT NULL
+        ");
+
+        return round((float) ($result[0]->promedio_horas ?? 0), 2);
     }
 
-    // Calcula el promedio de tiempo en el cual las ordenes de compra se terminan de pagar
-    private function promedioTiempoPagoOrden($ordenHist)
+    /**
+     * Calcula el tiempo promedio que tarda una OC en llegar al estado operativo "completada".
+     * Usa SQL agregadas con el ID de estado cacheado.
+     */
+    private function promedioTiempoPagoOrdenSQL($idsOrdenes): float
     {
-        // Busca el tiempo entre el primer estatus y el estatus "pagado" para cada orden
-        $tiempos = [];
-        $porOrden = [];
-        foreach ($ordenHist as $row) {
-            $id = $row['orden_compra_id'];
-            if (!isset($porOrden[$id])) {
-                $porOrden[$id] = ['inicio' => $row->created_at, 'fin' => null];
-            }
-            // Suponiendo que el estatus "pagado" tiene el nombre exacto
-            if ($row->estatus_nuevo && ($row->estatusNuevoObj->estatus ?? '') === 'pagado') {
-                $porOrden[$id]['fin'] = $row->created_at;
-            }
+        if ($idsOrdenes instanceof \Illuminate\Support\Collection) {
+            $idsOrdenes = $idsOrdenes->toArray();
         }
-        foreach ($porOrden as $info) {
-            if ($info['inicio'] && $info['fin']) {
-                $tiempos[] = $info['fin']->diffInSeconds($info['inicio']);
-            }
+        if (empty($idsOrdenes)) {
+            return 0.0;
         }
-        if (count($tiempos) === 0) return 0;
-        return round(array_sum($tiempos) / count($tiempos) / 3600, 2); // en horas
+
+        $idsStr = implode(',', array_map('intval', $idsOrdenes));
+        $idCompletada = Cache::remember('catalog.estado_orden_compra.completada_id', 86400, function () {
+            return \App\Models\EstadoOrdenCompra::where('slug', 'completada')->value('id');
+        });
+
+        if (! $idCompletada) {
+            return 0.0;
+        }
+
+        $result = DB::select("
+            SELECT COALESCE(AVG(TIMESTAMPDIFF(SECOND, firsts.inicio, comps.fin)), 0) / 3600 AS promedio_horas
+            FROM (
+                SELECT orden_compra_id, MIN(created_at) AS inicio
+                FROM orden_compra_historial
+                WHERE orden_compra_id IN ({$idsStr})
+                GROUP BY orden_compra_id
+            ) firsts
+            INNER JOIN (
+                SELECT orden_compra_id, MIN(created_at) AS fin
+                FROM orden_compra_historial
+                WHERE orden_compra_id IN ({$idsStr})
+                  AND id_estado_nuevo = {$idCompletada}
+                GROUP BY orden_compra_id
+            ) comps ON firsts.orden_compra_id = comps.orden_compra_id
+        ");
+
+        return round((float) ($result[0]->promedio_horas ?? 0), 2);
+    }
+
+    private function metricasVacias(): array
+    {
+        return [
+            'promedio_cambio_estatus_atencion_horas' => 0,
+            'promedio_cambio_estatus_cotizacion_horas' => 0,
+            'promedio_cambio_estatus_orden_horas' => 0,
+            'promedio_atenciones_con_cotizacion' => 0,
+            'promedio_atenciones_con_orden' => 0,
+            'promedio_cotizaciones_con_orden' => 0,
+            'promedio_tiempo_pago_orden_horas' => 0,
+        ];
     }
 }

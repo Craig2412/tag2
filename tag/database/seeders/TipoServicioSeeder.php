@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Proveedor;
 use App\Models\TipoServicio;
 use Illuminate\Database\Seeder;
 
@@ -10,17 +9,19 @@ class TipoServicioSeeder extends Seeder
 {
     public function run(): void
     {
-        $proveedor = Proveedor::first();
+        $tipos = [
+            'Alojamiento',
+            'Traslado',
+            'Vuelo',
+            'Alimentación',
+            'Consultoría',
+        ];
 
-        if (!$proveedor) {
-            return;
+        foreach ($tipos as $tipo) {
+            TipoServicio::firstOrCreate([
+                'tipo_servicio' => $tipo,
+                'iva_defecto' => 16.00,
+            ]);
         }
-
-        TipoServicio::firstOrCreate(
-            [
-                'tipo_servicio' => 'consultoria',
-                'id_proveedor' => $proveedor->id,
-            ]
-        );
     }
 }

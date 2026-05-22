@@ -9,23 +9,36 @@ class AtencionHistorialController extends Controller
 {
     public function index()
     {
-        return AtencionHistorial::all();
+        return AtencionHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'atencion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->get();
     }
 
     public function show($id)
     {
-        return AtencionHistorial::findOrFail($id);
+        return AtencionHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'atencion' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             'atencion_id' => 'required|exists:atenciones,id',
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_atenciones,id',
+            'id_estado_nuevo' => 'nullable|exists:estados_atenciones,id',
+            'id_etapa_anterior' => 'nullable|exists:etapas_comerciales,id',
+            'id_etapa_nueva' => 'nullable|exists:etapas_comerciales,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
+
         return AtencionHistorial::create($data);
     }
 
@@ -33,12 +46,15 @@ class AtencionHistorialController extends Controller
     {
         $historial = AtencionHistorial::findOrFail($id);
         $data = $request->validate([
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_atenciones,id',
+            'id_estado_nuevo' => 'nullable|exists:estados_atenciones,id',
+            'id_etapa_anterior' => 'nullable|exists:etapas_comerciales,id',
+            'id_etapa_nueva' => 'nullable|exists:etapas_comerciales,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);
+
         return $historial;
     }
 
@@ -46,6 +62,7 @@ class AtencionHistorialController extends Controller
     {
         $historial = AtencionHistorial::findOrFail($id);
         $historial->delete();
+
         return response()->json(['message' => 'Deleted']);
     }
 }

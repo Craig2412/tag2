@@ -6,6 +6,7 @@ use App\Models\Atencion;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class AtencionEstatusActualizado
 {
@@ -16,5 +17,9 @@ class AtencionEstatusActualizado
         public readonly ?int $estatusAnterior,
         public readonly int $estatusNuevo,
         public readonly ?string $comentario = 'Cambio de estatus desde API',
-    ) {}
+        public ?int $usuarioId = null,
+    ) {
+        // Si no se pasó un usuario explícito, intentamos capturar el de la sesión
+        $this->usuarioId = $this->usuarioId ?: Auth::id();
+    }
 }

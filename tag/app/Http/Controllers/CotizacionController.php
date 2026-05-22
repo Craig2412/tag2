@@ -2,29 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CotizacionEstatusActualizado;
+use App\Http\Resources\CotizacionResource;
 use App\Models\Cotizacion;
-use App\Models\Estatus;
+use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
-use App\Http\Resources\CotizacionResource;
-use App\Events\CotizacionEstatusActualizado;
-use App\Services\EstatusResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class CotizacionController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Cotizacion::class, 'cotizacion');
+    }
+
     /**
      * Listar todas las cotizaciones
      *
      * Devuelve todas las cotizaciones activas mediante SoftDeletes.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Cotizacion::orderBy('id')
-            ->with(['ordenCompra', 'tasaCambio', 'tipoCotizacion', 'atencion'])
-            ->get()
-            ->values();
+        $query = Cotizacion::query();
+
+        // Soporte para filtros
+        if ($request->has('id_atencion')) {
+            $query->where('id_atencion', $request->id_atencion);
+        }
+
+        // Soporte para relaciones
+        if ($request->has('include')) {
+            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra', 'estadoCotizacion'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
+            if (! empty($includes)) {
+                // Cargar sub-relaciones de servicios siempre que se incluyan
+                $withs = $includes;
+                if (in_array('servicios', $includes)) {
+                    $withs = array_diff($includes, ['servicios']);
+                    $withs[] = 'servicios.tipoServicio';
+                    $withs[] = 'servicios.proveedor';
+                }
+                $query->with($withs);
+            }
+        }
+
+        $items = $query->orderBy('id')->get();
 
         return CotizacionResource::collection($items);
     }
@@ -54,16 +79,16 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_atencion' => ['required', 'exists:atenciones,id'],
-            'id_tipo_cotizacion' => ['required', 'exists:tipos_cotizaciones,id'],
+            'id_atencion' => ['required', Rule::exists('atenciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_cotizacion' => ['required', Rule::exists('tipos_cotizaciones', 'id')->whereNull('deleted_at')],
             'cant_adultos' => ['required', 'integer', 'min:0'],
             'cant_menores' => ['required', 'integer', 'min:0'],
             'cant_viejos' => ['required', 'integer', 'min:0'],
             'id_tasa_cambio' => ['required', 'exists:tasas_cambio,id'],
             'fecha_vencimiento' => ['required', 'date'],
             'servicios' => ['sometimes', 'array'],
-            'servicios.*.id_tipo_servicio' => ['required_with:servicios', 'exists:tipo_servicio,id'],
-            'servicios.*.id_proveedor' => ['required_with:servicios', 'exists:proveedores,id'],
+            'servicios.*.id_tipo_servicio' => ['required_with:servicios', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'servicios.*.id_proveedor' => ['required_with:servicios', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
             'servicios.*.descripcion' => ['nullable', 'string'],
             'servicios.*.costo' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_gravable' => ['required_with:servicios', 'numeric', 'min:0'],
@@ -73,7 +98,8 @@ class CotizacionController extends Controller
         ]);
 
         return DB::transaction(function () use ($data) {
-            $data['estatus'] = EstatusResolver::idOrFail('por confirmar');
+            $estadoPendiente = EstadoCotizacion::where('slug', 'pendiente')->firstOrFail();
+            $data['id_estado_cotizacion'] = $estadoPendiente->id;
 
             $item = Cotizacion::create($data);
 
@@ -88,11 +114,19 @@ class CotizacionController extends Controller
             event(new CotizacionEstatusActualizado(
                 cotizacion: $item,
                 estatusAnterior: null,
-                estatusNuevo: $item->estatus,
+                estatusNuevo: $item->id_estado_cotizacion,
                 comentario: 'Cotización creada',
             ));
 
-            return new CotizacionResource($item->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'servicios']));
+            return new CotizacionResource($item->load([
+                'atencion' => fn ($q) => $q->withTrashed(),
+                'atencion.cliente' => fn ($q) => $q->withTrashed(),
+                'atencion.personal' => fn ($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn ($q) => $q->withTrashed(),
+                'tasaCambio',
+                'estadoCotizacion',
+                'servicios',
+            ]));
         });
     }
 
@@ -101,7 +135,17 @@ class CotizacionController extends Controller
      */
     public function show(Cotizacion $cotizacion)
     {
-        return new CotizacionResource($cotizacion->load(['ordenCompra', 'tasaCambio']));
+        return new CotizacionResource($cotizacion->load([
+            'ordenCompra',
+            'tasaCambio',
+            'estadoCotizacion',
+            'tipoCotizacion',
+            'servicios.tipoServicio',
+            'servicios.proveedor',
+            'atencion' => fn ($q) => $q->withTrashed(),
+            'atencion.cliente' => fn ($q) => $q->withTrashed(),
+            'atencion.personal' => fn ($q) => $q->withTrashed(),
+        ]));
     }
 
     /**
@@ -116,7 +160,7 @@ class CotizacionController extends Controller
      * @bodyParam cant_viejos int Cantidad de adultos mayores. Ejemplo: 0
      * @bodyParam id_tasa_cambio int ID de la tasa de cambio aplicada. Ejemplo: 1
      * @bodyParam fecha_vencimiento date Fecha de vencimiento. Ejemplo: 2026-04-30
-     * @bodyParam estatus int ID del nuevo estatus. Ejemplo: 1
+     * @bodyParam id_estado_cotizacion int ID del nuevo estatus. Ejemplo: 1
      * @bodyParam servicios object[] Lista completa de servicios (sincronización).
      * @bodyParam servicios[].id int ID del servicio si se va a actualizar. Ejemplo: 1
      * @bodyParam servicios[].id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
@@ -129,38 +173,36 @@ class CotizacionController extends Controller
     public function update(Request $request, Cotizacion $cotizacion)
     {
         $data = $request->validate([
-            'id_atencion' => ['sometimes', 'required', 'exists:atenciones,id'],
-            'id_tipo_cotizacion' => ['sometimes', 'required', 'exists:tipos_cotizaciones,id'],
+            'id_atencion' => ['sometimes', 'required', Rule::exists('atenciones', 'id')->whereNull('deleted_at')],
+            'id_tipo_cotizacion' => ['sometimes', 'required', Rule::exists('tipos_cotizaciones', 'id')->whereNull('deleted_at')],
             'cant_adultos' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_menores' => ['sometimes', 'required', 'integer', 'min:0'],
             'cant_viejos' => ['sometimes', 'required', 'integer', 'min:0'],
             'id_tasa_cambio' => ['sometimes', 'required', 'exists:tasas_cambio,id'],
             'fecha_vencimiento' => ['sometimes', 'required', 'date'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_cotizacion' => ['sometimes', 'required', 'exists:estados_cotizaciones,id'],
             'servicios' => ['sometimes', 'array'],
             'servicios.*.id' => ['sometimes', 'exists:servicios,id'],
-            'servicios.*.id_tipo_servicio' => ['required_with:servicios', 'exists:tipo_servicio,id'],
-            'servicios.*.id_proveedor' => ['required_with:servicios', 'exists:proveedores,id'],
-            'servicios.*.costo' => ['required_with:servicios', 'numeric' , 'min:0'],
+            'servicios.*.id_tipo_servicio' => ['required_with:servicios', Rule::exists('tipo_servicio', 'id')->whereNull('deleted_at')],
+            'servicios.*.id_proveedor' => ['required_with:servicios', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
+            'servicios.*.descripcion' => ['nullable', 'string'],
+            'servicios.*.costo' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_gravable' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.monto_no_sujeto' => ['required_with:servicios', 'numeric', 'min:0'],
+            'servicios.*.iva_establecido' => ['nullable', 'numeric', 'min:0'],
             'servicios.*.id_tasa_cambio' => ['required_with:servicios', 'exists:tasas_cambio,id'],
         ]);
 
-        $idPorConfirmar = EstatusResolver::idOrFail('por confirmar');
-        $idConfirmado   = EstatusResolver::idOrFail('confirmado');
+        $idPendiente = EstadoCotizacion::where('slug', 'pendiente')->firstOrFail()->id;
+        $idAprobada = EstadoCotizacion::where('slug', 'aprobada')->firstOrFail()->id;
 
-        if (isset($data['estatus']) && !in_array($data['estatus'], [$idPorConfirmar, $idConfirmado], true)) {
-            return response()->json(['message' => 'La cotización solo admite estatus por confirmar o confirmado'], 422);
-        }
+        return DB::transaction(function () use ($data, $cotizacion, $idAprobada, $idPendiente) {
+            $estatusActual = (int) $cotizacion->getRawOriginal('id_estado_cotizacion');
+            $estatusNuevo = $data['id_estado_cotizacion'] ?? $estatusActual;
 
-        return DB::transaction(function () use ($data, $cotizacion, $idConfirmado, $idPorConfirmar) {
-            $estatusActual = (int) $cotizacion->getRawOriginal('estatus');
-            $estatusNuevo = $data['estatus'] ?? $estatusActual;
-
-            if ($estatusActual === $idConfirmado && $estatusNuevo === $idPorConfirmar) {
+            if ($estatusActual === $idAprobada && $estatusNuevo === $idPendiente) {
                 // No lanzamos excepcion aqui para el transaction, sino respuesta directa
-                abort(422, 'Una cotización confirmada no puede devolverse a por confirmar');
+                abort(422, 'Una cotización aprobada no puede devolverse a pendiente');
             }
 
             $cotizacion->update($data);
@@ -185,34 +227,32 @@ class CotizacionController extends Controller
             }
 
             // --- Registro de Historial ---
-            if (isset($data['estatus']) && $data['estatus'] != $estatusActual) {
+            if (isset($data['id_estado_cotizacion']) && $data['id_estado_cotizacion'] != $estatusActual) {
                 event(new CotizacionEstatusActualizado(
                     cotizacion: $cotizacion,
                     estatusAnterior: $estatusActual,
-                    estatusNuevo: $data['estatus'],
+                    estatusNuevo: $data['id_estado_cotizacion'],
                 ));
             }
 
             // --- MÁQUINA DE ESTADOS / DISPARADOR DE ORDEN COMPRA ---
-            if ($estatusNuevo === $idConfirmado) {
-                $estatusOperativo = EstatusResolver::id('Pendiente Procesamiento');
-                $estadoFinancieroPendiente = \App\Models\EstadoFinanciero::where('slug', 'pendiente')->first()?->id ?? 1;
-                
-                OrdenCompra::updateOrCreate(
-                    ['id_cotizacion' => $cotizacion->id],
-                    [
-                        'estatus'              => $estatusOperativo,
-                        'id_estado_financiero' => $estadoFinancieroPendiente,
-                        'monto_total'          => 0,
-                    ]
-                );
-            }
+            // IMPORTANTE: Lo desactivamos aquí en el controlador porque ahora lo hace un Listener especializado.
 
             // Siempre recalcular si hubo cambios de servicios u OC existe
             $ordenCompra = OrdenCompra::where('id_cotizacion', $cotizacion->id)->first();
             $ordenCompra?->recalcularMontoTotal();
+            $ordenCompra?->sincronizarCuentasPorPagar();
 
-            return new CotizacionResource($cotizacion->fresh()->load(['atencion', 'tipoCotizacion', 'tasaCambio', 'estatus', 'ordenCompra', 'servicios']));
+            return new CotizacionResource($cotizacion->fresh()->load([
+                'atencion' => fn ($q) => $q->withTrashed(),
+                'atencion.cliente' => fn ($q) => $q->withTrashed(),
+                'atencion.personal' => fn ($q) => $q->withTrashed(),
+                'tipoCotizacion' => fn ($q) => $q->withTrashed(),
+                'tasaCambio',
+                'estadoCotizacion',
+                'ordenCompra',
+                'servicios',
+            ]));
         });
     }
 
@@ -222,6 +262,7 @@ class CotizacionController extends Controller
     public function destroy(Cotizacion $cotizacion)
     {
         $cotizacion->delete();
+
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }
 }

@@ -10,12 +10,11 @@ class EntidadBancariaResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'       => $this->id,
-            'entidad'  => $this->entidad,
-            'estatus'  => $this->estatus,
+            'id' => $this->id,
+            'entidad' => $this->entidad,
 
             // Relaciones
-            'estatus_info' => new EstatusResource($this->whenLoaded('estatus')),
+            'metodos_pago' => MetodoPagoResource::collection($this->whenLoaded('metodosPago')),
         ];
     }
 }

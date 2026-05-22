@@ -2,55 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Atencion;
-use App\Models\ClienteEmpresa;
-use App\Models\Estatus;
-use App\Models\PersonalEmpresa;
-use App\Models\Cliente;
-use App\Models\Personal;
-use App\Http\Resources\AtencionResource;
 use App\Events\AtencionEstatusActualizado;
-use App\Services\EstatusResolver;
+use App\Http\Resources\AtencionResource;
+use App\Models\Atencion;
+use App\Models\Cliente;
+use App\Models\ClienteEmpresa;
+use App\Models\EstadoAtencion;
+use App\Models\Estatus;
+use App\Models\Personal;
+use App\Models\PersonalEmpresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class AtencionController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Atencion::class, 'atencion');
+    }
+
     /**
      * Listar todas las atenciones
      *
      * Devuelve todas las atenciones activas.
+     *
+     * @queryParam include string Relaciones a incluir. Example: cotizaciones. Values: cotizaciones
      */
-    public function index()
+    public function index(Request $request)
     {
-        // withCount no es suficiente: necesitamos la última cotización y su OC.
-        // Usamos eager loading con constraint para traer solo la cotización más reciente
-        // por atención, evitando el N+1 que ejecutaba 2 queries por cada atención.
-        $items = Atencion::with([
-                'cliente',
-                'personal',
-                'origen',
-                'estatus',
-                'etapaComercial',
-                'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
-                'cotizaciones.ordenCompra',
-            ])
-            ->orderBy('id')
-            ->get();
+        $query = Atencion::query();
 
-        $result = $items->map(function (Atencion $atencion) {
-            // Sin queries adicionales — todo está en memoria
-            $cotizacion      = $atencion->cotizaciones->first();
-            $id_cotizacion   = $cotizacion?->id;
-            $id_orden_compra = $cotizacion?->ordenCompra?->id;
+        // Relaciones base (siempre necesarias para la tabla)
+        $query->with([
+            'cliente' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'origen' => fn ($q) => $q->withTrashed(),
+            'estadoAtencion',
+            'etapaComercial' => fn ($q) => $q->withTrashed(),
+        ]);
 
-            $arr = $atencion->toArray();
-            $arr['id_cotizacion']   = $id_cotizacion;
-            $arr['id_orden_compra'] = $id_orden_compra;
-            return $arr;
-        });
+        // Cotizaciones: solo bajo demanda (consistente con CotizacionController y PersonalController)
+        if ($request->has('include')) {
+            $allowed = ['cotizaciones'];
+            $includes = array_intersect(explode(',', $request->include), $allowed);
 
-        return AtencionResource::collection(collect($result));
+            if (in_array('cotizaciones', $includes)) {
+                $query->with([
+                    'cotizaciones' => fn ($q) => $q->orderByDesc('id'),
+                    'cotizaciones.tasaCambio',
+                    'cotizaciones.tipoCotizacion',
+                    'cotizaciones.estadoCotizacion',
+                    'cotizaciones.servicios.tipoServicio',
+                    'cotizaciones.servicios.proveedor',
+                    'cotizaciones.ordenCompra.estadoOrdenCompra',
+                    'cotizaciones.ordenCompra.estadoFinanciero',
+                    'cotizaciones.ordenCompra.estadoFinancieroEgreso',
+                ]);
+            }
+        }
+
+        $items = $query->orderBy('id')->get();
+
+        return AtencionResource::collection($items);
     }
 
     /**
@@ -66,8 +80,8 @@ class AtencionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id_cliente' => ['required', 'exists:clientes,id'],
-            'id_origen_atencion' => ['required', 'exists:origenes,id'],
+            'id_cliente' => ['required', Rule::exists('clientes', 'id')->whereNull('deleted_at')],
+            'id_origen_atencion' => ['required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['required', 'string', 'max:255'],
             'notas_adicionales' => ['nullable', 'string'],
         ]);
@@ -75,17 +89,23 @@ class AtencionController extends Controller
         $cliente = Cliente::find($data['id_cliente']);
 
         $personalId = $this->resolverPersonalAsignado($cliente->id);
-        if (!$personalId) {
+        if (! $personalId) {
             return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
         }
 
-        $estatusId = EstatusResolver::id('por aprobar');
-        if (!$estatusId) {
-            return response()->json(['message' => 'Estatus "por aprobar" no configurado en el catálogo'], 500);
+        $estado = EstadoAtencion::where('slug', 'abierta')->first();
+        if (! $estado) {
+            return response()->json(['message' => 'Estado "abierta" no configurado en el catálogo'], 500);
         }
 
         $data['id_personal'] = $personalId;
-        $data['estatus'] = $estatusId;
+        $data['id_estado_atencion'] = $estado->id;
+
+        // Asignar etapa comercial por defecto ("atencion")
+        $etapaDefault = \App\Models\EtapaComercial::where('slug', 'atencion')->first();
+        if ($etapaDefault) {
+            $data['id_etapa_comercial'] = $etapaDefault->id;
+        }
 
         $item = Atencion::create($data);
 
@@ -93,11 +113,11 @@ class AtencionController extends Controller
         event(new AtencionEstatusActualizado(
             atencion: $item,
             estatusAnterior: null,
-            estatusNuevo: $item->estatus,
+            estatusNuevo: $item->id_estado_atencion,
             comentario: 'Atención creada',
         ));
 
-        return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'etapaComercial']));
+        return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']));
     }
 
     /**
@@ -107,24 +127,18 @@ class AtencionController extends Controller
     {
         // Igual que index(): eager load para evitar queries adicionales
         $atencion->load([
-            'cliente',
-            'personal',
-            'origen',
-            'estatus',
-            'etapaComercial',
-            'cotizaciones' => fn($q) => $q->orderByDesc('id')->limit(1),
-            'cotizaciones.ordenCompra',
+            'cliente' => fn ($q) => $q->withTrashed(),
+            'personal' => fn ($q) => $q->withTrashed(),
+            'origen' => fn ($q) => $q->withTrashed(),
+            'estadoAtencion',
+            'etapaComercial' => fn ($q) => $q->withTrashed(),
+            'cotizaciones' => fn ($q) => $q->orderByDesc('id')->limit(1),
+            'cotizaciones.ordenCompra.estadoOrdenCompra',
+            'cotizaciones.ordenCompra.estadoFinanciero',
+            'cotizaciones.ordenCompra.estadoFinancieroEgreso',
         ]);
 
-        $cotizacion      = $atencion->cotizaciones->first();
-        $id_cotizacion   = $cotizacion?->id;
-        $id_orden_compra = $cotizacion?->ordenCompra?->id;
-
-        $arr = $atencion->toArray();
-        $arr['id_cotizacion']   = $id_cotizacion;
-        $arr['id_orden_compra'] = $id_orden_compra;
-
-        return new AtencionResource((object) $arr);
+        return new AtencionResource($atencion);
     }
 
     /**
@@ -135,29 +149,31 @@ class AtencionController extends Controller
      * @bodyParam id_origen_atencion int ID del origen de la atención. Ejemplo: 1
      * @bodyParam asunto string Asunto o motivo de la atención. Ejemplo: Cambio de itinerario
      * @bodyParam notas_adicionales string Notas adicionales. Ejemplo: Se requiere respuesta urgente
-     * @bodyParam estatus int ID del estatus de la atención. Ejemplo: 1
+     * @bodyParam id_estado_atencion int ID del estado de la atención (catálogo estados-atenciones). Ejemplo: 1
+     * @bodyParam id_etapa_comercial int ID de la etapa comercial (catálogo etapas-comerciales). Ejemplo: 1
      */
     public function update(Request $request, Atencion $atencion)
     {
         $data = $request->validate([
-            'id_cliente' => ['sometimes', 'required', 'exists:clientes,id'],
-            'id_personal' => ['sometimes', 'required', 'exists:personal,id'],
-            'id_origen_atencion' => ['sometimes', 'required', 'exists:origenes,id'],
+            'id_cliente' => ['sometimes', 'required', Rule::exists('clientes', 'id')->whereNull('deleted_at')],
+            'id_personal' => ['sometimes', 'required', Rule::exists('personal', 'id')->whereNull('deleted_at')],
+            'id_origen_atencion' => ['sometimes', 'required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['sometimes', 'required', 'string', 'max:255'],
             'notas_adicionales' => ['sometimes', 'nullable', 'string'],
-            'estatus' => ['sometimes', 'required', 'exists:estatus,id'],
+            'id_estado_atencion' => ['sometimes', 'required', 'exists:estados_atenciones,id'],
+            'id_etapa_comercial' => ['sometimes', 'required', 'exists:etapas_comerciales,id'],
         ]);
 
-        $estatusAnterior = $atencion->estatus;
-        
-        $atencion->update($data);
-        $atencion->load(['cliente', 'personal', 'origen', 'estatus', 'etapaComercial']);
+        $estatusAnterior = $atencion->id_estado_atencion;
 
-        if (isset($data['estatus']) && $data['estatus'] != $estatusAnterior) {
+        $atencion->update($data);
+        $atencion->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']);
+
+        if (isset($data['id_estado_atencion']) && $data['id_estado_atencion'] != $estatusAnterior) {
             event(new AtencionEstatusActualizado(
                 atencion: $atencion,
                 estatusAnterior: $estatusAnterior,
-                estatusNuevo: $data['estatus'],
+                estatusNuevo: $data['id_estado_atencion'],
             ));
         }
 
@@ -172,6 +188,7 @@ class AtencionController extends Controller
     public function destroy(Atencion $atencion)
     {
         $atencion->delete();
+
         return response()->json(['data' => ['message' => 'Eliminada correctamente']]);
     }
 
@@ -191,7 +208,8 @@ class AtencionController extends Controller
             }
         }
 
-        $estatusConcluido = Estatus::where('estatus', 'aprobado')->value('id') ?? 0;
+        $estadoCerradoGanado = EstadoAtencion::where('slug', 'cerrada_ganada')->value('id') ?? 0;
+        $estadoCerradoPerdido = EstadoAtencion::where('slug', 'cerrada_perdida')->value('id') ?? 0;
         $personalIds = Personal::pluck('id')->all(); // Ya no buscamos roles en Users. Todo Personal es un personal comercial.
 
         if (empty($personalIds)) {
@@ -201,7 +219,7 @@ class AtencionController extends Controller
         $conteos = DB::table('atenciones')
             ->select('id_personal', DB::raw('COUNT(*) as total'))
             ->whereNull('deleted_at') // Nativo softDeletes en vez de borrado_logico
-            ->where('estatus', '!=', $estatusConcluido->id)
+            ->whereNotIn('id_estado_atencion', [$estadoCerradoGanado, $estadoCerradoPerdido])
             ->whereIn('id_personal', $personalIds)
             ->groupBy('id_personal')
             ->pluck('total', 'id_personal')
@@ -216,6 +234,7 @@ class AtencionController extends Controller
             if ($minimo === null || $total < $minimo) {
                 $minimo = $total;
                 $candidatos = [$personalId];
+
                 continue;
             }
 

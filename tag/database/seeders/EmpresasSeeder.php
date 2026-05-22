@@ -12,7 +12,7 @@ class EmpresasSeeder extends Seeder
     {
         $tipo = TipoContribuyente::where('tipo_contribuyente', 'Normal')->first();
 
-        if (!$tipo) {
+        if (! $tipo) {
             return;
         }
 

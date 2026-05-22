@@ -9,11 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class AtencionHistorial extends Model
 {
     use HasFactory;
+
     protected $table = 'atencion_historial';
+
     protected $fillable = [
         'atencion_id',
-        'estatus_anterior',
-        'estatus_nuevo',
+        'id_estado_anterior',
+        'id_estado_nuevo',
+        'id_etapa_anterior',
+        'id_etapa_nueva',
         'usuario_id',
         'comentario',
     ];
@@ -28,13 +32,23 @@ class AtencionHistorial extends Model
         return $this->belongsTo(Atencion::class, 'atencion_id');
     }
 
-    public function estatusAnteriorObj(): BelongsTo
+    public function estadoAnteriorObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_anterior');
+        return $this->belongsTo(EstadoAtencion::class, 'id_estado_anterior');
     }
 
-    public function estatusNuevoObj(): BelongsTo
+    public function estadoNuevoObj(): BelongsTo
     {
-        return $this->belongsTo(Estatus::class, 'estatus_nuevo');
+        return $this->belongsTo(EstadoAtencion::class, 'id_estado_nuevo');
+    }
+
+    public function etapaAnteriorObj(): BelongsTo
+    {
+        return $this->belongsTo(EtapaComercial::class, 'id_etapa_anterior');
+    }
+
+    public function etapaNuevaObj(): BelongsTo
+    {
+        return $this->belongsTo(EtapaComercial::class, 'id_etapa_nueva');
     }
 }

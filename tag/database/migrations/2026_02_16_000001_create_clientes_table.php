@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('cedula')->nullable();
             $table->string('telefono')->nullable();
             $table->foreignId('id_tipo_contribuyente')->nullable(); // Para la factura
-            $table->foreignId('id_estatus')->nullable(); // Estatus del registro
             $table->timestamps();
             $table->softDeletes();
         });

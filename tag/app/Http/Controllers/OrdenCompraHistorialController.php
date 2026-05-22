@@ -9,23 +9,34 @@ class OrdenCompraHistorialController extends Controller
 {
     public function index()
     {
-        return OrdenCompraHistorial::all();
+        return OrdenCompraHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'ordenCompra' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->get();
     }
 
     public function show($id)
     {
-        return OrdenCompraHistorial::findOrFail($id);
+        return OrdenCompraHistorial::with([
+            'usuario' => fn ($q) => $q->withTrashed(),
+            'ordenCompra' => fn ($q) => $q->withTrashed(),
+            'estatusAnteriorObj' => fn ($q) => $q->withTrashed(),
+            'estatusNuevoObj' => fn ($q) => $q->withTrashed(),
+        ])->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             'orden_compra_id' => 'required|exists:ordenes_compra,id',
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_ordenes_compra,id',
+            'id_estado_nuevo' => 'nullable|exists:estados_ordenes_compra,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
+
         return OrdenCompraHistorial::create($data);
     }
 
@@ -33,12 +44,13 @@ class OrdenCompraHistorialController extends Controller
     {
         $historial = OrdenCompraHistorial::findOrFail($id);
         $data = $request->validate([
-            'estatus_anterior' => 'nullable|exists:estatus,id',
-            'estatus_nuevo' => 'required|exists:estatus,id',
+            'id_estado_anterior' => 'nullable|exists:estados_ordenes_compra,id',
+            'id_estado_nuevo' => 'nullable|exists:estados_ordenes_compra,id',
             'usuario_id' => 'nullable|exists:usuarios,id',
             'comentario' => 'nullable|string',
         ]);
         $historial->update($data);
+
         return $historial;
     }
 
@@ -46,6 +58,7 @@ class OrdenCompraHistorialController extends Controller
     {
         $historial = OrdenCompraHistorial::findOrFail($id);
         $historial->delete();
+
         return response()->json(['message' => 'Deleted']);
     }
 }

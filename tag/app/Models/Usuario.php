@@ -4,11 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Authenticatable
 {
@@ -47,6 +47,7 @@ class Usuario extends Authenticatable
     protected $appends = [
         'all_permissions',
         'role_names',
+        'ws_channels',
     ];
 
     /**
@@ -63,6 +64,25 @@ class Usuario extends Authenticatable
     public function getRoleNamesAttribute(): \Illuminate\Support\Collection
     {
         return $this->getRoleNames();
+    }
+
+    /**
+     * Canales WebSocket a los que el usuario debe suscribirse.
+     * El frontend no decide — el backend dicta según los permisos reales.
+     */
+    public function getWsChannelsAttribute(): array
+    {
+        $channels = [];
+
+        // Canal global de atenciones: solo usuarios con permiso de alcance total
+        if ($this->can('view:atenciones:todas')) {
+            $channels[] = 'private-atenciones';
+        }
+
+        // Canal personal: todos los usuarios autenticados (notificaciones directas)
+        $channels[] = "private-user.{$this->id}";
+
+        return $channels;
     }
 
     /**

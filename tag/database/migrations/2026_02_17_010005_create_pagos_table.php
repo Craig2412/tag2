@@ -15,7 +15,7 @@ return new class extends Migration
             $table->foreignId('id_metodo_pago')->constrained('metodos_pago');
             $table->string('nro_comprobante');
             $table->foreignId('id_tasa_cambio')->constrained('tasas_cambio');
-            $table->foreignId('estatus')->constrained('estatus');
+            $table->foreignId('id_estado_conciliacion')->constrained('estados_conciliacion');
             $table->timestamps();
             $table->softDeletes();
         });

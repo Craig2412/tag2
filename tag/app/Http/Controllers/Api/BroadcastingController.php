@@ -17,15 +17,16 @@ class BroadcastingController extends Controller
     /**
      * Autorizar suscripción a WebSockets (Reverb).
      *
-     * Este endpoint es el puente de autenticación para Laravel Echo. Permite que el 
-     * frontend de Next.js valide si un usuario tiene permiso para escuchar un 
+     * Este endpoint es el puente de autenticación para Laravel Echo. Permite que el
+     * frontend de Next.js valide si un usuario tiene permiso para escuchar un
      * canal privado específico.
-     * 
+     *
      * Internamente, utiliza los permisos definidos en `routes/channels.php`.
      *
      * @authenticated
+     *
      * @subgroup WebSockets
-     * 
+     *
      * @bodyParam channel_name string required El nombre completo del canal al que se desea suscribir. Example: private-user.1
      * @bodyParam socket_id string required El ID de conexión generado por el cliente WebSocket. Example: 12345.67890
      *

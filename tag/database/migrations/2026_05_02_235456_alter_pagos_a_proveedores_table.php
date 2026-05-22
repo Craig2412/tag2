@@ -19,8 +19,6 @@ return new class extends Migration
             $table->foreignId('id_proveedor')->nullable()->after('id')->constrained('proveedores');
             $table->foreignId('id_tasa_cambio')->nullable()->after('monto_total')->constrained('tasas_cambio');
             $table->string('comprobante')->nullable()->after('id_metodo_pago');
-            $table->foreignId('estatus')->nullable()->after('comprobante')->constrained('estatus');
-            
             $table->softDeletes();
             $table->unique('referencia');
         });
@@ -39,9 +37,6 @@ return new class extends Migration
             $table->dropForeign(['id_tasa_cambio']);
             $table->dropColumn('id_tasa_cambio');
             $table->dropColumn('comprobante');
-            $table->dropForeign(['estatus']);
-            $table->dropColumn('estatus');
-            
             $table->dropSoftDeletes();
             $table->dropUnique(['referencia']);
         });

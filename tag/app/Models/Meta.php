@@ -6,26 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Meta extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'metas';
 
     protected $fillable = [
         'nombre',
         'tipo_entidad',
-        'id_estatus_objetivo',
+        'estatus_objetivo',
         'es_monetario',
         'valor_objetivo',
         'id_temporalidad',
     ];
-
-    public function estatusObjetivo(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'id_estatus_objetivo');
-    }
 
     public function temporalidad(): BelongsTo
     {

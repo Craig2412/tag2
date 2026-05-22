@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoContribuyente;
 use App\Http\Resources\TipoContribuyenteResource;
+use App\Models\TipoContribuyente;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -22,7 +22,7 @@ class TipoContribuyenteController extends Controller
 
     /**
      * Crear un nuevo tipo de contribuyente
-     * 
+     *
      * @bodyParam tipo_contribuyente string required Nombre del tipo de contribuyente. Ejemplo: Especial
      * @bodyParam porcentaje_iva number required Porcentaje de IVA aplicable (0-100). Ejemplo: 16
      */
@@ -52,7 +52,7 @@ class TipoContribuyenteController extends Controller
 
     /**
      * Actualizar un tipo de contribuyente
-     * 
+     *
      * @bodyParam tipo_contribuyente string required Nombre del tipo de contribuyente.
      * @bodyParam porcentaje_iva number required Porcentaje de IVA aplicable.
      */

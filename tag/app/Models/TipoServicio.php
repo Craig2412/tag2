@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,7 +15,6 @@ class TipoServicio extends Model
 
     protected $fillable = [
         'tipo_servicio',
-        'id_proveedor',
         'iva_defecto',
     ];
 
@@ -24,10 +22,10 @@ class TipoServicio extends Model
         'iva_defecto' => 'float',
     ];
 
-    // Devuelve el proveedor asociado a este tipo.
-    public function proveedor(): BelongsTo
+    // Lista los proveedores que ofrecen este tipo de servicio.
+    public function proveedores(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsTo(Proveedor::class, 'id_proveedor');
+        return $this->belongsToMany(Proveedor::class, 'proveedor_tipo_servicio', 'id_tipo_servicio', 'id_proveedor')->withTimestamps();
     }
 
     // Lista los servicios que usan este tipo.

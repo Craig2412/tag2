@@ -12,7 +12,7 @@ class CuentasProveedoresSeeder extends Seeder
     {
         $proveedor = Proveedor::first();
 
-        if (!$proveedor) {
+        if (! $proveedor) {
             return;
         }
 
@@ -22,7 +22,7 @@ class CuentasProveedoresSeeder extends Seeder
                 'numero_cuenta' => '0102-0000-0000-0000-0000',
             ],
             [
-                'entidad_financiera' => 'Banco Demo',
+                'nombre_banco' => 'Banco Demo',
                 'tipo_cuenta' => 'corriente',
                 'moneda' => 'VES',
             ]

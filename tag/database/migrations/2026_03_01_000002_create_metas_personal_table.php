@@ -14,6 +14,7 @@ return new class extends Migration
             $table->foreignId('id_personal')->constrained('personal');
             $table->boolean('es_recurrente')->default(true)->comment('Si es true, se reinicia automáticamente cada periodo');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->unique(['id_meta', 'id_personal']);
         });

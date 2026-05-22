@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('id_proveedor')->constrained('proveedores');
             $table->decimal('monto_total', 12, 2);
             $table->decimal('saldo_pendiente', 12, 2);
-            $table->foreignId('estatus')->constrained('estatus'); // pendiente, abonado, liquidado, retenido
+            $table->foreignId('id_estado_financiero')->default(1)->constrained('estados_financieros'); // pendiente, parcial, pagado
             $table->timestamps();
             $table->softDeletes();
         });

@@ -21,7 +21,6 @@ class PagoProveedor extends Model
         'fecha_pago',
         'id_metodo_pago',
         'comprobante',
-        'estatus',
     ];
 
     protected $casts = [
@@ -43,14 +42,10 @@ class PagoProveedor extends Model
         return $this->belongsTo(MetodoPago::class, 'id_metodo_pago');
     }
 
-    public function estatus_pago(): BelongsTo
-    {
-        return $this->belongsTo(Estatus::class, 'estatus');
-    }
-
     public function cuentasPorPagar()
     {
         return $this->belongsToMany(CuentaPorPagar::class, 'pago_proveedor_cuentas', 'id_pago_proveedor', 'id_cuenta_por_pagar')
+            ->using(PagoProveedorCuenta::class)
             ->withPivot('monto_asignado')
             ->withTimestamps();
     }
