@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Atencion;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -24,9 +25,9 @@ Broadcast::channel('user.{id}', function ($user, $id) {
 
 /**
  * Private channel for real-time Atencion updates.
- * Only users with the view:atenciones permission can subscribe.
- * Personal users can only see their own atenciones (enforced by Policy).
+ * Delegates to AtencionPolicy::viewAny() — covers both view:atenciones
+ * permission and personal role in a single source of truth.
  */
 Broadcast::channel('atenciones', function ($user) {
-    return $user->can('view:atenciones');
+    return $user->can('viewAny', Atencion::class);
 });

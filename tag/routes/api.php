@@ -6,6 +6,7 @@ use App\Http\Controllers\AtencionHistorialController;
 use App\Http\Controllers\AuditLogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BroadcastingController;
+use App\Http\Controllers\BroadcastDocController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ClientesEmpresaController;
 use App\Http\Controllers\ConfiguracionSistemaController;
@@ -59,12 +60,19 @@ Route::get('/status', function () {
 // Ruta para que Next.js obtenga el contrato de forma segura
 Route::get('/v1/contrato', [ContractController::class, 'download']);
 
-Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
+Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
     // User profile: used by Next.js to silently refresh the session JWT
     Route::get('/me', [AuthController::class, 'me']);
 
     // Broadcasting channel auth: validated via routes/channels.php
     Route::post('/broadcasting/auth', [BroadcastingController::class, 'auth']);
+
+    // 📡 Documentación de canales y eventos WebSocket (Reverb)
+    Route::get('/broadcasting/canales/atenciones', [BroadcastDocController::class, 'canalAtenciones']);
+    Route::get('/broadcasting/canales/usuario', [BroadcastDocController::class, 'canalUsuario']);
+    Route::get('/broadcasting/eventos/atencion-creado', [BroadcastDocController::class, 'eventoCreado']);
+    Route::get('/broadcasting/eventos/atencion-actualizado', [BroadcastDocController::class, 'eventoActualizado']);
+    Route::get('/broadcasting/eventos/atencion-eliminado', [BroadcastDocController::class, 'eventoEliminado']);
 
     // Rutas de métricas
     Route::get('metricas/personal/{idPersonal}', [\App\Http\Controllers\MetricasController::class, 'porPersonal']);

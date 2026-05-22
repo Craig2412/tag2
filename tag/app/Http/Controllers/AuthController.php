@@ -209,14 +209,38 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated user's current profile, roles, and permissions.
-     * Used by the Next.js frontend to silently refresh the session JWT.
+     * Perfil del usuario autenticado
+     *
+     * Devuelve el perfil, roles, permisos y los canales WebSocket a los que el
+     * frontend debe suscribirse para recibir eventos en tiempo real (Reverb).
+     *
+     * El array `ws_channels` es la fuente de verdad: el frontend itera y se suscribe
+     * sin tomar decisiones de permisos.
+     *
+     * @group Autenticación
+     * @authenticated
+     *
+     * @response {
+     *   "usuario": {
+     *     "id": 1,
+     *     "nombre_usuario": "Admin Root",
+     *     "correo": "admin@example.com",
+     *     "esta_activo": true,
+     *     "all_permissions": ["view:atenciones:todas", "view:atenciones", ...],
+     *     "role_names": ["admin"],
+     *     "ws_channels": ["private-atenciones", "private-user.1"]
+     *   },
+     *   "ws_channels": ["private-atenciones", "private-user.1"]
+     * }
      */
     public function me(Request $request)
     {
         $usuario = $request->user()->load(['roles', 'permissions']);
 
-        return response()->json(['usuario' => $usuario]);
+        return response()->json([
+            'usuario' => $usuario,
+            'ws_channels' => $usuario->ws_channels,
+        ]);
     }
 
     /**

@@ -55,7 +55,7 @@ class PersonalEmpresaController extends Controller
 
         $personal = Personal::find($data['id_personal']);
 
-        if (! $personal || ! $personal->usuario->hasRole('personal')) {
+        if (! $personal || ! $personal->usuario->can('view:personal_empresas')) {
             return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
         }
 
@@ -91,7 +91,7 @@ class PersonalEmpresaController extends Controller
 
         if (isset($data['id_personal'])) {
             $personal = Personal::find($data['id_personal']);
-            if (! $personal || ! $personal->usuario->hasRole('personal')) {
+            if (! $personal || ! $personal->usuario->can('view:personal_empresas')) {
                 return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
             }
         }

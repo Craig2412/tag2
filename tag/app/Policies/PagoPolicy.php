@@ -9,33 +9,36 @@ class PagoPolicy
 {
     public function viewAny(Usuario $usuario): bool
     {
-        return $usuario->can('view:pagos')
-            || $usuario->hasRole('personal');
+        return $usuario->can('view:pagos');
     }
 
     public function view(Usuario $usuario, Pago $pago): bool
     {
-        if ($usuario->can('view:pagos')) {
+        // Escalación: permiso :todas da acceso global
+        if ($usuario->can('view:pagos:todas')) {
             return true;
         }
 
-        // Personal: solo puede ver pagos de OCs de sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $pago);
+        // Base: solo pagos de OCs de sus propias atenciones
+        return $usuario->can('view:pagos')
+            && $this->esPersonalAsignado($usuario, $pago);
     }
 
     public function create(Usuario $usuario): bool
     {
-        return $usuario->can('create:pagos')
-            || $usuario->hasRole('personal');
+        return $usuario->can('create:pagos');
     }
 
     public function update(Usuario $usuario, Pago $pago): bool
     {
-        if ($usuario->can('edit:pagos')) {
+        // Escalación: permiso :todas permite editar cualquier pago
+        if ($usuario->can('edit:pagos:todas')) {
             return true;
         }
 
-        return $this->esPersonalAsignado($usuario, $pago);
+        // Base: solo pagos de OCs de sus propias atenciones
+        return $usuario->can('edit:pagos')
+            && $this->esPersonalAsignado($usuario, $pago);
     }
 
     public function delete(Usuario $usuario, Pago $pago): bool

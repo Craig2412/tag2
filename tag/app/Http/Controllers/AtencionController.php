@@ -26,28 +26,32 @@ class AtencionController extends Controller
      * Listar todas las atenciones
      *
      * Devuelve todas las atenciones activas.
+     *
+     * @queryParam include string Relaciones a incluir. Example: cotizaciones. Values: cotizaciones
      */
     public function index(Request $request)
     {
         $query = Atencion::query();
 
-        // Relaciones por defecto
+        // Relaciones base (siempre necesarias para la tabla)
         $query->with([
             'cliente' => fn ($q) => $q->withTrashed(),
             'personal' => fn ($q) => $q->withTrashed(),
             'origen' => fn ($q) => $q->withTrashed(),
             'estadoAtencion',
             'etapaComercial' => fn ($q) => $q->withTrashed(),
-            'cotizaciones' => fn ($q) => $q->orderByDesc('id')->limit(1),
-            'cotizaciones.ordenCompra',
         ]);
 
-        // Soporte para relaciones adicionales
+        // Cotizaciones: solo bajo demanda (consistente con CotizacionController y PersonalController)
         if ($request->has('include')) {
-            $allowed = ['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial', 'cotizaciones'];
+            $allowed = ['cotizaciones'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
-            if (! empty($includes)) {
-                $query->with($includes);
+
+            if (in_array('cotizaciones', $includes)) {
+                $query->with([
+                    'cotizaciones' => fn ($q) => $q->orderByDesc('id'),
+                    'cotizaciones.ordenCompra',
+                ]);
             }
         }
 

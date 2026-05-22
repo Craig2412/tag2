@@ -9,34 +9,36 @@ class CotizacionPolicy
 {
     public function viewAny(Usuario $usuario): bool
     {
-        return $usuario->can('view:cotizaciones')
-            || $usuario->hasRole('personal');
+        return $usuario->can('view:cotizaciones');
     }
 
     public function view(Usuario $usuario, Cotizacion $cotizacion): bool
     {
-        if ($usuario->can('view:cotizaciones')) {
+        // Escalación: permiso :todas da acceso global
+        if ($usuario->can('view:cotizaciones:todas')) {
             return true;
         }
 
-        // Personal: solo puede ver cotizaciones de sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $cotizacion);
+        // Base: solo cotizaciones de sus propias atenciones
+        return $usuario->can('view:cotizaciones')
+            && $this->esPersonalAsignado($usuario, $cotizacion);
     }
 
     public function create(Usuario $usuario): bool
     {
-        return $usuario->can('create:cotizaciones')
-            || $usuario->hasRole('personal');
+        return $usuario->can('create:cotizaciones');
     }
 
     public function update(Usuario $usuario, Cotizacion $cotizacion): bool
     {
-        if ($usuario->can('edit:cotizaciones')) {
+        // Escalación: permiso :todas permite editar cualquier cotización
+        if ($usuario->can('edit:cotizaciones:todas')) {
             return true;
         }
 
-        // Personal: solo puede editar cotizaciones de sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $cotizacion);
+        // Base: solo cotizaciones de sus propias atenciones
+        return $usuario->can('edit:cotizaciones')
+            && $this->esPersonalAsignado($usuario, $cotizacion);
     }
 
     public function delete(Usuario $usuario, Cotizacion $cotizacion): bool
@@ -44,10 +46,10 @@ class CotizacionPolicy
         return $usuario->can('delete:cotizaciones');
     }
 
-    /** Solo usuarios con permiso explícito pueden aprobar cotizaciones */
+    /** Solo usuarios con permiso :todas pueden aprobar cotizaciones */
     public function approve(Usuario $usuario, Cotizacion $cotizacion): bool
     {
-        return $usuario->can('edit:cotizaciones');
+        return $usuario->can('edit:cotizaciones:todas');
     }
 
     /**

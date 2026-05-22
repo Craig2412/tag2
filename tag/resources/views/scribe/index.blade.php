@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "http://localhost";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -65,6 +65,16 @@
                 <li class="tocify-item level-1" data-unique="autenticacion-de-solicitudes">
                     <a href="#autenticacion-de-solicitudes">Autenticación de solicitudes</a>
                 </li>
+                            </ul>
+                    <ul id="tocify-header-autenticacion" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="autenticacion">
+                    <a href="#autenticacion">Autenticación</a>
+                </li>
+                                    <ul id="tocify-subheader-autenticacion" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="autenticacion-GETapi-me">
+                                <a href="#autenticacion-GETapi-me">Perfil del usuario autenticado</a>
+                            </li>
+                                                                        </ul>
                             </ul>
                     <ul id="tocify-header-configuracion-de-seguridad" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="configuracion-de-seguridad">
@@ -125,9 +135,6 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-contrato">
                                 <a href="#endpoints-GETapi-v1-contrato">Sirve el archivo openapi.yaml solo si el secreto interno es correcto.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-me">
-                                <a href="#endpoints-GETapi-me">Get the authenticated user's current profile, roles, and permissions.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-metricas-personal--idPersonal-">
                                 <a href="#endpoints-GETapi-metricas-personal--idPersonal-">Obtener métricas por personal</a>
@@ -748,6 +755,35 @@ Usa SoftDeletes nativo de Eloquent.</a>
                                                                     </ul>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-websocket-canales" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="websocket-canales">
+                    <a href="#websocket-canales">WebSocket - Canales</a>
+                </li>
+                                    <ul id="tocify-subheader-websocket-canales" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="websocket-canales-GETapi-broadcasting-canales-atenciones">
+                                <a href="#websocket-canales-GETapi-broadcasting-canales-atenciones">Canal: private-atenciones</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="websocket-canales-GETapi-broadcasting-canales-usuario">
+                                <a href="#websocket-canales-GETapi-broadcasting-canales-usuario">Canal: private-user.{id}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-websocket-eventos" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="websocket-eventos">
+                    <a href="#websocket-eventos">WebSocket - Eventos</a>
+                </li>
+                                    <ul id="tocify-subheader-websocket-eventos" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="websocket-eventos-GETapi-broadcasting-eventos-atencion-creado">
+                                <a href="#websocket-eventos-GETapi-broadcasting-eventos-atencion-creado">Evento: .atencion.created</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="websocket-eventos-GETapi-broadcasting-eventos-atencion-actualizado">
+                                <a href="#websocket-eventos-GETapi-broadcasting-eventos-atencion-actualizado">Evento: .atencion.updated</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="websocket-eventos-GETapi-broadcasting-eventos-atencion-eliminado">
+                                <a href="#websocket-eventos-GETapi-broadcasting-eventos-atencion-eliminado">Evento: .atencion.deleted</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -757,7 +793,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 21, 2026</li>
+        <li>Last updated: May 22, 2026</li>
     </ul>
 </div>
 
@@ -767,7 +803,7 @@ Usa SoftDeletes nativo de Eloquent.</a>
         <h1 id="introduccion">Introducción</h1>
 <p>API REST del sistema de gestión de agencia de viajes TAG.</p>
 <aside>
-    <strong>URL Base</strong>: <code>http://localhost:8000</code>
+    <strong>URL Base</strong>: <code>http://localhost</code>
 </aside>
 <pre><code>Esta documentación tiene como objetivo proporcionar toda la información necesaria para trabajar con nuestra API.
 
@@ -779,7 +815,158 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 <p>Todos los endpoints que requieren autenticación están marcados con el distintivo <code>requiere autenticación</code> en la documentación.</p>
 <p>Puede obtener su token visitando su panel de control y haciendo clic en <b>Generar token de API</b>.</p>
 
-        <h1 id="configuracion-de-seguridad">Configuración de Seguridad</h1>
+        <h1 id="autenticacion">Autenticación</h1>
+
+    
+
+                                <h2 id="autenticacion-GETapi-me">Perfil del usuario autenticado</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Devuelve el perfil, roles, permisos y los canales WebSocket a los que el
+frontend debe suscribirse para recibir eventos en tiempo real (Reverb).</p>
+<p>El array <code>ws_channels</code> es la fuente de verdad: el frontend itera y se suscribe
+sin tomar decisiones de permisos.</p>
+
+<span id="example-requests-GETapi-me">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/me" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/me"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-me">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;usuario&quot;: {
+    &quot;id&quot;: 1,
+    &quot;nombre_usuario&quot;: &quot;Admin Root&quot;,
+    &quot;correo&quot;: &quot;admin@example.com&quot;,
+    &quot;esta_activo&quot;: true,
+    &quot;all_permissions&quot;: [&quot;view:atenciones:todas&quot;, &quot;view:atenciones&quot;, ...],
+    &quot;role_names&quot;: [&quot;admin&quot;],
+    &quot;ws_channels&quot;: [&quot;private-atenciones&quot;, &quot;private-user.1&quot;]
+  },
+  &quot;ws_channels&quot;: [&quot;private-atenciones&quot;, &quot;private-user.1&quot;]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-me" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-me"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-me"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-me" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-me">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-me" data-method="GET"
+      data-path="api/me"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-me', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-me"
+                    onclick="tryItOut('GETapi-me');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-me"
+                    onclick="cancelTryOut('GETapi-me');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-me"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/me</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-me"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="configuracion-de-seguridad">Configuración de Seguridad</h1>
 
     <p>APIs para gestionar los roles del sistema y sus permisos asociados.</p>
 
@@ -797,7 +984,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/roles" \
+    --get "http://localhost/api/roles" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -805,7 +992,7 @@ Puede cambiar el lenguaje utilizado con las pestañas en la parte superior derec
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles"
+    "http://localhost/api/roles"
 );
 
 const headers = {
@@ -861,506 +1048,894 @@ access-control-allow-origin: *
                 },
                 {
                     &quot;id&quot;: 5,
-                    &quot;name&quot;: &quot;view:personal&quot;
+                    &quot;name&quot;: &quot;view:usuarios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 6,
-                    &quot;name&quot;: &quot;create:personal&quot;
+                    &quot;name&quot;: &quot;edit:usuarios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 7,
-                    &quot;name&quot;: &quot;edit:personal&quot;
+                    &quot;name&quot;: &quot;delete:usuarios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 8,
-                    &quot;name&quot;: &quot;delete:personal&quot;
+                    &quot;name&quot;: &quot;view:personal&quot;
                 },
                 {
                     &quot;id&quot;: 9,
-                    &quot;name&quot;: &quot;view:clientes&quot;
+                    &quot;name&quot;: &quot;create:personal&quot;
                 },
                 {
                     &quot;id&quot;: 10,
-                    &quot;name&quot;: &quot;create:clientes&quot;
+                    &quot;name&quot;: &quot;edit:personal&quot;
                 },
                 {
                     &quot;id&quot;: 11,
-                    &quot;name&quot;: &quot;edit:clientes&quot;
+                    &quot;name&quot;: &quot;delete:personal&quot;
                 },
                 {
                     &quot;id&quot;: 12,
-                    &quot;name&quot;: &quot;delete:clientes&quot;
+                    &quot;name&quot;: &quot;view:personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 13,
-                    &quot;name&quot;: &quot;view:tipos_proveedores&quot;
+                    &quot;name&quot;: &quot;edit:personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 14,
-                    &quot;name&quot;: &quot;create:tipos_proveedores&quot;
+                    &quot;name&quot;: &quot;delete:personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 15,
-                    &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
+                    &quot;name&quot;: &quot;view:clientes&quot;
                 },
                 {
                     &quot;id&quot;: 16,
-                    &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
+                    &quot;name&quot;: &quot;create:clientes&quot;
                 },
                 {
                     &quot;id&quot;: 17,
-                    &quot;name&quot;: &quot;view:proveedores&quot;
+                    &quot;name&quot;: &quot;edit:clientes&quot;
                 },
                 {
                     &quot;id&quot;: 18,
-                    &quot;name&quot;: &quot;create:proveedores&quot;
+                    &quot;name&quot;: &quot;delete:clientes&quot;
                 },
                 {
                     &quot;id&quot;: 19,
-                    &quot;name&quot;: &quot;edit:proveedores&quot;
+                    &quot;name&quot;: &quot;view:clientes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 20,
-                    &quot;name&quot;: &quot;delete:proveedores&quot;
+                    &quot;name&quot;: &quot;edit:clientes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 21,
-                    &quot;name&quot;: &quot;view:tipo_servicio&quot;
+                    &quot;name&quot;: &quot;delete:clientes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 22,
-                    &quot;name&quot;: &quot;create:tipo_servicio&quot;
+                    &quot;name&quot;: &quot;view:tipos_proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 23,
-                    &quot;name&quot;: &quot;edit:tipo_servicio&quot;
+                    &quot;name&quot;: &quot;create:tipos_proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 24,
-                    &quot;name&quot;: &quot;delete:tipo_servicio&quot;
+                    &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 25,
-                    &quot;name&quot;: &quot;view:tasas_cambio&quot;
+                    &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 26,
-                    &quot;name&quot;: &quot;create:tasas_cambio&quot;
+                    &quot;name&quot;: &quot;view:tipos_proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 27,
-                    &quot;name&quot;: &quot;edit:tasas_cambio&quot;
+                    &quot;name&quot;: &quot;edit:tipos_proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 28,
-                    &quot;name&quot;: &quot;delete:tasas_cambio&quot;
+                    &quot;name&quot;: &quot;delete:tipos_proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 29,
-                    &quot;name&quot;: &quot;view:servicios&quot;
+                    &quot;name&quot;: &quot;view:proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 30,
-                    &quot;name&quot;: &quot;create:servicios&quot;
+                    &quot;name&quot;: &quot;create:proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 31,
-                    &quot;name&quot;: &quot;edit:servicios&quot;
+                    &quot;name&quot;: &quot;edit:proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 32,
-                    &quot;name&quot;: &quot;delete:servicios&quot;
+                    &quot;name&quot;: &quot;delete:proveedores&quot;
                 },
                 {
                     &quot;id&quot;: 33,
-                    &quot;name&quot;: &quot;view:origenes&quot;
+                    &quot;name&quot;: &quot;view:proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 34,
-                    &quot;name&quot;: &quot;create:origenes&quot;
+                    &quot;name&quot;: &quot;edit:proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 35,
-                    &quot;name&quot;: &quot;edit:origenes&quot;
+                    &quot;name&quot;: &quot;delete:proveedores:todas&quot;
                 },
                 {
                     &quot;id&quot;: 36,
-                    &quot;name&quot;: &quot;delete:origenes&quot;
+                    &quot;name&quot;: &quot;view:tipo_servicio&quot;
                 },
                 {
                     &quot;id&quot;: 37,
-                    &quot;name&quot;: &quot;view:atenciones&quot;
+                    &quot;name&quot;: &quot;create:tipo_servicio&quot;
                 },
                 {
                     &quot;id&quot;: 38,
-                    &quot;name&quot;: &quot;create:atenciones&quot;
+                    &quot;name&quot;: &quot;edit:tipo_servicio&quot;
                 },
                 {
                     &quot;id&quot;: 39,
-                    &quot;name&quot;: &quot;edit:atenciones&quot;
+                    &quot;name&quot;: &quot;delete:tipo_servicio&quot;
                 },
                 {
                     &quot;id&quot;: 40,
-                    &quot;name&quot;: &quot;delete:atenciones&quot;
+                    &quot;name&quot;: &quot;view:tipo_servicio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 41,
-                    &quot;name&quot;: &quot;view:atenciones_personal&quot;
+                    &quot;name&quot;: &quot;edit:tipo_servicio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 42,
-                    &quot;name&quot;: &quot;create:atenciones_personal&quot;
+                    &quot;name&quot;: &quot;delete:tipo_servicio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 43,
-                    &quot;name&quot;: &quot;edit:atenciones_personal&quot;
+                    &quot;name&quot;: &quot;view:tasas_cambio&quot;
                 },
                 {
                     &quot;id&quot;: 44,
-                    &quot;name&quot;: &quot;delete:atenciones_personal&quot;
+                    &quot;name&quot;: &quot;create:tasas_cambio&quot;
                 },
                 {
                     &quot;id&quot;: 45,
-                    &quot;name&quot;: &quot;view:cotizaciones&quot;
+                    &quot;name&quot;: &quot;edit:tasas_cambio&quot;
                 },
                 {
                     &quot;id&quot;: 46,
-                    &quot;name&quot;: &quot;create:cotizaciones&quot;
+                    &quot;name&quot;: &quot;delete:tasas_cambio&quot;
                 },
                 {
                     &quot;id&quot;: 47,
-                    &quot;name&quot;: &quot;edit:cotizaciones&quot;
+                    &quot;name&quot;: &quot;view:tasas_cambio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 48,
-                    &quot;name&quot;: &quot;delete:cotizaciones&quot;
+                    &quot;name&quot;: &quot;edit:tasas_cambio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 49,
-                    &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
+                    &quot;name&quot;: &quot;delete:tasas_cambio:todas&quot;
                 },
                 {
                     &quot;id&quot;: 50,
-                    &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
+                    &quot;name&quot;: &quot;view:servicios&quot;
                 },
                 {
                     &quot;id&quot;: 51,
-                    &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
+                    &quot;name&quot;: &quot;create:servicios&quot;
                 },
                 {
                     &quot;id&quot;: 52,
-                    &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
+                    &quot;name&quot;: &quot;edit:servicios&quot;
                 },
                 {
                     &quot;id&quot;: 53,
-                    &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
+                    &quot;name&quot;: &quot;delete:servicios&quot;
                 },
                 {
                     &quot;id&quot;: 54,
-                    &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
+                    &quot;name&quot;: &quot;view:servicios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 55,
-                    &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
+                    &quot;name&quot;: &quot;edit:servicios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 56,
-                    &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
+                    &quot;name&quot;: &quot;delete:servicios:todas&quot;
                 },
                 {
                     &quot;id&quot;: 57,
-                    &quot;name&quot;: &quot;view:metodos_pago&quot;
+                    &quot;name&quot;: &quot;view:origenes&quot;
                 },
                 {
                     &quot;id&quot;: 58,
-                    &quot;name&quot;: &quot;create:metodos_pago&quot;
+                    &quot;name&quot;: &quot;create:origenes&quot;
                 },
                 {
                     &quot;id&quot;: 59,
-                    &quot;name&quot;: &quot;edit:metodos_pago&quot;
+                    &quot;name&quot;: &quot;edit:origenes&quot;
                 },
                 {
                     &quot;id&quot;: 60,
-                    &quot;name&quot;: &quot;delete:metodos_pago&quot;
+                    &quot;name&quot;: &quot;delete:origenes&quot;
                 },
                 {
                     &quot;id&quot;: 61,
-                    &quot;name&quot;: &quot;view:pagos&quot;
+                    &quot;name&quot;: &quot;view:origenes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 62,
-                    &quot;name&quot;: &quot;create:pagos&quot;
+                    &quot;name&quot;: &quot;edit:origenes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 63,
-                    &quot;name&quot;: &quot;edit:pagos&quot;
+                    &quot;name&quot;: &quot;delete:origenes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 64,
-                    &quot;name&quot;: &quot;delete:pagos&quot;
+                    &quot;name&quot;: &quot;view:atenciones&quot;
                 },
                 {
                     &quot;id&quot;: 65,
-                    &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
+                    &quot;name&quot;: &quot;create:atenciones&quot;
                 },
                 {
                     &quot;id&quot;: 66,
-                    &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
+                    &quot;name&quot;: &quot;edit:atenciones&quot;
                 },
                 {
                     &quot;id&quot;: 67,
-                    &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
+                    &quot;name&quot;: &quot;delete:atenciones&quot;
                 },
                 {
                     &quot;id&quot;: 68,
-                    &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
+                    &quot;name&quot;: &quot;view:atenciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 69,
-                    &quot;name&quot;: &quot;view:empresas&quot;
+                    &quot;name&quot;: &quot;edit:atenciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 70,
-                    &quot;name&quot;: &quot;create:empresas&quot;
+                    &quot;name&quot;: &quot;delete:atenciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 71,
-                    &quot;name&quot;: &quot;edit:empresas&quot;
+                    &quot;name&quot;: &quot;view:atenciones_personal&quot;
                 },
                 {
                     &quot;id&quot;: 72,
-                    &quot;name&quot;: &quot;delete:empresas&quot;
+                    &quot;name&quot;: &quot;create:atenciones_personal&quot;
                 },
                 {
                     &quot;id&quot;: 73,
-                    &quot;name&quot;: &quot;view:personal_empresas&quot;
+                    &quot;name&quot;: &quot;edit:atenciones_personal&quot;
                 },
                 {
                     &quot;id&quot;: 74,
-                    &quot;name&quot;: &quot;create:personal_empresas&quot;
+                    &quot;name&quot;: &quot;delete:atenciones_personal&quot;
                 },
                 {
                     &quot;id&quot;: 75,
-                    &quot;name&quot;: &quot;edit:personal_empresas&quot;
+                    &quot;name&quot;: &quot;view:atenciones_personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 76,
-                    &quot;name&quot;: &quot;delete:personal_empresas&quot;
+                    &quot;name&quot;: &quot;edit:atenciones_personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 77,
-                    &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+                    &quot;name&quot;: &quot;delete:atenciones_personal:todas&quot;
                 },
                 {
                     &quot;id&quot;: 78,
-                    &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+                    &quot;name&quot;: &quot;view:cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 79,
-                    &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+                    &quot;name&quot;: &quot;create:cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 80,
-                    &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+                    &quot;name&quot;: &quot;edit:cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 81,
-                    &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+                    &quot;name&quot;: &quot;delete:cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 82,
-                    &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+                    &quot;name&quot;: &quot;view:cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 83,
-                    &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+                    &quot;name&quot;: &quot;edit:cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 84,
-                    &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+                    &quot;name&quot;: &quot;delete:cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 85,
-                    &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+                    &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 86,
-                    &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+                    &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 87,
-                    &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+                    &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 88,
-                    &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+                    &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 89,
-                    &quot;name&quot;: &quot;view:temporalidades&quot;
+                    &quot;name&quot;: &quot;view:tipos_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 90,
-                    &quot;name&quot;: &quot;create:temporalidades&quot;
+                    &quot;name&quot;: &quot;edit:tipos_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 91,
-                    &quot;name&quot;: &quot;edit:temporalidades&quot;
+                    &quot;name&quot;: &quot;delete:tipos_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 92,
-                    &quot;name&quot;: &quot;delete:temporalidades&quot;
+                    &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 93,
-                    &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+                    &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 94,
-                    &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+                    &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 95,
-                    &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+                    &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
                 },
                 {
                     &quot;id&quot;: 96,
-                    &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+                    &quot;name&quot;: &quot;view:servicios_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 97,
-                    &quot;name&quot;: &quot;view:metas&quot;
+                    &quot;name&quot;: &quot;edit:servicios_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 98,
-                    &quot;name&quot;: &quot;create:metas&quot;
+                    &quot;name&quot;: &quot;delete:servicios_cotizaciones:todas&quot;
                 },
                 {
                     &quot;id&quot;: 99,
-                    &quot;name&quot;: &quot;edit:metas&quot;
+                    &quot;name&quot;: &quot;view:metodos_pago&quot;
                 },
                 {
                     &quot;id&quot;: 100,
-                    &quot;name&quot;: &quot;delete:metas&quot;
+                    &quot;name&quot;: &quot;create:metodos_pago&quot;
                 },
                 {
                     &quot;id&quot;: 101,
-                    &quot;name&quot;: &quot;view:metas_personal&quot;
+                    &quot;name&quot;: &quot;edit:metodos_pago&quot;
                 },
                 {
                     &quot;id&quot;: 102,
-                    &quot;name&quot;: &quot;create:metas_personal&quot;
+                    &quot;name&quot;: &quot;delete:metodos_pago&quot;
                 },
                 {
                     &quot;id&quot;: 103,
-                    &quot;name&quot;: &quot;edit:metas_personal&quot;
+                    &quot;name&quot;: &quot;view:metodos_pago:todas&quot;
                 },
                 {
                     &quot;id&quot;: 104,
-                    &quot;name&quot;: &quot;delete:metas_personal&quot;
+                    &quot;name&quot;: &quot;edit:metodos_pago:todas&quot;
                 },
                 {
                     &quot;id&quot;: 105,
-                    &quot;name&quot;: &quot;view:ordenes_compra&quot;
+                    &quot;name&quot;: &quot;delete:metodos_pago:todas&quot;
                 },
                 {
                     &quot;id&quot;: 106,
-                    &quot;name&quot;: &quot;create:ordenes_compra&quot;
+                    &quot;name&quot;: &quot;view:pagos&quot;
                 },
                 {
                     &quot;id&quot;: 107,
-                    &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+                    &quot;name&quot;: &quot;create:pagos&quot;
                 },
                 {
                     &quot;id&quot;: 108,
-                    &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+                    &quot;name&quot;: &quot;edit:pagos&quot;
                 },
                 {
                     &quot;id&quot;: 109,
-                    &quot;name&quot;: &quot;view:tasas&quot;
+                    &quot;name&quot;: &quot;delete:pagos&quot;
                 },
                 {
                     &quot;id&quot;: 110,
-                    &quot;name&quot;: &quot;create:tasas&quot;
+                    &quot;name&quot;: &quot;view:pagos:todas&quot;
                 },
                 {
                     &quot;id&quot;: 111,
-                    &quot;name&quot;: &quot;edit:tasas&quot;
+                    &quot;name&quot;: &quot;edit:pagos:todas&quot;
                 },
                 {
                     &quot;id&quot;: 112,
-                    &quot;name&quot;: &quot;delete:tasas&quot;
+                    &quot;name&quot;: &quot;delete:pagos:todas&quot;
                 },
                 {
                     &quot;id&quot;: 113,
-                    &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+                    &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
                 },
                 {
                     &quot;id&quot;: 114,
-                    &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+                    &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
                 },
                 {
                     &quot;id&quot;: 115,
-                    &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+                    &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
                 },
                 {
                     &quot;id&quot;: 116,
-                    &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+                    &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
                 },
                 {
                     &quot;id&quot;: 117,
-                    &quot;name&quot;: &quot;view:clientes_empresas&quot;
+                    &quot;name&quot;: &quot;view:tipos_contribuyentes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 118,
-                    &quot;name&quot;: &quot;create:clientes_empresas&quot;
+                    &quot;name&quot;: &quot;edit:tipos_contribuyentes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 119,
-                    &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+                    &quot;name&quot;: &quot;delete:tipos_contribuyentes:todas&quot;
                 },
                 {
                     &quot;id&quot;: 120,
-                    &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+                    &quot;name&quot;: &quot;view:empresas&quot;
                 },
                 {
                     &quot;id&quot;: 121,
-                    &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+                    &quot;name&quot;: &quot;create:empresas&quot;
                 },
                 {
                     &quot;id&quot;: 122,
-                    &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+                    &quot;name&quot;: &quot;edit:empresas&quot;
                 },
                 {
                     &quot;id&quot;: 123,
-                    &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+                    &quot;name&quot;: &quot;delete:empresas&quot;
                 },
                 {
                     &quot;id&quot;: 124,
-                    &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+                    &quot;name&quot;: &quot;view:empresas:todas&quot;
                 },
                 {
                     &quot;id&quot;: 125,
-                    &quot;name&quot;: &quot;view:estatus&quot;
+                    &quot;name&quot;: &quot;edit:empresas:todas&quot;
                 },
                 {
                     &quot;id&quot;: 126,
-                    &quot;name&quot;: &quot;create:estatus&quot;
+                    &quot;name&quot;: &quot;delete:empresas:todas&quot;
                 },
                 {
                     &quot;id&quot;: 127,
-                    &quot;name&quot;: &quot;edit:estatus&quot;
+                    &quot;name&quot;: &quot;view:personal_empresas&quot;
                 },
                 {
                     &quot;id&quot;: 128,
-                    &quot;name&quot;: &quot;delete:estatus&quot;
+                    &quot;name&quot;: &quot;create:personal_empresas&quot;
                 },
                 {
                     &quot;id&quot;: 129,
-                    &quot;name&quot;: &quot;view:logros_personal&quot;
+                    &quot;name&quot;: &quot;edit:personal_empresas&quot;
                 },
                 {
                     &quot;id&quot;: 130,
+                    &quot;name&quot;: &quot;delete:personal_empresas&quot;
+                },
+                {
+                    &quot;id&quot;: 131,
+                    &quot;name&quot;: &quot;view:personal_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 132,
+                    &quot;name&quot;: &quot;edit:personal_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 133,
+                    &quot;name&quot;: &quot;delete:personal_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 134,
+                    &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 135,
+                    &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 136,
+                    &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 137,
+                    &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 138,
+                    &quot;name&quot;: &quot;view:pagos_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 139,
+                    &quot;name&quot;: &quot;edit:pagos_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 140,
+                    &quot;name&quot;: &quot;delete:pagos_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 141,
+                    &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 142,
+                    &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 143,
+                    &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 144,
+                    &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+                },
+                {
+                    &quot;id&quot;: 145,
+                    &quot;name&quot;: &quot;view:cuentas_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 146,
+                    &quot;name&quot;: &quot;edit:cuentas_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 147,
+                    &quot;name&quot;: &quot;delete:cuentas_proveedores:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 148,
+                    &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+                },
+                {
+                    &quot;id&quot;: 149,
+                    &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+                },
+                {
+                    &quot;id&quot;: 150,
+                    &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+                },
+                {
+                    &quot;id&quot;: 151,
+                    &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+                },
+                {
+                    &quot;id&quot;: 152,
+                    &quot;name&quot;: &quot;view:configuraciones_sistema:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 153,
+                    &quot;name&quot;: &quot;edit:configuraciones_sistema:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 154,
+                    &quot;name&quot;: &quot;delete:configuraciones_sistema:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 155,
+                    &quot;name&quot;: &quot;view:temporalidades&quot;
+                },
+                {
+                    &quot;id&quot;: 156,
+                    &quot;name&quot;: &quot;create:temporalidades&quot;
+                },
+                {
+                    &quot;id&quot;: 157,
+                    &quot;name&quot;: &quot;edit:temporalidades&quot;
+                },
+                {
+                    &quot;id&quot;: 158,
+                    &quot;name&quot;: &quot;delete:temporalidades&quot;
+                },
+                {
+                    &quot;id&quot;: 159,
+                    &quot;name&quot;: &quot;view:temporalidades:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 160,
+                    &quot;name&quot;: &quot;edit:temporalidades:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 161,
+                    &quot;name&quot;: &quot;delete:temporalidades:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 162,
+                    &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+                },
+                {
+                    &quot;id&quot;: 163,
+                    &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+                },
+                {
+                    &quot;id&quot;: 164,
+                    &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+                },
+                {
+                    &quot;id&quot;: 165,
+                    &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+                },
+                {
+                    &quot;id&quot;: 166,
+                    &quot;name&quot;: &quot;view:entidades_bancarias:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 167,
+                    &quot;name&quot;: &quot;edit:entidades_bancarias:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 168,
+                    &quot;name&quot;: &quot;delete:entidades_bancarias:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 169,
+                    &quot;name&quot;: &quot;view:metas&quot;
+                },
+                {
+                    &quot;id&quot;: 170,
+                    &quot;name&quot;: &quot;create:metas&quot;
+                },
+                {
+                    &quot;id&quot;: 171,
+                    &quot;name&quot;: &quot;edit:metas&quot;
+                },
+                {
+                    &quot;id&quot;: 172,
+                    &quot;name&quot;: &quot;delete:metas&quot;
+                },
+                {
+                    &quot;id&quot;: 173,
+                    &quot;name&quot;: &quot;view:metas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 174,
+                    &quot;name&quot;: &quot;edit:metas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 175,
+                    &quot;name&quot;: &quot;delete:metas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 176,
+                    &quot;name&quot;: &quot;view:metas_personal&quot;
+                },
+                {
+                    &quot;id&quot;: 177,
+                    &quot;name&quot;: &quot;create:metas_personal&quot;
+                },
+                {
+                    &quot;id&quot;: 178,
+                    &quot;name&quot;: &quot;edit:metas_personal&quot;
+                },
+                {
+                    &quot;id&quot;: 179,
+                    &quot;name&quot;: &quot;delete:metas_personal&quot;
+                },
+                {
+                    &quot;id&quot;: 180,
+                    &quot;name&quot;: &quot;view:metas_personal:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 181,
+                    &quot;name&quot;: &quot;edit:metas_personal:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 182,
+                    &quot;name&quot;: &quot;delete:metas_personal:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 183,
+                    &quot;name&quot;: &quot;view:ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 184,
+                    &quot;name&quot;: &quot;create:ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 185,
+                    &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 186,
+                    &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 187,
+                    &quot;name&quot;: &quot;view:ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 188,
+                    &quot;name&quot;: &quot;edit:ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 189,
+                    &quot;name&quot;: &quot;delete:ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 190,
+                    &quot;name&quot;: &quot;view:tasas&quot;
+                },
+                {
+                    &quot;id&quot;: 191,
+                    &quot;name&quot;: &quot;create:tasas&quot;
+                },
+                {
+                    &quot;id&quot;: 192,
+                    &quot;name&quot;: &quot;edit:tasas&quot;
+                },
+                {
+                    &quot;id&quot;: 193,
+                    &quot;name&quot;: &quot;delete:tasas&quot;
+                },
+                {
+                    &quot;id&quot;: 194,
+                    &quot;name&quot;: &quot;view:tasas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 195,
+                    &quot;name&quot;: &quot;edit:tasas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 196,
+                    &quot;name&quot;: &quot;delete:tasas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 197,
+                    &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+                },
+                {
+                    &quot;id&quot;: 198,
+                    &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+                },
+                {
+                    &quot;id&quot;: 199,
+                    &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+                },
+                {
+                    &quot;id&quot;: 200,
+                    &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+                },
+                {
+                    &quot;id&quot;: 201,
+                    &quot;name&quot;: &quot;view:cuentas_por_pagar:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 202,
+                    &quot;name&quot;: &quot;edit:cuentas_por_pagar:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 203,
+                    &quot;name&quot;: &quot;delete:cuentas_por_pagar:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 204,
+                    &quot;name&quot;: &quot;view:clientes_empresas&quot;
+                },
+                {
+                    &quot;id&quot;: 205,
+                    &quot;name&quot;: &quot;create:clientes_empresas&quot;
+                },
+                {
+                    &quot;id&quot;: 206,
+                    &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+                },
+                {
+                    &quot;id&quot;: 207,
+                    &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+                },
+                {
+                    &quot;id&quot;: 208,
+                    &quot;name&quot;: &quot;view:clientes_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 209,
+                    &quot;name&quot;: &quot;edit:clientes_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 210,
+                    &quot;name&quot;: &quot;delete:clientes_empresas:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 211,
+                    &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 212,
+                    &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 213,
+                    &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 214,
+                    &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+                },
+                {
+                    &quot;id&quot;: 215,
+                    &quot;name&quot;: &quot;view:pagos_ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 216,
+                    &quot;name&quot;: &quot;edit:pagos_ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 217,
+                    &quot;name&quot;: &quot;delete:pagos_ordenes_compra:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 218,
+                    &quot;name&quot;: &quot;view:estatus&quot;
+                },
+                {
+                    &quot;id&quot;: 219,
+                    &quot;name&quot;: &quot;create:estatus&quot;
+                },
+                {
+                    &quot;id&quot;: 220,
+                    &quot;name&quot;: &quot;edit:estatus&quot;
+                },
+                {
+                    &quot;id&quot;: 221,
+                    &quot;name&quot;: &quot;delete:estatus&quot;
+                },
+                {
+                    &quot;id&quot;: 222,
+                    &quot;name&quot;: &quot;view:estatus:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 223,
+                    &quot;name&quot;: &quot;edit:estatus:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 224,
+                    &quot;name&quot;: &quot;delete:estatus:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 225,
+                    &quot;name&quot;: &quot;view:logros_personal&quot;
+                },
+                {
+                    &quot;id&quot;: 226,
+                    &quot;name&quot;: &quot;view:logros_personal:todas&quot;
+                },
+                {
+                    &quot;id&quot;: 227,
                     &quot;name&quot;: &quot;view:audit_logs&quot;
                 }
             ]
@@ -1483,7 +2058,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/roles" \
+    "http://localhost/api/roles" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1499,7 +2074,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles"
+    "http://localhost/api/roles"
 );
 
 const headers = {
@@ -1664,7 +2239,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/roles/1" \
+    --get "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1672,7 +2247,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -1727,506 +2302,894 @@ access-control-allow-origin: *
             },
             {
                 &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;view:personal&quot;
+                &quot;name&quot;: &quot;view:usuarios:todas&quot;
             },
             {
                 &quot;id&quot;: 6,
-                &quot;name&quot;: &quot;create:personal&quot;
+                &quot;name&quot;: &quot;edit:usuarios:todas&quot;
             },
             {
                 &quot;id&quot;: 7,
-                &quot;name&quot;: &quot;edit:personal&quot;
+                &quot;name&quot;: &quot;delete:usuarios:todas&quot;
             },
             {
                 &quot;id&quot;: 8,
-                &quot;name&quot;: &quot;delete:personal&quot;
+                &quot;name&quot;: &quot;view:personal&quot;
             },
             {
                 &quot;id&quot;: 9,
-                &quot;name&quot;: &quot;view:clientes&quot;
+                &quot;name&quot;: &quot;create:personal&quot;
             },
             {
                 &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;create:clientes&quot;
+                &quot;name&quot;: &quot;edit:personal&quot;
             },
             {
                 &quot;id&quot;: 11,
-                &quot;name&quot;: &quot;edit:clientes&quot;
+                &quot;name&quot;: &quot;delete:personal&quot;
             },
             {
                 &quot;id&quot;: 12,
-                &quot;name&quot;: &quot;delete:clientes&quot;
+                &quot;name&quot;: &quot;view:personal:todas&quot;
             },
             {
                 &quot;id&quot;: 13,
-                &quot;name&quot;: &quot;view:tipos_proveedores&quot;
+                &quot;name&quot;: &quot;edit:personal:todas&quot;
             },
             {
                 &quot;id&quot;: 14,
-                &quot;name&quot;: &quot;create:tipos_proveedores&quot;
+                &quot;name&quot;: &quot;delete:personal:todas&quot;
             },
             {
                 &quot;id&quot;: 15,
-                &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
+                &quot;name&quot;: &quot;view:clientes&quot;
             },
             {
                 &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
+                &quot;name&quot;: &quot;create:clientes&quot;
             },
             {
                 &quot;id&quot;: 17,
-                &quot;name&quot;: &quot;view:proveedores&quot;
+                &quot;name&quot;: &quot;edit:clientes&quot;
             },
             {
                 &quot;id&quot;: 18,
-                &quot;name&quot;: &quot;create:proveedores&quot;
+                &quot;name&quot;: &quot;delete:clientes&quot;
             },
             {
                 &quot;id&quot;: 19,
-                &quot;name&quot;: &quot;edit:proveedores&quot;
+                &quot;name&quot;: &quot;view:clientes:todas&quot;
             },
             {
                 &quot;id&quot;: 20,
-                &quot;name&quot;: &quot;delete:proveedores&quot;
+                &quot;name&quot;: &quot;edit:clientes:todas&quot;
             },
             {
                 &quot;id&quot;: 21,
-                &quot;name&quot;: &quot;view:tipo_servicio&quot;
+                &quot;name&quot;: &quot;delete:clientes:todas&quot;
             },
             {
                 &quot;id&quot;: 22,
-                &quot;name&quot;: &quot;create:tipo_servicio&quot;
+                &quot;name&quot;: &quot;view:tipos_proveedores&quot;
             },
             {
                 &quot;id&quot;: 23,
-                &quot;name&quot;: &quot;edit:tipo_servicio&quot;
+                &quot;name&quot;: &quot;create:tipos_proveedores&quot;
             },
             {
                 &quot;id&quot;: 24,
-                &quot;name&quot;: &quot;delete:tipo_servicio&quot;
+                &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
             },
             {
                 &quot;id&quot;: 25,
-                &quot;name&quot;: &quot;view:tasas_cambio&quot;
+                &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
             },
             {
                 &quot;id&quot;: 26,
-                &quot;name&quot;: &quot;create:tasas_cambio&quot;
+                &quot;name&quot;: &quot;view:tipos_proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 27,
-                &quot;name&quot;: &quot;edit:tasas_cambio&quot;
+                &quot;name&quot;: &quot;edit:tipos_proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 28,
-                &quot;name&quot;: &quot;delete:tasas_cambio&quot;
+                &quot;name&quot;: &quot;delete:tipos_proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 29,
-                &quot;name&quot;: &quot;view:servicios&quot;
+                &quot;name&quot;: &quot;view:proveedores&quot;
             },
             {
                 &quot;id&quot;: 30,
-                &quot;name&quot;: &quot;create:servicios&quot;
+                &quot;name&quot;: &quot;create:proveedores&quot;
             },
             {
                 &quot;id&quot;: 31,
-                &quot;name&quot;: &quot;edit:servicios&quot;
+                &quot;name&quot;: &quot;edit:proveedores&quot;
             },
             {
                 &quot;id&quot;: 32,
-                &quot;name&quot;: &quot;delete:servicios&quot;
+                &quot;name&quot;: &quot;delete:proveedores&quot;
             },
             {
                 &quot;id&quot;: 33,
-                &quot;name&quot;: &quot;view:origenes&quot;
+                &quot;name&quot;: &quot;view:proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 34,
-                &quot;name&quot;: &quot;create:origenes&quot;
+                &quot;name&quot;: &quot;edit:proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 35,
-                &quot;name&quot;: &quot;edit:origenes&quot;
+                &quot;name&quot;: &quot;delete:proveedores:todas&quot;
             },
             {
                 &quot;id&quot;: 36,
-                &quot;name&quot;: &quot;delete:origenes&quot;
+                &quot;name&quot;: &quot;view:tipo_servicio&quot;
             },
             {
                 &quot;id&quot;: 37,
-                &quot;name&quot;: &quot;view:atenciones&quot;
+                &quot;name&quot;: &quot;create:tipo_servicio&quot;
             },
             {
                 &quot;id&quot;: 38,
-                &quot;name&quot;: &quot;create:atenciones&quot;
+                &quot;name&quot;: &quot;edit:tipo_servicio&quot;
             },
             {
                 &quot;id&quot;: 39,
-                &quot;name&quot;: &quot;edit:atenciones&quot;
+                &quot;name&quot;: &quot;delete:tipo_servicio&quot;
             },
             {
                 &quot;id&quot;: 40,
-                &quot;name&quot;: &quot;delete:atenciones&quot;
+                &quot;name&quot;: &quot;view:tipo_servicio:todas&quot;
             },
             {
                 &quot;id&quot;: 41,
-                &quot;name&quot;: &quot;view:atenciones_personal&quot;
+                &quot;name&quot;: &quot;edit:tipo_servicio:todas&quot;
             },
             {
                 &quot;id&quot;: 42,
-                &quot;name&quot;: &quot;create:atenciones_personal&quot;
+                &quot;name&quot;: &quot;delete:tipo_servicio:todas&quot;
             },
             {
                 &quot;id&quot;: 43,
-                &quot;name&quot;: &quot;edit:atenciones_personal&quot;
+                &quot;name&quot;: &quot;view:tasas_cambio&quot;
             },
             {
                 &quot;id&quot;: 44,
-                &quot;name&quot;: &quot;delete:atenciones_personal&quot;
+                &quot;name&quot;: &quot;create:tasas_cambio&quot;
             },
             {
                 &quot;id&quot;: 45,
-                &quot;name&quot;: &quot;view:cotizaciones&quot;
+                &quot;name&quot;: &quot;edit:tasas_cambio&quot;
             },
             {
                 &quot;id&quot;: 46,
-                &quot;name&quot;: &quot;create:cotizaciones&quot;
+                &quot;name&quot;: &quot;delete:tasas_cambio&quot;
             },
             {
                 &quot;id&quot;: 47,
-                &quot;name&quot;: &quot;edit:cotizaciones&quot;
+                &quot;name&quot;: &quot;view:tasas_cambio:todas&quot;
             },
             {
                 &quot;id&quot;: 48,
-                &quot;name&quot;: &quot;delete:cotizaciones&quot;
+                &quot;name&quot;: &quot;edit:tasas_cambio:todas&quot;
             },
             {
                 &quot;id&quot;: 49,
-                &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
+                &quot;name&quot;: &quot;delete:tasas_cambio:todas&quot;
             },
             {
                 &quot;id&quot;: 50,
-                &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
+                &quot;name&quot;: &quot;view:servicios&quot;
             },
             {
                 &quot;id&quot;: 51,
-                &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
+                &quot;name&quot;: &quot;create:servicios&quot;
             },
             {
                 &quot;id&quot;: 52,
-                &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
+                &quot;name&quot;: &quot;edit:servicios&quot;
             },
             {
                 &quot;id&quot;: 53,
-                &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
+                &quot;name&quot;: &quot;delete:servicios&quot;
             },
             {
                 &quot;id&quot;: 54,
-                &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
+                &quot;name&quot;: &quot;view:servicios:todas&quot;
             },
             {
                 &quot;id&quot;: 55,
-                &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
+                &quot;name&quot;: &quot;edit:servicios:todas&quot;
             },
             {
                 &quot;id&quot;: 56,
-                &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
+                &quot;name&quot;: &quot;delete:servicios:todas&quot;
             },
             {
                 &quot;id&quot;: 57,
-                &quot;name&quot;: &quot;view:metodos_pago&quot;
+                &quot;name&quot;: &quot;view:origenes&quot;
             },
             {
                 &quot;id&quot;: 58,
-                &quot;name&quot;: &quot;create:metodos_pago&quot;
+                &quot;name&quot;: &quot;create:origenes&quot;
             },
             {
                 &quot;id&quot;: 59,
-                &quot;name&quot;: &quot;edit:metodos_pago&quot;
+                &quot;name&quot;: &quot;edit:origenes&quot;
             },
             {
                 &quot;id&quot;: 60,
-                &quot;name&quot;: &quot;delete:metodos_pago&quot;
+                &quot;name&quot;: &quot;delete:origenes&quot;
             },
             {
                 &quot;id&quot;: 61,
-                &quot;name&quot;: &quot;view:pagos&quot;
+                &quot;name&quot;: &quot;view:origenes:todas&quot;
             },
             {
                 &quot;id&quot;: 62,
-                &quot;name&quot;: &quot;create:pagos&quot;
+                &quot;name&quot;: &quot;edit:origenes:todas&quot;
             },
             {
                 &quot;id&quot;: 63,
-                &quot;name&quot;: &quot;edit:pagos&quot;
+                &quot;name&quot;: &quot;delete:origenes:todas&quot;
             },
             {
                 &quot;id&quot;: 64,
-                &quot;name&quot;: &quot;delete:pagos&quot;
+                &quot;name&quot;: &quot;view:atenciones&quot;
             },
             {
                 &quot;id&quot;: 65,
-                &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
+                &quot;name&quot;: &quot;create:atenciones&quot;
             },
             {
                 &quot;id&quot;: 66,
-                &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
+                &quot;name&quot;: &quot;edit:atenciones&quot;
             },
             {
                 &quot;id&quot;: 67,
-                &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
+                &quot;name&quot;: &quot;delete:atenciones&quot;
             },
             {
                 &quot;id&quot;: 68,
-                &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
+                &quot;name&quot;: &quot;view:atenciones:todas&quot;
             },
             {
                 &quot;id&quot;: 69,
-                &quot;name&quot;: &quot;view:empresas&quot;
+                &quot;name&quot;: &quot;edit:atenciones:todas&quot;
             },
             {
                 &quot;id&quot;: 70,
-                &quot;name&quot;: &quot;create:empresas&quot;
+                &quot;name&quot;: &quot;delete:atenciones:todas&quot;
             },
             {
                 &quot;id&quot;: 71,
-                &quot;name&quot;: &quot;edit:empresas&quot;
+                &quot;name&quot;: &quot;view:atenciones_personal&quot;
             },
             {
                 &quot;id&quot;: 72,
-                &quot;name&quot;: &quot;delete:empresas&quot;
+                &quot;name&quot;: &quot;create:atenciones_personal&quot;
             },
             {
                 &quot;id&quot;: 73,
-                &quot;name&quot;: &quot;view:personal_empresas&quot;
+                &quot;name&quot;: &quot;edit:atenciones_personal&quot;
             },
             {
                 &quot;id&quot;: 74,
-                &quot;name&quot;: &quot;create:personal_empresas&quot;
+                &quot;name&quot;: &quot;delete:atenciones_personal&quot;
             },
             {
                 &quot;id&quot;: 75,
-                &quot;name&quot;: &quot;edit:personal_empresas&quot;
+                &quot;name&quot;: &quot;view:atenciones_personal:todas&quot;
             },
             {
                 &quot;id&quot;: 76,
-                &quot;name&quot;: &quot;delete:personal_empresas&quot;
+                &quot;name&quot;: &quot;edit:atenciones_personal:todas&quot;
             },
             {
                 &quot;id&quot;: 77,
-                &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+                &quot;name&quot;: &quot;delete:atenciones_personal:todas&quot;
             },
             {
                 &quot;id&quot;: 78,
-                &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+                &quot;name&quot;: &quot;view:cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 79,
-                &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+                &quot;name&quot;: &quot;create:cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 80,
-                &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+                &quot;name&quot;: &quot;edit:cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 81,
-                &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+                &quot;name&quot;: &quot;delete:cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 82,
-                &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+                &quot;name&quot;: &quot;view:cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 83,
-                &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+                &quot;name&quot;: &quot;edit:cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 84,
-                &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+                &quot;name&quot;: &quot;delete:cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 85,
-                &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+                &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 86,
-                &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+                &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 87,
-                &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+                &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 88,
-                &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+                &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 89,
-                &quot;name&quot;: &quot;view:temporalidades&quot;
+                &quot;name&quot;: &quot;view:tipos_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 90,
-                &quot;name&quot;: &quot;create:temporalidades&quot;
+                &quot;name&quot;: &quot;edit:tipos_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 91,
-                &quot;name&quot;: &quot;edit:temporalidades&quot;
+                &quot;name&quot;: &quot;delete:tipos_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 92,
-                &quot;name&quot;: &quot;delete:temporalidades&quot;
+                &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 93,
-                &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+                &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 94,
-                &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+                &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 95,
-                &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+                &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
             },
             {
                 &quot;id&quot;: 96,
-                &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+                &quot;name&quot;: &quot;view:servicios_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 97,
-                &quot;name&quot;: &quot;view:metas&quot;
+                &quot;name&quot;: &quot;edit:servicios_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 98,
-                &quot;name&quot;: &quot;create:metas&quot;
+                &quot;name&quot;: &quot;delete:servicios_cotizaciones:todas&quot;
             },
             {
                 &quot;id&quot;: 99,
-                &quot;name&quot;: &quot;edit:metas&quot;
+                &quot;name&quot;: &quot;view:metodos_pago&quot;
             },
             {
                 &quot;id&quot;: 100,
-                &quot;name&quot;: &quot;delete:metas&quot;
+                &quot;name&quot;: &quot;create:metodos_pago&quot;
             },
             {
                 &quot;id&quot;: 101,
-                &quot;name&quot;: &quot;view:metas_personal&quot;
+                &quot;name&quot;: &quot;edit:metodos_pago&quot;
             },
             {
                 &quot;id&quot;: 102,
-                &quot;name&quot;: &quot;create:metas_personal&quot;
+                &quot;name&quot;: &quot;delete:metodos_pago&quot;
             },
             {
                 &quot;id&quot;: 103,
-                &quot;name&quot;: &quot;edit:metas_personal&quot;
+                &quot;name&quot;: &quot;view:metodos_pago:todas&quot;
             },
             {
                 &quot;id&quot;: 104,
-                &quot;name&quot;: &quot;delete:metas_personal&quot;
+                &quot;name&quot;: &quot;edit:metodos_pago:todas&quot;
             },
             {
                 &quot;id&quot;: 105,
-                &quot;name&quot;: &quot;view:ordenes_compra&quot;
+                &quot;name&quot;: &quot;delete:metodos_pago:todas&quot;
             },
             {
                 &quot;id&quot;: 106,
-                &quot;name&quot;: &quot;create:ordenes_compra&quot;
+                &quot;name&quot;: &quot;view:pagos&quot;
             },
             {
                 &quot;id&quot;: 107,
-                &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+                &quot;name&quot;: &quot;create:pagos&quot;
             },
             {
                 &quot;id&quot;: 108,
-                &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+                &quot;name&quot;: &quot;edit:pagos&quot;
             },
             {
                 &quot;id&quot;: 109,
-                &quot;name&quot;: &quot;view:tasas&quot;
+                &quot;name&quot;: &quot;delete:pagos&quot;
             },
             {
                 &quot;id&quot;: 110,
-                &quot;name&quot;: &quot;create:tasas&quot;
+                &quot;name&quot;: &quot;view:pagos:todas&quot;
             },
             {
                 &quot;id&quot;: 111,
-                &quot;name&quot;: &quot;edit:tasas&quot;
+                &quot;name&quot;: &quot;edit:pagos:todas&quot;
             },
             {
                 &quot;id&quot;: 112,
-                &quot;name&quot;: &quot;delete:tasas&quot;
+                &quot;name&quot;: &quot;delete:pagos:todas&quot;
             },
             {
                 &quot;id&quot;: 113,
-                &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+                &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
             },
             {
                 &quot;id&quot;: 114,
-                &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+                &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
             },
             {
                 &quot;id&quot;: 115,
-                &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+                &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
             },
             {
                 &quot;id&quot;: 116,
-                &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+                &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
             },
             {
                 &quot;id&quot;: 117,
-                &quot;name&quot;: &quot;view:clientes_empresas&quot;
+                &quot;name&quot;: &quot;view:tipos_contribuyentes:todas&quot;
             },
             {
                 &quot;id&quot;: 118,
-                &quot;name&quot;: &quot;create:clientes_empresas&quot;
+                &quot;name&quot;: &quot;edit:tipos_contribuyentes:todas&quot;
             },
             {
                 &quot;id&quot;: 119,
-                &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+                &quot;name&quot;: &quot;delete:tipos_contribuyentes:todas&quot;
             },
             {
                 &quot;id&quot;: 120,
-                &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+                &quot;name&quot;: &quot;view:empresas&quot;
             },
             {
                 &quot;id&quot;: 121,
-                &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+                &quot;name&quot;: &quot;create:empresas&quot;
             },
             {
                 &quot;id&quot;: 122,
-                &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+                &quot;name&quot;: &quot;edit:empresas&quot;
             },
             {
                 &quot;id&quot;: 123,
-                &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+                &quot;name&quot;: &quot;delete:empresas&quot;
             },
             {
                 &quot;id&quot;: 124,
-                &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+                &quot;name&quot;: &quot;view:empresas:todas&quot;
             },
             {
                 &quot;id&quot;: 125,
-                &quot;name&quot;: &quot;view:estatus&quot;
+                &quot;name&quot;: &quot;edit:empresas:todas&quot;
             },
             {
                 &quot;id&quot;: 126,
-                &quot;name&quot;: &quot;create:estatus&quot;
+                &quot;name&quot;: &quot;delete:empresas:todas&quot;
             },
             {
                 &quot;id&quot;: 127,
-                &quot;name&quot;: &quot;edit:estatus&quot;
+                &quot;name&quot;: &quot;view:personal_empresas&quot;
             },
             {
                 &quot;id&quot;: 128,
-                &quot;name&quot;: &quot;delete:estatus&quot;
+                &quot;name&quot;: &quot;create:personal_empresas&quot;
             },
             {
                 &quot;id&quot;: 129,
-                &quot;name&quot;: &quot;view:logros_personal&quot;
+                &quot;name&quot;: &quot;edit:personal_empresas&quot;
             },
             {
                 &quot;id&quot;: 130,
+                &quot;name&quot;: &quot;delete:personal_empresas&quot;
+            },
+            {
+                &quot;id&quot;: 131,
+                &quot;name&quot;: &quot;view:personal_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 132,
+                &quot;name&quot;: &quot;edit:personal_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 133,
+                &quot;name&quot;: &quot;delete:personal_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 134,
+                &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 135,
+                &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 136,
+                &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 137,
+                &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 138,
+                &quot;name&quot;: &quot;view:pagos_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 139,
+                &quot;name&quot;: &quot;edit:pagos_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 140,
+                &quot;name&quot;: &quot;delete:pagos_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 141,
+                &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 142,
+                &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 143,
+                &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 144,
+                &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+            },
+            {
+                &quot;id&quot;: 145,
+                &quot;name&quot;: &quot;view:cuentas_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 146,
+                &quot;name&quot;: &quot;edit:cuentas_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 147,
+                &quot;name&quot;: &quot;delete:cuentas_proveedores:todas&quot;
+            },
+            {
+                &quot;id&quot;: 148,
+                &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+            },
+            {
+                &quot;id&quot;: 149,
+                &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+            },
+            {
+                &quot;id&quot;: 150,
+                &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+            },
+            {
+                &quot;id&quot;: 151,
+                &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+            },
+            {
+                &quot;id&quot;: 152,
+                &quot;name&quot;: &quot;view:configuraciones_sistema:todas&quot;
+            },
+            {
+                &quot;id&quot;: 153,
+                &quot;name&quot;: &quot;edit:configuraciones_sistema:todas&quot;
+            },
+            {
+                &quot;id&quot;: 154,
+                &quot;name&quot;: &quot;delete:configuraciones_sistema:todas&quot;
+            },
+            {
+                &quot;id&quot;: 155,
+                &quot;name&quot;: &quot;view:temporalidades&quot;
+            },
+            {
+                &quot;id&quot;: 156,
+                &quot;name&quot;: &quot;create:temporalidades&quot;
+            },
+            {
+                &quot;id&quot;: 157,
+                &quot;name&quot;: &quot;edit:temporalidades&quot;
+            },
+            {
+                &quot;id&quot;: 158,
+                &quot;name&quot;: &quot;delete:temporalidades&quot;
+            },
+            {
+                &quot;id&quot;: 159,
+                &quot;name&quot;: &quot;view:temporalidades:todas&quot;
+            },
+            {
+                &quot;id&quot;: 160,
+                &quot;name&quot;: &quot;edit:temporalidades:todas&quot;
+            },
+            {
+                &quot;id&quot;: 161,
+                &quot;name&quot;: &quot;delete:temporalidades:todas&quot;
+            },
+            {
+                &quot;id&quot;: 162,
+                &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+            },
+            {
+                &quot;id&quot;: 163,
+                &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+            },
+            {
+                &quot;id&quot;: 164,
+                &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+            },
+            {
+                &quot;id&quot;: 165,
+                &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+            },
+            {
+                &quot;id&quot;: 166,
+                &quot;name&quot;: &quot;view:entidades_bancarias:todas&quot;
+            },
+            {
+                &quot;id&quot;: 167,
+                &quot;name&quot;: &quot;edit:entidades_bancarias:todas&quot;
+            },
+            {
+                &quot;id&quot;: 168,
+                &quot;name&quot;: &quot;delete:entidades_bancarias:todas&quot;
+            },
+            {
+                &quot;id&quot;: 169,
+                &quot;name&quot;: &quot;view:metas&quot;
+            },
+            {
+                &quot;id&quot;: 170,
+                &quot;name&quot;: &quot;create:metas&quot;
+            },
+            {
+                &quot;id&quot;: 171,
+                &quot;name&quot;: &quot;edit:metas&quot;
+            },
+            {
+                &quot;id&quot;: 172,
+                &quot;name&quot;: &quot;delete:metas&quot;
+            },
+            {
+                &quot;id&quot;: 173,
+                &quot;name&quot;: &quot;view:metas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 174,
+                &quot;name&quot;: &quot;edit:metas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 175,
+                &quot;name&quot;: &quot;delete:metas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 176,
+                &quot;name&quot;: &quot;view:metas_personal&quot;
+            },
+            {
+                &quot;id&quot;: 177,
+                &quot;name&quot;: &quot;create:metas_personal&quot;
+            },
+            {
+                &quot;id&quot;: 178,
+                &quot;name&quot;: &quot;edit:metas_personal&quot;
+            },
+            {
+                &quot;id&quot;: 179,
+                &quot;name&quot;: &quot;delete:metas_personal&quot;
+            },
+            {
+                &quot;id&quot;: 180,
+                &quot;name&quot;: &quot;view:metas_personal:todas&quot;
+            },
+            {
+                &quot;id&quot;: 181,
+                &quot;name&quot;: &quot;edit:metas_personal:todas&quot;
+            },
+            {
+                &quot;id&quot;: 182,
+                &quot;name&quot;: &quot;delete:metas_personal:todas&quot;
+            },
+            {
+                &quot;id&quot;: 183,
+                &quot;name&quot;: &quot;view:ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 184,
+                &quot;name&quot;: &quot;create:ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 185,
+                &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 186,
+                &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 187,
+                &quot;name&quot;: &quot;view:ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 188,
+                &quot;name&quot;: &quot;edit:ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 189,
+                &quot;name&quot;: &quot;delete:ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 190,
+                &quot;name&quot;: &quot;view:tasas&quot;
+            },
+            {
+                &quot;id&quot;: 191,
+                &quot;name&quot;: &quot;create:tasas&quot;
+            },
+            {
+                &quot;id&quot;: 192,
+                &quot;name&quot;: &quot;edit:tasas&quot;
+            },
+            {
+                &quot;id&quot;: 193,
+                &quot;name&quot;: &quot;delete:tasas&quot;
+            },
+            {
+                &quot;id&quot;: 194,
+                &quot;name&quot;: &quot;view:tasas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 195,
+                &quot;name&quot;: &quot;edit:tasas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 196,
+                &quot;name&quot;: &quot;delete:tasas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 197,
+                &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+            },
+            {
+                &quot;id&quot;: 198,
+                &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+            },
+            {
+                &quot;id&quot;: 199,
+                &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+            },
+            {
+                &quot;id&quot;: 200,
+                &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+            },
+            {
+                &quot;id&quot;: 201,
+                &quot;name&quot;: &quot;view:cuentas_por_pagar:todas&quot;
+            },
+            {
+                &quot;id&quot;: 202,
+                &quot;name&quot;: &quot;edit:cuentas_por_pagar:todas&quot;
+            },
+            {
+                &quot;id&quot;: 203,
+                &quot;name&quot;: &quot;delete:cuentas_por_pagar:todas&quot;
+            },
+            {
+                &quot;id&quot;: 204,
+                &quot;name&quot;: &quot;view:clientes_empresas&quot;
+            },
+            {
+                &quot;id&quot;: 205,
+                &quot;name&quot;: &quot;create:clientes_empresas&quot;
+            },
+            {
+                &quot;id&quot;: 206,
+                &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+            },
+            {
+                &quot;id&quot;: 207,
+                &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+            },
+            {
+                &quot;id&quot;: 208,
+                &quot;name&quot;: &quot;view:clientes_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 209,
+                &quot;name&quot;: &quot;edit:clientes_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 210,
+                &quot;name&quot;: &quot;delete:clientes_empresas:todas&quot;
+            },
+            {
+                &quot;id&quot;: 211,
+                &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 212,
+                &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 213,
+                &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 214,
+                &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+            },
+            {
+                &quot;id&quot;: 215,
+                &quot;name&quot;: &quot;view:pagos_ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 216,
+                &quot;name&quot;: &quot;edit:pagos_ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 217,
+                &quot;name&quot;: &quot;delete:pagos_ordenes_compra:todas&quot;
+            },
+            {
+                &quot;id&quot;: 218,
+                &quot;name&quot;: &quot;view:estatus&quot;
+            },
+            {
+                &quot;id&quot;: 219,
+                &quot;name&quot;: &quot;create:estatus&quot;
+            },
+            {
+                &quot;id&quot;: 220,
+                &quot;name&quot;: &quot;edit:estatus&quot;
+            },
+            {
+                &quot;id&quot;: 221,
+                &quot;name&quot;: &quot;delete:estatus&quot;
+            },
+            {
+                &quot;id&quot;: 222,
+                &quot;name&quot;: &quot;view:estatus:todas&quot;
+            },
+            {
+                &quot;id&quot;: 223,
+                &quot;name&quot;: &quot;edit:estatus:todas&quot;
+            },
+            {
+                &quot;id&quot;: 224,
+                &quot;name&quot;: &quot;delete:estatus:todas&quot;
+            },
+            {
+                &quot;id&quot;: 225,
+                &quot;name&quot;: &quot;view:logros_personal&quot;
+            },
+            {
+                &quot;id&quot;: 226,
+                &quot;name&quot;: &quot;view:logros_personal:todas&quot;
+            },
+            {
+                &quot;id&quot;: 227,
                 &quot;name&quot;: &quot;view:audit_logs&quot;
             }
         ]
@@ -2346,7 +3309,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/roles/1" \
+    "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2361,7 +3324,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -2530,7 +3493,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/roles/1" \
+    "http://localhost/api/roles/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2538,7 +3501,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/roles/1"
+    "http://localhost/api/roles/1"
 );
 
 const headers = {
@@ -2669,7 +3632,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/permisos" \
+    --get "http://localhost/api/permisos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2677,7 +3640,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos"
+    "http://localhost/api/permisos"
 );
 
 const headers = {
@@ -2729,506 +3692,894 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 5,
-            &quot;name&quot;: &quot;view:personal&quot;
+            &quot;name&quot;: &quot;view:usuarios:todas&quot;
         },
         {
             &quot;id&quot;: 6,
-            &quot;name&quot;: &quot;create:personal&quot;
+            &quot;name&quot;: &quot;edit:usuarios:todas&quot;
         },
         {
             &quot;id&quot;: 7,
-            &quot;name&quot;: &quot;edit:personal&quot;
+            &quot;name&quot;: &quot;delete:usuarios:todas&quot;
         },
         {
             &quot;id&quot;: 8,
-            &quot;name&quot;: &quot;delete:personal&quot;
+            &quot;name&quot;: &quot;view:personal&quot;
         },
         {
             &quot;id&quot;: 9,
-            &quot;name&quot;: &quot;view:clientes&quot;
+            &quot;name&quot;: &quot;create:personal&quot;
         },
         {
             &quot;id&quot;: 10,
-            &quot;name&quot;: &quot;create:clientes&quot;
+            &quot;name&quot;: &quot;edit:personal&quot;
         },
         {
             &quot;id&quot;: 11,
-            &quot;name&quot;: &quot;edit:clientes&quot;
+            &quot;name&quot;: &quot;delete:personal&quot;
         },
         {
             &quot;id&quot;: 12,
-            &quot;name&quot;: &quot;delete:clientes&quot;
+            &quot;name&quot;: &quot;view:personal:todas&quot;
         },
         {
             &quot;id&quot;: 13,
-            &quot;name&quot;: &quot;view:tipos_proveedores&quot;
+            &quot;name&quot;: &quot;edit:personal:todas&quot;
         },
         {
             &quot;id&quot;: 14,
-            &quot;name&quot;: &quot;create:tipos_proveedores&quot;
+            &quot;name&quot;: &quot;delete:personal:todas&quot;
         },
         {
             &quot;id&quot;: 15,
-            &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
+            &quot;name&quot;: &quot;view:clientes&quot;
         },
         {
             &quot;id&quot;: 16,
-            &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
+            &quot;name&quot;: &quot;create:clientes&quot;
         },
         {
             &quot;id&quot;: 17,
-            &quot;name&quot;: &quot;view:proveedores&quot;
+            &quot;name&quot;: &quot;edit:clientes&quot;
         },
         {
             &quot;id&quot;: 18,
-            &quot;name&quot;: &quot;create:proveedores&quot;
+            &quot;name&quot;: &quot;delete:clientes&quot;
         },
         {
             &quot;id&quot;: 19,
-            &quot;name&quot;: &quot;edit:proveedores&quot;
+            &quot;name&quot;: &quot;view:clientes:todas&quot;
         },
         {
             &quot;id&quot;: 20,
-            &quot;name&quot;: &quot;delete:proveedores&quot;
+            &quot;name&quot;: &quot;edit:clientes:todas&quot;
         },
         {
             &quot;id&quot;: 21,
-            &quot;name&quot;: &quot;view:tipo_servicio&quot;
+            &quot;name&quot;: &quot;delete:clientes:todas&quot;
         },
         {
             &quot;id&quot;: 22,
-            &quot;name&quot;: &quot;create:tipo_servicio&quot;
+            &quot;name&quot;: &quot;view:tipos_proveedores&quot;
         },
         {
             &quot;id&quot;: 23,
-            &quot;name&quot;: &quot;edit:tipo_servicio&quot;
+            &quot;name&quot;: &quot;create:tipos_proveedores&quot;
         },
         {
             &quot;id&quot;: 24,
-            &quot;name&quot;: &quot;delete:tipo_servicio&quot;
+            &quot;name&quot;: &quot;edit:tipos_proveedores&quot;
         },
         {
             &quot;id&quot;: 25,
-            &quot;name&quot;: &quot;view:tasas_cambio&quot;
+            &quot;name&quot;: &quot;delete:tipos_proveedores&quot;
         },
         {
             &quot;id&quot;: 26,
-            &quot;name&quot;: &quot;create:tasas_cambio&quot;
+            &quot;name&quot;: &quot;view:tipos_proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 27,
-            &quot;name&quot;: &quot;edit:tasas_cambio&quot;
+            &quot;name&quot;: &quot;edit:tipos_proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 28,
-            &quot;name&quot;: &quot;delete:tasas_cambio&quot;
+            &quot;name&quot;: &quot;delete:tipos_proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 29,
-            &quot;name&quot;: &quot;view:servicios&quot;
+            &quot;name&quot;: &quot;view:proveedores&quot;
         },
         {
             &quot;id&quot;: 30,
-            &quot;name&quot;: &quot;create:servicios&quot;
+            &quot;name&quot;: &quot;create:proveedores&quot;
         },
         {
             &quot;id&quot;: 31,
-            &quot;name&quot;: &quot;edit:servicios&quot;
+            &quot;name&quot;: &quot;edit:proveedores&quot;
         },
         {
             &quot;id&quot;: 32,
-            &quot;name&quot;: &quot;delete:servicios&quot;
+            &quot;name&quot;: &quot;delete:proveedores&quot;
         },
         {
             &quot;id&quot;: 33,
-            &quot;name&quot;: &quot;view:origenes&quot;
+            &quot;name&quot;: &quot;view:proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 34,
-            &quot;name&quot;: &quot;create:origenes&quot;
+            &quot;name&quot;: &quot;edit:proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 35,
-            &quot;name&quot;: &quot;edit:origenes&quot;
+            &quot;name&quot;: &quot;delete:proveedores:todas&quot;
         },
         {
             &quot;id&quot;: 36,
-            &quot;name&quot;: &quot;delete:origenes&quot;
+            &quot;name&quot;: &quot;view:tipo_servicio&quot;
         },
         {
             &quot;id&quot;: 37,
-            &quot;name&quot;: &quot;view:atenciones&quot;
+            &quot;name&quot;: &quot;create:tipo_servicio&quot;
         },
         {
             &quot;id&quot;: 38,
-            &quot;name&quot;: &quot;create:atenciones&quot;
+            &quot;name&quot;: &quot;edit:tipo_servicio&quot;
         },
         {
             &quot;id&quot;: 39,
-            &quot;name&quot;: &quot;edit:atenciones&quot;
+            &quot;name&quot;: &quot;delete:tipo_servicio&quot;
         },
         {
             &quot;id&quot;: 40,
-            &quot;name&quot;: &quot;delete:atenciones&quot;
+            &quot;name&quot;: &quot;view:tipo_servicio:todas&quot;
         },
         {
             &quot;id&quot;: 41,
-            &quot;name&quot;: &quot;view:atenciones_personal&quot;
+            &quot;name&quot;: &quot;edit:tipo_servicio:todas&quot;
         },
         {
             &quot;id&quot;: 42,
-            &quot;name&quot;: &quot;create:atenciones_personal&quot;
+            &quot;name&quot;: &quot;delete:tipo_servicio:todas&quot;
         },
         {
             &quot;id&quot;: 43,
-            &quot;name&quot;: &quot;edit:atenciones_personal&quot;
+            &quot;name&quot;: &quot;view:tasas_cambio&quot;
         },
         {
             &quot;id&quot;: 44,
-            &quot;name&quot;: &quot;delete:atenciones_personal&quot;
+            &quot;name&quot;: &quot;create:tasas_cambio&quot;
         },
         {
             &quot;id&quot;: 45,
-            &quot;name&quot;: &quot;view:cotizaciones&quot;
+            &quot;name&quot;: &quot;edit:tasas_cambio&quot;
         },
         {
             &quot;id&quot;: 46,
-            &quot;name&quot;: &quot;create:cotizaciones&quot;
+            &quot;name&quot;: &quot;delete:tasas_cambio&quot;
         },
         {
             &quot;id&quot;: 47,
-            &quot;name&quot;: &quot;edit:cotizaciones&quot;
+            &quot;name&quot;: &quot;view:tasas_cambio:todas&quot;
         },
         {
             &quot;id&quot;: 48,
-            &quot;name&quot;: &quot;delete:cotizaciones&quot;
+            &quot;name&quot;: &quot;edit:tasas_cambio:todas&quot;
         },
         {
             &quot;id&quot;: 49,
-            &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
+            &quot;name&quot;: &quot;delete:tasas_cambio:todas&quot;
         },
         {
             &quot;id&quot;: 50,
-            &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
+            &quot;name&quot;: &quot;view:servicios&quot;
         },
         {
             &quot;id&quot;: 51,
-            &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
+            &quot;name&quot;: &quot;create:servicios&quot;
         },
         {
             &quot;id&quot;: 52,
-            &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
+            &quot;name&quot;: &quot;edit:servicios&quot;
         },
         {
             &quot;id&quot;: 53,
-            &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
+            &quot;name&quot;: &quot;delete:servicios&quot;
         },
         {
             &quot;id&quot;: 54,
-            &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
+            &quot;name&quot;: &quot;view:servicios:todas&quot;
         },
         {
             &quot;id&quot;: 55,
-            &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
+            &quot;name&quot;: &quot;edit:servicios:todas&quot;
         },
         {
             &quot;id&quot;: 56,
-            &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
+            &quot;name&quot;: &quot;delete:servicios:todas&quot;
         },
         {
             &quot;id&quot;: 57,
-            &quot;name&quot;: &quot;view:metodos_pago&quot;
+            &quot;name&quot;: &quot;view:origenes&quot;
         },
         {
             &quot;id&quot;: 58,
-            &quot;name&quot;: &quot;create:metodos_pago&quot;
+            &quot;name&quot;: &quot;create:origenes&quot;
         },
         {
             &quot;id&quot;: 59,
-            &quot;name&quot;: &quot;edit:metodos_pago&quot;
+            &quot;name&quot;: &quot;edit:origenes&quot;
         },
         {
             &quot;id&quot;: 60,
-            &quot;name&quot;: &quot;delete:metodos_pago&quot;
+            &quot;name&quot;: &quot;delete:origenes&quot;
         },
         {
             &quot;id&quot;: 61,
-            &quot;name&quot;: &quot;view:pagos&quot;
+            &quot;name&quot;: &quot;view:origenes:todas&quot;
         },
         {
             &quot;id&quot;: 62,
-            &quot;name&quot;: &quot;create:pagos&quot;
+            &quot;name&quot;: &quot;edit:origenes:todas&quot;
         },
         {
             &quot;id&quot;: 63,
-            &quot;name&quot;: &quot;edit:pagos&quot;
+            &quot;name&quot;: &quot;delete:origenes:todas&quot;
         },
         {
             &quot;id&quot;: 64,
-            &quot;name&quot;: &quot;delete:pagos&quot;
+            &quot;name&quot;: &quot;view:atenciones&quot;
         },
         {
             &quot;id&quot;: 65,
-            &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
+            &quot;name&quot;: &quot;create:atenciones&quot;
         },
         {
             &quot;id&quot;: 66,
-            &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
+            &quot;name&quot;: &quot;edit:atenciones&quot;
         },
         {
             &quot;id&quot;: 67,
-            &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
+            &quot;name&quot;: &quot;delete:atenciones&quot;
         },
         {
             &quot;id&quot;: 68,
-            &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
+            &quot;name&quot;: &quot;view:atenciones:todas&quot;
         },
         {
             &quot;id&quot;: 69,
-            &quot;name&quot;: &quot;view:empresas&quot;
+            &quot;name&quot;: &quot;edit:atenciones:todas&quot;
         },
         {
             &quot;id&quot;: 70,
-            &quot;name&quot;: &quot;create:empresas&quot;
+            &quot;name&quot;: &quot;delete:atenciones:todas&quot;
         },
         {
             &quot;id&quot;: 71,
-            &quot;name&quot;: &quot;edit:empresas&quot;
+            &quot;name&quot;: &quot;view:atenciones_personal&quot;
         },
         {
             &quot;id&quot;: 72,
-            &quot;name&quot;: &quot;delete:empresas&quot;
+            &quot;name&quot;: &quot;create:atenciones_personal&quot;
         },
         {
             &quot;id&quot;: 73,
-            &quot;name&quot;: &quot;view:personal_empresas&quot;
+            &quot;name&quot;: &quot;edit:atenciones_personal&quot;
         },
         {
             &quot;id&quot;: 74,
-            &quot;name&quot;: &quot;create:personal_empresas&quot;
+            &quot;name&quot;: &quot;delete:atenciones_personal&quot;
         },
         {
             &quot;id&quot;: 75,
-            &quot;name&quot;: &quot;edit:personal_empresas&quot;
+            &quot;name&quot;: &quot;view:atenciones_personal:todas&quot;
         },
         {
             &quot;id&quot;: 76,
-            &quot;name&quot;: &quot;delete:personal_empresas&quot;
+            &quot;name&quot;: &quot;edit:atenciones_personal:todas&quot;
         },
         {
             &quot;id&quot;: 77,
-            &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+            &quot;name&quot;: &quot;delete:atenciones_personal:todas&quot;
         },
         {
             &quot;id&quot;: 78,
-            &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+            &quot;name&quot;: &quot;view:cotizaciones&quot;
         },
         {
             &quot;id&quot;: 79,
-            &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+            &quot;name&quot;: &quot;create:cotizaciones&quot;
         },
         {
             &quot;id&quot;: 80,
-            &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+            &quot;name&quot;: &quot;edit:cotizaciones&quot;
         },
         {
             &quot;id&quot;: 81,
-            &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+            &quot;name&quot;: &quot;delete:cotizaciones&quot;
         },
         {
             &quot;id&quot;: 82,
-            &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+            &quot;name&quot;: &quot;view:cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 83,
-            &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+            &quot;name&quot;: &quot;edit:cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 84,
-            &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+            &quot;name&quot;: &quot;delete:cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 85,
-            &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+            &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 86,
-            &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+            &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 87,
-            &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+            &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 88,
-            &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+            &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 89,
-            &quot;name&quot;: &quot;view:temporalidades&quot;
+            &quot;name&quot;: &quot;view:tipos_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 90,
-            &quot;name&quot;: &quot;create:temporalidades&quot;
+            &quot;name&quot;: &quot;edit:tipos_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 91,
-            &quot;name&quot;: &quot;edit:temporalidades&quot;
+            &quot;name&quot;: &quot;delete:tipos_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 92,
-            &quot;name&quot;: &quot;delete:temporalidades&quot;
+            &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 93,
-            &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+            &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 94,
-            &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+            &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 95,
-            &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+            &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;
         },
         {
             &quot;id&quot;: 96,
-            &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+            &quot;name&quot;: &quot;view:servicios_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 97,
-            &quot;name&quot;: &quot;view:metas&quot;
+            &quot;name&quot;: &quot;edit:servicios_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 98,
-            &quot;name&quot;: &quot;create:metas&quot;
+            &quot;name&quot;: &quot;delete:servicios_cotizaciones:todas&quot;
         },
         {
             &quot;id&quot;: 99,
-            &quot;name&quot;: &quot;edit:metas&quot;
+            &quot;name&quot;: &quot;view:metodos_pago&quot;
         },
         {
             &quot;id&quot;: 100,
-            &quot;name&quot;: &quot;delete:metas&quot;
+            &quot;name&quot;: &quot;create:metodos_pago&quot;
         },
         {
             &quot;id&quot;: 101,
-            &quot;name&quot;: &quot;view:metas_personal&quot;
+            &quot;name&quot;: &quot;edit:metodos_pago&quot;
         },
         {
             &quot;id&quot;: 102,
-            &quot;name&quot;: &quot;create:metas_personal&quot;
+            &quot;name&quot;: &quot;delete:metodos_pago&quot;
         },
         {
             &quot;id&quot;: 103,
-            &quot;name&quot;: &quot;edit:metas_personal&quot;
+            &quot;name&quot;: &quot;view:metodos_pago:todas&quot;
         },
         {
             &quot;id&quot;: 104,
-            &quot;name&quot;: &quot;delete:metas_personal&quot;
+            &quot;name&quot;: &quot;edit:metodos_pago:todas&quot;
         },
         {
             &quot;id&quot;: 105,
-            &quot;name&quot;: &quot;view:ordenes_compra&quot;
+            &quot;name&quot;: &quot;delete:metodos_pago:todas&quot;
         },
         {
             &quot;id&quot;: 106,
-            &quot;name&quot;: &quot;create:ordenes_compra&quot;
+            &quot;name&quot;: &quot;view:pagos&quot;
         },
         {
             &quot;id&quot;: 107,
-            &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+            &quot;name&quot;: &quot;create:pagos&quot;
         },
         {
             &quot;id&quot;: 108,
-            &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+            &quot;name&quot;: &quot;edit:pagos&quot;
         },
         {
             &quot;id&quot;: 109,
-            &quot;name&quot;: &quot;view:tasas&quot;
+            &quot;name&quot;: &quot;delete:pagos&quot;
         },
         {
             &quot;id&quot;: 110,
-            &quot;name&quot;: &quot;create:tasas&quot;
+            &quot;name&quot;: &quot;view:pagos:todas&quot;
         },
         {
             &quot;id&quot;: 111,
-            &quot;name&quot;: &quot;edit:tasas&quot;
+            &quot;name&quot;: &quot;edit:pagos:todas&quot;
         },
         {
             &quot;id&quot;: 112,
-            &quot;name&quot;: &quot;delete:tasas&quot;
+            &quot;name&quot;: &quot;delete:pagos:todas&quot;
         },
         {
             &quot;id&quot;: 113,
-            &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+            &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;
         },
         {
             &quot;id&quot;: 114,
-            &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+            &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;
         },
         {
             &quot;id&quot;: 115,
-            &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+            &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;
         },
         {
             &quot;id&quot;: 116,
-            &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+            &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;
         },
         {
             &quot;id&quot;: 117,
-            &quot;name&quot;: &quot;view:clientes_empresas&quot;
+            &quot;name&quot;: &quot;view:tipos_contribuyentes:todas&quot;
         },
         {
             &quot;id&quot;: 118,
-            &quot;name&quot;: &quot;create:clientes_empresas&quot;
+            &quot;name&quot;: &quot;edit:tipos_contribuyentes:todas&quot;
         },
         {
             &quot;id&quot;: 119,
-            &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+            &quot;name&quot;: &quot;delete:tipos_contribuyentes:todas&quot;
         },
         {
             &quot;id&quot;: 120,
-            &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+            &quot;name&quot;: &quot;view:empresas&quot;
         },
         {
             &quot;id&quot;: 121,
-            &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+            &quot;name&quot;: &quot;create:empresas&quot;
         },
         {
             &quot;id&quot;: 122,
-            &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+            &quot;name&quot;: &quot;edit:empresas&quot;
         },
         {
             &quot;id&quot;: 123,
-            &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+            &quot;name&quot;: &quot;delete:empresas&quot;
         },
         {
             &quot;id&quot;: 124,
-            &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+            &quot;name&quot;: &quot;view:empresas:todas&quot;
         },
         {
             &quot;id&quot;: 125,
-            &quot;name&quot;: &quot;view:estatus&quot;
+            &quot;name&quot;: &quot;edit:empresas:todas&quot;
         },
         {
             &quot;id&quot;: 126,
-            &quot;name&quot;: &quot;create:estatus&quot;
+            &quot;name&quot;: &quot;delete:empresas:todas&quot;
         },
         {
             &quot;id&quot;: 127,
-            &quot;name&quot;: &quot;edit:estatus&quot;
+            &quot;name&quot;: &quot;view:personal_empresas&quot;
         },
         {
             &quot;id&quot;: 128,
-            &quot;name&quot;: &quot;delete:estatus&quot;
+            &quot;name&quot;: &quot;create:personal_empresas&quot;
         },
         {
             &quot;id&quot;: 129,
-            &quot;name&quot;: &quot;view:logros_personal&quot;
+            &quot;name&quot;: &quot;edit:personal_empresas&quot;
         },
         {
             &quot;id&quot;: 130,
+            &quot;name&quot;: &quot;delete:personal_empresas&quot;
+        },
+        {
+            &quot;id&quot;: 131,
+            &quot;name&quot;: &quot;view:personal_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 132,
+            &quot;name&quot;: &quot;edit:personal_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 133,
+            &quot;name&quot;: &quot;delete:personal_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 134,
+            &quot;name&quot;: &quot;view:pagos_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 135,
+            &quot;name&quot;: &quot;create:pagos_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 136,
+            &quot;name&quot;: &quot;edit:pagos_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 137,
+            &quot;name&quot;: &quot;delete:pagos_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 138,
+            &quot;name&quot;: &quot;view:pagos_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 139,
+            &quot;name&quot;: &quot;edit:pagos_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 140,
+            &quot;name&quot;: &quot;delete:pagos_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 141,
+            &quot;name&quot;: &quot;view:cuentas_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 142,
+            &quot;name&quot;: &quot;create:cuentas_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 143,
+            &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 144,
+            &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;
+        },
+        {
+            &quot;id&quot;: 145,
+            &quot;name&quot;: &quot;view:cuentas_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 146,
+            &quot;name&quot;: &quot;edit:cuentas_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 147,
+            &quot;name&quot;: &quot;delete:cuentas_proveedores:todas&quot;
+        },
+        {
+            &quot;id&quot;: 148,
+            &quot;name&quot;: &quot;view:configuraciones_sistema&quot;
+        },
+        {
+            &quot;id&quot;: 149,
+            &quot;name&quot;: &quot;create:configuraciones_sistema&quot;
+        },
+        {
+            &quot;id&quot;: 150,
+            &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;
+        },
+        {
+            &quot;id&quot;: 151,
+            &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;
+        },
+        {
+            &quot;id&quot;: 152,
+            &quot;name&quot;: &quot;view:configuraciones_sistema:todas&quot;
+        },
+        {
+            &quot;id&quot;: 153,
+            &quot;name&quot;: &quot;edit:configuraciones_sistema:todas&quot;
+        },
+        {
+            &quot;id&quot;: 154,
+            &quot;name&quot;: &quot;delete:configuraciones_sistema:todas&quot;
+        },
+        {
+            &quot;id&quot;: 155,
+            &quot;name&quot;: &quot;view:temporalidades&quot;
+        },
+        {
+            &quot;id&quot;: 156,
+            &quot;name&quot;: &quot;create:temporalidades&quot;
+        },
+        {
+            &quot;id&quot;: 157,
+            &quot;name&quot;: &quot;edit:temporalidades&quot;
+        },
+        {
+            &quot;id&quot;: 158,
+            &quot;name&quot;: &quot;delete:temporalidades&quot;
+        },
+        {
+            &quot;id&quot;: 159,
+            &quot;name&quot;: &quot;view:temporalidades:todas&quot;
+        },
+        {
+            &quot;id&quot;: 160,
+            &quot;name&quot;: &quot;edit:temporalidades:todas&quot;
+        },
+        {
+            &quot;id&quot;: 161,
+            &quot;name&quot;: &quot;delete:temporalidades:todas&quot;
+        },
+        {
+            &quot;id&quot;: 162,
+            &quot;name&quot;: &quot;view:entidades_bancarias&quot;
+        },
+        {
+            &quot;id&quot;: 163,
+            &quot;name&quot;: &quot;create:entidades_bancarias&quot;
+        },
+        {
+            &quot;id&quot;: 164,
+            &quot;name&quot;: &quot;edit:entidades_bancarias&quot;
+        },
+        {
+            &quot;id&quot;: 165,
+            &quot;name&quot;: &quot;delete:entidades_bancarias&quot;
+        },
+        {
+            &quot;id&quot;: 166,
+            &quot;name&quot;: &quot;view:entidades_bancarias:todas&quot;
+        },
+        {
+            &quot;id&quot;: 167,
+            &quot;name&quot;: &quot;edit:entidades_bancarias:todas&quot;
+        },
+        {
+            &quot;id&quot;: 168,
+            &quot;name&quot;: &quot;delete:entidades_bancarias:todas&quot;
+        },
+        {
+            &quot;id&quot;: 169,
+            &quot;name&quot;: &quot;view:metas&quot;
+        },
+        {
+            &quot;id&quot;: 170,
+            &quot;name&quot;: &quot;create:metas&quot;
+        },
+        {
+            &quot;id&quot;: 171,
+            &quot;name&quot;: &quot;edit:metas&quot;
+        },
+        {
+            &quot;id&quot;: 172,
+            &quot;name&quot;: &quot;delete:metas&quot;
+        },
+        {
+            &quot;id&quot;: 173,
+            &quot;name&quot;: &quot;view:metas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 174,
+            &quot;name&quot;: &quot;edit:metas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 175,
+            &quot;name&quot;: &quot;delete:metas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 176,
+            &quot;name&quot;: &quot;view:metas_personal&quot;
+        },
+        {
+            &quot;id&quot;: 177,
+            &quot;name&quot;: &quot;create:metas_personal&quot;
+        },
+        {
+            &quot;id&quot;: 178,
+            &quot;name&quot;: &quot;edit:metas_personal&quot;
+        },
+        {
+            &quot;id&quot;: 179,
+            &quot;name&quot;: &quot;delete:metas_personal&quot;
+        },
+        {
+            &quot;id&quot;: 180,
+            &quot;name&quot;: &quot;view:metas_personal:todas&quot;
+        },
+        {
+            &quot;id&quot;: 181,
+            &quot;name&quot;: &quot;edit:metas_personal:todas&quot;
+        },
+        {
+            &quot;id&quot;: 182,
+            &quot;name&quot;: &quot;delete:metas_personal:todas&quot;
+        },
+        {
+            &quot;id&quot;: 183,
+            &quot;name&quot;: &quot;view:ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 184,
+            &quot;name&quot;: &quot;create:ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 185,
+            &quot;name&quot;: &quot;edit:ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 186,
+            &quot;name&quot;: &quot;delete:ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 187,
+            &quot;name&quot;: &quot;view:ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 188,
+            &quot;name&quot;: &quot;edit:ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 189,
+            &quot;name&quot;: &quot;delete:ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 190,
+            &quot;name&quot;: &quot;view:tasas&quot;
+        },
+        {
+            &quot;id&quot;: 191,
+            &quot;name&quot;: &quot;create:tasas&quot;
+        },
+        {
+            &quot;id&quot;: 192,
+            &quot;name&quot;: &quot;edit:tasas&quot;
+        },
+        {
+            &quot;id&quot;: 193,
+            &quot;name&quot;: &quot;delete:tasas&quot;
+        },
+        {
+            &quot;id&quot;: 194,
+            &quot;name&quot;: &quot;view:tasas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 195,
+            &quot;name&quot;: &quot;edit:tasas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 196,
+            &quot;name&quot;: &quot;delete:tasas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 197,
+            &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;
+        },
+        {
+            &quot;id&quot;: 198,
+            &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;
+        },
+        {
+            &quot;id&quot;: 199,
+            &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;
+        },
+        {
+            &quot;id&quot;: 200,
+            &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;
+        },
+        {
+            &quot;id&quot;: 201,
+            &quot;name&quot;: &quot;view:cuentas_por_pagar:todas&quot;
+        },
+        {
+            &quot;id&quot;: 202,
+            &quot;name&quot;: &quot;edit:cuentas_por_pagar:todas&quot;
+        },
+        {
+            &quot;id&quot;: 203,
+            &quot;name&quot;: &quot;delete:cuentas_por_pagar:todas&quot;
+        },
+        {
+            &quot;id&quot;: 204,
+            &quot;name&quot;: &quot;view:clientes_empresas&quot;
+        },
+        {
+            &quot;id&quot;: 205,
+            &quot;name&quot;: &quot;create:clientes_empresas&quot;
+        },
+        {
+            &quot;id&quot;: 206,
+            &quot;name&quot;: &quot;edit:clientes_empresas&quot;
+        },
+        {
+            &quot;id&quot;: 207,
+            &quot;name&quot;: &quot;delete:clientes_empresas&quot;
+        },
+        {
+            &quot;id&quot;: 208,
+            &quot;name&quot;: &quot;view:clientes_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 209,
+            &quot;name&quot;: &quot;edit:clientes_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 210,
+            &quot;name&quot;: &quot;delete:clientes_empresas:todas&quot;
+        },
+        {
+            &quot;id&quot;: 211,
+            &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 212,
+            &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 213,
+            &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 214,
+            &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;
+        },
+        {
+            &quot;id&quot;: 215,
+            &quot;name&quot;: &quot;view:pagos_ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 216,
+            &quot;name&quot;: &quot;edit:pagos_ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 217,
+            &quot;name&quot;: &quot;delete:pagos_ordenes_compra:todas&quot;
+        },
+        {
+            &quot;id&quot;: 218,
+            &quot;name&quot;: &quot;view:estatus&quot;
+        },
+        {
+            &quot;id&quot;: 219,
+            &quot;name&quot;: &quot;create:estatus&quot;
+        },
+        {
+            &quot;id&quot;: 220,
+            &quot;name&quot;: &quot;edit:estatus&quot;
+        },
+        {
+            &quot;id&quot;: 221,
+            &quot;name&quot;: &quot;delete:estatus&quot;
+        },
+        {
+            &quot;id&quot;: 222,
+            &quot;name&quot;: &quot;view:estatus:todas&quot;
+        },
+        {
+            &quot;id&quot;: 223,
+            &quot;name&quot;: &quot;edit:estatus:todas&quot;
+        },
+        {
+            &quot;id&quot;: 224,
+            &quot;name&quot;: &quot;delete:estatus:todas&quot;
+        },
+        {
+            &quot;id&quot;: 225,
+            &quot;name&quot;: &quot;view:logros_personal&quot;
+        },
+        {
+            &quot;id&quot;: 226,
+            &quot;name&quot;: &quot;view:logros_personal:todas&quot;
+        },
+        {
+            &quot;id&quot;: 227,
             &quot;name&quot;: &quot;view:audit_logs&quot;
         }
     ]
@@ -3334,7 +4685,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/permisos" \
+    "http://localhost/api/permisos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3347,7 +4698,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos"
+    "http://localhost/api/permisos"
 );
 
 const headers = {
@@ -3495,7 +4846,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/permisos/1" \
+    --get "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3503,7 +4854,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3655,7 +5006,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/permisos/1" \
+    "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3667,7 +5018,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3819,7 +5170,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/permisos/1" \
+    "http://localhost/api/permisos/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3827,7 +5178,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/permisos/1"
+    "http://localhost/api/permisos/1"
 );
 
 const headers = {
@@ -3961,7 +5312,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register" \
+    "http://localhost/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -3980,7 +5331,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register"
+    "http://localhost/api/register"
 );
 
 const headers = {
@@ -4205,7 +5556,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login" \
+    "http://localhost/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4218,7 +5569,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login"
+    "http://localhost/api/login"
 );
 
 const headers = {
@@ -4365,7 +5716,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/admin" \
+    "http://localhost/api/login/admin" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4378,7 +5729,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/admin"
+    "http://localhost/api/login/admin"
 );
 
 const headers = {
@@ -4525,7 +5876,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login/user" \
+    "http://localhost/api/login/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -4538,7 +5889,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login/user"
+    "http://localhost/api/login/user"
 );
 
 const headers = {
@@ -4686,7 +6037,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/status" \
+    --get "http://localhost/api/status" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4694,7 +6045,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/status"
+    "http://localhost/api/status"
 );
 
 const headers = {
@@ -4828,7 +6179,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/contrato" \
+    --get "http://localhost/api/v1/contrato" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4836,7 +6187,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/contrato"
+    "http://localhost/api/v1/contrato"
 );
 
 const headers = {
@@ -4956,1741 +6307,6 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-me">Get the authenticated user&#039;s current profile, roles, and permissions.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Used by the Next.js frontend to silently refresh the session JWT.</p>
-
-<span id="example-requests-GETapi-me">
-<blockquote>Ejemplo de petición:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/me" \
-    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/me"
-);
-
-const headers = {
-    "Authorization": "Bearer TOKEN_DE_MUESTRA",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-me">
-            <blockquote>
-            <p>Ejemplo de respuesta (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;usuario&quot;: {
-        &quot;id&quot;: 1,
-        &quot;nombre_usuario&quot;: &quot;Admin Root&quot;,
-        &quot;correo&quot;: &quot;admin@example.com&quot;,
-        &quot;correo_verificado_en&quot;: null,
-        &quot;esta_activo&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;deleted_at&quot;: null,
-        &quot;all_permissions&quot;: [
-            &quot;view:usuarios&quot;,
-            &quot;create:usuarios&quot;,
-            &quot;edit:usuarios&quot;,
-            &quot;delete:usuarios&quot;,
-            &quot;view:personal&quot;,
-            &quot;create:personal&quot;,
-            &quot;edit:personal&quot;,
-            &quot;delete:personal&quot;,
-            &quot;view:clientes&quot;,
-            &quot;create:clientes&quot;,
-            &quot;edit:clientes&quot;,
-            &quot;delete:clientes&quot;,
-            &quot;view:tipos_proveedores&quot;,
-            &quot;create:tipos_proveedores&quot;,
-            &quot;edit:tipos_proveedores&quot;,
-            &quot;delete:tipos_proveedores&quot;,
-            &quot;view:proveedores&quot;,
-            &quot;create:proveedores&quot;,
-            &quot;edit:proveedores&quot;,
-            &quot;delete:proveedores&quot;,
-            &quot;view:tipo_servicio&quot;,
-            &quot;create:tipo_servicio&quot;,
-            &quot;edit:tipo_servicio&quot;,
-            &quot;delete:tipo_servicio&quot;,
-            &quot;view:tasas_cambio&quot;,
-            &quot;create:tasas_cambio&quot;,
-            &quot;edit:tasas_cambio&quot;,
-            &quot;delete:tasas_cambio&quot;,
-            &quot;view:servicios&quot;,
-            &quot;create:servicios&quot;,
-            &quot;edit:servicios&quot;,
-            &quot;delete:servicios&quot;,
-            &quot;view:origenes&quot;,
-            &quot;create:origenes&quot;,
-            &quot;edit:origenes&quot;,
-            &quot;delete:origenes&quot;,
-            &quot;view:atenciones&quot;,
-            &quot;create:atenciones&quot;,
-            &quot;edit:atenciones&quot;,
-            &quot;delete:atenciones&quot;,
-            &quot;view:atenciones_personal&quot;,
-            &quot;create:atenciones_personal&quot;,
-            &quot;edit:atenciones_personal&quot;,
-            &quot;delete:atenciones_personal&quot;,
-            &quot;view:cotizaciones&quot;,
-            &quot;create:cotizaciones&quot;,
-            &quot;edit:cotizaciones&quot;,
-            &quot;delete:cotizaciones&quot;,
-            &quot;view:tipos_cotizaciones&quot;,
-            &quot;create:tipos_cotizaciones&quot;,
-            &quot;edit:tipos_cotizaciones&quot;,
-            &quot;delete:tipos_cotizaciones&quot;,
-            &quot;view:servicios_cotizaciones&quot;,
-            &quot;create:servicios_cotizaciones&quot;,
-            &quot;edit:servicios_cotizaciones&quot;,
-            &quot;delete:servicios_cotizaciones&quot;,
-            &quot;view:metodos_pago&quot;,
-            &quot;create:metodos_pago&quot;,
-            &quot;edit:metodos_pago&quot;,
-            &quot;delete:metodos_pago&quot;,
-            &quot;view:pagos&quot;,
-            &quot;create:pagos&quot;,
-            &quot;edit:pagos&quot;,
-            &quot;delete:pagos&quot;,
-            &quot;view:tipos_contribuyentes&quot;,
-            &quot;create:tipos_contribuyentes&quot;,
-            &quot;edit:tipos_contribuyentes&quot;,
-            &quot;delete:tipos_contribuyentes&quot;,
-            &quot;view:empresas&quot;,
-            &quot;create:empresas&quot;,
-            &quot;edit:empresas&quot;,
-            &quot;delete:empresas&quot;,
-            &quot;view:personal_empresas&quot;,
-            &quot;create:personal_empresas&quot;,
-            &quot;edit:personal_empresas&quot;,
-            &quot;delete:personal_empresas&quot;,
-            &quot;view:pagos_proveedores&quot;,
-            &quot;create:pagos_proveedores&quot;,
-            &quot;edit:pagos_proveedores&quot;,
-            &quot;delete:pagos_proveedores&quot;,
-            &quot;view:cuentas_proveedores&quot;,
-            &quot;create:cuentas_proveedores&quot;,
-            &quot;edit:cuentas_proveedores&quot;,
-            &quot;delete:cuentas_proveedores&quot;,
-            &quot;view:configuraciones_sistema&quot;,
-            &quot;create:configuraciones_sistema&quot;,
-            &quot;edit:configuraciones_sistema&quot;,
-            &quot;delete:configuraciones_sistema&quot;,
-            &quot;view:temporalidades&quot;,
-            &quot;create:temporalidades&quot;,
-            &quot;edit:temporalidades&quot;,
-            &quot;delete:temporalidades&quot;,
-            &quot;view:entidades_bancarias&quot;,
-            &quot;create:entidades_bancarias&quot;,
-            &quot;edit:entidades_bancarias&quot;,
-            &quot;delete:entidades_bancarias&quot;,
-            &quot;view:metas&quot;,
-            &quot;create:metas&quot;,
-            &quot;edit:metas&quot;,
-            &quot;delete:metas&quot;,
-            &quot;view:metas_personal&quot;,
-            &quot;create:metas_personal&quot;,
-            &quot;edit:metas_personal&quot;,
-            &quot;delete:metas_personal&quot;,
-            &quot;view:ordenes_compra&quot;,
-            &quot;create:ordenes_compra&quot;,
-            &quot;edit:ordenes_compra&quot;,
-            &quot;delete:ordenes_compra&quot;,
-            &quot;view:tasas&quot;,
-            &quot;create:tasas&quot;,
-            &quot;edit:tasas&quot;,
-            &quot;delete:tasas&quot;,
-            &quot;view:cuentas_por_pagar&quot;,
-            &quot;create:cuentas_por_pagar&quot;,
-            &quot;edit:cuentas_por_pagar&quot;,
-            &quot;delete:cuentas_por_pagar&quot;,
-            &quot;view:clientes_empresas&quot;,
-            &quot;create:clientes_empresas&quot;,
-            &quot;edit:clientes_empresas&quot;,
-            &quot;delete:clientes_empresas&quot;,
-            &quot;view:pagos_ordenes_compra&quot;,
-            &quot;create:pagos_ordenes_compra&quot;,
-            &quot;edit:pagos_ordenes_compra&quot;,
-            &quot;delete:pagos_ordenes_compra&quot;,
-            &quot;view:estatus&quot;,
-            &quot;create:estatus&quot;,
-            &quot;edit:estatus&quot;,
-            &quot;delete:estatus&quot;,
-            &quot;view:logros_personal&quot;,
-            &quot;view:audit_logs&quot;
-        ],
-        &quot;role_names&quot;: [
-            &quot;admin&quot;
-        ],
-        &quot;roles&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;admin&quot;,
-                &quot;guard_name&quot;: &quot;web&quot;,
-                &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                &quot;pivot&quot;: {
-                    &quot;model_type&quot;: &quot;App\\Models\\Usuario&quot;,
-                    &quot;model_id&quot;: 1,
-                    &quot;role_id&quot;: 1
-                },
-                &quot;permissions&quot;: [
-                    {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;view:usuarios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 1
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 2,
-                        &quot;name&quot;: &quot;create:usuarios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 2
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 3,
-                        &quot;name&quot;: &quot;edit:usuarios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 3
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;delete:usuarios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 4
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 5,
-                        &quot;name&quot;: &quot;view:personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 5
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 6,
-                        &quot;name&quot;: &quot;create:personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 6
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 7,
-                        &quot;name&quot;: &quot;edit:personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 7
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 8,
-                        &quot;name&quot;: &quot;delete:personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 8
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 9,
-                        &quot;name&quot;: &quot;view:clientes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 9
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;create:clientes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 10
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 11,
-                        &quot;name&quot;: &quot;edit:clientes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 11
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 12,
-                        &quot;name&quot;: &quot;delete:clientes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 12
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 13,
-                        &quot;name&quot;: &quot;view:tipos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 13
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 14,
-                        &quot;name&quot;: &quot;create:tipos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 14
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 15,
-                        &quot;name&quot;: &quot;edit:tipos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 15
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 16,
-                        &quot;name&quot;: &quot;delete:tipos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 16
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 17,
-                        &quot;name&quot;: &quot;view:proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 17
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 18,
-                        &quot;name&quot;: &quot;create:proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 18
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 19,
-                        &quot;name&quot;: &quot;edit:proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 19
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 20,
-                        &quot;name&quot;: &quot;delete:proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 20
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 21,
-                        &quot;name&quot;: &quot;view:tipo_servicio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 21
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 22,
-                        &quot;name&quot;: &quot;create:tipo_servicio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 22
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 23,
-                        &quot;name&quot;: &quot;edit:tipo_servicio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 23
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 24,
-                        &quot;name&quot;: &quot;delete:tipo_servicio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 24
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 25,
-                        &quot;name&quot;: &quot;view:tasas_cambio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 25
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 26,
-                        &quot;name&quot;: &quot;create:tasas_cambio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 26
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 27,
-                        &quot;name&quot;: &quot;edit:tasas_cambio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 27
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 28,
-                        &quot;name&quot;: &quot;delete:tasas_cambio&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 28
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 29,
-                        &quot;name&quot;: &quot;view:servicios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 29
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 30,
-                        &quot;name&quot;: &quot;create:servicios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 30
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 31,
-                        &quot;name&quot;: &quot;edit:servicios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 31
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 32,
-                        &quot;name&quot;: &quot;delete:servicios&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 32
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 33,
-                        &quot;name&quot;: &quot;view:origenes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 33
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 34,
-                        &quot;name&quot;: &quot;create:origenes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 34
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 35,
-                        &quot;name&quot;: &quot;edit:origenes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 35
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 36,
-                        &quot;name&quot;: &quot;delete:origenes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 36
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 37,
-                        &quot;name&quot;: &quot;view:atenciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 37
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 38,
-                        &quot;name&quot;: &quot;create:atenciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 38
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 39,
-                        &quot;name&quot;: &quot;edit:atenciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 39
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 40,
-                        &quot;name&quot;: &quot;delete:atenciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 40
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 41,
-                        &quot;name&quot;: &quot;view:atenciones_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 41
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 42,
-                        &quot;name&quot;: &quot;create:atenciones_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 42
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 43,
-                        &quot;name&quot;: &quot;edit:atenciones_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 43
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 44,
-                        &quot;name&quot;: &quot;delete:atenciones_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 44
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 45,
-                        &quot;name&quot;: &quot;view:cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 45
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 46,
-                        &quot;name&quot;: &quot;create:cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 46
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 47,
-                        &quot;name&quot;: &quot;edit:cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 47
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 48,
-                        &quot;name&quot;: &quot;delete:cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 48
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 49,
-                        &quot;name&quot;: &quot;view:tipos_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 49
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 50,
-                        &quot;name&quot;: &quot;create:tipos_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 50
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 51,
-                        &quot;name&quot;: &quot;edit:tipos_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 51
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 52,
-                        &quot;name&quot;: &quot;delete:tipos_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 52
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 53,
-                        &quot;name&quot;: &quot;view:servicios_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 53
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 54,
-                        &quot;name&quot;: &quot;create:servicios_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 54
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 55,
-                        &quot;name&quot;: &quot;edit:servicios_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 55
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 56,
-                        &quot;name&quot;: &quot;delete:servicios_cotizaciones&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 56
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 57,
-                        &quot;name&quot;: &quot;view:metodos_pago&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 57
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 58,
-                        &quot;name&quot;: &quot;create:metodos_pago&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 58
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 59,
-                        &quot;name&quot;: &quot;edit:metodos_pago&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 59
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 60,
-                        &quot;name&quot;: &quot;delete:metodos_pago&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 60
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 61,
-                        &quot;name&quot;: &quot;view:pagos&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 61
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 62,
-                        &quot;name&quot;: &quot;create:pagos&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 62
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 63,
-                        &quot;name&quot;: &quot;edit:pagos&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 63
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 64,
-                        &quot;name&quot;: &quot;delete:pagos&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 64
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 65,
-                        &quot;name&quot;: &quot;view:tipos_contribuyentes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 65
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 66,
-                        &quot;name&quot;: &quot;create:tipos_contribuyentes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 66
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 67,
-                        &quot;name&quot;: &quot;edit:tipos_contribuyentes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 67
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 68,
-                        &quot;name&quot;: &quot;delete:tipos_contribuyentes&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 68
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 69,
-                        &quot;name&quot;: &quot;view:empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 69
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 70,
-                        &quot;name&quot;: &quot;create:empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 70
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 71,
-                        &quot;name&quot;: &quot;edit:empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 71
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 72,
-                        &quot;name&quot;: &quot;delete:empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 72
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 73,
-                        &quot;name&quot;: &quot;view:personal_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 73
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 74,
-                        &quot;name&quot;: &quot;create:personal_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 74
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 75,
-                        &quot;name&quot;: &quot;edit:personal_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 75
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 76,
-                        &quot;name&quot;: &quot;delete:personal_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 76
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 77,
-                        &quot;name&quot;: &quot;view:pagos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 77
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 78,
-                        &quot;name&quot;: &quot;create:pagos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 78
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 79,
-                        &quot;name&quot;: &quot;edit:pagos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 79
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 80,
-                        &quot;name&quot;: &quot;delete:pagos_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 80
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 81,
-                        &quot;name&quot;: &quot;view:cuentas_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 81
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 82,
-                        &quot;name&quot;: &quot;create:cuentas_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 82
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 83,
-                        &quot;name&quot;: &quot;edit:cuentas_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 83
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 84,
-                        &quot;name&quot;: &quot;delete:cuentas_proveedores&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 84
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 85,
-                        &quot;name&quot;: &quot;view:configuraciones_sistema&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 85
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 86,
-                        &quot;name&quot;: &quot;create:configuraciones_sistema&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 86
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 87,
-                        &quot;name&quot;: &quot;edit:configuraciones_sistema&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 87
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 88,
-                        &quot;name&quot;: &quot;delete:configuraciones_sistema&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 88
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 89,
-                        &quot;name&quot;: &quot;view:temporalidades&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 89
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 90,
-                        &quot;name&quot;: &quot;create:temporalidades&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 90
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 91,
-                        &quot;name&quot;: &quot;edit:temporalidades&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 91
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 92,
-                        &quot;name&quot;: &quot;delete:temporalidades&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 92
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 93,
-                        &quot;name&quot;: &quot;view:entidades_bancarias&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 93
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 94,
-                        &quot;name&quot;: &quot;create:entidades_bancarias&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 94
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 95,
-                        &quot;name&quot;: &quot;edit:entidades_bancarias&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 95
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 96,
-                        &quot;name&quot;: &quot;delete:entidades_bancarias&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 96
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 97,
-                        &quot;name&quot;: &quot;view:metas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 97
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 98,
-                        &quot;name&quot;: &quot;create:metas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 98
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 99,
-                        &quot;name&quot;: &quot;edit:metas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 99
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 100,
-                        &quot;name&quot;: &quot;delete:metas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 100
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 101,
-                        &quot;name&quot;: &quot;view:metas_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 101
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 102,
-                        &quot;name&quot;: &quot;create:metas_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 102
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 103,
-                        &quot;name&quot;: &quot;edit:metas_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 103
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 104,
-                        &quot;name&quot;: &quot;delete:metas_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 104
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 105,
-                        &quot;name&quot;: &quot;view:ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 105
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 106,
-                        &quot;name&quot;: &quot;create:ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 106
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 107,
-                        &quot;name&quot;: &quot;edit:ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 107
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 108,
-                        &quot;name&quot;: &quot;delete:ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 108
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 109,
-                        &quot;name&quot;: &quot;view:tasas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 109
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 110,
-                        &quot;name&quot;: &quot;create:tasas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 110
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 111,
-                        &quot;name&quot;: &quot;edit:tasas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 111
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 112,
-                        &quot;name&quot;: &quot;delete:tasas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 112
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 113,
-                        &quot;name&quot;: &quot;view:cuentas_por_pagar&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 113
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 114,
-                        &quot;name&quot;: &quot;create:cuentas_por_pagar&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 114
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 115,
-                        &quot;name&quot;: &quot;edit:cuentas_por_pagar&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 115
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 116,
-                        &quot;name&quot;: &quot;delete:cuentas_por_pagar&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 116
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 117,
-                        &quot;name&quot;: &quot;view:clientes_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 117
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 118,
-                        &quot;name&quot;: &quot;create:clientes_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 118
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 119,
-                        &quot;name&quot;: &quot;edit:clientes_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 119
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 120,
-                        &quot;name&quot;: &quot;delete:clientes_empresas&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 120
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 121,
-                        &quot;name&quot;: &quot;view:pagos_ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 121
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 122,
-                        &quot;name&quot;: &quot;create:pagos_ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 122
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 123,
-                        &quot;name&quot;: &quot;edit:pagos_ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 123
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 124,
-                        &quot;name&quot;: &quot;delete:pagos_ordenes_compra&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 124
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 125,
-                        &quot;name&quot;: &quot;view:estatus&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 125
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 126,
-                        &quot;name&quot;: &quot;create:estatus&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 126
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 127,
-                        &quot;name&quot;: &quot;edit:estatus&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 127
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 128,
-                        &quot;name&quot;: &quot;delete:estatus&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 128
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 129,
-                        &quot;name&quot;: &quot;view:logros_personal&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 129
-                        }
-                    },
-                    {
-                        &quot;id&quot;: 130,
-                        &quot;name&quot;: &quot;view:audit_logs&quot;,
-                        &quot;guard_name&quot;: &quot;web&quot;,
-                        &quot;created_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2026-05-21T22:29:50.000000Z&quot;,
-                        &quot;pivot&quot;: {
-                            &quot;role_id&quot;: 1,
-                            &quot;permission_id&quot;: 130
-                        }
-                    }
-                ]
-            }
-        ],
-        &quot;permissions&quot;: []
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-me" hidden>
-    <blockquote>Respuesta recibida<span
-                id="execution-response-status-GETapi-me"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-me"
-      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-me" hidden>
-    <blockquote>La solicitud falló con error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-me">
-
-Consejo: Verifique que esté correctamente conectado a la red.
-Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
-Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
-</span>
-<form id="form-GETapi-me" data-method="GET"
-      data-path="api/me"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-me', this);">
-    <h3>
-        Petición&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-me"
-                    onclick="tryItOut('GETapi-me');">Probar ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-me"
-                    onclick="cancelTryOut('GETapi-me');" hidden>Cancelar 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-me"
-                    data-initial-text="Enviar solicitud 💥"
-                    data-loading-text="⏱ Enviando..."
-                    hidden>Enviar solicitud 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/me</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-me"
-               value="Bearer TOKEN_DE_MUESTRA"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-me"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-me"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
                     <h2 id="endpoints-GETapi-metricas-personal--idPersonal-">Obtener métricas por personal</h2>
 
 <p>
@@ -6705,7 +6321,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/personal/16" \
+    --get "http://localhost/api/metricas/personal/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6713,7 +6329,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/personal/16"
+    "http://localhost/api/metricas/personal/16"
 );
 
 const headers = {
@@ -6868,7 +6484,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metricas/generales" \
+    --get "http://localhost/api/metricas/generales" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -6876,7 +6492,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metricas/generales"
+    "http://localhost/api/metricas/generales"
 );
 
 const headers = {
@@ -7018,7 +6634,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias" \
+    --get "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7026,7 +6642,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -7179,7 +6795,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/entidades-bancarias" \
+    "http://localhost/api/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7196,7 +6812,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias"
+    "http://localhost/api/entidades-bancarias"
 );
 
 const headers = {
@@ -7362,7 +6978,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/entidades-bancarias/1" \
+    --get "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7370,7 +6986,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7532,7 +7148,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -7548,7 +7164,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7718,7 +7334,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/entidades-bancarias/1" \
+    "http://localhost/api/entidades-bancarias/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7726,7 +7342,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/entidades-bancarias/1"
+    "http://localhost/api/entidades-bancarias/1"
 );
 
 const headers = {
@@ -7857,7 +7473,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/logout" \
+    "http://localhost/api/logout" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -7865,7 +7481,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logout"
+    "http://localhost/api/logout"
 );
 
 const headers = {
@@ -7982,7 +7598,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register/personal" \
+    "http://localhost/api/register/personal" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
@@ -8001,7 +7617,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register/personal"
+    "http://localhost/api/register/personal"
 );
 
 const headers = {
@@ -8227,7 +7843,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus" \
+    --get "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8235,7 +7851,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -8427,7 +8043,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estatus" \
+    "http://localhost/api/estatus" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8439,7 +8055,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus"
+    "http://localhost/api/estatus"
 );
 
 const headers = {
@@ -8574,7 +8190,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estatus/1" \
+    --get "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8582,7 +8198,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -8735,7 +8351,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -8747,7 +8363,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -8899,7 +8515,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estatus/1" \
+    "http://localhost/api/estatus/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8907,7 +8523,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estatus/1"
+    "http://localhost/api/estatus/1"
 );
 
 const headers = {
@@ -9038,7 +8654,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema" \
+    --get "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9046,7 +8662,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -9083,8 +8699,8 @@ access-control-allow-origin: *
         {
             &quot;id&quot;: 1,
             &quot;dias_vencimiento&quot;: 30,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -9189,7 +8805,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/configuraciones-sistema" \
+    "http://localhost/api/configuraciones-sistema" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9201,7 +8817,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema"
+    "http://localhost/api/configuraciones-sistema"
 );
 
 const headers = {
@@ -9336,7 +8952,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/configuraciones-sistema/1" \
+    --get "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9344,7 +8960,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9380,8 +8996,8 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;dias_vencimiento&quot;: 30,
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9498,7 +9114,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9510,7 +9126,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9662,7 +9278,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/configuraciones-sistema/1" \
+    "http://localhost/api/configuraciones-sistema/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9670,7 +9286,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/configuraciones-sistema/1"
+    "http://localhost/api/configuraciones-sistema/1"
 );
 
 const headers = {
@@ -9801,7 +9417,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores" \
+    --get "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -9809,7 +9425,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -9850,8 +9466,8 @@ access-control-allow-origin: *
             &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
             &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
             &quot;moneda&quot;: &quot;VES&quot;,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -9956,7 +9572,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cuentas-proveedores" \
+    "http://localhost/api/cuentas-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -9972,7 +9588,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores"
+    "http://localhost/api/cuentas-proveedores"
 );
 
 const headers = {
@@ -10159,7 +9775,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-proveedores/1" \
+    --get "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10167,7 +9783,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10207,8 +9823,8 @@ access-control-allow-origin: *
         &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
         &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
         &quot;moneda&quot;: &quot;VES&quot;,
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -10325,7 +9941,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10341,7 +9957,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10545,7 +10161,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-proveedores/1" \
+    "http://localhost/api/cuentas-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10553,7 +10169,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-proveedores/1"
+    "http://localhost/api/cuentas-proveedores/1"
 );
 
 const headers = {
@@ -10684,7 +10300,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-por-pagar" \
+    --get "http://localhost/api/cuentas-por-pagar" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10692,7 +10308,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar"
+    "http://localhost/api/cuentas-por-pagar"
 );
 
 const headers = {
@@ -10828,7 +10444,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cuentas-por-pagar" \
+    "http://localhost/api/cuentas-por-pagar" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -10843,7 +10459,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar"
+    "http://localhost/api/cuentas-por-pagar"
 );
 
 const headers = {
@@ -11029,7 +10645,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cuentas-por-pagar/16" \
+    --get "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11037,7 +10653,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11186,7 +10802,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cuentas-por-pagar/16" \
+    "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11199,7 +10815,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11400,7 +11016,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cuentas-por-pagar/16" \
+    "http://localhost/api/cuentas-por-pagar/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11408,7 +11024,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cuentas-por-pagar/16"
+    "http://localhost/api/cuentas-por-pagar/16"
 );
 
 const headers = {
@@ -11539,7 +11155,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes" \
+    --get "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11547,7 +11163,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -11699,7 +11315,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-contribuyentes" \
+    "http://localhost/api/tipos-contribuyentes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -11712,7 +11328,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes"
+    "http://localhost/api/tipos-contribuyentes"
 );
 
 const headers = {
@@ -11860,7 +11476,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-contribuyentes/1" \
+    --get "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -11868,7 +11484,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -12021,7 +11637,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12034,7 +11650,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -12199,7 +11815,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-contribuyentes/1" \
+    "http://localhost/api/tipos-contribuyentes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12207,7 +11823,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-contribuyentes/1"
+    "http://localhost/api/tipos-contribuyentes/1"
 );
 
 const headers = {
@@ -12338,7 +11954,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
+    --get "http://localhost/api/clientes?include=usuario.+Values%3A+usuario%2C+tipoContribuyente" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12346,7 +11962,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const params = {
@@ -12391,12 +12007,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 4,
             &quot;nombre&quot;: &quot;Cliente Demo&quot;,
             &quot;apellido&quot;: &quot;General&quot;,
-            &quot;cedula&quot;: &quot;V-18142899&quot;,
-            &quot;telefono&quot;: &quot;+58 424 1786430&quot;,
+            &quot;cedula&quot;: &quot;V-26266053&quot;,
+            &quot;telefono&quot;: &quot;+58 424 9332069&quot;,
             &quot;correo_contacto&quot;: null,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -12514,7 +12130,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes" \
+    "http://localhost/api/clientes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -12539,7 +12155,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes"
+    "http://localhost/api/clientes"
 );
 
 const headers = {
@@ -12855,7 +12471,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes/1" \
+    --get "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -12863,7 +12479,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -12901,8 +12517,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 4,
         &quot;nombre&quot;: &quot;Cliente Demo&quot;,
         &quot;apellido&quot;: &quot;General&quot;,
-        &quot;cedula&quot;: &quot;V-18142899&quot;,
-        &quot;telefono&quot;: &quot;+58 424 1786430&quot;,
+        &quot;cedula&quot;: &quot;V-26266053&quot;,
+        &quot;telefono&quot;: &quot;+58 424 9332069&quot;,
         &quot;correo_contacto&quot;: null,
         &quot;id_tipo_contribuyente&quot;: 1,
         &quot;tipo_contribuyente&quot;: {
@@ -12919,11 +12535,11 @@ access-control-allow-origin: *
                 &quot;cliente&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -13040,7 +12656,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -13056,7 +12672,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
         \"nombre_usuario\": \"i\",
         \"correo\": \"okon.justina@example.com\",
         \"clave\": \"nikhwaykcmyuwpwlvqwrsitcps\",
-        \"esta_activo\": true
+        \"esta_activo\": false
     },
     \"id_estatus\": 16
 }"
@@ -13065,7 +12681,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -13086,7 +12702,7 @@ let body = {
         "nombre_usuario": "i",
         "correo": "okon.justina@example.com",
         "clave": "nikhwaykcmyuwpwlvqwrsitcps",
-        "esta_activo": true
+        "esta_activo": false
     },
     "id_estatus": 16
 };
@@ -13352,7 +12968,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -13398,7 +13014,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes/1" \
+    "http://localhost/api/clientes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13406,7 +13022,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes/1"
+    "http://localhost/api/clientes/1"
 );
 
 const headers = {
@@ -13537,7 +13153,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal?include=usuario.+Values%3A+usuario" \
+    --get "http://localhost/api/personal?include=usuario.+Values%3A+usuario" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -13545,7 +13161,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const params = {
@@ -13590,12 +13206,12 @@ access-control-allow-origin: *
             &quot;usuario_id&quot;: 3,
             &quot;nombre&quot;: &quot;Personal Comercial&quot;,
             &quot;apellido&quot;: &quot;Comercial&quot;,
-            &quot;cedula&quot;: &quot;V-17936055&quot;,
-            &quot;telefono&quot;: &quot;+58 412 8123616&quot;,
+            &quot;cedula&quot;: &quot;V-19105104&quot;,
+            &quot;telefono&quot;: &quot;+58 412 3604965&quot;,
             &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
             &quot;porcentaje_comision&quot;: 5,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -13713,7 +13329,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal" \
+    "http://localhost/api/personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -13729,7 +13345,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
         \"nombre_usuario\": \"y\",
         \"correo\": \"justina.gaylord@example.org\",
         \"clave\": \"ikhwaykcmyuwpwlvqwrsitcpsc\",
-        \"esta_activo\": false
+        \"esta_activo\": true
     },
     \"id_estatus\": 16
 }"
@@ -13738,7 +13354,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal"
+    "http://localhost/api/personal"
 );
 
 const headers = {
@@ -13759,7 +13375,7 @@ let body = {
         "nombre_usuario": "y",
         "correo": "justina.gaylord@example.org",
         "clave": "ikhwaykcmyuwpwlvqwrsitcpsc",
-        "esta_activo": false
+        "esta_activo": true
     },
     "id_estatus": 16
 };
@@ -14008,7 +13624,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>roles</code></b>&nbsp;&nbsp;
@@ -14054,7 +13670,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal/1" \
+    --get "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14062,7 +13678,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -14100,8 +13716,8 @@ access-control-allow-origin: *
         &quot;usuario_id&quot;: 3,
         &quot;nombre&quot;: &quot;Personal Comercial&quot;,
         &quot;apellido&quot;: &quot;Comercial&quot;,
-        &quot;cedula&quot;: &quot;V-17936055&quot;,
-        &quot;telefono&quot;: &quot;+58 412 8123616&quot;,
+        &quot;cedula&quot;: &quot;V-19105104&quot;,
+        &quot;telefono&quot;: &quot;+58 412 3604965&quot;,
         &quot;correo_institucional&quot;: &quot;personal comercial@tag.com&quot;,
         &quot;porcentaje_comision&quot;: 5,
         &quot;usuario&quot;: {
@@ -14113,11 +13729,11 @@ access-control-allow-origin: *
                 &quot;personal&quot;
             ],
             &quot;permisos&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         },
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -14234,7 +13850,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14259,7 +13875,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -14592,7 +14208,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal/1" \
+    "http://localhost/api/personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14600,7 +14216,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal/1"
+    "http://localhost/api/personal/1"
 );
 
 const headers = {
@@ -14731,7 +14347,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas" \
+    --get "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -14739,7 +14355,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -14782,8 +14398,8 @@ access-control-allow-origin: *
             &quot;correo_electronico&quot;: &quot;contacto@empresa-demo.test&quot;,
             &quot;direccion&quot;: &quot;Direccion demo&quot;,
             &quot;id_tipo_contribuyente&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -14888,7 +14504,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/empresas" \
+    "http://localhost/api/empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -14906,7 +14522,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas"
+    "http://localhost/api/empresas"
 );
 
 const headers = {
@@ -15119,7 +14735,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/empresas/1" \
+    --get "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15127,7 +14743,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -15174,8 +14790,8 @@ access-control-allow-origin: *
             &quot;tipo_contribuyente&quot;: &quot;Normal&quot;,
             &quot;porcentaje_iva&quot;: 16
         },
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -15292,7 +14908,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15310,7 +14926,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -15540,7 +15156,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/empresas/1" \
+    "http://localhost/api/empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15548,7 +15164,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/empresas/1"
+    "http://localhost/api/empresas/1"
 );
 
 const headers = {
@@ -15679,7 +15295,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas" \
+    --get "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15687,7 +15303,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -15823,7 +15439,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/clientes-empresas" \
+    "http://localhost/api/clientes-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -15836,7 +15452,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas"
+    "http://localhost/api/clientes-empresas"
 );
 
 const headers = {
@@ -15984,7 +15600,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/clientes-empresas/16" \
+    --get "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -15992,7 +15608,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16141,7 +15757,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/clientes-empresas/16" \
+    "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16154,7 +15770,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16319,7 +15935,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/clientes-empresas/16" \
+    "http://localhost/api/clientes-empresas/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16327,7 +15943,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/clientes-empresas/16"
+    "http://localhost/api/clientes-empresas/16"
 );
 
 const headers = {
@@ -16458,7 +16074,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas" \
+    --get "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16466,7 +16082,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -16504,8 +16120,8 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_personal&quot;: 1,
             &quot;id_empresa&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -16610,7 +16226,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/personal-empresas" \
+    "http://localhost/api/personal-empresas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16623,7 +16239,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas"
+    "http://localhost/api/personal-empresas"
 );
 
 const headers = {
@@ -16771,7 +16387,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/personal-empresas/1" \
+    --get "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -16779,7 +16395,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -16816,8 +16432,8 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_personal&quot;: 1,
         &quot;id_empresa&quot;: 1,
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -16934,7 +16550,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -16947,7 +16563,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -17112,7 +16728,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/personal-empresas/1" \
+    "http://localhost/api/personal-empresas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17120,7 +16736,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/personal-empresas/1"
+    "http://localhost/api/personal-empresas/1"
 );
 
 const headers = {
@@ -17251,7 +16867,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes" \
+    --get "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17259,7 +16875,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -17416,7 +17032,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/origenes" \
+    "http://localhost/api/origenes" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17428,7 +17044,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes"
+    "http://localhost/api/origenes"
 );
 
 const headers = {
@@ -17563,7 +17179,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/origenes/1" \
+    --get "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17571,7 +17187,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -17723,7 +17339,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -17735,7 +17351,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -17887,7 +17503,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/origenes/1" \
+    "http://localhost/api/origenes/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -17895,7 +17511,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/origenes/1"
+    "http://localhost/api/origenes/1"
 );
 
 const headers = {
@@ -18026,7 +17642,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones" \
+    --get "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18034,7 +17650,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -18170,7 +17786,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/atenciones" \
+    "http://localhost/api/atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18185,7 +17801,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones"
+    "http://localhost/api/atenciones"
 );
 
 const headers = {
@@ -18359,7 +17975,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atenciones/16" \
+    --get "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18367,7 +17983,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18516,7 +18132,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/atenciones/16" \
+    "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -18534,7 +18150,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18764,7 +18380,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/atenciones/16" \
+    "http://localhost/api/atenciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18772,7 +18388,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atenciones/16"
+    "http://localhost/api/atenciones/16"
 );
 
 const headers = {
@@ -18903,7 +18519,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atencion-historial" \
+    --get "http://localhost/api/atencion-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -18911,7 +18527,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atencion-historial"
+    "http://localhost/api/atencion-historial"
 );
 
 const headers = {
@@ -19045,7 +18661,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/atencion-historial" \
+    "http://localhost/api/atencion-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19058,7 +18674,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atencion-historial"
+    "http://localhost/api/atencion-historial"
 );
 
 const headers = {
@@ -19266,7 +18882,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/atencion-historial/16" \
+    --get "http://localhost/api/atencion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19274,7 +18890,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atencion-historial/16"
+    "http://localhost/api/atencion-historial/16"
 );
 
 const headers = {
@@ -19423,7 +19039,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/atencion-historial/16" \
+    "http://localhost/api/atencion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19435,7 +19051,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atencion-historial/16"
+    "http://localhost/api/atencion-historial/16"
 );
 
 const headers = {
@@ -19647,7 +19263,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/atencion-historial/16" \
+    "http://localhost/api/atencion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19655,7 +19271,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/atencion-historial/16"
+    "http://localhost/api/atencion-historial/16"
 );
 
 const headers = {
@@ -19786,7 +19402,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-atenciones" \
+    --get "http://localhost/api/estados-atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -19794,7 +19410,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-atenciones"
+    "http://localhost/api/estados-atenciones"
 );
 
 const headers = {
@@ -19949,7 +19565,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estados-atenciones" \
+    "http://localhost/api/estados-atenciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -19963,7 +19579,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-atenciones"
+    "http://localhost/api/estados-atenciones"
 );
 
 const headers = {
@@ -20124,7 +19740,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-atenciones/1" \
+    --get "http://localhost/api/estados-atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20132,7 +19748,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-atenciones/1"
+    "http://localhost/api/estados-atenciones/1"
 );
 
 const headers = {
@@ -20286,7 +19902,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estados-atenciones/1" \
+    "http://localhost/api/estados-atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20300,7 +19916,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-atenciones/1"
+    "http://localhost/api/estados-atenciones/1"
 );
 
 const headers = {
@@ -20478,7 +20094,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estados-atenciones/1" \
+    "http://localhost/api/estados-atenciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20486,7 +20102,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-atenciones/1"
+    "http://localhost/api/estados-atenciones/1"
 );
 
 const headers = {
@@ -20617,7 +20233,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/etapas-comerciales" \
+    --get "http://localhost/api/etapas-comerciales" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20625,7 +20241,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/etapas-comerciales"
+    "http://localhost/api/etapas-comerciales"
 );
 
 const headers = {
@@ -20780,7 +20396,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/etapas-comerciales" \
+    "http://localhost/api/etapas-comerciales" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -20794,7 +20410,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/etapas-comerciales"
+    "http://localhost/api/etapas-comerciales"
 );
 
 const headers = {
@@ -20955,7 +20571,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/etapas-comerciales/1" \
+    --get "http://localhost/api/etapas-comerciales/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -20963,7 +20579,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/etapas-comerciales/1"
+    "http://localhost/api/etapas-comerciales/1"
 );
 
 const headers = {
@@ -21117,7 +20733,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/etapas-comerciales/1" \
+    "http://localhost/api/etapas-comerciales/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21131,7 +20747,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/etapas-comerciales/1"
+    "http://localhost/api/etapas-comerciales/1"
 );
 
 const headers = {
@@ -21309,7 +20925,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/etapas-comerciales/1" \
+    "http://localhost/api/etapas-comerciales/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21317,7 +20933,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/etapas-comerciales/1"
+    "http://localhost/api/etapas-comerciales/1"
 );
 
 const headers = {
@@ -21448,7 +21064,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones" \
+    --get "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21456,7 +21072,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -21592,7 +21208,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cotizaciones" \
+    "http://localhost/api/cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -21622,7 +21238,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones"
+    "http://localhost/api/cotizaciones"
 );
 
 const headers = {
@@ -21955,7 +21571,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizaciones/16" \
+    --get "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -21963,7 +21579,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -22112,7 +21728,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cotizaciones/16" \
+    "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -22142,7 +21758,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -22492,7 +22108,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cotizaciones/16" \
+    "http://localhost/api/cotizaciones/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22500,7 +22116,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizaciones/16"
+    "http://localhost/api/cotizaciones/16"
 );
 
 const headers = {
@@ -22631,7 +22247,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizacion-historial" \
+    --get "http://localhost/api/cotizacion-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22639,7 +22255,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizacion-historial"
+    "http://localhost/api/cotizacion-historial"
 );
 
 const headers = {
@@ -22773,7 +22389,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/cotizacion-historial" \
+    "http://localhost/api/cotizacion-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -22787,7 +22403,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizacion-historial"
+    "http://localhost/api/cotizacion-historial"
 );
 
 const headers = {
@@ -22972,7 +22588,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/cotizacion-historial/16" \
+    --get "http://localhost/api/cotizacion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -22980,7 +22596,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizacion-historial/16"
+    "http://localhost/api/cotizacion-historial/16"
 );
 
 const headers = {
@@ -23129,7 +22745,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/cotizacion-historial/16" \
+    "http://localhost/api/cotizacion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -23142,7 +22758,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizacion-historial/16"
+    "http://localhost/api/cotizacion-historial/16"
 );
 
 const headers = {
@@ -23331,7 +22947,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/cotizacion-historial/16" \
+    "http://localhost/api/cotizacion-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23339,7 +22955,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/cotizacion-historial/16"
+    "http://localhost/api/cotizacion-historial/16"
 );
 
 const headers = {
@@ -23470,7 +23086,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-cotizaciones" \
+    --get "http://localhost/api/estados-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23478,7 +23094,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-cotizaciones"
+    "http://localhost/api/estados-cotizaciones"
 );
 
 const headers = {
@@ -23633,7 +23249,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estados-cotizaciones" \
+    "http://localhost/api/estados-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -23647,7 +23263,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-cotizaciones"
+    "http://localhost/api/estados-cotizaciones"
 );
 
 const headers = {
@@ -23808,7 +23424,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-cotizaciones/1" \
+    --get "http://localhost/api/estados-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -23816,7 +23432,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-cotizaciones/1"
+    "http://localhost/api/estados-cotizaciones/1"
 );
 
 const headers = {
@@ -23970,7 +23586,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estados-cotizaciones/1" \
+    "http://localhost/api/estados-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -23984,7 +23600,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-cotizaciones/1"
+    "http://localhost/api/estados-cotizaciones/1"
 );
 
 const headers = {
@@ -24162,7 +23778,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estados-cotizaciones/1" \
+    "http://localhost/api/estados-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24170,7 +23786,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-cotizaciones/1"
+    "http://localhost/api/estados-cotizaciones/1"
 );
 
 const headers = {
@@ -24301,7 +23917,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones" \
+    --get "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24309,7 +23925,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -24454,7 +24070,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-cotizaciones" \
+    "http://localhost/api/tipos-cotizaciones" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24466,7 +24082,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones"
+    "http://localhost/api/tipos-cotizaciones"
 );
 
 const headers = {
@@ -24601,7 +24217,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-cotizaciones/1" \
+    --get "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24609,7 +24225,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -24761,7 +24377,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -24773,7 +24389,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -24925,7 +24541,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-cotizaciones/1" \
+    "http://localhost/api/tipos-cotizaciones/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -24933,7 +24549,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-cotizaciones/1"
+    "http://localhost/api/tipos-cotizaciones/1"
 );
 
 const headers = {
@@ -25064,7 +24680,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago" \
+    --get "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25072,7 +24688,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -25221,7 +24837,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metodos-pago" \
+    "http://localhost/api/metodos-pago" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25233,7 +24849,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago"
+    "http://localhost/api/metodos-pago"
 );
 
 const headers = {
@@ -25382,7 +24998,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago/1" \
+    --get "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25390,7 +25006,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -25543,7 +25159,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -25559,7 +25175,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -25729,7 +25345,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metodos-pago/1" \
+    "http://localhost/api/metodos-pago/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25737,7 +25353,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1"
+    "http://localhost/api/metodos-pago/1"
 );
 
 const headers = {
@@ -25869,7 +25485,7 @@ Si el arreglo está vacío, el método no requiere entidad bancaria (ej. Efectiv
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metodos-pago/1/entidades-bancarias" \
+    --get "http://localhost/api/metodos-pago/1/entidades-bancarias" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -25877,7 +25493,7 @@ Si el arreglo está vacío, el método no requiere entidad bancaria (ej. Efectiv
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metodos-pago/1/entidades-bancarias"
+    "http://localhost/api/metodos-pago/1/entidades-bancarias"
 );
 
 const headers = {
@@ -26026,7 +25642,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra" \
+    --get "http://localhost/api/ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26034,7 +25650,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra"
+    "http://localhost/api/ordenes-compra"
 );
 
 const headers = {
@@ -26170,7 +25786,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/ordenes-compra/16" \
+    --get "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26178,7 +25794,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -26327,7 +25943,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/ordenes-compra/16" \
+    "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26339,7 +25955,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -26491,7 +26107,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/ordenes-compra/16" \
+    "http://localhost/api/ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26499,7 +26115,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/ordenes-compra/16"
+    "http://localhost/api/ordenes-compra/16"
 );
 
 const headers = {
@@ -26630,7 +26246,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/orden-compra-historial" \
+    --get "http://localhost/api/orden-compra-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26638,7 +26254,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/orden-compra-historial"
+    "http://localhost/api/orden-compra-historial"
 );
 
 const headers = {
@@ -26772,7 +26388,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/orden-compra-historial" \
+    "http://localhost/api/orden-compra-historial" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -26785,7 +26401,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/orden-compra-historial"
+    "http://localhost/api/orden-compra-historial"
 );
 
 const headers = {
@@ -26969,7 +26585,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/orden-compra-historial/16" \
+    --get "http://localhost/api/orden-compra-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -26977,7 +26593,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/orden-compra-historial/16"
+    "http://localhost/api/orden-compra-historial/16"
 );
 
 const headers = {
@@ -27126,7 +26742,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/orden-compra-historial/16" \
+    "http://localhost/api/orden-compra-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27138,7 +26754,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/orden-compra-historial/16"
+    "http://localhost/api/orden-compra-historial/16"
 );
 
 const headers = {
@@ -27326,7 +26942,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/orden-compra-historial/16" \
+    "http://localhost/api/orden-compra-historial/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27334,7 +26950,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/orden-compra-historial/16"
+    "http://localhost/api/orden-compra-historial/16"
 );
 
 const headers = {
@@ -27465,7 +27081,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-ordenes-compra" \
+    --get "http://localhost/api/estados-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27473,7 +27089,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-ordenes-compra"
+    "http://localhost/api/estados-ordenes-compra"
 );
 
 const headers = {
@@ -27634,7 +27250,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estados-ordenes-compra" \
+    "http://localhost/api/estados-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27648,7 +27264,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-ordenes-compra"
+    "http://localhost/api/estados-ordenes-compra"
 );
 
 const headers = {
@@ -27809,7 +27425,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-ordenes-compra/1" \
+    --get "http://localhost/api/estados-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -27817,7 +27433,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-ordenes-compra/1"
+    "http://localhost/api/estados-ordenes-compra/1"
 );
 
 const headers = {
@@ -27971,7 +27587,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estados-ordenes-compra/1" \
+    "http://localhost/api/estados-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -27985,7 +27601,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-ordenes-compra/1"
+    "http://localhost/api/estados-ordenes-compra/1"
 );
 
 const headers = {
@@ -28163,7 +27779,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estados-ordenes-compra/1" \
+    "http://localhost/api/estados-ordenes-compra/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28171,7 +27787,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-ordenes-compra/1"
+    "http://localhost/api/estados-ordenes-compra/1"
 );
 
 const headers = {
@@ -28302,7 +27918,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-financieros" \
+    --get "http://localhost/api/estados-financieros" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28310,7 +27926,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-financieros"
+    "http://localhost/api/estados-financieros"
 );
 
 const headers = {
@@ -28465,7 +28081,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/estados-financieros" \
+    "http://localhost/api/estados-financieros" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28479,7 +28095,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-financieros"
+    "http://localhost/api/estados-financieros"
 );
 
 const headers = {
@@ -28640,7 +28256,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/estados-financieros/1" \
+    --get "http://localhost/api/estados-financieros/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -28648,7 +28264,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-financieros/1"
+    "http://localhost/api/estados-financieros/1"
 );
 
 const headers = {
@@ -28802,7 +28418,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/estados-financieros/1" \
+    "http://localhost/api/estados-financieros/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -28816,7 +28432,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-financieros/1"
+    "http://localhost/api/estados-financieros/1"
 );
 
 const headers = {
@@ -28994,7 +28610,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/estados-financieros/1" \
+    "http://localhost/api/estados-financieros/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29002,7 +28618,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/estados-financieros/1"
+    "http://localhost/api/estados-financieros/1"
 );
 
 const headers = {
@@ -29133,7 +28749,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos" \
+    --get "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29141,7 +28757,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
@@ -29277,7 +28893,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos" \
+    "http://localhost/api/pagos" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
@@ -29290,12 +28906,12 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     --form "ordenes_compra[][id_orden_compra]=16"\
     --form "ordenes_compra[][monto_asignado]=4326.41688"\
     --form "id_estado_conciliacion=16"\
-    --form "comprobante_pdf=@/tmp/phppueVih" </code></pre></div>
+    --form "comprobante_pdf=@/tmp/phpw6EIMr" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos"
+    "http://localhost/api/pagos"
 );
 
 const headers = {
@@ -29528,7 +29144,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phppueVih</code></p>
+<p>Must be a file. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpw6EIMr</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_estado_conciliacion</code></b>&nbsp;&nbsp;
@@ -29558,7 +29174,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos/16" \
+    --get "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -29566,7 +29182,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -29715,7 +29331,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos/16" \
+    "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -29739,7 +29355,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -30017,7 +29633,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos/16" \
+    "http://localhost/api/pagos/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30025,7 +29641,7 @@ Todo en una transacción para garantizar atomicidad.</li>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos/16"
+    "http://localhost/api/pagos/16"
 );
 
 const headers = {
@@ -30156,7 +29772,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra" \
+    --get "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30164,7 +29780,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -30300,7 +29916,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-ordenes-compra" \
+    "http://localhost/api/pagos-ordenes-compra" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -30314,7 +29930,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra"
+    "http://localhost/api/pagos-ordenes-compra"
 );
 
 const headers = {
@@ -30475,7 +30091,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    --get "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30483,7 +30099,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -30632,7 +30248,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -30644,7 +30260,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -30796,7 +30412,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-ordenes-compra/16" \
+    "http://localhost/api/pagos-ordenes-compra/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30804,7 +30420,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-ordenes-compra/16"
+    "http://localhost/api/pagos-ordenes-compra/16"
 );
 
 const headers = {
@@ -30935,7 +30551,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores" \
+    --get "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -30943,7 +30559,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -30983,7 +30599,7 @@ access-control-allow-origin: *
             &quot;monto_total&quot;: 1500,
             &quot;id_tasa_cambio&quot;: null,
             &quot;referencia&quot;: &quot;PP-0001&quot;,
-            &quot;fecha_pago&quot;: &quot;2026-05-21&quot;,
+            &quot;fecha_pago&quot;: &quot;2026-05-22&quot;,
             &quot;id_metodo_pago&quot;: 1,
             &quot;comprobante&quot;: null,
             &quot;proveedor&quot;: {
@@ -30996,8 +30612,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
             },
             &quot;tasa_cambio&quot;: null,
             &quot;metodo_pago&quot;: {
@@ -31005,8 +30621,8 @@ access-control-allow-origin: *
                 &quot;metodo_pago&quot;: &quot;efectivo&quot;
             },
             &quot;cuentas_saldadas&quot;: [],
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -31111,7 +30727,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/pagos-proveedores" \
+    "http://localhost/api/pagos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -31119,7 +30735,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
     \"id_proveedor\": \"architecto\",
     \"monto_total\": 39,
     \"referencia\": \"g\",
-    \"fecha_pago\": \"2026-05-21T22:29:55\",
+    \"fecha_pago\": \"2026-05-22T09:59:49\",
     \"id_metodo_pago\": \"architecto\",
     \"comprobante\": \"architecto\",
     \"cuentas\": [
@@ -31134,7 +30750,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores"
+    "http://localhost/api/pagos-proveedores"
 );
 
 const headers = {
@@ -31147,7 +30763,7 @@ let body = {
     "id_proveedor": "architecto",
     "monto_total": 39,
     "referencia": "g",
-    "fecha_pago": "2026-05-21T22:29:55",
+    "fecha_pago": "2026-05-22T09:59:49",
     "id_metodo_pago": "architecto",
     "comprobante": "architecto",
     "cuentas": [
@@ -31307,10 +30923,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos-proveedores"
-               value="2026-05-21T22:29:55"
+               value="2026-05-22T09:59:49"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-21T22:29:55</code></p>
+<p>Must be a valid date. Example: <code>2026-05-22T09:59:49</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -31388,7 +31004,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/pagos-proveedores/1" \
+    --get "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31396,7 +31012,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -31435,7 +31051,7 @@ access-control-allow-origin: *
         &quot;monto_total&quot;: 1500,
         &quot;id_tasa_cambio&quot;: null,
         &quot;referencia&quot;: &quot;PP-0001&quot;,
-        &quot;fecha_pago&quot;: &quot;2026-05-21&quot;,
+        &quot;fecha_pago&quot;: &quot;2026-05-22&quot;,
         &quot;id_metodo_pago&quot;: 1,
         &quot;comprobante&quot;: null,
         &quot;proveedor&quot;: {
@@ -31448,8 +31064,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         },
         &quot;tasa_cambio&quot;: null,
         &quot;metodo_pago&quot;: {
@@ -31457,8 +31073,8 @@ access-control-allow-origin: *
             &quot;metodo_pago&quot;: &quot;efectivo&quot;
         },
         &quot;cuentas_saldadas&quot;: [],
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -31575,14 +31191,14 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"monto_total\": 27,
     \"referencia\": \"n\",
-    \"fecha_pago\": \"2026-05-21T22:29:55\",
+    \"fecha_pago\": \"2026-05-22T09:59:50\",
     \"comprobante\": \"architecto\"
 }"
 </code></pre></div>
@@ -31590,7 +31206,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -31602,7 +31218,7 @@ const headers = {
 let body = {
     "monto_total": 27,
     "referencia": "n",
-    "fecha_pago": "2026-05-21T22:29:55",
+    "fecha_pago": "2026-05-22T09:59:50",
     "comprobante": "architecto"
 };
 
@@ -31772,10 +31388,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos-proveedores--pagoProveedor_id-"
-               value="2026-05-21T22:29:55"
+               value="2026-05-22T09:59:50"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-05-21T22:29:55</code></p>
+<p>Must be a valid date. Example: <code>2026-05-22T09:59:50</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>id_metodo_pago</code></b>&nbsp;&nbsp;
@@ -31817,7 +31433,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/pagos-proveedores/1" \
+    "http://localhost/api/pagos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31825,7 +31441,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/pagos-proveedores/1"
+    "http://localhost/api/pagos-proveedores/1"
 );
 
 const headers = {
@@ -31956,7 +31572,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores" \
+    --get "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -31964,7 +31580,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -32113,7 +31729,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipos-proveedores" \
+    "http://localhost/api/tipos-proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -32125,7 +31741,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores"
+    "http://localhost/api/tipos-proveedores"
 );
 
 const headers = {
@@ -32260,7 +31876,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipos-proveedores/1" \
+    --get "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32268,7 +31884,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -32420,7 +32036,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -32432,7 +32048,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -32584,7 +32200,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipos-proveedores/1" \
+    "http://localhost/api/tipos-proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32592,7 +32208,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipos-proveedores/1"
+    "http://localhost/api/tipos-proveedores/1"
 );
 
 const headers = {
@@ -32723,7 +32339,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores" \
+    --get "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -32731,7 +32347,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -32775,8 +32391,8 @@ access-control-allow-origin: *
             &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
             &quot;id_tipo_contribuyente&quot;: null,
             &quot;tipo_proveedor&quot;: 1,
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -32881,7 +32497,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/proveedores" \
+    "http://localhost/api/proveedores" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -32913,7 +32529,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores"
+    "http://localhost/api/proveedores"
 );
 
 const headers = {
@@ -33238,7 +32854,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/proveedores/1" \
+    --get "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33246,7 +32862,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -33319,12 +32935,12 @@ access-control-allow-origin: *
                 &quot;nombre_banco&quot;: &quot;Banco Demo&quot;,
                 &quot;tipo_cuenta&quot;: &quot;corriente&quot;,
                 &quot;moneda&quot;: &quot;VES&quot;,
-                &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
             }
         ],
-        &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
     }
 }</code>
  </pre>
@@ -33441,7 +33057,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -33473,7 +33089,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -33827,7 +33443,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/proveedores/1" \
+    "http://localhost/api/proveedores/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33835,7 +33451,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/proveedores/1"
+    "http://localhost/api/proveedores/1"
 );
 
 const headers = {
@@ -33966,7 +33582,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio" \
+    --get "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -33974,7 +33590,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -34023,8 +33639,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
                 }
             ]
         },
@@ -34043,8 +33659,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
                 }
             ]
         },
@@ -34063,8 +33679,8 @@ access-control-allow-origin: *
                     &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                     &quot;id_tipo_contribuyente&quot;: null,
                     &quot;tipo_proveedor&quot;: 1,
-                    &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
                 }
             ]
         },
@@ -34183,7 +33799,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tipo-servicio" \
+    "http://localhost/api/tipo-servicio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34200,7 +33816,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio"
+    "http://localhost/api/tipo-servicio"
 );
 
 const headers = {
@@ -34366,7 +33982,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tipo-servicio/1" \
+    --get "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -34374,7 +33990,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -34422,8 +34038,8 @@ access-control-allow-origin: *
                 &quot;nombre_persona_contacto&quot;: &quot;Maria Perez&quot;,
                 &quot;id_tipo_contribuyente&quot;: null,
                 &quot;tipo_proveedor&quot;: 1,
-                &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+                &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
             }
         ]
     }
@@ -34542,7 +34158,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -34559,7 +34175,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -34743,7 +34359,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tipo-servicio/1" \
+    "http://localhost/api/tipo-servicio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -34751,7 +34367,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tipo-servicio/1"
+    "http://localhost/api/tipo-servicio/1"
 );
 
 const headers = {
@@ -34882,7 +34498,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas" \
+    --get "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -34890,7 +34506,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -35057,7 +34673,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas" \
+    "http://localhost/api/tasas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -35071,7 +34687,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas"
+    "http://localhost/api/tasas"
 );
 
 const headers = {
@@ -35232,7 +34848,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas/1" \
+    --get "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -35240,7 +34856,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -35394,7 +35010,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -35408,7 +35024,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -35586,7 +35202,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas/1" \
+    "http://localhost/api/tasas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -35594,7 +35210,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas/1"
+    "http://localhost/api/tasas/1"
 );
 
 const headers = {
@@ -35725,7 +35341,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio" \
+    --get "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -35733,7 +35349,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -35771,7 +35387,7 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;id_tasa&quot;: 5,
             &quot;valor_cambio&quot;: 36.5,
-            &quot;fecha&quot;: &quot;2026-05-21&quot;
+            &quot;fecha&quot;: &quot;2026-05-22&quot;
         }
     ]
 }</code>
@@ -35876,7 +35492,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/tasas-cambio" \
+    "http://localhost/api/tasas-cambio" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -35890,7 +35506,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio"
+    "http://localhost/api/tasas-cambio"
 );
 
 const headers = {
@@ -36051,7 +35667,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/tasas-cambio/1" \
+    --get "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -36059,7 +35675,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -36096,7 +35712,7 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;id_tasa&quot;: 5,
         &quot;valor_cambio&quot;: 36.5,
-        &quot;fecha&quot;: &quot;2026-05-21&quot;,
+        &quot;fecha&quot;: &quot;2026-05-22&quot;,
         &quot;moneda&quot;: {
             &quot;id&quot;: 5,
             &quot;codigo&quot;: &quot;VES_BCV&quot;,
@@ -36219,7 +35835,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -36233,7 +35849,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -36411,7 +36027,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tasas-cambio/1" \
+    "http://localhost/api/tasas-cambio/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -36419,7 +36035,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tasas-cambio/1"
+    "http://localhost/api/tasas-cambio/1"
 );
 
 const headers = {
@@ -36550,7 +36166,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios" \
+    --get "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -36558,7 +36174,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -36694,7 +36310,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/servicios" \
+    "http://localhost/api/servicios" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -36714,7 +36330,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios"
+    "http://localhost/api/servicios"
 );
 
 const headers = {
@@ -36953,7 +36569,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/servicios/16" \
+    --get "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -36961,7 +36577,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -37110,7 +36726,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/servicios/16" \
+    "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -37126,7 +36742,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -37379,7 +36995,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/servicios/16" \
+    "http://localhost/api/servicios/16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -37387,7 +37003,7 @@ Usa SoftDeletes nativo de Eloquent.</h2>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/servicios/16"
+    "http://localhost/api/servicios/16"
 );
 
 const headers = {
@@ -37518,7 +37134,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades" \
+    --get "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -37526,7 +37142,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -37687,7 +37303,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/temporalidades" \
+    "http://localhost/api/temporalidades" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -37700,7 +37316,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades"
+    "http://localhost/api/temporalidades"
 );
 
 const headers = {
@@ -37848,7 +37464,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/temporalidades/1" \
+    --get "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -37856,7 +37472,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -38010,7 +37626,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -38023,7 +37639,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -38188,7 +37804,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/temporalidades/1" \
+    "http://localhost/api/temporalidades/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -38196,7 +37812,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/temporalidades/1"
+    "http://localhost/api/temporalidades/1"
 );
 
 const headers = {
@@ -38327,7 +37943,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas" \
+    --get "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -38335,7 +37951,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -38383,8 +37999,8 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;mensual&quot;,
                 &quot;carbon_method&quot;: &quot;startOfMonth&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -38400,8 +38016,8 @@ access-control-allow-origin: *
                 &quot;slug&quot;: &quot;semanal&quot;,
                 &quot;carbon_method&quot;: &quot;startOfWeek&quot;
             },
-            &quot;created_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-05-21T22:29:51.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-05-22T09:59:41.000000Z&quot;
         }
     ]
 }</code>
@@ -38506,7 +38122,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas" \
+    "http://localhost/api/metas" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -38523,7 +38139,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas"
+    "http://localhost/api/metas"
 );
 
 const headers = {
@@ -38733,7 +38349,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas/1" \
+    --get "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -38741,7 +38357,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -38901,7 +38517,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -38918,7 +38534,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -39145,7 +38761,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas/1" \
+    "http://localhost/api/metas/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -39153,7 +38769,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas/1"
+    "http://localhost/api/metas/1"
 );
 
 const headers = {
@@ -39284,7 +38900,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal" \
+    --get "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -39292,7 +38908,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -39428,7 +39044,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/metas-personal" \
+    "http://localhost/api/metas-personal" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -39444,7 +39060,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal"
+    "http://localhost/api/metas-personal"
 );
 
 const headers = {
@@ -39631,7 +39247,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/metas-personal/1" \
+    --get "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -39639,7 +39255,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -39788,7 +39404,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -39804,7 +39420,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -40008,7 +39624,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/metas-personal/1" \
+    "http://localhost/api/metas-personal/1" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -40016,7 +39632,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/metas-personal/1"
+    "http://localhost/api/metas-personal/1"
 );
 
 const headers = {
@@ -40147,13 +39763,13 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/logros-personal?id_personal=16&amp;tipo_entidad=architecto&amp;id_entidad=16&amp;per_page=16" \
+    --get "http://localhost/api/logros-personal?id_personal=16&amp;tipo_entidad=architecto&amp;id_entidad=16&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"id_personal\": 16,
-    \"tipo_entidad\": \"orden_compra\",
+    \"tipo_entidad\": \"cotizacion\",
     \"id_entidad\": 22,
     \"per_page\": 7
 }"
@@ -40162,7 +39778,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/logros-personal"
+    "http://localhost/api/logros-personal"
 );
 
 const params = {
@@ -40182,7 +39798,7 @@ const headers = {
 
 let body = {
     "id_personal": 16,
-    "tipo_entidad": "orden_compra",
+    "tipo_entidad": "cotizacion",
     "id_entidad": 22,
     "per_page": 7
 };
@@ -40372,10 +39988,10 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
  &nbsp;
                 <input type="text" style="display: none"
                               name="tipo_entidad"                data-endpoint="GETapi-logros-personal"
-               value="orden_compra"
+               value="cotizacion"
                data-component="body">
     <br>
-<p>Example: <code>orden_compra</code></p>
+<p>Example: <code>cotizacion</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>atencion</code></li> <li><code>cotizacion</code></li> <li><code>orden_compra</code></li></ul>
         </div>
@@ -40419,7 +40035,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs/export/csv?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;modo=architecto" \
+    --get "http://localhost/api/audit-logs/export/csv?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;modo=architecto" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -40427,7 +40043,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs/export/csv"
+    "http://localhost/api/audit-logs/export/csv"
 );
 
 const params = {
@@ -40674,7 +40290,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/audit-logs?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;per_page=16" \
+    --get "http://localhost/api/audit-logs?id_usuario=16&amp;action=architecto&amp;table_name=architecto&amp;record_id=16&amp;desde=architecto&amp;hasta=architecto&amp;per_page=16" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -40682,7 +40298,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/audit-logs"
+    "http://localhost/api/audit-logs"
 );
 
 const params = {
@@ -40926,7 +40542,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/session" \
+    "http://localhost/api/kiu/session" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -40942,7 +40558,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/session"
+    "http://localhost/api/kiu/session"
 );
 
 const headers = {
@@ -41117,7 +40733,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/availability" \
+    "http://localhost/api/kiu/availability" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41135,7 +40751,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/availability"
+    "http://localhost/api/kiu/availability"
 );
 
 const headers = {
@@ -41336,7 +40952,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/pricing" \
+    "http://localhost/api/kiu/pricing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41352,7 +40968,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/pricing"
+    "http://localhost/api/kiu/pricing"
 );
 
 const headers = {
@@ -41527,7 +41143,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/booking" \
+    "http://localhost/api/kiu/booking" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41545,7 +41161,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/booking"
+    "http://localhost/api/kiu/booking"
 );
 
 const headers = {
@@ -41724,7 +41340,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/ticketing" \
+    "http://localhost/api/kiu/ticketing" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41740,7 +41356,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/ticketing"
+    "http://localhost/api/kiu/ticketing"
 );
 
 const headers = {
@@ -41915,7 +41531,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/kiu/post-sale" \
+    "http://localhost/api/kiu/post-sale" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -41932,7 +41548,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/kiu/post-sale"
+    "http://localhost/api/kiu/post-sale"
 );
 
 const headers = {
@@ -42120,7 +41736,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/admin-only" \
+    --get "http://localhost/api/admin-only" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -42128,7 +41744,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/admin-only"
+    "http://localhost/api/admin-only"
 );
 
 const headers = {
@@ -42264,7 +41880,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/broadcasting/auth" \
+    --get "http://localhost/api/broadcasting/auth" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -42272,7 +41888,7 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/broadcasting/auth"
+    "http://localhost/api/broadcasting/auth"
 );
 
 const headers = {
@@ -42418,7 +42034,7 @@ canal privado específico.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/broadcasting/auth" \
+    "http://localhost/api/broadcasting/auth" \
     --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -42431,7 +42047,7 @@ canal privado específico.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/broadcasting/auth"
+    "http://localhost/api/broadcasting/auth"
 );
 
 const headers = {
@@ -42582,6 +42198,802 @@ Puede revisar la consola de DevTools para obtener información de depuración.</
 <p>El ID de conexión generado por el cliente WebSocket. Example: <code>12345.67890</code></p>
         </div>
         </form>
+
+                <h1 id="websocket-canales">WebSocket - Canales</h1>
+
+    
+
+                                <h2 id="websocket-canales-GETapi-broadcasting-canales-atenciones">Canal: private-atenciones</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Transmite en tiempo real los cambios del recurso Atencion (crear, actualizar, eliminar).</p>
+<p><strong>Autorización:</strong> <code>AtencionPolicy::viewAny()</code> → requiere permiso <code>view:atenciones</code>.</p>
+<p><strong>Eventos emitidos en este canal:</strong></p>
+<ul>
+<li><code>.atencion.created</code> — Nueva atención creada</li>
+<li><code>.atencion.updated</code> — Atención actualizada</li>
+<li><code>.atencion.deleted</code> — Atención eliminada (soft-delete)</li>
+</ul>
+
+<span id="example-requests-GETapi-broadcasting-canales-atenciones">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/broadcasting/canales/atenciones" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/broadcasting/canales/atenciones"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-canales-atenciones">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;canal&quot;: &quot;private-atenciones&quot;,
+    &quot;autorizacion&quot;: &quot;AtencionPolicy::viewAny() &rarr; permiso view:atenciones&quot;,
+    &quot;eventos&quot;: [
+        &quot;.atencion.created&quot;,
+        &quot;.atencion.updated&quot;,
+        &quot;.atencion.deleted&quot;
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-canales-atenciones" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-broadcasting-canales-atenciones"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-canales-atenciones"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-canales-atenciones" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-canales-atenciones">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-broadcasting-canales-atenciones" data-method="GET"
+      data-path="api/broadcasting/canales/atenciones"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-canales-atenciones', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-broadcasting-canales-atenciones"
+                    onclick="tryItOut('GETapi-broadcasting-canales-atenciones');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-broadcasting-canales-atenciones"
+                    onclick="cancelTryOut('GETapi-broadcasting-canales-atenciones');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-broadcasting-canales-atenciones"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/canales/atenciones</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-broadcasting-canales-atenciones"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-broadcasting-canales-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-broadcasting-canales-atenciones"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="websocket-canales-GETapi-broadcasting-canales-usuario">Canal: private-user.{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Canal privado por usuario. Un usuario solo puede suscribirse a su propio canal
+(el <code>{id}</code> debe coincidir con el ID del usuario autenticado).</p>
+<p><strong>Autorización:</strong> el ID del canal debe coincidir con <code>auth_user.id</code>.</p>
+<p><strong>Eventos emitidos en este canal:</strong></p>
+<ul>
+<li><code>.atencion.created</code> — Atención asignada al personal dueño del canal</li>
+<li><code>.atencion.updated</code> — Atención del personal actualizada</li>
+<li><code>.atencion.deleted</code> — Atención del personal eliminada</li>
+</ul>
+
+<span id="example-requests-GETapi-broadcasting-canales-usuario">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/broadcasting/canales/usuario" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/broadcasting/canales/usuario"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-canales-usuario">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;canal&quot;: &quot;private-user.{id}&quot;,
+    &quot;parametro&quot;: &quot;id = ID del usuario autenticado (int)&quot;,
+    &quot;autorizacion&quot;: &quot;El ID del canal debe coincidir con el ID del usuario autenticado&quot;,
+    &quot;eventos&quot;: [
+        &quot;.atencion.created&quot;,
+        &quot;.atencion.updated&quot;,
+        &quot;.atencion.deleted&quot;
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-canales-usuario" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-broadcasting-canales-usuario"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-canales-usuario"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-canales-usuario" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-canales-usuario">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-broadcasting-canales-usuario" data-method="GET"
+      data-path="api/broadcasting/canales/usuario"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-canales-usuario', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-broadcasting-canales-usuario"
+                    onclick="tryItOut('GETapi-broadcasting-canales-usuario');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-broadcasting-canales-usuario"
+                    onclick="cancelTryOut('GETapi-broadcasting-canales-usuario');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-broadcasting-canales-usuario"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/canales/usuario</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-broadcasting-canales-usuario"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-broadcasting-canales-usuario"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-broadcasting-canales-usuario"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="websocket-eventos">WebSocket - Eventos</h1>
+
+    
+
+                                <h2 id="websocket-eventos-GETapi-broadcasting-eventos-atencion-creado">Evento: .atencion.created</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Emitido cuando se crea una nueva atención. El payload incluye el recurso completo
+con todas las relaciones precargadas.</p>
+<p><strong>Payload (created/updated):</strong></p>
+<pre><code class="language-json">{
+  "action": "created",
+  "atencion": { ... recurso AtencionResource completo ... }
+}</code></pre>
+
+<span id="example-requests-GETapi-broadcasting-eventos-atencion-creado">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/broadcasting/eventos/atencion-creado" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/broadcasting/eventos/atencion-creado"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-eventos-atencion-creado">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;evento&quot;: &quot;.atencion.created&quot;,
+    &quot;canales&quot;: [
+        &quot;private-atenciones&quot;,
+        &quot;private-user.{id_personal}&quot;
+    ],
+    &quot;payload&quot;: {
+        &quot;action&quot;: &quot;created&quot;,
+        &quot;atencion&quot;: &quot;{AtencionResource} &mdash; recurso completo con relaciones: cliente, personal, origen, estadoAtencion, etapaComercial, cotizaciones&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-eventos-atencion-creado" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-broadcasting-eventos-atencion-creado"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-eventos-atencion-creado"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-eventos-atencion-creado" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-eventos-atencion-creado">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-broadcasting-eventos-atencion-creado" data-method="GET"
+      data-path="api/broadcasting/eventos/atencion-creado"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-eventos-atencion-creado', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-broadcasting-eventos-atencion-creado"
+                    onclick="tryItOut('GETapi-broadcasting-eventos-atencion-creado');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-broadcasting-eventos-atencion-creado"
+                    onclick="cancelTryOut('GETapi-broadcasting-eventos-atencion-creado');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-broadcasting-eventos-atencion-creado"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/eventos/atencion-creado</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-broadcasting-eventos-atencion-creado"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-broadcasting-eventos-atencion-creado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-broadcasting-eventos-atencion-creado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="websocket-eventos-GETapi-broadcasting-eventos-atencion-actualizado">Evento: .atencion.updated</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Emitido cuando se actualiza una atención existente. Mismo payload que <code>created</code>.</p>
+<p><strong>Payload (created/updated):</strong></p>
+<pre><code class="language-json">{
+  "action": "updated",
+  "atencion": { ... recurso AtencionResource completo ... }
+}</code></pre>
+
+<span id="example-requests-GETapi-broadcasting-eventos-atencion-actualizado">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/broadcasting/eventos/atencion-actualizado" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/broadcasting/eventos/atencion-actualizado"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-eventos-atencion-actualizado">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;evento&quot;: &quot;.atencion.updated&quot;,
+    &quot;canales&quot;: [
+        &quot;private-atenciones&quot;,
+        &quot;private-user.{id_personal}&quot;
+    ],
+    &quot;payload&quot;: {
+        &quot;action&quot;: &quot;updated&quot;,
+        &quot;atencion&quot;: &quot;{AtencionResource} &mdash; recurso completo con relaciones&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-eventos-atencion-actualizado" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-broadcasting-eventos-atencion-actualizado"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-eventos-atencion-actualizado"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-eventos-atencion-actualizado" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-eventos-atencion-actualizado">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-broadcasting-eventos-atencion-actualizado" data-method="GET"
+      data-path="api/broadcasting/eventos/atencion-actualizado"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-eventos-atencion-actualizado', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-broadcasting-eventos-atencion-actualizado"
+                    onclick="tryItOut('GETapi-broadcasting-eventos-atencion-actualizado');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-broadcasting-eventos-atencion-actualizado"
+                    onclick="cancelTryOut('GETapi-broadcasting-eventos-atencion-actualizado');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-broadcasting-eventos-atencion-actualizado"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/eventos/atencion-actualizado</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-broadcasting-eventos-atencion-actualizado"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-broadcasting-eventos-atencion-actualizado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-broadcasting-eventos-atencion-actualizado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="websocket-eventos-GETapi-broadcasting-eventos-atencion-eliminado">Evento: .atencion.deleted</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Emitido cuando se elimina una atención (soft-delete). Payload mínimo: solo ID.</p>
+<p><strong>Payload (deleted):</strong></p>
+<pre><code class="language-json">{
+  "action": "deleted",
+  "id": 123
+}</code></pre>
+
+<span id="example-requests-GETapi-broadcasting-eventos-atencion-eliminado">
+<blockquote>Ejemplo de petición:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/broadcasting/eventos/atencion-eliminado" \
+    --header "Authorization: Bearer TOKEN_DE_MUESTRA" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/broadcasting/eventos/atencion-eliminado"
+);
+
+const headers = {
+    "Authorization": "Bearer TOKEN_DE_MUESTRA",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-broadcasting-eventos-atencion-eliminado">
+            <blockquote>
+            <p>Ejemplo de respuesta (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;evento&quot;: &quot;.atencion.deleted&quot;,
+    &quot;canales&quot;: [
+        &quot;private-atenciones&quot;,
+        &quot;private-user.{id_personal}&quot;
+    ],
+    &quot;payload&quot;: {
+        &quot;action&quot;: &quot;deleted&quot;,
+        &quot;id&quot;: &quot;{int} &mdash; ID de la atenci&oacute;n eliminada&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-broadcasting-eventos-atencion-eliminado" hidden>
+    <blockquote>Respuesta recibida<span
+                id="execution-response-status-GETapi-broadcasting-eventos-atencion-eliminado"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-broadcasting-eventos-atencion-eliminado"
+      data-empty-response-text="<Respuesta vacía>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-broadcasting-eventos-atencion-eliminado" hidden>
+    <blockquote>La solicitud falló con error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-broadcasting-eventos-atencion-eliminado">
+
+Consejo: Verifique que esté correctamente conectado a la red.
+Si usted es el administrador de esta API, asegúrese de que esté en ejecución y que haya habilitado CORS.
+Puede revisar la consola de DevTools para obtener información de depuración.</code></pre>
+</span>
+<form id="form-GETapi-broadcasting-eventos-atencion-eliminado" data-method="GET"
+      data-path="api/broadcasting/eventos/atencion-eliminado"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-broadcasting-eventos-atencion-eliminado', this);">
+    <h3>
+        Petición&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-broadcasting-eventos-atencion-eliminado"
+                    onclick="tryItOut('GETapi-broadcasting-eventos-atencion-eliminado');">Probar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-broadcasting-eventos-atencion-eliminado"
+                    onclick="cancelTryOut('GETapi-broadcasting-eventos-atencion-eliminado');" hidden>Cancelar 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-broadcasting-eventos-atencion-eliminado"
+                    data-initial-text="Enviar solicitud 💥"
+                    data-loading-text="⏱ Enviando..."
+                    hidden>Enviar solicitud 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/broadcasting/eventos/atencion-eliminado</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Encabezados</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-broadcasting-eventos-atencion-eliminado"
+               value="Bearer TOKEN_DE_MUESTRA"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer TOKEN_DE_MUESTRA</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-broadcasting-eventos-atencion-eliminado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-broadcasting-eventos-atencion-eliminado"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

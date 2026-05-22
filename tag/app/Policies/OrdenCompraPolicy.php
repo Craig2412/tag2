@@ -9,34 +9,36 @@ class OrdenCompraPolicy
 {
     public function viewAny(Usuario $usuario): bool
     {
-        return $usuario->can('view:ordenes_compra')
-            || $usuario->hasRole('personal');
+        return $usuario->can('view:ordenes_compra');
     }
 
     public function view(Usuario $usuario, OrdenCompra $orden): bool
     {
-        if ($usuario->can('view:ordenes_compra')) {
+        // Escalación: permiso :todas da acceso global
+        if ($usuario->can('view:ordenes_compra:todas')) {
             return true;
         }
 
-        // Personal: solo puede ver OCs de sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $orden);
+        // Base: solo OCs de sus propias atenciones
+        return $usuario->can('view:ordenes_compra')
+            && $this->esPersonalAsignado($usuario, $orden);
     }
 
     public function create(Usuario $usuario): bool
     {
-        return $usuario->can('create:ordenes_compra')
-            || $usuario->hasRole('personal');
+        return $usuario->can('create:ordenes_compra');
     }
 
     public function update(Usuario $usuario, OrdenCompra $orden): bool
     {
-        if ($usuario->can('edit:ordenes_compra')) {
+        // Escalación: permiso :todas permite editar cualquier OC
+        if ($usuario->can('edit:ordenes_compra:todas')) {
             return true;
         }
 
-        // Personal: solo puede editar OCs de sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $orden);
+        // Base: solo OCs de sus propias atenciones
+        return $usuario->can('edit:ordenes_compra')
+            && $this->esPersonalAsignado($usuario, $orden);
     }
 
     public function delete(Usuario $usuario, OrdenCompra $orden): bool
@@ -46,7 +48,7 @@ class OrdenCompraPolicy
 
     public function approve(Usuario $usuario, OrdenCompra $orden): bool
     {
-        return $usuario->can('edit:ordenes_compra');
+        return $usuario->can('edit:ordenes_compra:todas');
     }
 
     /**

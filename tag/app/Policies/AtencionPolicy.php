@@ -7,36 +7,42 @@ use App\Models\Usuario;
 
 class AtencionPolicy
 {
+    /**
+     * Cualquier usuario con view:atenciones puede ver el listado.
+     * El alcance (propias vs. todas) se resuelve en view().
+     */
     public function viewAny(Usuario $usuario): bool
     {
-        return $usuario->can('view:atenciones')
-            || $usuario->hasRole('personal');
+        return $usuario->can('view:atenciones');
     }
 
     public function view(Usuario $usuario, Atencion $atencion): bool
     {
-        if ($usuario->can('view:atenciones')) {
+        // Escalación: permiso :todas da acceso global
+        if ($usuario->can('view:atenciones:todas')) {
             return true;
         }
 
-        // Personal: solo puede ver sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $atencion);
+        // Base: solo las propias
+        return $usuario->can('view:atenciones')
+            && $this->esPersonalAsignado($usuario, $atencion);
     }
 
     public function create(Usuario $usuario): bool
     {
-        return $usuario->can('create:atenciones')
-            || $usuario->hasRole('personal');
+        return $usuario->can('create:atenciones');
     }
 
     public function update(Usuario $usuario, Atencion $atencion): bool
     {
-        if ($usuario->can('edit:atenciones')) {
+        // Escalación: permiso :todas permite editar cualquier atención
+        if ($usuario->can('edit:atenciones:todas')) {
             return true;
         }
 
-        // Personal: solo puede editar sus propias atenciones
-        return $this->esPersonalAsignado($usuario, $atencion);
+        // Base: solo las propias
+        return $usuario->can('edit:atenciones')
+            && $this->esPersonalAsignado($usuario, $atencion);
     }
 
     public function delete(Usuario $usuario, Atencion $atencion): bool

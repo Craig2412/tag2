@@ -63,7 +63,7 @@ class ClientesEmpresaController extends Controller
 
         $cliente = Cliente::find($data['id_cliente']);
 
-        if (! $cliente || ! $cliente->usuario->hasRole('cliente')) {
+        if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
             return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
         }
 
@@ -105,7 +105,7 @@ class ClientesEmpresaController extends Controller
 
         if (isset($data['id_cliente'])) {
             $cliente = Cliente::find($data['id_cliente']);
-            if (! $cliente || ! $cliente->usuario->hasRole('cliente')) {
+            if (! $cliente || ! $cliente->usuario->can('view:clientes_empresas')) {
                 return response()->json(['message' => 'id_cliente debe pertenecer a un usuario con rol cliente'], 422);
             }
         }
