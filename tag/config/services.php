@@ -36,14 +36,18 @@ return [
     ],
 
     'kiu' => [
-        // Endpoint base SOAP (ws3)
+        // Endpoint base WS3
         'base_url' => env('KIU_BASE_URL', 'https://ssl00.kiusys.com/ws3/index.php'),
 
         // Entorno
         'sandbox' => env('KIU_SANDBOX', true),
 
-        // Transporte por defecto de integracion legacy
+        // Transporte y conexión
         'transport' => env('KIU_TRANSPORT', 'form_params'),
+        'timeout' => (int) env('KIU_TIMEOUT', 30),
+        'verify' => env('KIU_VERIFY_SSL', false),
+
+        // KIU XML defaults
         'target' => env('KIU_TARGET', 'Production'),
         'version' => env('KIU_VERSION', '3.0'),
         'primary_lang' => env('KIU_PRIMARY_LANG', 'en-us'),
@@ -51,8 +55,9 @@ return [
         'iso_currency' => env('KIU_ISO_CURRENCY', 'USD'),
         'requestor_type' => env('KIU_REQUESTOR_TYPE', '5'),
         'booking_channel_type' => env('KIU_BOOKING_CHANNEL_TYPE', '1'),
+        'pseudo_city_code' => env('KIU_PSEUDO_CITY_CODE', ''),
 
-        // Credenciales por defecto
+        // Credenciales (van en el body como user/password/request)
         'auth' => [
             'username' => env('KIU_USERNAME'),
             'password' => env('KIU_PASSWORD'),
@@ -60,54 +65,20 @@ return [
             'agent_sine' => env('KIU_AGENT_SINE'),
         ],
 
-        // Headers por defecto
+        // Headers HTTP
         'default_headers' => [
-            'Accept' => env('KIU_ACCEPT_HEADER', 'application/xml, text/xml, */*'),
-            'Content-Type' => env('KIU_CONTENT_TYPE', 'application/x-www-form-urlencoded'),
+            'Accept' => 'application/xml, text/xml, */*',
+            'Content-Type' => 'application/x-www-form-urlencoded',
         ],
 
-        // Timeout y SSL
-        'timeout' => (int) env('KIU_TIMEOUT', 30),
-        'verify' => env('KIU_VERIFY_SSL', true),
-
-        // Configuracion de operaciones legacy
+        // Todas las operaciones comparten el mismo endpoint y transporte
         'operations' => [
-            'session' => [
-                'path' => env('KIU_SESSION_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_SESSION_SOAP_ACTION', ''),
-                'transport' => env('KIU_SESSION_TRANSPORT', 'form_params'),
-            ],
-            'availability' => [
-                'path' => env('KIU_AVAILABILITY_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_AVAILABILITY_SOAP_ACTION', ''),
-                'transport' => env('KIU_AVAILABILITY_TRANSPORT', 'form_params'),
-            ],
-            'pricing' => [
-                'path' => env('KIU_PRICING_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_PRICING_SOAP_ACTION', ''),
-                'transport' => env('KIU_PRICING_TRANSPORT', 'form_params'),
-            ],
-            'booking' => [
-                'path' => env('KIU_BOOKING_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_BOOKING_SOAP_ACTION', ''),
-                'transport' => env('KIU_BOOKING_TRANSPORT', 'form_params'),
-            ],
-            'ticketing' => [
-                'path' => env('KIU_TICKETING_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_TICKETING_SOAP_ACTION', ''),
-                'transport' => env('KIU_TICKETING_TRANSPORT', 'form_params'),
-            ],
-            'post_sale' => [
-                'path' => env('KIU_POST_SALE_PATH', '/'),
-                'content_type' => 'application/x-www-form-urlencoded',
-                'soap_action' => env('KIU_POST_SALE_SOAP_ACTION', ''),
-                'transport' => env('KIU_POST_SALE_TRANSPORT', 'form_params'),
-            ],
+            'session'      => ['path' => ''],
+            'availability' => ['path' => ''],
+            'pricing'      => ['path' => ''],
+            'booking'      => ['path' => ''],
+            'ticketing'    => ['path' => ''],
+            'post_sale'    => ['path' => ''],
         ],
     ],
 
