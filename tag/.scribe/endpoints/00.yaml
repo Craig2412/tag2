@@ -337,7 +337,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -381,7 +381,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -439,7 +439,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -485,7 +485,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -531,7 +531,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -606,7 +606,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -664,7 +664,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -740,7 +740,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -787,7 +787,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -822,7 +822,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -996,7 +996,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1043,7 +1043,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1101,7 +1101,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1161,7 +1161,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1208,7 +1208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1242,7 +1242,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"dias_vencimiento":30,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1254,7 +1254,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1301,7 +1301,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1347,7 +1347,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"dias_vencimiento":30,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"dias_vencimiento":30,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1359,7 +1359,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1419,7 +1419,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1466,7 +1466,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1500,7 +1500,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1512,7 +1512,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1607,7 +1607,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1653,7 +1653,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1665,7 +1665,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1773,7 +1773,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1820,7 +1820,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1866,7 +1866,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -1949,18 +1949,112 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      pago:
+        custom: []
+        name: pago
+        description: 'Pago opcional: se crea un PagoProveedor y se asocia a esta cuenta.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.monto_total:
+        custom: []
+        name: pago.monto_total
+        description: 'This field is required when <code>pago</code> is present. Must be at least 0.01.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.id_tasa_cambio:
+        custom: []
+        name: pago.id_tasa_cambio
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.referencia:
+        custom: []
+        name: pago.referencia
+        description: 'This field is required when <code>pago</code> is present. Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.fecha_pago:
+        custom: []
+        name: pago.fecha_pago
+        description: 'This field is required when <code>pago</code> is present. Must be a valid date.'
+        required: false
+        example: '2026-06-19T16:26:38'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.id_metodo_pago:
+        custom: []
+        name: pago.id_metodo_pago
+        description: 'This field is required when <code>pago</code> is present. The <code>id</code> of an existing record in the metodos_pago table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.comprobante:
+        custom: []
+        name: pago.comprobante
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.monto_asignado:
+        custom: []
+        name: pago.monto_asignado
+        description: 'This field is required when <code>pago</code> is present. Must be at least 0.01.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
       id_proveedor: architecto
       monto_total: 39
       saldo_pendiente: 84
       id_estado_financiero: architecto
+      pago:
+        monto_total: 39
+        referencia: g
+        fecha_pago: '2026-06-19T16:26:38'
+        comprobante: architecto
+        monto_asignado: 39
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2021,7 +2115,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2117,16 +2211,110 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      pago:
+        custom: []
+        name: pago
+        description: 'Pago opcional: se crea un PagoProveedor y se asocia a esta cuenta.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.monto_total:
+        custom: []
+        name: pago.monto_total
+        description: 'This field is required when <code>pago</code> is present. Must be at least 0.01.'
+        required: false
+        example: 84
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.id_tasa_cambio:
+        custom: []
+        name: pago.id_tasa_cambio
+        description: 'The <code>id</code> of an existing record in the tasas_cambio table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.referencia:
+        custom: []
+        name: pago.referencia
+        description: 'This field is required when <code>pago</code> is present. Must not be greater than 255 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.fecha_pago:
+        custom: []
+        name: pago.fecha_pago
+        description: 'This field is required when <code>pago</code> is present. Must be a valid date.'
+        required: false
+        example: '2026-06-19T16:26:38'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.id_metodo_pago:
+        custom: []
+        name: pago.id_metodo_pago
+        description: 'This field is required when <code>pago</code> is present. The <code>id</code> of an existing record in the metodos_pago table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      pago.comprobante:
+        custom: []
+        name: pago.comprobante
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      pago.monto_asignado:
+        custom: []
+        name: pago.monto_asignado
+        description: 'This field is required when <code>pago</code> is present. Must be at least 0.01.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
       monto_total: 27
       saldo_pendiente: 39
+      pago:
+        monto_total: 84
+        referencia: z
+        fecha_pago: '2026-06-19T16:26:38'
+        comprobante: architecto
+        monto_asignado: 39
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2173,7 +2361,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2219,7 +2407,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2278,7 +2466,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2336,7 +2524,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2408,7 +2596,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2455,7 +2643,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2501,7 +2689,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26901714","telefono":"+58 424 5335507","correo_contacto":null,"id_tipo_contribuyente":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-12640673","telefono":"+58 424 8663210","correo_contacto":null,"id_tipo_contribuyente":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2513,7 +2701,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2715,7 +2903,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2761,7 +2949,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-26901714","telefono":"+58 424 5335507","correo_contacto":null,"id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","esta_activo":1,"roles":["cliente"],"permisos":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"usuario_id":4,"nombre":"Cliente Demo","apellido":"General","cedula":"V-12640673","telefono":"+58 424 8663210","correo_contacto":null,"id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"usuario":{"id":4,"nombre_usuario":"Cliente Demo","correo":"cliente@example.com","esta_activo":1,"roles":["cliente"],"permisos":[],"created_at":"2026-06-19T16:26:37.000000Z","updated_at":"2026-06-19T16:26:37.000000Z"},"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2773,7 +2961,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -2940,7 +3128,7 @@ endpoints:
         name: usuario.esta_activo
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2980,7 +3168,7 @@ endpoints:
         nombre_usuario: i
         correo: okon.justina@example.com
         clave: nikhwaykcmyuwpwlvqwrsitcps
-        esta_activo: true
+        esta_activo: false
       id_estatus: 16
     fileParameters: []
     responses: []
@@ -2988,7 +3176,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3035,7 +3223,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3081,7 +3269,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-20356673","telefono":"+58 412 3622381","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-11022463","telefono":"+58 412 8478015","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3093,7 +3281,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3295,7 +3483,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3341,7 +3529,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-20356673","telefono":"+58 412 3622381","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","esta_activo":1,"roles":["personal"],"permisos":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"usuario_id":3,"nombre":"Personal Comercial","apellido":"Comercial","cedula":"V-11022463","telefono":"+58 412 8478015","correo_institucional":"personal comercial@tag.com","porcentaje_comision":5,"usuario":{"id":3,"nombre_usuario":"Personal Comercial","correo":"personal@example.com","esta_activo":1,"roles":["personal"],"permisos":[],"created_at":"2026-06-19T16:26:37.000000Z","updated_at":"2026-06-19T16:26:37.000000Z"},"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3353,7 +3541,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3568,7 +3756,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3615,7 +3803,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3649,7 +3837,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3661,7 +3849,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3780,7 +3968,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3826,7 +4014,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"razon_social":"Empresa Demo","razon_comercial":"Demo C.A.","rif":"J-00000000-0","numero_telefono":"02120000000","correo_electronico":"contacto@empresa-demo.test","direccion":"Direccion demo","id_tipo_contribuyente":1,"tipo_contribuyente":{"id":1,"tipo_contribuyente":"Normal","porcentaje_iva":16},"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3838,7 +4026,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -3970,7 +4158,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4017,7 +4205,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4063,7 +4251,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4122,7 +4310,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4183,7 +4371,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4255,7 +4443,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4302,7 +4490,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4336,7 +4524,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4348,7 +4536,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4407,7 +4595,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4453,7 +4641,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"id_personal":1,"id_empresa":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4465,7 +4653,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4537,7 +4725,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4584,7 +4772,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4630,7 +4818,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4677,7 +4865,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4735,7 +4923,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4795,7 +4983,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4842,7 +5030,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4900,7 +5088,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -4983,7 +5171,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5044,7 +5232,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5176,7 +5364,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5223,7 +5411,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5269,7 +5457,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5383,7 +5571,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5444,7 +5632,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5559,7 +5747,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5606,7 +5794,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5652,7 +5840,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5723,7 +5911,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5781,7 +5969,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5865,7 +6053,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5912,7 +6100,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -5958,7 +6146,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6029,7 +6217,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6087,7 +6275,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6171,7 +6359,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6218,7 +6406,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6264,7 +6452,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6493,7 +6681,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6554,7 +6742,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6728,6 +6916,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      'servicios[].descripcion':
+        custom: []
+        name: 'servicios[].descripcion'
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       'servicios[].costo':
         custom: []
         name: 'servicios[].costo'
@@ -6761,6 +6960,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      'servicios[].iva_establecido':
+        custom: []
+        name: 'servicios[].iva_establecido'
+        description: 'Must be at least 0.'
+        required: false
+        example: 77
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       'servicios[].id_tasa_cambio':
         custom: []
         name: 'servicios[].id_tasa_cambio'
@@ -6786,9 +6996,11 @@ endpoints:
           id: 16
           id_tipo_servicio: 16
           id_proveedor: 16
+          descripcion: architecto
           costo: 4326.41688
           monto_gravable: 4326.41688
           monto_no_sujeto: 4326.41688
+          iva_establecido: 77
           id_tasa_cambio: 16
     fileParameters: []
     responses: []
@@ -6796,7 +7008,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6843,7 +7055,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6889,7 +7101,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -6982,7 +7194,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7043,7 +7255,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7137,7 +7349,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7184,7 +7396,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7230,7 +7442,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7301,7 +7513,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7359,7 +7571,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7443,7 +7655,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7490,7 +7702,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7536,7 +7748,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7583,7 +7795,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7641,7 +7853,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7701,7 +7913,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7748,7 +7960,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7794,7 +8006,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7852,7 +8064,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7910,7 +8122,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -7986,7 +8198,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8033,7 +8245,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8093,7 +8305,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8139,7 +8351,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8202,7 +8414,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8262,7 +8474,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8309,7 +8521,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8355,7 +8567,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8447,7 +8659,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8508,7 +8720,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8601,7 +8813,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8648,7 +8860,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8694,7 +8906,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8765,7 +8977,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8823,7 +9035,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8907,7 +9119,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -8954,7 +9166,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9000,7 +9212,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9071,7 +9283,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9129,7 +9341,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9213,7 +9425,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9260,7 +9472,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9306,7 +9518,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9475,7 +9687,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9536,7 +9748,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9706,7 +9918,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9758,7 +9970,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9804,7 +10016,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9875,7 +10087,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9936,7 +10148,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -9996,7 +10208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10043,7 +10255,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10077,7 +10289,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-06-19","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -10089,7 +10301,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10166,7 +10378,7 @@ endpoints:
         name: fecha_pago
         description: 'Must be a valid date.'
         required: true
-        example: '2026-05-22T15:45:21'
+        example: '2026-06-19T16:26:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -10231,7 +10443,7 @@ endpoints:
       id_proveedor: architecto
       monto_total: 39
       referencia: g
-      fecha_pago: '2026-05-22T15:45:21'
+      fecha_pago: '2026-06-19T16:26:38'
       id_metodo_pago: architecto
       comprobante: architecto
       cuentas:
@@ -10244,7 +10456,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10290,7 +10502,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-05-22","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"id_proveedor":1,"monto_total":1500,"id_tasa_cambio":null,"referencia":"PP-0001","fecha_pago":"2026-06-19","id_metodo_pago":1,"comprobante":null,"proveedor":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"},"tasa_cambio":null,"metodo_pago":{"id":1,"metodo_pago":"efectivo"},"cuentas_saldadas":[],"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -10302,7 +10514,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10392,7 +10604,7 @@ endpoints:
         name: fecha_pago
         description: 'Must be a valid date.'
         required: false
-        example: '2026-05-22T15:45:21'
+        example: '2026-06-19T16:26:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -10423,7 +10635,7 @@ endpoints:
     cleanBodyParameters:
       monto_total: 27
       referencia: 'n'
-      fecha_pago: '2026-05-22T15:45:21'
+      fecha_pago: '2026-06-19T16:26:38'
       comprobante: architecto
     fileParameters: []
     responses: []
@@ -10431,7 +10643,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10478,7 +10690,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10524,7 +10736,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10571,7 +10783,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10629,7 +10841,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10689,7 +10901,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10736,7 +10948,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -10770,7 +10982,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -10782,7 +10994,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11003,7 +11215,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11049,7 +11261,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"tipo_contribuyente":null,"tipo_proveedor_info":{"id":1,"tipo_proveedor":"servicios profesionales"},"tipos_servicio":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16}],"cuentas":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}],"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}}'
+        content: '{"data":{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"tipo_contribuyente":null,"tipo_proveedor_info":{"id":1,"tipo_proveedor":"servicios profesionales"},"tipos_servicio":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16}],"cuentas":[{"id":1,"id_proveedor":1,"numero_cuenta":"0102-0000-0000-0000-0000","nombre_banco":"Banco Demo","tipo_cuenta":"corriente","moneda":"VES","created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}],"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -11061,7 +11273,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11305,7 +11517,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11352,7 +11564,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11386,7 +11598,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]},{"id":4,"tipo_servicio":"Alimentaci\u00f3n","iva_defecto":16,"proveedores":[]},{"id":5,"tipo_servicio":"Consultor\u00eda","iva_defecto":16,"proveedores":[]}]}'
+        content: '{"data":[{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]},{"id":2,"tipo_servicio":"Traslado","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]},{"id":3,"tipo_servicio":"Vuelo","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]},{"id":4,"tipo_servicio":"Alimentaci\u00f3n","iva_defecto":16,"proveedores":[]},{"id":5,"tipo_servicio":"Consultor\u00eda","iva_defecto":16,"proveedores":[]}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -11398,7 +11610,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11473,7 +11685,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11519,7 +11731,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}}'
+        content: '{"data":{"id":1,"tipo_servicio":"Alojamiento","iva_defecto":16,"proveedores":[{"id":1,"nombre_empresa":"Servicios Delta","razon_comercial":"Delta Servicios","rif":"J-12345678-9","correo_empresa":"contacto@serviciosdelta.test","telefono_empresa":"02120000000","nombre_persona_contacto":"Maria Perez","id_tipo_contribuyente":null,"tipo_proveedor":1,"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -11531,7 +11743,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11619,7 +11831,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11668,7 +11880,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11714,7 +11926,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11785,7 +11997,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11843,7 +12055,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11927,7 +12139,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -11974,7 +12186,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12008,7 +12220,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"id_tasa":5,"valor_cambio":36.5,"fecha":"2026-05-22"}]}'
+        content: '{"data":[{"id":1,"id_tasa":5,"valor_cambio":36.5,"fecha":"2026-06-19"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -12020,7 +12232,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12091,7 +12303,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12137,7 +12349,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"id_tasa":5,"valor_cambio":36.5,"fecha":"2026-05-22","moneda":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs"}}}'
+        content: '{"data":{"id":1,"id_tasa":5,"valor_cambio":36.5,"fecha":"2026-06-19","moneda":{"id":5,"codigo":"VES_BCV","nombre":"Bol\u00edvar BCV","simbolo":"Bs"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -12149,7 +12361,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12233,7 +12445,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12280,7 +12492,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12326,7 +12538,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12469,7 +12681,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12530,7 +12742,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12682,7 +12894,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12731,7 +12943,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12777,7 +12989,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12836,7 +13048,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12894,7 +13106,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -12966,7 +13178,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13013,7 +13225,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13047,7 +13259,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"nombre":"Cierre de Atenciones Mensual","tipo_entidad":"atencion","estatus_objetivo":"aprobado","es_monetario":false,"valor_objetivo":50,"id_temporalidad":3,"temporalidad":{"id":3,"temporalidad":"Mensual","slug":"mensual","carbon_method":"startOfMonth"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"},{"id":2,"nombre":"Recaudaci\u00f3n por Ventas Semanal","tipo_entidad":"orden_compra","estatus_objetivo":"pagado","es_monetario":true,"valor_objetivo":2500,"id_temporalidad":2,"temporalidad":{"id":2,"temporalidad":"Semanal","slug":"semanal","carbon_method":"startOfWeek"},"created_at":"2026-05-22T15:45:20.000000Z","updated_at":"2026-05-22T15:45:20.000000Z"}]}'
+        content: '{"data":[{"id":1,"nombre":"Cierre de Atenciones Mensual","tipo_entidad":"atencion","estatus_objetivo":"aprobado","es_monetario":false,"valor_objetivo":50,"id_temporalidad":3,"temporalidad":{"id":3,"temporalidad":"Mensual","slug":"mensual","carbon_method":"startOfMonth"},"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"},{"id":2,"nombre":"Recaudaci\u00f3n por Ventas Semanal","tipo_entidad":"orden_compra","estatus_objetivo":"pagado","es_monetario":true,"valor_objetivo":2500,"id_temporalidad":2,"temporalidad":{"id":2,"temporalidad":"Semanal","slug":"semanal","carbon_method":"startOfWeek"},"created_at":"2026-06-19T16:26:38.000000Z","updated_at":"2026-06-19T16:26:38.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -13059,7 +13271,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13166,7 +13378,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13224,7 +13436,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13344,7 +13556,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13391,7 +13603,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13440,7 +13652,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13535,7 +13747,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13596,7 +13808,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13704,7 +13916,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13751,7 +13963,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -13843,7 +14055,7 @@ endpoints:
         name: tipo_entidad
         description: ''
         required: false
-        example: cotizacion
+        example: atencion
         type: string
         enumValues:
           - atencion
@@ -13876,7 +14088,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       id_personal: 16
-      tipo_entidad: cotizacion
+      tipo_entidad: atencion
       id_entidad: 22
       per_page: 7
     fileParameters: []
@@ -13896,7 +14108,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14026,7 +14238,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14156,7 +14368,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14239,7 +14451,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14346,7 +14558,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14429,7 +14641,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14514,7 +14726,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14597,7 +14809,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14692,7 +14904,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14738,7 +14950,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null
@@ -14786,7 +14998,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1|Sbqv9meIhYMMmvwgnb9u7cSXDR73ah4gzW7R4K5C6674f3cd'
+      - 'Bearer 1|gUPiPjVFZ4644JUomc1cEf9PF2pM0sw6QUSafDz33ba932f6'
     controller: null
     method: null
     route: null

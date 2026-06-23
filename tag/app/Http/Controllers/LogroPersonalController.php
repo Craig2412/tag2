@@ -28,7 +28,7 @@ class LogroPersonalController extends Controller
         ]);
 
         $query = LogroPersonal::query()
-            ->with(['personal', 'estatusAnterior', 'estatusNuevo'])
+            ->with(['personal'])
             ->orderByDesc('id');
 
         if (isset($data['id_personal'])) {

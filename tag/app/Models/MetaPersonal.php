@@ -70,8 +70,19 @@ class MetaPersonal extends Model
 
     /**
      * Devuelve un arreglo con el histórico de progreso de los últimos N periodos.
+     * Accessor compatible con Laravel — el primer argumento es el valor raw (null para computed).
      */
-    public function getProgresoHistoricoAttribute(int $periodos = 6): array
+    public function getProgresoHistoricoAttribute($value = null): array
+    {
+        return $this->calcularProgresoHistorico(6);
+    }
+
+    /**
+     * Calcula el progreso histórico para N periodos.
+     * @param int $periodos Número de periodos hacia atrás.
+     * @return array
+     */
+    public function calcularProgresoHistorico(int $periodos = 6): array
     {
         $meta = $this->meta()->withTrashed()->first();
         if (! $meta) {

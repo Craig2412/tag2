@@ -21,7 +21,6 @@ class MetaPersonalController extends Controller
         return MetaPersonalResource::collection(MetaPersonal::with([
             'meta' => fn ($q) => $q->withTrashed(),
             'personal' => fn ($q) => $q->withTrashed(),
-            'temporalidad' => fn ($q) => $q->withTrashed(),
         ])->orderBy('id')->get());
     }
 
@@ -40,6 +39,7 @@ class MetaPersonalController extends Controller
     {
         // Asigna una meta a un personal validando su rol.
         $data = $request->validate([
+            'id_meta' => ['required', 'integer', Rule::exists('metas', 'id')->whereNull('deleted_at')],
             'id_personal' => ['required', Rule::exists('personal', 'id')->whereNull('deleted_at')],
             'monto' => ['required', 'numeric', 'min:0.01'],
             'id_temporalidad' => ['required', Rule::exists('temporalidades', 'id')->whereNull('deleted_at')],
@@ -49,7 +49,7 @@ class MetaPersonalController extends Controller
 
         $personal = Personal::find($data['id_personal']);
 
-        if (! $personal || ! $personal->usuario->can('view:metas_personal')) {
+        if (! $personal || ! $personal->usuario->hasRole('personal')) {
             return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
         }
 
@@ -58,7 +58,6 @@ class MetaPersonalController extends Controller
         return new MetaPersonalResource($item->load([
             'meta' => fn ($q) => $q->withTrashed(),
             'personal' => fn ($q) => $q->withTrashed(),
-            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -73,7 +72,6 @@ class MetaPersonalController extends Controller
         return new MetaPersonalResource($metaPersonal->load([
             'meta' => fn ($q) => $q->withTrashed(),
             'personal' => fn ($q) => $q->withTrashed(),
-            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
@@ -92,6 +90,7 @@ class MetaPersonalController extends Controller
     {
         // Actualiza una meta personal y valida el rol si el usuario cambia.
         $data = $request->validate([
+            'id_meta' => ['sometimes', 'required', 'integer', \Illuminate\Validation\Rule::exists('metas', 'id')->whereNull('deleted_at')],
             'id_personal' => ['sometimes', 'required', \Illuminate\Validation\Rule::exists('personal', 'id')->whereNull('deleted_at')],
             'monto' => ['sometimes', 'required', 'numeric', 'min:0.01'],
             'id_temporalidad' => ['sometimes', 'required', \Illuminate\Validation\Rule::exists('temporalidades', 'id')->whereNull('deleted_at')],
@@ -101,7 +100,7 @@ class MetaPersonalController extends Controller
 
         if (isset($data['id_personal'])) {
             $personal = Personal::find($data['id_personal']);
-            if (! $personal || ! $personal->usuario->can('view:metas_personal')) {
+            if (! $personal || ! $personal->usuario->hasRole('personal')) {
                 return response()->json(['message' => 'id_personal debe pertenecer a un usuario con rol personal'], 422);
             }
         }
@@ -111,7 +110,6 @@ class MetaPersonalController extends Controller
         return new MetaPersonalResource($metaPersonal->load([
             'meta' => fn ($q) => $q->withTrashed(),
             'personal' => fn ($q) => $q->withTrashed(),
-            'temporalidad' => fn ($q) => $q->withTrashed(),
         ]));
     }
 
