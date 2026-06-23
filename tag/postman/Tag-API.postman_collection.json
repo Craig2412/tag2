@@ -4294,251 +4294,143 @@
       ]
     },
     {
-      "name": "KIU SOAP Legacy",
+      "name": "KIU WS3 (Sandbox)",
       "item": [
         {
-          "name": "KIU - Session",
+          "name": "1. Session",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"session_label\": \"TAG-SESSION\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"session_label\": \"TAG-TEST\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/session",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "session"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "session"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Abre sesión WS3 con KIU. Envía KIU_SessionRQ.\n\n**Contexto opcional:**\n- `session_label`: etiqueta para identificar la sesión"
           },
           "response": []
         },
         {
-          "name": "KIU - Availability",
+          "name": "2. Availability (PTY→MIA)",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"origin\": \"CCS\",\n    \"destination\": \"MIA\",\n    \"departure_date\": \"2026-05-20\",\n    \"adults\": 1\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"origin\": \"PTY\",\n    \"destination\": \"MIA\",\n    \"departure_date\": \"2026-06-15\",\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/availability",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "availability"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "availability"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Consulta disponibilidad de vuelos (KIU_AirAvailRQ).\n\n**Contexto requerido:**\n- `origin`: código IATA origen (3 letras)\n- `destination`: código IATA destino (3 letras)\n- `departure_date`: fecha de salida (YYYY-MM-DD)\n\n**Contexto opcional:**\n- `adults`, `children`, `infants`: cantidad de pasajeros\n- `airline`: código de aerolínea para filtrar\n- `direct_flights_only`: solo vuelos directos (bool)\n- `max_responses`: máximo de resultados (default 10)"
           },
           "response": []
         },
         {
-          "name": "KIU - Pricing",
+          "name": "3. Pricing",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"currency\": \"USD\",\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0,\n    \"segment\": {\n      \"origin\": \"CCS\",\n      \"destination\": \"MIA\",\n      \"departure_datetime\": \"2026-05-20T08:00:00\",\n      \"arrival_datetime\": \"2026-05-20T12:30:00\",\n      \"flight_number\": \"1234\",\n      \"booking_class\": \"Y\",\n      \"marketing_airline\": \"AA\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"currency\": \"USD\",\n    \"adults\": 1,\n    \"children\": 0,\n    \"infants\": 0,\n    \"tour_code\": \"JUANTEST\",\n    \"segment\": {\n      \"origin\": \"PTY\",\n      \"destination\": \"MIA\",\n      \"departure_datetime\": \"2026-06-15T10:00:00\",\n      \"arrival_datetime\": \"2026-06-15T14:00:00\",\n      \"flight_number\": \"123\",\n      \"booking_class\": \"Y\",\n      \"marketing_airline\": \"CM\"\n    }\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/pricing",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "pricing"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "pricing"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Calcula precio de un vuelo (KIU_AirPriceRQ).\n\n**Contexto requerido (segment):**\n- `origin`, `destination`: códigos IATA\n- `departure_datetime`, `arrival_datetime`: fechas ISO\n- `flight_number`: número de vuelo\n- `booking_class`: clase de reserva (Y, J, etc.)\n- `marketing_airline`: código aerolínea\n\n**Contexto opcional:**\n- `adults`, `children`, `infants`: pasajeros\n- `currency`: moneda (default USD)\n- `tour_code`: código de tour"
           },
           "response": []
         },
         {
-          "name": "KIU - Booking",
+          "name": "4. Booking (crear reserva)",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"contact_email\": \"test@example.com\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"tour_code\": \"JUANTEST\",\n    \"contact_email\": \"juan@perez.com\",\n    \"contact_phone\": \"123456789\",\n    \"ticket_time_limit\": \"3\",\n    \"special_request\": \"TEST TOURCODE\",\n    \"segment\": {\n      \"origin\": \"AEP\",\n      \"destination\": \"COR\",\n      \"departureDateTime\": \"2026-06-20 06:00:00\",\n      \"arrivalDateTime\": \"2026-06-20 07:00:00\",\n      \"flightNumber\": \"4601\",\n      \"res_book_desig_code\": \"Y\",\n      \"marketingAirline\": \"XX\"\n    },\n    \"passengers\": [\n      {\n        \"type\": \"ADT\",\n        \"first_name\": \"JUAN\",\n        \"middle_name\": \"CARLOS\",\n        \"last_name\": \"PEREZ\",\n        \"birth_date\": \"1980-12-07\",\n        \"phone_area_code\": \"011\",\n        \"phone_number\": \"123456789\",\n        \"email\": \"juan@perez.com\",\n        \"document_id\": \"123456789\",\n        \"document_type\": \"NI\",\n        \"loyalty_program_id\": \"XX\",\n        \"loyalty_membership_id\": \"12346789\",\n        \"traveler_ref_number\": \"01\"\n      }\n    ]\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/booking",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "booking"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "booking"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Crea una reserva/PnR en KIU (KIU_AirBookRQ).\n\n**Contexto requerido:**\n- `segment`: datos del vuelo\n- `passengers[]`: lista de pasajeros con `first_name`, `last_name`, `type` (ADT/CNN/INF)\n\n**Contexto opcional:**\n- `tour_code`: código de tour\n- `ticket_time_limit`: días hasta el límite de emisión\n- `special_request`: remark de la reserva\n- `contact_email`, `contact_phone`: datos de contacto\n- `document_id`, `document_type`, `email`, `phone_area_code`, `phone_number`, `traveler_ref_number`"
           },
           "response": []
         },
         {
-          "name": "KIU - Ticketing",
+          "name": "5. Ticketing (emitir boleto)",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"reservation_code\": \"ABCD12\",\n    \"payment_reference\": \"REF-001\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"reservation_code\": \"ABCD12\",\n    \"payment_reference\": \"VOUCHER-001\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/ticketing",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "ticketing"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "ticketing"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Emite boleto electrónico para una reserva confirmada.\n\n**Contexto:**\n- `reservation_code`: PNR a ticketear\n- `payment_reference`: voucher o referencia de pago\n- `validate_only`: true para validar sin emitir"
           },
           "response": []
         },
         {
-          "name": "KIU - Post Sale",
+          "name": "6. Post-Sale (anulación/reembolso)",
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"payload\": \"{{kiuXmlPayload}}\",\n  \"context\": {\n    \"action\": \"void\",\n    \"reservation_code\": \"ABCD12\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+              "raw": "{\n  \"context\": {\n    \"action\": \"void\",\n    \"reservation_code\": \"ABCD12\",\n    \"ticket_number\": \"1234567890\",\n    \"reason\": \"Cliente canceló\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
             },
             "url": {
               "raw": "{{baseUrl}}/kiu/post-sale",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "kiu",
-                "post-sale"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["kiu", "post-sale"]
             },
-            "description": "Integracion KIU en modo SOAP legacy."
+            "description": "Operaciones post-venta sobre reservas o boletos emitidos.\n\n**Contexto:**\n- `action`: void (anular), refund (reembolso), cancel, change, reissue\n- `reservation_code`: PNR de la reserva\n- `ticket_number`: número de boleto (opcional)\n- `reason`: motivo de la operación"
           },
           "response": []
         }
