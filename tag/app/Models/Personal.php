@@ -18,6 +18,8 @@ class Personal extends Model
         'cedula',
         'telefono',
         'correo_institucional',
+        'departamento',
+        'cargo',
         'porcentaje_comision',
     ];
 

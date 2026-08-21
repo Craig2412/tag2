@@ -1,5 +1,29 @@
 # CHANGELOG — TAG2
 
+## [1.1.0] — 2026-08-21
+
+### 👥 Usuarios y departamentos
+- Migración `2026_08_20_000001_add_departamento_to_personal_table` — columnas `departamento` y `cargo` en `personal`
+- Seeder `UsuariosDepartamentosSeeder` — 19 usuarios en 4 departamentos (correo `nombre@tag.com`, clave `123456789`), mapeo de privilegios a roles (`admin`/`personal`), ignorando `EMISOR RETENCIONES`
+
+### 🧾 Facturación fiscal (IVA + retenciones)
+- Tabla `conceptos_fiscales` — impuestos/retenciones configurables (a quién, sobre qué base, % editable, exclusión por palabra clave)
+- Seeder `ConceptosFiscalesSeeder` — 10 conceptos (6 cliente + 4 empresa)
+- `FacturaService` — cálculo por servicio (base, exento, IVA, retenciones) + totales
+- Endpoints: `GET /api/ordenes-compra/{id}/factura` y `GET /api/ordenes-compra/{id}/retenciones`
+- Excepción ISLR: no aplica si el servicio (por `tipoServicio.tipo_servicio`) contiene "boleto"
+- `TipoServicioSeeder`: "Vuelo" → "Boleto"
+
+### 🏨 Proveedores (aliados)
+- Migración `2026_08_21_000001_update_proveedores_table` — `ciudad`, `cargo_contacto`, `caracteristica`, `comision_tag`; quita `unique` de `correo_empresa`
+- Migración `2026_08_21_000002_make_comision_tag_numeric` — `comision_tag` → `decimal(8,4)`
+- Seeder `ProveedoresAliadosSeeder` — 307 aliados (embebidos), mapeo de `Producto` a 6 `TipoProveedor` + pivote `TipoServicio`, comisión numérica (neta/convenio/vacío → 0.0), RIF placeholder único, correo placeholder para faltantes
+
+### 📚 Documentación
+- `docs/SESION_2026-08-21_FACTURACION_PROVEEDORES.md` — documentación completa de la sesión
+
+---
+
 ## [1.0.0] — 2026-05-20
 
 ### 🏗️ Arquitectura

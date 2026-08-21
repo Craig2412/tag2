@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             EntidadBancariaSeeder::class,
             RoleSeeder::class, // Crea los usuarios base (name, email, pass)
             PersonalSeeder::class, // Cruza usuarios -> Personal
+            UsuariosDepartamentosSeeder::class, // Usuarios de los 4 departamentos + Personal
             ClientesSeeder::class, // Cruza usuarios -> Clientes
             TemporalidadesSeeder::class,
             MetasSeeder::class,
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             PersonalEmpresasSeeder::class,
             TiposProveedoresSeeder::class,
             ProveedoresSeeder::class,
+            ProveedoresAliadosSeeder::class, // 307 aliados del Maestro de Alianzas tAG
             CuentasProveedoresSeeder::class,
             TipoServicioSeeder::class,
             ProveedorTipoServicioSeeder::class,
@@ -47,6 +49,7 @@ class DatabaseSeeder extends Seeder
             PagosSeeder::class,
             PagosProveedoresSeeder::class,
             LogrosPersonalSeeder::class,
+            ConceptosFiscalesSeeder::class, // Conceptos de impuestos/retenciones configurables
         ]);
 
         // Invalidar caché de catálogos para que se refresquen con los nuevos datos

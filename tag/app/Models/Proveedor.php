@@ -18,12 +18,20 @@ class Proveedor extends Model
     protected $fillable = [
         'nombre_empresa',
         'razon_comercial',
+        'ciudad',
         'rif',
         'correo_empresa',
         'telefono_empresa',
         'nombre_persona_contacto',
+        'cargo_contacto',
+        'caracteristica',
+        'comision_tag',
         'id_tipo_contribuyente',
         'tipo_proveedor',
+    ];
+
+    protected $casts = [
+        'comision_tag' => 'float',
     ];
 
     // Devuelve el tipo de proveedor asociado.

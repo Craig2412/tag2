@@ -82,6 +82,45 @@ Puedes ver todos los endpoints disponibles y probarlos directamente en:
 ---
 
 
+## 🧾 Facturación Fiscal (IVA + Retenciones)
+
+La API incluye un módulo de facturación con cálculo de IVA y retenciones **configurables desde la base de datos** (tabla `conceptos_fiscales`).
+
+### Endpoints
+```
+GET /api/ordenes-compra/{ordenCompra}/factura      → desglose de factura del cliente por servicio
+GET /api/ordenes-compra/{ordenCompra}/retenciones  → retenciones de la empresa + total neto
+```
+
+### Conceptos por defecto
+- **Cliente**: ISLR 2% (excepto "boleto"), Ret. IVA 75%, 1×1000 0.1%, Aporte Social 3%, FUVIDIT 0.5%, Alcaldía 1.25%.
+- **Empresa**: Alcaldía 2.2%, ISLR 1%, INATUR 1%, Ret. IVA 25%.
+
+Cada concepto define: a quién aplica (`cliente`/`empresa`), sobre qué base se calcula (`base_gravable`/`valor_iva`), el porcentaje y una exclusión por palabra clave. **No es necesario tocar código** para agregar o modificar impuestos.
+
+> 📖 Documentación completa: `docs/SESION_2026-08-21_FACTURACION_PROVEEDORES.md`
+
+---
+
+## 👥 Usuarios y Departamentos
+
+Se crean **19 usuarios** en 4 departamentos (Gerencia General, Comercial Mercadeo, Administración, Operaciones) vía `UsuariosDepartamentosSeeder`:
+
+- Correo: `nombre@tag.com`
+- Clave por defecto: `123456789`
+- Privilegios mapeados a roles Spatie (`admin`/`personal`)
+
+## 🏨 Proveedores (Aliados)
+
+Se cargan **307 alianzas** desde `Maestro Alianzas tAG.xlsx` vía `ProveedoresAliadosSeeder`:
+
+- Campos: nombre, ciudad, contacto, cargo, característica, teléfono, correo, comisión (numérica).
+- `TipoProveedor` normalizado a 6 categorías (Alojamiento, Transporte, Aereo, Restaurante, Servicios, Otros).
+- Vinculación automática a `TipoServicio` vía pivote.
+- Comisión numérica `decimal(8,4)` — los valores "neta"/"convenio"/vacío se convierten a `0.0`.
+
+---
+
 ## Integracion KIU Sandbox
 
 Se agrego una capa de integracion para consumir el sandbox de KIU desde esta API Laravel. La configuracion vive en `config/services.php` bajo `services.kiu` y las credenciales/paths del sandbox se definen en `.env` con variables `KIU_*`.

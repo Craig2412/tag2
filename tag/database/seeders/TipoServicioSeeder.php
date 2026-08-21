@@ -12,7 +12,7 @@ class TipoServicioSeeder extends Seeder
         $tipos = [
             'Alojamiento',
             'Traslado',
-            'Vuelo',
+            'Boleto',
             'Alimentación',
             'Consultoría',
         ];

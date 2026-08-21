@@ -122,6 +122,12 @@ Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
     Route::get('metodos-pago/{metodoPago}/entidades-bancarias', [MetodoPagoController::class, 'entidadesBancarias']);
     Route::apiResource('ordenes-compra', OrdenCompraController::class)
         ->parameters(['ordenes-compra' => 'ordenCompra']);
+
+    // Facturación fiscal y retenciones asociadas a Órdenes de Compra
+    Route::get('ordenes-compra/{ordenCompra}/factura', [\App\Http\Controllers\FacturaController::class, 'factura'])
+        ->name('ordenes-compra.factura');
+    Route::get('ordenes-compra/{ordenCompra}/retenciones', [\App\Http\Controllers\FacturaController::class, 'retenciones'])
+        ->name('ordenes-compra.retenciones');
     Route::apiResource('orden-compra-historial', OrdenCompraHistorialController::class)
         ->parameters(['orden-compra-historial' => 'ordenCompraHistorial']);
     Route::apiResource('estados-ordenes-compra', EstadoOrdenCompraController::class)
