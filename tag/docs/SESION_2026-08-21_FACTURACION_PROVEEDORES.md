@@ -131,11 +131,14 @@ Esto permite **agregar/editar/eliminar impuestos sin tocar código**: basta un r
 ### Endpoints creados
 
 ```
-GET /api/ordenes-compra/{ordenCompra}/factura      → factura fiscal (cliente)
-GET /api/ordenes-compra/{ordenCompra}/retenciones  → retenciones empresa
+GET  /api/ordenes-compra/{ordenCompra}/factura           → previsualiza factura fiscal (cliente)
+GET  /api/ordenes-compra/{ordenCompra}/retenciones       → previsualiza retenciones empresa
+POST /api/ordenes-compra/{ordenCompra}/factura/emitir    → emite (persiste) la factura
+GET  /api/facturas                                       → listado de todas las facturas emitidas
+GET  /api/facturas/{ordenCompra}                         → factura(s) de una orden de compra
 ```
 
-Ambos bajo `auth:sanctum`, con binding de modelo `{ordenCompra}`.
+Todos bajo `auth:sanctum`. El parámetro `{ordenCompra}` en `/api/facturas/{ordenCompra}` resuelve por binding implícito al modelo `OrdenCompra`.
 
 ### Cómo funciona `FacturaService`
 
@@ -143,6 +146,29 @@ Ambos bajo `auth:sanctum`, con binding de modelo `{ordenCompra}`.
 - **`calcularRetencionesEmpresa($orden)`**: aplica los conceptos de `empresa` por servicio y devuelve desglose + `total_neto_empresa`.
 - **`calcularMontoConcepto()`**: aplica la exclusión por palabra clave y elige la base (`base_gravable` o `valor_iva`) según la configuración del concepto.
 - Redondeo a 2 decimales en todos los montos.
+
+### Persistencia de facturas (emitir)
+
+A partir de la versión se agregó la **persistencia** de facturas. Antes el cálculo era "al vuelo" (no se guardaba nada). Ahora:
+- La factura se emite **automáticamente** al crearse la Orden de Compra (en `GenerarOrdenDesdeCotizacionListener`).
+- También se puede emitir manualmente con `POST /factura/emitir`.
+
+#### Tablas creadas (`2026_08_21_000003_create_facturas_table`)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `facturas` | Cabecera: número, OC, cliente, emisor (RIF/razón social), timbrado, totales congelados, correlativo por año |
+| `factura_detalles` | Desglose por servicio (base, exento, IVA, total), montos congelados |
+| `factura_retenciones` | Cada retención aplicada (cliente y empresa), con su % congelado |
+
+#### Numeración secuencial
+`numero_factura` = `A-{correlativo 8 dígitos}`, reinicia por año (`anio` + `correlativo`).
+
+#### Campos fiscales del emisor
+`emisor_rif` y `emisor_razon_social` se toman de la primera `Empresa` registrada (`tabla empresas`), junto con `timbrado` (por defecto null, editable luego).
+
+#### Idempotencia
+`emitir()` es idempotente: si ya existe una factura para la OC, devuelve la existente (no duplica). Usa una transacción de BD.
 
 ---
 

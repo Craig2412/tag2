@@ -14,6 +14,15 @@
 - Excepción ISLR: no aplica si el servicio (por `tipoServicio.tipo_servicio`) contiene "boleto"
 - `TipoServicioSeeder`: "Vuelo" → "Boleto"
 
+### 🧾 Persistencia de facturas (emitir)
+- Tablas `facturas`, `factura_detalles`, `factura_retenciones` (migración `2026_08_21_000003`)
+- Modelos `Factura`, `FacturaDetalle`, `FacturaRetencion`
+- `FacturaService::emitir()` — persiste la factura (cabecera + detalles + retenciones congeladas), idempotente y transaccional
+- Emisión automática en `GenerarOrdenDesdeCotizacionListener` al crear la OC
+- Numeración secuencial `A-00000001` (serie + correlativo por año)
+- Endpoints: `POST /api/ordenes-compra/{id}/factura/emitir`, `GET /api/facturas`, `GET /api/facturas/{ordenCompra}`
+- Datos fiscales del emisor (RIF/razón social) desde tabla `empresas`
+
 ### 🏨 Proveedores (aliados)
 - Migración `2026_08_21_000001_update_proveedores_table` — `ciudad`, `cargo_contacto`, `caracteristica`, `comision_tag`; quita `unique` de `correo_empresa`
 - Migración `2026_08_21_000002_make_comision_tag_numeric` — `comision_tag` → `decimal(8,4)`

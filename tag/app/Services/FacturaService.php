@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\ConceptoFiscal;
 use App\Models\OrdenCompra;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Calcula el desglose fiscal (factura) de una Orden de Compra.
@@ -204,5 +205,152 @@ class FacturaService
     private function round(float $value): float
     {
         return round($value, 2);
+    }
+
+    /**
+     * Emite (persiste) la factura fiscal de una Orden de Compra.
+     *
+     * Congela cabecera, detalles por servicio y retenciones.
+     * Devuelve el modelo Factura persistido.
+     */
+    public function emitir(OrdenCompra $orden, ?int $usuarioEmiteId = null): \App\Models\Factura
+    {
+        return \Illuminate\Support\Facades\DB::transaction(function () use ($orden, $usuarioEmiteId) {
+            // 1. Si ya existe factura para esta OC, devolverla (idempotente)
+            $existente = \App\Models\Factura::where('id_orden_compra', $orden->id)->first();
+            if ($existente) {
+                return $existente;
+            }
+
+            // 2. Calcular desglose completo
+            $facturaData = $this->generarFactura($orden);
+            $empresaData = $this->calcularRetencionesEmpresa($orden);
+
+            $resumen = $facturaData['resumen'];
+            $resumenEmpresa = $empresaData['resumen'];
+
+            // 3. Determinar cliente desde la atención de la cotización
+            $cliente = $orden->cotizacion?->atencion?->cliente;
+
+            // 4. Datos del emisor (primera empresa registrada, si existe)
+            $emisor = \App\Models\Empresa::query()->first();
+
+            // 5. Numeración secuencial: serie A + correlativo por año
+            [$numero, $anio, $correlativo] = $this->siguienteNumeroFactura();
+
+            // 6. Crear la factura (cabecera)
+            $factura = \App\Models\Factura::create([
+                'numero_factura' => $numero,
+                'id_orden_compra' => $orden->id,
+                'id_cliente' => $cliente?->id,
+                'emisor_rif' => $emisor?->rif,
+                'emisor_razon_social' => $emisor?->razon_social,
+                'timbrado' => null,
+                'total_gravable' => $resumen['total_base_gravable'],
+                'total_exento' => $resumen['total_exento'],
+                'total_iva' => $resumen['total_iva'],
+                'total_facturado' => $resumen['total_facturado'],
+                'total_retenciones_cliente' => $resumen['total_retenciones_cliente'],
+                'total_retenciones_empresa' => $resumenEmpresa['total_retenciones_empresa'],
+                'total_a_pagar' => $resumen['total_a_pagar_cliente'],
+                'total_neto_empresa' => $resumenEmpresa['total_neto_empresa'],
+                'anio' => $anio,
+                'correlativo' => $correlativo,
+                'usuario_emite_id' => $usuarioEmiteId,
+                'fecha_emision' => now(),
+            ]);
+
+            // 7. Crear detalles por servicio
+            foreach ($facturaData['detalle_servicios'] as $detalle) {
+                $detalleModel = $factura->detalles()->create([
+                    'id_servicio' => $detalle['servicio_id'],
+                    'descripcion_servicio' => $detalle['servicio'],
+                    'base_gravable' => $detalle['base'],
+                    'monto_no_sujeto' => $detalle['exento'],
+                    'iva_porcentaje' => $detalle['iva_porcentaje'],
+                    'iva_valor' => $detalle['iva_valor'],
+                    'total_servicio' => $detalle['total_facturado'],
+                    'total_retenciones_servicio' => $detalle['subtotal_retenciones'],
+                    'total_a_pagar_servicio' => $detalle['total_a_pagar'],
+                ]);
+
+                // 8. Retenciones del CLIENTE por servicio (congeladas)
+                foreach ($detalle['retenciones'] as $ret) {
+                    $factura->retenciones()->create([
+                        'id_factura_detalle' => $detalleModel->id,
+                        'codigo_concepto' => $ret['codigo'],
+                        'nombre_concepto' => $ret['concepto'],
+                        'aplica_a' => 'cliente',
+                        'base_calculo' => $ret['base_calculo'],
+                        'porcentaje' => $ret['porcentaje'],
+                        'monto' => $ret['monto'],
+                    ]);
+                }
+            }
+
+            // 9. Retenciones de la EMPRESA por servicio (congeladas)
+            foreach ($empresaData['detalle_servicios'] as $detalleEmp) {
+                $idServicio = $detalleEmp['servicio_id'];
+                // Ubicar el detalle de factura correspondiente a este servicio
+                $detalleFactura = $factura->detalles()
+                    ->where('id_servicio', $idServicio)
+                    ->first();
+
+                foreach ($detalleEmp['retenciones'] as $nombreConcepto => $monto) {
+                    $factura->retenciones()->create([
+                        'id_factura_detalle' => $detalleFactura?->id,
+                        'codigo_concepto' => $this->codigoEmpresaDesdeNombre($nombreConcepto),
+                        'nombre_concepto' => $nombreConcepto,
+                        'aplica_a' => 'empresa',
+                        'base_calculo' => 'base_gravable',
+                        'porcentaje' => $this->porcentajeEmpresaDesdeNombre($nombreConcepto),
+                        'monto' => $monto,
+                    ]);
+                }
+            }
+
+            return $factura;
+        });
+    }
+
+    /**
+     * Devuelve el siguiente número de factura (serie "A" + correlativo de 8 dígitos por año).
+     */
+    private function siguienteNumeroFactura(): array
+    {
+        $anio = now()->format('Y');
+        $ultima = \App\Models\Factura::where('anio', $anio)
+            ->orderByDesc('correlativo')
+            ->first();
+
+        $correlativo = $ultima ? ($ultima->correlativo + 1) : 1;
+
+        $numero = 'A-' . str_pad((string) $correlativo, 8, '0', STR_PAD_LEFT);
+
+        return [$numero, $anio, $correlativo];
+    }
+
+    private function codigoEmpresaDesdeNombre(string $nombre): string
+    {
+        $mapa = [
+            'Alcaldía' => 'alcaldia_empresa',
+            'ISLR' => 'islr_empresa',
+            'INATUR' => 'inatur_empresa',
+            'IVA' => 'retencion_iva_empresa',
+        ];
+
+        return $mapa[$nombre] ?? strtolower($nombre);
+    }
+
+    private function porcentajeEmpresaDesdeNombre(string $nombre): float
+    {
+        $mapa = [
+            'Alcaldía' => 2.2,
+            'ISLR' => 1.0,
+            'INATUR' => 1.0,
+            'IVA' => 25.0,
+        ];
+
+        return $mapa[$nombre] ?? 0.0;
     }
 }

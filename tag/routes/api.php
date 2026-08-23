@@ -128,6 +128,14 @@ Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
         ->name('ordenes-compra.factura');
     Route::get('ordenes-compra/{ordenCompra}/retenciones', [\App\Http\Controllers\FacturaController::class, 'retenciones'])
         ->name('ordenes-compra.retenciones');
+    Route::post('ordenes-compra/{ordenCompra}/factura/emitir', [\App\Http\Controllers\FacturaController::class, 'emitir'])
+        ->name('ordenes-compra.factura.emitir');
+
+    // Consulta de facturas emitidas
+    Route::get('facturas', [\App\Http\Controllers\FacturaController::class, 'index'])->name('facturas.index');
+    // Consulta de factura(s) por orden de compra: /api/facturas/{ordenCompra}
+    Route::get('facturas/{ordenCompra}', [\App\Http\Controllers\FacturaController::class, 'show'])
+        ->name('facturas.por-orden-compra');
     Route::apiResource('orden-compra-historial', OrdenCompraHistorialController::class)
         ->parameters(['orden-compra-historial' => 'ordenCompraHistorial']);
     Route::apiResource('estados-ordenes-compra', EstadoOrdenCompraController::class)

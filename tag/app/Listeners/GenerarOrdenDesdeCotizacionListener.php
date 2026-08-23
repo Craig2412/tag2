@@ -71,6 +71,14 @@ class GenerarOrdenDesdeCotizacionListener
 
         Log::info("Orden de Compra #{$orden->id} generada automáticamente desde Cotización #{$cotizacion->id} por monto de {$montoTotal}");
 
+        // Emitir factura fiscal automáticamente al crear la orden de compra
+        try {
+            $factura = app(\App\Services\FacturaService::class)->emitir($orden->fresh());
+            Log::info("Factura #{$factura->numero_factura} emitida automáticamente para OC #{$orden->id}");
+        } catch (\Throwable $e) {
+            Log::error("Error emitiendo factura para OC #{$orden->id}: {$e->getMessage()}");
+        }
+
         event(new OrdenCompraAprobada($orden));
     }
 
