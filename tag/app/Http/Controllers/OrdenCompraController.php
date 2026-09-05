@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\OrdenCompraResource;
 use App\Models\OrdenCompra;
 use App\Models\OrdenCompraHistorial;
+use App\Services\OrdenStateService;
 use Illuminate\Http\Request;
 
 class OrdenCompraController extends Controller
@@ -87,6 +88,29 @@ class OrdenCompraController extends Controller
                 'comentario' => 'Cambio de estado desde API',
             ]);
         }
+
+        return new OrdenCompraResource($ordenCompra->fresh()->load([
+            'cotizacion.tasaCambio',
+            'cotizacion.atencion',
+            'estadoFinanciero',
+            'estadoFinancieroEgreso',
+            'estadoOrdenCompra',
+        ]));
+    }
+
+    /**
+     * Marca a los proveedores de una orden de compra como facturados (por lote)
+     *
+     * No registra facturas: solo cambia el marcador `facturado_proveedor` y
+     * deja que el OrdenStateService recalcule el estado de egreso.
+     */
+    public function facturarProveedores(OrdenCompra $ordenCompra)
+    {
+        $this->authorize('facturarProveedores', $ordenCompra);
+
+        $ordenCompra->update(['facturado_proveedor' => true]);
+
+        OrdenStateService::sincronizarEgreso($ordenCompra->fresh());
 
         return new OrdenCompraResource($ordenCompra->fresh()->load([
             'cotizacion.tasaCambio',

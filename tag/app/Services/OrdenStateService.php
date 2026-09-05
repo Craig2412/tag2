@@ -48,7 +48,9 @@ class OrdenStateService
             $cambio = CambioEstado::conCambio($anterior, $estado->id);
         }
 
-        self::sincronizarOperativo($orden->fresh());
+        // Reevaluar el egreso: si el cliente pagó el 100%, el egreso pasa
+        // a "Pendiente por Facturar" (sincronizarEgreso también recalcula el operativo).
+        self::sincronizarEgreso($orden->fresh());
 
         return $cambio;
     }
@@ -62,6 +64,9 @@ class OrdenStateService
 
         if ($cuentas->isEmpty()) {
             $slugEstado = 'pendiente';
+        } elseif (self::ingresoPagado($orden) && ! $orden->facturado_proveedor) {
+            // Cliente pagó el 100% y aún no se factura a proveedores.
+            $slugEstado = 'pendiente_facturacion';
         } else {
             $montoTotalDeuda = $cuentas->sum('monto_total');
             $saldoPendienteTotal = $cuentas->sum('saldo_pendiente');
@@ -147,5 +152,18 @@ class OrdenStateService
         Log::info("OrdenStateService: OC #{$orden->id} → {$slug}");
 
         return CambioEstado::conCambio($anterior, $estadoObjetivo->id, $msg);
+    }
+
+    /**
+     * Indica si el cliente ya pagó el 100% de la Orden de Compra.
+     */
+    private static function ingresoPagado(OrdenCompra $orden): bool
+    {
+        $totalFacturado = (float) $orden->monto_total;
+        if ($totalFacturado <= 0) {
+            return false;
+        }
+
+        return (float) $orden->pagos()->sum('monto_asignado') >= $totalFacturado;
     }
 }

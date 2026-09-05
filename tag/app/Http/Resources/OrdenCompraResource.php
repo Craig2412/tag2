@@ -15,6 +15,7 @@ class OrdenCompraResource extends JsonResource
             'id_estado_orden_compra' => $this->id_estado_orden_compra,
             'id_estado_financiero' => $this->id_estado_financiero,
             'id_estado_financiero_egreso' => $this->id_estado_financiero_egreso,
+            'facturado_proveedor' => (bool) $this->facturado_proveedor,
             // Campos calculados del modelo: financiero en tiempo real
             'monto_total' => (float) $this->monto_total,
             'total_pagado' => (float) $this->total_pagado,

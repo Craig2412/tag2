@@ -123,6 +123,10 @@ Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
     Route::apiResource('ordenes-compra', OrdenCompraController::class)
         ->parameters(['ordenes-compra' => 'ordenCompra']);
 
+    // Facturación por lote de proveedores (marcador, sin registrar facturas)
+    Route::post('ordenes-compra/{ordenCompra}/facturar-proveedores', [OrdenCompraController::class, 'facturarProveedores'])
+        ->name('ordenes-compra.facturar-proveedores');
+
     // Facturación fiscal y retenciones asociadas a Órdenes de Compra
     Route::get('ordenes-compra/{ordenCompra}/factura', [\App\Http\Controllers\FacturaController::class, 'factura'])
         ->name('ordenes-compra.factura');

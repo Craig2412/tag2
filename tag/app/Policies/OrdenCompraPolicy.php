@@ -51,6 +51,18 @@ class OrdenCompraPolicy
         return $usuario->can('edit:ordenes_compra:todas');
     }
 
+    public function facturarProveedores(Usuario $usuario, OrdenCompra $orden): bool
+    {
+        // Escalación: permiso :todas permite facturar cualquier OC
+        if ($usuario->can('edit:ordenes_compra:todas')) {
+            return true;
+        }
+
+        // Base: solo OCs de sus propias atenciones
+        return $usuario->can('edit:ordenes_compra')
+            && $this->esPersonalAsignado($usuario, $orden);
+    }
+
     /**
      * Verifica que el usuario autenticado sea el personal asignado a la atención
      * padre de esta OC. Navega: ordenCompra -> cotizacion -> atencion -> personal -> usuario_id.

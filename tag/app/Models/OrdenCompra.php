@@ -25,11 +25,13 @@ class OrdenCompra extends Model
         'id_estado_orden_compra',      // Estado operativo propio catálogo
         'id_estado_financiero',        // Estado financiero (ingresos cliente)
         'id_estado_financiero_egreso', // Estado financiero (egresos proveedor)
+        'facturado_proveedor',         // Marcador: proveedores facturados por lote
         'monto_total',
     ];
 
     protected $casts = [
         'monto_total' => 'float',
+        'facturado_proveedor' => 'boolean',
     ];
 
     // Expone campos calculados en el JSON automáticamente
