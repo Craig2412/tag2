@@ -164,12 +164,12 @@ class CotizacionController extends Controller
      * @bodyParam id_tasa_cambio int ID de la tasa de cambio aplicada. Ejemplo: 1
      * @bodyParam fecha_vencimiento date Fecha de vencimiento. Ejemplo: 2026-04-30
      * @bodyParam id_estado_cotizacion int ID del nuevo estatus. Ejemplo: 1
-     * @bodyParam comision object optional Comisión del comisionista. Solo válida al aprobar la cotización.
+     * @bodyParam comision object Comisión del comisionista. Solo válida al aprobar la cotización.
      * @bodyParam comision.id_proveedor_comisionista int required ID del proveedor comisionista. Ejemplo: 12
      * @bodyParam comision.tipo string required porcentaje|fijo. Ejemplo: porcentaje
      * @bodyParam comision.valor number required Valor (%) o monto fijo. Ejemplo: 10
-     * @bodyParam comision.id_estado_financiero int optional Estado financiero inicial de la CxP. Ejemplo: 1
-     * @bodyParam comision.moneda string optional Código de moneda (snapshot). Ejemplo: USD_BCV
+     * @bodyParam comision.id_estado_financiero int Estado financiero inicial de la CxP. Ejemplo: 1
+     * @bodyParam comision.moneda string Código de moneda (snapshot). Ejemplo: USD_BCV
      * @bodyParam servicios object[] Lista completa de servicios (sincronización).
      * @bodyParam servicios[].id int ID del servicio si se va a actualizar. Ejemplo: 1
      * @bodyParam servicios[].id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
