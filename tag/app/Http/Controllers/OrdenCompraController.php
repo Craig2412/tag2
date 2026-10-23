@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrdenCompraResource;
+use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Models\OrdenCompraHistorial;
+use App\Services\ComisionService;
 use App\Services\OrdenStateService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrdenCompraController extends Controller
 {
@@ -128,7 +131,18 @@ class OrdenCompraController extends Controller
      */
     public function destroy(OrdenCompra $ordenCompra)
     {
-        $ordenCompra->delete();
+        DB::transaction(function () use ($ordenCompra) {
+            // La OC puede provenir de una cotización aprobada con comisión.
+            // Se revierte antes de eliminar para no dejar una CxP huérfana.
+            if ($ordenCompra->id_cotizacion) {
+                $cotizacion = Cotizacion::find($ordenCompra->id_cotizacion);
+                if ($cotizacion) {
+                    app(ComisionService::class)->anularPorCotizacion($cotizacion, 'Orden de compra eliminada');
+                }
+            }
+
+            $ordenCompra->delete();
+        });
 
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }

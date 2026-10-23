@@ -18,6 +18,7 @@ class CotizacionEstatusActualizado
         public readonly int $estatusNuevo,
         public readonly ?string $comentario = 'Cambio de estatus desde API',
         public ?int $usuarioId = null,
+        public readonly ?array $comision = null,
     ) {
         $this->usuarioId = $this->usuarioId ?: Auth::id();
     }

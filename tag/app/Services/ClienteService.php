@@ -37,6 +37,25 @@ class ClienteService
     }
 
     /**
+     * Busca un cliente por cédula o lo crea si no existe.
+     * Permite altas rápidas desde otros flujos (ej. atención al cliente).
+     */
+    public function findOrCreateCliente(array $data): Cliente
+    {
+        $cedula = trim((string) ($data['cedula'] ?? ''));
+
+        if ($cedula !== '') {
+            $existing = Cliente::where('cedula', $cedula)->first();
+
+            if ($existing) {
+                return $existing;
+            }
+        }
+
+        return $this->createCliente($data);
+    }
+
+    /**
      * Actualiza un cliente y su usuario asociado dentro de una transacción.
      */
     public function updateCliente(Cliente $cliente, array $data): Cliente

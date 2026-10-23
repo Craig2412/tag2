@@ -7,6 +7,7 @@ use App\Models\CuentaPorPagar;
 use App\Models\PagoProveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class CuentaPorPagarController extends Controller
 {
@@ -15,9 +16,29 @@ class CuentaPorPagarController extends Controller
      *
      * Devuelve todas las cuentas por pagar registradas.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return CuentaPorPagarResource::collection(CuentaPorPagar::with(['proveedor', 'ordenCompra', 'estadoFinanciero'])->orderBy('id', 'desc')->get());
+        $request->validate([
+            'origen' => ['nullable', Rule::in([
+                CuentaPorPagar::ORIGEN_COMPRA,
+                CuentaPorPagar::ORIGEN_COMISION,
+                CuentaPorPagar::ORIGEN_MANUAL,
+            ])],
+        ]);
+
+        $query = CuentaPorPagar::with(['proveedor', 'ordenCompra', 'estadoFinanciero', 'comision']);
+
+        if ($request->filled('origen')) {
+            $query->where('origen', $request->origen);
+        }
+        if ($request->filled('id_cotizacion')) {
+            $query->where('id_cotizacion', $request->id_cotizacion);
+        }
+        if ($request->filled('id_proveedor')) {
+            $query->where('id_proveedor', $request->id_proveedor);
+        }
+
+        return CuentaPorPagarResource::collection($query->orderBy('id', 'desc')->get());
     }
 
     /**
@@ -27,6 +48,7 @@ class CuentaPorPagarController extends Controller
     {
         $data = $request->validate([
             'id_orden_compra' => ['nullable', 'exists:ordenes_compra,id'],
+            'origen' => ['nullable', Rule::in([CuentaPorPagar::ORIGEN_COMPRA, CuentaPorPagar::ORIGEN_MANUAL])],
             'id_proveedor' => ['required', 'exists:proveedores,id'],
             'monto_total' => ['required', 'numeric', 'min:0.01'],
             'saldo_pendiente' => ['required', 'numeric', 'min:0'],
@@ -43,6 +65,11 @@ class CuentaPorPagarController extends Controller
             'pago.monto_asignado' => ['required_with:pago', 'numeric', 'min:0.01'],
         ]);
 
+        // Manual registrations never create commission payables; those are
+        // created by ComisionService during quote approval.
+        $data['origen'] = $data['origen']
+            ?? (! empty($data['id_orden_compra']) ? CuentaPorPagar::ORIGEN_COMPRA : CuentaPorPagar::ORIGEN_MANUAL);
+
         $pagoData = $data['pago'] ?? null;
         unset($data['pago']);
 
@@ -56,7 +83,7 @@ class CuentaPorPagarController extends Controller
             return $cuenta;
         });
 
-        $cuenta->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos']);
+        $cuenta->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos', 'comision']);
 
         return new CuentaPorPagarResource($cuenta);
     }
@@ -66,7 +93,7 @@ class CuentaPorPagarController extends Controller
      */
     public function show(CuentaPorPagar $cuentaPorPagar)
     {
-        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos']);
+        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos', 'comision']);
 
         return new CuentaPorPagarResource($cuentaPorPagar);
     }
@@ -94,6 +121,15 @@ class CuentaPorPagarController extends Controller
             'pago.monto_asignado' => ['required_with:pago', 'numeric', 'min:0.01'],
         ]);
 
+        // Commission payables are managed by the quote: only payments are allowed here.
+        if ($cuentaPorPagar->origen === CuentaPorPagar::ORIGEN_COMISION) {
+            foreach (['id_orden_compra', 'id_proveedor', 'monto_total', 'saldo_pendiente', 'id_estado_financiero'] as $campo) {
+                if (array_key_exists($campo, $data)) {
+                    abort(422, 'Las cuentas por pagar de comisión solo admiten pagos. Ajusta la comisión desde la cotización.');
+                }
+            }
+        }
+
         $pagoData = $data['pago'] ?? null;
         unset($data['pago']);
 
@@ -105,7 +141,7 @@ class CuentaPorPagarController extends Controller
             }
         });
 
-        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos']);
+        $cuentaPorPagar->load(['proveedor', 'ordenCompra', 'estadoFinanciero', 'pagos', 'comision']);
 
         return new CuentaPorPagarResource($cuentaPorPagar);
     }
@@ -133,6 +169,10 @@ class CuentaPorPagarController extends Controller
      */
     public function destroy(CuentaPorPagar $cuentaPorPagar)
     {
+        if ($cuentaPorPagar->origen === CuentaPorPagar::ORIGEN_COMISION) {
+            abort(422, 'Las cuentas por pagar de comisión se anulan desde la cotización.');
+        }
+
         $cuentaPorPagar->delete();
 
         return response()->json(['data' => ['message' => 'Cuenta por pagar eliminada correctamente']]);

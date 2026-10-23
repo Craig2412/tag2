@@ -131,7 +131,7 @@ class CommercialCycleTest extends TestCase
             'id_metodo_pago' => 1,
             'nro_comprobante' => 'COMP-001',
             'id_tasa_cambio' => 1,
-            'id_estado_conciliacion' => 1,
+            'id_estado_conciliacion' => \App\Models\EstadoConciliacion::where('slug', 'conciliado')->value('id'),
         ]);
 
         PagoOrdenCompra::create([

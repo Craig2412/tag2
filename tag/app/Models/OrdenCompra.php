@@ -73,6 +73,15 @@ class OrdenCompra extends Model
         return $this->hasMany(PagoOrdenCompra::class, 'id_orden_compra');
     }
 
+    // Pagos asignados cuyo estado de conciliación es "conciliado".
+    // Solo estos representan dinero confirmado y cuentan para el ingreso.
+    public function pagosConciliados(): HasMany
+    {
+        return $this->pagos()->whereHas('pago.estadoConciliacion', function ($query) {
+            $query->where('slug', 'conciliado');
+        });
+    }
+
     // Recalcula y persiste el monto total segun los servicios de su cotizacion.
     public function recalcularMontoTotal(): void
     {
@@ -200,10 +209,10 @@ class OrdenCompra extends Model
         return $contador;
     }
 
-    // Suma todos los abonos activos asignados a esta orden.
+    // Suma todos los abonos conciliados asignados a esta orden.
     public function getTotalPagadoAttribute(): float
     {
-        return (float) $this->pagos()->sum('monto_asignado');
+        return (float) $this->pagosConciliados()->sum('monto_asignado');
     }
 
     // Diferencia entre lo facturado y lo abonado. Siempre >= 0.

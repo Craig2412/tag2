@@ -23,7 +23,7 @@ class OrdenStateService
      */
     public static function sincronizarFinanciero(OrdenCompra $orden): CambioEstado
     {
-        $totalPagado = $orden->pagos()->sum('monto_asignado');
+        $totalPagado = $orden->pagosConciliados()->sum('monto_asignado');
         $totalFacturado = (float) $orden->monto_total;
 
         $slugEstado = 'parcial';
@@ -164,6 +164,6 @@ class OrdenStateService
             return false;
         }
 
-        return (float) $orden->pagos()->sum('monto_asignado') >= $totalFacturado;
+        return (float) $orden->pagosConciliados()->sum('monto_asignado') >= $totalFacturado;
     }
 }

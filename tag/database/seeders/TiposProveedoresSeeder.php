@@ -13,6 +13,7 @@ class TiposProveedoresSeeder extends Seeder
             'servicios profesionales',
             'logistica',
             'tecnologia',
+            'Comisionista',
         ];
 
         foreach ($items as $tipo) {

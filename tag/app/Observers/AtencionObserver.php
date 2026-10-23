@@ -4,15 +4,17 @@ namespace App\Observers;
 
 use App\Events\AtencionBroadcast;
 use App\Models\Atencion;
+use Illuminate\Support\Facades\DB;
 
 class AtencionObserver
 {
     /**
      * Al crear una Atención, notificar en tiempo real al frontend.
+     * Se difiere hasta el commit para no emitir eventos de datos no persistidos.
      */
     public function created(Atencion $atencion): void
     {
-        broadcast(new AtencionBroadcast($atencion, 'created'));
+        DB::afterCommit(fn () => broadcast(new AtencionBroadcast($atencion, 'created')));
     }
 
     /**
@@ -20,7 +22,7 @@ class AtencionObserver
      */
     public function updated(Atencion $atencion): void
     {
-        broadcast(new AtencionBroadcast($atencion, 'updated'));
+        DB::afterCommit(fn () => broadcast(new AtencionBroadcast($atencion, 'updated')));
     }
 
     /**
@@ -35,6 +37,6 @@ class AtencionObserver
     {
         $atencion->cotizaciones->each->delete();
 
-        broadcast(new AtencionBroadcast($atencion, 'deleted'));
+        DB::afterCommit(fn () => broadcast(new AtencionBroadcast($atencion, 'deleted')));
     }
 }

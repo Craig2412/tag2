@@ -5,14 +5,8 @@ namespace App\Http\Controllers;
 use App\Events\AtencionEstatusActualizado;
 use App\Http\Resources\AtencionResource;
 use App\Models\Atencion;
-use App\Models\Cliente;
-use App\Models\ClienteEmpresa;
-use App\Models\EstadoAtencion;
-use App\Models\Estatus;
-use App\Models\Personal;
-use App\Models\PersonalEmpresa;
+use App\Services\AtencionService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class AtencionController extends Controller
@@ -72,50 +66,54 @@ class AtencionController extends Controller
      *
      * Registra un nuevo ticket de atención al cliente asignando automáticamente un miembro del personal.
      *
-     * @bodyParam id_cliente int required ID del cliente. Ejemplo: 1
+     * @bodyParam id_cliente int ID de un cliente existente. Alternativo a "cliente". Ejemplo: 1
+     * @bodyParam cliente object Datos del cliente a crear si no existe (alternativo a id_cliente).
+     * @bodyParam cliente.nombre string Nombre del cliente. Ejemplo: Juan
+     * @bodyParam cliente.apellido string Apellido del cliente. Ejemplo: Pérez
+     * @bodyParam cliente.cedula string Cédula o RIF. Si ya existe un cliente con esa cédula, se reutiliza. Ejemplo: V-12345678
+     * @bodyParam cliente.telefono string Teléfono. Ejemplo: 04121234567
+     * @bodyParam cliente.correo_contacto string Correo de contacto. Ejemplo: juan.perez@email.com
+     * @bodyParam cliente.id_tipo_contribuyente int ID tipo contribuyente. Ejemplo: 1
      * @bodyParam id_origen_atencion int required ID del origen de la atención (red social / canal). Ejemplo: 1
      * @bodyParam asunto string required Asunto o motivo de la atención. Ejemplo: Consulta sobre pasaporte
      * @bodyParam notas_adicionales string Notas adicionales del operador. Ejemplo: El cliente prefiere contacto por WhatsApp
      */
-    public function store(Request $request)
+    public function store(Request $request, AtencionService $service)
     {
         $data = $request->validate([
-            'id_cliente' => ['required', Rule::exists('clientes', 'id')->whereNull('deleted_at')],
+            'id_cliente' => [
+                'nullable',
+                'required_without:cliente',
+                Rule::exists('clientes', 'id')->whereNull('deleted_at'),
+            ],
+            'cliente' => ['nullable', 'array', 'required_without:id_cliente'],
+            'cliente.nombre' => ['required_with:cliente', 'string', 'max:255'],
+            'cliente.apellido' => ['required_with:cliente', 'string', 'max:255'],
+            'cliente.cedula' => ['nullable', 'string', 'max:255'],
+            'cliente.telefono' => ['nullable', 'string', 'max:255'],
+            'cliente.correo_contacto' => ['nullable', 'email', 'max:255'],
+            'cliente.id_tipo_contribuyente' => [
+                'nullable',
+                Rule::exists('tipos_contribuyentes', 'id')->whereNull('deleted_at'),
+            ],
             'id_origen_atencion' => ['required', Rule::exists('origenes', 'id')->whereNull('deleted_at')],
             'asunto' => ['required', 'string', 'max:255'],
             'notas_adicionales' => ['nullable', 'string'],
         ]);
 
-        $cliente = Cliente::find($data['id_cliente']);
-
-        $personalId = $this->resolverPersonalAsignado($cliente->id);
-        if (! $personalId) {
-            return response()->json(['message' => 'No hay personal disponible para asignar la atención'], 422);
+        if (! empty($data['cliente'])) {
+            abort_unless(
+                $request->user()?->can('create:clientes'),
+                403,
+                'No tienes permiso para crear clientes.'
+            );
         }
 
-        $estado = EstadoAtencion::where('slug', 'abierta')->first();
-        if (! $estado) {
-            return response()->json(['message' => 'Estado "abierta" no configurado en el catálogo'], 500);
+        try {
+            $item = $service->createAtencion($data);
+        } catch (\RuntimeException $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
-
-        $data['id_personal'] = $personalId;
-        $data['id_estado_atencion'] = $estado->id;
-
-        // Asignar etapa comercial por defecto ("atencion")
-        $etapaDefault = \App\Models\EtapaComercial::where('slug', 'atencion')->first();
-        if ($etapaDefault) {
-            $data['id_etapa_comercial'] = $etapaDefault->id;
-        }
-
-        $item = Atencion::create($data);
-
-        // Registrar estatus inicial en el historial
-        event(new AtencionEstatusActualizado(
-            atencion: $item,
-            estatusAnterior: null,
-            estatusNuevo: $item->id_estado_atencion,
-            comentario: 'Atención creada',
-        ));
 
         return new AtencionResource($item->load(['cliente', 'personal', 'origen', 'estadoAtencion', 'etapaComercial']));
     }
@@ -190,63 +188,5 @@ class AtencionController extends Controller
         $atencion->delete();
 
         return response()->json(['data' => ['message' => 'Eliminada correctamente']]);
-    }
-
-    private function resolverPersonalAsignado(int $idCliente): ?int
-    {
-        $clienteEmpresa = ClienteEmpresa::where('id_cliente', $idCliente)
-            ->orderBy('id')
-            ->first();
-
-        if ($clienteEmpresa) {
-            $personalEmpresa = PersonalEmpresa::where('id_empresa', $clienteEmpresa->id_empresas)
-                ->inRandomOrder()
-                ->first();
-
-            if ($personalEmpresa) {
-                return $personalEmpresa->id_personal;
-            }
-        }
-
-        $estadoCerradoGanado = EstadoAtencion::where('slug', 'cerrada_ganada')->value('id') ?? 0;
-        $estadoCerradoPerdido = EstadoAtencion::where('slug', 'cerrada_perdida')->value('id') ?? 0;
-        $personalIds = Personal::pluck('id')->all(); // Ya no buscamos roles en Users. Todo Personal es un personal comercial.
-
-        if (empty($personalIds)) {
-            return null;
-        }
-
-        $conteos = DB::table('atenciones')
-            ->select('id_personal', DB::raw('COUNT(*) as total'))
-            ->whereNull('deleted_at') // Nativo softDeletes en vez de borrado_logico
-            ->whereNotIn('id_estado_atencion', [$estadoCerradoGanado, $estadoCerradoPerdido])
-            ->whereIn('id_personal', $personalIds)
-            ->groupBy('id_personal')
-            ->pluck('total', 'id_personal')
-            ->all();
-
-        $minimo = null;
-        $candidatos = [];
-
-        foreach ($personalIds as $personalId) {
-            $total = (int) ($conteos[$personalId] ?? 0);
-
-            if ($minimo === null || $total < $minimo) {
-                $minimo = $total;
-                $candidatos = [$personalId];
-
-                continue;
-            }
-
-            if ($total === $minimo) {
-                $candidatos[] = $personalId;
-            }
-        }
-
-        if (empty($candidatos)) {
-            return null;
-        }
-
-        return $candidatos[array_rand($candidatos)];
     }
 }

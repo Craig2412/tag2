@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PagoResource;
 use App\Models\EstadoConciliacion;
 use App\Models\MetodoPago;
+use App\Models\OrdenCompra;
 use App\Models\Pago;
 use App\Models\PagoOrdenCompra;
 use Illuminate\Http\Request;
@@ -115,7 +116,7 @@ class PagoController extends Controller
             }
         }
 
-        $pago = DB::transaction(function () use ($data) {
+        $pago = DB::transaction(function () use ($data, $rutaComprobante) {
             $ordenesCompra = $data['ordenes_compra'];
             unset($data['ordenes_compra']);
             if ($rutaComprobante) {
@@ -139,7 +140,7 @@ class PagoController extends Controller
             return $pago;
         });
 
-        return new PagoResource($pago);
+        return new PagoResource($this->loadResourceRelations($pago));
     }
 
     /**
@@ -147,7 +148,7 @@ class PagoController extends Controller
      */
     public function show(Pago $pago)
     {
-        return new PagoResource($pago->load('ordenesCompra'));
+        return new PagoResource($this->loadResourceRelations($pago));
     }
 
     /**
@@ -219,7 +220,7 @@ class PagoController extends Controller
             }
         });
 
-        return new PagoResource($pago->fresh()->load('ordenesCompra'));
+        return new PagoResource($this->loadResourceRelations($pago->fresh()));
     }
 
     /**
@@ -249,6 +250,22 @@ class PagoController extends Controller
     private function totalServiciosOrdenCompra(int $idOrdenCompra): float
     {
         return (float) (OrdenCompra::where('id', $idOrdenCompra)->value('monto_total') ?? 0);
+    }
+
+    /**
+     * Eager loads the relations exposed by PagoResource.
+     * Keeps the store/update/show responses consistent with the index listing,
+     * so the client can render method, status and orders without a refetch.
+     */
+    private function loadResourceRelations(Pago $pago): Pago
+    {
+        return $pago->load([
+            'metodoPago' => fn ($q) => $q->withTrashed(),
+            'entidadBancaria' => fn ($q) => $q->withTrashed(),
+            'tasaCambio',
+            'estadoConciliacion',
+            'ordenesCompra',
+        ]);
     }
 
     private function totalPagadoOrdenCompra(int $idOrdenCompra, ?int $excludePagoId = null): float

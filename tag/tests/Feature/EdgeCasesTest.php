@@ -105,7 +105,10 @@ class EdgeCasesTest extends TestCase
         $idPendiente = \App\Models\EstadoFinanciero::where('slug', 'pendiente')->value('id');
         $this->assertEquals($idPendiente, $orden->id_estado_financiero);
 
-        // ── Pago parcial (50%) ──────────────────────────────────
+        // ── Pago parcial (50%) aún por conciliar ────────────────
+        $idPorConciliar = \App\Models\EstadoConciliacion::where('slug', 'por_conciliar')->value('id');
+        $idConciliado = \App\Models\EstadoConciliacion::where('slug', 'conciliado')->value('id');
+
         $pago = Pago::create([
             'id_usuario' => $this->idAdmin,
             'fecha_pago' => now(),
@@ -113,7 +116,7 @@ class EdgeCasesTest extends TestCase
             'id_metodo_pago' => 1,
             'nro_comprobante' => 'PARTIAL-001',
             'id_tasa_cambio' => 1,
-            'id_estado_conciliacion' => 1,
+            'id_estado_conciliacion' => $idPorConciliar,
         ]);
 
         PagoOrdenCompra::create([
@@ -123,8 +126,14 @@ class EdgeCasesTest extends TestCase
         ]);
 
         $orden->refresh();
+        $this->assertEquals($idPendiente, $orden->id_estado_financiero, 'Un pago por conciliar no debe sumar al ingreso');
+
+        // Al conciliar el pago, el abono sí cuenta
+        $pago->update(['id_estado_conciliacion' => $idConciliado]);
+
+        $orden->refresh();
         $idParcial = \App\Models\EstadoFinanciero::where('slug', 'parcial')->value('id');
-        $this->assertEquals($idParcial, $orden->id_estado_financiero, 'Con pago parcial debe ser parcial');
+        $this->assertEquals($idParcial, $orden->id_estado_financiero, 'Con pago parcial conciliado debe ser parcial');
 
         // ── Pago total (completa) ───────────────────────────────
         $pago2 = Pago::create([
@@ -134,7 +143,7 @@ class EdgeCasesTest extends TestCase
             'id_metodo_pago' => 1,
             'nro_comprobante' => 'FINAL-001',
             'id_tasa_cambio' => 1,
-            'id_estado_conciliacion' => 1,
+            'id_estado_conciliacion' => $idConciliado,
         ]);
 
         PagoOrdenCompra::create([

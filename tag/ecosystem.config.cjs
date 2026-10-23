@@ -38,5 +38,24 @@ module.exports = {
       out_file: '/var/www/tag2/tag/storage/logs/pm2-reverb-out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss',
     },
+    {
+      name: 'tag2-scheduler',
+      script: 'artisan',
+      args: 'schedule:work',
+      cwd: '/var/www/tag2/tag',
+      interpreter: 'php',
+      autorestart: true,
+      max_restarts: 10,
+      restart_delay: 5000,
+      max_memory_restart: '128M',
+      // Variables NO secretas (seguras para git)
+      env: {
+        APP_ENV: 'production',
+        APP_DEBUG: 'false',
+      },
+      error_file: '/var/www/tag2/tag/storage/logs/pm2-scheduler-error.log',
+      out_file: '/var/www/tag2/tag/storage/logs/pm2-scheduler-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss',
+    },
   ],
 };

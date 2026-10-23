@@ -12,7 +12,7 @@ class TasasSeeder extends Seeder
         $items = [
             ['codigo' => 'USD_BCV', 'nombre' => 'Dólar BCV', 'simbolo' => '$'],
             ['codigo' => 'EUR_BCV', 'nombre' => 'Euro Oficial', 'simbolo' => '€'],
-            ['codigo' => 'BINANCE', 'nombre' => 'Binance P2P', 'simbolo' => 'USDT'],
+            ['codigo' => 'BINANCE', 'nombre' => 'Binance P2P / Paralelo', 'simbolo' => 'USDT'],
             ['codigo' => 'PERSONALIZADA', 'nombre' => 'Tasa Interna', 'simbolo' => '$'],
         ];
 

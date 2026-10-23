@@ -8,9 +8,11 @@ use App\Models\Cotizacion;
 use App\Models\EstadoCotizacion;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
+use App\Services\ComisionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class CotizacionController extends Controller
 {
@@ -35,7 +37,7 @@ class CotizacionController extends Controller
 
         // Soporte para relaciones
         if ($request->has('include')) {
-            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra', 'estadoCotizacion'];
+            $allowed = ['atencion', 'tipoCotizacion', 'tasaCambio', 'servicios', 'ordenCompra', 'estadoCotizacion', 'comisiones'];
             $includes = array_intersect(explode(',', $request->include), $allowed);
             if (! empty($includes)) {
                 // Cargar sub-relaciones de servicios siempre que se incluyan
@@ -137,11 +139,12 @@ class CotizacionController extends Controller
     {
         return new CotizacionResource($cotizacion->load([
             'ordenCompra',
-            'tasaCambio',
+            'tasaCambio.monedaCatalogo',
             'estadoCotizacion',
             'tipoCotizacion',
             'servicios.tipoServicio',
             'servicios.proveedor',
+            'comisiones.cuentaPorPagar',
             'atencion' => fn ($q) => $q->withTrashed(),
             'atencion.cliente' => fn ($q) => $q->withTrashed(),
             'atencion.personal' => fn ($q) => $q->withTrashed(),
@@ -161,6 +164,12 @@ class CotizacionController extends Controller
      * @bodyParam id_tasa_cambio int ID de la tasa de cambio aplicada. Ejemplo: 1
      * @bodyParam fecha_vencimiento date Fecha de vencimiento. Ejemplo: 2026-04-30
      * @bodyParam id_estado_cotizacion int ID del nuevo estatus. Ejemplo: 1
+     * @bodyParam comision object optional Comisión del comisionista. Solo válida al aprobar la cotización.
+     * @bodyParam comision.id_proveedor_comisionista int required ID del proveedor comisionista. Ejemplo: 12
+     * @bodyParam comision.tipo string required porcentaje|fijo. Ejemplo: porcentaje
+     * @bodyParam comision.valor number required Valor (%) o monto fijo. Ejemplo: 10
+     * @bodyParam comision.id_estado_financiero int optional Estado financiero inicial de la CxP. Ejemplo: 1
+     * @bodyParam comision.moneda string optional Código de moneda (snapshot). Ejemplo: USD_BCV
      * @bodyParam servicios object[] Lista completa de servicios (sincronización).
      * @bodyParam servicios[].id int ID del servicio si se va a actualizar. Ejemplo: 1
      * @bodyParam servicios[].id_tipo_servicio int required ID del tipo de servicio. Ejemplo: 1
@@ -191,18 +200,39 @@ class CotizacionController extends Controller
             'servicios.*.monto_no_sujeto' => ['required_with:servicios', 'numeric', 'min:0'],
             'servicios.*.iva_establecido' => ['nullable', 'numeric', 'min:0'],
             'servicios.*.id_tasa_cambio' => ['required_with:servicios', 'exists:tasas_cambio,id'],
+
+            // Comisión del comisionista: solo se aplica al aprobar la cotización.
+            'comision' => ['sometimes', 'nullable', 'array'],
+            'comision.id_proveedor_comisionista' => ['required_with:comision', Rule::exists('proveedores', 'id')->whereNull('deleted_at')],
+            'comision.tipo' => ['required_with:comision', Rule::in(['porcentaje', 'fijo'])],
+            'comision.valor' => ['required_with:comision', 'numeric', 'gt:0'],
+            'comision.id_estado_financiero' => ['nullable', Rule::exists('estados_financieros', 'id')->whereNull('deleted_at')],
+            'comision.moneda' => ['nullable', 'string', 'max:20'],
         ]);
 
         $idPendiente = EstadoCotizacion::where('slug', 'pendiente')->firstOrFail()->id;
         $idAprobada = EstadoCotizacion::where('slug', 'aprobada')->firstOrFail()->id;
 
+        // Creating a commission materializes an accounts payable.
+        if (! empty($data['comision']) && ! $request->user()?->can('create:cuentas_por_pagar')) {
+            abort(403, 'No tienes permiso para registrar cuentas por pagar.');
+        }
+
         return DB::transaction(function () use ($data, $cotizacion, $idAprobada, $idPendiente) {
             $estatusActual = (int) $cotizacion->getRawOriginal('id_estado_cotizacion');
             $estatusNuevo = $data['id_estado_cotizacion'] ?? $estatusActual;
+            $comisionData = $data['comision'] ?? null;
+            unset($data['comision']);
 
             if ($estatusActual === $idAprobada && $estatusNuevo === $idPendiente) {
                 // No lanzamos excepcion aqui para el transaction, sino respuesta directa
                 abort(422, 'Una cotización aprobada no puede devolverse a pendiente');
+            }
+
+            if ($comisionData && (int) $estatusNuevo !== (int) $idAprobada) {
+                throw ValidationException::withMessages([
+                    'comision' => 'La comisión solo puede registrarse al aprobar la cotización.',
+                ]);
             }
 
             $cotizacion->update($data);
@@ -226,12 +256,19 @@ class CotizacionController extends Controller
                 }
             }
 
+            // Comisión sobre una cotización ya aprobada (sin cambio de estatus):
+            // se registra aquí porque el evento de estatus no se dispara.
+            if ($comisionData && (int) $estatusNuevo === (int) $idAprobada && $estatusNuevo === $estatusActual) {
+                app(ComisionService::class)->registrarDesdeCotizacion($cotizacion, $comisionData);
+            }
+
             // --- Registro de Historial ---
             if (isset($data['id_estado_cotizacion']) && $data['id_estado_cotizacion'] != $estatusActual) {
                 event(new CotizacionEstatusActualizado(
                     cotizacion: $cotizacion,
                     estatusAnterior: $estatusActual,
                     estatusNuevo: $data['id_estado_cotizacion'],
+                    comision: $comisionData,
                 ));
             }
 
@@ -248,10 +285,11 @@ class CotizacionController extends Controller
                 'atencion.cliente' => fn ($q) => $q->withTrashed(),
                 'atencion.personal' => fn ($q) => $q->withTrashed(),
                 'tipoCotizacion' => fn ($q) => $q->withTrashed(),
-                'tasaCambio',
+                'tasaCambio.monedaCatalogo',
                 'estadoCotizacion',
                 'ordenCompra',
                 'servicios',
+                'comisiones.cuentaPorPagar',
             ]));
         });
     }
@@ -261,7 +299,12 @@ class CotizacionController extends Controller
      */
     public function destroy(Cotizacion $cotizacion)
     {
-        $cotizacion->delete();
+        DB::transaction(function () use ($cotizacion) {
+            // Reverses the commission payable atomically. If it already has
+            // payments applied, the validation error rolls the deletion back.
+            app(ComisionService::class)->anularPorCotizacion($cotizacion, 'Cotización eliminada');
+            $cotizacion->delete();
+        });
 
         return response()->json(['data' => ['message' => 'Eliminado correctamente']]);
     }

@@ -12,6 +12,8 @@ class CuentaPorPagarResource extends JsonResource
         return [
             'id' => $this->id,
             'id_orden_compra' => $this->id_orden_compra,
+            'origen' => $this->origen,
+            'id_cotizacion' => $this->id_cotizacion,
             'id_proveedor' => $this->id_proveedor,
             'monto_total' => (float) $this->monto_total,
             'saldo_pendiente' => (float) $this->saldo_pendiente,
@@ -19,6 +21,7 @@ class CuentaPorPagarResource extends JsonResource
 
             // Relaciones
             'orden_compra' => new OrdenCompraResource($this->whenLoaded('ordenCompra')),
+            'comision' => new ComisionResource($this->whenLoaded('comision')),
             'proveedor' => new ProveedorResource($this->whenLoaded('proveedor')),
             'estado_financiero' => $this->whenLoaded('estadoFinanciero'),
             'pagos' => PagoProveedorResource::collection($this->whenLoaded('pagos')),

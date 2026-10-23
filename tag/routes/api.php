@@ -16,8 +16,10 @@ use App\Http\Controllers\CuentaPorPagarController;
 use App\Http\Controllers\CuentaProveedorController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EstadoAtencionController;
+use App\Http\Controllers\EstadoConciliacionController;
 use App\Http\Controllers\EstadoCotizacionController;
 use App\Http\Controllers\EstadoFinancieroController;
+use App\Http\Controllers\ExchangeRateSyncController;
 use App\Http\Controllers\EstadoOrdenCompraController;
 use App\Http\Controllers\EstatusController;
 use App\Http\Controllers\EtapaComercialController;
@@ -146,6 +148,8 @@ Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
         ->parameters(['estados-ordenes-compra' => 'estadoOrdenCompra']);
     Route::apiResource('estados-financieros', EstadoFinancieroController::class)
         ->parameters(['estados-financieros' => 'estadoFinanciero']);
+    Route::apiResource('estados-conciliacion', EstadoConciliacionController::class)
+        ->parameters(['estados-conciliacion' => 'estadoConciliacion']);
     Route::apiResource('pagos', PagoController::class);
     Route::apiResource('pagos-ordenes-compra', \App\Http\Controllers\PagoOrdenCompraController::class)
         ->parameters(['pagos-ordenes-compra' => 'pagoOrdenCompra']);
@@ -159,6 +163,10 @@ Route::middleware(['auth:sanctum', 'throttle:120,1'])->group(function () {
         ->parameters(['tipo-servicio' => 'tipoServicio']);
     Route::apiResource('tasas', TasaController::class)
         ->parameters(['tasas' => 'tasa']);
+    // Sincronización de tasas de cambio desde DolarAPI (debe declararse antes del apiResource)
+    Route::get('tasas-cambio/configuracion', [ExchangeRateSyncController::class, 'show']);
+    Route::put('tasas-cambio/configuracion', [ExchangeRateSyncController::class, 'update']);
+    Route::post('tasas-cambio/sincronizar', [ExchangeRateSyncController::class, 'sync']);
     Route::apiResource('tasas-cambio', TasaCambioController::class)
         ->parameters(['tasas-cambio' => 'tasaCambio']);
     Route::apiResource('servicios', ServicioController::class);

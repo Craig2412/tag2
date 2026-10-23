@@ -4,9 +4,11 @@ namespace App\Observers;
 
 use App\Events\CotizacionGuardado;
 use App\Models\Atencion;
+use App\Models\Comision;
 use App\Models\Cotizacion;
 use App\Models\OrdenCompra;
 use App\Models\Servicio;
+use Illuminate\Support\Facades\Auth;
 
 class CotizacionObserver
 {
@@ -27,6 +29,10 @@ class CotizacionObserver
      */
     public function deleted(Cotizacion $cotizacion): void
     {
+        // Cascada: anular la comisión y su CxP. El endpoint de eliminación ya
+        // aplica el bloqueo por pagos; aquí solo cubrimos borrados en cascada.
+        $this->anularComisionEnCascada($cotizacion);
+
         // Notificar solo si no es borrado en cascada desde Atencion
         $atencion = Atencion::withTrashed()->find($cotizacion->id_atencion);
         if (!$atencion || !$atencion->trashed()) {
@@ -42,5 +48,29 @@ class CotizacionObserver
                 $ordenCompra->delete();
             }
         }
+    }
+
+    /**
+     * Anula la comisión activa sin bloquear el borrado en cascada.
+     */
+    private function anularComisionEnCascada(Cotizacion $cotizacion): void
+    {
+        $comision = Comision::where('id_cotizacion', $cotizacion->id)
+            ->where('estado', '!=', Comision::ESTADO_ANULADA)
+            ->latest('id')
+            ->first();
+
+        if (! $comision) {
+            return;
+        }
+
+        $comision->cuentaPorPagar?->delete();
+
+        $comision->update([
+            'estado' => Comision::ESTADO_ANULADA,
+            'anulada_at' => now(),
+            'anulada_por' => Auth::id(),
+            'motivo_anulacion' => 'Cotización eliminada en cascada',
+        ]);
     }
 }

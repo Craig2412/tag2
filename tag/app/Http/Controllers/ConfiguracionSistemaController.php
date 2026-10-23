@@ -31,6 +31,8 @@ class ConfiguracionSistemaController extends Controller
         // Crea una configuracion del sistema con datos validados y la devuelve.
         $data = $request->validate([
             'dias_vencimiento' => ['required', 'integer', 'min:0'],
+            'tasas_sync_enabled' => ['sometimes', 'boolean'],
+            'tasas_sync_interval_minutes' => ['sometimes', 'integer', 'min:15', 'max:10080'],
         ]);
 
         $item = ConfiguracionSistema::create($data);
@@ -61,6 +63,8 @@ class ConfiguracionSistemaController extends Controller
         // Actualiza una configuracion del sistema y devuelve el resultado.
         $data = $request->validate([
             'dias_vencimiento' => ['required', 'integer', 'min:0'],
+            'tasas_sync_enabled' => ['sometimes', 'boolean'],
+            'tasas_sync_interval_minutes' => ['sometimes', 'integer', 'min:15', 'max:10080'],
         ]);
 
         $configuracionSistema->update($data);

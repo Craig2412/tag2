@@ -2,8 +2,10 @@
 
 namespace App\Observers;
 
+use App\Models\CuentaPorPagar;
 use App\Models\EstadoFinanciero;
 use App\Models\PagoProveedorCuenta;
+use App\Services\ComisionService;
 use App\Services\OrdenStateService;
 
 class PagoProveedorCuentaObserver
@@ -32,6 +34,11 @@ class PagoProveedorCuentaObserver
             }
 
             $cuenta->save();
+
+            // 2b. Mantener el estado de la comisión alineado con su CxP
+            if ($cuenta->origen === CuentaPorPagar::ORIGEN_COMISION) {
+                app(ComisionService::class)->sincronizarEstadoPorCuenta($cuenta);
+            }
 
             // 3. Sincronizar el estado de egreso de la Orden de Compra
             if ($cuenta->ordenCompra) {
@@ -64,6 +71,10 @@ class PagoProveedorCuentaObserver
             }
 
             $cuenta->save();
+
+            if ($cuenta->origen === CuentaPorPagar::ORIGEN_COMISION) {
+                app(ComisionService::class)->sincronizarEstadoPorCuenta($cuenta);
+            }
 
             if ($cuenta->ordenCompra) {
                 OrdenStateService::sincronizarEgreso($cuenta->ordenCompra);

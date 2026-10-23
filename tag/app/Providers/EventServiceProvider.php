@@ -14,6 +14,7 @@ use App\Listeners\GenerarCuentasPorPagarListener;
 use App\Listeners\GenerarOrdenDesdeCotizacionListener;
 use App\Listeners\RegistrarHistorialAtencionListener;
 use App\Listeners\RegistrarHistorialEstatusAtencionListener;
+use App\Listeners\RegistrarComisionCotizacionListener;
 use App\Listeners\RegistrarHistorialEstatusCotizacionListener;
 use App\Listeners\SincronizarEstadoFinancieroListener;
 use App\Listeners\SincronizarFaseAtencionListener;
@@ -39,6 +40,7 @@ class EventServiceProvider extends ServiceProvider
         CotizacionEstatusActualizado::class => [
             RegistrarHistorialEstatusCotizacionListener::class,
             GenerarOrdenDesdeCotizacionListener::class,
+            RegistrarComisionCotizacionListener::class,
         ],
 
         // ── Ciclo de Atención ────────────────────────────────────

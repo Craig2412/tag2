@@ -10,3 +10,7 @@ Artisan::command('inspire', function () {
 
 // ── Podar logs antiguos diariamente ───────────────────────────
 Schedule::command('app:prune-logs --days=90')->daily();
+
+// ── Sincronizar tasas de cambio ──────────────────────────────
+// Se evalúa cada minuto; el comando omite la ejecución si no se cumplió el intervalo configurado.
+Schedule::command('app:sync-exchange-rates')->everyMinute()->withoutOverlapping();

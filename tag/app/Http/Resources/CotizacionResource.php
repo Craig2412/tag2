@@ -27,6 +27,7 @@ class CotizacionResource extends JsonResource
             'tasa_cambio' => $this->whenLoaded('tasaCambio', fn () => new TasaCambioResource($this->tasaCambio)),
             'servicios' => $this->whenLoaded('servicios', fn () => ServicioResource::collection($this->servicios)),
             'orden_compra' => $this->whenLoaded('ordenCompra', fn () => new OrdenCompraResource($this->ordenCompra)),
+            'comisiones' => $this->whenLoaded('comisiones', fn () => ComisionResource::collection($this->comisiones)),
 
             'id_estado_cotizacion' => $this->id_estado_cotizacion,
             'estado_cotizacion' => $this->whenLoaded('estadoCotizacion', fn () => new EstadoCotizacionResource($this->estadoCotizacion)),

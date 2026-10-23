@@ -69,6 +69,13 @@ class Cotizacion extends Model
         return $this->hasOne(OrdenCompra::class, 'id_cotizacion');
     }
 
+    // Comisiones pactadas durante la aprobación de la cotización.
+    public function comisiones(): HasMany
+    {
+        return $this->hasMany(Comision::class, 'id_cotizacion');
+    }
+
+
     // Indica si la proforma ya expiró. Calculado en servidor, nunca persistido.
     public function getEstaVencidaAttribute(): bool
     {

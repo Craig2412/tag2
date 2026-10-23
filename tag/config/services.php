@@ -35,6 +35,12 @@ return [
         ],
     ],
 
+    'dolarapi' => [
+        // Cotizaciones de Venezuela (https://dolarapi.com)
+        'base_url' => env('DOLARAPI_BASE_URL', 'https://ve.dolarapi.com'),
+        'timeout' => (int) env('DOLARAPI_TIMEOUT', 10),
+    ],
+
     'kiu' => [
         // Endpoint base WS3
         'base_url' => env('KIU_BASE_URL', 'https://ssl00.kiusys.com/ws3/index.php'),
